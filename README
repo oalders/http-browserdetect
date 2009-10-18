@@ -1,0 +1,175 @@
+NAME
+    HTTP::BrowserDetect - Determine the Web browser, version, and platform
+    from an HTTP user agent string
+
+SYNOPSIS
+        use HTTP::BrowserDetect;
+
+        my $browser = new HTTP::BrowserDetect($user_agent_string);
+
+        # Detect operating system
+        if ($browser->windows) {
+          if ($browser->winnt) ...
+          if ($brorwser->win95) ...
+        }
+        print $browser->mac;
+
+        # Detect browser vendor and version
+        print $browser->netscape;
+        print $browser->ie;
+        if (browser->major(4)) {
+            if ($browser->minor() > .5) {
+                ...
+            }
+        }
+        if ($browser->version() > 4) {
+          ...;
+        }
+    
+        # Process a different user agent string
+        $browser->user_agent($another_user_agent_string);
+
+DESCRIPTION
+    The HTTP::BrowserDetect object does a number of tests on an HTTP user
+    agent string. The results of these tests are available via methods of
+    the object.
+
+    This module is based upon the JavaScript browser detection code
+    available at
+    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
+
+  CREATING A NEW BROWSER DETECT OBJECT AND SETTING THE USER AGENT STRING
+
+    new HTTP::BrowserDetect($user_agent_string)
+        The constructor may be called with a user agent string specified.
+        Otherwise, it will use the value specified by
+        $ENV{'HTTP_USER_AGENT'}, which is set by the web server when calling
+        a CGI script.
+
+        You may also use a non-object-oriented interface. For each method,
+        you may call HTTP::BrowserDetect::method_name(). You will then be
+        working with a default HTTP::BrowserDetect object that is created
+        behind the scenes.
+
+    user_agent($user_agent_string)
+        Returns the value of the user agent string. When called with a
+        parameter, it resets the user agent and reperforms all tests on the
+        string. This way you can process a series of user agent strings
+        (from a log file, perhaps) without creating a new
+        HTTP::BrowserDetect object each time.
+
+  DETECTING BROWSER VERSION
+
+    major($major)
+        Returns the integer portion of the browser version. If passed a
+        parameter, returns true if it equals the browser major version.
+
+    minor($minor)
+        Returns the decimal portion of the browser version as a
+        floating-point number less than 1. For example, if the version is
+        4.05, this method returns .05; if the version is 4.5, this method
+        returns .5. This is a change in behavior from previous versions of
+        this module, which returned a string.
+
+        If passed a parameter, returns true if equals the minor version.
+
+        On occasion a version may have more than one decimal point, such as
+        'Wget/1.4.5'. The minor version does not include the second decimal
+        point, or any further digits or decimals.
+
+    version($version)
+        Returns the version as a floating-point number. If passed a
+        parameter, returns true if it is equal to the version specified by
+        the user agent string.
+
+    beta($beta)
+        Returns any the beta version, consisting of any non-numeric
+        characters after the version number. For instance, if the user agent
+        string is 'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)',
+        returns 'b2'. If passed a parameter, returns true if equal to the
+        beta version. If the beta starts with a dot, it is thrown away.
+
+  DETECTING OS PLATFORM AND VERSION
+
+    The following methods are available, each returning a true or false
+    value. Some methods also test for the operating system version. The
+    indentations below show the hierarchy of tests (for example, win2k is
+    considered a type of winnt, which is a type of win32)
+
+      windows 
+        win16 win3x win31  
+        win32 
+            winme win95 win98
+            winnt
+                win2k winxp
+      dotnet
+  
+      mac 
+        mac68k macppc macosx
+  
+      os2
+  
+      unix 
+        sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 
+        aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant 
+        dec sinix freebsd bsd
+  
+      vms
+
+      amiga
+
+    It may not be possibile to detect Win98 in Netscape 4.x and earlier. On
+    Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32,
+    so you can't distinguish between Win95 and WinNT.
+
+    os_string()
+        Returns one of the following strings, or undef. This method exists
+        solely for compatibility with the HTTP::Headers::UserAgent module.
+
+          Win95, Win98, WinNT, Win2K, WinXP, Mac, Mac OS X, Win3x, OS2, Unix, Linux
+
+  DETECTING BROWSER VENDOR
+
+    The following methods are available, each returning a true or false
+    value. Some methods also test for the browser version, saving you from
+    checking the version separately.
+
+      netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
+      gecko 
+      mozilla
+      firefox 
+      safari
+      ie ie3 ie4 ie4up ie5 ie55 ie6
+      neoplanet neoplanet2 
+      mosaic
+      aol aol3 aol4 aol5 aol6
+      webtv
+      opera opera3 opera4 opera5 opera6 opera7
+      lynx links
+      emacs
+      staroffice
+      lotusnotes
+      icab
+      konqueror
+      java
+      curl
+
+    Netscape 6, even though its called six, in the userAgent string has
+    version number 5. The nav6 and nav6up methods correctly handle this
+    quirk. The firefox text correctly detects the older-named versions of
+    the browser (Phoenix, Firebird)
+
+    browser_string()
+        Returns one of the following strings, or undef.
+
+        Netscape, MSIE, WebTV, AOL Browser, Opera, Mosaic, Lynx
+
+    gecko_version()
+        If a Gecko rendering engine is used (as in Mozilla or Firebird),
+        returns the version of the renderer (e.g. 1.3a, 1.7, 1.8) This might
+        be more useful than the particular browser name or version when
+        correcting for quirks in different versions of this rendering
+        engine. If no Gecko browser is being used, or the version number
+        can't be detected, returns undef.
+
+  DETECTING OTHER
