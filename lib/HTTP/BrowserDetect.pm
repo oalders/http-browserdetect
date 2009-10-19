@@ -555,7 +555,7 @@ B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 =over 4
 
-=item new HTTP::BrowserDetect($user_agent_string)
+=item HTTP::BrowserDetect->new( $user_agent_string )
 
 The constructor may be called with a user agent string specified.
 Otherwise, it will use the value specified by $ENV{'HTTP_USER_AGENT'},
