@@ -1,6 +1,6 @@
-BrowserDetect.pm
+lib/HTTP/BrowserDetect.pm
 Changes
-Makefile.PL
+Build.PL
 MANIFEST
 test.pl
 README
