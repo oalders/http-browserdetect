@@ -101,6 +101,18 @@ $loaded = 1;
         'WinNT',
         '1.3a',qw(windows win32 winnt firefox gecko)],
        
+     ['Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; OfficeLive',
+        '7.0',
+        'MSIE',
+        'WinVista',
+        undef,qw(windows win32 winnt winvista dotnet ie ie7 ie4up ie5up ie55up)],
+       
+     ['Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.31 Safari/530.5',
+        '2.0',
+        'Chrome',
+        'WinVista',
+        undef,qw(windows win32 winnt winvista chrome safari gecko)],
+       
      ['Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1',
         '1.25',
         'Safari',

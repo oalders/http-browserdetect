@@ -1,36 +1,41 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-0.9  Wed Feb 17 23:45:52 1999
-	- original version; created by h2xs 1.18
-
-0.92 Mon Feb 7  12:34:56 2000
-	- fixed version numbering problem, would return '.' instead of
-	  undef if useragent's version couldn't be found
-	- added more detection for AOL
-
-0.94 Sun Mar 19 18:51:00 2000
-	- changed copyright notice
-	- changed object's internal structure
-	- added Windows 2000 detection
-	- eliminated AUTOLOAD subroutine
-
-0.95 Sat Aug 4  09:08:00 2000
-	- added additional browsers
-
-0.962 Tues Jan 31 12:45:00 2001
-	- changed how minor() method to return minor version as a floating point
-	- added additional browsers
-	- added additional 'up' methods
-	- added detection for mobile devices: wap, avantgo, audrey, etc.
-	- added netscape 6 detection and gecko
-	- added Windows ME detection
-	- updated url to javascript browser sniffer page
-	
-0.98 Tue Jun 21 00:39:00 2004
-	- Added more browsers including Mozilla, Firefox, Safari
-	- added Mac OS X, WinXP, Win2k detection
-	- added more test cases
+1.00 2009-10-19
+    - Applied patch from RT #47271 (Denis F. Latypoff), which adds support for
+      Chrome
+    - Have moved repository to GitHub
 
 0.99 Thu Feb 22 16:47:00 2007
-        - Modifications by Peter Walsham
-        - Added support for Windows Server 2003 and Windows Vista
+    - Modifications by Peter Walsham
+    - Added support for Windows Server 2003 and Windows Vista
+
+0.98 Tue Jun 21 00:39:00 2004
+    - Added more browsers including Mozilla, Firefox, Safari
+    - added Mac OS X, WinXP, Win2k detection
+    - added more test cases
+
+0.962 Tues Jan 31 12:45:00 2001
+    - changed how minor() method to return minor version as a floating point
+    - added additional browsers
+    - added additional 'up' methods
+    - added detection for mobile devices: wap, avantgo, audrey, etc.
+    - added netscape 6 detection and gecko
+    - added Windows ME detection
+    - updated url to javascript browser sniffer page
+
+0.95 Sat Aug 4  09:08:00 2000
+    - added additional browsers
+
+0.94 Sun Mar 19 18:51:00 2000
+    - changed copyright notice
+    - changed object's internal structure
+    - added Windows 2000 detection
+    - eliminated AUTOLOAD subroutine
+
+0.92 Mon Feb 7  12:34:56 2000
+    - fixed version numbering problem, would return '.' instead of
+      undef if useragent's version couldn't be found
+    - added more detection for AOL
+
+0.9  Wed Feb 17 23:45:52 1999
+    - original version; created by h2xs 1.18
