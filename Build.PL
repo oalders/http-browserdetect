@@ -8,6 +8,7 @@ my $builder = Module::Build->new(
     dist_author         => q{Olaf Alders <olaf@wundercounter.com>},
     dist_version_from   => 'lib/HTTP/BrowserDetect.pm',
     build_requires => {
+        'Data::Dump'   => 0,
         'Exporter'     => 0,
         'Test::More'   => 0,
     },

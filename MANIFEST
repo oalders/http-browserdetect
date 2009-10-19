@@ -1,6 +1,6 @@
-lib/HTTP/BrowserDetect.pm
-Changes
 Build.PL
+Changes
+lib/HTTP/BrowserDetect.pm
 MANIFEST
-test.pl
 README
+t/01-detect.t

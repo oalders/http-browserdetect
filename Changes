@@ -3,6 +3,8 @@ Revision history for Perl extension HTTP::BrowserDetect.
 1.01 2009-10-19
     - Switched to Module::Build from ExtUtils::MakeMaker
     - Re-organized file structure
+    - Re-organized tests and expanded coverage to check major and minor
+      methods
 
 1.00 2009-10-19
     - Applied patch from RT #47271 (Denis F. Latypoff), which adds support for
