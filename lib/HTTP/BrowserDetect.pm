@@ -116,6 +116,7 @@ sub _test {
   }
 
 
+  $major = 0 if !$major;
   $minor = 0+('.' . ($minor || 0));
 
   $self->{tests} = {};
@@ -153,6 +154,10 @@ sub _test {
 				    (?:			    	# The first dot
 				    ( \d* ))?			# Minor version number is digits after first dot
 				    /x);
+    # in some obscure cases, extra characters are captured by the regex 
+    # like: Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0
+    $safari_build =~ s{ [^\d] }{}gxms;
+
     $major = int($safari_build / 100);
     $minor = int($safari_build % 100) / 100;
     $beta = $safari_minor;
