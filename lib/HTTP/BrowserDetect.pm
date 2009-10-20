@@ -7,7 +7,7 @@ require Exporter;
 @ISA	   = qw(Exporter);
 @EXPORT	   = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.00';
+$VERSION   = '1.01';
 
 # Operating Systems
 push @ALL_TESTS,(qw(win16 win3x win31 win95 win98 winnt windows win32 win2k winxp win2k3 winvista winme dotnet mac macosx mac68k macppc os2 unix sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant dec sinix freebsd bsd vms x11 amiga));
@@ -19,7 +19,7 @@ push @ALL_TESTS,(qw(palm audrey iopener wap blackberry));
 push @ALL_TESTS,(qw(mosaic netscape nav2 nav3 nav4 nav4up nav45 nav45up nav6 nav6up navgold firefox chrome safari ie ie3 ie4 ie4up ie5 ie5up ie55 ie55up ie6 ie7 ie8 opera opera3 opera4 opera5 opera6 opera7 lynx links aol aol3 aol4 aol5 aol6 neoplanet neoplanet2 avantgo emacs mozilla gecko));
 
 # Robots
-push @ALL_TESTS,(qw(wget getright robot yahoo altavista lycos infoseek lwp webcrawler linkexchange slurp webtv staroffice lotusnotes konqueror icab google java));
+push @ALL_TESTS,(qw(puf curl wget getright robot yahoo altavista lycos infoseek lwp webcrawler linkexchange slurp webtv staroffice lotusnotes konqueror icab google java));
 
 #######################################################################################################
 # BROWSER OBJECT
@@ -85,9 +85,9 @@ sub _test {
 
   # Firefox version
 
-  if ($ua =~ /(firefox|firebird|phoenix)/i) {
+  if ($ua =~ /(firefox|firebird|iceweasel|phoenix)/i) {
       (undef,$major, $minor)    = ($ua =~ /
-				    (firefox|firebird|phoenix)
+				    (firefox|firebird|iceweasel|phoenix)
 				    \/
 				    ( [^.]* )			# Major version number is everything before first dot
 				    \.			    	# The first dot
@@ -115,7 +115,8 @@ sub _test {
 
   }
 
-  $minor = 0+".$minor";
+
+  $minor = 0+('.' . ($minor || 0));
 
   $self->{tests} = {};
   my $tests = $self->{tests};
@@ -125,6 +126,7 @@ sub _test {
   $tests->{GECKO}     = (index($ua,"gecko") != -1);
   $tests->{FIREFOX}   = (index($ua,"firefox") != -1) ||
                         (index($ua,"firebird") != -1) ||
+                        (index($ua,"iceweasel") != -1) ||
                         (index($ua,"phoenix") != -1);
 
   $tests->{CHROME}    = (index($ua,"chrome") != -1);
@@ -185,7 +187,7 @@ sub _test {
   $tests->{NAV4UP}    = ($tests->{NETSCAPE} && $major >= 4);
   $tests->{NAV45}     = ($tests->{NETSCAPE} && $major == 4 && $minor == .5);
   $tests->{NAV45UP}   = ($tests->{NAV4} && $minor >= .5) || ($tests->{NETSCAPE} && $major >= 5);
-  $tests->{NAVGOLD}   = (index($beta,"gold") != -1);
+  $tests->{NAVGOLD}   = (defined($beta) && index($beta,"gold") != -1);
   $tests->{NAV6}      = ($tests->{NETSCAPE} && $major == 5); # go figure
   $tests->{NAV6UP}    = ($tests->{NETSCAPE} && $major >= 5);
 
@@ -239,6 +241,7 @@ sub _test {
   $tests->{LINKS}          = (index($ua,"links") != -1);
   $tests->{WEBTV}          = (index($ua,"webtv") != -1);
   $tests->{MOSAIC}         = (index($ua,"mosaic") != -1);
+  $tests->{PUF}            = (index($ua,"puf") != -1);
   $tests->{WGET}           = (index($ua,"wget") != -1);
   $tests->{GETRIGHT}       = (index($ua,"getright") != -1);
   $tests->{LWP}            = (index($ua,"libwww-perl") != -1 ||
@@ -255,6 +258,7 @@ sub _test {
   $tests->{LINKEXCHANGE}   = (index($ua,"lecodechecker") != -1);
   $tests->{SLURP}          = (index($ua,"slurp") != -1);
   $tests->{ROBOT}          = (($tests->{WGET} ||
+                   $tests->{PUF} ||
 			       $tests->{GETRIGHT} ||
 			       $tests->{LWP} ||
 			       $tests->{YAHOO} ||
@@ -383,7 +387,7 @@ sub _test {
   $tests->{VMS} = (index($ua,"vax") != -1 || index($ua,"openvms") != -1);
 
   # A final try at browser version, if we haven't gotten it so far
-  if ($major eq '') {
+  if (!defined($major) || $major eq '') {
      if ($ua =~ /[A-Za-z]+\/(\d+)\;/) {
           $major = $1;
           $minor = 0;
@@ -509,7 +513,7 @@ HTTP::BrowserDetect - Determine the Web browser, version, and platform from an H
 
 =head1 VERSION
 
-Version 1.00
+Version 1.01
 
 =head1 SYNOPSIS
 
@@ -738,6 +742,7 @@ exist on the Web.
   linkexchange
   slurp
   google
+  puf
 
 =head1 AUTHOR
 
@@ -753,7 +758,21 @@ Thanks to the following for their contributions:
 
 Leonardo Herrera
 
-Denis F. Latypoff B<http://rt.cpan.org/Public/Bug/Display.html?id=47271>
+Denis F. Latypoff
+
+merlynkline
+
+Simon Waters
+
+Toni Cebri‡n
+
+Florian Merges
+
+david.hilton.p
+
+Steve Purkis
+
+Andrew McGregor
 
 =head1 SEE ALSO
 

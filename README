@@ -5,7 +5,7 @@ NAME
 SYNOPSIS
         use HTTP::BrowserDetect;
 
-        my $browser = new HTTP::BrowserDetect($user_agent_string);
+        my $browser = HTTP::BrowserDetect->new($user_agent_string);
 
         # Detect operating system
         if ($browser->windows) {
@@ -25,7 +25,7 @@ SYNOPSIS
         if ($browser->version() > 4) {
           ...;
         }
-    
+
         # Process a different user agent string
         $browser->user_agent($another_user_agent_string);
 
@@ -40,7 +40,7 @@ DESCRIPTION
 
   CREATING A NEW BROWSER DETECT OBJECT AND SETTING THE USER AGENT STRING
 
-    new HTTP::BrowserDetect($user_agent_string)
+    HTTP::BrowserDetect->new($user_agent_string)
         The constructor may be called with a user agent string specified.
         Otherwise, it will use the value specified by
         $ENV{'HTTP_USER_AGENT'}, which is set by the web server when calling
@@ -96,24 +96,24 @@ DESCRIPTION
     indentations below show the hierarchy of tests (for example, win2k is
     considered a type of winnt, which is a type of win32)
 
-      windows 
-        win16 win3x win31  
-        win32 
+      windows
+        win16 win3x win31
+        win32
             winme win95 win98
             winnt
                 win2k winxp
       dotnet
-  
-      mac 
+
+      mac
         mac68k macppc macosx
-  
+
       os2
-  
-      unix 
-        sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 
-        aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant 
+
+      unix
+        sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
+        aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
         dec sinix freebsd bsd
-  
+
       vms
 
       amiga
@@ -135,12 +135,12 @@ DESCRIPTION
     checking the version separately.
 
       netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
-      gecko 
+      gecko
       mozilla
-      firefox 
+      firefox
       safari
       ie ie3 ie4 ie4up ie5 ie55 ie6
-      neoplanet neoplanet2 
+      neoplanet neoplanet2
       mosaic
       aol aol3 aol4 aol5 aol6
       webtv

@@ -691,6 +691,54 @@ my @tests = (
       "mozilla",
     ],
   ],
+  [
+    "Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0",
+    4.13,
+    4,
+    0.13,
+    "Safari",
+    undef,
+    undef,
+    ["safari", "gecko"],
+  ],
+  [
+    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9) Gecko/2008062901 IceWeasel/3.0",
+    3.0,
+    3,
+    0,
+    "Iceweasel",
+    undef,
+    undef,
+    ["windows", "win32", "winnt", "winxp", "firefox", "gecko",],
+  ],
+  [
+    "libcurl-agent/1.0",
+    1,
+    1,
+    0,
+    "curl",
+    undef,
+    undef,
+    ["curl"],
+  ],
+  [
+    "puf/0.93.2a (Linux 2.4.20-19.9; i686)",
+    0.93,
+    0,
+    0.93,
+    "puf",
+    undef,
+    undef,
+    ["puf","robot",],
+  ],
+  # test for uninitialized value warnings RT #8547
+  [
+    "Internetf Explorer 6 (MSIE 6; Windows XP)",
+  ],
+  # test for uninitialized value warnings RT #8547
+  [
+    "Links (2.1pre15; Linux 2.4.26-vc4 i586; x)",
+  ],
 
   # These tests all have issues with returning undef rather than 0 for
   # version numbers.  Need to explore this to see what the correct behaviour
@@ -725,17 +773,24 @@ foreach my $test ( @tests ) {
     my $detected = HTTP::BrowserDetect->new( $ua );
     diag( $detected->user_agent );
 
-    cmp_ok( $detected->version, '==', $version, "version: $major");
-    cmp_ok( $detected->major, 'eq', $major, "major version: $major");
-    cmp_ok( $detected->minor, 'eq', $minor, "minor version: $minor");
+    cmp_ok( $detected->version, '==', $version, "version: $version") if $version;
+    cmp_ok( $detected->major, 'eq', $major, "major version: $major") if $major;
+    cmp_ok( $detected->minor, 'eq', $minor, "minor version: $minor") if $minor;
     $os =~ tr[A-Z][a-z] if $os;
 
-    ok( $detected, $os );
+    if ( $os ) {
+        $os =~ s{\s}{}gxms;
+        ok( $detected->$os, $os ) if $os;
+    }
 
     foreach my $type ( @{$system} ) {
-        ok( $detected, $type );
+        ok( $detected->$type, $type );
     }
 
     #diag( dump $test );
 
 }
+
+# RT #30705
+my $parsed = HTTP::BrowserDetect->new("Konqueror/1.1.2");
+ok( !$parsed->robot, "Konqueror is not a bot" );

@@ -1,10 +1,16 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.01 2009-10-19
+1.01 2009-10-20
     - Switched to Module::Build from ExtUtils::MakeMaker
     - Re-organized file structure
     - Re-organized tests and expanded coverage to check major and minor
       methods
+    - Manually added patch for Iceweasel from RT #41263 (merlynkline)
+    - Added test for RT #41541 and RT #41263 (merlynkline)
+    - curl added back to list of supported browsers RT #27878 (RT #Toni Cebri‡n)
+    - Added test for RT #8547 (Steve Purkis)
+    - Added test for RT #30705 (david.hilton.p)
+    - Applied patch and added test for RT #7443
 
 1.00 2009-10-19
     - Applied patch from RT #47271 (Denis F. Latypoff), which adds support for
