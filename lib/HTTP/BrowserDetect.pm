@@ -7,7 +7,7 @@ require Exporter;
 @ISA	   = qw(Exporter);
 @EXPORT	   = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.01';
+$VERSION   = '1.02';
 
 # Operating Systems
 push @ALL_TESTS,(qw(win16 win3x win31 win95 win98 winnt windows win32 win2k winxp win2k3 winvista winme dotnet mac macosx mac68k macppc os2 unix sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant dec sinix freebsd bsd vms x11 amiga));
@@ -529,7 +529,7 @@ HTTP::BrowserDetect - Determine the Web browser, version, and platform from an H
 
 =head1 VERSION
 
-Version 1.01
+Version 1.02
 
 =head1 SYNOPSIS
 
@@ -789,6 +789,8 @@ david.hilton.p
 Steve Purkis
 
 Andrew McGregor
+
+Robin Smidsrod
 
 =head1 SEE ALSO
 
