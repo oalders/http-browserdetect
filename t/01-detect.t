@@ -795,6 +795,17 @@ my @tests = (
     undef,
     undef,
     ["puf","robot",],
+    ["mobile",],
+  ],
+  [
+    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5C1 Safari/525.20",
+    undef,
+    undef,
+    undef,
+    "safari",
+    undef,
+    undef,
+    ["safari", "mobile"],
   ],
   # test for uninitialized value warnings RT #8547
   [
@@ -854,7 +865,7 @@ foreach my $test ( @tests ) {
 
     # Test that $ua doesn't match a specific method
     foreach my $type ( @{ $no_match } ) {
-        ok( !$detected->$type, "$type matches, but shouldn't" );
+        ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
     }
 
     #diag( dump $test );

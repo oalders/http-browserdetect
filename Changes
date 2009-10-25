@@ -1,5 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.03 2009-10-24
+    - Added mobile() method with support for various handsets (Richard Noble)
+    - perltidied source
+    
 1.02 2009-10-21
     - Fixed RT #48727 (Robin Smidsrod)
         - Made "KHTML, like Gecko" not match gecko
