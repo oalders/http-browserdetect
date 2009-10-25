@@ -1,0 +1,6 @@
+ - Test script can be cleaned up quite a lot by using the match/no_match for 
+   all boolean tests.
+   (Robin Smidsrød - 2009-10-20)
+
+ - Consider getting more UA strings from http://www.user-agents.org/.
+   (Robin Smidsrød - 2009-10-20)

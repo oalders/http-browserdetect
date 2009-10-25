@@ -212,9 +212,9 @@ sub _test {
             ( $major, $minor ) = (
                 $ua =~ m{
                                     version/
-                                    ( [^.]* )           # Major version number is everything before first dot
-                                    \.              # The first dot
-                                    ( [^.]* )           # Minor version number is digits after first dot
+                                    ( [^.]* )			# Major version number is everything before first dot
+                                    \.				# The first dot
+                                    ( [^.]* )			# Minor version number is digits after first dot
                                     }x
             );
         }
@@ -397,7 +397,8 @@ sub _test {
     $tests->{AUDREY}     = ( index( $ua, "audrey" ) != -1 );
     $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
     $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
-    $tests->{PALM} = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
+    $tests->{PALM}
+        = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
     $tests->{WAP}
         = (    index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
@@ -588,6 +589,7 @@ sub _test {
             $major = $1;
             $minor = 0;
         }
+
     }
 
     # Gecko version

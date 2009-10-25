@@ -299,7 +299,21 @@ my @tests = (
     undef,
     ["mac", "macppc", "icab"],
   ],
-  ["Konqueror/1.1.2", "1.1", 1, 0.1, undef, undef, undef, ["konqueror"]],
+  [
+    "Konqueror/1.1.2",
+    "1.1",
+    1,
+    0.1,
+    undef,
+    undef,
+    undef,
+    [
+      "konqueror"
+    ],
+    [
+      "robot", # RT #30705
+    ],
+  ],
   [
     "Lotus-Notes/4.5 ( OS/2 )",
     "4.5",
@@ -535,6 +549,30 @@ my @tests = (
       "winvista",
       "chrome",
     ],
+    [
+      "safari",
+      "gecko",
+    ],
+  ],
+  # RT #48727
+  [
+    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1",
+    "4.0",
+    4,
+    0,
+    "Safari",
+    "WinVista",
+    undef,
+    [
+      "windows",
+      "win32",
+      "winnt",
+      "winvista",
+      "safari",
+    ],
+    [
+      "gecko",
+    ],
   ],
   [
     "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1",
@@ -544,7 +582,15 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari",],
+    [
+      "mac",
+      "macosx",
+      "macppc",
+      "safari",
+    ],
+    [
+      "gecko",
+    ],
   ],
   [
     "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/106.2 (KHTML, like Gecko) Safari/100.1",
@@ -554,7 +600,15 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari",],
+    [
+      "mac",
+      "macosx",
+      "macppc",
+      "safari",
+    ],
+    [
+      "gecko",
+    ],
   ],
   [
     "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/74 (KHTML, like Gecko) Safari/74",
@@ -564,7 +618,15 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari", ],
+    [
+      "mac",
+      "macosx",
+      "macppc",
+      "safari",
+    ],
+    [
+      "gecko",
+    ],
   ],
   [
     "BlackBerry7730/3.7.1 UP.Link/5.1.2.5",
@@ -697,7 +759,12 @@ my @tests = (
     "Safari",
     undef,
     undef,
-    ["safari", ],
+    [
+      "safari",
+    ],
+    [
+      "gecko",
+    ],
   ],
   [
     "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9) Gecko/2008062901 IceWeasel/3.0",
@@ -728,6 +795,17 @@ my @tests = (
     undef,
     undef,
     ["puf","robot",],
+    ["mobile",],
+  ],
+  [
+    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5C1 Safari/525.20",
+    undef,
+    undef,
+    undef,
+    "safari",
+    undef,
+    undef,
+    ["safari", "mobile"],
   ],
   # test for uninitialized value warnings RT #8547
   [
@@ -767,7 +845,7 @@ my @tests = (
 );
 
 foreach my $test ( @tests ) {
-    my ( $ua, $version, $major, $minor, $browser, $os, $other, $system, ) = @{$test};
+    my ( $ua, $version, $major, $minor, $browser, $os, $other, $match, $no_match ) = @{$test};
     my $detected = HTTP::BrowserDetect->new( $ua );
     diag( $detected->user_agent );
 
@@ -781,14 +859,15 @@ foreach my $test ( @tests ) {
         ok( $detected->$os, $os ) if $os;
     }
 
-    foreach my $type ( @{$system} ) {
-        ok( $detected->$type, $type );
+    foreach my $type ( @{ $match } ) {
+        ok( $detected->$type, "$type should match" );
+    }
+
+    # Test that $ua doesn't match a specific method
+    foreach my $type ( @{ $no_match } ) {
+        ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
     }
 
     #diag( dump $test );
 
 }
-
-# RT #30705
-my $parsed = HTTP::BrowserDetect->new("Konqueror/1.1.2");
-ok( !$parsed->robot, "Konqueror is not a bot" );
