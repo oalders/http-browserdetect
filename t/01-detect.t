@@ -534,8 +534,6 @@ my @tests = (
       "winnt",
       "winvista",
       "chrome",
-      "safari",
-      "gecko",
     ],
   ],
   [
@@ -546,7 +544,7 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari", "gecko"],
+    ["mac", "macosx", "macppc", "safari",],
   ],
   [
     "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/106.2 (KHTML, like Gecko) Safari/100.1",
@@ -556,7 +554,7 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari", "gecko"],
+    ["mac", "macosx", "macppc", "safari",],
   ],
   [
     "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/74 (KHTML, like Gecko) Safari/74",
@@ -566,7 +564,7 @@ my @tests = (
     "Safari",
     "Mac OS X",
     undef,
-    ["mac", "macosx", "macppc", "safari", "gecko"],
+    ["mac", "macosx", "macppc", "safari", ],
   ],
   [
     "BlackBerry7730/3.7.1 UP.Link/5.1.2.5",
@@ -699,7 +697,7 @@ my @tests = (
     "Safari",
     undef,
     undef,
-    ["safari", "gecko"],
+    ["safari", ],
   ],
   [
     "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9) Gecko/2008062901 IceWeasel/3.0",
