@@ -1012,6 +1012,13 @@ match:
   - mobile
   - ipod
 ---
+useragent: 'Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2'
+match:
+  - safari
+  - mobile
+  - linux
+  - android
+---
 browser: ~
 major: ~
 match: ~

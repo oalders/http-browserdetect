@@ -26,7 +26,7 @@ push @ALL_TESTS, qw(
     sco     unixware    mpras
     reliant dec         sinix
     freebsd bsd         vms
-    x11     amiga
+    x11     amiga       android
 );
 
 # Devices
@@ -455,6 +455,7 @@ sub _test {
             index( $ua, "samsung" ) != -1
             || index( $ua, "samsung" ) != -1
             || index( $ua, "zetor" ) != -1
+            || index( $ua, "android" ) != -1
     );
 
     # Operating System
@@ -590,6 +591,8 @@ sub _test {
 
     $tests->{VMS}
         = ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 );
+
+    $tests->{ANDROID} = ( index( $ua, "android") != -1 );
 
     # A final try at browser version, if we haven't gotten it so far
     if ( !defined($major) || $major eq '' ) {
@@ -932,6 +935,7 @@ If no Gecko browser is being used, or the version number can't be detected, retu
 
 The following methods are available, each returning a true or false value.
 
+  android
   audrey
   avantgo
   blackberry

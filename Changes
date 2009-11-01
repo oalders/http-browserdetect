@@ -5,6 +5,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Added language() method
     - Added iphone() method
     - Added ipod() method
+    - Added android() method
 
 1.03 2009-10-24
     - Added mobile() method with support for various handsets (Richard Noble)
