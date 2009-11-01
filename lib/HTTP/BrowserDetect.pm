@@ -32,7 +32,8 @@ push @ALL_TESTS, qw(
 # Devices
 push @ALL_TESTS, qw(
     palm    audrey      iopener
-    wap     blackberry
+    wap     blackberry  iphone
+    ipod
 );
 
 # Browsers
@@ -398,6 +399,8 @@ sub _test {
     # Devices
 
     $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 );
+    $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
+    $tests->{IPOD}       = ( index( $ua, "ipod" ) != -1 );
     $tests->{AUDREY}     = ( index( $ua, "audrey" ) != -1 );
     $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
     $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
@@ -440,6 +443,7 @@ sub _test {
             || index( $ua, "windows ce" ) != -1
             || index( $ua, "palmsource" ) != -1
             || index( $ua, "iphone" ) != -1
+            || index( $ua, "ipod" ) != -1
             || index( $ua, "opera mini" ) != -1
             || index( $ua, "android" ) != -1
             || index( $ua, "htc_" ) != -1
@@ -928,12 +932,14 @@ If no Gecko browser is being used, or the version number can't be detected, retu
 
 The following methods are available, each returning a true or false value.
 
-  wap
   audrey
-  iopener
-  palm
   avantgo
   blackberry
+  iopener
+  iphone
+  ipod
+  palm
+  wap
 
 =head2 mobile()
 
