@@ -1,0 +1,1025 @@
+---
+browser: Firefox
+major: 0
+match:
+  - windows
+  - win32
+  - winnt
+  - winxp
+  - firefox
+  - gecko
+minor: 0.7
+no_match: ~
+os: WinXP
+other: 1.5
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.5) Gecko/20031007 Firebird/0.7'
+version: 0.7
+---
+browser: Netscape
+major: 1
+match:
+  - netscape
+  - windows
+  - win3x
+  - win16
+minor: 0.1
+no_match: ~
+os: Win3x
+other: ~
+useragent: 'Mozilla/1.1 (Windows 3.0; I)'
+version: 1.1
+---
+browser: Netscape
+major: 1
+match:
+  - netscape
+  - windows
+  - win31
+  - win3x
+  - win16
+minor: 0.1
+no_match: ~
+os: Win3x
+other: ~
+useragent: 'Mozilla/1.1 (Windows 3.1; I)'
+version: 1.1
+---
+browser: Netscape
+major: 2
+match:
+  - netscape
+  - nav2
+  - windows
+  - win32
+  - win95
+minor: 0
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/2.0 (Win95; I)'
+version: 2.0
+---
+browser: MSIE
+major: 3
+match:
+  - ie
+  - ie3
+  - windows
+  - win32
+  - win95
+minor: 0.01
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/2.0 (compatible; MSIE 3.01; Windows 95)'
+version: 3.01
+---
+browser: MSIE
+major: 3
+match:
+  - ie
+  - ie3
+  - windows
+  - win32
+  - winnt
+minor: 0.01
+no_match: ~
+os: WinNT
+other: ~
+useragent: 'Mozilla/2.0 (compatible; MSIE 3.01; Windows NT)'
+version: 3.01
+---
+browser: 'AOL Browser'
+major: 3
+match:
+  - ie
+  - ie3
+  - windows
+  - win32
+  - win95
+  - aol
+  - aol3
+minor: 0
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/2.0 (compatible; MSIE 3.0; AOL 3.0; Windows 95)'
+version: 3
+---
+browser: MSIE
+major: 4
+match:
+  - ie
+  - ie4
+  - ie4up
+  - windows
+  - win32
+  - win95
+minor: 0
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/2.0 (compatible; MSIE 4.0; Windows 95)'
+version: 4
+---
+browser: MSIE
+major: 4
+match:
+  - ie
+  - ie4
+  - ie4up
+  - windows
+  - win32
+  - win95
+minor: 0
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/3.0 (compatible; MSIE 4.0; Windows 95)'
+version: 4.0
+---
+browser: MSIE
+major: 4
+match:
+  - ie
+  - ie4
+  - ie4up
+  - windows
+  - win32
+  - win95
+minor: 0.01
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 4.01; Windows 95)'
+version: 4.01
+---
+browser: MSIE
+major: 5
+match:
+  - ie
+  - ie5
+  - ie5up
+  - ie4up
+  - windows
+  - win32
+  - winnt
+minor: 0
+no_match: ~
+os: WinNT
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)'
+version: 5.0
+---
+browser: MSIE
+major: 5
+match:
+  - ie
+  - ie5
+  - ie5up
+  - ie55
+  - ie55up
+  - ie4up
+  - windows
+  - win32
+  - winnt
+minor: 0.5
+no_match: ~
+os: WinNT
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
+version: 5.5
+---
+browser: MSIE
+major: 5
+match:
+  - ie
+  - ie5
+  - ie5up
+  - ie55
+  - ie55up
+  - ie4up
+  - windows
+  - win32
+  - winnt
+  - win2k
+minor: 0.5
+no_match: ~
+os: Win2k
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0) via proxy gateway Something/1.23'
+version: 5.5
+---
+browser: Netscape
+major: 3
+match:
+  - netscape
+  - nav3
+  - mac
+  - macppc
+minor: 0
+no_match: ~
+os: Mac
+other: ~
+useragent: 'Mozilla/3.0 (Macintosh; I; PPC)'
+version: 3.0
+---
+browser: MSIE
+major: 5
+match:
+  - ie
+  - ie4up
+  - ie5
+  - ie5up
+  - windows
+  - win32
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.0; Win32)'
+version: 5.0
+---
+browser: Opera
+major: 3
+match:
+  - opera
+  - opera3
+  - windows
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/4.0 (compatible; Opera/3.0; Windows 4.10) 3.50'
+version: 3.0
+---
+browser: MSIE
+major: 5
+match:
+  - ie
+  - ie4up
+  - ie5
+  - ie5up
+  - windows
+  - win32
+  - winnt
+  - win2k
+minor: 0
+no_match: ~
+os: Win2k
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.0b1; Windows NT 5.0)'
+version: 5.0
+---
+browser: Netscape
+major: 4
+match:
+  - netscape
+  - nav4
+  - nav4up
+  - windows
+  - win32
+  - win98
+minor: 0.06
+no_match: ~
+os: Win98
+other: ~
+useragent: 'Mozilla/4.06 [en] (Win98; I ;Nav)'
+version: 4.06
+---
+browser: Netscape
+major: 4
+match:
+  - netscape
+  - nav4
+  - nav4up
+  - nav45
+  - nav45up
+  - bsd
+  - freebsd
+  - unix
+  - x11
+minor: 0.5
+no_match: ~
+os: Unix
+other: ~
+useragent: 'Mozilla/4.5 [en] (X11; I; FreeBSD 2.2.7-RELEASE i386)'
+version: 4.5
+---
+browser: Netscape
+major: 3
+match:
+  - netscape
+  - nav3
+  - navgold
+  - windows
+  - win32
+  - win95
+minor: 0.03
+no_match: ~
+os: Win95
+other: ~
+useragent: 'Mozilla/3.03Gold (Win95; I)'
+version: 3.03
+---
+browser: ~
+major: 1
+match:
+  - wget
+  - robot
+minor: 0.4
+no_match: ~
+os: ~
+other: ~
+useragent: Wget/1.4.5
+version: 1.4
+---
+browser: ~
+major: 5
+match:
+  - lwp
+  - robot
+minor: 0.11
+no_match: ~
+os: ~
+other: ~
+useragent: libwww-perl/5.11
+version: 5.11
+---
+browser: ~
+major: 3
+match:
+  - getright
+  - robot
+minor: 0.2
+no_match: ~
+os: ~
+other: ~
+useragent: GetRight/3.2.1
+version: 3.2
+---
+browser: ~
+major: 5
+match:
+  - linux
+  - unix
+  - staroffice
+minor: 0.1
+no_match: ~
+os: Linux
+other: ~
+useragent: 'Mozilla/3.0 (compatible; StarOffice/5.1; Linux)'
+version: 5.1
+---
+browser: ~
+major: 5
+match:
+  - win32
+  - windows
+  - staroffice
+minor: 0.1
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/3.0 (compatible; StarOffice/5.1; Win32)'
+version: 5.1
+---
+browser: ~
+major: 2
+match:
+  - mac
+  - macppc
+  - icab
+minor: 0
+no_match: ~
+os: Mac
+other: ~
+useragent: 'iCab/Pre2.0 (Macintosh; I; PPC)'
+version: 2.0
+---
+browser: ~
+major: 1
+match:
+  - konqueror
+minor: 0.1
+no_match:
+  - robot
+os: ~
+other: ~
+useragent: Konqueror/1.1.2
+version: 1.1
+---
+browser: ~
+major: 4
+match:
+  - lotusnotes
+  - os2
+minor: 0.5
+no_match: ~
+os: OS2
+other: ~
+useragent: 'Lotus-Notes/4.5 ( OS/2 )'
+version: 4.5
+---
+browser: ~
+major: 1
+match:
+  - google
+  - robot
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)'
+version: 1.0
+---
+browser: ~
+major: 1
+match:
+  - wap
+minor: 0.3
+no_match: ~
+os: ~
+other: ~
+useragent: Nokia-WAP-Toolkit/1.3beta
+version: 1.3
+---
+browser: ~
+major: 1
+match:
+  - wap
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'Nokia7110/1.0 (30.05)'
+version: 1.0
+---
+browser: ~
+major: 4
+match:
+  - wap
+minor: 0.1
+no_match: ~
+os: ~
+other: ~
+useragent: UP.Browser/4.1.2a-XXXX
+version: 4.1
+---
+browser: ~
+major: 1
+match:
+  - wap
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: Wapalizer/1.0
+version: 1.0
+---
+browser: ~
+major: 1
+match:
+  - wap
+minor: 0.16
+no_match: ~
+os: ~
+other: ~
+useragent: YourWap/1.16
+version: 1.16
+---
+browser: ~
+major: 3
+match:
+  - amiga
+minor: 0.3
+no_match: ~
+os: ~
+other: ~
+useragent: 'AmigaVoyager/3.3.50 (AmigaOS/PPC)'
+version: 3.3
+---
+browser: ~
+major: 1
+match:
+  - bsd
+  - freebsd
+  - unix
+  - robot
+minor: 0
+no_match: ~
+os: Unix
+other: ~
+useragent: 'fetch/1.0 FreeBSD/4.0-CURRENT (i386)'
+version: 1.0
+---
+browser: ~
+major: 2
+match:
+  - emacs
+  - sun
+  - unix
+minor: 0.1
+no_match: ~
+os: Unix
+other: ~
+useragent: 'Emacs-W3/2.1.105 URL/1.267 ((Unix?) ; TTY ; sparc-sun-solaris2.3)'
+version: 2.1
+---
+browser: Netscape
+major: 5
+match:
+  - netscape
+  - nav4up
+  - nav45up
+  - windows
+  - winnt
+  - win32
+  - gecko
+  - nav6
+  - nav6up
+  - mozilla
+  - gecko
+minor: 0.001
+no_match: ~
+os: WinNT
+other: ~
+useragent: 'Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101'
+version: 5.001
+---
+browser: Netscape
+major: 5
+match:
+  - netscape
+  - nav4up
+  - nav45up
+  - nav6
+  - nav6up
+  - mac
+  - macppc
+  - mozilla
+  - gecko
+minor: 0.001
+no_match: ~
+os: Mac
+other: ~
+useragent: 'Mozilla/5.001 (Macintosh; N; PPC; ja) Gecko/25250101 MegaCorpBrowser/1.0 (MegaCorp, Inc.)'
+version: 5.001
+---
+browser: Netscape
+major: 5
+match:
+  - netscape
+  - nav4up
+  - nav45up
+  - nav6
+  - nav6up
+  - linux
+  - unix
+  - mozilla
+  - gecko
+  - x11
+minor: 0.432
+no_match: ~
+os: Linux
+other: ~
+useragent: 'Mozilla/9.876 (X11; U; Linux 2.2.12-20 i686, en) Gecko/25250101 Netscape/5.432b1 (C-MindSpring)'
+version: 5.432
+---
+browser: ~
+major: 2
+match:
+  - gecko
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231'
+version: 2.0
+---
+browser: ~
+major: 2
+match:
+  - gecko
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231'
+version: 2.000
+---
+browser: Firefox
+major: 0
+match:
+  - unix
+  - freebsd
+  - bsd
+  - x11
+  - firefox
+  - gecko
+minor: 0.9
+no_match: ~
+os: Unix
+other: 1.7
+useragent: 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.7) Gecko/20040619 Firefox/0.9'
+version: 0.9
+language: en-US
+---
+browser: Firefox
+major: 0
+match:
+  - windows
+  - win32
+  - winnt
+  - winxp
+  - firefox
+  - gecko
+minor: 0.9
+no_match: ~
+os: WinXP
+other: 1.7
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7) Gecko/20040614 Firefox/0.9'
+version: 0.9
+language: en-US
+---
+browser: Firefox
+major: 0
+match:
+  - windows
+  - win32
+  - winnt
+  - win2k
+  - firefox
+  - gecko
+minor: 0.8
+no_match: ~
+os: Win2k
+other: 1.8a
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8a) Gecko/20040416 Firefox/0.8.0+'
+version: 0.8
+language: en-US
+---
+browser: Firefox
+major: 0
+match:
+  - unix
+  - linux
+  - x11
+  - firefox
+  - gecko
+minor: 0.8
+no_match: ~
+os: Linux
+other: 1.6
+useragent: 'Mozilla/5.0 (X11; U; Linux i686; de-DE; rv:1.6) Gecko/20040207 Firefox/0.8'
+version: 0.8
+language: de-DE
+---
+browser: Firefox
+major: 0
+match:
+  - unix
+  - linux
+  - x11
+  - firefox
+  - gecko
+minor: 0.6
+no_match: ~
+os: Linux
+other: 1.5a
+useragent: 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.5a) Gecko/20031002 Mozilla Firebird/0.6.1'
+version: 0.6
+language: en-US
+---
+browser: Firefox
+major: 0
+match:
+  - windows
+  - win32
+  - winnt
+  - firefox
+  - gecko
+minor: 0.5
+no_match: ~
+os: WinNT
+other: 1.3a
+useragent: 'Mozilla/5.0 (Windows; U; WinNT4.0; en-US; rv:1.3a) Gecko/20021207 Phoenix/0.5'
+version: 0.5
+language: en-US
+---
+browser: MSIE
+major: 7
+match:
+  - windows
+  - win32
+  - winnt
+  - winvista
+  - dotnet
+  - ie
+  - ie7
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match: ~
+os: WinVista
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; OfficeLive'
+version: 7.0
+---
+browser: Chrome
+major: 2
+match:
+  - windows
+  - win32
+  - winnt
+  - winvista
+  - chrome
+minor: 0
+no_match:
+  - safari
+  - gecko
+os: WinVista
+other: ~
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.31 Safari/530.5'
+version: 2.0
+language: en-US
+---
+browser: Safari
+major: 4
+match:
+  - windows
+  - win32
+  - winnt
+  - winvista
+  - safari
+minor: 0
+no_match:
+  - gecko
+os: WinVista
+other: ~
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1'
+version: 4.0
+language: en-US
+---
+browser: Safari
+major: 1
+match:
+  - mac
+  - macosx
+  - macppc
+  - safari
+minor: 0.25
+no_match:
+  - gecko
+os: 'Mac OS X'
+other: ~
+useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1'
+version: 1.25
+language: en
+---
+browser: Safari
+major: 1
+match:
+  - mac
+  - macosx
+  - macppc
+  - safari
+minor: 0
+no_match:
+  - gecko
+os: 'Mac OS X'
+other: ~
+useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/106.2 (KHTML, like Gecko) Safari/100.1'
+version: 1.0
+language: en
+---
+browser: Safari
+major: 0
+match:
+  - mac
+  - macosx
+  - macppc
+  - safari
+minor: 0.74
+no_match:
+  - gecko
+os: 'Mac OS X'
+other: ~
+useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/74 (KHTML, like Gecko) Safari/74'
+version: 0.74
+language: en-us
+---
+browser: ~
+major: 3
+match:
+  - blackberry
+minor: 0.7
+no_match: ~
+os: ~
+other: ~
+useragent: 'BlackBerry7730/3.7.1 UP.Link/5.1.2.5'
+version: 3.7
+---
+browser: MSIE
+major: 6
+match:
+  - windows
+  - winnt
+  - win2k
+  - win32
+  - ie
+  - ie4up
+  - ie5up
+  - ie55up
+  - ie6
+  - dotnet
+minor: 0
+no_match: ~
+os: Win2k
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322)'
+version: 6.0
+---
+browser: MSIE
+major: 6
+match:
+  - windows
+  - winnt
+  - winxp
+  - win32
+  - ie
+  - ie4up
+  - ie5up
+  - ie55up
+  - ie6
+minor: 0
+no_match: ~
+os: WinXP
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)'
+version: 6.0
+---
+browser: MSIE
+major: 6
+match:
+  - windows
+  - winnt
+  - winxp
+  - win32
+  - ie
+  - ie4up
+  - ie5up
+  - ie55up
+  - ie6
+  - dotnet
+minor: 0
+no_match: ~
+os: WinXP
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)'
+version: 6.0
+---
+browser: MSIE
+major: 5
+match:
+  - mac
+  - macppc
+  - ie
+  - ie4up
+  - ie5
+  - ie5up
+minor: 0.22
+no_match: ~
+os: Mac
+other: ~
+useragent: 'Mozilla/4.0 (compatible; MSIE 5.22; Mac_PowerPC) '
+version: 5.22
+---
+browser: Netscape
+major: 7
+match:
+  - mac
+  - macppc
+  - netscape
+  - nav4up
+  - nav45up
+  - nav6up
+  - gecko
+  - macosx
+  - mozilla
+minor: 0.02
+no_match: ~
+os: 'Mac OS X'
+other: 1.0.2
+useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US; rv:1.0.2) Gecko/20030208 Netscape/7.02'
+version: 7.02
+language: en-US
+---
+browser: Netscape
+major: 5
+match:
+  - linux
+  - netscape
+  - nav4up
+  - nav45up
+  - nav6
+  - nav6up
+  - unix
+  - x11
+  - gecko
+  - mozilla
+minor: 0
+no_match: ~
+os: Linux
+other: 0.9.1
+useragent: 'Mozilla/5.0 (X11; U; Linux 2.4.3-20mdk i586; en-US; rv:0.9.1) Gecko/20010611'
+version: 5
+language: en-US
+---
+browser: Safari
+major: 4
+match:
+  - safari
+minor: 0.13
+no_match:
+  - gecko
+os: ~
+other: ~
+useragent: 'Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0'
+version: 4.13
+language: en-us
+---
+browser: Iceweasel
+major: 3
+match:
+  - windows
+  - win32
+  - winnt
+  - winxp
+  - firefox
+  - gecko
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9) Gecko/2008062901 IceWeasel/3.0'
+version: 3
+language: en-US
+---
+browser: curl
+major: 1
+match:
+  - curl
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: libcurl-agent/1.0
+version: 1
+---
+browser: puf
+major: 0
+match:
+  - puf
+  - robot
+minor: 0.93
+no_match:
+  - mobile
+os: ~
+other: ~
+useragent: 'puf/0.93.2a (Linux 2.4.20-19.9; i686)'
+version: 0.93
+---
+browser: safari
+major: ~
+match:
+  - safari
+  - mobile
+minor: ~
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5C1 Safari/525.20'
+version: ~
+language: en-us
+---
+browser: ~
+major: ~
+match: ~
+minor: ~
+no_match: ~
+os: ~
+other: ~
+useragent: 'Internetf Explorer 6 (MSIE 6; Windows XP)'
+version: ~
+---
+browser: ~
+major: ~
+match: ~
+minor: ~
+no_match: ~
+os: ~
+other: ~
+useragent: 'Links (2.1pre15; Linux 2.4.26-vc4 i586; x)'
+version: ~
