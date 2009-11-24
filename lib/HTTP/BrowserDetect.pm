@@ -1029,6 +1029,8 @@ Robin Smidsrod
 
 Richard Noble
 
+Josh Ritter
+
 =head1 SEE ALSO
 
 "The Ultimate JavaScript Client Sniffer, Version 3.0", B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.

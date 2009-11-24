@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.04 2009-11-??
+1.04 2009-11-23
     - Moved test config to a YAML file
     - Added language() method
     - Added iphone() method
