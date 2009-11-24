@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.05 2009-11-23
+    - Fixed RT #31847 (Mike Clarke)  SCO/Unix false positives
+
 1.04 2009-11-23
     - Moved test config to a YAML file
     - Added language() method

@@ -7,7 +7,7 @@ require Exporter;
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.04';
+$VERSION   = '1.05';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -558,8 +558,7 @@ sub _test {
     $tests->{AIX4} = ( index( $ua, "aix 4" ) != -1 );
 
     $tests->{LINUX} = ( index( $ua, "inux" ) != -1 );
-    $tests->{SCO}
-        = ( index( $ua, "sco" ) != -1 || index( $ua, "unix_sv" ) != -1 );
+    $tests->{SCO} = $ua =~ m{(?:SCO|unix_sv)};
     $tests->{UNIXWARE} = ( index( $ua, "unix_system_v" ) != -1 );
     $tests->{MPRAS}    = ( index( $ua, "ncr" ) != -1 );
     $tests->{RELIANT}  = ( index( $ua, "reliantunix" ) != -1 );
@@ -761,7 +760,7 @@ HTTP::BrowserDetect - Determine the Web browser, version, and platform from an H
 
 =head1 VERSION
 
-Version 1.04
+Version 1.05
 
 =head1 SYNOPSIS
 
@@ -1030,6 +1029,8 @@ Robin Smidsrod
 Richard Noble
 
 Josh Ritter
+
+Mike Clarke
 
 =head1 SEE ALSO
 
