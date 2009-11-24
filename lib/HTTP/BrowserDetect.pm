@@ -7,7 +7,7 @@ require Exporter;
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.05';
+$VERSION   = '1.06';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -285,7 +285,7 @@ sub _test {
     $tests->{NAV45}   = ( $tests->{NETSCAPE} && $major == 4 && $minor == .5 );
     $tests->{NAV45UP} = ( $tests->{NAV4}     && $minor >= .5 )
         || ( $tests->{NETSCAPE} && $major >= 5 );
-    $tests->{NAVGOLD} = ( defined($beta) && index( $beta, "gold" ) != -1 );    
+    $tests->{NAVGOLD} = ( defined($beta) && index( $beta, "gold" ) != -1 );
     $tests->{NAV6}   = ( $tests->{NETSCAPE} && ( $major == 5 || $major == 6 ) );    # go figure
     $tests->{NAV6UP} = ( $tests->{NETSCAPE} && $major >= 5 );
 
@@ -714,19 +714,19 @@ sub beta {
 }
 
 sub language {
-    
+
     my ( $self, $check ) = _self_or_default(@_);
     my $parsed = $self->_language_country();
     return $parsed->{'language'};
-    
+
 }
 
 sub country {
-    
+
     my ( $self, $check ) = _self_or_default(@_);
     my $parsed = $self->_language_country();
     return $parsed->{'country'};
-    
+
 }
 
 
@@ -746,7 +746,7 @@ sub _language_country {
     if ( $self->user_agent =~ m/([a-z]{2,})-([A-Z]{2,})/xms ) {
         return { language => uc $1, country => uc $2 };
     }
-    
+
     return { language => undef, country => undef };
 }
 
@@ -760,7 +760,7 @@ HTTP::BrowserDetect - Determine the Web browser, version, and platform from an H
 
 =head1 VERSION
 
-Version 1.05
+Version 1.06
 
 =head1 SYNOPSIS
 

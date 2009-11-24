@@ -4,3 +4,4 @@ lib/HTTP/BrowserDetect.pm
 MANIFEST
 README
 t/01-detect.t
+t/useragents.yaml
