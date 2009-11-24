@@ -190,7 +190,7 @@ sub _test {
         last if $tests->{FIREFOX};
     }
 
-    $tests->{CHROME} = ( index( $ua, "chrome" ) != -1 );
+    $tests->{CHROME} = ( index( $ua, "chrome/" ) != -1 );
     $tests->{SAFARI}
         = (    ( index( $ua, "safari" ) != -1 )
             || ( index( $ua, "applewebkit" ) != -1 ) )
@@ -265,7 +265,7 @@ sub _test {
     {
         ( $major, $minor, $beta ) = (
             $ua =~ m{
-                netscape\/
+                netscape6?\/
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
                 ( [\d]* )           # Minor version nnumber is digits after first dot
@@ -285,8 +285,8 @@ sub _test {
     $tests->{NAV45}   = ( $tests->{NETSCAPE} && $major == 4 && $minor == .5 );
     $tests->{NAV45UP} = ( $tests->{NAV4}     && $minor >= .5 )
         || ( $tests->{NETSCAPE} && $major >= 5 );
-    $tests->{NAVGOLD} = ( defined($beta) && index( $beta, "gold" ) != -1 );
-    $tests->{NAV6}   = ( $tests->{NETSCAPE} && $major == 5 );    # go figure
+    $tests->{NAVGOLD} = ( defined($beta) && index( $beta, "gold" ) != -1 );    
+    $tests->{NAV6}   = ( $tests->{NETSCAPE} && ( $major == 5 || $major == 6 ) );    # go figure
     $tests->{NAV6UP} = ( $tests->{NETSCAPE} && $major >= 5 );
 
     $tests->{MOZILLA} = ( $tests->{NETSCAPE} && $tests->{GECKO} );
