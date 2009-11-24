@@ -8,6 +8,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Added android() method
     - Fixed RT #12259 (guest) Netscape 6 version detection
     - Fixed RT #52007 (Josh Ritter) Chrome browser false positives
+    - Added country() method
 
 1.03 2009-10-24
     - Added mobile() method with support for various handsets (Richard Noble)

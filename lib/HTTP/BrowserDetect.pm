@@ -715,21 +715,40 @@ sub beta {
 }
 
 sub language {
+    
+    my ( $self, $check ) = _self_or_default(@_);
+    my $parsed = $self->_language_country();
+    return $parsed->{'language'};
+    
+}
+
+sub country {
+    
+    my ( $self, $check ) = _self_or_default(@_);
+    my $parsed = $self->_language_country();
+    return $parsed->{'country'};
+    
+}
+
+
+sub _language_country {
+
     my ( $self, $check ) = _self_or_default(@_);
 
     if ( $self->safari ) {
         if ( $self->major == 1 && $self->user_agent =~ m/\s ( [a-z]{2,} ) \)/xms ) {
-            return $1;
+            return { language => uc $1 };
         }
-        if ( $self->user_agent =~ m/([a-z]{2,}-[a-z]{2,})/xms ) {
-            return $1;
+        if ( $self->user_agent =~ m/([a-z]{2,})-([a-z]{2,})/xms ) {
+            return { language => uc $1, country => uc $2 };
         }
     }
 
-    if ( $self->user_agent =~ m/([a-z]{2,}-[A-Z]{2,})/xms ) {
-        return $1;
+    if ( $self->user_agent =~ m/([a-z]{2,})-([A-Z]{2,})/xms ) {
+        return { language => uc $1, country => uc $2 };
     }
-    return $self->{'language'};
+    
+    return { language => undef, country => undef };
 }
 
 1;
@@ -811,9 +830,13 @@ each time.
 
 =head2 language
 
-Returns the language string as it is found in the user agent string.  This may
-be in the form 'en-US' or 'en', depending on how the user agent string is
-formatted.
+Returns the language string as it is found in the user agent string.  This
+will be in the form of an upper case 2 character code.  ie: EN, DE, etc
+
+=head2 country
+
+Returns the country string as it may be found in the user agent string.  This
+will be in the form of an upper case 2 character code.  ie: US, DE, etc
 
 =head1 Detecting Browser Version
 
