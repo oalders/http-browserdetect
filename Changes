@@ -1,5 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.07 2009-12-12
+   - Added realplayer() and _realplayer_version() methods RT #52355 (Marc
+     Sebastian Pelzer)
+   - Added engine_string(), engine_version(), engine_major(), engine_minor()
+     methods
+
 1.06 2009-11-24
     - Added missing file t/useragents.yaml to MANIFEST
 
