@@ -183,7 +183,7 @@ sub _test {
     }
 
     $major = 0 if !$major;
-    $minor = 0 + ( '.' . ( $minor || 0 ) );
+    $minor = $self->_format_minor( $minor );
 
     # Mozilla browsers
 
@@ -685,6 +685,10 @@ sub _realplayer_version {
     my ( $self, $check ) = _self_or_default( @_ );
 
     if ( exists $self->{realplayer_version} && $self->{realplayer_version} ) {
+        my @version = split( /\./, $self->{realplayer_version} );
+        $self->{major} = shift @version;
+        $self->{minor} = $self->_format_minor( shift @version );
+        $self->{realplayer_version} = $self->{major} + $self->{minor};
         return $self->{realplayer_version};
     }
 
@@ -708,8 +712,7 @@ sub version {
     
     return $self->_realplayer_version if $self->_realplayer_version;
     
-    my $version;
-    $version = $self->{major} + $self->{minor};
+    my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
         return $check == $version;
     }
@@ -786,7 +789,7 @@ sub engine_string {
     return;
 }
 
-sub engine_version {
+sub _engine {
     
     my ( $self, $check ) = _self_or_default( @_ );    
     
@@ -798,12 +801,24 @@ sub engine_version {
     
 }
 
+sub engine_version {
+    
+    my ( $self, $check ) = _self_or_default( @_ );    
+    
+    if ( $self->_engine ) {
+        return $self->engine_major + $self->engine_minor;
+    }
+    
+    return;
+    
+}
+
 sub engine_major {
     
     my ( $self, $check ) = _self_or_default( @_ );    
     
-    if ( $self->engine_version ) {
-        my @version = split( /\./, $self->engine_version );
+    if ( $self->_engine ) {
+        my @version = split( /\./, $self->_engine );
         return shift @version;
     }
     
@@ -815,10 +830,10 @@ sub engine_minor {
     
     my ( $self, $check ) = _self_or_default( @_ );    
     
-    if ( $self->engine_version ) {
-        my @version = split( /\./, $self->engine_version );
+    if ( $self->_engine ) {
+        my @version = split( /\./, $self->_engine );
         shift @version;
-        return shift @version;
+        return $self->_format_minor( shift @version );
     }
     
     return;    
@@ -845,6 +860,15 @@ sub _language_country {
     }
 
     return { language => undef, country => undef };
+}
+
+sub _format_minor {
+    
+    my $self = shift;
+
+    my $minor = shift;
+    return 0 + ( '.' . ( $minor || 0 ) );
+    
 }
 
 1;

@@ -18,7 +18,7 @@ foreach my $test ( @tests ) {
     my $detected = HTTP::BrowserDetect->new( $test->{useragent} );
     diag( $detected->user_agent );
 
-    foreach my $method ( 'browser_string', 'engine_string' ) {
+    foreach my $method ( 'browser_string', 'engine_string', ) {
         if ( $test->{$method} ) {
             cmp_ok( $detected->$method, 'eq', $test->{$method},
                 "$method: $test->{$method}" );
@@ -26,11 +26,11 @@ foreach my $test ( @tests ) {
     }
 
     foreach my $method (
-        'version',      'major', 'minor', 'engine_version',
-        'engine_major', 'engine_minor'
+        'major',   'minor', 'engine_major', 'engine_minor',
+        'version', 'engine_version',
         )
     {
-        if ( $test->{$method} ) {
+        if ( exists $test->{$method} && $test->{$method} ) {
             cmp_ok( $detected->$method, '==', $test->{$method},
                 "$method: $test->{$method}" );
         }
