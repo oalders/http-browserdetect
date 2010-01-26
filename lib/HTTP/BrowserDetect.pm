@@ -27,6 +27,7 @@ push @ALL_TESTS, qw(
     reliant dec         sinix
     freebsd bsd         vms
     x11     amiga       android
+    win7
 );
 
 # Devices
@@ -487,6 +488,7 @@ sub _test {
     $tests->{WINXP}    = ( index( $ua, "nt 5.1" ) != -1 );
     $tests->{WIN2K3}   = ( index( $ua, "nt 5.2" ) != -1 );
     $tests->{WINVISTA} = ( index( $ua, "nt 6.0" ) != -1 );
+    $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
@@ -500,6 +502,7 @@ sub _test {
             || $tests->{WINXP}
             || $tests->{WIN2K3}
             || $tests->{WINVISTA}
+            || $tests->{WIN7}
             || index( $ua, "win32" ) != -1
     );
     $tests->{WINDOWS} = (
@@ -513,6 +516,7 @@ sub _test {
                 || $tests->{WINXP}
                 || $tests->{WIN2K3}
                 || $tests->{WINVISTA}
+                || $tests->{WIN7}
                 || $tests->{WINME}
         )
             || index( $ua, "win" ) != -1
@@ -664,6 +668,7 @@ sub os_string {
         $os_string = 'WinXP'    if $self->winxp;
         $os_string = 'Win2k3'   if $self->win2k3;
         $os_string = 'WinVista' if $self->winvista;
+        $os_string = 'Win7'     if $self->win7;
         $os_string = 'Mac'      if $self->mac;
         $os_string = 'Mac OS X' if $self->macosx;
         $os_string = 'Win3x'    if $self->win3x;
@@ -1030,7 +1035,7 @@ is considered a type of winnt, which is a type of win32)
     win32
         winme win95 win98
         winnt
-            win2k winxp win2k3 winvista
+            win2k winxp win2k3 winvista win7
   dotnet
 
   mac
@@ -1055,7 +1060,7 @@ On Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so yo
 Returns one of the following strings, or undef.  This method exists solely for compatibility with the
 B<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Mac, Mac OS X, Win3x, OS2, Unix, Linux
+  Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X, Win3x, OS2, Unix, Linux
 
 =head1 Detecting Browser Vendor
 
