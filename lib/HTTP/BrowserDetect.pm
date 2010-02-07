@@ -214,38 +214,26 @@ sub _test {
 
     # Safari Version
     elsif ( $tests->{SAFARI} ) {
-        if ( index( $ua, "version/" ) != -1 ) {
-            ( $major, $minor ) = (
-                $ua =~ m{
-                    version/
-                    ( [^.]* )       # Major version number is everything before first dot
-                    \.              # The first dot
-                    ( [^.]* )       # Minor version number is digits after first dot
-                }x
-            );
-        }
-        else {
-            my ( $safari_build, $safari_minor );
-            ( $safari_build, $safari_minor ) = (
-                $ua =~ m{
-                    safari
-                    \/
-                    ( [^.]* )       # Major version number is everything before first dot
-                    (?:             # The first dot
-                    ( \d* ))?       # Minor version number is digits after first dot
-                }x
-            );
+        
+
+        my ( $safari_build, $safari_minor );
+        ( $safari_build, $safari_minor ) = (
+            $ua =~ m{
+                safari
+                \/
+                ( [^.]* )       # Major version number is everything before first dot
+                (?:             # The first dot
+                ( \d* ))?       # Minor version number is digits after first dot
+            }x
+        );
 
 # in some obscure cases, extra characters are captured by the regex
 # like: Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0
-            $safari_build =~ s{ [^\d] }{}gxms;
+        $safari_build =~ s{ [^\d] }{}gxms;
 
-            $major = int( $safari_build / 100 );
-            $minor = int( $safari_build % 100 ) / 100;
-            $beta  = $safari_minor;
-
-            #print "major=$major minor=$minor beta=$beta\n";
-        }
+        $major = int( $safari_build / 100 );
+        $minor = int( $safari_build % 100 ) / 100;
+        $beta  = $safari_minor;
 
     }
 
@@ -748,32 +736,49 @@ sub minor {
     }
 }
 
-sub beta {
+sub public_version {
     my ( $self, $check ) = _self_or_default( @_ );
-    my ( $version ) = $self->{beta};
-    if ( $check ) {
-        return $check eq $version;
+    my ( $major, $minor ) = $self->_public;
+
+    return $major + $minor;    
+}
+
+sub public_major {
+    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $major, $minor ) = $self->_public;
+    
+    return $major;
+}
+
+sub public_minor {
+    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $major, $minor ) = $self->_public;
+    
+    return $minor;
+}
+
+sub _public {
+    my ( $self, $check ) = _self_or_default( @_ );
+
+    my $ua = $self->user_agent;
+
+    # this is the Public version of Safari.  See RT #48727
+    if ( $self->safari && $ua =~ m{
+                version/
+                ( [^.]* )       # Major version number is everything before first dot
+                \.              # The first dot
+                ( [^.]* )       # Minor version number is digits after first dot
+            }x
+        )
+    {
+        return ( $1, $2 );
     }
-    else {
-        return $version;
-    }
-}
-
-sub language {
-
-    my ( $self, $check ) = _self_or_default( @_ );
-    my $parsed = $self->_language_country();
-    return $parsed->{'language'};
+    
+    return ( $self->major, $self>minor );
 
 }
 
-sub country {
 
-    my ( $self, $check ) = _self_or_default( @_ );
-    my $parsed = $self->_language_country();
-    return $parsed->{'country'};
-
-}
 
 sub engine_string {
     
@@ -845,6 +850,33 @@ sub engine_minor {
     
 }
 
+sub beta {
+    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $version ) = $self->{beta};
+    if ( $check ) {
+        return $check eq $version;
+    }
+    else {
+        return $version;
+    }
+}
+
+sub language {
+
+    my ( $self, $check ) = _self_or_default( @_ );
+    my $parsed = $self->_language_country();
+    return $parsed->{'language'};
+
+}
+
+sub country {
+
+    my ( $self, $check ) = _self_or_default( @_ );
+    my $parsed = $self->_language_country();
+    return $parsed->{'country'};
+
+}
+
 sub _language_country {
 
     my ( $self, $check ) = _self_or_default( @_ );
@@ -882,7 +914,7 @@ __END__
 
 =head1 NAME
 
-HTTP::BrowserDetect - Determine the Web browser, version, and platform from an HTTP user agent string
+HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP user agent string
 
 =head1 VERSION
 
@@ -920,12 +952,10 @@ Version 1.07
 
 =head1 DESCRIPTION
 
-The HTTP::BrowserDetect object does a number of tests on an HTTP user
-agent string.  The results of these tests are available via methods of
-the object.
+The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
+string. The results of these tests are available via methods of the object.
 
-This module is based upon the JavaScript browser detection code
-available at
+This module is based upon the JavaScript browser detection code available at
 B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 =head1 CONSTRUCTOR AND STARTUP
@@ -934,69 +964,97 @@ B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
     HTTP::BrowserDetect->new( $user_agent_string )
 
-The constructor may be called with a user agent string specified.
-Otherwise, it will use the value specified by $ENV{'HTTP_USER_AGENT'},
-which is set by the web server when calling a CGI script.
+The constructor may be called with a user agent string specified. Otherwise,
+it will use the value specified by $ENV{'HTTP_USER_AGENT'}, which is set by
+the web server when calling a CGI script.
 
-You may also use a non-object-oriented interface.  For each method,
-you may call HTTP::BrowserDetect::method_name().  You will then be
-working with a default HTTP::BrowserDetect object that is created
-behind the scenes.
+You may also use a non-object-oriented interface. For each method, you may
+call HTTP::BrowserDetect::method_name(). You will then be working with a
+default HTTP::BrowserDetect object that is created behind the scenes.
 
 =head1 SUBROUTINES/METHODS
 
 =head2 user_agent($user_agent_string)
 
-Returns the value of the user agent string.  When called with a
-parameter, it resets the user agent and reperforms all tests on the
-string.  This way you can process a series of user agent strings (from
-a log file, perhaps) without creating a new HTTP::BrowserDetect object
-each time.
+Returns the value of the user agent string. When called with a parameter, it
+resets the user agent and reperforms all tests on the string. This way you can
+process a series of user agent strings (from a log file, perhaps) without
+creating a new HTTP::BrowserDetect object each time.
 
 =head2 language
 
-Returns the language string as it is found in the user agent string.  This
-will be in the form of an upper case 2 character code.  ie: EN, DE, etc
+Returns the language string as it is found in the user agent string. This will
+be in the form of an upper case 2 character code. ie: EN, DE, etc
 
 =head2 country
 
-Returns the country string as it may be found in the user agent string.  This
-will be in the form of an upper case 2 character code.  ie: US, DE, etc
+Returns the country string as it may be found in the user agent string. This
+will be in the form of an upper case 2 character code. ie: US, DE, etc
 
 =head1 Detecting Browser Version
 
-=head2 major($major)
+Please note that that the version(), major() and minor() methods have been
+superceded as of release 1.07 of this module. They are not yet deprecated, but
+should be replaced with public_version(), public_major() and public_minor() in
+new development.
+
+The reasoning behind this is that version() method will, in the case of
+Safari, return the Safari/XXX numbers even when Version/XXX numbers are
+present in the UserAgent string. Because this behaviour has been in place for
+so long, some clients may have come to rely upon it. So, it has been retained
+in the interest of "bugwards compatibility", but in almost all cases, the
+numbers returned by public_version(), public_major() and public_minor() will
+be what you are looking for.
+
+=head2 public_version()
+
+Returns the browser version as a floating-point number.
+
+=head2 public_major()
 
 Returns the integer portion of the browser version.
-If passed a parameter, returns true if it equals
-the browser major version.
 
-=head2 minor($minor)
+=head2 public_minor()
 
-Returns the decimal portion of the browser version as a B<floating-point number> less than 1.
-For example, if the version is 4.05, this method returns .05; if the version is 4.5, this method returns .5.
-B<This is a change in behavior from previous versions of this module, which returned a
-string>.
+Returns the decimal portion of the browser version as a B<floating-point
+number> less than 1. For example, if the version is 4.05, this method returns
+.05; if the version is 4.5, this method returns .5. 
 
-If passed a parameter, returns true if equals the minor version.
-
-On occasion a version may have more than one decimal point, such
-as 'Wget/1.4.5'. The minor version does not include the second decimal point,
-or any further digits or decimals.
+On occasion a version may have more than one decimal point, such as
+'Wget/1.4.5'. The minor version does not include the second decimal point, or
+any further digits or decimals.
 
 =head2 version($version)
 
-Returns the version as a floating-point number.  If passed a
-parameter, returns true if it is equal to the version
-specified by the user agent string.
+Returns the version as a floating-point number. If passed a parameter, returns
+true if it is equal to the version specified by the user agent string.
+
+=head2 major($major)
+
+Returns the integer portion of the browser version. If passed a parameter,
+returns true if it equals the browser major version.
+
+=head2 minor($minor)
+
+Returns the decimal portion of the browser version as a B<floating-point
+number> less than 1. For example, if the version is 4.05, this method returns
+.05; if the version is 4.5, this method returns .5. B<This is a change in
+behavior from previous versions of this module, which returned a string>.
+
+If passed a parameter, returns true if equals the minor version.
+
+On occasion a version may have more than one decimal point, such as
+'Wget/1.4.5'. The minor version does not include the second decimal point, or
+any further digits or decimals.
 
 =head2 beta($beta)
 
-Returns any the beta version, consisting of any non-numeric characters
-after the version number.  For instance, if the user agent string is
-'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)', returns 'b2'.  If
-passed a parameter, returns true if equal to the beta version.  If the beta
-starts with a dot, it is thrown away.
+Returns any the beta version, consisting of any non-numeric characters after
+the version number. For instance, if the user agent string is 'Mozilla/4.0
+(compatible; MSIE 5.0b2; Windows NT)', returns 'b2'. If passed a parameter,
+returns true if equal to the beta version. If the beta starts with a dot, it
+is thrown away.
+
 
 =head1 Detecting Rendering Engine
 
@@ -1010,25 +1068,25 @@ Returns undef if no string can be found.
 
 =head2 engine_version()
 
-Returns the version number of the rendering engine.  Currently this only
-returns a version number for Gecko.  Returns undef for all other engines.
+Returns the version number of the rendering engine. Currently this only
+returns a version number for Gecko. Returns undef for all other engines.
 
 =head2 engine_major()
 
-Returns the major version number of the rendering engine.  Currently this only
-returns a version number for Gecko.  Returns undef for all other engines.
+Returns the major version number of the rendering engine. Currently this only
+returns a version number for Gecko. Returns undef for all other engines.
 
 =head2 engine_minor()
 
-Returns the minor version number of the rendering engine.  Currently this only
-returns a version number for Gecko.  Returns undef for all other engines.
+Returns the minor version number of the rendering engine. Currently this only
+returns a version number for Gecko. Returns undef for all other engines.
 
 =head1 Detecting OS Platform and Version
 
-The following methods are available, each returning a true or false
-value.  Some methods also test for the operating system version.
-The indentations below show the hierarchy of tests (for example, win2k
-is considered a type of winnt, which is a type of win32)
+The following methods are available, each returning a true or false value.
+Some methods also test for the operating system version. The indentations
+below show the hierarchy of tests (for example, win2k is considered a type of
+winnt, which is a type of win32)
 
   windows
     win16 win3x win31
@@ -1052,20 +1110,23 @@ is considered a type of winnt, which is a type of win32)
 
   amiga
 
-It may not be possibile to detect Win98 in Netscape 4.x and earlier.
-On Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't distinguish between Win95 and WinNT.
+It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
+3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
+distinguish between Win95 and WinNT.
 
 =head2 os_string()
 
-Returns one of the following strings, or undef.  This method exists solely for compatibility with the
-B<HTTP::Headers::UserAgent> module.
+Returns one of the following strings, or undef. This method exists solely for
+compatibility with the B<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X, Win3x, OS2, Unix, Linux
+  Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
+  Win3x, OS2, Unix, Linux
 
 =head1 Detecting Browser Vendor
 
-The following methods are available, each returning a true or false value.  Some methods also
-test for the browser version, saving you from checking the version separately.
+The following methods are available, each returning a true or false value.
+Some methods also test for the browser version, saving you from checking the
+version separately.
 
   netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
   gecko
@@ -1089,8 +1150,10 @@ test for the browser version, saving you from checking the version separately.
   curl
   realplayer
 
-Netscape 6, even though its called six, in the userAgent string has version number 5.  The nav6 and nav6up methods correctly handle this quirk.
-The firefox text correctly detects the older-named versions of the browser (Phoenix, Firebird)
+Netscape 6, even though its called six, in the userAgent string has version
+number 5. The nav6 and nav6up methods correctly handle this quirk. The firefox
+text correctly detects the older-named versions of the browser (Phoenix,
+Firebird)
 
 
 =head2 browser_string()
@@ -1104,9 +1167,11 @@ method in the source code.
 
 =head2 gecko_version()
 
-If a Gecko rendering engine is used (as in Mozilla or Firebird), returns the version of the renderer (e.g. 1.3a, 1.7, 1.8)
-This might be more useful than the particular browser name or version when correcting for quirks in different versions of this rendering engine.
-If no Gecko browser is being used, or the version number can't be detected, returns undef.
+If a Gecko rendering engine is used (as in Mozilla or Firebird), returns the
+version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
+the particular browser name or version when correcting for quirks in different
+versions of this rendering engine. If no Gecko browser is being used, or the
+version number can't be detected, returns undef.
 
 =head1 Detecting Other Devices
 
@@ -1128,12 +1193,11 @@ Returns true if the browser appears to belong to a handheld device.
 
 =head2 robot()
 
-Returns true if the user agent appears to be a robot, spider,
-crawler, or other automated Web client.
+Returns true if the user agent appears to be a robot, spider, crawler, or
+other automated Web client.
 
-The following additional methods are available, each returning a true
-or false value.  This is by no means a complete list of robots that
-exist on the Web.
+The following additional methods are available, each returning a true or false
+value. This is by no means a complete list of robots that exist on the Web.
 
   wget
   getright
@@ -1169,7 +1233,7 @@ merlynkline
 
 Simon Waters
 
-Toni Cebri‡n
+Toni Cebrin
 
 Florian Merges
 
@@ -1189,24 +1253,12 @@ Mike Clarke
 
 Marc Sebastian Pelzer
 
+Alexey Surikov
+
 =head1 TO DO
 
-The following methods still need to be implemented or implemented fully:
-
-public_version()
-
-public_major()
-
-public_minor()
-
-engine_version()
-
-engine_major()
-
-engine_minor()
-
-Please see L<http://rt.cpan.org/Public/Bug/Display.html?id=48727> if you're
-interested in providing a patch for this code.
+The _engine() method currently only handles Gecko.  It needs to be expanded to
+handle other rendering engines.
 
 =head1 SEE ALSO
 
@@ -1252,16 +1304,17 @@ L<http://search.cpan.org/dist/HTTP-BrowserDetect/>
 =head1 BUGS AND LIMITATIONS
 
 The biggest limitation at this point is the test suite, which really needs to
-have many more UserAgent strings to test against. It would also be much easier
-to read if the UserAgents and their test conditions were broken out into some
-sort of config file. Patches are certainly welcome, with many thanks to the
-many contributions which have already been received. The preferred method of
-patching would be to fork the GitHub repo and then send me a pull requests,
-but plain old patch files are also welcome.
+have many more UserAgent strings to test against.
+
+Patches are certainly welcome, with many thanks to the many contributions
+which have already been received. The preferred method of patching would be to
+fork the GitHub repo and then send me a pull requests, but plain old patch
+files are also welcome.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 1999-2009 Lee Semel.  All rights reserved.  This program is free software;
-you can redistribute it and/or modify it under the same terms as Perl itself.
+Copyright 1999-2010 Lee Semel. All rights reserved. This program is free
+software; you can redistribute it and/or modify it under the same terms as
+Perl itself.
 
 =cut
