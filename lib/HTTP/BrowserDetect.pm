@@ -757,6 +757,13 @@ sub public_minor {
     return $minor;
 }
 
+sub public_beta {
+
+    my ( $self, $check ) = _self_or_default( @_ );
+    return $self->beta( $check );
+    
+}
+
 sub _public {
     my ( $self, $check ) = _self_or_default( @_ );
 
@@ -958,6 +965,18 @@ string. The results of these tests are available via methods of the object.
 This module is based upon the JavaScript browser detection code available at
 B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
+=head1 INSTALLATION
+
+In most cases, you can just issue the following commands:
+
+  perl Build.PL
+  ./Build
+  ./Build test
+  ./Build install
+  
+Please see the documentation for L<Module::Build> if you have questions about
+installing to custom locations etc.
+
 =head1 CONSTRUCTOR AND STARTUP
 
 =head2 new()
@@ -981,12 +1000,12 @@ resets the user agent and reperforms all tests on the string. This way you can
 process a series of user agent strings (from a log file, perhaps) without
 creating a new HTTP::BrowserDetect object each time.
 
-=head2 language
+=head2 language()
 
 Returns the language string as it is found in the user agent string. This will
 be in the form of an upper case 2 character code. ie: EN, DE, etc
 
-=head2 country
+=head2 country()
 
 Returns the country string as it may be found in the user agent string. This
 will be in the form of an upper case 2 character code. ie: US, DE, etc
@@ -1088,27 +1107,31 @@ Some methods also test for the operating system version. The indentations
 below show the hierarchy of tests (for example, win2k is considered a type of
 winnt, which is a type of win32)
 
-  windows
+=head2 windows()
+
     win16 win3x win31
     win32
         winme win95 win98
         winnt
             win2k winxp win2k3 winvista win7
-  dotnet
 
-  mac
-    mac68k macppc macosx
+=head2 dotnet()
 
-  os2
+=head2 mac()
+  
+mac68k macppc macosx
 
-  unix
-    sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
-    aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
-    dec sinix freebsd bsd
+=head2 os2()
 
-  vms
+=head2 unix()
+    
+  sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
+  aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
+  dec sinix freebsd bsd
 
-  amiga
+=head2 vms()
+
+=head2 amiga()
 
 It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
@@ -1117,7 +1140,7 @@ distinguish between Win95 and WinNT.
 =head2 os_string()
 
 Returns one of the following strings, or undef. This method exists solely for
-compatibility with the B<HTTP::Headers::UserAgent> module.
+compatibility with the L<HTTP::Headers::UserAgent> module.
 
   Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
   Win3x, OS2, Unix, Linux
@@ -1128,27 +1151,47 @@ The following methods are available, each returning a true or false value.
 Some methods also test for the browser version, saving you from checking the
 version separately.
 
-  netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
-  gecko
-  mozilla
-  firefox
-  safari
-  chrome
-  ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
-  neoplanet neoplanet2
-  mosaic
-  aol aol3 aol4 aol5 aol6
-  webtv
-  opera opera3 opera4 opera5 opera6 opera7
-  lynx links
-  emacs
-  staroffice
-  lotusnotes
-  icab
-  konqueror
-  java
-  curl
-  realplayer
+=head3 netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
+
+=head3 gecko
+
+=head3 mozilla
+
+=head3 firefox
+
+=head3 safari
+
+=head3 crhome
+
+=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
+
+=head3 neoplanet neoplanet2
+
+=head3 mosaic
+
+=head3 aol aol3 aol4 aol5 aol6
+
+=head3 webtv
+
+=head3 opera opera3 opera4 opera5 opera6 opera7
+
+=head3 lynx links
+
+=head3 emacs
+
+=head3 staroffice
+
+=head3 lotusnotes
+
+=head3 icab
+
+=head3 konqueror
+
+=head3 java
+
+=head3 curl
+
+=head3 realplayer
 
 Netscape 6, even though its called six, in the userAgent string has version
 number 5. The nav6 and nav6up methods correctly handle this quirk. The firefox
@@ -1177,15 +1220,23 @@ version number can't be detected, returns undef.
 
 The following methods are available, each returning a true or false value.
 
-  android
-  audrey
-  avantgo
-  blackberry
-  iopener
-  iphone
-  ipod
-  palm
-  wap
+=head3 android
+
+=head3 audrey
+
+=head3 avantgo
+
+=head3 blackberry
+
+=head3 iopener
+
+=head3 iphone
+
+=head3 ipod
+
+=head3 palm
+
+=head3 wap
 
 =head2 mobile()
 
@@ -1199,18 +1250,29 @@ other automated Web client.
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
 
-  wget
-  getright
-  yahoo
-  altavista
-  lycos
-  infoseek
-  lwp
-  webcrawler
-  linkexchange
-  slurp
-  google
-  puf
+=head3 wget
+
+=head3 getright
+
+=head3 yahoo
+
+=head3 altavista
+
+=head3 lycos
+
+=head3 infoseek
+
+=head3 lwp
+
+=head3 webcrawler
+
+=head3 linkexchange
+
+=head3 slurp
+
+=head3 google
+
+=head3 puf
 
 
 =head1 AUTHOR
@@ -1259,6 +1321,13 @@ Alexey Surikov
 
 The _engine() method currently only handles Gecko.  It needs to be expanded to
 handle other rendering engines.
+
+POD coverage is also not 100%.
+
+If you're able to help out with anything on the TO DO list, please do. A great
+deal of the latest improvements have come from patches via RT and GitHub pull
+requests. If you're able to submit changes via GitHub, I'm generally able to
+get them into a new release fairly quickly.
 
 =head1 SEE ALSO
 

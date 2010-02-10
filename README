@@ -1,11 +1,14 @@
 NAME
-    HTTP::BrowserDetect - Determine the Web browser, version, and platform
-    from an HTTP user agent string
+    HTTP::BrowserDetect - Determine Web browser, version, and platform from
+    an HTTP user agent string
+
+VERSION
+    Version 1.07
 
 SYNOPSIS
         use HTTP::BrowserDetect;
 
-        my $browser = HTTP::BrowserDetect->new($user_agent_string);
+        my $browser = new HTTP::BrowserDetect($user_agent_string);
 
         # Detect operating system
         if ($browser->windows) {
@@ -18,9 +21,9 @@ SYNOPSIS
         print $browser->netscape;
         print $browser->ie;
         if (browser->major(4)) {
-            if ($browser->minor() > .5) {
-                ...
-            }
+        if ($browser->minor() > .5) {
+            ...
+        }
         }
         if ($browser->version() > 4) {
           ...;
@@ -38,138 +41,345 @@ DESCRIPTION
     available at
     http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
 
-  CREATING A NEW BROWSER DETECT OBJECT AND SETTING THE USER AGENT STRING
+INSTALLATION
+    In most cases, you can just issue the following commands:
 
-    HTTP::BrowserDetect->new($user_agent_string)
-        The constructor may be called with a user agent string specified.
-        Otherwise, it will use the value specified by
-        $ENV{'HTTP_USER_AGENT'}, which is set by the web server when calling
-        a CGI script.
+      perl Build.PL
+      ./Build
+      ./Build test
+      ./Build install
 
-        You may also use a non-object-oriented interface. For each method,
-        you may call HTTP::BrowserDetect::method_name(). You will then be
-        working with a default HTTP::BrowserDetect object that is created
-        behind the scenes.
+    Please see the documentation for Module::Build if you have questions
+    about installing to custom locations etc.
 
-    user_agent($user_agent_string)
-        Returns the value of the user agent string. When called with a
-        parameter, it resets the user agent and reperforms all tests on the
-        string. This way you can process a series of user agent strings
-        (from a log file, perhaps) without creating a new
-        HTTP::BrowserDetect object each time.
+CONSTRUCTOR AND STARTUP
+  new()
+        HTTP::BrowserDetect->new( $user_agent_string )
 
-  DETECTING BROWSER VERSION
+    The constructor may be called with a user agent string specified.
+    Otherwise, it will use the value specified by $ENV{'HTTP_USER_AGENT'},
+    which is set by the web server when calling a CGI script.
 
-    major($major)
-        Returns the integer portion of the browser version. If passed a
-        parameter, returns true if it equals the browser major version.
+    You may also use a non-object-oriented interface. For each method, you
+    may call HTTP::BrowserDetect::method_name(). You will then be working
+    with a default HTTP::BrowserDetect object that is created behind the
+    scenes.
 
-    minor($minor)
-        Returns the decimal portion of the browser version as a
-        floating-point number less than 1. For example, if the version is
-        4.05, this method returns .05; if the version is 4.5, this method
-        returns .5. This is a change in behavior from previous versions of
-        this module, which returned a string.
+SUBROUTINES/METHODS
+  user_agent($user_agent_string)
+    Returns the value of the user agent string. When called with a
+    parameter, it resets the user agent and reperforms all tests on the
+    string. This way you can process a series of user agent strings (from a
+    log file, perhaps) without creating a new HTTP::BrowserDetect object
+    each time.
 
-        If passed a parameter, returns true if equals the minor version.
+  language()
+    Returns the language string as it is found in the user agent string.
+    This will be in the form of an upper case 2 character code. ie: EN, DE,
+    etc
 
-        On occasion a version may have more than one decimal point, such as
-        'Wget/1.4.5'. The minor version does not include the second decimal
-        point, or any further digits or decimals.
+  country()
+    Returns the country string as it may be found in the user agent string.
+    This will be in the form of an upper case 2 character code. ie: US, DE,
+    etc
 
-    version($version)
-        Returns the version as a floating-point number. If passed a
-        parameter, returns true if it is equal to the version specified by
-        the user agent string.
+Detecting Browser Version
+    Please note that that the version(), major() and minor() methods have
+    been superceded as of release 1.07 of this module. They are not yet
+    deprecated, but should be replaced with public_version(), public_major()
+    and public_minor() in new development.
 
-    beta($beta)
-        Returns any the beta version, consisting of any non-numeric
-        characters after the version number. For instance, if the user agent
-        string is 'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)',
-        returns 'b2'. If passed a parameter, returns true if equal to the
-        beta version. If the beta starts with a dot, it is thrown away.
+    The reasoning behind this is that version() method will, in the case of
+    Safari, return the Safari/XXX numbers even when Version/XXX numbers are
+    present in the UserAgent string. Because this behaviour has been in
+    place for so long, some clients may have come to rely upon it. So, it
+    has been retained in the interest of "bugwards compatibility", but in
+    almost all cases, the numbers returned by public_version(),
+    public_major() and public_minor() will be what you are looking for.
 
-  DETECTING OS PLATFORM AND VERSION
+  public_version()
+    Returns the browser version as a floating-point number.
 
+  public_major()
+    Returns the integer portion of the browser version.
+
+  public_minor()
+    Returns the decimal portion of the browser version as a floating-point
+    number less than 1. For example, if the version is 4.05, this method
+    returns .05; if the version is 4.5, this method returns .5.
+
+    On occasion a version may have more than one decimal point, such as
+    'Wget/1.4.5'. The minor version does not include the second decimal
+    point, or any further digits or decimals.
+
+  version($version)
+    Returns the version as a floating-point number. If passed a parameter,
+    returns true if it is equal to the version specified by the user agent
+    string.
+
+  major($major)
+    Returns the integer portion of the browser version. If passed a
+    parameter, returns true if it equals the browser major version.
+
+  minor($minor)
+    Returns the decimal portion of the browser version as a floating-point
+    number less than 1. For example, if the version is 4.05, this method
+    returns .05; if the version is 4.5, this method returns .5. This is a
+    change in behavior from previous versions of this module, which returned
+    a string.
+
+    If passed a parameter, returns true if equals the minor version.
+
+    On occasion a version may have more than one decimal point, such as
+    'Wget/1.4.5'. The minor version does not include the second decimal
+    point, or any further digits or decimals.
+
+  beta($beta)
+    Returns any the beta version, consisting of any non-numeric characters
+    after the version number. For instance, if the user agent string is
+    'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)', returns 'b2'. If
+    passed a parameter, returns true if equal to the beta version. If the
+    beta starts with a dot, it is thrown away.
+
+Detecting Rendering Engine
+  engine_string()
+    Returns one of the following:
+
+    Gecko, KHTML, MSIE
+
+    Returns undef if no string can be found.
+
+  engine_version()
+    Returns the version number of the rendering engine. Currently this only
+    returns a version number for Gecko. Returns undef for all other engines.
+
+  engine_major()
+    Returns the major version number of the rendering engine. Currently this
+    only returns a version number for Gecko. Returns undef for all other
+    engines.
+
+  engine_minor()
+    Returns the minor version number of the rendering engine. Currently this
+    only returns a version number for Gecko. Returns undef for all other
+    engines.
+
+Detecting OS Platform and Version
     The following methods are available, each returning a true or false
     value. Some methods also test for the operating system version. The
     indentations below show the hierarchy of tests (for example, win2k is
     considered a type of winnt, which is a type of win32)
 
-      windows
+  windows()
         win16 win3x win31
         win32
             winme win95 win98
             winnt
-                win2k winxp
-      dotnet
+                win2k winxp win2k3 winvista win7
 
-      mac
-        mac68k macppc macosx
+  dotnet()
+  mac()
+    mac68k macppc macosx
 
-      os2
+  os2()
+  unix()
+      sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
+      aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
+      dec sinix freebsd bsd
 
-      unix
-        sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
-        aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
-        dec sinix freebsd bsd
-
-      vms
-
-      amiga
-
+  vms()
+  amiga()
     It may not be possibile to detect Win98 in Netscape 4.x and earlier. On
     Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32,
     so you can't distinguish between Win95 and WinNT.
 
-    os_string()
-        Returns one of the following strings, or undef. This method exists
-        solely for compatibility with the HTTP::Headers::UserAgent module.
+  os_string()
+    Returns one of the following strings, or undef. This method exists
+    solely for compatibility with the HTTP::Headers::UserAgent module.
 
-          Win95, Win98, WinNT, Win2K, WinXP, Mac, Mac OS X, Win3x, OS2, Unix, Linux
+      Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
+      Win3x, OS2, Unix, Linux
 
-  DETECTING BROWSER VENDOR
-
+Detecting Browser Vendor
     The following methods are available, each returning a true or false
     value. Some methods also test for the browser version, saving you from
     checking the version separately.
 
-      netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
-      gecko
-      mozilla
-      firefox
-      safari
-      ie ie3 ie4 ie4up ie5 ie55 ie6
-      neoplanet neoplanet2
-      mosaic
-      aol aol3 aol4 aol5 aol6
-      webtv
-      opera opera3 opera4 opera5 opera6 opera7
-      lynx links
-      emacs
-      staroffice
-      lotusnotes
-      icab
-      konqueror
-      java
-      curl
-
+   netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
+   gecko
+   mozilla
+   firefox
+   safari
+   crhome
+   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
+   neoplanet neoplanet2
+   mosaic
+   aol aol3 aol4 aol5 aol6
+   webtv
+   opera opera3 opera4 opera5 opera6 opera7
+   lynx links
+   emacs
+   staroffice
+   lotusnotes
+   icab
+   konqueror
+   java
+   curl
+   realplayer
     Netscape 6, even though its called six, in the userAgent string has
     version number 5. The nav6 and nav6up methods correctly handle this
     quirk. The firefox text correctly detects the older-named versions of
     the browser (Phoenix, Firebird)
 
-    browser_string()
-        Returns one of the following strings, or undef.
+  browser_string()
+    Returns undef on failure. Otherwise returns one of the following:
 
-        Netscape, MSIE, WebTV, AOL Browser, Opera, Mosaic, Lynx
+    Firefox, Safari, Chrome, MSIE, etc
 
-    gecko_version()
-        If a Gecko rendering engine is used (as in Mozilla or Firebird),
-        returns the version of the renderer (e.g. 1.3a, 1.7, 1.8) This might
-        be more useful than the particular browser name or version when
-        correcting for quirks in different versions of this rendering
-        engine. If no Gecko browser is being used, or the version number
-        can't be detected, returns undef.
+    To see a complete list of possible browser strings, check the
+    browser_string() method in the source code.
 
-  DETECTING OTHER
+  gecko_version()
+    If a Gecko rendering engine is used (as in Mozilla or Firebird), returns
+    the version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more
+    useful than the particular browser name or version when correcting for
+    quirks in different versions of this rendering engine. If no Gecko
+    browser is being used, or the version number can't be detected, returns
+    undef.
+
+Detecting Other Devices
+    The following methods are available, each returning a true or false
+    value.
+
+   android
+   audrey
+   avantgo
+   blackberry
+   iopener
+   iphone
+   ipod
+   palm
+   wap
+  mobile()
+    Returns true if the browser appears to belong to a handheld device.
+
+  robot()
+    Returns true if the user agent appears to be a robot, spider, crawler,
+    or other automated Web client.
+
+    The following additional methods are available, each returning a true or
+    false value. This is by no means a complete list of robots that exist on
+    the Web.
+
+   wget
+   getright
+   yahoo
+   altavista
+   lycos
+   infoseek
+   lwp
+   webcrawler
+   linkexchange
+   slurp
+   google
+   puf
+AUTHOR
+    Lee Semel, lee@semel.net (Original Author)
+
+    Peter Walsham (co-maintainer)
+
+    Olaf Alders, "olaf at wundercounter.com" (co-maintainer)
+
+ACKNOWLEDGEMENTS
+    Thanks to the following for their contributions:
+
+    Leonardo Herrera
+
+    Denis F. Latypoff
+
+    merlynkline
+
+    Simon Waters
+
+    Toni Cebrin
+
+    Florian Merges
+
+    david.hilton.p
+
+    Steve Purkis
+
+    Andrew McGregor
+
+    Robin Smidsrod
+
+    Richard Noble
+
+    Josh Ritter
+
+    Mike Clarke
+
+    Marc Sebastian Pelzer
+
+    Alexey Surikov
+
+TO DO
+    The _engine() method currently only handles Gecko. It needs to be
+    expanded to handle other rendering engines.
+
+    POD coverage is also not 100%.
+
+    If you're able to help out with anything on the TO DO list, please do. A
+    great deal of the latest improvements have come from patches via RT and
+    GitHub pull requests. If you're able to submit changes via GitHub, I'm
+    generally able to get them into a new release fairly quickly.
+
+SEE ALSO
+    "The Ultimate JavaScript Client Sniffer, Version 3.0",
+    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
+
+    "Browser ID (User-Agent) Strings"
+    http://www.zytrax.com/tech/web/browser_ids.htm
+
+    perl(1), HTTP::Headers, HTTP::Headers::UserAgent.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc HTTP::BrowserDetect
+
+    You can also look for information at:
+
+    *   GitHub Source Repository
+
+        <http://github.com/oalders/http-browserdetect>
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTTP-BrowserDetect>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/HTTP-BrowserDetect>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/HTTP-BrowserDetect>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/HTTP-BrowserDetect/>
+
+BUGS AND LIMITATIONS
+    The biggest limitation at this point is the test suite, which really
+    needs to have many more UserAgent strings to test against.
+
+    Patches are certainly welcome, with many thanks to the many
+    contributions which have already been received. The preferred method of
+    patching would be to fork the GitHub repo and then send me a pull
+    requests, but plain old patch files are also welcome.
+
+LICENSE AND COPYRIGHT
+    Copyright 1999-2010 Lee Semel. All rights reserved. This program is free
+    software; you can redistribute it and/or modify it under the same terms
+    as Perl itself.
+
