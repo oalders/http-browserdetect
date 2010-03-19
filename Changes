@@ -1,6 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.07 2010-02-??
+1.08 2010-03-19
+    - Added ipad(), device() and device_name() methods
+
+1.07 2010-02-10
     - Added realplayer() and _realplayer_version() methods RT #52355 (Marc
     Sebastian Pelzer)
     - Added engine_string(), engine_version(), engine_major(), engine_minor()

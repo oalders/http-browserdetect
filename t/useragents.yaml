@@ -815,6 +815,8 @@ os: ~
 other: ~
 useragent: 'BlackBerry7730/3.7.1 UP.Link/5.1.2.5'
 version: 3.7
+device: blackberry
+device_name: BlackBerry
 ---
 browser_string: MSIE
 major: 6
@@ -1008,6 +1010,8 @@ match:
   - mobile
   - ipod
 engine_string: KHTML
+device: iphone
+device_name: iPhone
 ---
 browser_string: ~
 major: ~
@@ -1195,6 +1199,8 @@ public_minor: 0.1
 language: EN
 country: US
 engine_string: KHTML
+device: iphone
+device_name: iPhone
 ---
 useragent: 'Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2'
 match:
@@ -1210,3 +1216,19 @@ major: 5
 minor: 0.23
 engine: 5.25
 engine_string: KHTML
+---
+useragent: 'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B348b Safari/531.21.10'
+match:
+  - safari
+  - mobile
+  - ipad 
+public_version: 4.0
+public_major: 4 
+public_minor: 0
+version: 5.31
+major: 5
+minor: 0.31
+engine: 5.31
+engine_string: KHTML
+device: ipad
+device_name: iPad

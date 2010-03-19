@@ -7,7 +7,7 @@ require Exporter;
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.07';
+$VERSION   = '1.08';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -34,7 +34,7 @@ push @ALL_TESTS, qw(
 push @ALL_TESTS, qw(
     palm    audrey      iopener
     wap     blackberry  iphone
-    ipod
+    ipod    ipad
 );
 
 # Browsers
@@ -391,6 +391,7 @@ sub _test {
     $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 );
     $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
     $tests->{IPOD}       = ( index( $ua, "ipod" ) != -1 );
+    $tests->{IPAD}       = ( index( $ua, "ipad" ) != -1 );
     $tests->{AUDREY}     = ( index( $ua, "audrey" ) != -1 );
     $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
     $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
@@ -433,6 +434,7 @@ sub _test {
             || index( $ua, "palmsource" ) != -1
             || index( $ua, "iphone" ) != -1
             || index( $ua, "ipod" ) != -1
+            || index( $ua, "ipad" ) != -1
             || index( $ua, "opera mini" ) != -1
             || index( $ua, "android" ) != -1
             || index( $ua, "htc_" ) != -1
@@ -884,6 +886,39 @@ sub country {
 
 }
 
+sub device {
+    
+    my ( $self, $check ) = _self_or_default( @_ );
+    
+    my @devices = qw(
+        blackberry  iphone  ipod    ipad  
+    );
+
+    foreach my $device ( @devices ) {
+        return $device if ( $self->$device );
+    }
+    
+    return;
+}
+
+sub device_name {
+    
+    my ( $self, $check ) = _self_or_default( @_ );
+    
+    my %device_name = (
+        blackberry => 'BlackBerry',
+        iphone => 'iPhone',
+        ipod => 'iPod',
+        ipad => 'iPad',
+    );
+
+    my $device = $self->device;
+    return if !$device;
+    
+    return $device_name{ $self->device };
+}
+
+
 sub _language_country {
 
     my ( $self, $check ) = _self_or_default( @_ );
@@ -925,7 +960,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 =head1 VERSION
 
-Version 1.07
+Version 1.08
 
 =head1 SYNOPSIS
 
@@ -1000,15 +1035,28 @@ resets the user agent and reperforms all tests on the string. This way you can
 process a series of user agent strings (from a log file, perhaps) without
 creating a new HTTP::BrowserDetect object each time.
 
+=head2 country()
+
+Returns the country string as it may be found in the user agent string. This
+will be in the form of an upper case 2 character code. ie: US, DE, etc
+
 =head2 language()
 
 Returns the language string as it is found in the user agent string. This will
 be in the form of an upper case 2 character code. ie: EN, DE, etc
 
-=head2 country()
+=head2 device()
 
-Returns the country string as it may be found in the user agent string. This
-will be in the form of an upper case 2 character code. ie: US, DE, etc
+Returns the method name of the actual hardware, if it can be detected.
+Currently returns one of: blackberry, iphone, ipod or ipad  Returns UNDEF if
+no hardware can be detected
+
+=head2 device_name()
+
+Returns a human formatted version of the hardware device name.  These names
+are subject to change and are really meant for display purposes.  You should
+use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
+iPod or iPad.  Returns UNDEF if no hardware can be detected.
 
 =head1 Detecting Browser Version
 
@@ -1024,6 +1072,7 @@ so long, some clients may have come to rely upon it. So, it has been retained
 in the interest of "bugwards compatibility", but in almost all cases, the
 numbers returned by public_version(), public_major() and public_minor() will
 be what you are looking for.
+
 
 =head2 public_version()
 
@@ -1233,6 +1282,8 @@ The following methods are available, each returning a true or false value.
 =head3 iphone
 
 =head3 ipod
+
+=head3 ipad
 
 =head3 palm
 

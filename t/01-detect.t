@@ -36,10 +36,13 @@ foreach my $test ( @tests ) {
         }
     }
 
-    if ( $test->{language} ) {
-        cmp_ok( $detected->language, 'eq', $test->{language},
-            "language: $test->{language}" );
+    foreach my $method ( 'language', 'device', 'device_name' ) {
+        if ( exists $test->{$method} && $test->{$method} ) {
+            cmp_ok( $detected->$method, 'eq', $test->{$method},
+                "$method: $test->{$method}" );
+        }  
     }
+
 
     $test->{os} =~ tr[A-Z][a-z] if $test->{os};
 
