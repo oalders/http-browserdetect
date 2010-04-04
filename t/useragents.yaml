@@ -18,6 +18,8 @@ engine: Gecko
 engine_version: 1.5
 engine_major: 1
 engine_minor: 0.5
+language: FR
+country: ~
 ---
 browser_string: Netscape
 major: 1
@@ -32,6 +34,8 @@ os: Win3x
 other: ~
 useragent: 'Mozilla/1.1 (Windows 3.0; I)'
 version: 1.1
+language: ~
+country: ~
 ---
 browser_string: Netscape
 major: 1
@@ -47,6 +51,8 @@ os: Win3x
 other: ~
 useragent: 'Mozilla/1.1 (Windows 3.1; I)'
 version: 1.1
+language: ~
+country: ~
 ---
 browser_string: Netscape
 major: 2
@@ -62,6 +68,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/2.0 (Win95; I)'
 version: 2
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 3
@@ -77,6 +85,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/2.0 (compatible; MSIE 3.01; Windows 95)'
 version: 3.01
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 3
@@ -92,6 +102,8 @@ os: WinNT
 other: ~
 useragent: 'Mozilla/2.0 (compatible; MSIE 3.01; Windows NT)'
 version: 3.01
+language: ~
+country: ~
 ---
 browser_string: 'AOL Browser'
 major: 3
@@ -109,6 +121,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/2.0 (compatible; MSIE 3.0; AOL 3.0; Windows 95)'
 version: 3
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 4
@@ -125,6 +139,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/2.0 (compatible; MSIE 4.0; Windows 95)'
 version: 4
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 4
@@ -141,6 +157,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/3.0 (compatible; MSIE 4.0; Windows 95)'
 version: 4
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 4
@@ -157,6 +175,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 4.01; Windows 95)'
 version: 4.01
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -174,6 +194,8 @@ os: WinNT
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)'
 version: 5
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -193,6 +215,8 @@ os: WinNT
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 version: 5.5
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -213,6 +237,8 @@ os: Win2k
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0) via proxy gateway Something/1.23'
 version: 5.5
+language: ~
+country: ~
 ---
 browser_string: Netscape
 major: 3
@@ -227,6 +253,8 @@ os: Mac
 other: ~
 useragent: 'Mozilla/3.0 (Macintosh; I; PPC)'
 version: 3
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -243,6 +271,8 @@ os: ~
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 5.0; Win32)'
 version: 5
+language: ~
+country: ~
 ---
 browser_string: Opera
 major: 3
@@ -256,6 +286,8 @@ os: ~
 other: ~
 useragent: 'Mozilla/4.0 (compatible; Opera/3.0; Windows 4.10) 3.50'
 version: 3
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -274,6 +306,8 @@ os: Win2k
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 5.0b1; Windows NT 5.0)'
 version: 5
+language: ~
+country: ~
 ---
 browser_string: Netscape
 major: 4
@@ -289,6 +323,8 @@ no_match: ~
 os: Win98
 other: ~
 useragent: 'Mozilla/4.06 [en] (Win98; I ;Nav)'
+language: EN
+country: ~
 version: 4.06
 ---
 browser_string: Netscape
@@ -309,6 +345,8 @@ os: Unix
 other: ~
 useragent: 'Mozilla/4.5 [en] (X11; I; FreeBSD 2.2.7-RELEASE i386)'
 version: 4.5
+language: EN
+country: ~
 ---
 browser_string: Netscape
 major: 3
@@ -325,6 +363,8 @@ os: Win95
 other: ~
 useragent: 'Mozilla/3.03Gold (Win95; I)'
 version: 3.03
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -337,6 +377,8 @@ os: ~
 other: ~
 useragent: Wget/1.4.5
 version: 1.4
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 5
@@ -349,6 +391,8 @@ os: ~
 other: ~
 useragent: libwww-perl/5.11
 version: 5.11
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 3
@@ -361,6 +405,8 @@ os: ~
 other: ~
 useragent: GetRight/3.2.1
 version: 3.2
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 5
@@ -374,6 +420,8 @@ os: Linux
 other: ~
 useragent: 'Mozilla/3.0 (compatible; StarOffice/5.1; Linux)'
 version: 5.1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 5
@@ -387,6 +435,8 @@ os: ~
 other: ~
 useragent: 'Mozilla/3.0 (compatible; StarOffice/5.1; Win32)'
 version: 5.1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 2
@@ -400,6 +450,8 @@ os: Mac
 other: ~
 useragent: 'iCab/Pre2.0 (Macintosh; I; PPC)'
 version: 2
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -412,6 +464,8 @@ os: ~
 other: ~
 useragent: Konqueror/1.1.2
 version: 1.1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 4
@@ -424,6 +478,8 @@ os: OS2
 other: ~
 useragent: 'Lotus-Notes/4.5 ( OS/2 )'
 version: 4.5
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -436,6 +492,8 @@ os: ~
 other: ~
 useragent: 'Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)'
 version: 1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -447,6 +505,8 @@ os: ~
 other: ~
 useragent: Nokia-WAP-Toolkit/1.3beta
 version: 1.3
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -458,6 +518,8 @@ os: ~
 other: ~
 useragent: 'Nokia7110/1.0 (30.05)'
 version: 1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 4
@@ -469,6 +531,8 @@ os: ~
 other: ~
 useragent: UP.Browser/4.1.2a-XXXX
 version: 4.1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -480,6 +544,8 @@ os: ~
 other: ~
 useragent: Wapalizer/1.0
 version: 1
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -491,6 +557,8 @@ os: ~
 other: ~
 useragent: YourWap/1.16
 version: 1.16
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 3
@@ -502,6 +570,8 @@ os: ~
 other: ~
 useragent: 'AmigaVoyager/3.3.50 (AmigaOS/PPC)'
 version: 3.3
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 1
@@ -529,6 +599,8 @@ os: Unix
 other: ~
 useragent: 'Emacs-W3/2.1.105 URL/1.267 ((Unix?) ; TTY ; sparc-sun-solaris2.3)'
 version: 2.1
+language: ~
+country: ~
 ---
 browser_string: Netscape
 major: 5
@@ -550,6 +622,8 @@ os: WinNT
 other: ~
 useragent: 'Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101'
 version: 5.001
+language: EN
+country: US
 ---
 browser_string: Netscape
 major: 5
@@ -569,6 +643,8 @@ os: Mac
 other: ~
 useragent: 'Mozilla/5.001 (Macintosh; N; PPC; ja) Gecko/25250101 MegaCorpBrowser/1.0 (MegaCorp, Inc.)'
 version: 5.001
+language: JA
+country: ~
 ---
 browser_string: Netscape
 major: 5
@@ -589,6 +665,8 @@ os: Linux
 other: ~
 useragent: 'Mozilla/9.876 (X11; U; Linux 2.2.12-20 i686, en) Gecko/25250101 Netscape/5.432b1 (C-MindSpring)'
 version: 5.432
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 2
@@ -600,6 +678,8 @@ os: ~
 other: ~
 useragent: 'TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231'
 version: 2.0
+language: ~
+country: ~
 ---
 browser_string: ~
 major: 2
@@ -611,6 +691,8 @@ os: ~
 other: ~
 useragent: 'TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231'
 version: 2.000
+language: ~
+country: ~
 ---
 browser_string: Firefox
 major: 0
@@ -736,6 +818,8 @@ os: WinVista
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; OfficeLive'
 version: 7.0
+language: ~
+country: ~
 ---
 browser_string: Chrome
 major: 2
@@ -771,6 +855,7 @@ other: ~
 useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1'
 version: 1.25
 language: EN
+country: ~
 ---
 browser_string: Safari
 major: 1
@@ -787,6 +872,7 @@ other: ~
 useragent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/106.2 (KHTML, like Gecko) Safari/100.1'
 version: 1.0
 language: EN
+country: ~
 ---
 browser_string: Safari
 major: 0
@@ -817,6 +903,8 @@ useragent: 'BlackBerry7730/3.7.1 UP.Link/5.1.2.5'
 version: 3.7
 device: blackberry
 device_name: BlackBerry
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 6
@@ -837,6 +925,8 @@ os: Win2k
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322)'
 version: 6.0
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 6
@@ -856,6 +946,8 @@ os: WinXP
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)'
 version: 6.0
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 6
@@ -876,6 +968,8 @@ os: WinXP
 other: ~
 useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)'
 version: 6.0
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 5
@@ -988,6 +1082,8 @@ os: ~
 other: ~
 useragent: libcurl-agent/1.0
 version: 1
+language: ~
+country: ~
 ---
 browser_string: puf
 major: 0
@@ -1001,6 +1097,8 @@ os: ~
 other: ~
 useragent: 'puf/0.93.2a (Linux 2.4.20-19.9; i686)'
 version: 0.93
+language: ~
+country: ~
 ---
 useragent: 'Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20'
 language: EN
@@ -1022,6 +1120,8 @@ os: ~
 other: ~
 useragent: 'Internetf Explorer 6 (MSIE 6; Windows XP)'
 version: ~
+language: ~
+country: ~
 ---
 browser_string: ~
 major: ~
@@ -1032,6 +1132,8 @@ os: ~
 other: ~
 useragent: 'Links (2.1pre15; Linux 2.4.26-vc4 i586; x)'
 version: ~
+language: ~
+country: ~
 ---
 browser_string: MSIE
 major: 8
@@ -1201,6 +1303,8 @@ country: US
 engine_string: KHTML
 device: iphone
 device_name: iPhone
+language: EN
+country: US
 ---
 useragent: 'Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2'
 match:
@@ -1216,6 +1320,8 @@ major: 5
 minor: 0.23
 engine: 5.25
 engine_string: KHTML
+language: EN
+country: US
 ---
 useragent: 'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B348b Safari/531.21.10'
 match:
@@ -1232,3 +1338,20 @@ engine: 5.31
 engine_string: KHTML
 device: ipad
 device_name: iPad
+language: EN
+country: US
+---
+useragent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; de; rv:1.9.2) Gecko/20100115 Firefox/3.6'
+match:
+  - firefox
+  - mac
+public_version: 3.6
+public_major: 3
+public_minor: 6
+version: 3.6
+major: 3
+minor: 0.6
+engine: 4.6
+engine_string: Gecko
+language: DE
+
