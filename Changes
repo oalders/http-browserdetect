@@ -1,5 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.09 2010-04-04
+    - Better language detection (commit 68025ca1a58afa1db9b4eeffe8c246d129825cc0)
+    (Maroš Kollár)
+
 1.08 2010-03-19
     - Added ipad(), device() and device_name() methods
 
@@ -44,7 +48,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
       methods
     - Manually added patch for Iceweasel from RT #41263 (merlynkline)
     - Added test for RT #41541 and RT #41263 (merlynkline)
-    - curl added back to list of supported browsers RT #27878 (RT #Toni Cebri�n)
+    - curl added back to list of supported browsers RT #27878 (RT #Toni Cebrián)
     - Added test for RT #8547 (Steve Purkis)
     - Added test for RT #30705 (david.hilton.p)
     - Applied patch and added test for RT #7443
