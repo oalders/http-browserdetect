@@ -7,7 +7,7 @@ require Exporter;
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.08';
+$VERSION   = '1.09';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -123,7 +123,7 @@ sub user_agent {
 # Private method -- test the UA string
 sub _test {
     my ( $self ) = @_;
-    
+
     $self->{tests} = {};
     my $tests = $self->{tests};
 
@@ -159,7 +159,7 @@ sub _test {
         $minor = $3;
         $tests->{ uc($1) } = 1;
         $tests->{'FIREFOX'} = 1;
-        
+
     }
 
     # IE version
@@ -214,7 +214,7 @@ sub _test {
 
     # Safari Version
     elsif ( $tests->{SAFARI} ) {
-        
+
 
         my ( $safari_build, $safari_minor );
         ( $safari_build, $safari_minor ) = (
@@ -704,9 +704,9 @@ sub gecko_version {
 
 sub version {
     my ( $self, $check ) = _self_or_default( @_ );
-    
+
     return $self->_realplayer_version if $self->_realplayer_version;
-    
+
     my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
         return $check == $version;
@@ -742,20 +742,20 @@ sub public_version {
     my ( $self, $check ) = _self_or_default( @_ );
     my ( $major, $minor ) = $self->_public;
 
-    return $major + $minor;    
+    return $major + $minor;
 }
 
 sub public_major {
     my ( $self, $check ) = _self_or_default( @_ );
     my ( $major, $minor ) = $self->_public;
-    
+
     return $major;
 }
 
 sub public_minor {
     my ( $self, $check ) = _self_or_default( @_ );
     my ( $major, $minor ) = $self->_public;
-    
+
     return $minor;
 }
 
@@ -763,7 +763,7 @@ sub public_beta {
 
     my ( $self, $check ) = _self_or_default( @_ );
     return $self->beta( $check );
-    
+
 }
 
 sub _public {
@@ -782,7 +782,7 @@ sub _public {
     {
         return ( $1, $2 );
     }
-    
+
     return ( $self->major, $self>minor );
 
 }
@@ -790,73 +790,73 @@ sub _public {
 
 
 sub engine_string {
-    
+
     my ( $self, $check ) = _self_or_default( @_ );
-    
+
     if ( $self->gecko ) {
         return 'Gecko';
     }
-    
+
     if ( $self->user_agent =~ m{KHTML, like Gecko} ) {
         return 'KHTML';
     }
-    
+
     if ( $self->ie ) {
         return 'MSIE';
     }
-    
+
     return;
 }
 
 sub _engine {
-    
-    my ( $self, $check ) = _self_or_default( @_ );    
-    
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
     if ( $self->gecko ) {
         return $self->gecko_version;
     }
-    
+
     return;
-    
+
 }
 
 sub engine_version {
-    
-    my ( $self, $check ) = _self_or_default( @_ );    
-    
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
     if ( $self->_engine ) {
         return $self->engine_major + $self->engine_minor;
     }
-    
+
     return;
-    
+
 }
 
 sub engine_major {
-    
-    my ( $self, $check ) = _self_or_default( @_ );    
-    
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
     if ( $self->_engine ) {
         my @version = split( /\./, $self->_engine );
         return shift @version;
     }
-    
-    return;    
-    
+
+    return;
+
 }
 
 sub engine_minor {
-    
-    my ( $self, $check ) = _self_or_default( @_ );    
-    
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
     if ( $self->_engine ) {
         my @version = split( /\./, $self->_engine );
         shift @version;
         return $self->_format_minor( shift @version );
     }
-    
-    return;    
-    
+
+    return;
+
 }
 
 sub beta {
@@ -887,24 +887,24 @@ sub country {
 }
 
 sub device {
-    
+
     my ( $self, $check ) = _self_or_default( @_ );
-    
+
     my @devices = qw(
-        blackberry  iphone  ipod    ipad  
+        blackberry  iphone  ipod    ipad
     );
 
     foreach my $device ( @devices ) {
         return $device if ( $self->$device );
     }
-    
+
     return;
 }
 
 sub device_name {
-    
+
     my ( $self, $check ) = _self_or_default( @_ );
-    
+
     my %device_name = (
         blackberry => 'BlackBerry',
         iphone => 'iPhone',
@@ -914,7 +914,7 @@ sub device_name {
 
     my $device = $self->device;
     return if !$device;
-    
+
     return $device_name{ $self->device };
 }
 
@@ -934,20 +934,33 @@ sub _language_country {
         }
     }
 
-    if ( $self->user_agent =~ m/([a-z]{2,})-([A-Z]{2,})/xms ) {
+    if ( $self->user_agent =~ m/\b([a-z]{2,})-([A-Za-z]{2,})\b/xms ) {
         return { language => uc $1, country => uc $2 };
+    }
+
+    if ( $self->user_agent =~ m/\[([a-z]{2})\]/xms ) {
+        return { language => uc $1 };
+    }
+
+    if ( $self->user_agent =~ m/\(([^)]+)\)/xms ) {
+        my @parts = split(/;/,$1);
+        foreach my $part (@parts) {
+            if ($part =~ /^\s*([a-z]{2,})\s*$/) {
+                return { language => uc $1 };
+            }
+        }
     }
 
     return { language => undef, country => undef };
 }
 
 sub _format_minor {
-    
+
     my $self = shift;
 
     my $minor = shift;
     return 0 + ( '.' . ( $minor || 0 ) );
-    
+
 }
 
 1;
@@ -960,7 +973,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 =head1 VERSION
 
-Version 1.08
+Version 1.09
 
 =head1 SYNOPSIS
 
@@ -1008,7 +1021,7 @@ In most cases, you can just issue the following commands:
   ./Build
   ./Build test
   ./Build install
-  
+
 Please see the documentation for L<Module::Build> if you have questions about
 installing to custom locations etc.
 
@@ -1086,7 +1099,7 @@ Returns the integer portion of the browser version.
 
 Returns the decimal portion of the browser version as a B<floating-point
 number> less than 1. For example, if the version is 4.05, this method returns
-.05; if the version is 4.5, this method returns .5. 
+.05; if the version is 4.5, this method returns .5.
 
 On occasion a version may have more than one decimal point, such as
 'Wget/1.4.5'. The minor version does not include the second decimal point, or
@@ -1167,13 +1180,13 @@ winnt, which is a type of win32)
 =head2 dotnet()
 
 =head2 mac()
-  
+
 mac68k macppc macosx
 
 =head2 os2()
 
 =head2 unix()
-    
+
   sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
   aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
   dec sinix freebsd bsd
@@ -1367,6 +1380,8 @@ Mike Clarke
 Marc Sebastian Pelzer
 
 Alexey Surikov
+
+Maros Kollar
 
 =head1 TO DO
 
