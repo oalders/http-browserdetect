@@ -197,7 +197,7 @@ sub _test {
             || ( index( $ua, "applewebkit" ) != -1 ) )
         && ( index( $ua, "chrome" ) == -1 );
 
-    # Chome Version
+    # Chrome Version
     if ( $tests->{CHROME} ) {
         ( $major, $minor ) = (
             $ua =~ m{
@@ -971,7 +971,7 @@ Version 1.08
     # Detect operating system
     if ($browser->windows) {
       if ($browser->winnt) ...
-      if ($brorwser->win95) ...
+      if ($browser->win95) ...
     }
     print $browser->mac;
 
@@ -1210,7 +1210,7 @@ version separately.
 
 =head3 safari
 
-=head3 crhome
+=head3 chrome
 
 =head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
 
