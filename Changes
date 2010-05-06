@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.10 2010-04-05
+1.10 2010-05-05
     - Google toolbar no longer triggers false positive for Googlebot (Jay
       Rifkin)
 
