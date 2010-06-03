@@ -1366,3 +1366,24 @@ public_minor: 0
 version: 8.0
 major: 8
 minor: 0
+---
+useragent: Mozilla/4.0 (PSP (PlayStation Portable); 2.00)
+match:
+  - psp
+  - pspgameos
+  - mobile
+  - netfront
+no_match:
+  - netscape
+engine_string: NetFront
+device_name: Sony PlayStation Portable
+---
+useragent: Mozilla/5.0 (PLAYSTATION 3; 2.00)
+match:
+  - ps3
+  - ps3gameos
+  - netfront
+no_match:
+  - netscape
+engine_string: NetFront
+device_name: Sony PlayStation 3

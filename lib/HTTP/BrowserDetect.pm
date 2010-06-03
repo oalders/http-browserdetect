@@ -27,14 +27,15 @@ push @ALL_TESTS, qw(
     reliant dec         sinix
     freebsd bsd         vms
     x11     amiga       android
-    win7
+    win7    ps3gameos   pspgameos
 );
 
 # Devices
 push @ALL_TESTS, qw(
     palm    audrey      iopener
     wap     blackberry  iphone
-    ipod    ipad
+    ipod    ipad        ps3
+    psp
 );
 
 # Browsers
@@ -54,7 +55,7 @@ push @ALL_TESTS, qw(
     aol5        aol6        neoplanet
     neoplanet2  avantgo     emacs
     mozilla     gecko       r1
-    iceweasel
+    iceweasel   netfront
 );
 
 # Robots
@@ -246,7 +247,9 @@ sub _test {
             && index( $ua, "compatible" ) == -1
             && index( $ua, "opera" ) == -1
             && index( $ua, "webtv" ) == -1
-            && index( $ua, "hotjava" ) == -1 );
+            && index( $ua, "hotjava" ) == -1 
+            && index( $ua, "playstation 3" ) == -1
+            && index( $ua, "playstation portable" ) == -1 );
 
     if (   $tests->{GECKO}
         && $tests->{NETSCAPE}
@@ -385,6 +388,10 @@ sub _test {
             || index( $ua, "ia_archive" ) != -1
             || index( $ua, "zyborg" ) != -1
     );
+    $tests->{NETFRONT} = (
+           index( $ua, "playstation 3" ) != -1
+        || index( $ua, "playstation portable" ) != -1
+    );
 
     # Devices
 
@@ -411,6 +418,8 @@ sub _test {
             || index( $ua, "wap" ) == 0
             || index( $ua, "wapper" ) != -1
             || index( $ua, "zetor" ) != -1 );
+    $tests->{PS3} = ( index( $ua, "playstation 3" ) != -1 );
+    $tests->{PSP} = ( index( $ua, "playstation portable" ) != -1 );
 
     $tests->{MOBILE} = (
                index( $ua, "up.browser" ) != -1
@@ -447,6 +456,7 @@ sub _test {
             || index( $ua, "samsung" ) != -1
             || index( $ua, "zetor" ) != -1
             || index( $ua, "android" ) != -1
+            || $tests->{PSP}
     );
 
     # Operating System
@@ -587,6 +597,9 @@ sub _test {
 
     $tests->{ANDROID} = ( index( $ua, "android" ) != -1 );
 
+    $tests->{PS3GAMEOS} = $tests->{PS3} && $tests->{NETFRONT};
+    $tests->{PSPGAMEOS} = $tests->{PSP} && $tests->{NETFRONT};
+
     # A final try at browser version, if we haven't gotten it so far
     if ( !defined( $major ) || $major eq '' ) {
         if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
@@ -642,6 +655,7 @@ sub browser_string {
         $browser_string = 'IceWeasel'   if $self->iceweasel;
         $browser_string = 'curl'        if $self->curl;
         $browser_string = 'puf'         if $self->puf;
+        $browser_string = 'NetFront'    if $self->netfront;
     }
     return $browser_string;
 }
@@ -665,6 +679,8 @@ sub os_string {
         $os_string = 'OS2'      if $self->os2;
         $os_string = 'Unix'     if $self->unix && !$self->linux;
         $os_string = 'Linux'    if $self->linux;
+        $os_string = 'Playstation 3 GameOS' if $self->ps3gameos;
+        $os_string = 'Playstation Portable GameOS' if $self->pspgameos;
     }
     return $os_string;
 }
@@ -805,6 +821,10 @@ sub engine_string {
         return 'MSIE';
     }
 
+    if( $self->netfront ) {
+        return 'NetFront';
+    }
+
     return;
 }
 
@@ -891,7 +911,7 @@ sub device {
     my ( $self, $check ) = _self_or_default( @_ );
 
     my @devices = qw(
-        blackberry  iphone  ipod    ipad
+        blackberry  iphone  ipod    ipad  ps3  psp
     );
 
     foreach my $device ( @devices ) {
@@ -910,6 +930,8 @@ sub device_name {
         iphone => 'iPhone',
         ipod => 'iPod',
         ipad => 'iPad',
+        psp  => 'Sony Playstation Portable',
+        ps3  => 'Sony Playstation 3',
     );
 
     my $device = $self->device;
@@ -1143,7 +1165,7 @@ is thrown away.
 
 Returns one of the following:
 
-Gecko, KHTML, MSIE
+Gecko, KHTML, MSIE, NetFront
 
 Returns undef if no string can be found.
 
@@ -1195,6 +1217,10 @@ mac68k macppc macosx
 
 =head2 amiga()
 
+=head2 ps3gameos()
+
+=head2 pspgameos()
+
 It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
 distinguish between Win95 and WinNT.
@@ -1205,7 +1231,7 @@ Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
   Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
-  Win3x, OS2, Unix, Linux
+  Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 =head1 Detecting Browser Vendor
 
@@ -1255,6 +1281,8 @@ version separately.
 
 =head3 realplayer
 
+=head3 netfront
+
 Netscape 6, even though its called six, in the userAgent string has version
 number 5. The nav6 and nav6up methods correctly handle this quirk. The firefox
 text correctly detects the older-named versions of the browser (Phoenix,
@@ -1301,6 +1329,10 @@ The following methods are available, each returning a true or false value.
 =head3 palm
 
 =head3 wap
+
+=head3 psp
+
+=head3 ps3
 
 =head2 mobile()
 
