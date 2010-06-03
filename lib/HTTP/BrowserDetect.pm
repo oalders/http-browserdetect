@@ -930,8 +930,8 @@ sub device_name {
         iphone => 'iPhone',
         ipod => 'iPod',
         ipad => 'iPad',
-        psp  => 'Sony Playstation Portable',
-        ps3  => 'Sony Playstation 3',
+        psp  => 'Sony PlayStation Portable',
+        ps3  => 'Sony PlayStation 3',
     );
 
     my $device = $self->device;
