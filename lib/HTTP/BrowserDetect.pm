@@ -7,7 +7,7 @@ require Exporter;
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.10';
+$VERSION   = '1.11';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -995,7 +995,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 =head1 VERSION
 
-Version 1.10
+Version 1.11
 
 =head1 SYNOPSIS
 

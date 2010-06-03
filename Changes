@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.11 2010-06-03
+    - Added ps3 and psp (commit 85a619c9a977c0a8e403) (Alexey Surikov)
+
 1.10 2010-05-05
     - Google toolbar no longer triggers false positive for Googlebot (Jay
       Rifkin)
