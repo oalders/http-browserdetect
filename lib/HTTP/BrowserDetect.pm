@@ -66,7 +66,7 @@ push @ALL_TESTS, qw(
     lwp         webcrawler  linkexchange
     slurp       webtv       staroffice
     lotusnotes  konqueror   icab
-    google      java
+    google      java        googlemobile
 );
 
 # Properties
@@ -350,6 +350,7 @@ sub _test {
         = ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
     $tests->{YAHOO}  = ( index( $ua, "yahoo" ) != -1 );
     $tests->{GOOGLE} = ( index( $ua, "googlebot" ) != -1 );
+    $tests->{GOOGLEMOBILE} = ( index( $ua, "googlebot-mobile" ) != -1 );
     $tests->{JAVA}
         = ( index( $ua, "java" ) != -1 || index( $ua, "jdk" ) != -1 );
     $tests->{ALTAVISTA}    = ( index( $ua, "altavista" ) != -1 );
@@ -372,6 +373,7 @@ sub _test {
                 || $tests->{LINKEXCHANGE}
                 || $tests->{SLURP}
                 || $tests->{GOOGLE}
+                || $tests->{GOOGLEMOBILE}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
