@@ -496,6 +496,50 @@ language: ~
 country: ~
 ---
 browser_string: ~
+major: 2
+match:
+  - googlemobile
+  - google
+  - robot
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'ua=DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)'
+version: 2
+language: ~
+country: ~
+---
+browser_string: ~
+major: 2
+match:
+  - msn
+  - robot
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'msnbot/2.0b (+http://search.msn.com/msnbot.htm)'
+version: 2
+language: ~
+country: ~
+---
+browser_string: ~
+major: 4
+match:
+  - msn
+  - msnmobile
+  - robot
+minor: 0
+no_match: ~
+os: ~
+other: ~
+useragent: 'T-mobile Dash Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; Smartphone; 320x240;) msnbot-mobile/1.1 (+http://search.msn.com/msnbot.htm)'
+version: 1
+language: ~
+country: ~
+---
+browser_string: ~
 major: 1
 match:
   - wap

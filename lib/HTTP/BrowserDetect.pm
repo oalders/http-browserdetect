@@ -67,6 +67,7 @@ push @ALL_TESTS, qw(
     slurp       webtv       staroffice
     lotusnotes  konqueror   icab
     google      java        googlemobile
+    msn         msnmobile
 );
 
 # Properties
@@ -167,7 +168,7 @@ sub _test {
     if ($ua =~ m{
                 compatible;
                 \s*
-                \w*                 # Browser name
+                \w*
                 [\s|\/]
                 [A-Za-z]*           # Eat any letters before the major version
                 ( [^.]* )           # Major version number is everything before first dot
@@ -351,6 +352,8 @@ sub _test {
     $tests->{YAHOO}  = ( index( $ua, "yahoo" ) != -1 );
     $tests->{GOOGLE} = ( index( $ua, "googlebot" ) != -1 );
     $tests->{GOOGLEMOBILE} = ( index( $ua, "googlebot-mobile" ) != -1 );
+    $tests->{MSN} = ( (index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" )) != -1 );
+    $tests->{MSNMOBILE} = ( (index( $ua, "msnbot-mobile" ) != -1 || index( $ua, "bingbot-mobile" )) != -1 );
     $tests->{JAVA}
         = ( index( $ua, "java" ) != -1 || index( $ua, "jdk" ) != -1 );
     $tests->{ALTAVISTA}    = ( index( $ua, "altavista" ) != -1 );
@@ -374,6 +377,8 @@ sub _test {
                 || $tests->{SLURP}
                 || $tests->{GOOGLE}
                 || $tests->{GOOGLEMOBILE}
+                || $tests->{MSN}
+                || $tests->{MSNMOBILE}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
@@ -1369,6 +1374,10 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 slurp
 
 =head3 google
+
+=head3 googlemobile
+
+=head3 msn (same as bing)
 
 =head3 puf
 
