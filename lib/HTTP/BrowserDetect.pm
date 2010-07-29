@@ -146,6 +146,7 @@ sub _test {
             ( [^\s]* )              # Beta version string is up to next space
         }x
     );
+    
 
     # Firefox version
     if ($ua =~ m{
@@ -170,7 +171,7 @@ sub _test {
                 \s*
                 \w*
                 [\s|\/]
-                [A-Za-z]*           # Eat any letters before the major version
+                [A-Za-z\-\/]*       # Eat any letters before the major version
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
                 ( [\d]* )           # Minor version nnumber is digits after first dot
@@ -183,6 +184,7 @@ sub _test {
         $major = $1;
         $minor = $2;
         $beta  = $3;
+
     }
 
     $major = 0 if !$major;
