@@ -3,17 +3,17 @@ NAME
     an HTTP user agent string
 
 VERSION
-    Version 1.07
+    version 1.12
 
 SYNOPSIS
         use HTTP::BrowserDetect;
 
-        my $browser = new HTTP::BrowserDetect($user_agent_string);
+        my $browser = HTTP::BrowserDetect->new($user_agent_string);
 
         # Detect operating system
         if ($browser->windows) {
           if ($browser->winnt) ...
-          if ($brorwser->win95) ...
+          if ($browser->win95) ...
         }
         print $browser->mac;
 
@@ -73,15 +73,27 @@ SUBROUTINES/METHODS
     log file, perhaps) without creating a new HTTP::BrowserDetect object
     each time.
 
+  country()
+    Returns the country string as it may be found in the user agent string.
+    This will be in the form of an upper case 2 character code. ie: US, DE,
+    etc
+
   language()
     Returns the language string as it is found in the user agent string.
     This will be in the form of an upper case 2 character code. ie: EN, DE,
     etc
 
-  country()
-    Returns the country string as it may be found in the user agent string.
-    This will be in the form of an upper case 2 character code. ie: US, DE,
-    etc
+  device()
+    Returns the method name of the actual hardware, if it can be detected.
+    Currently returns one of: blackberry, iphone, ipod or ipad Returns UNDEF
+    if no hardware can be detected
+
+  device_name()
+    Returns a human formatted version of the hardware device name. These
+    names are subject to change and are really meant for display purposes.
+    You should use the device() method in your logic. Returns one of:
+    BlackBerry, iPhone, iPod or iPad. Returns UNDEF if no hardware can be
+    detected.
 
 Detecting Browser Version
     Please note that that the version(), major() and minor() methods have
@@ -145,7 +157,7 @@ Detecting Rendering Engine
   engine_string()
     Returns one of the following:
 
-    Gecko, KHTML, MSIE
+    Gecko, KHTML, MSIE, NetFront
 
     Returns undef if no string can be found.
 
@@ -188,6 +200,8 @@ Detecting OS Platform and Version
 
   vms()
   amiga()
+  ps3gameos()
+  pspgameos()
     It may not be possibile to detect Win98 in Netscape 4.x and earlier. On
     Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32,
     so you can't distinguish between Win95 and WinNT.
@@ -197,7 +211,7 @@ Detecting OS Platform and Version
     solely for compatibility with the HTTP::Headers::UserAgent module.
 
       Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
-      Win3x, OS2, Unix, Linux
+      Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 Detecting Browser Vendor
     The following methods are available, each returning a true or false
@@ -209,7 +223,7 @@ Detecting Browser Vendor
    mozilla
    firefox
    safari
-   crhome
+   chrome
    ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
    neoplanet neoplanet2
    mosaic
@@ -225,6 +239,7 @@ Detecting Browser Vendor
    java
    curl
    realplayer
+   netfront
     Netscape 6, even though its called six, in the userAgent string has
     version number 5. The nav6 and nav6up methods correctly handle this
     quirk. The firefox text correctly detects the older-named versions of
@@ -257,8 +272,11 @@ Detecting Other Devices
    iopener
    iphone
    ipod
+   ipad
    palm
    wap
+   psp
+   ps3
   mobile()
     Returns true if the browser appears to belong to a handheld device.
 
@@ -281,8 +299,10 @@ Detecting Other Devices
    linkexchange
    slurp
    google
+   googlemobile
+   msn (same as bing)
    puf
-AUTHOR
+CREDITS
     Lee Semel, lee@semel.net (Original Author)
 
     Peter Walsham (co-maintainer)
@@ -321,6 +341,12 @@ ACKNOWLEDGEMENTS
     Marc Sebastian Pelzer
 
     Alexey Surikov
+
+    Maros Kollar
+
+    Jay Rifkin
+
+    Luke Saunders
 
 TO DO
     The _engine() method currently only handles Gecko. It needs to be
@@ -373,13 +399,17 @@ BUGS AND LIMITATIONS
     The biggest limitation at this point is the test suite, which really
     needs to have many more UserAgent strings to test against.
 
-    Patches are certainly welcome, with many thanks to the many
+    Patches are certainly welcome, with many thanks for the excellent
     contributions which have already been received. The preferred method of
     patching would be to fork the GitHub repo and then send me a pull
     requests, but plain old patch files are also welcome.
 
-LICENSE AND COPYRIGHT
-    Copyright 1999-2010 Lee Semel. All rights reserved. This program is free
-    software; you can redistribute it and/or modify it under the same terms
-    as Perl itself.
+AUTHOR
+    Olaf Alders <olaf@wundercounter.com> (Current Maintainer)
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2010 by Lee Semel.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

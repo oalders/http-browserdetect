@@ -1440,3 +1440,20 @@ public_minor: .01
 version: 4.01
 major: 4 
 minor: .01
+---
+browser_string: ~
+match:
+  - opera 
+  - mobile
+no_match: ~
+os: ~
+other: ~
+useragent: 'Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00'
+language: ~
+country: ~
+public_version: 9.80
+public_major: 9.80 
+public_minor: .0
+version: 9.80 
+major: 9 
+minor: .8

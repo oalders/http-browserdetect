@@ -1,13 +1,12 @@
+use strict;
 package HTTP::BrowserDetect;
 
-use strict;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK @ALL_TESTS);
+use vars qw(@ISA @EXPORT @EXPORT_OK @ALL_TESTS);
 require Exporter;
 
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
-$VERSION   = '1.11';
 
 # Operating Systems
 push @ALL_TESTS, qw(
@@ -465,6 +464,8 @@ sub _test {
             || index( $ua, "samsung" ) != -1
             || index( $ua, "zetor" ) != -1
             || index( $ua, "android" ) != -1
+            || index( $ua, "symbos" ) != -1
+            || index( $ua, "opera mobi" ) != -1
             || $tests->{PSP}
     );
 
@@ -998,19 +999,13 @@ sub _format_minor {
 
 __END__
 
-=head1 NAME
-
-HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP user agent string
-
-=head1 VERSION
-
-Version 1.11
+# ABSTRACT: Determine Web browser, version, and platform from an HTTP user agent string
 
 =head1 SYNOPSIS
 
     use HTTP::BrowserDetect;
 
-    my $browser = new HTTP::BrowserDetect($user_agent_string);
+    my $browser = HTTP::BrowserDetect->new($user_agent_string);
 
     # Detect operating system
     if ($browser->windows) {
@@ -1384,7 +1379,7 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 puf
 
 
-=head1 AUTHOR
+=head1 CREDITS
 
 Lee Semel, lee@semel.net (Original Author)
 
@@ -1429,6 +1424,8 @@ Alexey Surikov
 Maros Kollar
 
 Jay Rifkin
+
+Luke Saunders
 
 =head1 TO DO
 
@@ -1488,15 +1485,10 @@ L<http://search.cpan.org/dist/HTTP-BrowserDetect/>
 The biggest limitation at this point is the test suite, which really needs to
 have many more UserAgent strings to test against.
 
-Patches are certainly welcome, with many thanks to the many contributions
-which have already been received. The preferred method of patching would be to
-fork the GitHub repo and then send me a pull requests, but plain old patch
-files are also welcome.
+Patches are certainly welcome, with many thanks for the excellent
+contributions which have already been received. The preferred method of
+patching would be to fork the GitHub repo and then send me a pull requests,
+but plain old patch files are also welcome.
 
-=head1 LICENSE AND COPYRIGHT
-
-Copyright 1999-2010 Lee Semel. All rights reserved. This program is free
-software; you can redistribute it and/or modify it under the same terms as
-Perl itself.
 
 =cut

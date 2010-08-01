@@ -1,0 +1,6 @@
+t/perlcriticrc
+t/pod_coverage.t
+t/02-critic.t
+MANIFEST.SKIP
+README.pod
+http-browserdetect.kpf

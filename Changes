@@ -1,5 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.12 2010-08-01
+    - Added msn and msnmobile (Luke Saunders: f5c87a17b8fa2b09e294)
+    - Added googlemobile (Luke Saunders: ec28d49d7218b43788b9)
+    - SymbOS and Opera Mobi added to mobile detection (RT #59817)
+    - Distribution is now managed with Dist::Zilla
+    
 1.11 2010-06-03
     - Added ps3 and psp (commit 85a619c9a977c0a8e403) (Alexey Surikov)
 
