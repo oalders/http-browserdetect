@@ -466,6 +466,7 @@ sub _test {
             || index( $ua, "android" ) != -1
             || index( $ua, "symbos" ) != -1
             || index( $ua, "opera mobi" ) != -1
+            || index( $ua, "fennec" ) != -1
             || $tests->{PSP}
     );
 

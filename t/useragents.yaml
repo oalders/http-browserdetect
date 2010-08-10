@@ -1457,3 +1457,20 @@ public_minor: .0
 version: 9.80 
 major: 9 
 minor: .8
+---
+browser_string: ~
+match:
+  - firefox 
+  - mobile
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.5) Gecko/20100614 Firefox/3.6.5pre Fennec/1.1'
+language: ~
+country: ~
+public_version: 3.6 
+public_major: 3 
+public_minor: .6
+version: 3.6 
+major: 3 
+minor: .6
