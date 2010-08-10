@@ -2,6 +2,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
 
 1.13 2010-08-10
     - Firefox Mobile (Fennec) is now detected as mobile RT #60186 (Jacob Rask)
+    - Double digit Opera version #s now detected correctly RT #50717, #59817
 
 1.12 2010-08-01
     - Added msn and msnmobile (Luke Saunders: f5c87a17b8fa2b09e294)

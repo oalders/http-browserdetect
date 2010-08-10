@@ -185,6 +185,15 @@ sub _test {
         $beta  = $3;
 
     }
+    
+    # Opera needs to be dealt with specifically
+    # http://dev.opera.com/articles/view/opera-ua-string-changes/
+    # Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
+    
+    if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i) {
+        $major = $1;
+        $minor = $2;
+    }
 
     $major = 0 if !$major;
     $minor = $self->_format_minor( $minor );
@@ -1427,6 +1436,8 @@ Maros Kollar
 Jay Rifkin
 
 Luke Saunders
+
+Jacob Rask
 
 =head1 TO DO
 
