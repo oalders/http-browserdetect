@@ -1446,6 +1446,8 @@ Luke Saunders
 
 Jacob Rask
 
+Heiko Weber
+
 =head1 TO DO
 
 The _engine() method currently only handles Gecko.  It needs to be expanded to
