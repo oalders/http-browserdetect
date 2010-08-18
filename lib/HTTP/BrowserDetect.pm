@@ -145,7 +145,7 @@ sub _test {
             ( [^\s]* )              # Beta version string is up to next space
         }x
     );
-    
+
 
     # Firefox version
     if ($ua =~ m{
@@ -185,11 +185,11 @@ sub _test {
         $beta  = $3;
 
     }
-    
+
     # Opera needs to be dealt with specifically
     # http://dev.opera.com/articles/view/opera-ua-string-changes/
     # Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
-    
+
     if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i) {
         $major = $1;
         $minor = $2;
@@ -243,9 +243,16 @@ sub _test {
 # like: Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0
         $safari_build =~ s{ [^\d] }{}gxms;
 
-        $major = int( $safari_build / 100 );
-        $minor = int( $safari_build % 100 ) / 100;
-        $beta  = $safari_minor;
+        # ignore digits after 2nd dot
+        if ( !$safari_build && $ua =~ m{applewebkit\/([\d\.]{1,})}xi ) {
+            ( $safari_build, $safari_minor ) = split /\./, $1;
+        }
+
+        if ( $safari_build ) {
+            $major = int( $safari_build / 100 );
+            $minor = int( $safari_build % 100 ) / 100;
+            $beta  = $safari_minor;
+        }
 
     }
 
@@ -258,7 +265,7 @@ sub _test {
             && index( $ua, "compatible" ) == -1
             && index( $ua, "opera" ) == -1
             && index( $ua, "webtv" ) == -1
-            && index( $ua, "hotjava" ) == -1 
+            && index( $ua, "hotjava" ) == -1
             && index( $ua, "playstation 3" ) == -1
             && index( $ua, "playstation portable" ) == -1 );
 

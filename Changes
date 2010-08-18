@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.14 2010-08-18
+    - Fixed uninitialized value warnings for Safari (Heiko) RT #60440
+
 1.13 2010-08-10
     - Firefox Mobile (Fennec) is now detected as mobile RT #60186 (Jacob Rask)
     - Double digit Opera version #s now detected correctly RT #50717, #59817
@@ -9,7 +12,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Added googlemobile (Luke Saunders: ec28d49d7218b43788b9)
     - SymbOS and Opera Mobi added to mobile detection RT #59817 (Jacob Rask)
     - Distribution is now managed with Dist::Zilla
-    
+
 1.11 2010-06-03
     - Added ps3 and psp (commit 85a619c9a977c0a8e403) (Alexey Surikov)
 

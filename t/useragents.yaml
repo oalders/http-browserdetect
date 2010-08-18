@@ -1474,3 +1474,20 @@ public_minor: .6
 version: 3.6 
 major: 3 
 minor: .6
+---
+browser_string: ~
+match:
+  - safari 
+no_match: ~
+os: ~
+other: ~
+useragent: 'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 Nokia5230/20.0.005; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.3'
+language: ~
+country: ~
+public_version: 5.25 
+public_major: 5 
+public_minor: .25
+version: 5.25 
+major: 5 
+minor: .25 
+
