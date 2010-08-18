@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.15 2010-08-18
+    - Re-releasing after some folders unintentionally included in build
+    
 1.14 2010-08-18
     - Fixed uninitialized value warnings for Safari (Heiko) RT #60440
 
