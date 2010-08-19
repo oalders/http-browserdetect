@@ -1343,24 +1343,22 @@ version separately.
 
 =head3 netfront
 
-Netscape 6, even though its called six, in the userAgent string has version
-number 5. The nav6 and nav6up methods correctly handle this quirk. The firefox
-text correctly detects the older-named versions of the browser (Phoenix,
-Firebird)
+Netscape 6, even though its called six, in the User-Agent string has version
+number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
+test correctly detects the older-named versions of the browser (Phoenix,
+Firebird).
 
 
 =head2 browser_string()
 
 Returns undef on failure.  Otherwise returns one of the following:
 
-Firefox, Safari, Chrome, MSIE, etc
-
-To see a complete list of possible browser strings, check the browser_string()
-method in the source code.
+Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
+Lynx, RealPlayer, IceWeasel, curl, puf, NetFront
 
 =head2 gecko_version()
 
-If a Gecko rendering engine is used (as in Mozilla or Firebird), returns the
+If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
 version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
 the particular browser name or version when correcting for quirks in different
 versions of this rendering engine. If no Gecko browser is being used, or the
