@@ -37,14 +37,14 @@ foreach my $test ( @tests ) {
         engine_minor
         ))
     {
-        if ( exists $test->{$method} && $test->{$method} ) {
+        if ( exists $test->{$method} and defined $test->{$method} and length $test->{$method} ) {
             cmp_ok( $detected->$method, '==', $test->{$method},
                 "$method: $test->{$method}" );
         }
     }
 
     foreach my $method ( 'language', 'device', 'device_name' ) {
-        if ( exists $test->{$method} && $test->{$method} ) {
+        if ( exists $test->{$method} and defined $test->{$method} and length $test->{$method} ) {
             cmp_ok( $detected->$method, 'eq', $test->{$method},
                 "$method: $test->{$method}" );
         }  
