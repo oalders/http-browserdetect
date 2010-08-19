@@ -1167,7 +1167,7 @@ useragent: Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010726 Netsc
 version: 6.1
 major: 6
 minor: 0.1
-public_version: 6
+public_version: 6.1
 public_major: 6
 public_minor: 0.1
 language: EN
@@ -1202,7 +1202,7 @@ major: 10
 match:
   - mac
   - realplayer
-minor: 1
+minor: 0.1
 no_match:
   - windows
 os: ~
@@ -1347,7 +1347,7 @@ match:
   - mac
 public_version: 3.6
 public_major: 3
-public_minor: 6
+public_minor: 0.6
 version: 3.6
 major: 3
 minor: 0.6
@@ -1484,9 +1484,9 @@ other: ~
 useragent: 'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 Nokia5230/20.0.005; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.3'
 language: ~
 country: ~
-public_version: 5.25 
-public_major: 5 
-public_minor: .25
+public_version: 3.0
+public_major: 3
+public_minor: 0
 version: 5.25 
 major: 5 
 minor: .25 
