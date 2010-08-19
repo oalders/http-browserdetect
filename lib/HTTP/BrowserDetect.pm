@@ -1251,7 +1251,7 @@ distinguish between Win95 and WinNT.
 Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
+  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X,
   Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 =head1 Detecting Browser Vendor
