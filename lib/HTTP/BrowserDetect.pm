@@ -826,7 +826,7 @@ sub _public {
         return ( $1, $2 );
     }
 
-    return ( $self->major, $self>minor );
+    return ( $self->major, $self->minor );
 
 }
 
