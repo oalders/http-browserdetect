@@ -875,12 +875,12 @@ sub engine_string {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    if ( $self->gecko ) {
-        return 'Gecko';
+    if ( $self->user_agent =~ m{\bKHTML\b} ) {
+        return 'KHTML';
     }
 
-    if ( $self->user_agent =~ m{KHTML, like Gecko} ) {
-        return 'KHTML';
+    if ( $self->gecko ) {
+        return 'Gecko';
     }
 
     if ( $self->ie ) {
