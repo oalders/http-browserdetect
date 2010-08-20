@@ -1485,17 +1485,14 @@ Jacob Rask
 
 Heiko Weber
 
+Jon Jensen
+
 =head1 TO DO
 
 The _engine() method currently only handles Gecko.  It needs to be expanded to
 handle other rendering engines.
 
 POD coverage is also not 100%.
-
-If you're able to help out with anything on the TO DO list, please do. A great
-deal of the latest improvements have come from patches via RT and GitHub pull
-requests. If you're able to submit changes via GitHub, I'm generally able to
-get them into a new release fairly quickly.
 
 =head1 SEE ALSO
 
@@ -1506,7 +1503,7 @@ get them into a new release fairly quickly.
 Safari "Historical User Agent strings", B<http://developer.apple.com/internet/safari/uamatrix.html> (now gone, retrieved 2007-06-20)
 
 "Safari Agent Strings", B<http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
- 
+
 perl(1), L<HTTP::Headers>, L<HTTP::Headers::UserAgent>.
 
 =head1 SUPPORT
@@ -1547,10 +1544,15 @@ L<http://search.cpan.org/dist/HTTP-BrowserDetect/>
 The biggest limitation at this point is the test suite, which really needs to
 have many more UserAgent strings to test against.
 
+=head1 CONTRIBUTING
+
 Patches are certainly welcome, with many thanks for the excellent
 contributions which have already been received. The preferred method of
 patching would be to fork the GitHub repo and then send me a pull requests,
 but plain old patch files are also welcome.
 
+If you're able to add test cases, this will speed up the time to release your
+changes. Just edit t/useragents.yaml so that the test coverage includes any
+changes you have made.  Please contact me if you have any questions.
 
 =cut

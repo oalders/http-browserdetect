@@ -1,8 +1,12 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.16 2010-08-19
+    - Added support for the < 3.0 Safari public versions (Jon Jensen)
+    - Added new UserAgents to useragents.yaml (Jon Jensen)
+    
 1.15 2010-08-18
     - Re-releasing after some folders unintentionally included in build
-    
+
 1.14 2010-08-18
     - Fixed uninitialized value warnings for Safari (Heiko Weber) RT #60440
 
