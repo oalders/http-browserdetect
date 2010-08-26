@@ -1118,18 +1118,6 @@ minor: ~
 no_match: ~
 os: ~
 other: ~
-useragent: 'Internetf Explorer 6 (MSIE 6; Windows XP)'
-version: ~
-language: ~
-country: ~
----
-browser_string: ~
-major: ~
-match: ~
-minor: ~
-no_match: ~
-os: ~
-other: ~
 useragent: 'Links (2.1pre15; Linux 2.4.26-vc4 i586; x)'
 version: ~
 language: ~
