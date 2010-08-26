@@ -54,7 +54,7 @@ push @ALL_TESTS, qw(
     aol5        aol6        neoplanet
     neoplanet2  avantgo     emacs
     mozilla     gecko       r1
-    iceweasel   netfront
+    iceweasel   netfront    mobile_safari
 );
 
 # Robots
@@ -239,6 +239,7 @@ sub _test {
         = (    ( index( $ua, "safari" ) != -1 )
             || ( index( $ua, "applewebkit" ) != -1 ) )
         && ( index( $ua, "chrome" ) == -1 );
+    $tests->{MOBILE_SAFARI} = ($tests->{SAFARI} && index($ua, " mobile safari/") >= 0);
 
     # Chrome Version
     if ( $tests->{CHROME} ) {
@@ -702,6 +703,7 @@ sub browser_string {
         $browser_string = 'curl'        if $self->curl;
         $browser_string = 'puf'         if $self->puf;
         $browser_string = 'NetFront'    if $self->netfront;
+        $browser_string = 'Mobile Safari' if $self->mobile_safari;
     }
     return $browser_string;
 }
@@ -1343,6 +1345,8 @@ version separately.
 
 =head3 netfront
 
+=head3 mobile_safari
+
 Netscape 6, even though its called six, in the User-Agent string has version
 number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
@@ -1354,7 +1358,7 @@ Firebird).
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, RealPlayer, IceWeasel, curl, puf, NetFront
+Lynx, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
 
 =head2 gecko_version()
 
