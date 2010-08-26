@@ -1111,17 +1111,13 @@ engine_string: KHTML
 device: iphone
 device_name: iPhone
 ---
-browser_string: ~
-major: ~
-match: ~
-minor: ~
-no_match: ~
-os: ~
-other: ~
 useragent: 'Links (2.1pre15; Linux 2.4.26-vc4 i586; x)'
-version: ~
-language: ~
-country: ~
+match:
+  - linux
+  - unix
+  - links
+browser_string: Links
+os: Linux
 ---
 browser_string: MSIE
 major: 8
@@ -1235,20 +1231,19 @@ version: ~
 language: ~
 country: ~
 engine_string: MSIE
-#---
-#browser_string: Netscape
-#major: 6
-#match:
-#  - windows
-#  - safari
-#minor: 0.1
-#no_match: ~
-#os: Win98
-#other: ~
-#useragent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/522.12.1 (KHTML, like Gecko) Version/3.0.1 Safari/522.12.2
-#version: 6.1
-#language: EN
-#country: ~
+---
+useragent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/522.12.1 (KHTML, like Gecko) Version/3.0.1 Safari/522.12.2
+match:
+  - windows
+  - winxp
+  - safari
+browser_string: Safari
+os: WinXP
+public_version: 3.0
+public_major: 3.0
+public_minor: 0
+engine_string: KHTML
+language: EN
 ---
 browser_string: Safari
 match:
@@ -2122,4 +2117,12 @@ match:
   - unix
   - elinks
 browser_string: ELinks
+os: Linux
+---
+useragent: 'Links (2.2; Linux 2.6.32-24-generic x86_64; 135x85)'
+match:
+  - linux
+  - unix
+  - links
+browser_string: Links
 os: Linux

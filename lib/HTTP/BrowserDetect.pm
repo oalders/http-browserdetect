@@ -700,6 +700,7 @@ sub browser_string {
         $browser_string = 'Opera'       if $self->opera;
         $browser_string = 'Mosaic'      if $self->mosaic;
         $browser_string = 'Lynx'        if $self->lynx;
+        $browser_string = 'Links'       if $self->links;
         $browser_string = 'RealPlayer'  if $self->realplayer;
         $browser_string = 'IceWeasel'   if $self->iceweasel;
         $browser_string = 'curl'        if $self->curl;
@@ -1361,7 +1362,7 @@ Firebird).
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
+Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
 
 =head2 gecko_version()
 
