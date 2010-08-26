@@ -2115,3 +2115,11 @@ engine_string: Gecko
 engine_version: 1.9
 engine_major: 1
 engine_minor: 0.9
+---
+useragent: 'ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)'
+match:
+  - linux
+  - unix
+  - elinks
+browser_string: ELinks
+os: Linux

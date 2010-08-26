@@ -55,6 +55,7 @@ push @ALL_TESTS, qw(
     neoplanet2  avantgo     emacs
     mozilla     gecko       r1
     iceweasel   netfront    mobile_safari
+    elinks
 );
 
 # Robots
@@ -379,6 +380,7 @@ sub _test {
     $tests->{KONQUEROR}  = ( index( $ua, "konqueror" ) != -1 );
     $tests->{LYNX}       = ( index( $ua, "lynx" ) != -1 );
     $tests->{LINKS}      = ( index( $ua, "links" ) != -1 );
+    $tests->{ELINKS}     = ( index( $ua, "elinks" ) != -1 );
     $tests->{WEBTV}      = ( index( $ua, "webtv" ) != -1 );
     $tests->{MOSAIC}     = ( index( $ua, "mosaic" ) != -1 );
     $tests->{PUF}        = ( index( $ua, "puf" ) != -1 );
@@ -704,6 +706,7 @@ sub browser_string {
         $browser_string = 'puf'         if $self->puf;
         $browser_string = 'NetFront'    if $self->netfront;
         $browser_string = 'Mobile Safari' if $self->mobile_safari;
+        $browser_string = 'ELinks'      if $self->elinks;
     }
     return $browser_string;
 }
@@ -1325,7 +1328,7 @@ version separately.
 
 =head3 opera opera3 opera4 opera5 opera6 opera7
 
-=head3 lynx links
+=head3 lynx links elinks
 
 =head3 emacs
 
@@ -1358,7 +1361,7 @@ Firebird).
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
+Lynx, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
 
 =head2 gecko_version()
 
