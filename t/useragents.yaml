@@ -2126,3 +2126,26 @@ match:
   - links
 browser_string: Links
 os: Linux
+---
+useragent: 'Mozilla/4.0 (compatible; Linux 2.6.22) NetFront/3.4 Kindle/2.5 (screen 600x800; rotate)'
+match:
+  - kindle
+  - linux
+  - netfront
+browser_string: NetFront
+os: linux
+public_version: 3.4 
+public_major: 3 
+public_minor: 0.4 
+---
+useragent: 'Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)'
+match:
+  - kindle
+  - linux
+  - safari
+browser_string: Safari 
+os: Linux
+public_version: 4.0 
+public_major: 4 
+public_minor: 0
+

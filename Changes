@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.18 2010-09-06
+    - Added support for Netfront and Safari on Kindle
+
 1.17 2010-08-28
     - Added support for Mobile Safari, Links and Elinks (Jon Jensen)
     - Added more UserAgents to test suite (Jon Jensen)
@@ -7,7 +10,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
 1.16 2010-08-19
     - Added support for the < 3.0 Safari public versions (Jon Jensen)
     - Added new UserAgents to useragents.yaml (Jon Jensen)
-    
+
 1.15 2010-08-18
     - Re-releasing after some folders unintentionally included in build
 
