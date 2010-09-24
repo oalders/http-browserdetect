@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.19 2010-09-24
+    - Added support for WebOS (Jesse Thompson) RT #61437
+
 1.18 2010-09-06
     - Added support for Netfront and Safari on Kindle
 

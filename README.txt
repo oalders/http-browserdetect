@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.12
+    version 1.19
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -85,8 +85,8 @@ SUBROUTINES/METHODS
 
   device()
     Returns the method name of the actual hardware, if it can be detected.
-    Currently returns one of: blackberry, iphone, ipod or ipad Returns UNDEF
-    if no hardware can be detected
+    Currently returns one of: blackberry, webos, iphone, ipod or ipad
+    Returns UNDEF if no hardware can be detected
 
   device_name()
     Returns a human formatted version of the hardware device name. These
@@ -210,7 +210,7 @@ Detecting OS Platform and Version
     Returns one of the following strings, or undef. This method exists
     solely for compatibility with the HTTP::Headers::UserAgent module.
 
-      Win95, Win98, WinNT, Win2K, WinXP, Win2K3, WinVista, Win7, Mac, Mac OS X,
+      Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X,
       Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 Detecting Browser Vendor
@@ -230,7 +230,7 @@ Detecting Browser Vendor
    aol aol3 aol4 aol5 aol6
    webtv
    opera opera3 opera4 opera5 opera6 opera7
-   lynx links
+   lynx links elinks
    emacs
    staroffice
    lotusnotes
@@ -240,21 +240,21 @@ Detecting Browser Vendor
    curl
    realplayer
    netfront
-    Netscape 6, even though its called six, in the userAgent string has
+   mobile_safari
+    Netscape 6, even though its called six, in the User-Agent string has
     version number 5. The nav6 and nav6up methods correctly handle this
-    quirk. The firefox text correctly detects the older-named versions of
-    the browser (Phoenix, Firebird)
+    quirk. The Firefox test correctly detects the older-named versions of
+    the browser (Phoenix, Firebird).
 
   browser_string()
     Returns undef on failure. Otherwise returns one of the following:
 
-    Firefox, Safari, Chrome, MSIE, etc
-
-    To see a complete list of possible browser strings, check the
-    browser_string() method in the source code.
+    Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
+    Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront,
+    Mobile Safari
 
   gecko_version()
-    If a Gecko rendering engine is used (as in Mozilla or Firebird), returns
+    If a Gecko rendering engine is used (as in Mozilla or Firefox), returns
     the version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more
     useful than the particular browser name or version when correcting for
     quirks in different versions of this rendering engine. If no Gecko
@@ -273,7 +273,9 @@ Detecting Other Devices
    iphone
    ipod
    ipad
+   kindle
    palm
+   webos
    wap
    psp
    ps3
@@ -348,23 +350,31 @@ ACKNOWLEDGEMENTS
 
     Luke Saunders
 
+    Jacob Rask
+
+    Heiko Weber
+
+    Jon Jensen
+
 TO DO
     The _engine() method currently only handles Gecko. It needs to be
     expanded to handle other rendering engines.
 
     POD coverage is also not 100%.
 
-    If you're able to help out with anything on the TO DO list, please do. A
-    great deal of the latest improvements have come from patches via RT and
-    GitHub pull requests. If you're able to submit changes via GitHub, I'm
-    generally able to get them into a new release fairly quickly.
-
 SEE ALSO
     "The Ultimate JavaScript Client Sniffer, Version 3.0",
-    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
+    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
 
-    "Browser ID (User-Agent) Strings"
+    "Browser ID (User-Agent) Strings",
     http://www.zytrax.com/tech/web/browser_ids.htm
+
+    Safari "Historical User Agent strings",
+    http://developer.apple.com/internet/safari/uamatrix.html (now gone,
+    retrieved 2007-06-20)
+
+    "Safari Agent Strings",
+    http://homepage.mac.com/jprince/designSandbox/web/safari-agents/
 
     perl(1), HTTP::Headers, HTTP::Headers::UserAgent.
 
@@ -399,13 +409,23 @@ BUGS AND LIMITATIONS
     The biggest limitation at this point is the test suite, which really
     needs to have many more UserAgent strings to test against.
 
+CONTRIBUTING
     Patches are certainly welcome, with many thanks for the excellent
     contributions which have already been received. The preferred method of
     patching would be to fork the GitHub repo and then send me a pull
     requests, but plain old patch files are also welcome.
 
-AUTHOR
-    Olaf Alders <olaf@wundercounter.com> (Current Maintainer)
+    If you're able to add test cases, this will speed up the time to release
+    your changes. Just edit t/useragents.yaml so that the test coverage
+    includes any changes you have made. Please contact me if you have any
+    questions.
+
+AUTHORS
+    *   Lee Semel <lee@semel.net>
+
+    *   Peter Walsham
+
+    *   Olaf Alders <olaf@wundercounter.com> (current maintainer)
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Lee Semel.

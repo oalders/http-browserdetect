@@ -1,3 +1,6 @@
 /blib/
 _build/
 Build
+HTTP-BrowserDetect-*
+.build
+*.kpf
