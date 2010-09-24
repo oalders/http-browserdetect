@@ -34,7 +34,7 @@ push @ALL_TESTS, qw(
     palm    audrey      iopener
     wap     blackberry  iphone
     ipod    ipad        ps3
-    psp     kindle
+    psp     kindle      webos
 );
 
 # Browsers
@@ -448,6 +448,7 @@ sub _test {
 
     $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 );
     $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
+    $tests->{WEBOS}      = ( index( $ua, "webos" ) != -1 );
     $tests->{IPOD}       = ( index( $ua, "ipod" ) != -1 );
     $tests->{IPAD}       = ( index( $ua, "ipad" ) != -1 );
     $tests->{KINDLE}     = ( index( $ua, "kindle" ) != -1 );
@@ -989,7 +990,7 @@ sub device {
     my ( $self, $check ) = _self_or_default( @_ );
 
     my @devices = qw(
-        blackberry  iphone  ipod    ipad  ps3  psp
+        blackberry  iphone  ipod    ipad  ps3  psp  webos
     );
 
     foreach my $device ( @devices ) {
@@ -1010,6 +1011,7 @@ sub device_name {
         ipad => 'iPad',
         psp  => 'Sony PlayStation Portable',
         ps3  => 'Sony PlayStation 3',
+        webos => 'webOS',
     );
 
     my $device = $self->device;
@@ -1155,7 +1157,7 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: blackberry, iphone, ipod or ipad  Returns UNDEF if
+Currently returns one of: blackberry, webos, iphone, ipod or ipad  Returns UNDEF if
 no hardware can be detected
 
 =head2 device_name()
@@ -1401,6 +1403,8 @@ The following methods are available, each returning a true or false value.
 =head3 kindle
 
 =head3 palm
+
+=head3 webos
 
 =head3 wap
 

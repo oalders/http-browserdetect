@@ -2148,4 +2148,15 @@ os: Linux
 public_version: 4.0 
 public_major: 4 
 public_minor: 0
+---
+useragent: 'Mozilla/5.0 (webOS/1.0; U; en-US) AppleWebKit/525.27.1 (KHTML, like Gecko) Version/1.0 Safari/525.27.1 Pre/1.0'
+language: EN
+country: US
+match:
+  - safari
+  - mobile
+  - webos
+engine_string: KHTML
+device: webos
+device_name: webOS
 
