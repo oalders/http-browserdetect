@@ -2159,10 +2159,115 @@ match:
 engine_string: KHTML
 device: webos
 device_name: webOS
-
 ---
 useragent: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
 match:
   - robot
   - facebook
-
+---
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.10 NET_mmhpset SearchToolbar/1.2'
+browser_string: Firefox
+language: EN
+country: US
+major: 3
+match:
+  - windows
+  - win32
+  - winnt
+minor: 0.6
+no_match:
+  - robot
+---
+useragent: 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12 SearchToolbar'
+browser_string: Firefox
+language: EN
+country: US
+major: 3
+match:
+  - windows
+  - win32
+  - winnt
+minor: 0.6
+no_match:
+  - robot
+---
+useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; GTB6.6; PicMorphSearchToolbar 1.2; InfoPath.2)'
+browser_string: MSIE
+major: 6
+match:
+  - windows
+  - win32
+  - winnt
+  - ie
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match:
+  - robot
+---
+useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; GTB6.5; SearchToolbar 1.2)'
+browser_string: MSIE
+major: 6
+match:
+  - windows
+  - win32
+  - winnt
+  - ie
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match:
+  - robot
+---
+useragent: 'Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.5400; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; Seekmo 10.0.430.0; 3P_UPCPC 1.0.21.2; .NET CLR 3.5.30729; Tablet PC 2.0; .NET CLR 3.0.30729; .NET4.0C)'
+browser_string: AOL Browser
+major: 7
+match:
+  - windows
+  - win32
+  - winnt
+  - dotnet
+  - ie
+  - ie7
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match:
+  - robot
+---
+useragent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; FunWebProducts; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; SeekmoToolbar 4.8.4)'
+browser_string: MSIE
+major: 7
+match:
+  - windows
+  - win32
+  - winnt
+  - dotnet
+  - ie
+  - ie7
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match:
+  - robot
+---
+useragent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; GTB6.6; .NET CLR 1.1.4322; Seekmo 10.3.79.0)'
+browser_string: MSIE
+major: 7
+match:
+  - windows
+  - win32
+  - winnt
+  - dotnet
+  - ie
+  - ie7
+  - ie4up
+  - ie5up
+  - ie55up
+minor: 0
+no_match:
+  - robot

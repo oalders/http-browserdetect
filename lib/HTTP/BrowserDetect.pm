@@ -429,8 +429,8 @@ sub _test {
             || index( $ua, "spider" ) != -1
             || index( $ua, "crawl" ) != -1
             || index( $ua, "agent" ) != -1
-            || index( $ua, "seek" ) != -1
-            || index( $ua, "search" ) != -1
+            || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
+            || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x
             || index( $ua, "reap" ) != -1
             || index( $ua, "worm" ) != -1
             || index( $ua, "find" ) != -1
