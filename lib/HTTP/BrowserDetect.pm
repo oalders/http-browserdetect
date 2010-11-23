@@ -67,7 +67,7 @@ push @ALL_TESTS, qw(
     slurp       webtv       staroffice
     lotusnotes  konqueror   icab
     google      java        googlemobile
-    msn         msnmobile
+    msn         msnmobile   facebook
 );
 
 # Properties
@@ -406,6 +406,7 @@ sub _test {
     $tests->{WEBCRAWLER}   = ( index( $ua, "webcrawler" ) != -1 );
     $tests->{LINKEXCHANGE} = ( index( $ua, "lecodechecker" ) != -1 );
     $tests->{SLURP}        = ( index( $ua, "slurp" ) != -1 );
+    $tests->{FACEBOOK}     = ( index( $ua, "facebookexternalhit" ) != -1 );
     $tests->{ROBOT}        = (
         (          $tests->{WGET}
                 || $tests->{PUF}
@@ -422,6 +423,7 @@ sub _test {
                 || $tests->{GOOGLEMOBILE}
                 || $tests->{MSN}
                 || $tests->{MSNMOBILE}
+                || $tests->{FACEBOOK}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
@@ -1451,6 +1453,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 msn (same as bing)
 
 =head3 puf
+
+=head3 facebook
 
 
 =head1 CREDITS
