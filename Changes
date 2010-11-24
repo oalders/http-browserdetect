@@ -1,5 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.20 2010-11-23
+    - Be a little more selective in marking ua as robot when contains search
+      or seek (Graham Barr)
+    - Add facebook crawler as a robot (Graham Barr) (Enrico Sorcinelli)
+    
 1.19 2010-09-24
     - Added support for WebOS (Jesse Thompson) RT #61437
 

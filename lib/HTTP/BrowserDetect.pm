@@ -1513,6 +1513,10 @@ Jon Jensen
 
 Jesse Thompson
 
+Graham Barr
+
+Enrico Sorcinelli
+
 =head1 TO DO
 
 The _engine() method currently only handles Gecko.  It needs to be expanded to
