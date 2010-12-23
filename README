@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.19
+    version 1.21
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -218,29 +218,29 @@ Detecting Browser Vendor
     value. Some methods also test for the browser version, saving you from
     checking the version separately.
 
-   netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
-   gecko
-   mozilla
-   firefox
-   safari
-   chrome
-   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
-   neoplanet neoplanet2
-   mosaic
    aol aol3 aol4 aol5 aol6
-   webtv
-   opera opera3 opera4 opera5 opera6 opera7
-   lynx links elinks
-   emacs
-   staroffice
-   lotusnotes
-   icab
-   konqueror
-   java
+   chrome
    curl
-   realplayer
-   netfront
+   emacs
+   firefox
+   gecko
+   icab
+   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
+   java
+   konqueror
+   lotusnotes
+   lynx links elinks
    mobile_safari
+   mosaic
+   mozilla
+   neoplanet neoplanet2
+   netfront
+   netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
+   opera opera3 opera4 opera5 opera6 opera7
+   realplayer
+   safari
+   staroffice
+   webtv
     Netscape 6, even though its called six, in the User-Agent string has
     version number 5. The nav6 and nav6up methods correctly handle this
     quirk. The Firefox test correctly detects the older-named versions of
@@ -290,20 +290,21 @@ Detecting Other Devices
     false value. This is by no means a complete list of robots that exist on
     the Web.
 
-   wget
-   getright
-   yahoo
    altavista
-   lycos
-   infoseek
-   lwp
-   webcrawler
-   linkexchange
-   slurp
+   facebook
+   getright
    google
    googlemobile
+   infoseek
+   linkexchange
+   lwp
+   lycos
    msn (same as bing)
    puf
+   slurp
+   webcrawler
+   wget
+   yahoo
 CREDITS
     Lee Semel, lee@semel.net (Original Author)
 
@@ -355,6 +356,12 @@ ACKNOWLEDGEMENTS
     Heiko Weber
 
     Jon Jensen
+
+    Jesse Thompson
+
+    Graham Barr
+
+    Enrico Sorcinelli
 
 TO DO
     The _engine() method currently only handles Gecko. It needs to be

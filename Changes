@@ -1,5 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.21 2010-12-23
+    - Test suite now uses YAML rather than YAML::Tiny as YAML::Tiny 1.46
+      refuses to load useragents.yaml
+    - Alphabetically re-ordered some of the documentation
+    
 1.20 2010-11-23
     - Be a little more selective in marking ua as robot when contains search
       or seek (Graham Barr)

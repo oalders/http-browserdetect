@@ -1315,51 +1315,51 @@ The following methods are available, each returning a true or false value.
 Some methods also test for the browser version, saving you from checking the
 version separately.
 
-=head3 netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
-
-=head3 gecko
-
-=head3 mozilla
-
-=head3 firefox
-
-=head3 safari
+=head3 aol aol3 aol4 aol5 aol6
 
 =head3 chrome
 
-=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
-
-=head3 neoplanet neoplanet2
-
-=head3 mosaic
-
-=head3 aol aol3 aol4 aol5 aol6
-
-=head3 webtv
-
-=head3 opera opera3 opera4 opera5 opera6 opera7
-
-=head3 lynx links elinks
+=head3 curl
 
 =head3 emacs
 
-=head3 staroffice
+=head3 firefox
 
-=head3 lotusnotes
+=head3 gecko
 
 =head3 icab
 
-=head3 konqueror
+=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
 
 =head3 java
 
-=head3 curl
+=head3 konqueror
 
-=head3 realplayer
+=head3 lotusnotes
+
+=head3 lynx links elinks
+
+=head3 mobile_safari
+
+=head3 mosaic
+
+=head3 mozilla
+
+=head3 neoplanet neoplanet2
 
 =head3 netfront
 
-=head3 mobile_safari
+=head3 netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
+
+=head3 opera opera3 opera4 opera5 opera6 opera7
+
+=head3 realplayer
+
+=head3 safari
+
+=head3 staroffice
+
+=head3 webtv
 
 Netscape 6, even though its called six, in the User-Agent string has version
 number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
@@ -1426,35 +1426,35 @@ other automated Web client.
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
 
-=head3 wget
-
-=head3 getright
-
-=head3 yahoo
-
 =head3 altavista
 
-=head3 lycos
+=head3 facebook
 
-=head3 infoseek
-
-=head3 lwp
-
-=head3 webcrawler
-
-=head3 linkexchange
-
-=head3 slurp
+=head3 getright
 
 =head3 google
 
 =head3 googlemobile
 
+=head3 infoseek
+
+=head3 linkexchange
+
+=head3 lwp
+
+=head3 lycos
+
 =head3 msn (same as bing)
 
 =head3 puf
 
-=head3 facebook
+=head3 slurp
+
+=head3 webcrawler
+
+=head3 wget
+
+=head3 yahoo
 
 
 =head1 CREDITS

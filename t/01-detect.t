@@ -6,7 +6,7 @@ use warnings;
 use Data::Dump qw( dump );
 use FindBin;
 use Test::More qw( no_plan );
-use YAML::Tiny qw( LoadFile );
+use YAML qw( LoadFile );
 require_ok( 'HTTP::BrowserDetect' );
 
 my @tests = LoadFile( "$FindBin::Bin/useragents.yaml" );
