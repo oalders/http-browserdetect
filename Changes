@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.22 2011-03-10
+    - Adds Namoroka to list of Firefox browsers (Viacheslav Tykhanovskyi)
+
 1.21 2010-12-23
     - Test suite now uses YAML rather than YAML::Tiny as YAML::Tiny 1.46
       refuses to load useragents.yaml
