@@ -2271,3 +2271,18 @@ match:
 minor: 0
 no_match:
   - robot
+---
+useragent: 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.16pre) Gecko/20110308 Ubuntu/10.10 (maverick) Namoroka/3.6.16pre'
+match:
+  - linux
+  - unix
+  - x11
+  - firefox
+browser_string: Firefox
+os: Linux
+public_version: 3.6
+public_major: 3
+public_minor: 0.6
+engine_version: 1.9
+engine_major: 1
+engine_minor: 0.9

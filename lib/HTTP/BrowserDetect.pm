@@ -160,7 +160,7 @@ sub _test {
     $self->{tests} = {};
     my $tests = $self->{tests};
 
-    my @ff = qw( firefox firebird iceweasel phoenix );
+    my @ff = qw( firefox firebird iceweasel phoenix namoroka );
     my $ff = join "|", @ff;
 
     my $ua = lc $self->{user_agent};
