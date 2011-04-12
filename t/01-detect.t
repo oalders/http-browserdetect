@@ -63,10 +63,8 @@ foreach my $test ( @tests ) {
         ok( $detected->$type, "$type should match" );
     }
 
-    # Currently doesn't pass because firefox variants don't have their own ->type call (ex: $test->firebird)
-    # useragent yaml "match:" properties would need to be adjusted also
-    # is_deeply( [sort $detected->browser_properties()], [sort @{$test->{match}}], 
-    #    "$test browser properties match" );
+    is_deeply( [sort $detected->browser_properties()], [sort @{$test->{match}}], 
+       "browser properties match" );
 
     # Test that $ua doesn't match a specific method
     foreach my $type ( @{ $test->{no_match} } ) {
