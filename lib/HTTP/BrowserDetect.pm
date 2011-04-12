@@ -1067,6 +1067,17 @@ sub _format_minor {
 
 }
 
+sub browser_properties {
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
+    my @browser_properties;
+    foreach my $property (keys %{$self->{tests}}) {
+        push @browser_properties, lc($property) if (${$self->{tests}}{$property});
+    }
+
+    return @browser_properties;
+}
 1;
 
 __END__
@@ -1168,6 +1179,12 @@ Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
 use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
 iPod or iPad.  Returns UNDEF if no hardware can be detected.
+
+=head2 browser_properties()
+
+Returns a list of the browser properties, that is, all of the tests that passed
+for the provided user_agent string. Operating systems, devices, browser names, 
+mobile and robots are all browser properties.
 
 =head1 Detecting Browser Version
 
