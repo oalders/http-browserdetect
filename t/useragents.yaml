@@ -833,6 +833,7 @@ minor: 0
 no_match:
   - safari
   - gecko
+  - netscape
 os: WinVista
 other: ~
 useragent: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.31 Safari/530.5'
@@ -1675,6 +1676,8 @@ match:
   - unix
   - x11
   - chrome
+no_match:
+  - netscape
 browser_string: Chrome
 os: Linux
 public_version: 6.0
@@ -1699,6 +1702,8 @@ match:
   - unix
   - x11
   - chrome
+no_match:
+  - netscape
 browser_string: Chrome
 os: Linux
 public_version: 5.0
@@ -1758,6 +1763,8 @@ match:
   - windows
   - winxp
   - chrome
+no_match:
+  - netscape
 browser_string: Chrome
 os: WinXP
 public_version: 6.0
@@ -1992,6 +1999,8 @@ match:
   - unix
   - x11
   - chrome
+no_match:
+  - netscape
 browser_string: Chrome
 os: Linux
 public_version: 7.0
@@ -2005,6 +2014,8 @@ match:
   - unix
   - x11
   - chrome
+no_match:
+  - netscape
 browser_string: Chrome
 os: Linux
 public_version: 5.0
