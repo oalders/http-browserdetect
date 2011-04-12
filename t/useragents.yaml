@@ -1533,6 +1533,8 @@ match:
   - linux
   - unix
   - x11
+no_match:
+  - gecko
 os: Linux
 public_version: 3.5
 public_major: 3
@@ -1830,6 +1832,8 @@ match:
   - unix
   - x11
   - konqueror
+no_match:
+  - gecko
 os: Linux
 public_version: 4.4
 public_major: 4
@@ -1842,6 +1846,8 @@ match:
   - macosx
   - macppc
   - safari
+no_match:
+  - gecko
 browser_string: Safari
 os: Mac OS X
 public_version: 0.8
@@ -1854,6 +1860,8 @@ match:
   - macosx
   - macppc
   - safari
+no_match:
+  - gecko
 browser_string: Safari
 os: Mac OS X
 public_version: 0.8

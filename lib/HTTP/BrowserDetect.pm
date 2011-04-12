@@ -237,7 +237,7 @@ sub _test {
     # Mozilla browsers
 
     $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
-        && ( index( $ua, "khtml, like gecko" ) == -1 );
+        && ( index( $ua, "like gecko" ) == -1 );
 
     $tests->{CHROME} = ( index( $ua, "chrome/" ) != -1 );
     $tests->{SAFARI}
