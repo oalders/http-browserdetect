@@ -291,6 +291,7 @@ sub _test {
     $tests->{NETSCAPE}
         = (    !$tests->{FIREFOX}
             && !$tests->{SAFARI}
+            && !$tests->{CHROME}
             && index( $ua, "mozilla" ) != -1
             && index( $ua, "spoofer" ) == -1
             && index( $ua, "compatible" ) == -1
