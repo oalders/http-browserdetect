@@ -58,6 +58,12 @@ push @ALL_TESTS, qw(
     elinks
 );
 
+# Firefox variants
+push @ALL_TESTS, qw(
+    firebird    iceweasel   phoenix 
+    namoroka
+);
+
 # Robots
 push @ALL_TESTS, qw(
     puf         curl        wget
