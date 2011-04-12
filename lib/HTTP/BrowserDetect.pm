@@ -1082,6 +1082,10 @@ sub browser_properties {
         push @browser_properties, lc($property) if (${$self->{tests}}{$property});
     }
 
+    # devices are a property too but it's not stored in %tests 
+    # so I explicitly test for it and add it
+    push @browser_properties, 'device' if ($self->device());
+
     return @browser_properties;
 }
 1;
