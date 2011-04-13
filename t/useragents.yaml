@@ -501,6 +501,7 @@ major: 1
 match:
   - wap
   - mobile
+  - device
 minor: 0.3
 no_match: ~
 os: ~
@@ -509,12 +510,15 @@ useragent: Nokia-WAP-Toolkit/1.3beta
 version: 1.3
 language: ~
 country: ~
+device: wap
+device_name: WAP capable phone
 ---
 browser_string: ~
 major: 1
 match:
   - wap
   - mobile
+  - device
 minor: 0
 no_match: ~
 os: ~
@@ -523,12 +527,15 @@ useragent: 'Nokia7110/1.0 (30.05)'
 version: 1
 language: ~
 country: ~
+device: wap
+device_name: WAP capable phone
 ---
 browser_string: ~
 major: 4
 match:
   - wap
   - mobile
+  - device
 minor: 0.1
 no_match: ~
 os: ~
@@ -537,12 +544,15 @@ useragent: UP.Browser/4.1.2a-XXXX
 version: 4.1
 language: ~
 country: ~
+device: wap
+device_name: WAP capable phone
 ---
 browser_string: ~
 major: 1
 match:
   - wap
   - mobile
+  - device
 minor: 0
 no_match: ~
 os: ~
@@ -551,12 +561,15 @@ useragent: Wapalizer/1.0
 version: 1
 language: ~
 country: ~
+device: wap
+device_name: WAP capable phone
 ---
 browser_string: ~
 major: 1
 match:
   - wap
   - mobile
+  - device
 minor: 0.16
 no_match: ~
 os: ~
@@ -565,6 +578,8 @@ useragent: YourWap/1.16
 version: 1.16
 language: ~
 country: ~
+device: wap
+device_name: WAP capable phone
 ---
 browser_string: ~
 major: 3
@@ -1344,6 +1359,7 @@ match:
   - linux
   - unix
   - android
+  - device
 public_version: 3.0
 public_major: 3
 public_minor: 0
@@ -1421,6 +1437,7 @@ match:
 no_match:
   - netscape
 engine_string: NetFront
+device: psp
 device_name: Sony PlayStation Portable
 ---
 useragent: 'Mozilla/5.0 (PLAYSTATION 3; 2.00)'
@@ -1432,6 +1449,7 @@ match:
 no_match:
   - netscape
 engine_string: NetFront
+device: ps3
 device_name: Sony PlayStation 3
 ---
 browser_string: ~
@@ -1536,6 +1554,7 @@ match:
   - safari
   - mobile
   - wap
+  - device
 no_match: ~
 os: ~
 other: ~
@@ -1548,6 +1567,8 @@ public_minor: 0
 version: 5.25 
 major: 5 
 minor: .25 
+device: wap
+device_name: WAP capable phone
 ---
 useragent: 'Mozilla/5.0 (Windows; U; Windows NT 5.0; en) AppleWebKit/522.13.1 (KHTML, like Gecko) Version/3.0.2 Safari/522.13.1'
 match:
@@ -1933,6 +1954,7 @@ match:
   - linux
   - unix
   - android
+  - device
 browser_string: Mobile Safari
 public_version: 3.1
 public_major: 3
@@ -1944,6 +1966,8 @@ engine: 5.25
 engine_string: KHTML
 language: EN
 country: US
+device: android
+device_name: Android
 ---
 useragent: 'Mozilla/5.0 (compatible; Konqueror/4.4; Linux; X11; x86_64) KHTML/4.4.2 (like Gecko) Kubuntu'
 match:
@@ -2153,6 +2177,7 @@ match:
   - mobile
   - linux
   - android
+  - device
   - unix
 browser_string: Mobile Safari
 public_version: 4.0
@@ -2165,6 +2190,8 @@ engine: 5.30
 engine_string: KHTML
 language: EN
 country: US
+device: android
+device_name: Android
 ---
 useragent: 'Mozilla/5.0 (Linux; U; Android 1.5; en-us; Google Ion Build/CRB43) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1'
 match:
@@ -2173,6 +2200,7 @@ match:
   - mobile
   - linux
   - android
+  - device
   - unix
 browser_string: Mobile Safari
 public_version: 3.1
@@ -2185,11 +2213,14 @@ engine: 5.25
 engine_string: KHTML
 language: EN
 country: US
+device: android
+device_name: Android
 ---
 useragent: 'Opera/9.80 (Android; Opera Mini/5.1.21126/19.916; U; en) Presto/2.5.25'
 match:
   - opera
   - android
+  - device
   - mobile
 browser_string: Opera
 os: Android
@@ -2197,6 +2228,8 @@ public_version: 9.80
 public_major: 9
 public_minor: 0.80
 language: EN
+device: android
+device_name: Android
 ---
 useragent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)'
 match:
@@ -2268,6 +2301,7 @@ os: Linux
 ---
 useragent: 'Mozilla/4.0 (compatible; Linux 2.6.22) NetFront/3.4 Kindle/2.5 (screen 600x800; rotate)'
 match:
+  - device
   - kindle
   - linux
   - netfront
@@ -2277,9 +2311,12 @@ os: linux
 public_version: 3.4 
 public_major: 3 
 public_minor: 0.4 
+device: kindle
+device_name: Amazon Kindle
 ---
 useragent: 'Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)'
 match:
+  - device
   - kindle
   - linux
   - safari
@@ -2289,6 +2326,8 @@ os: Linux
 public_version: 4.0 
 public_major: 4 
 public_minor: 0
+device: kindle
+device_name: Amazon Kindle
 ---
 useragent: 'Mozilla/5.0 (webOS/1.0; U; en-US) AppleWebKit/525.27.1 (KHTML, like Gecko) Version/1.0 Safari/525.27.1 Pre/1.0'
 language: EN

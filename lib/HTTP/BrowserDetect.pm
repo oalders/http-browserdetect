@@ -11,7 +11,7 @@ require Exporter;
 use vars qw(
     @OS_TESTS      @WINDOWS_TESTS @MAC_TESTS
     @UNIX_TESTS    @BSD_TESTS     @GAMING_TESTS
-    @DEVICE_TESTS  @BROWSER_TESTS @IE_TESTS
+    %DEVICE_TESTS  @BROWSER_TESTS @IE_TESTS
     @OPERA_TESTS   @AOL_TESTS     @NETSCAPE_TESTS
     @FIREFOX_TESTS @ENGINE_TESTS  @ROBOT_TESTS
     @MISC_TESTS    @ALL_TESTS
@@ -60,12 +60,20 @@ push @GAMING_TESTS, qw(
 );
 
 # Devices
-push @DEVICE_TESTS, qw(
-    palm    audrey      iopener
-    wap     blackberry  iphone
-    ipod    ipad        ps3
-    psp     kindle      webos
-    android
+%DEVICE_TESTS = (
+    android => 'Android',
+    audrey => 'Audrey',
+    blackberry => 'BlackBerry',
+    iopener => 'iopener',
+    ipad => 'iPad',
+    iphone => 'iPhone',
+    ipod => 'iPod',
+    kindle => 'Amazon Kindle', 
+    palm => 'Palm',
+    ps3  => 'Sony PlayStation 3',
+    psp  => 'Sony PlayStation Portable',
+    wap => 'WAP capable phone',
+    webos => 'webOS',
 );
 
 # Browsers
@@ -130,11 +138,11 @@ push @MISC_TESTS, qw(
 );
 
 push @ALL_TESTS, (
-    @OS_TESTS,      @WINDOWS_TESTS, @MAC_TESTS,
-    @UNIX_TESTS,    @BSD_TESTS,     @GAMING_TESTS,
-    @DEVICE_TESTS,  @BROWSER_TESTS, @IE_TESTS, 
-    @OPERA_TESTS,   @AOL_TESTS,     @NETSCAPE_TESTS, 
-    @FIREFOX_TESTS, @ENGINE_TESTS,  @ROBOT_TESTS,
+    @OS_TESTS,          @WINDOWS_TESTS, @MAC_TESTS,
+    @UNIX_TESTS,        @BSD_TESTS,     @GAMING_TESTS,
+    keys %DEVICE_TESTS, @BROWSER_TESTS, @IE_TESTS, 
+    @OPERA_TESTS,       @AOL_TESTS,     @NETSCAPE_TESTS, 
+    @FIREFOX_TESTS,     @ENGINE_TESTS,  @ROBOT_TESTS,
     @MISC_TESTS,
 );
 
@@ -225,7 +233,7 @@ sub _test {
     $self->{tests} = {};
     my $tests = $self->{tests};
 
-    my @ff = qw( firefox firebird iceweasel phoenix namoroka );
+    my @ff = ('firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
 
     my $ua = lc $self->{user_agent};
@@ -1060,11 +1068,7 @@ sub device {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    my @devices = qw(
-        blackberry  iphone  ipod    ipad  ps3  psp  webos
-    );
-
-    foreach my $device ( @devices ) {
+    foreach my $device ( keys %DEVICE_TESTS ) {
         return $device if ( $self->$device );
     }
 
@@ -1075,20 +1079,10 @@ sub device_name {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    my %device_name = (
-        blackberry => 'BlackBerry',
-        iphone => 'iPhone',
-        ipod => 'iPod',
-        ipad => 'iPad',
-        psp  => 'Sony PlayStation Portable',
-        ps3  => 'Sony PlayStation 3',
-        webos => 'webOS',
-    );
-
     my $device = $self->device;
     return if !$device;
 
-    return $device_name{ $self->device };
+    return $DEVICE_TESTS{ $self->device };
 }
 
 
@@ -1243,15 +1237,18 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: blackberry, webos, iphone, ipod or ipad  Returns UNDEF if
-no hardware can be detected
+Currently returns one of: palm, audrey, iopener, wap, blackberry, iphone, ipod,
+ipad, ps3, psp, kindle, webos, android.
+Returns UNDEF if no hardware can be detected
 
 =head2 device_name()
 
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
-use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
-iPod or iPad.  Returns UNDEF if no hardware can be detected.
+use the device() method in your logic.  Returns one of: Android, Audrey, 
+BlackBerry, iopener, iPad, iPhone, iPod, Amazon Kindle, Palm, Sony PlayStation 
+3, Sony PlayStation Portable, WAP capable phone, webOS.
+Returns UNDEF if no hardware can be detected.
 
 =head2 browser_properties()
 
