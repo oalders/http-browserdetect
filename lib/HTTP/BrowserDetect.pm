@@ -1,84 +1,142 @@
 use strict;
 package HTTP::BrowserDetect;
 
-use vars qw(@ISA @EXPORT @EXPORT_OK @ALL_TESTS);
+use vars qw(@ISA @EXPORT @EXPORT_OK);
 require Exporter;
 
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
 
+use vars qw(
+    @OS_TESTS      @WINDOWS_TESTS @MAC_TESTS
+    @UNIX_TESTS    @BSD_TESTS     @GAMING_TESTS
+    @DEVICE_TESTS  @BROWSER_TESTS @IE_TESTS
+    @OPERA_TESTS   @AOL_TESTS     @NETSCAPE_TESTS
+    @FIREFOX_TESTS @ENGINE_TESTS  @ROBOT_TESTS
+    @MISC_TESTS    @ALL_TESTS
+);
+
 # Operating Systems
-push @ALL_TESTS, qw(
-    win16   win3x       win31
-    win95   win98       winnt
-    windows win32       win2k
-    winxp   win2k3      winvista
-    winme   dotnet      mac
-    macosx  mac68k      macppc
-    os2     unix        sun
-    sun4    sun5        suni86
-    irix    irix5       irix6
-    hpux    hpux9       hpux10
-    aix     aix1        aix2
-    aix3    aix4        linux
-    sco     unixware    mpras
-    reliant dec         sinix
-    freebsd bsd         vms
-    x11     amiga       android
-    win7    ps3gameos   pspgameos
-    wince
+push @OS_TESTS, qw(
+    windows mac   os2 
+    unix    linux vms 
+    bsd     amiga 
+);
+
+# More precise Windows
+push @WINDOWS_TESTS, qw(
+    win16 win3x   win31
+    win95 win98   winnt
+    winme win32   win2k
+    winxp win2k3  winvista 
+    win7  wince
+);
+
+# More precise Mac
+push @MAC_TESTS, qw(
+    macosx mac68k macppc
+);
+
+# More precise Unix
+push @UNIX_TESTS, qw(
+    sun     sun4     sun5
+    suni86  irix     irix5
+    irix6   hpux     hpux9
+    hpux10  aix      aix1
+    aix2    aix3     aix4   
+    sco     unixware mpras
+    reliant dec      sinix
+);
+
+# More precise BSDs
+push @BSD_TESTS, qw(
+    freebsd 
+);
+
+# Gaming devices
+push @GAMING_TESTS, qw(
+    ps3gameos pspgameos
 );
 
 # Devices
-push @ALL_TESTS, qw(
+push @DEVICE_TESTS, qw(
     palm    audrey      iopener
     wap     blackberry  iphone
     ipod    ipad        ps3
     psp     kindle      webos
+    android
 );
 
 # Browsers
-push @ALL_TESTS, qw(
-    mosaic      netscape    nav2
-    nav3        nav4        nav4up
-    nav45       nav45up     nav6
-    nav6up      navgold     firefox
-    chrome      safari      ie
+push @BROWSER_TESTS, qw(
+    mosaic        netscape    firefox
+    chrome        safari      ie
+    opera         lynx        links
+    elinks        neoplanet   neoplanet2
+    avantgo       emacs       mozilla     
+    konqueror     r1          netfront
+    mobile_safari
+);
+
+push @IE_TESTS, qw(
     ie3         ie4         ie4up
     ie5         ie5up       ie55
     ie55up      ie6         ie7
-    ie8         opera       opera3
-    opera4      opera5      opera6
-    opera7      lynx        links
+    ie8
+);
+
+push @OPERA_TESTS, qw(
+    opera3      opera4     opera5
+    opera6      opera7
+);
+
+push @AOL_TESTS, qw(
     aol         aol3        aol4
-    aol5        aol6        neoplanet
-    neoplanet2  avantgo     emacs
-    mozilla     gecko       r1
-    iceweasel   netfront    mobile_safari
-    elinks
+    aol5        aol6        
+);
+
+push @NETSCAPE_TESTS, qw(
+    nav2   nav3   nav4  
+    nav4up nav45  nav45up
+    nav6   nav6up navgold
 );
 
 # Firefox variants
-push @ALL_TESTS, qw(
+push @FIREFOX_TESTS, qw(
     firebird    iceweasel   phoenix 
     namoroka
 );
 
-# Robots
-push @ALL_TESTS, qw(
-    puf         curl        wget
-    getright    robot       yahoo
-    altavista   lycos       infoseek
-    lwp         webcrawler  linkexchange
-    slurp       webtv       staroffice
-    lotusnotes  konqueror   icab
-    google      java        googlemobile
-    msn         msnmobile   facebook
+push @ENGINE_TESTS, qw(
+    gecko
 );
 
-# Properties
-push @ALL_TESTS, 'mobile';
+# Robots
+push @ROBOT_TESTS, qw(
+    puf          curl        wget
+    getright     robot       yahoo
+    altavista    lycos       infoseek
+    lwp          webcrawler  linkexchange
+    slurp        webtv       staroffice
+    lotusnotes   icab        google      
+    googlemobile msn         msnmobile
+    facebook
+);
+
+push @MISC_TESTS, qw(
+    mobile      dotnet      x11
+    java
+);
+
+push @ALL_TESTS, (
+    @OS_TESTS,      @WINDOWS_TESTS, @MAC_TESTS,
+    @UNIX_TESTS,    @BSD_TESTS,     @GAMING_TESTS,
+    @DEVICE_TESTS,  @BROWSER_TESTS, @IE_TESTS, 
+    @OPERA_TESTS,   @AOL_TESTS,     @NETSCAPE_TESTS, 
+    @FIREFOX_TESTS, @ENGINE_TESTS,  @ROBOT_TESTS,
+    @MISC_TESTS,
+);
 
 
 # Safari build -> version map for versions prior to 3.0
