@@ -1471,6 +1471,12 @@ minor: 0
 ---
 browser_string: ~
 match:
+  - wince
+  - windows
+  - ie
+  - ie4
+  - ie4up
+  - mobile
   - msn
   - msnmobile
   - robot

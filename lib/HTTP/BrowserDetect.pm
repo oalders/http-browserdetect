@@ -27,6 +27,7 @@ push @ALL_TESTS, qw(
     freebsd bsd         vms
     x11     amiga       android
     win7    ps3gameos   pspgameos
+    wince
 );
 
 # Devices
@@ -556,6 +557,8 @@ sub _test {
     $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
+    $tests->{WINCE} = ( index( $ua, "windows ce" ) != -1 );
+
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
         (          $tests->{WIN95}
@@ -583,6 +586,7 @@ sub _test {
                 || $tests->{WINVISTA}
                 || $tests->{WIN7}
                 || $tests->{WINME}
+                || $tests->{WINCE}
         )
             || index( $ua, "win" ) != -1
     );
@@ -1302,6 +1306,7 @@ winnt, which is a type of win32)
         winme win95 win98
         winnt
             win2k winxp win2k3 winvista win7
+    wince
 
 =head2 dotnet()
 
