@@ -4,3 +4,4 @@ Build
 HTTP-BrowserDetect-*
 .build
 *.kpf
+*.komodoproject
