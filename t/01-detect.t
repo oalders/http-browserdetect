@@ -63,6 +63,9 @@ foreach my $test ( @tests ) {
         ok( $detected->$type, "$type should match" );
     }
 
+    is_deeply( [sort $detected->browser_properties()], [sort @{$test->{match}}], 
+       "browser properties match" );
+
     # Test that $ua doesn't match a specific method
     foreach my $type ( @{ $test->{no_match} } ) {
         ok( !$detected->$type, "$type shouldn't match (and doesn't)" );

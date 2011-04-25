@@ -27,6 +27,7 @@ push @ALL_TESTS, qw(
     freebsd bsd         vms
     x11     amiga       android
     win7    ps3gameos   pspgameos
+    wince
 );
 
 # Devices
@@ -56,6 +57,12 @@ push @ALL_TESTS, qw(
     mozilla     gecko       r1
     iceweasel   netfront    mobile_safari
     elinks
+);
+
+# Firefox variants
+push @ALL_TESTS, qw(
+    firebird    iceweasel   phoenix 
+    namoroka
 );
 
 # Robots
@@ -237,7 +244,7 @@ sub _test {
     # Mozilla browsers
 
     $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
-        && ( index( $ua, "khtml, like gecko" ) == -1 );
+        && ( index( $ua, "like gecko" ) == -1 );
 
     $tests->{CHROME} = ( index( $ua, "chrome/" ) != -1 );
     $tests->{SAFARI}
@@ -285,6 +292,7 @@ sub _test {
     $tests->{NETSCAPE}
         = (    !$tests->{FIREFOX}
             && !$tests->{SAFARI}
+            && !$tests->{CHROME}
             && index( $ua, "mozilla" ) != -1
             && index( $ua, "spoofer" ) == -1
             && index( $ua, "compatible" ) == -1
@@ -549,6 +557,8 @@ sub _test {
     $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
+    $tests->{WINCE} = ( index( $ua, "windows ce" ) != -1 );
+
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
         (          $tests->{WIN95}
@@ -576,6 +586,7 @@ sub _test {
                 || $tests->{WINVISTA}
                 || $tests->{WIN7}
                 || $tests->{WINME}
+                || $tests->{WINCE}
         )
             || index( $ua, "win" ) != -1
     );
@@ -1067,6 +1078,21 @@ sub _format_minor {
 
 }
 
+sub browser_properties {
+
+    my ( $self, $check ) = _self_or_default( @_ );
+
+    my @browser_properties;
+    foreach my $property (keys %{$self->{tests}}) {
+        push @browser_properties, lc($property) if (${$self->{tests}}{$property});
+    }
+
+    # devices are a property too but it's not stored in %tests 
+    # so I explicitly test for it and add it
+    push @browser_properties, 'device' if ($self->device());
+
+    return @browser_properties;
+}
 1;
 
 __END__
@@ -1168,6 +1194,12 @@ Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
 use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
 iPod or iPad.  Returns UNDEF if no hardware can be detected.
+
+=head2 browser_properties()
+
+Returns a list of the browser properties, that is, all of the tests that passed
+for the provided user_agent string. Operating systems, devices, browser names, 
+mobile and robots are all browser properties.
 
 =head1 Detecting Browser Version
 
@@ -1274,6 +1306,7 @@ winnt, which is a type of win32)
         winme win95 win98
         winnt
             win2k winxp win2k3 winvista win7
+    wince
 
 =head2 dotnet()
 
