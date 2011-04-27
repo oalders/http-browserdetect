@@ -406,7 +406,7 @@ sub _test {
     $tests->{MSN} = ( (index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" )) != -1 );
     $tests->{MSNMOBILE} = ( (index( $ua, "msnbot-mobile" ) != -1 || index( $ua, "bingbot-mobile" )) != -1 );
     $tests->{JAVA}
-        = ( index( $ua, "java" ) != -1 || index( $ua, "jdk" ) != -1 );
+        = ( index( $ua, "java" ) != -1 || index( $ua, "jdk" ) != -1 || index($ua, "jakarta commons-httpclient") != -1);
     $tests->{ALTAVISTA}    = ( index( $ua, "altavista" ) != -1 );
     $tests->{SCOOTER}      = ( index( $ua, "scooter" ) != -1 );
     $tests->{LYCOS}        = ( index( $ua, "lycos" ) != -1 );
@@ -432,6 +432,7 @@ sub _test {
                 || $tests->{MSN}
                 || $tests->{MSNMOBILE}
                 || $tests->{FACEBOOK}
+                || $tests->{JAVA}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
