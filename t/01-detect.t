@@ -11,7 +11,6 @@ use Test::More qw( no_plan );
 use YAML qw( LoadFile );
 require_ok( 'HTTP::BrowserDetect' );
 
-my @tests = LoadFile( "$FindBin::Bin/useragents.yaml" );
 my $json  = read_file( "$FindBin::Bin/useragents.json" );
 
 my $tests = JSON::PP->new->ascii->decode( $json );
