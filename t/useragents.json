@@ -2575,6 +2575,24 @@
       "public_minor" : ".1",
       "public_version" : "2.1",
       "version" : "2.1"
+   },
+   "Java/1.6.0_17" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "1",
+      "match" : [
+         "java",
+         "robot"
+      ],
+      "minor" : ".6",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "public_major" : "1",
+      "public_minor" : ".6",
+      "public_version" : "1.6",
+      "version" : "1.6"
    }
 }
 

@@ -432,6 +432,7 @@ sub _test {
                 || $tests->{MSN}
                 || $tests->{MSNMOBILE}
                 || $tests->{FACEBOOK}
+                || $tests->{JAVA}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
