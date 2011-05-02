@@ -1,5 +1,16 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.23 2011-05-02
+    - Adds a browser_properties() call that exposes all the browser "properties" (Olivier Bilodeau)
+    - Fixes issues where a Chrome string would return 1 to a ->nav45up check (Olivier Bilodeau)
+    - Fixes issue where some WebKit/KHTML browsers returned 1 on ->gecko (Olivier Bilodeau)
+    - Adds wince method (Windows CE) (Olivier Bilodeau)
+    - Now detects Java UserAgent as a robot (Graham Barr)
+    - Now detects Jakarta Commons-HttpClient as a Java client (Graham Barr)
+    - UserAgent tests moved from YAML to JSON
+    - Moves issue tracking to Github
+    - Dist now includes META.json rather than META.yaml
+
 1.22 2011-03-10
     - Adds Namoroka to list of Firefox browsers (Viacheslav Tykhanovskyi)
 

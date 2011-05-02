@@ -1551,6 +1551,8 @@ Graham Barr
 
 Enrico Sorcinelli
 
+Olivier Bilodeau
+
 =head1 TO DO
 
 The _engine() method currently only handles Gecko.  It needs to be expanded to
