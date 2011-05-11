@@ -1618,7 +1618,7 @@ patching would be to fork the GitHub repo and then send me a pull requests,
 but plain old patch files are also welcome.
 
 If you're able to add test cases, this will speed up the time to release your
-changes. Just edit t/useragents.yaml so that the test coverage includes any
+changes. Just edit t/useragents.json so that the test coverage includes any
 changes you have made.  Please contact me if you have any questions.
 
 =cut

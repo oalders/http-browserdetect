@@ -8,7 +8,6 @@ use File::Slurp;
 use FindBin;
 use JSON::PP;
 use Test::More qw( no_plan );
-use YAML qw( LoadFile );
 require_ok( 'HTTP::BrowserDetect' );
 
 my $json  = read_file( "$FindBin::Bin/useragents.json" );
