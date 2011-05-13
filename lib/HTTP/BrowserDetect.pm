@@ -193,7 +193,7 @@ sub _test {
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
                 ( [\d]* )           # Minor version nnumber is digits after first dot
-            }x
+            }xo
         )
     {
         $major = $2;
@@ -1552,6 +1552,8 @@ Graham Barr
 Enrico Sorcinelli
 
 Olivier Bilodeau
+
+Yoshiki Kurihara
 
 =head1 TO DO
 
