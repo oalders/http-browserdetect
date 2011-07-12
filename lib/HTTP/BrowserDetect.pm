@@ -55,8 +55,7 @@ push @ALL_TESTS, qw(
     aol5        aol6        neoplanet
     neoplanet2  avantgo     emacs
     mozilla     gecko       r1
-    iceweasel   netfront    mobile_safari
-    elinks
+    elinks      netfront    mobile_safari
 );
 
 # Firefox variants
