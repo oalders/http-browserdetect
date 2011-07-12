@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.26 2011-07-12
+    - Fixes Pod typo
+
 1.25 2011-07-12
     - Fix warnings about iceweasel test being defined twice (Paul Findlay)
     - Adds Opera Tablet to mobile devices (Jacob Rask)

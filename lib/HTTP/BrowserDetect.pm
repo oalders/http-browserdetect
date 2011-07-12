@@ -1607,7 +1607,7 @@ L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
 
 =item * Search CPAN
 
-Lhttp://beta.metacpan.org/module/HTTP::BrowserDetect>
+L<http://beta.metacpan.org/module/HTTP::BrowserDetect>
 
 =back
 

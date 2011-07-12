@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.23
+    version 1.26
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -39,7 +39,7 @@ DESCRIPTION
 
     This module is based upon the JavaScript browser detection code
     available at
-    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
+    <http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 INSTALLATION
     In most cases, you can just issue the following commands:
@@ -371,6 +371,10 @@ ACKNOWLEDGEMENTS
 
     Olivier Bilodeau
 
+    Yoshiki Kurihara
+
+    Paul Findlay
+
 TO DO
     The _engine() method currently only handles Gecko. It needs to be
     expanded to handle other rendering engines.
@@ -379,19 +383,20 @@ TO DO
 
 SEE ALSO
     "The Ultimate JavaScript Client Sniffer, Version 3.0",
-    http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
+    <http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>
 
     "Browser ID (User-Agent) Strings",
-    http://www.zytrax.com/tech/web/browser_ids.htm
+    <http://www.zytrax.com/tech/web/browser_ids.htm>
 
     Safari "Historical User Agent strings",
-    http://developer.apple.com/internet/safari/uamatrix.html (now gone,
+    <http://developer.apple.com/internet/safari/uamatrix.html> (now gone,
     retrieved 2007-06-20)
 
     "Safari Agent Strings",
-    http://homepage.mac.com/jprince/designSandbox/web/safari-agents/
+    <http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
 
     perl(1), HTTP::Headers, HTTP::Headers::UserAgent.
+
 
 SUPPORT
     You can find documentation for this module with the perldoc command.
@@ -404,9 +409,9 @@ SUPPORT
 
         <http://github.com/oalders/http-browserdetect>
 
-    *   RT: CPAN's request tracker
+    *   Reporting Issues
 
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTTP-BrowserDetect>
+        <https://github.com/oalders/http-browserdetect/issues>
 
     *   AnnoCPAN: Annotated CPAN documentation
 
@@ -418,7 +423,7 @@ SUPPORT
 
     *   Search CPAN
 
-        <http://search.cpan.org/dist/HTTP-BrowserDetect/>
+        <http://beta.metacpan.org/module/HTTP::BrowserDetect>
 
 BUGS AND LIMITATIONS
     The biggest limitation at this point is the test suite, which really
@@ -428,12 +433,17 @@ CONTRIBUTING
     Patches are certainly welcome, with many thanks for the excellent
     contributions which have already been received. The preferred method of
     patching would be to fork the GitHub repo and then send me a pull
-    requests, but plain old patch files are also welcome.
+    request, but plain old patch files are also welcome.
 
     If you're able to add test cases, this will speed up the time to release
-    your changes. Just edit t/useragents.yaml so that the test coverage
+    your changes. Just edit t/useragents.json so that the test coverage
     includes any changes you have made. Please contact me if you have any
     questions.
+
+    This distribution uses Dist::Zilla. If you're not familiar with this
+    module, please see
+    <https://github.com/oalders/http-browserdetect/issues/5> for some
+    helpful tips to get you started.
 
 AUTHORS
     *   Lee Semel <lee@semel.net>
