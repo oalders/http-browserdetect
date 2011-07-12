@@ -522,6 +522,7 @@ sub _test {
             || index( $ua, "symbos" ) != -1
             || index( $ua, "opera mobi" ) != -1
             || index( $ua, "fennec" ) != -1
+            || index( $ua, "opera tablet" ) != -1
             || $tests->{PSP}
     );
 

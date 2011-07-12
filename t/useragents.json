@@ -2611,6 +2611,29 @@
       "public_minor" : ".6",
       "public_version" : "1.6",
       "version" : "1.6"
+   },
+   //
+   "Opera/9.80 (Windows NT 6.1; Opera Tablet/11648; U; en) Presto/2.7.81 Version/11.00" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : "EN",
+      "major" : "11",
+      "match" : [
+        "mobile",
+        "win32",
+        "windows",
+        "win7",
+        "opera",
+        "winnt"
+      ],
+      "minor" : ".0",
+      "no_match" : null,
+      "os" : "WinNT",
+      "other" : null,
+      "public_major" : "11.0",
+      "public_minor" : ".0",
+      "public_version" : "11.0",
+      "version" : "11.0"
    }
 }
 
