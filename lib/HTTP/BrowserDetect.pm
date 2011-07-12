@@ -1136,7 +1136,7 @@ The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
 This module is based upon the JavaScript browser detection code available at
-B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
+L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 =head1 INSTALLATION
 
@@ -1566,15 +1566,17 @@ POD coverage is also not 100%.
 
 =head1 SEE ALSO
 
-"The Ultimate JavaScript Client Sniffer, Version 3.0", B<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>
+"The Ultimate JavaScript Client Sniffer, Version 3.0", L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>
 
-"Browser ID (User-Agent) Strings", B<http://www.zytrax.com/tech/web/browser_ids.htm>
+"Browser ID (User-Agent) Strings", L<http://www.zytrax.com/tech/web/browser_ids.htm>
 
-Safari "Historical User Agent strings", B<http://developer.apple.com/internet/safari/uamatrix.html> (now gone, retrieved 2007-06-20)
+Safari "Historical User Agent strings", L<http://developer.apple.com/internet/safari/uamatrix.html> (now gone, retrieved 2007-06-20)
 
-"Safari Agent Strings", B<http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
+"Safari Agent Strings", L<http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
 
 perl(1), L<HTTP::Headers>, L<HTTP::Headers::UserAgent>.
+
+=head1
 
 =head1 SUPPORT
 
@@ -1591,9 +1593,9 @@ You can also look for information at:
 
 L<http://github.com/oalders/http-browserdetect>
 
-=item * RT: CPAN's request tracker
+=item * Reporting Issues
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTTP-BrowserDetect>
+L<https://github.com/oalders/http-browserdetect/issues>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -1605,7 +1607,7 @@ L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/HTTP-BrowserDetect/>
+Lhttp://beta.metacpan.org/module/HTTP::BrowserDetect>
 
 =back
 
@@ -1618,11 +1620,15 @@ have many more UserAgent strings to test against.
 
 Patches are certainly welcome, with many thanks for the excellent
 contributions which have already been received. The preferred method of
-patching would be to fork the GitHub repo and then send me a pull requests,
+patching would be to fork the GitHub repo and then send me a pull request,
 but plain old patch files are also welcome.
 
 If you're able to add test cases, this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
-changes you have made.  Please contact me if you have any questions.
+changes you have made. Please contact me if you have any questions.
+
+This distribution uses L<Dist::Zilla>. If you're not familiar with this
+module, please see L<https://github.com/oalders/http-browserdetect/issues/5>
+for some helpful tips to get you started.
 
 =cut
