@@ -8,7 +8,15 @@ use File::Slurp;
 use FindBin;
 use JSON::PP;
 use Test::More qw( no_plan );
-require_ok( 'HTTP::BrowserDetect' );
+
+# test that the module loads without errors
+my $w;
+{
+    local $SIG{__WARN__} = sub { $w = shift };
+    require_ok( 'HTTP::BrowserDetect' );
+}
+ok !$w;
+
 
 my $json  = read_file( "$FindBin::Bin/useragents.json" );
 
