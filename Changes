@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.25 2011-07-12
+    - Fix warnings about iceweasel test being defined twice (Paul Findlay)
+
 1.24 2011-05-13
     - Removes dependency on Modern::Perl, which was accidentally introduced
       (Yoshiki Kurihara)
