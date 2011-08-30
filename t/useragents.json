@@ -2565,6 +2565,7 @@
       "match" : [
          "googlemobile",
          "google",
+         "mobile",
          "robot"
       ],
       "minor" : ".1",

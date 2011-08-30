@@ -524,6 +524,8 @@ sub _test {
             || index( $ua, "fennec" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || $tests->{PSP}
+            || $tests->{GOOGLEMOBILE}
+            || $tests->{MSNMOBILE}
     );
 
     # Operating System
