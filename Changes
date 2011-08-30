@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.27 2011-08-30
+    - Google and MSN mobile bots are now detected as mobile agents (Uwe Voelker)
+
 1.26 2011-07-12
     - Fixes Pod typo
 
