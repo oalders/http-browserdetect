@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.27
+    version 1.28
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -231,7 +231,7 @@ Detecting Browser Vendor
    firefox
    gecko
    icab
-   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8
+   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10
    java
    konqueror
    lotusnotes
@@ -376,6 +376,8 @@ ACKNOWLEDGEMENTS
     Paul Findlay
 
     Uwe Voelker
+
+    Douglas Christopher Wilson
 
 TO DO
     The _engine() method currently only handles Gecko. It needs to be
