@@ -858,6 +858,46 @@
       "other" : null,
       "version" : "8.0"
    },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)": {
+      "browser_string": "MSIE",
+      "major" : "9",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "ie",
+         "ie9",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : "Win7",
+      "other" : null,
+      "version" : "9.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)": {
+      "browser_string": "MSIE",
+      "major" : "10",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "ie",
+         "ie10",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : "Win7",
+      "other" : null,
+      "version" : "10.0"
+   },
    "Mozilla/4.0 (compatible; Opera/3.0; Windows 4.10) 3.50" : {
       "browser_string" : "Opera",
       "country" : null,
