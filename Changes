@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.29 2011-09-01
+    - Adds ios method for ipod, ipad and iphone (os_string returns "iOS")
+
 1.28 2011-08-31
     - Adds ie9 and ie10 methods (Douglas Christopher Wilson)
 

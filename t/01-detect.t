@@ -49,6 +49,7 @@ foreach my $ua ( sort keys %{$tests} ) {
         engine_version
         engine_major
         engine_minor
+        ios
         )
         )
     {

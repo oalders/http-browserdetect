@@ -9,7 +9,7 @@ require Exporter;
 @EXPORT_OK = qw();
 
 # Operating Systems
-push @ALL_TESTS, qw(
+my @os = qw(
     win16   win3x       win31
     win95   win98       winnt
     windows win32       win2k
@@ -27,8 +27,10 @@ push @ALL_TESTS, qw(
     freebsd bsd         vms
     x11     amiga       android
     win7    ps3gameos   pspgameos
-    wince
+    wince   ios
 );
+
+push @ALL_TESTS, @os;
 
 # Devices
 push @ALL_TESTS, qw(
@@ -609,6 +611,7 @@ sub _test {
         = (    ( $tests->{MAC} )
             && ( index( $ua, "ppc" ) != -1 || index( $ua, "powerpc" ) != -1 )
         );
+    $tests->{IOS} = $tests->{IPAD} || $tests->{IPOD} || $tests->{IPHONE};
 
     # Others
 
@@ -759,6 +762,7 @@ sub os_string {
         $os_string = 'Linux'    if $self->linux;
         $os_string = 'Playstation 3 GameOS' if $self->ps3gameos;
         $os_string = 'Playstation Portable GameOS' if $self->pspgameos;
+        $os_string = 'iOS' if $self->iphone || $self->ipod || $self->ipad;
     }
     return $os_string;
 }
@@ -1318,7 +1322,7 @@ winnt, which is a type of win32)
 
 =head2 mac()
 
-mac68k macppc macosx
+mac68k macppc macosx ios
 
 =head2 os2()
 
@@ -1345,7 +1349,7 @@ distinguish between Win95 and WinNT.
 Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X,
+  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X, iOS,
   Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 =head1 Detecting Browser Vendor

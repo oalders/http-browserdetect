@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.28
+    version 1.29
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -196,7 +196,7 @@ Detecting OS Platform and Version
 
   dotnet()
   mac()
-    mac68k macppc macosx
+    mac68k macppc macosx ios
 
   os2()
   unix()
@@ -216,7 +216,7 @@ Detecting OS Platform and Version
     Returns one of the following strings, or undef. This method exists
     solely for compatibility with the HTTP::Headers::UserAgent module.
 
-      Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X,
+      Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X, iOS,
       Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
 
 Detecting Browser Vendor

@@ -2,6 +2,7 @@
    "AmigaVoyager/3.3.50 (AmigaOS/PPC)" : {
       "browser_string" : null,
       "country" : null,
+      "ios" : 0,
       "language" : null,
       "major" : "3",
       "match" : [
@@ -2074,6 +2075,7 @@
    },
    "Mozilla/5.0 (compatible; Konqueror/4.4; Linux; X11; x86_64) KHTML/4.4.2 (like Gecko) Kubuntu" : {
       "engine_string" : "KHTML",
+      "ios" : 0,
       "match" : [
          "linux",
          "unix",
@@ -2094,11 +2096,13 @@
       "device_name" : "iPad",
       "engine" : "5.31",
       "engine_string" : "KHTML",
+      "ios" : 1,
       "language" : "EN",
       "major" : "5",
       "match" : [
          "safari",
          "mobile",
+         "ios",
          "ipad",
          "device"
       ],
@@ -2114,17 +2118,20 @@
       "device" : "iphone",
       "device_name" : "iPhone",
       "engine_string" : "KHTML",
+      "ios" : 1,
       "language" : "EN",
       "major" : "5",
       "match" : [
          "safari",
          "mobile",
          "iphone",
-         "device"
+         "device",
+         "ios"
       ],
       "minor" : "0.25",
       "no_match" : null,
       "os" : null,
+      "os_string" : "iOS",
       "other" : null,
       "public_major" : "3",
       "public_minor" : "0.1",
@@ -2141,6 +2148,7 @@
          "safari",
          "mobile",
          "ipod",
+         "ios",
          "iphone",
          "device"
       ]
