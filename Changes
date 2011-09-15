@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.30 2011-09-15
+    - Tweaks language regexes to reduce false positives
+
 1.29 2011-09-01
     - Adds ios method for ipod, ipad and iphone (os_string returns "iOS")
 
@@ -19,7 +22,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
 1.24 2011-05-13
     - Removes dependency on Modern::Perl, which was accidentally introduced
       (Yoshiki Kurihara)
-    
+
 1.23 2011-05-02
     - Adds a browser_properties() call that exposes all the browser
       "properties" (Olivier Bilodeau)
@@ -41,12 +44,12 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Test suite now uses YAML rather than YAML::Tiny as YAML::Tiny 1.46
       refuses to load useragents.yaml
     - Alphabetically re-ordered some of the documentation
-    
+
 1.20 2010-11-23
     - Be a little more selective in marking ua as robot when contains search
       or seek (Graham Barr)
     - Add facebook crawler as a robot (Graham Barr) (Enrico Sorcinelli)
-    
+
 1.19 2010-09-24
     - Added support for WebOS (Jesse Thompson) RT #61437
 
