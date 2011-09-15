@@ -318,8 +318,6 @@ sub _test {
             }x
         );
         $minor = 0 + ".$minor";
-
-        #print "major=$major minor=$minor beta=$beta\n";
     }
 
     # Netscape browsers
@@ -1050,16 +1048,16 @@ sub _language_country {
 
     if ( $self->safari ) {
         if (   $self->major == 1
-            && $self->user_agent =~ m/\s ( [a-z]{2,} ) \)/xms )
+            && $self->user_agent =~ m/\s ( [a-z]{2} ) \)/xms )
         {
             return { language => uc $1 };
         }
-        if ( $self->user_agent =~ m/([a-z]{2,})-([a-z]{2,})/xms ) {
+        if ( $self->user_agent =~ m/([a-z]{2})-([a-z]{2})/xms ) {
             return { language => uc $1, country => uc $2 };
         }
     }
 
-    if ( $self->user_agent =~ m/\b([a-z]{2,})-([A-Za-z]{2,})\b/xms ) {
+    if ( $self->user_agent =~ m/\b([a-z]{2})-([A-Za-z]{2})\b/xms ) {
         return { language => uc $1, country => uc $2 };
     }
 
@@ -1070,7 +1068,7 @@ sub _language_country {
     if ( $self->user_agent =~ m/\(([^)]+)\)/xms ) {
         my @parts = split(/;/,$1);
         foreach my $part (@parts) {
-            if ($part =~ /^\s*([a-z]{2,})\s*$/) {
+            if ($part =~ /^\s*([a-z]{2})\s*$/) {
                 return { language => uc $1 };
             }
         }

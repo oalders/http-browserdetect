@@ -2683,6 +2683,20 @@
       "public_minor" : ".0",
       "public_version" : "11.0",
       "version" : "11.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
+       "language" : null,
+       "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "win32",
+         "windows",
+         "winnt",
+         "winxp"
+       ]
    }
 }
 
