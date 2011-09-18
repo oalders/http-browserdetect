@@ -27,7 +27,7 @@ my @os = qw(
     freebsd bsd         vms
     x11     amiga       android
     win7    ps3gameos   pspgameos
-    wince   ios
+    wince   ios         winphone
 );
 
 push @ALL_TESTS, @os;
@@ -563,7 +563,8 @@ sub _test {
     $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
-    $tests->{WINCE} = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINPHONE} = ( index( $ua, "windows phone os" ) != -1 );
 
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
@@ -593,6 +594,7 @@ sub _test {
                 || $tests->{WIN7}
                 || $tests->{WINME}
                 || $tests->{WINCE}
+                || $tests->{WINPHONE}
         )
             || index( $ua, "win" ) != -1
     );
@@ -752,6 +754,7 @@ sub os_string {
         $os_string = 'Win2k3'   if $self->win2k3;
         $os_string = 'WinVista' if $self->winvista;
         $os_string = 'Win7'     if $self->win7;
+        $os_string = 'Windows Phone' if $self->winphone;
         $os_string = 'Mac'      if $self->mac;
         $os_string = 'Mac OS X' if $self->macosx;
         $os_string = 'Win3x'    if $self->win3x;
@@ -1315,6 +1318,7 @@ winnt, which is a type of win32)
         winnt
             win2k winxp win2k3 winvista win7
     wince
+    winphone
 
 =head2 dotnet()
 
@@ -1347,8 +1351,9 @@ distinguish between Win95 and WinNT.
 Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X, iOS,
-  Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
+  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Windows Phone,
+  Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux, Playstation 3 GameOS,
+  Playstation Portable GameOS
 
 =head1 Detecting Browser Vendor
 
