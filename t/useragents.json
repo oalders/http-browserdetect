@@ -2712,7 +2712,8 @@
          "ie7"
        ],
        "os" : "WinPhone",
-       "os_string" : "Windows Phone"
+       "os_string" : "Windows Phone",
+       "device_name" : "HTC T7575"
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T7575)" : {
        "browser_string": "MSIE",
@@ -2728,7 +2729,8 @@
          "ie9"
        ],
        "os" : "WinPhone",
-       "os_string" : "Windows Phone"
+       "os_string" : "Windows Phone",
+       "device_name" : "HTC T7575"
    }
 }
 

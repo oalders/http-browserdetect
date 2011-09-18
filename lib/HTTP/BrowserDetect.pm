@@ -709,6 +709,15 @@ sub _test {
         }
     }
 
+    # Device from UA
+
+    $self->{device_name} = undef;
+
+    if ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g ) {
+        $self->{device_name} = substr $self->{user_agent}, pos($ua) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+
     $self->{major} = $major;
     $self->{minor} = $minor;
     $self->{beta}  = $beta;
@@ -1028,6 +1037,8 @@ sub device_name {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
+    return $self->{device_name} if defined $self->{device_name};
+
     my %device_name = (
         blackberry => 'BlackBerry',
         iphone => 'iPhone',
@@ -1204,7 +1215,8 @@ no hardware can be detected
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
 use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
-iPod or iPad.  Returns UNDEF if no hardware can be detected.
+iPod or iPad or device name found in user agent string.  Returns C<undef> if
+no hardware can be detected.
 
 =head2 browser_properties()
 
