@@ -27,7 +27,7 @@ my @os = qw(
     freebsd bsd         vms
     x11     amiga       android
     win7    ps3gameos   pspgameos
-    wince   ios
+    wince   ios         winphone
 );
 
 push @ALL_TESTS, @os;
@@ -563,7 +563,8 @@ sub _test {
     $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
-    $tests->{WINCE} = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINPHONE} = ( index( $ua, "windows phone os" ) != -1 );
 
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
@@ -593,6 +594,7 @@ sub _test {
                 || $tests->{WIN7}
                 || $tests->{WINME}
                 || $tests->{WINCE}
+                || $tests->{WINPHONE}
         )
             || index( $ua, "win" ) != -1
     );
@@ -707,6 +709,15 @@ sub _test {
         }
     }
 
+    # Device from UA
+
+    $self->{device_name} = undef;
+
+    if ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g ) {
+        $self->{device_name} = substr $self->{user_agent}, pos($ua) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+
     $self->{major} = $major;
     $self->{minor} = $minor;
     $self->{beta}  = $beta;
@@ -752,6 +763,7 @@ sub os_string {
         $os_string = 'Win2k3'   if $self->win2k3;
         $os_string = 'WinVista' if $self->winvista;
         $os_string = 'Win7'     if $self->win7;
+        $os_string = 'Windows Phone' if $self->winphone;
         $os_string = 'Mac'      if $self->mac;
         $os_string = 'Mac OS X' if $self->macosx;
         $os_string = 'Win3x'    if $self->win3x;
@@ -1025,6 +1037,8 @@ sub device_name {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
+    return $self->{device_name} if defined $self->{device_name};
+
     my %device_name = (
         blackberry => 'BlackBerry',
         iphone => 'iPhone',
@@ -1201,7 +1215,8 @@ no hardware can be detected
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
 use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
-iPod or iPad.  Returns UNDEF if no hardware can be detected.
+iPod or iPad or device name found in user agent string.  Returns C<undef> if
+no hardware can be detected.
 
 =head2 browser_properties()
 
@@ -1315,6 +1330,7 @@ winnt, which is a type of win32)
         winnt
             win2k winxp win2k3 winvista win7
     wince
+    winphone
 
 =head2 dotnet()
 
@@ -1347,8 +1363,9 @@ distinguish between Win95 and WinNT.
 Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Mac, Mac OS X, iOS,
-  Win3x, OS2, Unix, Linux, Playstation 3 GameOS, Playstation Portable GameOS
+  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Windows Phone,
+  Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux, Playstation 3 GameOS,
+  Playstation Portable GameOS
 
 =head1 Detecting Browser Vendor
 

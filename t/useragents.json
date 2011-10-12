@@ -2697,6 +2697,40 @@
          "winnt",
          "winxp"
        ]
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; T7575)" : {
+       "browser_string" : "MSIE",
+       "language" : null,
+       "match" : [
+         "windows",
+         "winphone",
+         "mobile",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7"
+       ],
+       "os" : "WinPhone",
+       "os_string" : "Windows Phone",
+       "device_name" : "HTC T7575"
+   },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T7575)" : {
+       "browser_string": "MSIE",
+       "language": null,
+       "match" : [
+         "windows",
+         "winphone",
+         "mobile",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie9"
+       ],
+       "os" : "WinPhone",
+       "os_string" : "Windows Phone",
+       "device_name" : "HTC T7575"
    }
 }
 
