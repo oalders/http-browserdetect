@@ -2697,6 +2697,49 @@
          "winnt",
          "winxp"
        ]
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
+       "browser_string" : "AOL Browser",
+       "major" : "8",
+       "minor" : "0",
+       "language" : "EN",
+       "engine_string" : "MSIE",
+       "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "aol",
+         "win32",
+         "windows",
+         "winxp",
+         "dotnet"
+       ],
+       "os" : "WinXP"
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; Crossrider130)" : {
+       "browser_string" : "IE8",
+       "engine_string" : "MSIE",
+       "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "win32",
+         "windows",
+         "winxp",
+         "dotnet"
+       ],
+       "minor" : "0",
+      "no_match" : [
+         "robot"
+      ],
+      "public_major" : "8",
+      "public_minor" : "0",
+      "public_version" : "8.0",
+      "version" : "8.0"
    }
 }
 
