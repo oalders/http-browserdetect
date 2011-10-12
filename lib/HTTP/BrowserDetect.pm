@@ -697,7 +697,7 @@ sub _test {
 
     # RealPlayer
     $tests->{REALPLAYER}
-        = ( index( $ua, "r1" ) != -1 || index( $ua, "realplayer" ) != -1 );
+        = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
 
     $self->{realplayer_version} = undef;
     if ( $tests->{REALPLAYER} ) {
