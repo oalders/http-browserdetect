@@ -1071,6 +1071,10 @@ sub _language_country {
         }
     }
 
+    if ( $self->aol && $self->user_agent =~ m/;([A-Z]{2,2})_([A-Z]{2,2})/ ) {
+        return { language => $1, country => $2 };
+    }
+
     if ( $self->user_agent =~ m/\b([a-z]{2})-([A-Za-z]{2})\b/xms ) {
         return { language => uc $1, country => uc $2 };
     }
