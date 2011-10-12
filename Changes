@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.32 2011-10-12
+    - Fixes RealPlayer false positives (John Oatis)
+
 1.31 2011-10-12
     - Adds detection and device name for Windows Phone (Douglas Christopher Wilson)
 
