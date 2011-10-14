@@ -57,8 +57,13 @@ push @ALL_TESTS, qw(
     aol3        aol4        aol5
     aol6        neoplanet   neoplanet2
     avantgo     emacs       mozilla
-    gecko       r1          elinks
-    netfront    mobile_safari
+    r1          elinks      netfront
+    mobile_safari
+);
+
+# Engines
+push @ALL_TESTS, qw(
+    gecko    trident
 );
 
 # Firefox variants
@@ -695,6 +700,16 @@ sub _test {
         }
     }
 
+    # Engines
+
+    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
+
+    $self->{engine_version} = $self->{gecko_version};
+
+    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
+        $self->{engine_version} = $1;
+    }
+
     # RealPlayer
     $tests->{REALPLAYER}
         = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
@@ -929,6 +944,10 @@ sub engine_string {
         return 'Gecko';
     }
 
+    if ( $self->trident ) {
+        return 'Trident';
+    }
+
     if ( $self->ie ) {
         return 'MSIE';
     }
@@ -944,11 +963,7 @@ sub _engine {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    if ( $self->gecko ) {
-        return $self->gecko_version;
-    }
-
-    return;
+    return $self->{engine_version};
 
 }
 
@@ -1300,24 +1315,27 @@ is thrown away.
 
 Returns one of the following:
 
-Gecko, KHTML, MSIE, NetFront
+Gecko, KHTML, Trident, MSIE, NetFront
 
-Returns undef if no string can be found.
+Returns C<undef> if no string can be found.
 
 =head2 engine_version()
 
 Returns the version number of the rendering engine. Currently this only
-returns a version number for Gecko. Returns undef for all other engines.
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines.
 
 =head2 engine_major()
 
 Returns the major version number of the rendering engine. Currently this only
-returns a version number for Gecko. Returns undef for all other engines.
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines.
 
 =head2 engine_minor()
 
 Returns the minor version number of the rendering engine. Currently this only
-returns a version number for Gecko. Returns undef for all other engines.
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines.
 
 =head1 Detecting OS Platform and Version
 
@@ -1593,8 +1611,8 @@ John Oatis
 
 =head1 TO DO
 
-The _engine() method currently only handles Gecko.  It needs to be expanded to
-handle other rendering engines.
+The C<_engine()> method currently only handles Gecko and Trident.  It
+needs to be expanded to handle other rendering engines.
 
 POD coverage is also not 100%.
 
