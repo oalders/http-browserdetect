@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.33 2011-10-15
+    - Adds detections for the Trident engine (Douglas Christopher Wilson)
+
 1.32 2011-10-12
     - Fixes RealPlayer false positives (John Oatis)
 

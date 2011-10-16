@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.31
+    version 1.33
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -162,23 +162,24 @@ Detecting Rendering Engine
   engine_string()
     Returns one of the following:
 
-    Gecko, KHTML, MSIE, NetFront
+    Gecko, KHTML, Trident, MSIE, NetFront
 
-    Returns undef if no string can be found.
+    Returns "undef" if no string can be found.
 
   engine_version()
     Returns the version number of the rendering engine. Currently this only
-    returns a version number for Gecko. Returns undef for all other engines.
+    returns a version number for Gecko and Trident. Returns "undef" for all
+    other engines.
 
   engine_major()
     Returns the major version number of the rendering engine. Currently this
-    only returns a version number for Gecko. Returns undef for all other
-    engines.
+    only returns a version number for Gecko and Trident. Returns "undef" for
+    all other engines.
 
   engine_minor()
     Returns the minor version number of the rendering engine. Currently this
-    only returns a version number for Gecko. Returns undef for all other
-    engines.
+    only returns a version number for Gecko and Trident. Returns "undef" for
+    all other engines.
 
 Detecting OS Platform and Version
     The following methods are available, each returning a true or false
@@ -381,9 +382,11 @@ ACKNOWLEDGEMENTS
 
     Douglas Christopher Wilson
 
+    John Oatis
+
 TO DO
-    The _engine() method currently only handles Gecko. It needs to be
-    expanded to handle other rendering engines.
+    The "_engine()" method currently only handles Gecko and Trident. It
+    needs to be expanded to handle other rendering engines.
 
     POD coverage is also not 100%.
 
