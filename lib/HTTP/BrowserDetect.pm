@@ -58,7 +58,7 @@ push @ALL_TESTS, qw(
     aol6        neoplanet   neoplanet2
     avantgo     emacs       mozilla
     r1          elinks      netfront
-    mobile_safari
+    mobile_safari           blackberry
 );
 
 # Engines
@@ -761,6 +761,7 @@ sub browser_string {
         $browser_string = 'NetFront'    if $self->netfront;
         $browser_string = 'Mobile Safari' if $self->mobile_safari;
         $browser_string = 'ELinks'      if $self->elinks;
+        $browser_string = 'BlackBerry'  if $self->blackberry;
     }
     return $browser_string;
 }
@@ -1452,7 +1453,8 @@ Firebird).
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
+Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari, 
+BlackBerry
 
 =head2 gecko_version()
 
