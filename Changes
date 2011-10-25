@@ -1,5 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.34 2011-10-24
+    - Adds BlackBerry to the list of possible return values of browser_string()
+      (John Oatis)
+
 1.33 2011-10-15
     - Adds detections for the Trident engine (Douglas Christopher Wilson)
 
