@@ -1453,7 +1453,8 @@ Firebird).
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari
+Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari, 
+BlackBerry
 
 =head2 gecko_version()
 
