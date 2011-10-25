@@ -2812,6 +2812,40 @@
       "public_minor" : "0",
       "public_version" : "8.0",
       "version" : "8.0"
+   },
+   "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; fr) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.246 Mobile Safari/534.1+" : {
+       "browser_string" : "BlackBerry",
+       "match" : [
+         "safari",
+         "mobile",
+         "mobile_safari",
+         "blackberry",
+         "device"
+       ],
+       "no_match" : [
+         "robot"
+       ],
+       "public_version" : "6.0",
+       "device_name" : "BlackBerry",
+       "language" : "FR",
+       "engine_string" : "KHTML"
+   },
+   "BlackBerry8520/4.6.1.272 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/118" : {
+       "browser_string" : "BlackBerry",
+       "match" : [
+         "mobile",
+         "blackberry",
+         "device"
+       ],
+       "minor" : ".6",
+       "no_match" : [
+         "robot"
+       ],
+       "public_major" : "4",
+       "public_minor" : ".6",
+       "public_version" : "4.6",
+       "version" : "4.6",
+       "device_name" : "BlackBerry"
    }
 }
 
