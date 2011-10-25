@@ -58,7 +58,7 @@ push @ALL_TESTS, qw(
     aol6        neoplanet   neoplanet2
     avantgo     emacs       mozilla
     r1          elinks      netfront
-    mobile_safari
+    mobile_safari           blackberry
 );
 
 # Engines
@@ -761,6 +761,7 @@ sub browser_string {
         $browser_string = 'NetFront'    if $self->netfront;
         $browser_string = 'Mobile Safari' if $self->mobile_safari;
         $browser_string = 'ELinks'      if $self->elinks;
+        $browser_string = 'BlackBerry'  if $self->blackberry;
     }
     return $browser_string;
 }
