@@ -58,7 +58,7 @@ push @ALL_TESTS, qw(
     aol6        neoplanet   neoplanet2
     avantgo     emacs       mozilla
     r1          elinks      netfront
-    mobile_safari           blackberry
+    mobile_safari
 );
 
 # Engines
