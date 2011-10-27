@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.33
+    version 1.34
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -260,7 +260,7 @@ Detecting Browser Vendor
 
     Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
     Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront,
-    Mobile Safari
+    Mobile Safari, BlackBerry
 
   gecko_version()
     If a Gecko rendering engine is used (as in Mozilla or Firefox), returns
