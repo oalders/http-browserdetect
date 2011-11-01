@@ -402,7 +402,7 @@ sub _test {
     $tests->{ELINKS}     = ( index( $ua, "elinks" ) != -1 );
     $tests->{WEBTV}      = ( index( $ua, "webtv" ) != -1 );
     $tests->{MOSAIC}     = ( index( $ua, "mosaic" ) != -1 );
-    $tests->{PUF}        = ( index( $ua, "puf" ) != -1 );
+    $tests->{PUF}        = ( index( $ua, "puf/" ) != -1 );
     $tests->{WGET}       = ( index( $ua, "wget" ) != -1 );
     $tests->{GETRIGHT}   = ( index( $ua, "getright" ) != -1 );
     $tests->{LWP}
