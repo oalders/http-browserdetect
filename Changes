@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.35 2011-11-02
+    - Fixes false positive for bot() with Puffin browser (Atsushi Kato)
+
 1.34 2011-10-24
     - Adds BlackBerry to the list of possible return values of browser_string()
       (John Oatis)

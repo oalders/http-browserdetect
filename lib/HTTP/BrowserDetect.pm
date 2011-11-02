@@ -1611,6 +1611,8 @@ Douglas Christopher Wilson
 
 John Oatis
 
+Atsushi Kato
+
 =head1 TO DO
 
 The C<_engine()> method currently only handles Gecko and Trident.  It
