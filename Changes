@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.36 2011-11-07
+    - Tweaks detection of Yahoo robot (Atsushi Kato)
+
 1.35 2011-11-02
     - Fixes false positive for bot() with Puffin browser (Atsushi Kato)
 
