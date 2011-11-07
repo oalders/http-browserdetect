@@ -407,7 +407,7 @@ sub _test {
     $tests->{GETRIGHT}   = ( index( $ua, "getright" ) != -1 );
     $tests->{LWP}
         = ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
-    $tests->{YAHOO}  = ( index( $ua, "yahoo" ) != -1 );
+    $tests->{YAHOO}  = ( index( $ua, "yahoo" ) != -1 ) && ( index( $ua, 'jp.co.yahoo.android') == -1 );
     $tests->{GOOGLE} = ( index( $ua, "googlebot" ) != -1 );
     $tests->{GOOGLEMOBILE} = ( index( $ua, "googlebot-mobile" ) != -1 );
     $tests->{MSN} = ( (index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" )) != -1 );
