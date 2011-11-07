@@ -2901,6 +2901,23 @@
        ],
        "os" : null,
        "version" : "5.34"
+   },
+   "Mozilla/5.0 (Linux; U; Android 2.1-update1; ja-jp; IS03 Build/S2080) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 YJApp-ANDROID jp.co.yahoo.android.yjtop/1.0.3" : {
+       "browser_string" : "Safari",
+       "match" : [
+         "safari",
+         "linux",
+         "unix",
+         "mobile",
+         "mobile_safari",
+         "android"
+       ],
+       "minor" : ".30",
+       "no_match" : [
+         "robot"
+       ],
+       "os" : "Android",
+       "version" : "5.30"
    }
 }
 
