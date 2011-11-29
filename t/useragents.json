@@ -2918,6 +2918,35 @@
        ],
        "os" : "Android",
        "version" : "5.30"
+   },
+   "Opera/9.50 (Nintendo DSi; Opera/446; U; ja)" : {
+       "browser_string" : "Nintendo DSi",
+       "match" : [
+         "opera",
+         "mobile",
+         "dsi"
+       ],
+       "no_match" : [
+         "robot"
+       ],
+       "os" : null,
+       "public_major" : "9",
+       "public_minor" : "0.50",
+       "public_version" : "9.50"
+   },
+   "Mozilla/5.0 (Nintendo 3DS; U; ; ja) Version/1.7412.JP" : {
+       "browser_string" : "Nintendo 3DS",
+       "match" : [
+         "mobile",
+         "n3ds"
+       ],
+       "no_match" : [
+         "robot"
+       ],
+       "os" : null,
+       "public_major" : "1",
+       "public_minor" : "0.7412",
+       "public_version" : "1.7412"
    }
 }
 

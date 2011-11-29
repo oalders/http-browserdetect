@@ -38,6 +38,7 @@ push @ALL_TESTS, qw(
     wap     blackberry  iphone
     ipod    ipad        ps3
     psp     kindle      webos
+    dsi     n3ds
 );
 
 # Browsers
@@ -244,6 +245,10 @@ sub _test {
         $major = $1;
         $minor = $2;
     }
+    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
+        $major = $1;
+        $minor = $2;
+    }
 
     $major = 0 if !$major;
     $minor = $self->_format_minor( $minor );
@@ -306,6 +311,7 @@ sub _test {
             && index( $ua, "opera" ) == -1
             && index( $ua, "webtv" ) == -1
             && index( $ua, "hotjava" ) == -1
+            && index( $ua, "nintendo" ) == -1
             && index( $ua, "playstation 3" ) == -1
             && index( $ua, "playstation portable" ) == -1 );
 
@@ -382,7 +388,7 @@ sub _test {
     $tests->{OPERA3} = ( index( $ua, "opera 3" ) != -1 )
         || ( index( $ua, "opera/3" ) != -1 );
     $tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
-        || ( index( $ua, "opera/4" ) != -1 );
+        || ( index( $ua, "opera/4" ) != -1 && ( index( $ua, "nintendo dsi" ) == -1 ) );
     $tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
         || ( index( $ua, "opera/5" ) != -1 );
     $tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
@@ -491,6 +497,8 @@ sub _test {
             || index( $ua, "zetor" ) != -1 );
     $tests->{PS3} = ( index( $ua, "playstation 3" ) != -1 );
     $tests->{PSP} = ( index( $ua, "playstation portable" ) != -1 );
+    $tests->{DSI}   = ( index( $ua, "nintendo dsi" ) != -1 );
+    $tests->{'N3DS'} = ( index( $ua, "nintendo 3ds" ) != -1 );
 
     $tests->{MOBILE} = (
                index( $ua, "up.browser" ) != -1
@@ -532,6 +540,8 @@ sub _test {
             || index( $ua, "fennec" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || $tests->{PSP}
+            || $tests->{DSI}
+            || $tests->{'N3DS'}
             || $tests->{GOOGLEMOBILE}
             || $tests->{MSNMOBILE}
     );
@@ -762,6 +772,8 @@ sub browser_string {
         $browser_string = 'Mobile Safari' if $self->mobile_safari;
         $browser_string = 'ELinks'      if $self->elinks;
         $browser_string = 'BlackBerry'  if $self->blackberry;
+        $browser_string = 'Nintendo 3DS' if $self->n3ds;
+        $browser_string = 'Nintendo DSi' if $self->dsi;
     }
     return $browser_string;
 }
