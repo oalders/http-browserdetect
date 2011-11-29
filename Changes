@@ -1,5 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.37 2011-11-29
+    - Adds nintendo mobile browsers (Nintendo DSi, Nintendo 3DS) (cho45)
+    - Adds kindle, dsi, n3ds to device and device_name methods
+
 1.36 2011-11-07
     - Tweaks detection of Yahoo robot (Atsushi Kato)
 

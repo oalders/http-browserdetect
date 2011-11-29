@@ -397,6 +397,7 @@
    "Mozilla/4.0 (compatible; Linux 2.6.22) NetFront/3.4 Kindle/2.5 (screen 600x800; rotate)" : {
       "browser_string" : "NetFront",
       "match" : [
+         "device",
          "kindle",
          "linux",
          "netfront",
@@ -1051,6 +1052,7 @@
    "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)" : {
       "browser_string" : "Safari",
       "match" : [
+         "device",
          "kindle",
          "linux",
          "safari",
@@ -1341,6 +1343,7 @@
       "major" : "5",
       "match" : [
          "safari",
+         "device",
          "mobile",
          "wap"
       ],
@@ -2271,6 +2274,7 @@
       "major" : "1",
       "match" : [
          "wap",
+         "device",
          "mobile"
       ],
       "minor" : "0.3",
@@ -2286,6 +2290,7 @@
       "major" : "1",
       "match" : [
          "wap",
+         "device",
          "mobile"
       ],
       "minor" : "0",
@@ -2479,6 +2484,7 @@
       "major" : "4",
       "match" : [
          "wap",
+         "device",
          "mobile"
       ],
       "minor" : "0.1",
@@ -2494,6 +2500,7 @@
       "major" : "1",
       "match" : [
          "wap",
+         "device",
          "mobile"
       ],
       "minor" : "0",
@@ -2524,6 +2531,7 @@
       "major" : "1",
       "match" : [
          "wap",
+         "device",
          "mobile"
       ],
       "minor" : "0.16",
@@ -2923,6 +2931,7 @@
        "browser_string" : "Nintendo DSi",
        "match" : [
          "opera",
+         "device",
          "mobile",
          "dsi"
        ],
@@ -2937,6 +2946,7 @@
    "Mozilla/5.0 (Nintendo 3DS; U; ; ja) Version/1.7412.JP" : {
        "browser_string" : "Nintendo 3DS",
        "match" : [
+         "device",
          "mobile",
          "n3ds"
        ],

@@ -33,13 +33,15 @@ my @os = qw(
 push @ALL_TESTS, @os;
 
 # Devices
-push @ALL_TESTS, qw(
+my @devices = qw(
     palm    audrey      iopener
     wap     blackberry  iphone
     ipod    ipad        ps3
     psp     kindle      webos
     dsi     n3ds
 );
+
+push @ALL_TESTS, @devices;
 
 # Browsers
 push @ALL_TESTS, qw(
@@ -69,7 +71,7 @@ push @ALL_TESTS, qw(
 
 # Firefox variants
 push @ALL_TESTS, qw(
-    firebird    iceweasel   phoenix 
+    firebird    iceweasel   phoenix
     namoroka
 );
 
@@ -1050,10 +1052,6 @@ sub device {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    my @devices = qw(
-        blackberry  iphone  ipod    ipad  ps3  psp  webos
-    );
-
     foreach my $device ( @devices ) {
         return $device if ( $self->$device );
     }
@@ -1069,9 +1067,12 @@ sub device_name {
 
     my %device_name = (
         blackberry => 'BlackBerry',
+        dsi => 'Nintendo DSi',
         iphone => 'iPhone',
         ipod => 'iPod',
         ipad => 'iPad',
+        kindle => 'Kindle',
+        n3ds => 'Nintendo 3DS',
         psp  => 'Sony PlayStation Portable',
         ps3  => 'Sony PlayStation 3',
         webos => 'webOS',
@@ -1239,21 +1240,22 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: blackberry, webos, iphone, ipod or ipad  Returns UNDEF if
-no hardware can be detected
+Currently returns one of: blackberry, dsi, iphone, ipod, ipad, kindle, n3ds,
+psp, ps3, webos  Returns UNDEF if no hardware can be detected
 
 =head2 device_name()
 
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
-use the device() method in your logic.  Returns one of: BlackBerry, iPhone,
-iPod or iPad or device name found in user agent string.  Returns C<undef> if
-no hardware can be detected.
+use the device() method in your logic.  Returns one of: BlackBerry, Nintendo
+DSi,iPhone, iPod, iPad, Kindle, Nintendo 3DS, Sony PlayStation Portable, Sony
+Playstation 3, webOS. Returns C<undef> if this is not a device or if no device
+name can be detected.
 
 =head2 browser_properties()
 
 Returns a list of the browser properties, that is, all of the tests that passed
-for the provided user_agent string. Operating systems, devices, browser names, 
+for the provided user_agent string. Operating systems, devices, browser names,
 mobile and robots are all browser properties.
 
 =head1 Detecting Browser Version
@@ -1488,6 +1490,8 @@ The following methods are available, each returning a true or false value.
 
 =head3 blackberry
 
+=head3 dsi
+
 =head3 iopener
 
 =head3 iphone
@@ -1497,6 +1501,8 @@ The following methods are available, each returning a true or false value.
 =head3 ipad
 
 =head3 kindle
+
+=head3 n3ds
 
 =head3 palm
 
