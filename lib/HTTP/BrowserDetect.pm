@@ -1150,9 +1150,9 @@ sub browser_properties {
 }
 1;
 
-__END__
-
 # ABSTRACT: Determine Web browser, version, and platform from an HTTP user agent string
+
+__END__
 
 =head1 SYNOPSIS
 
@@ -1191,18 +1191,6 @@ string. The results of these tests are available via methods of the object.
 
 This module is based upon the JavaScript browser detection code available at
 L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
-
-=head1 INSTALLATION
-
-In most cases, you can just issue the following commands:
-
-  perl Build.PL
-  ./Build
-  ./Build test
-  ./Build install
-
-Please see the documentation for L<Module::Build> if you have questions about
-installing to custom locations etc.
 
 =head1 CONSTRUCTOR AND STARTUP
 
@@ -1568,6 +1556,8 @@ Olaf Alders, C<olaf at wundercounter.com> (co-maintainer)
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to the following for their contributions:
+
+cho45
 
 Leonardo Herrera
 

@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.36
+    version 1.37
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -41,17 +41,6 @@ DESCRIPTION
     available at
     <http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
-INSTALLATION
-    In most cases, you can just issue the following commands:
-
-      perl Build.PL
-      ./Build
-      ./Build test
-      ./Build install
-
-    Please see the documentation for Module::Build if you have questions
-    about installing to custom locations etc.
-
 CONSTRUCTOR AND STARTUP
   new()
         HTTP::BrowserDetect->new( $user_agent_string )
@@ -85,15 +74,16 @@ SUBROUTINES/METHODS
 
   device()
     Returns the method name of the actual hardware, if it can be detected.
-    Currently returns one of: blackberry, webos, iphone, ipod or ipad
-    Returns UNDEF if no hardware can be detected
+    Currently returns one of: blackberry, dsi, iphone, ipod, ipad, kindle,
+    n3ds, psp, ps3, webos Returns UNDEF if no hardware can be detected
 
   device_name()
     Returns a human formatted version of the hardware device name. These
     names are subject to change and are really meant for display purposes.
     You should use the device() method in your logic. Returns one of:
-    BlackBerry, iPhone, iPod or iPad or device name found in user agent
-    string. Returns "undef" if no hardware can be detected.
+    BlackBerry, Nintendo DSi,iPhone, iPod, iPad, Kindle, Nintendo 3DS, Sony
+    PlayStation Portable, Sony Playstation 3, webOS. Returns "undef" if this
+    is not a device or if no device name can be detected.
 
   browser_properties()
     Returns a list of the browser properties, that is, all of the tests that
@@ -278,11 +268,13 @@ Detecting Other Devices
    audrey
    avantgo
    blackberry
+   dsi
    iopener
    iphone
    ipod
    ipad
    kindle
+   n3ds
    palm
    webos
    wap
@@ -323,6 +315,8 @@ CREDITS
 
 ACKNOWLEDGEMENTS
     Thanks to the following for their contributions:
+
+    cho45
 
     Leonardo Herrera
 
