@@ -971,7 +971,7 @@ sub engine_string {
         return 'NetFront';
     }
 
-    return;
+    return undef;
 }
 
 sub _engine {
@@ -990,7 +990,7 @@ sub engine_version {
         return $self->engine_major + $self->engine_minor;
     }
 
-    return;
+    return undef;
 
 }
 
@@ -1003,7 +1003,7 @@ sub engine_major {
         return shift @version;
     }
 
-    return;
+    return undef;
 
 }
 
@@ -1017,7 +1017,7 @@ sub engine_minor {
         return $self->_format_minor( shift @version );
     }
 
-    return;
+    return undef;
 
 }
 
@@ -1056,7 +1056,7 @@ sub device {
         return $device if ( $self->$device );
     }
 
-    return;
+    return undef;
 }
 
 sub device_name {
@@ -1079,7 +1079,7 @@ sub device_name {
     );
 
     my $device = $self->device;
-    return if !$device;
+    return undef if !$device;
 
     return $device_name{ $self->device };
 }
@@ -1620,6 +1620,8 @@ Douglas Christopher Wilson
 John Oatis
 
 Atsushi Kato
+
+Ronald J. Kimball
 
 =head1 TO DO
 
