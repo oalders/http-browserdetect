@@ -1,94 +1,152 @@
 use strict;
 package HTTP::BrowserDetect;
 
-use vars qw(@ISA @EXPORT @EXPORT_OK @ALL_TESTS);
+use vars qw(@ISA @EXPORT @EXPORT_OK);
 require Exporter;
 
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
 
-# Operating Systems
-my @os = qw(
-    win16   win3x       win31
-    win95   win98       winnt
-    windows win32       win2k
-    winxp   win2k3      winvista
-    winme   dotnet      mac
-    macosx  mac68k      macppc
-    os2     unix        sun
-    sun4    sun5        suni86
-    irix    irix5       irix6
-    hpux    hpux9       hpux10
-    aix     aix1        aix2
-    aix3    aix4        linux
-    sco     unixware    mpras
-    reliant dec         sinix
-    freebsd bsd         vms
-    x11     amiga       android
-    win7    ps3gameos   pspgameos
-    wince   ios         winphone
+use vars qw(
+    @OS_TESTS      @WINDOWS_TESTS @MAC_TESTS
+    @UNIX_TESTS    @BSD_TESTS     @GAMING_TESTS
+    %DEVICE_TESTS  @BROWSER_TESTS @IE_TESTS
+    @OPERA_TESTS   @AOL_TESTS     @NETSCAPE_TESTS
+    @FIREFOX_TESTS @ENGINE_TESTS  @ROBOT_TESTS
+    @MISC_TESTS    @ALL_TESTS
 );
 
-push @ALL_TESTS, @os;
+# Operating Systems
+push @OS_TESTS, qw(
+    windows mac   os2 
+    unix    linux vms 
+    bsd     amiga
+);
+
+# More precise Windows
+push @WINDOWS_TESTS, qw(
+    win16 win3x   win31
+    win95 win98   winnt
+    winme win32   win2k
+    winxp win2k3  winvista 
+    win7  wince   winphone
+);
+
+# More precise Mac
+push @MAC_TESTS, qw(
+    macosx mac68k macppc
+    ios
+);
+
+# More precise Unix
+push @UNIX_TESTS, qw(
+    sun     sun4     sun5
+    suni86  irix     irix5
+    irix6   hpux     hpux9
+    hpux10  aix      aix1
+    aix2    aix3     aix4   
+    sco     unixware mpras
+    reliant dec      sinix
+);
+
+# More precise BSDs
+push @BSD_TESTS, qw(
+    freebsd 
+);
+
+# Gaming devices
+push @GAMING_TESTS, qw(
+    ps3gameos pspgameos
+);
 
 # Devices
-my @devices = qw(
-    palm    audrey      iopener
-    wap     blackberry  iphone
-    ipod    ipad        ps3
-    psp     kindle      webos
-    dsi     n3ds
+%DEVICE_TESTS = (
+    android => 'Android',
+    audrey => 'Audrey',
+    blackberry => 'BlackBerry',
+    dsi => 'Nintendo DSi',
+    iopener => 'iopener',
+    ipad => 'iPad',
+    iphone => 'iPhone',
+    ipod => 'iPod',
+    kindle => 'Amazon Kindle', 
+    n3ds => 'Nintendo 3DS',
+    palm => 'Palm',
+    ps3  => 'Sony PlayStation 3',
+    psp  => 'Sony PlayStation Portable',
+    wap => 'WAP capable phone',
+    webos => 'webOS',
 );
 
-push @ALL_TESTS, @devices;
-
 # Browsers
-push @ALL_TESTS, qw(
-    mosaic      netscape    nav2
-    nav3        nav4        nav4up
-    nav45       nav45up     nav6
-    nav6up      navgold     firefox
-    chrome      safari      ie
+push @BROWSER_TESTS, qw(
+    mosaic        netscape    firefox
+    chrome        safari      ie
+    opera         lynx        links
+    elinks        neoplanet   neoplanet2
+    avantgo       emacs       mozilla     
+    konqueror     r1          netfront
+    mobile_safari
+);
+
+push @IE_TESTS, qw(
     ie3         ie4         ie4up
     ie5         ie5up       ie55
     ie55up      ie6         ie7
     ie8         ie9         ie10
-    opera       opera3      opera4
-    opera5      opera6      opera7
-    lynx        links       aol
-    aol3        aol4        aol5
-    aol6        neoplanet   neoplanet2
-    avantgo     emacs       mozilla
-    r1          elinks      netfront
-    mobile_safari
 );
 
-# Engines
-push @ALL_TESTS, qw(
-    gecko    trident
+push @OPERA_TESTS, qw(
+    opera3      opera4     opera5
+    opera6      opera7
+);
+
+push @AOL_TESTS, qw(
+    aol         aol3        aol4
+    aol5        aol6        
+);
+
+push @NETSCAPE_TESTS, qw(
+    nav2   nav3   nav4  
+    nav4up nav45  nav45up
+    nav6   nav6up navgold
 );
 
 # Firefox variants
-push @ALL_TESTS, qw(
-    firebird    iceweasel   phoenix
+push @FIREFOX_TESTS, qw(
+    firebird    iceweasel   phoenix 
     namoroka
 );
 
-# Robots
-push @ALL_TESTS, qw(
-    puf         curl        wget
-    getright    robot       yahoo
-    altavista   lycos       infoseek
-    lwp         webcrawler  linkexchange
-    slurp       webtv       staroffice
-    lotusnotes  konqueror   icab
-    google      java        googlemobile
-    msn         msnmobile   facebook
+push @ENGINE_TESTS, qw(
+    gecko    trident
 );
 
-# Properties
-push @ALL_TESTS, 'mobile';
+push @ROBOT_TESTS, qw(
+    puf          curl        wget
+    getright     robot       yahoo
+    altavista    lycos       infoseek
+    lwp          webcrawler  linkexchange
+    slurp        webtv       staroffice
+    lotusnotes   icab        google      
+    googlemobile msn         msnmobile
+    facebook
+);
+
+push @MISC_TESTS, qw(
+    mobile      dotnet      x11
+    java
+);
+
+push @ALL_TESTS, (
+    @OS_TESTS,          @WINDOWS_TESTS, @MAC_TESTS,
+    @UNIX_TESTS,        @BSD_TESTS,     @GAMING_TESTS,
+    keys %DEVICE_TESTS, @BROWSER_TESTS, @IE_TESTS, 
+    @OPERA_TESTS,       @AOL_TESTS,     @NETSCAPE_TESTS, 
+    @FIREFOX_TESTS,     @ENGINE_TESTS,  @ROBOT_TESTS,
+    @MISC_TESTS,
+);
 
 
 # Safari build -> version map for versions prior to 3.0
@@ -177,7 +235,7 @@ sub _test {
     $self->{tests} = {};
     my $tests = $self->{tests};
 
-    my @ff = qw( firefox firebird iceweasel phoenix namoroka );
+    my @ff = ('firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
 
     my $ua = lc $self->{user_agent};
@@ -1052,7 +1110,7 @@ sub device {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    foreach my $device ( @devices ) {
+    foreach my $device ( keys %DEVICE_TESTS ) {
         return $device if ( $self->$device );
     }
 
@@ -1063,25 +1121,10 @@ sub device_name {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    return $self->{device_name} if defined $self->{device_name};
-
-    my %device_name = (
-        blackberry => 'BlackBerry',
-        dsi => 'Nintendo DSi',
-        iphone => 'iPhone',
-        ipod => 'iPod',
-        ipad => 'iPad',
-        kindle => 'Kindle',
-        n3ds => 'Nintendo 3DS',
-        psp  => 'Sony PlayStation Portable',
-        ps3  => 'Sony PlayStation 3',
-        webos => 'webOS',
-    );
-
     my $device = $self->device;
     return if !$device;
 
-    return $device_name{ $self->device };
+    return $DEVICE_TESTS{ $self->device };
 }
 
 
