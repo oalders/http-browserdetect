@@ -9,86 +9,135 @@ require Exporter;
 @EXPORT_OK = qw();
 
 # Operating Systems
-my @os = qw(
-    win16   win3x       win31
-    win95   win98       winnt
-    windows win32       win2k
-    winxp   win2k3      winvista
-    winme   dotnet      mac
-    macosx  mac68k      macppc
-    os2     unix        sun
-    sun4    sun5        suni86
-    irix    irix5       irix6
-    hpux    hpux9       hpux10
-    aix     aix1        aix2
-    aix3    aix4        linux
-    sco     unixware    mpras
-    reliant dec         sinix
-    freebsd bsd         vms
-    x11     amiga       android
-    win7    ps3gameos   pspgameos
-    wince   ios         winphone
+my @OS_TESTS = qw(
+    windows mac   os2 
+    unix    linux vms 
+    bsd     amiga
 );
 
-push @ALL_TESTS, @os;
+# More precise Windows
+my @WINDOWS_TESTS = qw(
+    win16 win3x   win31
+    win95 win98   winnt
+    winme win32   win2k
+    winxp win2k3  winvista 
+    win7  wince   winphone
+);
+
+# More precise Mac
+my @MAC_TESTS = qw(
+    macosx mac68k macppc
+    ios
+);
+
+# More precise Unix
+my @UNIX_TESTS = qw(
+    sun     sun4     sun5
+    suni86  irix     irix5
+    irix6   hpux     hpux9
+    hpux10  aix      aix1
+    aix2    aix3     aix4   
+    sco     unixware mpras
+    reliant dec      sinix
+);
+
+# More precise BSDs
+my @BSD_TESTS = qw(
+    freebsd 
+);
+
+# Gaming devices
+my @GAMING_TESTS = qw(
+    ps3gameos pspgameos
+);
 
 # Devices
-my @devices = qw(
-    palm    audrey      iopener
-    wap     blackberry  iphone
-    ipod    ipad        ps3
-    psp     kindle      webos
-    dsi     n3ds
+my %DEVICE_TESTS = (
+    android => 'Android',
+    audrey => 'Audrey',
+    blackberry => 'BlackBerry',
+    dsi => 'Nintendo DSi',
+    iopener => 'iopener',
+    ipad => 'iPad',
+    iphone => 'iPhone',
+    ipod => 'iPod',
+    kindle => 'Amazon Kindle', 
+    n3ds => 'Nintendo 3DS',
+    palm => 'Palm',
+    ps3  => 'Sony PlayStation 3',
+    psp  => 'Sony PlayStation Portable',
+    wap => 'WAP capable phone',
+    webos => 'webOS',
 );
 
-push @ALL_TESTS, @devices;
-
 # Browsers
-push @ALL_TESTS, qw(
-    mosaic      netscape    nav2
-    nav3        nav4        nav4up
-    nav45       nav45up     nav6
-    nav6up      navgold     firefox
-    chrome      safari      ie
+my @BROWSER_TESTS = qw(
+    mosaic        netscape    firefox
+    chrome        safari      ie
+    opera         lynx        links
+    elinks        neoplanet   neoplanet2
+    avantgo       emacs       mozilla     
+    konqueror     r1          netfront
+    mobile_safari
+);
+
+my @IE_TESTS = qw(
     ie3         ie4         ie4up
     ie5         ie5up       ie55
     ie55up      ie6         ie7
     ie8         ie9         ie10
-    opera       opera3      opera4
-    opera5      opera6      opera7
-    lynx        links       aol
-    aol3        aol4        aol5
-    aol6        neoplanet   neoplanet2
-    avantgo     emacs       mozilla
-    r1          elinks      netfront
-    mobile_safari
 );
 
-# Engines
-push @ALL_TESTS, qw(
-    gecko    trident
+my @OPERA_TESTS = qw(
+    opera3      opera4     opera5
+    opera6      opera7
+);
+
+my @AOL_TESTS = qw(
+    aol         aol3        aol4
+    aol5        aol6        
+);
+
+my @NETSCAPE_TESTS = qw(
+    nav2   nav3   nav4  
+    nav4up nav45  nav45up
+    nav6   nav6up navgold
 );
 
 # Firefox variants
-push @ALL_TESTS, qw(
-    firebird    iceweasel   phoenix
+my @FIREFOX_TESTS = qw(
+    firebird    iceweasel   phoenix 
     namoroka
 );
 
-# Robots
-push @ALL_TESTS, qw(
-    puf         curl        wget
-    getright    robot       yahoo
-    altavista   lycos       infoseek
-    lwp         webcrawler  linkexchange
-    slurp       webtv       staroffice
-    lotusnotes  konqueror   icab
-    google      java        googlemobile
-    msn         msnmobile   facebook
+my @ENGINE_TESTS = qw(
+    gecko    trident
 );
 
-# Properties
-push @ALL_TESTS, 'mobile';
+my @ROBOT_TESTS = qw(
+    puf          curl        wget
+    getright     robot       yahoo
+    altavista    lycos       infoseek
+    lwp          webcrawler  linkexchange
+    slurp        webtv       staroffice
+    lotusnotes   icab        google      
+    googlemobile msn         msnmobile
+    facebook
+);
+
+my @MISC_TESTS = qw(
+    mobile      dotnet      x11
+    java
+);
+
+push @ALL_TESTS, (
+    @OS_TESTS,          @WINDOWS_TESTS, @MAC_TESTS,
+    @UNIX_TESTS,        @BSD_TESTS,     @GAMING_TESTS,
+    keys %DEVICE_TESTS, @BROWSER_TESTS, @IE_TESTS, 
+    @OPERA_TESTS,       @AOL_TESTS,     @NETSCAPE_TESTS, 
+    @FIREFOX_TESTS,     @ENGINE_TESTS,  @ROBOT_TESTS,
+    @MISC_TESTS,
+);
 
 
 # Safari build -> version map for versions prior to 3.0
@@ -177,7 +226,7 @@ sub _test {
     $self->{tests} = {};
     my $tests = $self->{tests};
 
-    my @ff = qw( firefox firebird iceweasel phoenix namoroka );
+    my @ff = ('firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
 
     my $ua = lc $self->{user_agent};
@@ -1052,7 +1101,7 @@ sub device {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    foreach my $device ( @devices ) {
+    foreach my $device ( keys %DEVICE_TESTS ) {
         return $device if ( $self->$device );
     }
 
@@ -1065,23 +1114,10 @@ sub device_name {
 
     return $self->{device_name} if defined $self->{device_name};
 
-    my %device_name = (
-        blackberry => 'BlackBerry',
-        dsi => 'Nintendo DSi',
-        iphone => 'iPhone',
-        ipod => 'iPod',
-        ipad => 'iPad',
-        kindle => 'Kindle',
-        n3ds => 'Nintendo 3DS',
-        psp  => 'Sony PlayStation Portable',
-        ps3  => 'Sony PlayStation 3',
-        webos => 'webOS',
-    );
-
     my $device = $self->device;
     return undef if !$device;
 
-    return $device_name{ $self->device };
+    return $DEVICE_TESTS{ $self->device };
 }
 
 
@@ -1228,17 +1264,20 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: blackberry, dsi, iphone, ipod, ipad, kindle, n3ds,
-psp, ps3, webos  Returns UNDEF if no hardware can be detected
+Currently returns one of: android, audrey, blackberry, dsi, iopener, ipad, 
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if 
+no hardware can be detected
 
 =head2 device_name()
 
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
-use the device() method in your logic.  Returns one of: BlackBerry, Nintendo
-DSi,iPhone, iPod, iPad, Kindle, Nintendo 3DS, Sony PlayStation Portable, Sony
-Playstation 3, webOS. Returns C<undef> if this is not a device or if no device
-name can be detected.
+use the device() method in your logic.  Returns one of: Android, Audrey, 
+BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
+3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone, 
+webOS. Also Windows-based smartphones will output various different names like
+HTC T7575. Returns C<undef> if this is not a device or if no device name can 
+be detected.
 
 =head2 browser_properties()
 
