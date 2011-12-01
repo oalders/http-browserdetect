@@ -1262,17 +1262,19 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: blackberry, dsi, iphone, ipod, ipad, kindle, n3ds,
-psp, ps3, webos  Returns UNDEF if no hardware can be detected
+Currently returns one of: android, audrey, blackberry, dsi, iopener, ipad, 
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if 
+no hardware can be detected
 
 =head2 device_name()
 
 Returns a human formatted version of the hardware device name.  These names
 are subject to change and are really meant for display purposes.  You should
-use the device() method in your logic.  Returns one of: BlackBerry, Nintendo
-DSi,iPhone, iPod, iPad, Kindle, Nintendo 3DS, Sony PlayStation Portable, Sony
-Playstation 3, webOS. Returns C<undef> if this is not a device or if no device
-name can be detected.
+use the device() method in your logic.  Returns one of: Android, Audrey, 
+BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
+3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone, 
+webOS. Returns C<undef> if this is not a device or if no device name can be 
+detected.
 
 =head2 browser_properties()
 
