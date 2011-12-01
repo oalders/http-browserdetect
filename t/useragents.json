@@ -999,7 +999,8 @@
          "mobile_safari",
          "linux",
          "unix",
-         "android"
+         "android",
+         "device"
       ],
       "minor" : "0.23",
       "public_major" : "3",
@@ -1020,7 +1021,8 @@
          "mobile",
          "linux",
          "android",
-         "unix"
+         "unix",
+         "device"
       ],
       "minor" : "0.25",
       "public_major" : "3",
@@ -1041,6 +1043,7 @@
          "mobile",
          "linux",
          "android",
+         "device",
          "unix"
       ],
       "minor" : "0.30",
@@ -2317,6 +2320,7 @@
       "match" : [
          "opera",
          "android",
+         "device",
          "mobile"
       ],
       "os" : "Android",
@@ -2918,6 +2922,7 @@
          "unix",
          "mobile",
          "mobile_safari",
+         "device",
          "android"
        ],
        "minor" : ".30",
