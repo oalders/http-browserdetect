@@ -1,31 +1,22 @@
 use strict;
 package HTTP::BrowserDetect;
 
-use vars qw(@ISA @EXPORT @EXPORT_OK);
+use vars qw(@ISA @EXPORT @EXPORT_OK @ALL_TESTS);
 require Exporter;
 
 @ISA       = qw(Exporter);
 @EXPORT    = qw();
 @EXPORT_OK = qw();
 
-use vars qw(
-    @OS_TESTS      @WINDOWS_TESTS @MAC_TESTS
-    @UNIX_TESTS    @BSD_TESTS     @GAMING_TESTS
-    %DEVICE_TESTS  @BROWSER_TESTS @IE_TESTS
-    @OPERA_TESTS   @AOL_TESTS     @NETSCAPE_TESTS
-    @FIREFOX_TESTS @ENGINE_TESTS  @ROBOT_TESTS
-    @MISC_TESTS    @ALL_TESTS
-);
-
 # Operating Systems
-push @OS_TESTS, qw(
+my @OS_TESTS = qw(
     windows mac   os2 
     unix    linux vms 
     bsd     amiga
 );
 
 # More precise Windows
-push @WINDOWS_TESTS, qw(
+my @WINDOWS_TESTS = qw(
     win16 win3x   win31
     win95 win98   winnt
     winme win32   win2k
@@ -34,13 +25,13 @@ push @WINDOWS_TESTS, qw(
 );
 
 # More precise Mac
-push @MAC_TESTS, qw(
+my @MAC_TESTS = qw(
     macosx mac68k macppc
     ios
 );
 
 # More precise Unix
-push @UNIX_TESTS, qw(
+my @UNIX_TESTS = qw(
     sun     sun4     sun5
     suni86  irix     irix5
     irix6   hpux     hpux9
@@ -51,17 +42,17 @@ push @UNIX_TESTS, qw(
 );
 
 # More precise BSDs
-push @BSD_TESTS, qw(
+my @BSD_TESTS = qw(
     freebsd 
 );
 
 # Gaming devices
-push @GAMING_TESTS, qw(
+my @GAMING_TESTS = qw(
     ps3gameos pspgameos
 );
 
 # Devices
-%DEVICE_TESTS = (
+my %DEVICE_TESTS = (
     android => 'Android',
     audrey => 'Audrey',
     blackberry => 'BlackBerry',
@@ -80,7 +71,7 @@ push @GAMING_TESTS, qw(
 );
 
 # Browsers
-push @BROWSER_TESTS, qw(
+my @BROWSER_TESTS = qw(
     mosaic        netscape    firefox
     chrome        safari      ie
     opera         lynx        links
@@ -90,40 +81,40 @@ push @BROWSER_TESTS, qw(
     mobile_safari
 );
 
-push @IE_TESTS, qw(
+my @IE_TESTS = qw(
     ie3         ie4         ie4up
     ie5         ie5up       ie55
     ie55up      ie6         ie7
     ie8         ie9         ie10
 );
 
-push @OPERA_TESTS, qw(
+my @OPERA_TESTS = qw(
     opera3      opera4     opera5
     opera6      opera7
 );
 
-push @AOL_TESTS, qw(
+my @AOL_TESTS = qw(
     aol         aol3        aol4
     aol5        aol6        
 );
 
-push @NETSCAPE_TESTS, qw(
+my @NETSCAPE_TESTS = qw(
     nav2   nav3   nav4  
     nav4up nav45  nav45up
     nav6   nav6up navgold
 );
 
 # Firefox variants
-push @FIREFOX_TESTS, qw(
+my @FIREFOX_TESTS = qw(
     firebird    iceweasel   phoenix 
     namoroka
 );
 
-push @ENGINE_TESTS, qw(
+my @ENGINE_TESTS = qw(
     gecko    trident
 );
 
-push @ROBOT_TESTS, qw(
+my @ROBOT_TESTS = qw(
     puf          curl        wget
     getright     robot       yahoo
     altavista    lycos       infoseek
@@ -134,7 +125,7 @@ push @ROBOT_TESTS, qw(
     facebook
 );
 
-push @MISC_TESTS, qw(
+my @MISC_TESTS = qw(
     mobile      dotnet      x11
     java
 );
