@@ -1112,6 +1112,8 @@ sub device_name {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
+    return $self->{device_name} if defined $self->{device_name};
+
     my $device = $self->device;
     return if !$device;
 
@@ -1273,8 +1275,9 @@ are subject to change and are really meant for display purposes.  You should
 use the device() method in your logic.  Returns one of: Android, Audrey, 
 BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
 3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone, 
-webOS. Returns C<undef> if this is not a device or if no device name can be 
-detected.
+webOS. Also Windows-based smartphones will output various different names like
+HTC T7575. Returns C<undef> if this is not a device or if no device name can 
+be detected.
 
 =head2 browser_properties()
 
