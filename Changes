@@ -1,5 +1,12 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.39 2011-12-01
+    - Adds logical groupings of test cases BrowserDetect.pm (Olivier Bilodeau)
+    - Fixes win-based device names (Olivier Bilodeau)
+
+1.38 2011-11-30
+    - Ensures that all methods return undef where advertised (Ronald J. Kimball)
+
 1.37 2011-11-29
     - Adds nintendo mobile browsers (Nintendo DSi, Nintendo 3DS) (cho45)
     - Adds kindle, dsi, n3ds to device and device_name methods
