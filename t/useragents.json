@@ -1000,7 +1000,7 @@
          "linux",
          "unix",
          "android",
-	 "device"
+         "device"
       ],
       "minor" : "0.23",
       "public_major" : "3",
@@ -1022,7 +1022,7 @@
          "linux",
          "android",
          "unix",
-	 "device"
+         "device"
       ],
       "minor" : "0.25",
       "public_major" : "3",
