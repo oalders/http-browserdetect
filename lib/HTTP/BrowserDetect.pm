@@ -125,7 +125,6 @@ my @ROBOT_TESTS = qw(
     facebook
 );
 
->>>>>>> 217cb1256b0f30248d4a8c6b44df08c859bc2db1
 my @MISC_TESTS = qw(
     mobile      dotnet      x11
     java

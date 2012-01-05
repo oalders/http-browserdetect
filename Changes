@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.40 2012-01-05
+    - Fixes false positive results for RealPlayer browser (John Oatis)
+
 1.39 2011-12-01
     - Adds logical groupings of test cases BrowserDetect.pm (Olivier Bilodeau)
     - Fixes win-based device names (Olivier Bilodeau)
