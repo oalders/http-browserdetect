@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.39
+    version 1.40
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -240,6 +240,11 @@ Detecting Browser Vendor
    netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
    opera opera3 opera4 opera5 opera6 opera7
    realplayer
+   realplayer_browser
+The realplayer method above tests for the presence of either the RealPlayer
+plug-in "(r1 " or the browser "RealPlayer". To preserve 
+"bugwards compatibility" and prevent false reporting, browser_string calls
+this method which ignores the "(r1 " plug-in signature.
    safari
    staroffice
    webtv
@@ -463,7 +468,7 @@ AUTHORS
     *   Olaf Alders <olaf@wundercounter.com> (current maintainer)
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2011 by Lee Semel.
+    This software is copyright (c) 2012 by Lee Semel.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
