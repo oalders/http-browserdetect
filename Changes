@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.41 2012-01-19
+1.41 2012-01-09
     - Exposes test categorization via our (Olivier Bilodeau)
 
 1.40 2012-01-05
