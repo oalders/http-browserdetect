@@ -3,16 +3,16 @@
       "browser_string" : null,
       "country" : null,
       "language" : null,
-      "major" : "1",
+      "major" : null,
       "match" : [
-         "google",
+         "googleadsbot",
          "robot"
       ],
-      "minor" : "0",
+      "minor" : null,
       "no_match" : null,
       "os" : null,
       "other" : null,
-      "version" : "1"
+      "version" : null
    },
    "AmigaVoyager/3.3.50 (AmigaOS/PPC)" : {
       "browser_string" : null,
@@ -33,7 +33,7 @@
       "browser_string" : null,
       "country" : null,
       "language" : null,
-      "major" : "1",
+      "major" : null,
       "match" : [
          "baidu",
          "robot"
@@ -42,7 +42,7 @@
       "no_match" : null,
       "os" : null,
       "other" : null,
-      "version" : "1"
+      "version" : null
    },
    "BlackBerry7730/3.7.1 UP.Link/5.1.2.5" : {
       "browser_string" : null,
@@ -410,6 +410,35 @@
       "engine_version" : "4.0",
       "engine_string" : "Trident"
    },
+   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
+      "major" : "8",
+      "match" : [
+         "winxp",
+         "windows",
+         "winnt",
+         "win32",
+         "dotnet",
+         "trident",
+         "ie",
+         "ie8",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : [
+         "robot"
+      ],
+      "public_major" : "8",
+      "public_minor" : "0",
+      "public_version" : "8.0",
+      "version" : "8.0",
+      "engine_major" : "4",
+      "engine_minor" : "0",
+      "engine_version" : "4.0",
+      "engine_string" : "Trident"
+   },
+
    "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)" : {
       "device_name" : "Sony PlayStation Portable",
       "engine_string" : "NetFront",
@@ -1021,7 +1050,7 @@
       "browser_string" : null,
       "country" : null,
       "language" : null,
-      "major" : "1",
+      "major" : "5",
       "match" : [
          "askjeeves",
          "robot"
@@ -1030,7 +1059,7 @@
       "no_match" : null,
       "os" : null,
       "other" : null,
-      "version" : "1"
+      "version" : "5"
    },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
       "country" : "US",
