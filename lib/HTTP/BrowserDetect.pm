@@ -123,7 +123,8 @@ our @ROBOT_TESTS = qw(
     slurp        webtv       staroffice
     lotusnotes   icab        google
     googlemobile msn         msnmobile
-    facebook
+    facebook     baidu       googleadsbot
+    askjeeves
 );
 
 our @MISC_TESTS = qw(
@@ -489,6 +490,9 @@ sub _test {
     $tests->{LINKEXCHANGE} = ( index( $ua, "lecodechecker" ) != -1 );
     $tests->{SLURP}        = ( index( $ua, "slurp" ) != -1 );
     $tests->{FACEBOOK}     = ( index( $ua, "facebookexternalhit" ) != -1 );
+    $tests->{BAIDU}        = ( index( $ua, "baiduspider" ) != -1 );
+    $tests->{GOOGLEADSBOT} = ( index( $ua, "adsbot-google" ) != -1 );
+    $tests->{ASKJEEVES}    = ( index( $ua, "ask jeeves/teoma" ) != -1 );
     $tests->{ROBOT}        = (
         (          $tests->{WGET}
                 || $tests->{PUF}
@@ -507,6 +511,9 @@ sub _test {
                 || $tests->{MSNMOBILE}
                 || $tests->{FACEBOOK}
                 || $tests->{JAVA}
+                || $tests->{BAIDU}
+                || $tests->{GOOGLEADSBOT}
+                || $tests->{ASKJEEVES}
         )
             || index( $ua, "bot" ) != -1
             || index( $ua, "spider" ) != -1
@@ -1588,11 +1595,17 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 altavista
 
+=head3 askjeeves
+
+=head3 baidu
+
 =head3 facebook
 
 =head3 getright
 
 =head3 google
+
+=head3 googleadsbot
 
 =head3 googlemobile
 
@@ -1694,6 +1707,8 @@ John Oatis
 Atsushi Kato
 
 Ronald J. Kimball
+
+Bill Rhodes
 
 =head1 TO DO
 

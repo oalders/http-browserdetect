@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.42 2012-03-01
+    - Adds bot detection for askjeeves, baidu and googleadsbot (Bill Rhodes)
+
 1.41 2012-01-19
     - Exposes test categorization via our (Olivier Bilodeau)
 

@@ -1,4 +1,19 @@
 {
+   "AdsBot-Google (+http://www.google.com/adsbot.html)" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "1",
+      "match" : [
+         "google",
+         "robot"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : "1"
+   },
    "AmigaVoyager/3.3.50 (AmigaOS/PPC)" : {
       "browser_string" : null,
       "country" : null,
@@ -13,6 +28,21 @@
       "os" : null,
       "other" : null,
       "version" : "3.3"
+   },
+   "Baiduspider+(+http://www.baidu.com/search/spider.htm)" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "1",
+      "match" : [
+         "baidu",
+         "robot"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : "1"
    },
    "BlackBerry7730/3.7.1 UP.Link/5.1.2.5" : {
       "browser_string" : null,
@@ -986,6 +1016,21 @@
       "os" : "Unix",
       "other" : null,
       "version" : "4.5"
+   },
+   "Mozilla/5.0 (compatible; Ask Jeeves/Teoma; +http://about.ask.com/en/docs/about/webmasters.shtml)" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "1",
+      "match" : [
+         "askjeeves",
+         "robot"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : "1"
    },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
       "country" : "US",
@@ -2902,7 +2947,7 @@
    "Mozilla/5.0 (X11; U; Linux i686; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Safari/534.12" : {
        "browser_string" : "Safari",
        "match" : [
-	 "safari",
+     "safari",
          "linux",
          "x11",
          "unix"
@@ -2964,4 +3009,5 @@
        "public_version" : "1.7412"
    }
 }
+
 
