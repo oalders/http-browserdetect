@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.41
+    version 1.42
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -241,10 +241,11 @@ Detecting Browser Vendor
    opera opera3 opera4 opera5 opera6 opera7
    realplayer
    realplayer_browser
-The realplayer method above tests for the presence of either the RealPlayer
-plug-in "(r1 " or the browser "RealPlayer". To preserve 
-"bugwards compatibility" and prevent false reporting, browser_string calls
-this method which ignores the "(r1 " plug-in signature.
+    The realplayer method above tests for the presence of either the
+    RealPlayer plug-in "(r1 " or the browser "RealPlayer". To preserve
+    "bugwards compatibility" and prevent false reporting, browser_string
+    calls this method which ignores the "(r1 " plug-in signature.
+
    safari
    staroffice
    webtv
@@ -300,9 +301,12 @@ Detecting Other Devices
     the Web.
 
    altavista
+   askjeeves
+   baidu
    facebook
    getright
    google
+   googleadsbot
    googlemobile
    infoseek
    linkexchange
@@ -389,6 +393,8 @@ ACKNOWLEDGEMENTS
     Atsushi Kato
 
     Ronald J. Kimball
+
+    Bill Rhodes
 
 TO DO
     The "_engine()" method currently only handles Gecko and Trident. It
