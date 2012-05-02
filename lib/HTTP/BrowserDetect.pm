@@ -136,7 +136,7 @@ push @ALL_TESTS,
     (
     @OS_TESTS,          @WINDOWS_TESTS, @MAC_TESTS,
     @UNIX_TESTS,        @BSD_TESTS,     @GAMING_TESTS,
-    keys %DEVICE_TESTS, @BROWSER_TESTS, @IE_TESTS,
+    sort keys %DEVICE_TESTS, @BROWSER_TESTS, @IE_TESTS,
     @OPERA_TESTS,       @AOL_TESTS,     @NETSCAPE_TESTS,
     @FIREFOX_TESTS,     @ENGINE_TESTS,  @ROBOT_TESTS,
     @MISC_TESTS,
@@ -1134,7 +1134,7 @@ sub device {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    foreach my $device ( keys %DEVICE_TESTS ) {
+    foreach my $device ( sort keys %DEVICE_TESTS ) {
         return $device if ( $self->$device );
     }
 
@@ -1206,7 +1206,7 @@ sub browser_properties {
     my ( $self, $check ) = _self_or_default( @_ );
 
     my @browser_properties;
-    foreach my $property ( keys %{ $self->{tests} } ) {
+    foreach my $property ( sort keys %{ $self->{tests} } ) {
         push @browser_properties, lc( $property )
             if ( ${ $self->{tests} }{$property} );
     }
