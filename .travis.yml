@@ -8,8 +8,8 @@ install:
 script:
   - "prove -lr t"
 notifications:
-  recipients:
-    - olaf@wundersolutions.com
   email:
+    recipients:
+      - olaf@wundersolutions.com
     on_success: always
     on_failure: always
