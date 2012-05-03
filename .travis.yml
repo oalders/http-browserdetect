@@ -4,6 +4,12 @@ perl:
   - "5.12"
   - "5.10"
 install:
-  - cpanm Data::Dump English Exporter ExtUtils::MakeMaker File::Slurp FindBin JSON::PP Module::Build Test::More
+  - cpanm Data::Dump English Exporter File::Slurp FindBin JSON::PP Test::More
 script:
   - "prove -lr t"
+notifications:
+  recipients:
+    - olaf@wundersolutions.com
+  email:
+    on_success: always
+    on_failure: always
