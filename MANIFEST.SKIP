@@ -1,3 +1,4 @@
+.travis.yml
 t/perlcriticrc
 t/pod_coverage.t
 t/02-critic.t
