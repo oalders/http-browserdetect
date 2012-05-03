@@ -5,4 +5,5 @@ perl:
   - "5.10"
 install:
   - cpanm Data::Dump English Exporter ExtUtils::MakeMaker File::Slurp FindBin JSON::PP Module::Build Test::More
-test: prove -lr t
+test:
+  - "prove -lr t"
