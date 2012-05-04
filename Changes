@@ -1,5 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.44 2012-05-03
+    - Fixes "sort (...) interpreted as function" introduced in 1.43, which was
+      causing tests to fail
+
 1.43 2012-05-02
     - Sorts keys when iterating for consistency across Perl implementations (Thom Blake)
 
