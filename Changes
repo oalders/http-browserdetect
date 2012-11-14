@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.45 2012-11-13
+    - Removes Data::Dump from deps
+
 1.44 2012-05-03
     - Fixes "sort (...) interpreted as function" introduced in 1.43, which was
       causing tests to fail

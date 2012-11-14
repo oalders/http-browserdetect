@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 
-use Data::Dump qw( dump );
 use File::Slurp;
 use FindBin;
 use JSON::PP;
@@ -25,8 +24,6 @@ my $tests = JSON::PP->new->ascii->decode( $json );
 foreach my $ua ( sort keys %{$tests} ) {
 
     my $test = $tests->{$ua};
-
-    #diag( dump $test );
 
     my $detected = HTTP::BrowserDetect->new( $ua );
     diag( $detected->user_agent );

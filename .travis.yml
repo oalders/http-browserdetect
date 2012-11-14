@@ -4,7 +4,7 @@ perl:
   - "5.12"
   - "5.10"
 install:
-  - cpanm Data::Dump English Exporter File::Slurp FindBin JSON::PP Test::More
+  - cpanm English Exporter File::Slurp FindBin JSON::PP Test::More
 script:
   - "prove -lr t"
 notifications:
