@@ -2852,6 +2852,25 @@
        "os_string" : "Windows Phone",
        "device_name" : "HTC T7575"
    },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 510)" : {
+       "browser_string": "MSIE",
+       "engine_version": "5.0",
+       "language": null,
+       "match" : [
+         "windows",
+         "winphone",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie9"
+       ],
+       "os" : "WinPhone",
+       "os_string" : "Windows Phone",
+       "device_name" : "NOKIA Lumia 510"
+   },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; 8X)" : {
        "browser_string": "MSIE",
        "engine_version": "6.0",

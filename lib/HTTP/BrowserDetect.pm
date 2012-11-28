@@ -539,6 +539,8 @@ sub _test {
 
     $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 );
     $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
+    $tests->{WINCE}      = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINPHONE}   = ( index( $ua, "windows phone" ) != -1 );
     $tests->{WEBOS}      = ( index( $ua, "webos" ) != -1 );
     $tests->{IPOD}       = ( index( $ua, "ipod" ) != -1 );
     $tests->{IPAD}       = ( index( $ua, "ipad" ) != -1 );
@@ -546,10 +548,10 @@ sub _test {
     $tests->{AUDREY}     = ( index( $ua, "audrey" ) != -1 );
     $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
     $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
-    $tests->{PALM} = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
-    $tests->{WAP}
-        = (    index( $ua, "up.browser" ) != -1
-            || index( $ua, "nokia" ) != -1
+    $tests->{PALM}       = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
+    $tests->{WAP}        = (
+               index( $ua, "up.browser" ) != -1
+            || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
             || index( $ua, "alcatel" ) != -1
             || index( $ua, "ericsson" ) != -1
             || index( $ua, "sie-" ) == 0
@@ -644,9 +646,6 @@ sub _test {
     $tests->{WINVISTA} = ( index( $ua, "nt 6.0" ) != -1 );
     $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
-
-    $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
-    $tests->{WINPHONE} = ( index( $ua, "windows phone" ) != -1 );
 
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
