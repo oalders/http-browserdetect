@@ -2852,6 +2852,25 @@
        "os_string" : "Windows Phone",
        "device_name" : "HTC T7575"
    },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; 8X)" : {
+       "browser_string": "MSIE",
+       "engine_version": "6.0",
+       "language": null,
+       "match" : [
+         "windows",
+         "winphone",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie10"
+       ],
+       "os" : "WinPhone",
+       "os_string" : "Windows Phone",
+       "device_name" : "HTC 8X"
+   },
    "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
        "browser_string" : "AOL Browser",
        "major" : "8",
