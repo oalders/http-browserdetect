@@ -646,7 +646,7 @@ sub _test {
     $tests->{DOTNET}   = ( index( $ua, ".net clr" ) != -1 );
 
     $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
-    $tests->{WINPHONE} = ( index( $ua, "windows phone os" ) != -1 );
+    $tests->{WINPHONE} = ( index( $ua, "windows phone" ) != -1 );
 
     $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
     $tests->{WIN32} = (
@@ -809,6 +809,12 @@ sub _test {
     $self->{device_name} = undef;
 
     if ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
+    {
+        $self->{device_name} = substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+    elsif ( $ua =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g )
     {
         $self->{device_name} = substr $self->{user_agent},
             pos( $ua ) - length $1, length $1;
