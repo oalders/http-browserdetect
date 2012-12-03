@@ -3036,6 +3036,17 @@
        "public_major" : "1",
        "public_minor" : "0.7412",
        "public_version" : "1.7412"
+   },
+   "Mozilla/DnsHealthCheckBot/1.0" : {
+       "browser_string" : "Netscape",
+       "match" : [
+         "netscape",
+         "robot"
+       ],
+       "os" : null,
+       "public_major" : "1",
+       "public_minor" : "0",
+       "public_version" : "1.0"
    }
 }
 

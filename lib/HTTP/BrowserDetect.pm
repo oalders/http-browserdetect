@@ -235,6 +235,7 @@ sub _test {
     # Browser version
     my ( $major, $minor, $beta ) = (
         $ua =~ m{
+            \S+                     # Greedly catch anything leading up to forward slash.
             \/                      # Version starts with a slash
             [A-Za-z]*               # Eat any letters before the major version
             ( [^.]* )               # Major version number is everything before the first dot
