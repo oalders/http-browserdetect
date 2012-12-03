@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.44
+    version 1.45
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -398,6 +398,8 @@ ACKNOWLEDGEMENTS
 
     Thom Blake
 
+    Aran Deltac
+
 TO DO
     The "_engine()" method currently only handles Gecko and Trident. It
     needs to be expanded to handle other rendering engines.
@@ -446,7 +448,7 @@ SUPPORT
 
     *   Search CPAN
 
-        <http://beta.metacpan.org/module/HTTP::BrowserDetect>
+        <https://metacpan.org/module/HTTP::BrowserDetect>
 
 BUGS AND LIMITATIONS
     The biggest limitation at this point is the test suite, which really
