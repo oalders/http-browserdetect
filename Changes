@@ -1,7 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-1.45 2012-11-13
+1.45 2012-12-02
     - Removes Data::Dump from deps
+    - Supports Windows Phone 8.0 devices (Douglas Christopher Wilson)
+    - Fixes mistaken WAP detection for Nokia Windows Phones
+    - Fixes warnings on browser version when running under -w (Aran Deltac)
 
 1.44 2012-05-03
     - Fixes "sort (...) interpreted as function" introduced in 1.43, which was
