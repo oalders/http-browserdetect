@@ -1718,6 +1718,8 @@ Bill Rhodes
 
 Thom Blake
 
+Aran Deltac
+
 =head1 TO DO
 
 The C<_engine()> method currently only handles Gecko and Trident.  It needs to
@@ -1745,7 +1747,6 @@ You can find documentation for this module with the perldoc command.
 
     perldoc HTTP::BrowserDetect
 
-
 You can also look for information at:
 
 =over 4
@@ -1768,7 +1769,7 @@ L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
 
 =item * Search CPAN
 
-L<http://beta.metacpan.org/module/HTTP::BrowserDetect>
+L<https://metacpan.org/module/HTTP::BrowserDetect>
 
 =back
 
