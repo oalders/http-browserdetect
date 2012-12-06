@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.45
+    version 1.46
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -185,7 +185,7 @@ Detecting OS Platform and Version
         win32
             winme win95 win98
             winnt
-                win2k winxp win2k3 winvista win7
+                win2k winxp win2k3 winvista win7 win8
         wince
         winphone
 
@@ -211,9 +211,9 @@ Detecting OS Platform and Version
     Returns one of the following strings, or undef. This method exists
     solely for compatibility with the HTTP::Headers::UserAgent module.
 
-      Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Windows Phone,
-      Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux, Playstation 3 GameOS,
-      Playstation Portable GameOS
+      Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
+      Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
+      Playstation 3 GameOS, Playstation Portable GameOS
 
 Detecting Browser Vendor
     The following methods are available, each returning a true or false
