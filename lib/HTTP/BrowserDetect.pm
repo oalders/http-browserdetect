@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 
 package HTTP::BrowserDetect;
 
@@ -1409,7 +1410,7 @@ Returns C<undef> if no string can be found.
 
 Returns the version number of the rendering engine. Currently this only
 returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
+other engines. The output is simply C<engine_major> added with C<engine_minor>.
 
 =head2 engine_major()
 
