@@ -2847,6 +2847,7 @@
        "match" : [
          "windows",
          "winphone",
+         "winphone7",
          "mobile",
          "trident",
          "ie",
@@ -2865,6 +2866,7 @@
        "match" : [
          "windows",
          "winphone",
+         "winphone7_5",
          "mobile",
          "trident",
          "ie",
@@ -2884,6 +2886,7 @@
        "match" : [
          "windows",
          "winphone",
+         "winphone7_5",
          "mobile",
          "trident",
          "ie",
@@ -2903,6 +2906,7 @@
        "match" : [
          "windows",
          "winphone",
+         "winphone8",
          "mobile",
          "trident",
          "ie",

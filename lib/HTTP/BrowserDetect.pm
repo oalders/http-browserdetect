@@ -18,12 +18,13 @@ our @OS_TESTS = qw(
 
 # More precise Windows
 our @WINDOWS_TESTS = qw(
-    win16 win3x   win31
-    win95 win98   winnt
-    winme win32   win2k
-    winxp win2k3  winvista
-    win7  win8    wince
-    winphone
+    win16    win3x     win31
+    win95    win98     winnt
+    winme    win32     win2k
+    winxp    win2k3    winvista
+    win7     win8      wince
+    winphone winphone7 winphone7_5
+    winphone8
 );
 
 # More precise Mac
@@ -684,6 +685,10 @@ sub _test {
         )
             || index( $ua, "win" ) != -1
     );
+
+    $tests->{WINPHONE7}   = ( index( $ua, "windows phone os 7.0" ) != -1 );
+    $tests->{WINPHONE7_5} = ( index( $ua, "windows phone os 7.5" ) != -1 );
+    $tests->{WINPHONE8}   = ( index( $ua, "windows phone 8.0" ) != -1 );
 
     # Mac operating systems
 
@@ -1439,6 +1444,7 @@ winnt, which is a type of win32)
             win2k winxp win2k3 winvista win7 win8
     wince
     winphone
+        winphone7 winphone7_5 winphone8
 
 =head2 dotnet()
 
