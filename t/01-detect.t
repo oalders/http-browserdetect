@@ -7,6 +7,7 @@ use File::Slurp;
 use FindBin;
 use JSON::PP;
 use Test::More qw( no_plan );
+use Test::NoWarnings;
 
 # test that the module loads without errors
 my $w;
