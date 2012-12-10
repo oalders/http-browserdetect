@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.46
+    version 1.47
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -162,7 +162,8 @@ Detecting Rendering Engine
   engine_version()
     Returns the version number of the rendering engine. Currently this only
     returns a version number for Gecko and Trident. Returns "undef" for all
-    other engines.
+    other engines. The output is simply "engine_major" added with
+    "engine_minor".
 
   engine_major()
     Returns the major version number of the rendering engine. Currently this
@@ -188,6 +189,7 @@ Detecting OS Platform and Version
                 win2k winxp win2k3 winvista win7 win8
         wince
         winphone
+            winphone7 winphone7_5 winphone8
 
   dotnet()
   mac()
