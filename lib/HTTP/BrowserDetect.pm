@@ -132,7 +132,7 @@ our @ROBOT_TESTS = qw(
 
 our @MISC_TESTS = qw(
     mobile      dotnet      x11
-    java
+    java 		tablet
 );
 
 push @ALL_TESTS,
@@ -575,6 +575,7 @@ sub _test {
     $tests->{DSI}    = ( index( $ua, "nintendo dsi" ) != -1 );
     $tests->{'N3DS'} = ( index( $ua, "nintendo 3ds" ) != -1 );
 
+    
     $tests->{MOBILE} = (
                ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
             || index( $ua, "up.browser" ) != -1
@@ -598,16 +599,12 @@ sub _test {
             || index( $ua, "palmsource" ) != -1
             || index( $ua, "iphone" ) != -1
             || index( $ua, "ipod" ) != -1
-            || index( $ua, "ipad" ) != -1
             || index( $ua, "opera mini" ) != -1
-            || index( $ua, "android" ) != -1
+            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
             || index( $ua, "webos" ) != -1
-            ||
-
-            #               index($ua," ppc") != -1 ||
-               index( $ua, "samsung" ) != -1
+            || index( $ua, "samsung" ) != -1
             || index( $ua, "samsung" ) != -1
             || index( $ua, "zetor" ) != -1
             || index( $ua, "android" ) != -1
@@ -620,6 +617,33 @@ sub _test {
             || $tests->{'N3DS'}
             || $tests->{GOOGLEMOBILE}
             || $tests->{MSNMOBILE}
+    );
+    
+    
+    $tests->{TABLET} = (
+             index( $ua, "ipad" ) != -1
+            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) == -1 )
+            || index( $ua, "kindle" ) != -1
+            || index( $ua, "xoom" ) != -1
+            || index( $ua, "flyer" ) != -1
+            || index( $ua, "jetstream" ) != -1
+            || index( $ua, "transformer" ) != -1
+            || index( $ua, "novo7" ) != -1
+            || index( $ua, "an10g2" ) != -1
+            || index( $ua, "an7bg3" ) != -1
+            || index( $ua, "an7fg3" ) != -1
+            || index( $ua, "an8g3" ) != -1
+            || index( $ua, "an8cg3" ) != -1
+            || index( $ua, "an7g3" ) != -1
+            || index( $ua, "an9g3" ) != -1
+            || index( $ua, "an7dg3" ) != -1
+            || index( $ua, "an7dg3st" ) != -1
+            || index( $ua, "an7dg3childpad" ) != -1
+            || index( $ua, "an10bg3" ) != -1
+            || index( $ua, "an10bg3dt" ) != -1
+            || index( $ua, "hp-tablet" ) != -1
+ 
+    
     );
 
     # Operating System
@@ -1622,6 +1646,10 @@ The following methods are available, each returning a true or false value.
 =head2 mobile()
 
 Returns true if the browser appears to belong to a handheld device.
+
+=head2 tablet()
+
+Returns true if the browser appears to belong to a tablet device.
 
 =head2 robot()
 
