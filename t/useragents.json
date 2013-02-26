@@ -3114,7 +3114,27 @@
        "public_major" : "1",
        "public_minor" : "0",
        "public_version" : "1.0"
-   }
+   },
+   "Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JOP12D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30" : {
+      "browser_string" : "Safari",
+      "country" : "US",
+      "engine_string" : "KHTML",
+      "language" : "EN",
+      "major" : "5",
+      "match" : [
+         "mobile",
+         "linux",
+         "safari",
+         "tablet",
+         "android",
+         "unix"
+      ],
+      "minor" : "0.34",
+      "public_major" : "4",
+      "public_minor" : ".0",
+      "public_version" : "4",
+      "version" : "5.34"
+   },
 }
 
 
