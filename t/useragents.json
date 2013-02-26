@@ -167,6 +167,22 @@
       "other" : null,
       "version" : "4.5"
    },
+   "MOT-EX128 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1" : {
+      "browser_string" : "Obigo",
+      "device_name" : "Motorola EX128",
+      "language" : null,
+      "major" : null,
+      "match" : [
+         "device",
+         "obigo",
+         "wap"
+      ],
+      "minor" : null,
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : null
+   },
    "Mozilla/1.1 (Windows 3.0; I)" : {
       "browser_string" : "Netscape",
       "country" : null,
