@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.47
+    version 1.48
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -286,6 +286,7 @@ Detecting Other Devices
    ipad
    kindle
    n3ds
+   obigo
    palm
    webos
    wap
@@ -480,7 +481,7 @@ AUTHORS
     *   Olaf Alders <olaf@wundercounter.com> (current maintainer)
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Lee Semel.
+    This software is copyright (c) 2013 by Lee Semel.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

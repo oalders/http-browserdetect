@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.48 2013-02-26
+    - Adds Obigo browser detection (Douglas Christopher Wilson)
+
 1.47 2012-12-10
     - Distinguishes version of Windows Phone (Douglas Christopher Wilson)
     - Enables warnings and traps warnings in tests (Douglas Christopher Wilson)
