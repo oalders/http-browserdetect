@@ -82,7 +82,7 @@ our @BROWSER_TESTS = qw(
     elinks        neoplanet   neoplanet2
     avantgo       emacs       mozilla
     konqueror     r1          netfront
-    mobile_safari
+    mobile_safari obigo
 );
 
 our @IE_TESTS = qw(
@@ -553,8 +553,10 @@ sub _test {
     $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
     $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
     $tests->{PALM}       = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
+    $tests->{OBIGO}      = ( index( $ua, "obigo/" ) != -1 );
     $tests->{WAP}        = (
-               index( $ua, "up.browser" ) != -1
+               $tests->{OBIGO}
+            || index( $ua, "up.browser" ) != -1
             || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
             || index( $ua, "alcatel" ) != -1
             || index( $ua, "ericsson" ) != -1
@@ -818,7 +820,12 @@ sub _test {
 
     $self->{device_name} = undef;
 
-    if ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
+    if ( $tests->{OBIGO} && $ua =~ /^(mot-\S+)/ )
+    {
+        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
+        $self->{device_name} =~ s/^MOT-/Motorola /i;
+    }
+    elsif ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
     {
         $self->{device_name} = substr $self->{user_agent},
             pos( $ua ) - length $1, length $1;
@@ -848,6 +855,7 @@ sub browser_string {
         $browser_string = 'MSIE'          if $self->ie;
         $browser_string = 'WebTV'         if $self->webtv;
         $browser_string = 'AOL Browser'   if $self->aol;
+        $browser_string = 'Obigo'         if $self->obigo;
         $browser_string = 'Opera'         if $self->opera;
         $browser_string = 'Mosaic'        if $self->mosaic;
         $browser_string = 'Lynx'          if $self->lynx;
@@ -1588,6 +1596,8 @@ The following methods are available, each returning a true or false value.
 =head3 kindle
 
 =head3 n3ds
+
+=head3 obigo
 
 =head3 palm
 
