@@ -48,6 +48,7 @@ foreach my $ua ( sort keys %{$tests} ) {
         engine_major
         engine_minor
         ios
+        tablet
         )
         )
     {
