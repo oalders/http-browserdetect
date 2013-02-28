@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.49 2013-02-27
+    - Fixes language/country detectio for Safari (Douglas Christopher Wilson)
+
 1.48 2013-02-26
     - Adds Obigo browser detection (Douglas Christopher Wilson)
 
