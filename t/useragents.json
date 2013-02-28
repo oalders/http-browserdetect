@@ -1102,6 +1102,23 @@
       "other" : null,
       "version" : "5"
    },
+   "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
+      "browser_string" : null,
+      "country" : "NZ",
+      "engine_string" : "KHTML",
+      "language" : "EN",
+      "major" : "5",
+      "match" : [
+         "linux",
+         "safari",
+         "unix"
+      ],
+      "minor" : "0.34",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : "5.34"
+   },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
       "country" : "US",
       "engine" : "5.25",
