@@ -1188,7 +1188,7 @@ sub _language_country {
         {
             return { language => uc $1 };
         }
-        if ( $self->user_agent =~ m/([a-z]{2})-([a-z]{2})/xms ) {
+        if ( $self->user_agent =~ m/\s ([a-z]{2})-([A-Za-z]{2})/xms ) {
             return { language => uc $1, country => uc $2 };
         }
     }
