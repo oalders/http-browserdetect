@@ -1440,6 +1440,20 @@
       "other" : null,
       "version" : "0.74"
    },
+   "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0" : {
+      "browser_string" : "Firefox",
+      "engine_string" : "Gecko",
+      "engine_version": "18.0",
+      "match" : [
+        "firefox",
+        "firefoxos",
+        "gecko",
+        "mobile"
+      ],
+      "os_string" : "Firefox OS",
+      "public_version" : "18.0",
+      "version" : "18.0"
+   },
    "Mozilla/5.0 (PLAYSTATION 3; 2.00)" : {
       "device_name" : "Sony PlayStation 3",
       "engine_string" : "NetFront",
