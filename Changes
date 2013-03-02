@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.50 2013-03-01
+    - Adds Firefox OS detection (Douglas Christopher Wilson)
+
 1.49 2013-02-27
     - Fixes language/country detectio for Safari (Douglas Christopher Wilson)
 
