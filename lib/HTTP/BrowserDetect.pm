@@ -599,7 +599,8 @@ sub _test {
             || index( $ua, "palmsource" ) != -1
             || index( $ua, "iphone" ) != -1
             || index( $ua, "ipod" ) != -1
-            || index( $ua, "opera mini" ) != -1
+            || index( $ua, "ipad" ) != -1
+            || (index( $ua, "opera mini" ) != -1 && index( $ua, "tablet" ) == -1 )
             || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
@@ -622,7 +623,7 @@ sub _test {
     
     $tests->{TABLET} = (
              index( $ua, "ipad" ) != -1
-            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) == -1 )
+            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) == -1  && index( $ua, "opera" ) == -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
             || index( $ua, "flyer" ) != -1
@@ -641,6 +642,7 @@ sub _test {
             || index( $ua, "an7dg3childpad" ) != -1
             || index( $ua, "an10bg3" ) != -1
             || index( $ua, "an10bg3dt" ) != -1
+            || index( $ua, "opera tablet" ) != -1
             || index( $ua, "hp-tablet" ) != -1
  
     
