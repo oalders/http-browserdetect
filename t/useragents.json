@@ -460,6 +460,7 @@
          "kindle",
          "linux",
          "netfront",
+         "tablet",
          "unix"
       ],
       "os" : "linux",
@@ -1158,6 +1159,7 @@
          "kindle",
          "linux",
          "safari",
+         "tablet",
          "unix"
       ],
       "os" : "Linux",
@@ -2239,6 +2241,7 @@
          "mobile",
          "ios",
          "ipad",
+         "tablet",
          "device"
       ],
       "minor" : "0.31",
@@ -2811,6 +2814,7 @@
       "major" : "11",
       "match" : [
         "mobile",
+        "tablet",
         "win32",
         "windows",
         "win7",
@@ -3011,6 +3015,7 @@
          "ipad",
          "mobile_safari",
          "device",
+         "tablet",
          "safari"
        ],
        "minor" : ".34",
@@ -3123,6 +3128,7 @@
       "major" : "5",
       "match" : [
          "mobile",
+         "device",
          "linux",
          "safari",
          "tablet",
@@ -3134,7 +3140,7 @@
       "public_minor" : ".0",
       "public_version" : "4",
       "version" : "5.34"
-   },
+   }
 }
 
 
