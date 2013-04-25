@@ -1,5 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.51 2013-04-25
+    - Adds Android tablet detection (yeahoffline <frank.gasser@gmail.com>)
+
 1.50 2013-03-01
     - Adds Firefox OS detection (Douglas Christopher Wilson)
 

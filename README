@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.50
+    version 1.51
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -296,6 +296,9 @@ Detecting Other Devices
   mobile()
     Returns true if the browser appears to belong to a handheld device.
 
+  tablet()
+    Returns true if the browser appears to belong to a tablet device.
+
   robot()
     Returns true if the user agent appears to be a robot, spider, crawler,
     or other automated Web client.
@@ -403,6 +406,8 @@ ACKNOWLEDGEMENTS
     Thom Blake
 
     Aran Deltac
+
+    yeahoffline
 
 TO DO
     The "_engine()" method currently only handles Gecko and Trident. It
