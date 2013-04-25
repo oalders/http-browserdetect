@@ -1112,6 +1112,7 @@
       "match" : [
          "linux",
          "safari",
+         "tablet",
          "unix"
       ],
       "minor" : "0.34",
