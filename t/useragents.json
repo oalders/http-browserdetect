@@ -1088,21 +1088,6 @@
       "other" : null,
       "version" : "4.5"
    },
-   "Mozilla/5.0 (compatible; Ask Jeeves/Teoma; +http://about.ask.com/en/docs/about/webmasters.shtml)" : {
-      "browser_string" : null,
-      "country" : null,
-      "language" : null,
-      "major" : "5",
-      "match" : [
-         "askjeeves",
-         "robot"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os" : null,
-      "other" : null,
-      "version" : "5"
-   },
    "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
       "browser_string" : null,
       "country" : "NZ",
@@ -2971,7 +2956,7 @@
        "os_string" : "Windows Phone",
        "device_name" : "HTC 8X"
    },
-   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
+   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/5.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
        "browser_string" : "AOL Browser",
        "major" : "8",
        "minor" : "0",
@@ -3188,7 +3173,27 @@
       "public_minor" : ".0",
       "public_version" : "4",
       "version" : "5.34"
-   }
+   },
+   "Mozilla/5.0 (compatible; MSIE 6; Windows NT 5.1; Trident/5.0)" : {
+     "browser_string" : "MSIE",
+     "major" : "6",
+       "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie6",
+         "trident",
+         "win32",
+         "windows",
+         "winnt",
+         "winxp"
+       ],
+     "minor" : "0",
+     "public_major" : "6",
+     "public_minor" : "0",
+     "version" : "6"
+  }
 }
 
 

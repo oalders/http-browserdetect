@@ -9,6 +9,8 @@ use JSON::PP;
 use Test::Most;
 use Test::FailWarnings;
 
+bail_on_fail();
+
 # test that the module loads without errors
 my $w;
 {
