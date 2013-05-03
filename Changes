@@ -1,5 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+1.52 2013-05-03
+    - Fixes warning when MSIE does not have a minor version
+    - Simplifies MSIE version regex logic
+    - Removes a test for AskJeeves browser
+
 1.51 2013-04-25
     - Adds Android tablet detection (yeahoffline <frank.gasser@gmail.com>)
 
