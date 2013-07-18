@@ -956,6 +956,31 @@
       "engine_version" : "4.0",
       "engine_string" : "Trident"
    },
+   "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)": {
+      "browser_string": "MSIE",
+      "major" : "9",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie9",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : "Win7",
+      "other" : null,
+      "version" : "9.0",
+      "engine_major" : "5",
+      "engine_minor" : "0",
+      "engine_version" : "5.0",
+      "engine_string" : "Trident"
+   },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)": {
       "browser_string": "MSIE",
       "major" : "9",
