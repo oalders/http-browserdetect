@@ -575,6 +575,7 @@ sub _test {
     
     $tests->{MOBILE} = (
                ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
+            || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
             || index( $ua, "alcatel" ) != -1
@@ -621,6 +622,7 @@ sub _test {
     
     $tests->{TABLET} = (
              index( $ua, "ipad" ) != -1
+            || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
             || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) == -1  && index( $ua, "opera" ) == -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
