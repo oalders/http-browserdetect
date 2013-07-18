@@ -15,6 +15,7 @@ our @OS_TESTS = qw(
     windows mac   os2
     unix    linux vms
     bsd     amiga firefoxos
+    rimtabletos
 );
 
 # More precise Windows
@@ -537,7 +538,7 @@ sub _test {
 
     # Devices
 
-    $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 );
+    $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 || index( $ua, "rim tablet os" ) != -1 );
     $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
     $tests->{WINCE}      = ( index( $ua, "windows ce" ) != -1 );
     $tests->{WINPHONE}   = ( index( $ua, "windows phone" ) != -1 );
@@ -609,6 +610,7 @@ sub _test {
             || index( $ua, "opera mobi" ) != -1
             || index( $ua, "fennec" ) != -1
             || index( $ua, "opera tablet" ) != -1
+            || index( $ua, "rim tablet" ) != -1
             || $tests->{PSP}
             || $tests->{DSI}
             || $tests->{'N3DS'}
@@ -639,6 +641,7 @@ sub _test {
             || index( $ua, "an10bg3" ) != -1
             || index( $ua, "an10bg3dt" ) != -1
             || index( $ua, "opera tablet" ) != -1
+            || index( $ua, "rim tablet" ) != -1
             || index( $ua, "hp-tablet" ) != -1
  
     
@@ -798,6 +801,8 @@ sub _test {
             && !$tests->{ANDROID}
             && index( $ua, "fennec" ) == -1 );
 
+    $tests->{RIMTABLETOS} = ( index( $ua, "rim tablet os" ) != -1 );
+
     $tests->{PS3GAMEOS} = $tests->{PS3} && $tests->{NETFRONT};
     $tests->{PSPGAMEOS} = $tests->{PSP} && $tests->{NETFRONT};
 
@@ -925,6 +930,7 @@ sub os_string {
         $os_string = 'Unix'                 if $self->unix && !$self->linux;
         $os_string = 'Linux'                if $self->linux;
         $os_string = 'Firefox OS'           if $self->firefoxos;
+        $os_string = 'RIM Tablet OS'        if $self->rimtabletos;
         $os_string = 'Playstation 3 GameOS' if $self->ps3gameos;
         $os_string = 'Playstation Portable GameOS' if $self->pspgameos;
         $os_string = 'iOS' if $self->iphone || $self->ipod || $self->ipad;
@@ -1495,6 +1501,8 @@ mac68k macppc macosx ios
 
 =head2 os2()
 
+=head2 rimtabletos()
+
 =head2 unix()
 
   sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
@@ -1520,7 +1528,8 @@ compatibility with the L<HTTP::Headers::UserAgent> module.
 
   Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
   Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-  Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS
+  Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+  RIM Tablet OS
 
 =head1 Detecting Browser Vendor
 
