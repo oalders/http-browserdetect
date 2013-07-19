@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.52
+    version 1.53
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -197,6 +197,7 @@ Detecting OS Platform and Version
     mac68k macppc macosx ios
 
   os2()
+  rimtabletos()
   unix()
       sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
       aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
@@ -216,7 +217,8 @@ Detecting OS Platform and Version
 
       Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
       Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-      Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS
+      Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+      RIM Tablet OS
 
 Detecting Browser Vendor
     The following methods are available, each returning a true or false
