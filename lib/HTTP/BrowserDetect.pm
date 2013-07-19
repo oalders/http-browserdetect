@@ -242,7 +242,7 @@ sub _test {
             \S+                     # Greedly catch anything leading up to forward slash.
             \/                      # Version starts with a slash
             [A-Za-z]*               # Eat any letters before the major version
-            ( [^.]* )               # Major version number is everything before the first dot
+            ( [0-9A-Za-z]* )        # Major version number is everything before the first dot
             \.                      # The first dot
             ( [\d]* )               # Minor version number is every digit after the first dot
             [\d.]*                  # Throw away remaining numbers and dots
