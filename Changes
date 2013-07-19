@@ -1,5 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+    - Detect IE on ARM as tablet (Douglas Christopher Wilson)
+    - Add BlackBerry PlayBook detection (Douglas Christopher Wilson)
+    - Split version parsing into two expressions (Douglas Christopher Wilson)
+
 1.52 2013-05-03
     - Fixes warning when MSIE does not have a minor version
     - Simplifies MSIE version regex logic
