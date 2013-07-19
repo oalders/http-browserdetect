@@ -267,21 +267,14 @@ sub _test {
 
     }
 
-    # IE (and many others ) version
-    if ($ua =~ m{
-                compatible;
-                \s*
-                \w*
-                [\s|\/]
-                [A-Za-z\-\/]*       # Eat any letters before the major version
-                ( [0-9a-zA-Z\.]* )  # Grab everything else and split it later
-                ;
-        }x
-        )
-    {
-        my $match = $1;
-        $match =~ s{[a-zA-Z].*}{}g; # toss the beta version for now
-        ( $major, $minor, $beta ) = split /\./, $match;
+    # IE (and others) version
+    if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
+        # Internet Explorer
+        ( $major, $minor, $beta ) = split /\./, $1;
+    }
+    elsif ( $ua =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x ) {
+        # Generic "compatible" formats
+        ( $major, $minor, $beta ) = split /\./, $1;
 
     }
 
@@ -360,6 +353,7 @@ sub _test {
             && !$tests->{SAFARI}
             && !$tests->{CHROME}
             && index( $ua, "mozilla" ) != -1
+            && index( $ua, "msie" ) == -1
             && index( $ua, "spoofer" ) == -1
             && index( $ua, "compatible" ) == -1
             && index( $ua, "opera" ) == -1
