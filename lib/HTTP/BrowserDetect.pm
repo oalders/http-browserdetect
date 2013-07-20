@@ -3,12 +3,7 @@ use warnings;
 
 package HTTP::BrowserDetect;
 
-use vars qw(@ISA @EXPORT @EXPORT_OK @ALL_TESTS);
-require Exporter;
-
-@ISA       = qw(Exporter);
-@EXPORT    = qw();
-@EXPORT_OK = qw();
+use vars qw(@ALL_TESTS);
 
 # Operating Systems
 our @OS_TESTS = qw(
