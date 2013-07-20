@@ -1439,6 +1439,20 @@
       "public_minor" : "0",
       "public_version" : "1.0"
    },
+   "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85.8.5 (KHTML, like Gecko) Safari/85.8.1" : {
+      "browser_string" : "Safari",
+      "match" : [
+         "mac",
+         "macosx",
+         "macppc",
+         "safari"
+      ],
+      "major" : "0",
+      "minor" : "0.85",
+      "public_major" : "1",
+      "public_minor" : "0",
+      "version" : "0.85"
+   },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US; rv:1.0.2) Gecko/20030208 Netscape/7.02" : {
       "browser_string" : "Netscape",
       "country" : "US",
