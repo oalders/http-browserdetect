@@ -1067,12 +1067,12 @@ sub _public {
                 # lower build
 
                 for my $maybe_build (
-                    sort { $b <=> $a }
+                    sort { $self->_cmp_versions($b, $a) }
                     keys %safari_build_to_version
                     )
                 {
                     $version = $safari_build_to_version{$maybe_build}, last
-                        if $build >= $maybe_build;
+                        if $self->_cmp_versions($build, $maybe_build) >= 0;
                 }
             }
             my ( $major, $minor ) = split /\./, $version;
@@ -1084,6 +1084,22 @@ sub _public {
     }
 
     return ( $self->major, $self->minor, $self->beta( $check ) );
+}
+
+sub _cmp_versions {
+    my ( $self, $a, $b ) = @_;
+
+    my @a = split /\./, $a;
+    my @b = split /\./, $b;
+
+    while ( @b ) {
+        return -1 if @a == 0 || $a[0] < $b[0];
+        return  1 if @b == 0 || $b[0] < $a[0];
+        shift @a;
+        shift @b;
+    }
+
+    return @a <=> @b;
 }
 
 sub engine_string {
