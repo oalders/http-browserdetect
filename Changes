@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.54 2013-07-21
     - Fix generic version parsing not to cross whitespace (Douglas Christopher
       Wilson)
     - Compare Safari build numbers by parts instead of floats (Douglas
