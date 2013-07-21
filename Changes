@@ -1,6 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fix generic version parsing not to cross whitespace (Douglas Christopher
+      Wilson)
+    - Compare Safari build numbers by parts instead of floats (Douglas
+      Christopher Wilson)
+    - Removes Exporter
 
 1.53 2013-07-19
     - Detect IE on ARM as tablet (Douglas Christopher Wilson)
