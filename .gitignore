@@ -1,7 +1,6 @@
+*.swp
+.build
 /blib/
-_build/
 Build
 HTTP-BrowserDetect-*
-.build
-*.kpf
-*.komodoproject
+_build/
