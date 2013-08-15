@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.56 2013-08-15 01:02:32 America/Toronto
     - Adds experimental and undocumented robot_name method.
 
 1.55 2013-07-22 23:06:40 America/Toronto
