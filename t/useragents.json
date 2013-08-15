@@ -74,6 +74,7 @@
       "public_major" : "2",
       "public_minor" : ".1",
       "public_version" : "2.1",
+      "robot_name" : "google",
       "version" : "2.1"
    },
    "ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)" : {
@@ -121,7 +122,8 @@
       "match" : [
          "google",
          "robot"
-      ]
+      ],
+      "robot_name" : "google"
    },
    "Googlebot-Image/1.0" : {
       "major" : "1",

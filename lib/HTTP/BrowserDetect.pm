@@ -1287,6 +1287,15 @@ sub browser_properties {
 
     return @browser_properties;
 }
+
+sub robot_name {
+    my $self = shift;
+    foreach my $name ( @ROBOT_TESTS ) {
+        next if $name eq 'robot';
+        return $name if $self->$name;
+    }
+}
+
 1;
 
 # ABSTRACT: Determine Web browser, version, and platform from an HTTP user agent string

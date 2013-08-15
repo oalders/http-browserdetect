@@ -64,7 +64,7 @@ foreach my $ua ( sort keys %{$tests} ) {
         }
     }
 
-    foreach my $method ( 'language', 'device', 'device_name' ) {
+    foreach my $method ( 'language', 'device', 'device_name', 'robot_name' ) {
         if (    exists $test->{$method}
             and defined $test->{$method}
             and length $test->{$method} )
