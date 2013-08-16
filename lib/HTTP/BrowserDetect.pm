@@ -114,21 +114,53 @@ our @ENGINE_TESTS = qw(
     gecko    trident
 );
 
+# https://support.google.com/webmasters/answer/1061943?hl=en
+
+my %ROBOTS = (
+    altavista     => 'AltaVista',
+    askjeeves     => 'AskJeeves',
+    baidu         => 'Baidu Spider',
+    curl          => 'curl',
+    facebook      => 'Facebook',
+    getright      => 'GetRight',
+    google        => 'Google',
+    googleadsbot  => 'Google AdsBot',
+    googleadsense => 'Google AdSense',
+    googlemobile  => 'Google Mobile',
+    icab          => 'iCab',
+    infoseek      => 'InfoSeek',
+    linkexchange  => 'LinkExchange',
+    lotusnotes    => 'Lotus Notes',
+    lwp           => 'LWP::UserAgent',
+    lycos         => 'Lycos',
+    msn           => 'MSN',
+    msnmobile     => 'MSN Mobile',
+    puf           => 'puf',
+    robot         => 'robot',
+    slurp         => 'Slurp',
+    staroffice    => 'StarOffice',
+    webcrawler    => 'WebCrawler',
+    webtv         => 'WebTV',
+    wget          => 'wget',
+    yahoo         => 'Yahoo',
+);
+
+
 our @ROBOT_TESTS = qw(
     puf          curl        wget
     getright     robot       yahoo
     altavista    lycos       infoseek
     lwp          webcrawler  linkexchange
     slurp        webtv       staroffice
-    lotusnotes   icab        google
-    googlemobile msn         msnmobile
+    lotusnotes   icab        googlemobile
+    msn          msnmobile
     facebook     baidu       googleadsbot
-    askjeeves    googleadsense
+    askjeeves    googleadsense google
 );
 
 our @MISC_TESTS = qw(
     mobile      dotnet      x11
-    java 		tablet
+    java        tablet
 );
 
 push @ALL_TESTS,
@@ -563,7 +595,7 @@ sub _test {
     $tests->{DSI}    = ( index( $ua, "nintendo dsi" ) != -1 );
     $tests->{'N3DS'} = ( index( $ua, "nintendo 3ds" ) != -1 );
 
-    
+
     $tests->{MOBILE} = (
                ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
             || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
@@ -609,8 +641,8 @@ sub _test {
             || $tests->{GOOGLEMOBILE}
             || $tests->{MSNMOBILE}
     );
-    
-    
+
+
     $tests->{TABLET} = (
              index( $ua, "ipad" ) != -1
             || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
@@ -636,8 +668,8 @@ sub _test {
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
             || index( $ua, "hp-tablet" ) != -1
- 
-    
+
+
     );
 
     # Operating System
@@ -873,6 +905,8 @@ sub _test {
 sub browser_string {
     my ( $self ) = _self_or_default( @_ );
     return unless defined $self->user_agent;
+
+    return $self->robot_name if $self->robot;
 
     return 'Netscape'      if $self->netscape;
     return 'IceWeasel'     if $self->iceweasel;
@@ -1288,7 +1322,7 @@ sub robot_name {
     my $self = shift;
     foreach my $name ( @ROBOT_TESTS ) {
         next if $name eq 'robot';
-        return $name if $self->$name;
+        return $ROBOTS{$name} if $self->$name;
     }
 }
 

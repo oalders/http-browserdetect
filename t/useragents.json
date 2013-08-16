@@ -74,7 +74,7 @@
       "public_major" : "2",
       "public_minor" : ".1",
       "public_version" : "2.1",
-      "robot_name" : "google",
+      "robot_name" : "Google Mobile",
       "version" : "2.1"
    },
    "ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)" : {
@@ -123,7 +123,7 @@
          "google",
          "robot"
       ],
-      "robot_name" : "google"
+      "robot_name" : "Google"
    },
    "Googlebot-Image/1.0" : {
       "major" : "1",
@@ -2443,7 +2443,7 @@
       "version" : "5.25"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
-      "browser_string" : "Safari",
+      "browser_string" : "Google Mobile",
       "device" : "iphone",
       "device_name" : "iPhone",
       "engine_string" : "KHTML",
@@ -3276,7 +3276,7 @@
        "public_version" : "1.7412"
    },
    "Mozilla/DnsHealthCheckBot/1.0" : {
-       "browser_string" : "Netscape",
+       "browser_string" : "",
        "match" : [
          "netscape",
          "robot"
