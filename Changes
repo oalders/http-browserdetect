@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.57 2013-08-16 01:21:35 America/Toronto
     - Make internals a little less quirky.
     - Stop returning explicit undef for browser_string and os_string.  (Why
       would you ever call these in list context?)
