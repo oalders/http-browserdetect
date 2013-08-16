@@ -145,7 +145,6 @@ my %ROBOTS = (
     yahoo         => 'Yahoo',
 );
 
-
 our @ROBOT_TESTS = qw(
     puf          curl        wget
     getright     robot       yahoo
@@ -165,12 +164,14 @@ our @MISC_TESTS = qw(
 
 push @ALL_TESTS,
     (
-    @OS_TESTS,          @WINDOWS_TESTS, @MAC_TESTS,
-    @UNIX_TESTS,        @BSD_TESTS,     @GAMING_TESTS,
-    ( sort ( keys %DEVICE_TESTS ) ), @BROWSER_TESTS, @IE_TESTS,
-    @OPERA_TESTS,       @AOL_TESTS,     @NETSCAPE_TESTS,
-    @FIREFOX_TESTS,     @ENGINE_TESTS,  @ROBOT_TESTS,
-    @MISC_TESTS,
+    @OS_TESTS,                       @WINDOWS_TESTS,
+    @MAC_TESTS,                      @UNIX_TESTS,
+    @BSD_TESTS,                      @GAMING_TESTS,
+    ( sort ( keys %DEVICE_TESTS ) ), @BROWSER_TESTS,
+    @IE_TESTS,                       @OPERA_TESTS,
+    @AOL_TESTS,                      @NETSCAPE_TESTS,
+    @FIREFOX_TESTS,                  @ENGINE_TESTS,
+    @ROBOT_TESTS,                    @MISC_TESTS,
     );
 
 # Safari build -> version map for versions prior to 3.0
@@ -296,10 +297,14 @@ sub _test {
 
     # IE (and others) version
     if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
+
         # Internet Explorer
         ( $major, $minor, $beta ) = split /\./, $1;
     }
-    elsif ( $ua =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x ) {
+    elsif ( $ua
+        =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x
+        )
+    {
         # Generic "compatible" formats
         ( $major, $minor, $beta ) = split /\./, $1;
 
@@ -561,21 +566,22 @@ sub _test {
 
     # Devices
 
-    $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1 || index( $ua, "rim tablet os" ) != -1 );
-    $tests->{IPHONE}     = ( index( $ua, "iphone" ) != -1 );
-    $tests->{WINCE}      = ( index( $ua, "windows ce" ) != -1 );
-    $tests->{WINPHONE}   = ( index( $ua, "windows phone" ) != -1 );
-    $tests->{WEBOS}      = ( index( $ua, "webos" ) != -1 );
-    $tests->{IPOD}       = ( index( $ua, "ipod" ) != -1 );
-    $tests->{IPAD}       = ( index( $ua, "ipad" ) != -1 );
-    $tests->{KINDLE}     = ( index( $ua, "kindle" ) != -1 );
-    $tests->{AUDREY}     = ( index( $ua, "audrey" ) != -1 );
-    $tests->{IOPENER}    = ( index( $ua, "i-opener" ) != -1 );
-    $tests->{AVANTGO}    = ( index( $ua, "avantgo" ) != -1 );
-    $tests->{PALM}       = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
-    $tests->{OBIGO}      = ( index( $ua, "obigo/" ) != -1 );
-    $tests->{WAP}        = (
-               $tests->{OBIGO}
+    $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1
+            || index( $ua, "rim tablet os" ) != -1 );
+    $tests->{IPHONE}   = ( index( $ua, "iphone" ) != -1 );
+    $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
+    $tests->{WINPHONE} = ( index( $ua, "windows phone" ) != -1 );
+    $tests->{WEBOS}    = ( index( $ua, "webos" ) != -1 );
+    $tests->{IPOD}     = ( index( $ua, "ipod" ) != -1 );
+    $tests->{IPAD}     = ( index( $ua, "ipad" ) != -1 );
+    $tests->{KINDLE}   = ( index( $ua, "kindle" ) != -1 );
+    $tests->{AUDREY}   = ( index( $ua, "audrey" ) != -1 );
+    $tests->{IOPENER}  = ( index( $ua, "i-opener" ) != -1 );
+    $tests->{AVANTGO}  = ( index( $ua, "avantgo" ) != -1 );
+    $tests->{PALM} = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
+    $tests->{OBIGO} = ( index( $ua, "obigo/" ) != -1 );
+    $tests->{WAP}
+        = (    $tests->{OBIGO}
             || index( $ua, "up.browser" ) != -1
             || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
             || index( $ua, "alcatel" ) != -1
@@ -595,10 +601,11 @@ sub _test {
     $tests->{DSI}    = ( index( $ua, "nintendo dsi" ) != -1 );
     $tests->{'N3DS'} = ( index( $ua, "nintendo 3ds" ) != -1 );
 
-
     $tests->{MOBILE} = (
-               ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
-            || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
+        ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
+            || ( $tests->{IE}
+            && !$tests->{WINPHONE}
+            && index( $ua, "arm" ) != -1 )
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
             || index( $ua, "alcatel" ) != -1
@@ -621,8 +628,10 @@ sub _test {
             || index( $ua, "iphone" ) != -1
             || index( $ua, "ipod" ) != -1
             || index( $ua, "ipad" ) != -1
-            || (index( $ua, "opera mini" ) != -1 && index( $ua, "tablet" ) == -1 )
-            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) != -1 )
+            || ( index( $ua, "opera mini" ) != -1
+            && index( $ua, "tablet" ) == -1 )
+            || ( index( $ua, "android" ) != -1
+            && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
             || index( $ua, "webos" ) != -1
@@ -642,11 +651,14 @@ sub _test {
             || $tests->{MSNMOBILE}
     );
 
-
     $tests->{TABLET} = (
-             index( $ua, "ipad" ) != -1
-            || ( $tests->{IE} && !$tests->{WINPHONE} && index( $ua, "arm" ) != -1 )
-            || (index( $ua, "android" ) != -1 && index( $ua, "mobile" ) == -1  && index( $ua, "opera" ) == -1 )
+        index( $ua, "ipad" ) != -1
+            || ( $tests->{IE}
+            && !$tests->{WINPHONE}
+            && index( $ua, "arm" ) != -1 )
+            || ( index( $ua, "android" ) != -1
+            && index( $ua, "mobile" ) == -1
+            && index( $ua, "opera" ) == -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
             || index( $ua, "flyer" ) != -1
@@ -667,8 +679,8 @@ sub _test {
             || index( $ua, "an10bg3dt" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
-            || index( $ua, "hp-tablet" ) != -1
-
+            || index( $ua, "hp-tablet" )
+            != -1
 
     );
 
@@ -784,8 +796,8 @@ sub _test {
     $tests->{AIX3} = ( index( $ua, "aix 3" ) != -1 );
     $tests->{AIX4} = ( index( $ua, "aix 4" ) != -1 );
 
-    $tests->{LINUX} = ( index( $ua, "inux" ) != -1 );
-    $tests->{SCO} = $ua =~ m{(?:SCO|unix_sv)};
+    $tests->{LINUX}    = ( index( $ua, "inux" ) != -1 );
+    $tests->{SCO}      = $ua =~ m{(?:SCO|unix_sv)};
     $tests->{UNIXWARE} = ( index( $ua, "unix_system_v" ) != -1 );
     $tests->{MPRAS}    = ( index( $ua, "ncr" ) != -1 );
     $tests->{RELIANT}  = ( index( $ua, "reliantunix" ) != -1 );
@@ -879,18 +891,20 @@ sub _test {
 
     $self->{device_name} = undef;
 
-    if ( $tests->{OBIGO} && $ua =~ /^(mot-\S+)/ )
-    {
+    if ( $tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
         $self->{device_name} = substr $self->{user_agent}, 0, length $1;
         $self->{device_name} =~ s/^MOT-/Motorola /i;
     }
-    elsif ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
+    elsif (
+        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
     {
         $self->{device_name} = substr $self->{user_agent},
             pos( $ua ) - length $1, length $1;
         $self->{device_name} =~ s/; / /;
     }
-    elsif ( $ua =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g )
+    elsif ( $ua
+        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
+        )
     {
         $self->{device_name} = substr $self->{user_agent},
             pos( $ua ) - length $1, length $1;
@@ -1104,12 +1118,12 @@ sub _public {
                 # lower build
 
                 for my $maybe_build (
-                    sort { $self->_cmp_versions($b, $a) }
+                    sort { $self->_cmp_versions( $b, $a ) }
                     keys %safari_build_to_version
                     )
                 {
                     $version = $safari_build_to_version{$maybe_build}, last
-                        if $self->_cmp_versions($build, $maybe_build) >= 0;
+                        if $self->_cmp_versions( $build, $maybe_build ) >= 0;
                 }
             }
             my ( $major, $minor ) = split /\./, $version;
@@ -1131,7 +1145,7 @@ sub _cmp_versions {
 
     while ( @b ) {
         return -1 if @a == 0 || $a[0] < $b[0];
-        return  1 if @b == 0 || $b[0] < $a[0];
+        return 1  if @b == 0 || $b[0] < $a[0];
         shift @a;
         shift @b;
     }

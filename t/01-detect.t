@@ -19,8 +19,7 @@ my $w;
 }
 ok !$w;
 
-
-my $json  = read_file( "$FindBin::Bin/useragents.json" );
+my $json = read_file( "$FindBin::Bin/useragents.json" );
 
 my $tests = JSON::PP->new->ascii->decode( $json );
 
@@ -99,8 +98,7 @@ foreach my $ua ( sort keys %{$tests} ) {
 
 }
 
-
-my $detected = HTTP::BrowserDetect->new('Nonesuch');
+my $detected = HTTP::BrowserDetect->new( 'Nonesuch' );
 diag( $detected->user_agent );
 
 foreach my $method (
@@ -115,8 +113,8 @@ foreach my $method (
     )
     )
 {
-    is_deeply([$detected->$method], [undef],
-              "$method should return undef in list context" );
+    is_deeply( [ $detected->$method ],
+        [undef], "$method should return undef in list context" );
 }
 
 done_testing();
