@@ -105,7 +105,6 @@ diag( $detected->user_agent );
 
 foreach my $method (
     qw(
-    os_string
     engine_string
     engine_version
     engine_major

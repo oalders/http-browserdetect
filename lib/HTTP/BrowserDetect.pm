@@ -900,33 +900,31 @@ sub browser_string {
 }
 
 sub os_string {
-    my ( $self )   = _self_or_default( @_ );
-    my $os_string  = undef;
-    my $user_agent = $self->user_agent;
-    if ( defined $user_agent ) {
-        $os_string = 'Win95'                if $self->win95;
-        $os_string = 'Win98'                if $self->win98;
-        $os_string = 'WinNT'                if $self->winnt;
-        $os_string = 'Win2k'                if $self->win2k;
-        $os_string = 'WinXP'                if $self->winxp;
-        $os_string = 'Win2k3'               if $self->win2k3;
-        $os_string = 'WinVista'             if $self->winvista;
-        $os_string = 'Win7'                 if $self->win7;
-        $os_string = 'Win8'                 if $self->win8;
-        $os_string = 'Windows Phone'        if $self->winphone;
-        $os_string = 'Mac'                  if $self->mac;
-        $os_string = 'Mac OS X'             if $self->macosx;
-        $os_string = 'Win3x'                if $self->win3x;
-        $os_string = 'OS2'                  if $self->os2;
-        $os_string = 'Unix'                 if $self->unix && !$self->linux;
-        $os_string = 'Linux'                if $self->linux;
-        $os_string = 'Firefox OS'           if $self->firefoxos;
-        $os_string = 'RIM Tablet OS'        if $self->rimtabletos;
-        $os_string = 'Playstation 3 GameOS' if $self->ps3gameos;
-        $os_string = 'Playstation Portable GameOS' if $self->pspgameos;
-        $os_string = 'iOS' if $self->iphone || $self->ipod || $self->ipad;
-    }
-    return $os_string;
+    my ( $self ) = _self_or_default( @_ );
+    return unless defined $self->user_agent;
+
+    return 'Win95'                       if $self->win95;
+    return 'Win98'                       if $self->win98;
+    return 'Win2k'                       if $self->win2k;
+    return 'WinXP'                       if $self->winxp;
+    return 'Win2k3'                      if $self->win2k3;
+    return 'WinVista'                    if $self->winvista;
+    return 'Win7'                        if $self->win7;
+    return 'Win8'                        if $self->win8;
+    return 'WinNT'                       if $self->winnt;
+    return 'Windows Phone'               if $self->winphone;
+    return 'Mac'                         if $self->mac;
+    return 'Mac OS X'                    if $self->macosx;
+    return 'Win3x'                       if $self->win3x;
+    return 'OS2'                         if $self->os2;
+    return 'Unix'                        if $self->unix && !$self->linux;
+    return 'Linux'                       if $self->linux;
+    return 'Firefox OS'                  if $self->firefoxos;
+    return 'RIM Tablet OS'               if $self->rimtabletos;
+    return 'Playstation 3 GameOS'        if $self->ps3gameos;
+    return 'Playstation Portable GameOS' if $self->pspgameos;
+    return 'iOS' if $self->iphone || $self->ipod || $self->ipad;
+    return;
 }
 
 sub realplayer {
