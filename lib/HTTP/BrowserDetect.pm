@@ -871,34 +871,32 @@ sub _test {
 }
 
 sub browser_string {
-    my ( $self )       = _self_or_default( @_ );
-    my $browser_string = undef;
-    my $user_agent     = $self->user_agent;
-    if ( defined $user_agent ) {
-        $browser_string = 'Netscape'      if $self->netscape;
-        $browser_string = 'Firefox'       if $self->firefox;
-        $browser_string = 'Safari'        if $self->safari;
-        $browser_string = 'Chrome'        if $self->chrome;
-        $browser_string = 'MSIE'          if $self->ie;
-        $browser_string = 'WebTV'         if $self->webtv;
-        $browser_string = 'AOL Browser'   if $self->aol;
-        $browser_string = 'Obigo'         if $self->obigo;
-        $browser_string = 'Opera'         if $self->opera;
-        $browser_string = 'Mosaic'        if $self->mosaic;
-        $browser_string = 'Lynx'          if $self->lynx;
-        $browser_string = 'Links'         if $self->links;
-        $browser_string = 'RealPlayer'    if $self->realplayer_browser;
-        $browser_string = 'IceWeasel'     if $self->iceweasel;
-        $browser_string = 'curl'          if $self->curl;
-        $browser_string = 'puf'           if $self->puf;
-        $browser_string = 'NetFront'      if $self->netfront;
-        $browser_string = 'Mobile Safari' if $self->mobile_safari;
-        $browser_string = 'ELinks'        if $self->elinks;
-        $browser_string = 'BlackBerry'    if $self->blackberry;
-        $browser_string = 'Nintendo 3DS'  if $self->n3ds;
-        $browser_string = 'Nintendo DSi'  if $self->dsi;
-    }
-    return $browser_string;
+    my ( $self ) = _self_or_default( @_ );
+    return unless defined $self->user_agent;
+
+    return 'Netscape'      if $self->netscape;
+    return 'IceWeasel'     if $self->iceweasel;
+    return 'Firefox'       if $self->firefox;
+    return 'BlackBerry'    if $self->blackberry;
+    return 'Mobile Safari' if $self->mobile_safari;
+    return 'RealPlayer'    if $self->realplayer_browser;
+    return 'Safari'        if $self->safari;
+    return 'Chrome'        if $self->chrome;
+    return 'AOL Browser'   if $self->aol;
+    return 'MSIE'          if $self->ie;
+    return 'WebTV'         if $self->webtv;
+    return 'Obigo'         if $self->obigo;
+    return 'Nintendo DSi'  if $self->dsi;
+    return 'Opera'         if $self->opera;
+    return 'Mosaic'        if $self->mosaic;
+    return 'Lynx'          if $self->lynx;
+    return 'ELinks'        if $self->elinks;
+    return 'Links'         if $self->links;
+    return 'curl'          if $self->curl;
+    return 'puf'           if $self->puf;
+    return 'NetFront'      if $self->netfront;
+    return 'Nintendo 3DS'  if $self->n3ds;
+    return;
 }
 
 sub os_string {
