@@ -902,6 +902,16 @@ sub _test {
     $self->{beta}  = $beta;
 }
 
+# because the internals are the way they are, these tests have to happen in a
+# certain order.  hopefully we can change this once we have lazily loaded
+# attributes.  in the meantime, a pile of returns will do the job.  if we
+# changed this to use a hash, we'd still need a carefully ordered array of keys
+# in order to get something useful back.  so, as it is, this actually wouldn't
+# be that much less verbose and the order of operations is quite clear.  it
+# still feels dirty, though.  it does highlight the fact that way too many
+# methods can return true for some UA strings, which means there are probably a
+# lot of false positives we haven't checked for.
+
 sub browser_string {
     my ( $self ) = _self_or_default( @_ );
     return unless defined $self->user_agent;
