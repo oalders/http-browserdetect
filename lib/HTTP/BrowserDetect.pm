@@ -1674,7 +1674,14 @@ Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
 Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry
+BlackBerry.
+
+If the browser is actually a bot, the bot name will be returned.  This
+functionality is in beta right now and subject to change, so you shouldn't rely
+on a given bot name to be returned at this point, but you should be aware that
+the list of names which this method can return is no longer restricted to the
+list as noted above.  This is considered a bug fix, since in the case of some
+bots browser_string returned information which was essentially just wrong.
 
 =head2 gecko_version()
 
