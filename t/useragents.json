@@ -121,17 +121,20 @@
    "Googlebot-News" : {
       "match" : [
          "google",
+         "googlebotnews",
          "robot"
       ],
-      "robot_name" : "Google"
+      "robot_name" : "Googlebot News"
    },
    "Googlebot-Image/1.0" : {
       "major" : "1",
       "minor" : "0",
       "match" : [
          "google",
+         "googlebotimage",
          "robot"
       ],
+      "robot_name" : "Googlebot Images",
       "version" : "1"
    },
    "Googlebot-Video/1.0" : {
@@ -139,8 +142,10 @@
       "minor" : "0",
       "match" : [
          "google",
+         "googlebotvideo",
          "robot"
       ],
+      "robot_name" : "Googlebot Video",
       "version" : "1"
    },
    "Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)" : {
@@ -3369,5 +3374,4 @@
       ]
   }
 }
-
 

@@ -117,32 +117,35 @@ our @ENGINE_TESTS = qw(
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
 my %ROBOTS = (
-    altavista     => 'AltaVista',
-    askjeeves     => 'AskJeeves',
-    baidu         => 'Baidu Spider',
-    curl          => 'curl',
-    facebook      => 'Facebook',
-    getright      => 'GetRight',
-    google        => 'Google',
-    googleadsbot  => 'Google AdsBot',
-    googleadsense => 'Google AdSense',
-    googlemobile  => 'Google Mobile',
-    icab          => 'iCab',
-    infoseek      => 'InfoSeek',
-    linkexchange  => 'LinkExchange',
-    lotusnotes    => 'Lotus Notes',
-    lwp           => 'LWP::UserAgent',
-    lycos         => 'Lycos',
-    msn           => 'MSN',
-    msnmobile     => 'MSN Mobile',
-    puf           => 'puf',
-    robot         => 'robot',
-    slurp         => 'Yahoo! Slurp',
-    staroffice    => 'StarOffice',
-    webcrawler    => 'WebCrawler',
-    webtv         => 'WebTV',
-    wget          => 'wget',
-    yahoo         => 'Yahoo',
+    altavista      => 'AltaVista',
+    askjeeves      => 'AskJeeves',
+    baidu          => 'Baidu Spider',
+    curl           => 'curl',
+    facebook       => 'Facebook',
+    getright       => 'GetRight',
+    google         => 'Google',
+    googleadsbot   => 'Google AdsBot',
+    googleadsense  => 'Google AdSense',
+    googlebotimage => 'Googlebot Images',
+    googlebotnews  => 'Googlebot News',
+    googlebotvideo => 'Googlebot Video',
+    googlemobile   => 'Google Mobile',
+    icab           => 'iCab',
+    infoseek       => 'InfoSeek',
+    linkexchange   => 'LinkExchange',
+    lotusnotes     => 'Lotus Notes',
+    lwp            => 'LWP::UserAgent',
+    lycos          => 'Lycos',
+    msn            => 'MSN',
+    msnmobile      => 'MSN Mobile',
+    puf            => 'puf',
+    robot          => 'robot',
+    slurp          => 'Yahoo! Slurp',
+    staroffice     => 'StarOffice',
+    webcrawler     => 'WebCrawler',
+    webtv          => 'WebTV',
+    wget           => 'wget',
+    yahoo          => 'Yahoo',
 );
 
 our @ROBOT_TESTS = qw(
@@ -155,7 +158,8 @@ our @ROBOT_TESTS = qw(
     lotusnotes   icab        googlemobile
     msn          msnmobile
     facebook     baidu       googleadsbot
-    askjeeves    googleadsense google
+    askjeeves    googleadsense googlebotvideo
+    googlebotnews googlebotimage google
 );
 
 our @MISC_TESTS = qw(
@@ -719,24 +723,27 @@ sub _robot_tests {
         ) != -1
     );
 
-    $tests->{ALTAVISTA}     = ( index( $ua, "altavista" ) != -1 );
-    $tests->{ASKJEEVES}     = ( index( $ua, "ask jeeves/teoma" ) != -1 );
-    $tests->{BAIDU}         = ( index( $ua, "baiduspider" ) != -1 );
-    $tests->{CURL}          = ( index( $ua, "libcurl" ) != -1 );
-    $tests->{FACEBOOK}      = ( index( $ua, "facebookexternalhit" ) != -1 );
-    $tests->{GETRIGHT}      = ( index( $ua, "getright" ) != -1 );
-    $tests->{GOOGLEADSBOT}  = ( index( $ua, "adsbot-google" ) != -1 );
-    $tests->{GOOGLEADSENSE} = ( index( $ua, "mediapartners-google" ) != -1 );
-    $tests->{GOOGLEMOBILE}  = ( index( $ua, "googlebot-mobile" ) != -1 );
-    $tests->{GOOGLE}        = ( index( $ua, "googlebot" ) != -1 );
-    $tests->{INFOSEEK}      = ( index( $ua, "infoseek" ) != -1 );
-    $tests->{LINKEXCHANGE}  = ( index( $ua, "lecodechecker" ) != -1 );
-    $tests->{LYCOS}         = ( index( $ua, "lycos" ) != -1 );
-    $tests->{PUF}           = ( index( $ua, "puf/" ) != -1 );
-    $tests->{SCOOTER}       = ( index( $ua, "scooter" ) != -1 );
-    $tests->{SLURP}         = ( index( $ua, "slurp" ) != -1 );
-    $tests->{WEBCRAWLER}    = ( index( $ua, "webcrawler" ) != -1 );
-    $tests->{WGET}          = ( index( $ua, "wget" ) != -1 );
+    $tests->{ALTAVISTA}      = ( index( $ua, "altavista" ) != -1 );
+    $tests->{ASKJEEVES}      = ( index( $ua, "ask jeeves/teoma" ) != -1 );
+    $tests->{BAIDU}          = ( index( $ua, "baiduspider" ) != -1 );
+    $tests->{CURL}           = ( index( $ua, "libcurl" ) != -1 );
+    $tests->{FACEBOOK}       = ( index( $ua, "facebookexternalhit" ) != -1 );
+    $tests->{GETRIGHT}       = ( index( $ua, "getright" ) != -1 );
+    $tests->{GOOGLEADSBOT}   = ( index( $ua, "adsbot-google" ) != -1 );
+    $tests->{GOOGLEADSENSE}  = ( index( $ua, "mediapartners-google" ) != -1 );
+    $tests->{GOOGLEBOTIMAGE} = ( index( $ua, "googlebot-image" ) != -1 );
+    $tests->{GOOGLEBOTNEWS}  = ( index( $ua, "googlebot-news" ) != -1 );
+    $tests->{GOOGLEBOTVIDEO} = ( index( $ua, "googlebot-video" ) != -1 );
+    $tests->{GOOGLEMOBILE}   = ( index( $ua, "googlebot-mobile" ) != -1 );
+    $tests->{GOOGLE}         = ( index( $ua, "googlebot" ) != -1 );
+    $tests->{INFOSEEK}       = ( index( $ua, "infoseek" ) != -1 );
+    $tests->{LINKEXCHANGE}   = ( index( $ua, "lecodechecker" ) != -1 );
+    $tests->{LYCOS}          = ( index( $ua, "lycos" ) != -1 );
+    $tests->{PUF}            = ( index( $ua, "puf/" ) != -1 );
+    $tests->{SCOOTER}        = ( index( $ua, "scooter" ) != -1 );
+    $tests->{SLURP}          = ( index( $ua, "slurp" ) != -1 );
+    $tests->{WEBCRAWLER}     = ( index( $ua, "webcrawler" ) != -1 );
+    $tests->{WGET}           = ( index( $ua, "wget" ) != -1 );
 
     $tests->{ROBOT}
         = (    $tests->{ALTAVISTA}
@@ -747,6 +754,9 @@ sub _robot_tests {
             || $tests->{GOOGLEADSBOT}
             || $tests->{GOOGLEADSENSE}
             || $tests->{GOOGLEMOBILE}
+            || $tests->{GOOGLEBOTNEWS}
+            || $tests->{GOOGLEBOTIMAGE}
+            || $tests->{GOOGLEBOTVIDEO}
             || $tests->{GOOGLE}
             || $tests->{INFOSEEK}
             || $tests->{JAVA}
