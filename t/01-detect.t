@@ -30,7 +30,7 @@ foreach my $ua ( sort keys %{$tests} ) {
     my $detected = HTTP::BrowserDetect->new( $ua );
     diag( $detected->user_agent );
 
-    foreach my $method ( 'browser_string', 'engine_string', 'os_string' ) {
+    foreach my $method ( 'browser_string', 'engine_string', 'os_string', 'os_version' ) {
         if ( $test->{$method} ) {
             cmp_ok( $detected->$method, 'eq', $test->{$method},
                 "$method: $test->{$method}" );
