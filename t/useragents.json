@@ -3399,6 +3399,18 @@
       "robot",
       "yandeximages"
     ]
+  },
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
+    "device" : "iphone",
+    "match" : [
+      "device",
+      "iphone",
+      "ios",
+      "mobile",
+      "safari"
+    ],
+    "os_string" : "iOS",
+    "os_version" : "6.1.3"
   }
 }
 

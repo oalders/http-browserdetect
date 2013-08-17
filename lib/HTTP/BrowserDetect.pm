@@ -969,8 +969,10 @@ sub _os_tests {
 sub os_version {
     my $self = shift;
 
-    if ( $self->ios && $self->{user_agent} =~ m{OS (\d+)_(\d+) like Mac} ) {
-       return join '.' , $1, $2;
+    if ( $self->ios && $self->{user_agent} =~ m{OS (\d*_\d*|\d*_\d*_\d*) like Mac} ) {
+        my $version = $1;
+        $version =~ s{_}{.}g;
+        return $version;
     }
 
     if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d)_(\d)_(\d)}x ) {
