@@ -3359,6 +3359,14 @@
       "public_major" : "3",
       "public_minor" : "0",
       "version" : "5.25"
+  },
+  "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp) NOT Firefox/3.5" : {
+      "robot_name" : "Yahoo! Slurp",
+      "match" : [
+        "robot",
+        "slurp",
+        "yahoo"
+      ]
   }
 }
 

@@ -137,7 +137,7 @@ my %ROBOTS = (
     msnmobile     => 'MSN Mobile',
     puf           => 'puf',
     robot         => 'robot',
-    slurp         => 'Slurp',
+    slurp         => 'Yahoo! Slurp',
     staroffice    => 'StarOffice',
     webcrawler    => 'WebCrawler',
     webtv         => 'WebTV',
@@ -147,10 +147,11 @@ my %ROBOTS = (
 
 our @ROBOT_TESTS = qw(
     puf          curl        wget
-    getright     robot       yahoo
+    getright     robot       slurp
+    yahoo
     altavista    lycos       infoseek
     lwp          webcrawler  linkexchange
-    slurp        webtv       staroffice
+    webtv        staroffice
     lotusnotes   icab        googlemobile
     msn          msnmobile
     facebook     baidu       googleadsbot
@@ -258,6 +259,8 @@ sub _test {
 
     $self->{tests} = {};
     my $tests = $self->{tests};
+    $self->_os_tests;
+    $self->_robot_tests;
 
     my @ff = ( 'firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
@@ -479,7 +482,6 @@ sub _test {
 
     # Other browsers
 
-    $tests->{CURL}       = ( index( $ua, "libcurl" ) != -1 );
     $tests->{STAROFFICE} = ( index( $ua, "staroffice" ) != -1 );
     $tests->{ICAB}       = ( index( $ua, "icab" ) != -1 );
     $tests->{LOTUSNOTES} = ( index( $ua, "lotus-notes" ) != -1 );
@@ -489,76 +491,11 @@ sub _test {
     $tests->{ELINKS}     = ( index( $ua, "elinks" ) != -1 );
     $tests->{WEBTV}      = ( index( $ua, "webtv" ) != -1 );
     $tests->{MOSAIC}     = ( index( $ua, "mosaic" ) != -1 );
-    $tests->{PUF}        = ( index( $ua, "puf/" ) != -1 );
-    $tests->{WGET}       = ( index( $ua, "wget" ) != -1 );
-    $tests->{GETRIGHT}   = ( index( $ua, "getright" ) != -1 );
-    $tests->{LWP}
-        = ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
-    $tests->{YAHOO} = ( index( $ua, "yahoo" ) != -1 )
-        && ( index( $ua, 'jp.co.yahoo.android' ) == -1 );
-    $tests->{GOOGLE}       = ( index( $ua, "googlebot" ) != -1 );
-    $tests->{GOOGLEMOBILE} = ( index( $ua, "googlebot-mobile" ) != -1 );
-    $tests->{MSN}          = (
-        ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) ) != -1 );
-    $tests->{MSNMOBILE} = (
-        (          index( $ua, "msnbot-mobile" ) != -1
-                || index( $ua, "bingbot-mobile" )
-        ) != -1
-    );
     $tests->{JAVA}
         = (    index( $ua, "java" ) != -1
             || index( $ua, "jdk" ) != -1
             || index( $ua, "jakarta commons-httpclient" ) != -1 );
-    $tests->{ALTAVISTA}     = ( index( $ua, "altavista" ) != -1 );
-    $tests->{SCOOTER}       = ( index( $ua, "scooter" ) != -1 );
-    $tests->{LYCOS}         = ( index( $ua, "lycos" ) != -1 );
-    $tests->{INFOSEEK}      = ( index( $ua, "infoseek" ) != -1 );
-    $tests->{WEBCRAWLER}    = ( index( $ua, "webcrawler" ) != -1 );
-    $tests->{LINKEXCHANGE}  = ( index( $ua, "lecodechecker" ) != -1 );
-    $tests->{SLURP}         = ( index( $ua, "slurp" ) != -1 );
-    $tests->{FACEBOOK}      = ( index( $ua, "facebookexternalhit" ) != -1 );
-    $tests->{BAIDU}         = ( index( $ua, "baiduspider" ) != -1 );
-    $tests->{GOOGLEADSBOT}  = ( index( $ua, "adsbot-google" ) != -1 );
-    $tests->{GOOGLEADSENSE} = ( index( $ua, "mediapartners-google" ) != -1 );
-    $tests->{ASKJEEVES}     = ( index( $ua, "ask jeeves/teoma" ) != -1 );
-    $tests->{ROBOT}         = (
-        (          $tests->{WGET}
-                || $tests->{PUF}
-                || $tests->{GETRIGHT}
-                || $tests->{LWP}
-                || $tests->{YAHOO}
-                || $tests->{ALTAVISTA}
-                || $tests->{LYCOS}
-                || $tests->{INFOSEEK}
-                || $tests->{WEBCRAWLER}
-                || $tests->{LINKEXCHANGE}
-                || $tests->{SLURP}
-                || $tests->{GOOGLE}
-                || $tests->{GOOGLEMOBILE}
-                || $tests->{MSN}
-                || $tests->{MSNMOBILE}
-                || $tests->{FACEBOOK}
-                || $tests->{JAVA}
-                || $tests->{BAIDU}
-                || $tests->{GOOGLEADSBOT}
-                || $tests->{GOOGLEADSENSE}
-                || $tests->{ASKJEEVES}
-        )
-            || index( $ua, "bot" ) != -1
-            || index( $ua, "spider" ) != -1
-            || index( $ua, "crawl" ) != -1
-            || index( $ua, "agent" ) != -1
-            || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
-            || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x
-            || index( $ua, "reap" ) != -1
-            || index( $ua, "worm" ) != -1
-            || index( $ua, "find" ) != -1
-            || index( $ua, "index" ) != -1
-            || index( $ua, "copy" ) != -1
-            || index( $ua, "fetch" ) != -1
-            || index( $ua, "ia_archive" ) != -1
-            || index( $ua, "zyborg" ) != -1
-    );
+
     $tests->{NETFRONT}
         = (    index( $ua, "playstation 3" ) != -1
             || index( $ua, "playstation portable" ) != -1
@@ -685,6 +622,170 @@ sub _test {
     );
 
     # Operating System
+
+    # A final try at browser version, if we haven't gotten it so far
+    if ( !defined( $major ) || $major eq '' ) {
+        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
+            $major = $1;
+            $minor = 0;
+        }
+
+    }
+
+    # Gecko version
+    $self->{gecko_version} = undef;
+    if ( $tests->{GECKO} ) {
+        if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
+            $self->{gecko_version} = $1;
+        }
+    }
+
+    # Engines
+
+    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
+
+    $self->{engine_version} = $self->{gecko_version};
+
+    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
+        $self->{engine_version} = $1;
+    }
+
+    # RealPlayer
+    $tests->{REALPLAYER}
+        = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
+
+    $self->{realplayer_version} = undef;
+    if ( $tests->{REALPLAYER} ) {
+        if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
+            $self->{realplayer_version} = $1;
+            my @version = split( /\./, $self->{realplayer_version} );
+            $major = shift @version;
+            $minor = shift @version;
+        }
+        elsif ( $ua =~ /realplayer\s(\w+)/ ) {
+            $self->{realplayer_version} = $1;
+        }
+    }
+
+    # Device from UA
+
+    $self->{device_name} = undef;
+
+    if ( $tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
+        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
+        $self->{device_name} =~ s/^MOT-/Motorola /i;
+    }
+    elsif (
+        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
+    {
+        $self->{device_name} = substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+    elsif ( $ua
+        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
+        )
+    {
+        $self->{device_name} = substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+
+    $self->{major} = $major;
+    $self->{minor} = $minor;
+    $self->{beta}  = $beta;
+
+    $self->_os_tests;
+    $self->_robot_tests;
+
+    return unless $self->robot;
+
+}
+
+sub _robot_tests {
+    my $self  = shift;
+    my $ua    = lc $self->{user_agent};
+    my $tests = $self->{tests};
+
+    $tests->{LWP}
+        = ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
+    $tests->{YAHOO} = ( index( $ua, "yahoo" ) != -1 )
+        && ( index( $ua, 'jp.co.yahoo.android' ) == -1 );
+    $tests->{MSN} = (
+        ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) ) != -1 );
+    $tests->{MSNMOBILE} = (
+        (          index( $ua, "msnbot-mobile" ) != -1
+                || index( $ua, "bingbot-mobile" )
+        ) != -1
+    );
+
+    $tests->{ALTAVISTA}     = ( index( $ua, "altavista" ) != -1 );
+    $tests->{ASKJEEVES}     = ( index( $ua, "ask jeeves/teoma" ) != -1 );
+    $tests->{BAIDU}         = ( index( $ua, "baiduspider" ) != -1 );
+    $tests->{CURL}          = ( index( $ua, "libcurl" ) != -1 );
+    $tests->{FACEBOOK}      = ( index( $ua, "facebookexternalhit" ) != -1 );
+    $tests->{GETRIGHT}      = ( index( $ua, "getright" ) != -1 );
+    $tests->{GOOGLEADSBOT}  = ( index( $ua, "adsbot-google" ) != -1 );
+    $tests->{GOOGLEADSENSE} = ( index( $ua, "mediapartners-google" ) != -1 );
+    $tests->{GOOGLEMOBILE}  = ( index( $ua, "googlebot-mobile" ) != -1 );
+    $tests->{GOOGLE}        = ( index( $ua, "googlebot" ) != -1 );
+    $tests->{INFOSEEK}      = ( index( $ua, "infoseek" ) != -1 );
+    $tests->{LINKEXCHANGE}  = ( index( $ua, "lecodechecker" ) != -1 );
+    $tests->{LYCOS}         = ( index( $ua, "lycos" ) != -1 );
+    $tests->{PUF}           = ( index( $ua, "puf/" ) != -1 );
+    $tests->{SCOOTER}       = ( index( $ua, "scooter" ) != -1 );
+    $tests->{SLURP}         = ( index( $ua, "slurp" ) != -1 );
+    $tests->{WEBCRAWLER}    = ( index( $ua, "webcrawler" ) != -1 );
+    $tests->{WGET}          = ( index( $ua, "wget" ) != -1 );
+
+    $tests->{ROBOT}
+        = (    $tests->{ALTAVISTA}
+            || $tests->{ASKJEEVES}
+            || $tests->{BAIDU}
+            || $tests->{FACEBOOK}
+            || $tests->{GETRIGHT}
+            || $tests->{GOOGLEADSBOT}
+            || $tests->{GOOGLEADSENSE}
+            || $tests->{GOOGLEMOBILE}
+            || $tests->{GOOGLE}
+            || $tests->{INFOSEEK}
+            || $tests->{JAVA}
+            || $tests->{LINKEXCHANGE}
+            || $tests->{LWP}
+            || $tests->{LYCOS}
+            || $tests->{MSNMOBILE}
+            || $tests->{MSN}
+            || $tests->{PUF}
+            || $tests->{SLURP}
+            || $tests->{WEBCRAWLER}
+            || $tests->{WGET}
+            || $tests->{YAHOO} )
+        || index( $ua, "agent" ) != -1
+        || index( $ua, "bot" ) != -1
+        || index( $ua, "copy" ) != -1
+        || index( $ua, "crawl" ) != -1
+        || index( $ua, "fetch" ) != -1
+        || index( $ua, "find" ) != -1
+        || index( $ua, "ia_archive" ) != -1
+        || index( $ua, "index" ) != -1
+        || index( $ua, "reap" ) != -1
+        || index( $ua, "spider" ) != -1
+        || index( $ua, "worm" ) != -1
+        || index( $ua, "zyborg" ) != -1
+        || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
+        || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x;
+
+    # Yahoo Slurp! hack this should apply to most browsers, but there's a case
+    # where GoogleBot masquerades as Safari on iOS.  not sure how to handle
+    # that.
+
+    delete $tests->{FIREFOX} if $self->robot;
+}
+
+sub _os_tests {
+    my $self  = shift;
+    my $tests = $self->{tests};
+    my $ua    = lc $self->{user_agent};
 
     $tests->{WIN16}
         = (    index( $ua, "win16" ) != -1
@@ -842,78 +943,6 @@ sub _test {
 
     $tests->{PS3GAMEOS} = $tests->{PS3} && $tests->{NETFRONT};
     $tests->{PSPGAMEOS} = $tests->{PSP} && $tests->{NETFRONT};
-
-    # A final try at browser version, if we haven't gotten it so far
-    if ( !defined( $major ) || $major eq '' ) {
-        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
-            $major = $1;
-            $minor = 0;
-        }
-
-    }
-
-    # Gecko version
-    $self->{gecko_version} = undef;
-    if ( $tests->{GECKO} ) {
-        if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
-            $self->{gecko_version} = $1;
-        }
-    }
-
-    # Engines
-
-    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
-
-    $self->{engine_version} = $self->{gecko_version};
-
-    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
-        $self->{engine_version} = $1;
-    }
-
-    # RealPlayer
-    $tests->{REALPLAYER}
-        = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
-
-    $self->{realplayer_version} = undef;
-    if ( $tests->{REALPLAYER} ) {
-        if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
-            $self->{realplayer_version} = $1;
-            my @version = split( /\./, $self->{realplayer_version} );
-            $major = shift @version;
-            $minor = shift @version;
-        }
-        elsif ( $ua =~ /realplayer\s(\w+)/ ) {
-            $self->{realplayer_version} = $1;
-        }
-    }
-
-    # Device from UA
-
-    $self->{device_name} = undef;
-
-    if ( $tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
-        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
-        $self->{device_name} =~ s/^MOT-/Motorola /i;
-    }
-    elsif (
-        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
-    {
-        $self->{device_name} = substr $self->{user_agent},
-            pos( $ua ) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
-    }
-    elsif ( $ua
-        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
-        )
-    {
-        $self->{device_name} = substr $self->{user_agent},
-            pos( $ua ) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
-    }
-
-    $self->{major} = $major;
-    $self->{minor} = $minor;
-    $self->{beta}  = $beta;
 }
 
 # because the internals are the way they are, these tests have to happen in a
@@ -995,7 +1024,9 @@ sub realplayer {
 sub _realplayer_version {
     my ( $self, $check ) = _self_or_default( @_ );
 
-    if ( exists $self->{realplayer_version} && $self->{realplayer_version} ) {
+    if ( exists $self->{realplayer_version}
+        && $self->{realplayer_version} )
+    {
         my @version = split( /\./, $self->{realplayer_version} );
         $self->{major}              = shift @version;
         $self->{minor}              = $self->_format_minor( shift @version );
@@ -1292,7 +1323,9 @@ sub _language_country {
         }
     }
 
-    if ( $self->aol && $self->{user_agent} =~ m/;([A-Z]{2})_([A-Z]{2})\)/ ) {
+    if (   $self->aol
+        && $self->{user_agent} =~ m/;([A-Z]{2})_([A-Z]{2})\)/ )
+    {
         return { language => $1, country => $2 };
     }
 
@@ -1346,7 +1379,9 @@ sub robot_name {
     my $self = shift;
     foreach my $name ( @ROBOT_TESTS ) {
         next if $name eq 'robot';
-        return $ROBOTS{$name} if $self->$name;
+        if ( $self->$name ) {
+            return $ROBOTS{$name};
+        }
     }
 }
 
