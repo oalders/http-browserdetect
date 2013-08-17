@@ -147,6 +147,7 @@ my %ROBOTS = (
     webtv          => 'WebTV',
     wget           => 'wget',
     yahoo          => 'Yahoo',
+    yandeximages   => 'YandexImages',
 );
 
 our @ROBOT_TESTS = qw(
@@ -161,7 +162,7 @@ our @ROBOT_TESTS = qw(
     facebook     baidu       googleadsbot
     askjeeves    googleadsense googlebotvideo
     googlebotnews googlebotimage google
-    linkchecker
+    linkchecker  yandeximages
 );
 
 our @MISC_TESTS = qw(
@@ -747,6 +748,7 @@ sub _robot_tests {
     $tests->{SLURP}          = ( index( $ua, "slurp" ) != -1 );
     $tests->{WEBCRAWLER}     = ( index( $ua, "webcrawler" ) != -1 );
     $tests->{WGET}           = ( index( $ua, "wget" ) != -1 );
+    $tests->{YANDEXIMAGES}   = ( index( $ua, "yandeximages" ) != -1 );
 
     $tests->{ROBOT}
         = (    $tests->{ALTAVISTA}
@@ -773,7 +775,8 @@ sub _robot_tests {
             || $tests->{SLURP}
             || $tests->{WEBCRAWLER}
             || $tests->{WGET}
-            || $tests->{YAHOO} )
+            || $tests->{YAHOO}
+            || $tests->{YANDEXIMAGES} )
         || index( $ua, "agent" ) != -1
         || index( $ua, "bot" ) != -1
         || index( $ua, "copy" ) != -1
