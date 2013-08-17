@@ -983,6 +983,10 @@ sub os_version {
     if ( $self->android && $self->{user_agent} =~ m{Android ([\d\.\w-]*)} ) {
         return $1;
     }
+
+    if ( $self->firefoxos && $self->{user_agent} =~ m{Firefox/([\d\.]*)} ) {
+        return $1;
+    }
 }
 
 # because the internals are the way they are, these tests have to happen in a

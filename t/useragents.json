@@ -1565,6 +1565,7 @@
         "mobile"
       ],
       "os_string" : "Firefox OS",
+      "os_version" : "18.0",
       "public_version" : "18.0",
       "version" : "18.0"
    },
