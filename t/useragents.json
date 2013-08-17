@@ -1307,6 +1307,7 @@
          "macosx"
       ],
       "minor" : "0.6",
+      "os_string" : "Mac OS X",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6",

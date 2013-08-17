@@ -1010,7 +1010,6 @@ sub os_string {
     return 'Win8'                        if $self->win8;
     return 'WinNT'                       if $self->winnt;
     return 'Windows Phone'               if $self->winphone;
-    return 'Mac'                         if $self->mac;
     return 'Mac OS X'                    if $self->macosx;
     return 'Win3x'                       if $self->win3x;
     return 'OS2'                         if $self->os2;
@@ -1021,6 +1020,7 @@ sub os_string {
     return 'Playstation 3 GameOS'        if $self->ps3gameos;
     return 'Playstation Portable GameOS' if $self->pspgameos;
     return 'iOS' if $self->iphone || $self->ipod || $self->ipad;
+    return 'Mac'                         if $self->mac;
     return;
 }
 
