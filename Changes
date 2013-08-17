@@ -1,12 +1,15 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Break up parsing into smaller chunks.
+    - Return better names for Googlebot News, Images and Video.
+    - Fix bug where Yahoo! Slurp reported as Firefox.
 
 1.57 2013-08-16 01:21:35 America/Toronto
     - Make internals a little less quirky.
     - Stop returning explicit undef for browser_string and os_string.  (Why
       would you ever call these in list context?)
-    - Return name of robot for browser_name when browser is, in fact, a bot.
+    - Return name of robot for browser_string when browser is, in fact, a bot.
       Previous behaviour was to return undef or something just really wrong.
 
 1.56 2013-08-15 01:02:32 America/Toronto

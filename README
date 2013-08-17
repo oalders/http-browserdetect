@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.57
+    version 1.58
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -29,9 +29,6 @@ SYNOPSIS
           ...;
         }
 
-        # Process a different user agent string
-        $browser->user_agent($another_user_agent_string);
-
 DESCRIPTION
     The HTTP::BrowserDetect object does a number of tests on an HTTP user
     agent string. The results of these tests are available via methods of
@@ -55,12 +52,11 @@ CONSTRUCTOR AND STARTUP
     scenes.
 
 SUBROUTINES/METHODS
-  user_agent($user_agent_string)
-    Returns the value of the user agent string. When called with a
-    parameter, it resets the user agent and reperforms all tests on the
-    string. This way you can process a series of user agent strings (from a
-    log file, perhaps) without creating a new HTTP::BrowserDetect object
-    each time.
+  user_agent()
+    Returns the value of the user agent string.
+
+    Calling this method with a parameter has now been deprecated and this
+    feature will be removed in an upcoming release.
 
   country()
     Returns the country string as it may be found in the user agent string.
@@ -427,20 +423,10 @@ TO DO
     POD coverage is also not 100%.
 
 SEE ALSO
-    "The Ultimate JavaScript Client Sniffer, Version 3.0",
-    <http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>
-
     "Browser ID (User-Agent) Strings",
     <http://www.zytrax.com/tech/web/browser_ids.htm>
 
-    Safari "Historical User Agent strings",
-    <http://developer.apple.com/internet/safari/uamatrix.html> (now gone,
-    retrieved 2007-06-20)
-
-    "Safari Agent Strings",
-    <http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
-
-    perl(1), HTTP::Headers, HTTP::Headers::UserAgent.
+    HTML::ParseBrowser.
 
 
 SUPPORT
