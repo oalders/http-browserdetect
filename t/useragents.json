@@ -3373,6 +3373,13 @@
         "slurp",
         "yahoo"
       ]
+  },
+  "LinkChecker/7.4 (+http://linkchecker.sourceforge.net/)" : {
+    "robot_name" : "LinkChecker",
+    "match" : [
+      "robot",
+      "linkchecker"
+    ]
   }
 }
 

@@ -132,6 +132,7 @@ my %ROBOTS = (
     googlemobile   => 'Google Mobile',
     icab           => 'iCab',
     infoseek       => 'InfoSeek',
+    linkchecker    => 'LinkChecker',
     linkexchange   => 'LinkExchange',
     lotusnotes     => 'Lotus Notes',
     lwp            => 'LWP::UserAgent',
@@ -160,6 +161,7 @@ our @ROBOT_TESTS = qw(
     facebook     baidu       googleadsbot
     askjeeves    googleadsense googlebotvideo
     googlebotnews googlebotimage google
+    linkchecker
 );
 
 our @MISC_TESTS = qw(
@@ -738,6 +740,7 @@ sub _robot_tests {
     $tests->{GOOGLE}         = ( index( $ua, "googlebot" ) != -1 );
     $tests->{INFOSEEK}       = ( index( $ua, "infoseek" ) != -1 );
     $tests->{LINKEXCHANGE}   = ( index( $ua, "lecodechecker" ) != -1 );
+    $tests->{LINKCHECKER}    = ( index( $ua, "linkchecker" ) != -1 );
     $tests->{LYCOS}          = ( index( $ua, "lycos" ) != -1 );
     $tests->{PUF}            = ( index( $ua, "puf/" ) != -1 );
     $tests->{SCOOTER}        = ( index( $ua, "scooter" ) != -1 );
@@ -761,6 +764,7 @@ sub _robot_tests {
             || $tests->{INFOSEEK}
             || $tests->{JAVA}
             || $tests->{LINKEXCHANGE}
+            || $tests->{LINKCHECKER}
             || $tests->{LWP}
             || $tests->{LYCOS}
             || $tests->{MSNMOBILE}
