@@ -959,11 +959,16 @@ sub _os_tests {
     $tests->{PSPGAMEOS} = $tests->{PSP} && $tests->{NETFRONT};
 }
 
-# not bothering with major/minor here as that's flawed for 3 point versions
-# the plan is to move this parsing into the UeberAgent parser
+# undocumented, experimental, volatile. not bothering with major/minor here as
+# that's flawed for 3 point versions the plan is to move this parsing into the
+# UeberAgent parser
 
-sub _osx_version {
+sub os_version {
     my $self = shift;
+
+    if ( $self->ios && $self->{user_agent} =~ m{OS (\d+)_(\d+) like Mac} ) {
+       return join '.' , $1, $2;
+    }
 
     if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d)_(\d)_(\d)}x ) {
         return join '.', $1, $2, $3;
@@ -978,12 +983,6 @@ sub _osx_version {
     if ( $self->android && $self->{user_agent} =~ m{Android ([\d\.\w-]*)} ) {
         return $1;
     }
-}
-
-# undocumented, experimental, volatile
-sub os_version {
-    my $self = shift;
-    return $self->_osx_version;
 }
 
 # because the internals are the way they are, these tests have to happen in a
