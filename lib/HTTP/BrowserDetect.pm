@@ -928,7 +928,7 @@ sub _test {
 
 sub browser_string {
     my ( $self ) = _self_or_default( @_ );
-    return unless defined $self->user_agent;
+    return unless defined $self->{user_agent};
 
     return $self->robot_name if $self->robot;
 
@@ -959,7 +959,7 @@ sub browser_string {
 
 sub os_string {
     my ( $self ) = _self_or_default( @_ );
-    return unless defined $self->user_agent;
+    return unless defined $self->{user_agent};
 
     return 'Win95'                       if $self->win95;
     return 'Win98'                       if $self->win98;
@@ -1093,7 +1093,7 @@ sub _public {
 
     # Return Public version of Safari. See RT #48727.
     if ( $self->safari ) {
-        my $ua = lc $self->user_agent;
+        my $ua = lc $self->{user_agent};
 
         # Safari starting with version 3.0 provides its own public version
         if ($ua =~ m{
@@ -1157,7 +1157,7 @@ sub engine_string {
 
     my ( $self, $check ) = _self_or_default( @_ );
 
-    if ( $self->user_agent =~ m{\bKHTML\b} ) {
+    if ( $self->{user_agent} =~ m{\bKHTML\b} ) {
         return 'KHTML';
     }
 
@@ -1283,28 +1283,28 @@ sub _language_country {
 
     if ( $self->safari ) {
         if (   $self->major == 1
-            && $self->user_agent =~ m/\s ( [a-z]{2} ) \)/xms )
+            && $self->{user_agent} =~ m/\s ( [a-z]{2} ) \)/xms )
         {
             return { language => uc $1 };
         }
-        if ( $self->user_agent =~ m/\s ([a-z]{2})-([A-Za-z]{2})/xms ) {
+        if ( $self->{user_agent} =~ m/\s ([a-z]{2})-([A-Za-z]{2})/xms ) {
             return { language => uc $1, country => uc $2 };
         }
     }
 
-    if ( $self->aol && $self->user_agent =~ m/;([A-Z]{2})_([A-Z]{2})\)/ ) {
+    if ( $self->aol && $self->{user_agent} =~ m/;([A-Z]{2})_([A-Z]{2})\)/ ) {
         return { language => $1, country => $2 };
     }
 
-    if ( $self->user_agent =~ m/\b([a-z]{2})-([A-Za-z]{2})\b/xms ) {
+    if ( $self->{user_agent} =~ m/\b([a-z]{2})-([A-Za-z]{2})\b/xms ) {
         return { language => uc $1, country => uc $2 };
     }
 
-    if ( $self->user_agent =~ m/\[([a-z]{2})\]/xms ) {
+    if ( $self->{user_agent} =~ m/\[([a-z]{2})\]/xms ) {
         return { language => uc $1 };
     }
 
-    if ( $self->user_agent =~ m/\(([^)]+)\)/xms ) {
+    if ( $self->{user_agent} =~ m/\(([^)]+)\)/xms ) {
         my @parts = split( /;/, $1 );
         foreach my $part ( @parts ) {
             if ( $part =~ /^\s*([a-z]{2})\s*$/ ) {
@@ -1381,11 +1381,6 @@ __END__
       ...;
     }
 
-    # Process a different user agent string
-    $browser->user_agent($another_user_agent_string);
-
-
-
 =head1 DESCRIPTION
 
 The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
@@ -1410,12 +1405,12 @@ HTTP::BrowserDetect object that is created behind the scenes.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 user_agent($user_agent_string)
+=head2 user_agent()
 
-Returns the value of the user agent string. When called with a parameter, it
-resets the user agent and reperforms all tests on the string. This way you can
-process a series of user agent strings (from a log file, perhaps) without
-creating a new HTTP::BrowserDetect object each time.
+Returns the value of the user agent string.
+
+Calling this method with a parameter has now been deprecated and this feature
+will be removed in an upcoming release.
 
 =head2 country()
 
@@ -1879,15 +1874,9 @@ POD coverage is also not 100%.
 
 =head1 SEE ALSO
 
-"The Ultimate JavaScript Client Sniffer, Version 3.0", L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>
-
 "Browser ID (User-Agent) Strings", L<http://www.zytrax.com/tech/web/browser_ids.htm>
 
-Safari "Historical User Agent strings", L<http://developer.apple.com/internet/safari/uamatrix.html> (now gone, retrieved 2007-06-20)
-
-"Safari Agent Strings", L<http://homepage.mac.com/jprince/designSandbox/web/safari-agents/>
-
-perl(1), L<HTTP::Headers>, L<HTTP::Headers::UserAgent>.
+L<HTML::ParseBrowser>.
 
 =head1
 
