@@ -142,6 +142,7 @@ my %ROBOTS = (
     puf            => 'puf',
     robot          => 'robot',
     slurp          => 'Yahoo! Slurp',
+    specialarchiver => 'archive.org_bot',
     staroffice     => 'StarOffice',
     webcrawler     => 'WebCrawler',
     webtv          => 'WebTV',
@@ -162,7 +163,7 @@ our @ROBOT_TESTS = qw(
     facebook     baidu       googleadsbot
     askjeeves    googleadsense googlebotvideo
     googlebotnews googlebotimage google
-    linkchecker  yandeximages
+    linkchecker  yandeximages specialarchiver
 );
 
 our @MISC_TESTS = qw(
@@ -746,6 +747,7 @@ sub _robot_tests {
     $tests->{PUF}            = ( index( $ua, "puf/" ) != -1 );
     $tests->{SCOOTER}        = ( index( $ua, "scooter" ) != -1 );
     $tests->{SLURP}          = ( index( $ua, "slurp" ) != -1 );
+    $tests->{SPECIALARCHIVER}          = ( index( $ua, "special_archiver" ) != -1 );
     $tests->{WEBCRAWLER}     = ( index( $ua, "webcrawler" ) != -1 );
     $tests->{WGET}           = ( index( $ua, "wget" ) != -1 );
     $tests->{YANDEXIMAGES}   = ( index( $ua, "yandeximages" ) != -1 );
@@ -773,6 +775,7 @@ sub _robot_tests {
             || $tests->{MSN}
             || $tests->{PUF}
             || $tests->{SLURP}
+            || $tests->{SPECIALARCHIVER}
             || $tests->{WEBCRAWLER}
             || $tests->{WGET}
             || $tests->{YAHOO}
