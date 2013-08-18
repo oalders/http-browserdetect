@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.58
+    version 1.59
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -261,14 +261,6 @@ Detecting Browser Vendor
     Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
     Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront,
     Mobile Safari, BlackBerry.
-
-    If the browser is actually a bot, the bot name will be returned. This
-    functionality is in beta right now and subject to change, so you
-    shouldn't rely on a given bot name to be returned at this point, but you
-    should be aware that the list of names which this method can return is
-    no longer restricted to the list as noted above. This is considered a
-    bug fix, since in the case of some bots browser_string returned
-    information which was essentially just wrong.
 
   gecko_version()
     If a Gecko rendering engine is used (as in Mozilla or Firefox), returns

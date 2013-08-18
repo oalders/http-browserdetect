@@ -1,6 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Revert 1.57's behaviour of returning a robot name in browser_string.
+    - Fix bug where OS X identied as just Mac in os_string.
+    - Add linkchecker, YandexImages and archive.org_bot bots.
+    - Add undocumented os_version() for OS X, winPhone, Android, iOS, Firefox
+      OS.
 
 1.58 2013-08-16 23:37:23 America/Toronto
     - Break up parsing into smaller chunks.
