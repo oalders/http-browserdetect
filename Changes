@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.60 2013-08-29 23:02:13 America/Toronto
     - Fixes bug where "Linux" rather than "Android" was returned as os_string
       for Android devices.
 
