@@ -2623,6 +2623,7 @@
          "mobile"
       ],
       "os" : "Android",
+      "os_string": "Android",
       "public_major" : "9",
       "public_minor" : "0.80",
       "public_version" : "9.80"
