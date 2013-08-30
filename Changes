@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fixes bug where "Linux" rather than "Android" was returned as os_string
+      for Android devices.
 
 1.59 2013-08-18 00:38:21 America/Toronto
     - Revert 1.57's behaviour of returning a robot name in browser_string.
