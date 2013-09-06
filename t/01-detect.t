@@ -3,15 +3,21 @@
 use strict;
 use warnings;
 
+use File::Slurp;
+use FindBin;
+use JSON::PP;
 use Test::Most;
 use Test::FailWarnings;
 
-use File::Slurp;
-use FindBin;
-use HTTP::BrowserDetect;
-use JSON::PP;
-
 bail_on_fail();
+
+# test that the module loads without errors
+my $w;
+{
+    local $SIG{__WARN__} = sub { $w = shift };
+    require_ok( 'HTTP::BrowserDetect' );
+}
+ok !$w;
 
 my $json = read_file( "$FindBin::Bin/useragents.json" );
 
