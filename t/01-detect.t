@@ -3,13 +3,12 @@
 use strict;
 use warnings;
 
-use File::Slurp;
-use FindBin;
-use JSON::PP;
 use Test::Most;
 use Test::FailWarnings;
 
-bail_on_fail();
+use File::Slurp;
+use FindBin;
+use JSON::PP;
 
 # test that the module loads without errors
 my $w;
