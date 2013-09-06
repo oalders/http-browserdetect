@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Reverts a commit that was causing a test to fail when a warning about
+      File::Slurp was detected
 
 1.60 2013-08-29 23:02:13 America/Toronto
     - Fixes bug where "Linux" rather than "Android" was returned as os_string
