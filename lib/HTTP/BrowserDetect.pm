@@ -706,7 +706,7 @@ sub _test {
     $self->_os_tests;
     $self->_robot_tests;
 
-    return unless $self->robot;
+    return undef unless $self->robot;
 
 }
 
@@ -1009,7 +1009,7 @@ sub os_version {
 
 sub browser_string {
     my ( $self ) = _self_or_default( @_ );
-    return unless defined $self->{user_agent};
+    return undef unless defined $self->{user_agent};
 
     return 'Netscape'      if $self->netscape;
     return 'IceWeasel'     if $self->iceweasel;
@@ -1033,12 +1033,12 @@ sub browser_string {
     return 'puf'           if $self->puf;
     return 'NetFront'      if $self->netfront;
     return 'Nintendo 3DS'  if $self->n3ds;
-    return;
+    return undef;
 }
 
 sub os_string {
     my ( $self ) = _self_or_default( @_ );
-    return unless defined $self->{user_agent};
+    return undef unless defined $self->{user_agent};
 
     return 'Win95'                       if $self->win95;
     return 'Win98'                       if $self->win98;
@@ -1062,7 +1062,7 @@ sub os_string {
     return 'Mac OS X'                    if $self->macosx;
     return 'Mac'                         if $self->mac;
     return 'OS2'                         if $self->os2;
-    return;
+    return undef;
 }
 
 sub realplayer {
