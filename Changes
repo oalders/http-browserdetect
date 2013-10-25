@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.62 2013-10-25 14:40:57 America/Toronto
     - Returns explicit undef more consistently (David Ihnen)
 
 1.61 2013-09-06 15:47:57 America/Toronto
