@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Returns explicit undef more consistently (David Ihnen)
 
 1.61 2013-09-06 15:47:57 America/Toronto
     - Reverts a commit that was causing a test to fail when a warning about
