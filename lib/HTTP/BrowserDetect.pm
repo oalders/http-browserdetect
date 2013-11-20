@@ -86,6 +86,7 @@ our @IE_TESTS = qw(
     ie5         ie5up       ie55
     ie55up      ie6         ie7
     ie8         ie9         ie10
+    ie11
 );
 
 our @OPERA_TESTS = qw(
@@ -275,6 +276,9 @@ sub _test {
 
     my $ua = lc $self->{user_agent};
 
+    # Trident Engine (detect early for sniffing out IE)
+    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
+
     # Browser version
     my ( $major, $minor, $beta ) = (
         $ua =~ m{
@@ -319,6 +323,10 @@ sub _test {
         # Generic "compatible" formats
         ( $major, $minor, $beta ) = split /\./, $1;
 
+    }
+    elsif ($tests->{TRIDENT} && $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
+        # MSIE masking as Gecko really well ;)
+        ( $major, $minor, $beta ) = split /\./, $1;
     }
 
  # Opera needs to be dealt with specifically
@@ -395,6 +403,7 @@ sub _test {
         = (    !$tests->{FIREFOX}
             && !$tests->{SAFARI}
             && !$tests->{CHROME}
+            && !$tests->{TRIDENT}
             && index( $ua, "mozilla" ) != -1
             && index( $ua, "msie" ) == -1
             && index( $ua, "spoofer" ) == -1
@@ -439,7 +448,8 @@ sub _test {
 
     # Internet Explorer browsers
 
-    $tests->{IE} = ( index( $ua, "msie" ) != -1
+    $tests->{IE} = ( $tests->{TRIDENT}
+            || index( $ua, "msie" ) != -1
             || index( $ua, 'microsoft internet explorer' ) != -1 );
     $tests->{IE3}    = ( $tests->{IE}  && $major == 3 );
     $tests->{IE4}    = ( $tests->{IE}  && $major == 4 );
@@ -454,6 +464,7 @@ sub _test {
     $tests->{IE8}  = ( $tests->{IE} && $major == 8 );
     $tests->{IE9}  = ( $tests->{IE} && $major == 9 );
     $tests->{IE10} = ( $tests->{IE} && $major == 10 );
+    $tests->{IE11} = ( $tests->{IE} && $major == 11 );
 
     # Neoplanet browsers
 
@@ -649,8 +660,6 @@ sub _test {
     }
 
     # Engines
-
-    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
 
     $self->{engine_version} = $self->{gecko_version};
 
@@ -1704,7 +1713,7 @@ version separately.
 
 =head3 icab
 
-=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10
+=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10 ie11
 
 =head3 java
 
