@@ -1102,6 +1102,7 @@
          "trident",
          "win32",
          "win8",
+         "win8_0",
          "windows",
          "winnt"
       ],
@@ -1121,6 +1122,7 @@
       "match" : [
          "windows",
          "win8",
+         "win8_0",
          "winnt",
          "win32",
          "trident",
@@ -1158,6 +1160,32 @@
       "minor" : "0",
       "no_match" : null,
       "os_string" : "Win7",
+      "other" : null,
+      "version" : "11.0",
+      "engine_major" : "7",
+      "engine_minor" : "0",
+      "engine_version" : "7.0",
+      "engine_string" : "Trident"
+   },
+   "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko": {
+      "browser_string": "MSIE",
+      "major" : "11",
+      "match" : [
+         "windows",
+         "win8",
+         "win8_1",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie11",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win8.1",
       "other" : null,
       "version" : "11.0",
       "engine_major" : "7",
