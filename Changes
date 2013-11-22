@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.63 2013-11-21 21:39:46 America/Toronto
     - Adds detection for Internet Explorer 11 (Douglas Christopher Wilson)
     - Adds detection for Windows 8.1 (Douglas Christopher Wilson)
 
