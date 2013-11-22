@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.62
+    version 1.63
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -182,7 +182,9 @@ Detecting OS Platform and Version
         win32
             winme win95 win98
             winnt
-                win2k winxp win2k3 winvista win7 win8
+                win2k winxp win2k3 winvista win7
+                win8
+                    win8_0 win8_1
         wince
         winphone
             winphone7 winphone7_5 winphone8
@@ -212,7 +214,7 @@ Detecting OS Platform and Version
     solely for compatibility with the HTTP::Headers::UserAgent module.
 
       Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-      Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
+      Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
       Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
       RIM Tablet OS
 
@@ -228,7 +230,7 @@ Detecting Browser Vendor
    firefox
    gecko
    icab
-   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10
+   ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10 ie11
    java
    konqueror
    lotusnotes
