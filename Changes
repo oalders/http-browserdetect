@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Adds detection for Opera 15+ (Douglas Christopher Wilson)
 
 1.63 2013-11-21 21:39:46 America/Toronto
     - Adds detection for Internet Explorer 11 (Douglas Christopher Wilson)
