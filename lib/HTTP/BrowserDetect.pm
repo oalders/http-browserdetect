@@ -329,11 +329,39 @@ sub _test {
         ( $major, $minor, $beta ) = split /\./, $1;
     }
 
+    # Opera browsers
+
+    $tests->{OPERA}
+        = (    index( $ua, "opera" ) != -1
+            || index( $ua, "opr/" ) != -1 );
+    $tests->{OPERA3}
+        = (    index( $ua, "opera 3" ) != -1
+            || index( $ua, "opera/3" ) != -1 );
+    $tests->{OPERA4}
+        = ( index( $ua, "opera 4" ) != -1 )
+            || ( index( $ua, "opera/4" ) != -1
+            && ( index( $ua, "nintendo dsi" ) == -1 ) );
+    $tests->{OPERA5}
+        = ( index( $ua, "opera 5" ) != -1 )
+            || ( index( $ua, "opera/5" ) != -1 );
+    $tests->{OPERA6}
+        = ( index( $ua, "opera 6" ) != -1 )
+            || ( index( $ua, "opera/6" ) != -1 );
+    $tests->{OPERA7}
+        = ( index( $ua, "opera 7" ) != -1 )
+            || ( index( $ua, "opera/7" ) != -1 );
+
  # Opera needs to be dealt with specifically
  # http://dev.opera.com/articles/view/opera-ua-string-changes/
+ # http://my.opera.com/community/openweb/idopera/
  # Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
+ # Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
 
     if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
+        $major = $1;
+        $minor = $2;
+    }
+    elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
         $major = $1;
         $minor = $2;
     }
@@ -354,7 +382,9 @@ sub _test {
     $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
         && ( index( $ua, "like gecko" ) == -1 );
 
-    $tests->{CHROME} = ( index( $ua, "chrome/" ) != -1 );
+    $tests->{CHROME}
+        = ( !$tests->{OPERA}
+            && index( $ua, "chrome/" ) != -1 );
     $tests->{SAFARI}
         = (    ( index( $ua, "safari" ) != -1 )
             || ( index( $ua, "applewebkit" ) != -1 ) )
@@ -403,12 +433,12 @@ sub _test {
         = (    !$tests->{FIREFOX}
             && !$tests->{SAFARI}
             && !$tests->{CHROME}
+            && !$tests->{OPERA}
             && !$tests->{TRIDENT}
             && index( $ua, "mozilla" ) != -1
             && index( $ua, "msie" ) == -1
             && index( $ua, "spoofer" ) == -1
             && index( $ua, "compatible" ) == -1
-            && index( $ua, "opera" ) == -1
             && index( $ua, "webtv" ) == -1
             && index( $ua, "hotjava" ) == -1
             && index( $ua, "nintendo" ) == -1
@@ -483,21 +513,6 @@ sub _test {
     $tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
     $tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
         || ( index( $ua, "navio_aoltv" ) != -1 );
-
-    # Opera browsers
-
-    $tests->{OPERA}  = ( index( $ua, "opera" ) != -1 );
-    $tests->{OPERA3} = ( index( $ua, "opera 3" ) != -1 )
-        || ( index( $ua, "opera/3" ) != -1 );
-    $tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
-        || ( index( $ua, "opera/4" ) != -1
-        && ( index( $ua, "nintendo dsi" ) == -1 ) );
-    $tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
-        || ( index( $ua, "opera/5" ) != -1 );
-    $tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
-        || ( index( $ua, "opera/6" ) != -1 );
-    $tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
-        || ( index( $ua, "opera/7" ) != -1 );
 
     # Other browsers
 
