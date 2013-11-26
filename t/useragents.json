@@ -1379,6 +1379,7 @@
       ],
       "minor" : "0.6",
       "os_string" : "Mac OS X",
+       "os_version" : "10.6",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6",

@@ -1008,6 +1008,12 @@ sub os_version {
         return join '.', $1, $2, $3;
     }
 
+    # firefox in mac
+    # "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:25.0) Gecko/20100101 Firefox/25.0"
+    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d\.\d)}x ) {
+        return $1;
+    }
+
     if (   $self->winphone
        && $self->{user_agent} =~ m{Windows \s Phone \s \w{0,2} \s{0,1} (\d+\.\d+);}x )
     {
