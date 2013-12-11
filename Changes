@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.65 2013-12-10 21:08:07 America/Toronto
     - Adds os_version for FireFox in OS X (Hao Wu)
 
 1.64 2013-11-25 10:10:23 America/Toronto
