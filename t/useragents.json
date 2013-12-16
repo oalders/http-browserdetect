@@ -455,6 +455,78 @@
       "other" : null,
       "version" : "3.03"
    },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
+      "match" : [
+         "dotnet",
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "windows",
+         "winnt",
+         "win32",
+         "win7"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0",
+      "engine_major" : "5",
+      "engine_minor" : "0",
+      "engine_version" : "5.0",
+      "engine_string" : "Trident"
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; .NET4.0E; .NET4.0C)" : {
+      "match" : [
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "win32",
+         "win8",
+         "win8_0",
+         "windows",
+         "winnt"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0",
+      "engine_major" : "6",
+      "engine_minor" : "0",
+      "engine_version" : "6.0",
+      "engine_string" : "Trident"
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; Trident/7.0)" : {
+      "match" : [
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "win32",
+         "win8",
+         "win8_1",
+         "windows",
+         "winnt"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0",
+      "engine_major" : "7",
+      "engine_minor" : "0",
+      "engine_version" : "7.0",
+      "engine_string" : "Trident"
+   },
    "Mozilla/4.0  (compatible;  MSIE 8.0; Windows NT 5.1; Trident/4.0; GoogleT5; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
       "major" : "8",
       "match" : [
@@ -472,6 +544,7 @@
       ],
       "minor" : "0",
       "no_match" : [
+         "ie_compat_mode",
          "robot"
       ],
       "public_major" : "8",
@@ -500,6 +573,7 @@
       ],
       "minor" : "0",
       "no_match" : [
+         "ie_compat_mode",
          "robot"
       ],
       "public_major" : "8",
@@ -855,6 +929,7 @@
          "dotnet",
          "trident",
          "ie",
+         "ie_compat_mode",
          "ie7",
          "ie4up",
          "ie5up",
@@ -978,6 +1053,9 @@
          "ie5up",
          "ie8"
       ],
+      "no_match": [
+        "ie_compat_mode"
+      ],
       "os" : "WinXP",
       "public_major" : "8",
       "public_minor" : "0",
@@ -1002,6 +1080,9 @@
          "ie55up",
          "ie5up",
          "ie4up"
+      ],
+      "no_match": [
+        "ie_compat_mode"
       ],
       "minor" : "0",
       "no_match" : null,
@@ -1028,6 +1109,9 @@
          "ie5up",
          "ie4up"
       ],
+      "no_match": [
+        "ie_compat_mode"
+      ],
       "minor" : "0",
       "no_match" : null,
       "os" : "Win7",
@@ -1053,6 +1137,9 @@
          "ie5up",
          "ie4up"
       ],
+      "no_match": [
+        "ie_compat_mode"
+      ],
       "minor" : "0",
       "no_match" : null,
       "os" : "Win7",
@@ -1077,6 +1164,9 @@
          "ie55up",
          "ie5up",
          "ie4up"
+      ],
+      "no_match": [
+        "ie_compat_mode"
       ],
       "minor" : "0",
       "no_match" : null,
@@ -1106,6 +1196,9 @@
          "windows",
          "winnt"
       ],
+      "no_match": [
+        "ie_compat_mode"
+      ],
       "minor" : "0",
       "no_match" : null,
       "os_string" : "Win8",
@@ -1132,6 +1225,9 @@
          "ie5up",
          "ie4up"
       ],
+      "no_match": [
+        "ie_compat_mode"
+      ],
       "minor" : "0",
       "no_match" : null,
       "os_string" : "Win8",
@@ -1156,6 +1252,9 @@
          "ie55up",
          "ie5up",
          "ie4up"
+      ],
+      "no_match": [
+        "ie_compat_mode"
       ],
       "minor" : "0",
       "no_match" : null,
@@ -1182,6 +1281,9 @@
          "ie55up",
          "ie5up",
          "ie4up"
+      ],
+      "no_match": [
+        "ie_compat_mode"
       ],
       "minor" : "0",
       "no_match" : null,
@@ -2749,18 +2851,19 @@
       "language" : null,
       "major" : null,
       "match" : [
-         "win7",
-         "windows",
-         "winnt",
-         "win32",
          "dotnet",
-         "realplayer",
-         "trident",
          "ie",
-         "ie7",
+         "ie_compat_mode",
          "ie55up",
          "ie5up",
-         "ie4up"
+         "ie4up",
+         "ie7",
+         "trident",
+         "realplayer",
+         "win32",
+         "win7",
+         "windows",
+         "winnt"
       ],
       "minor" : "0",
       "no_match" : [
@@ -3092,6 +3195,9 @@
          "windows",
          "winnt",
          "winxp"
+       ],
+       "no_match": [
+         "ie_compat_mode"
        ]
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; T7575)" : {
@@ -3108,6 +3214,9 @@
          "ie55up",
          "ie5up",
          "ie7"
+       ],
+       "no_match": [
+         "ie_compat_mode"
        ],
        "os" : "WinPhone",
        "os_string" : "Windows Phone",
@@ -3128,6 +3237,9 @@
          "ie55up",
          "ie5up",
          "ie9"
+       ],
+       "no_match": [
+         "ie_compat_mode"
        ],
        "os" : "WinPhone",
        "os_string" : "Windows Phone",
@@ -3150,6 +3262,9 @@
          "ie5up",
          "ie9"
        ],
+       "no_match": [
+         "ie_compat_mode"
+       ],
        "os" : "WinPhone",
        "os_string" : "Windows Phone",
        "os_version" : "7.5",
@@ -3171,12 +3286,15 @@
          "ie5up",
          "ie10"
        ],
+       "no_match": [
+         "ie_compat_mode"
+       ],
        "os" : "WinPhone",
        "os_string" : "Windows Phone",
        "os_version" : "8.0",
        "device_name" : "HTC 8X"
    },
-   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/5.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
+   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
        "browser_string" : "AOL Browser",
        "major" : "8",
        "minor" : "0",
@@ -3195,6 +3313,9 @@
          "winnt",
          "winxp",
          "dotnet"
+       ],
+       "no_match": [
+         "ie_compat_mode"
        ],
        "os" : "WinXP"
    },
@@ -3215,8 +3336,9 @@
          "dotnet"
        ],
        "minor" : "0",
-      "no_match" : [
-         "robot"
+      "no_match": [
+        "ie_compat_mode",
+        "robot"
       ],
       "public_major" : "8",
       "public_minor" : "0",
@@ -3395,26 +3517,6 @@
       "public_minor" : ".0",
       "public_version" : "4",
       "version" : "5.34"
-   },
-   "Mozilla/5.0 (compatible; MSIE 6; Windows NT 5.1; Trident/5.0)" : {
-     "browser_string" : "MSIE",
-     "major" : "6",
-       "match" : [
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie6",
-         "trident",
-         "win32",
-         "windows",
-         "winnt",
-         "winxp"
-       ],
-     "minor" : "0",
-     "public_major" : "6",
-     "public_minor" : "0",
-     "version" : "6"
    },
    "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
       "major" : "2",

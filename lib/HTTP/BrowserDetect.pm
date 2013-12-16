@@ -87,6 +87,7 @@ our @IE_TESTS = qw(
     ie55up      ie6         ie7
     ie8         ie9         ie10
     ie11
+    ie_compat_mode
 );
 
 our @OPERA_TESTS = qw(
@@ -278,6 +279,10 @@ sub _test {
 
     # Trident Engine (detect early for sniffing out IE)
     $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
+
+    if ( $tests->{TRIDENT} && $ua =~ /trident\/([\w\.\d]*)/ ) {
+        $self->{engine_version} = $1;
+    }
 
     # Browser version
     my ( $major, $minor, $beta ) = (
@@ -496,6 +501,11 @@ sub _test {
     $tests->{IE10} = ( $tests->{IE} && $major == 10 );
     $tests->{IE11} = ( $tests->{IE} && $major == 11 );
 
+    $tests->{IE_COMPAT_MODE}
+        = (    $tests->{IE7}
+            && $tests->{TRIDENT}
+            && $self->{engine_version} + 0 >= 4 );
+
     # Neoplanet browsers
 
     $tests->{NEOPLANET} = ( index( $ua, "neoplanet" ) != -1 );
@@ -671,15 +681,8 @@ sub _test {
     if ( $tests->{GECKO} ) {
         if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
             $self->{gecko_version} = $1;
+            $self->{engine_version} = $1;
         }
-    }
-
-    # Engines
-
-    $self->{engine_version} = $self->{gecko_version};
-
-    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
-        $self->{engine_version} = $1;
     }
 
     # RealPlayer
@@ -1740,6 +1743,13 @@ version separately.
 =head3 icab
 
 =head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10 ie11
+
+=head3 ie_compat_mode
+
+The ie_compat_mode is used to determine if the IE user agent is for
+the compatibility mode view, in which case the real version of IE is
+higher than that detected. The true version of IE can be inferred from
+the version of Trident in the engine_version method.
 
 =head3 java
 
