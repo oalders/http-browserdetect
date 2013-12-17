@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.65
+    version 1.66
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -231,6 +231,12 @@ Detecting Browser Vendor
    gecko
    icab
    ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10 ie11
+   ie_compat_mode
+    The ie_compat_mode is used to determine if the IE user agent is for the
+    compatibility mode view, in which case the real version of IE is higher
+    than that detected. The true version of IE can be inferred from the
+    version of Trident in the engine_version method.
+
    java
    konqueror
    lotusnotes

@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Adds detection for IE Compatibility View (Douglas Christopher Wilson)
 
 1.65 2013-12-10 21:08:07 America/Toronto
     - Adds os_version for FireFox in OS X (Hao Wu)
@@ -282,16 +283,16 @@ Revision history for Perl extension HTTP::BrowserDetect.
       Chrome
     - Have moved repository to GitHub
 
-0.99 Thu Feb 22 16:47:00 2007
+0.99 2007-02-22
     - Modifications by Peter Walsham
     - Added support for Windows Server 2003 and Windows Vista
 
-0.98 Tue Jun 21 00:39:00 2004
+0.98 2004-06-21
     - Added more browsers including Mozilla, Firefox, Safari
     - added Mac OS X, WinXP, Win2k detection
     - added more test cases
 
-0.962 Tues Jan 31 12:45:00 2001
+0.962 2001-01-31
     - changed how minor() method to return minor version as a floating point
     - added additional browsers
     - added additional 'up' methods
@@ -300,19 +301,19 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - added Windows ME detection
     - updated url to javascript browser sniffer page
 
-0.95 Sat Aug 4 09:08:00 2000
+0.95 2000-08-04
     - added additional browsers
 
-0.94 Sun Mar 19 18:51:00 2000
+0.94 2000-03-19
     - changed copyright notice
     - changed object's internal structure
     - added Windows 2000 detection
     - eliminated AUTOLOAD subroutine
 
-0.92 Mon Feb 7 12:34:56 2000
+0.92 2000-02-07
     - fixed version numbering problem, would return '.' instead of undef if
       useragent's version couldn't be found
     - added more detection for AOL
 
-0.9 Wed Feb 17 23:45:52 1999
+0.9 1999-02-17
     - original version; created by h2xs 1.18
