@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.66 2013-12-17 11:37:20 America/Toronto
     - Adds detection for IE Compatibility View (Douglas Christopher Wilson)
 
 1.65 2013-12-10 21:08:07 America/Toronto
