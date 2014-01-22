@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.67 2014-01-22 16:18:36 America/Toronto
     - Adds detection for tablet Firefox OS (Douglas Christopher Wilson)
 
 1.66 2013-12-17 11:37:20 America/Toronto
