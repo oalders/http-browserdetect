@@ -640,6 +640,7 @@ sub _test {
             || ( index( $ua, "android" ) != -1
             && index( $ua, "mobile" ) == -1
             && index( $ua, "opera" ) == -1 )
+            || ($tests->{FIREFOX} && index( $ua, "tablet" ) != -1)
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
             || index( $ua, "flyer" ) != -1
@@ -984,7 +985,7 @@ sub _os_tests {
 
     $tests->{FIREFOXOS}
         = (    $tests->{FIREFOX}
-            && $tests->{MOBILE}
+            && ($tests->{MOBILE} || $tests->{TABLET})
             && !$tests->{ANDROID}
             && index( $ua, "fennec" ) == -1 );
 
