@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Adds detection for tablet Firefox OS (Douglas Christopher Wilson)
 
 1.66 2013-12-17 11:37:20 America/Toronto
     - Adds detection for IE Compatibility View (Douglas Christopher Wilson)
