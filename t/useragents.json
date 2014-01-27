@@ -3606,6 +3606,19 @@
       "robot",
       "specialarchiver"
     ]
+  },
+  "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
+    "robot_name" : "Ahrefs",
+    "match" : [
+      "ahrefs",
+      "robot"
+    ]
+  },
+  "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
+    "robot_name" : "Yandex",
+    "match" : [
+      "yandex",
+      "robot"
+    ]
   }
 }
-
