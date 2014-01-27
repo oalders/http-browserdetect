@@ -1,7 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
-    - Added Yandex bot & ahrefs (Perlover)
+    - Adds Yandex & Ahrefs bots (Perlover)
 
 1.67 2014-01-22 16:18:36 America/Toronto
     - Adds detection for tablet Firefox OS (Douglas Christopher Wilson)

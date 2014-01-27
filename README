@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.67
+    version 1.68
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -313,6 +313,7 @@ Detecting Other Devices
     false value. This is by no means a complete list of robots that exist on
     the Web.
 
+   ahrefs
    altavista
    askjeeves
    baidu
@@ -332,6 +333,8 @@ Detecting Other Devices
    webcrawler
    wget
    yahoo
+   yandex
+   yandeximages
 CREDITS
     Lee Semel, lee@semel.net (Original Author)
 
@@ -419,6 +422,8 @@ ACKNOWLEDGEMENTS
     David Ihnen
 
     Hao Wu
+
+    Perlover
 
 TO DO
     The "_engine()" method currently only handles Gecko and Trident. It
