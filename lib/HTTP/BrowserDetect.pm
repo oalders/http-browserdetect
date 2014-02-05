@@ -10,7 +10,7 @@ our @OS_TESTS = qw(
     windows mac   os2
     unix    linux vms
     bsd     amiga firefoxos
-    rimtabletos
+    bb10    rimtabletos
 );
 
 # More precise Windows
@@ -551,6 +551,7 @@ sub _test {
     # Devices
 
     $tests->{BLACKBERRY} = ( index( $ua, "blackberry" ) != -1
+            || index( $ua, "bb10" ) != -1
             || index( $ua, "rim tablet os" ) != -1 );
     $tests->{IPHONE}   = ( index( $ua, "iphone" ) != -1 );
     $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
@@ -628,6 +629,8 @@ sub _test {
             || index( $ua, "fennec" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
+            || ( index( $ua, "bb10" ) != -1
+            && index( $ua, "mobile" ) != -1 )
             || $tests->{PSP}
             || $tests->{DSI}
             || $tests->{'N3DS'}
@@ -728,6 +731,14 @@ sub _test {
         $self->{device_name} = substr $self->{user_agent},
             pos( $ua ) - length $1, length $1;
         $self->{device_name} =~ s/; / /;
+    }
+    elsif ( $ua
+        =~ /bb10; ([^;\)]+)/g
+        )
+    {
+        $self->{device_name} = 'BlackBerry ' . substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/Kbd/Q10/;
     }
 
     $self->{major} = $major;
@@ -996,6 +1007,7 @@ sub _os_tests {
             && !$tests->{ANDROID}
             && index( $ua, "fennec" ) == -1 );
 
+    $tests->{BB10} = ( index( $ua, "bb10" ) != -1 );
     $tests->{RIMTABLETOS} = ( index( $ua, "rim tablet os" ) != -1 );
 
     $tests->{PS3GAMEOS} = $tests->{PS3} && $tests->{NETFRONT};
@@ -1099,6 +1111,7 @@ sub os_string {
     return 'Linux'                       if $self->linux;
     return 'Unix'                        if $self->unix;
     return 'Firefox OS'                  if $self->firefoxos;
+    return 'BlackBerry 10'               if $self->bb10;
     return 'RIM Tablet OS'               if $self->rimtabletos;
     return 'Playstation 3 GameOS'        if $self->ps3gameos;
     return 'Playstation Portable GameOS' if $self->pspgameos;
@@ -1700,6 +1713,8 @@ mac68k macppc macosx ios
 
 =head2 os2()
 
+=head2 bb10()
+
 =head2 rimtabletos()
 
 =head2 unix()
@@ -1728,7 +1743,7 @@ compatibility with the L<HTTP::Headers::UserAgent> module.
   Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
   Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
   Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-  RIM Tablet OS
+  RIM Tablet OS, BlackBerry 10
 
 =head1 Detecting Browser Vendor
 
