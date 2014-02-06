@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Adds detection for BlackBerry 10 devices (Douglas Christopher Wilson)
 
 1.68 2014-01-26 23:05:14 America/Toronto
     - Adds Yandex & Ahrefs bots (Perlover)
