@@ -1122,6 +1122,40 @@
       "engine_version" : "5.0",
       "engine_string" : "Trident"
    },
+   "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1791 Mobile Safari/537.35+": {
+       "browser_string" : "BlackBerry",
+       "match" : [
+         "bb10",
+         "blackberry",
+         "device",
+         "mobile",
+         "mobile_safari",
+         "safari"
+       ],
+       "no_match" : [
+         "robot"
+       ],
+       "os_string" : "BlackBerry 10",
+       "public_version" : "10.2",
+       "device_name" : "BlackBerry Q10"
+   },
+   "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1803 Mobile Safari/537.35+": {
+       "browser_string" : "BlackBerry",
+       "match" : [
+         "bb10",
+         "blackberry",
+         "device",
+         "mobile",
+         "mobile_safari",
+         "safari"
+       ],
+       "no_match" : [
+         "robot"
+       ],
+       "device_name" : "BlackBerry Touch",
+       "os_string" : "BlackBerry 10",
+       "public_version" : "10.2"
+   },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)": {
       "browser_string": "MSIE",
       "major" : "9",
