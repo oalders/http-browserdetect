@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.69 2014-02-05 21:56:27 America/Toronto
     - Adds detection for BlackBerry 10 devices (Douglas Christopher Wilson)
 
 1.68 2014-01-26 23:05:14 America/Toronto
