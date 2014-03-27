@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.70 2014-03-27 12:16:12 America/Toronto
     - Add new UA tests & avoid false positive Sun match on Samsung (Jon Jensen)
 
 1.69 2014-02-05 21:56:27 America/Toronto
