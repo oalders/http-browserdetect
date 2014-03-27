@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Add new UA tests & avoid false positive Sun match on Samsung (Jon Jensen)
 
 1.69 2014-02-05 21:56:27 America/Toronto
     - Adds detection for BlackBerry 10 devices (Douglas Christopher Wilson)

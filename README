@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.69
+    version 1.70
 
 SYNOPSIS
         use HTTP::BrowserDetect;
