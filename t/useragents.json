@@ -1272,6 +1272,23 @@
       "engine_version" : "6.0",
       "engine_string" : "Trident"
    },
+   "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537": {
+      "match" : [
+         "android",
+         "chrome",
+         "device",
+         "ie",
+         "ie55up",
+         "ie5up",
+         "ie4up",
+         "iphone",
+         "ios",
+         "mobile",
+         "trident",
+         "windows",
+         "winphone"
+      ]
+   },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko": {
       "browser_string": "MSIE",
       "major" : "11",
