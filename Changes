@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fixes warnings on "frakenagent" (Douglas Christopher Wilson)
 
 1.70 2014-03-27 12:16:12 America/Toronto
     - Add new UA tests & avoid false positive Sun match on Samsung (Jon Jensen)

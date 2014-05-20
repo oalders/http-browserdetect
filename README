@@ -3,7 +3,7 @@ NAME
     an HTTP user agent string
 
 VERSION
-    version 1.70
+    version 1.71
 
 SYNOPSIS
         use HTTP::BrowserDetect;
@@ -494,7 +494,7 @@ AUTHORS
     *   Olaf Alders <olaf@wundercounter.com> (current maintainer)
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Lee Semel.
+    This software is copyright (c) 2014 by Lee Semel.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
