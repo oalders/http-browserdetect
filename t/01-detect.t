@@ -14,9 +14,9 @@ use Path::Tiny qw( path );
 my $w;
 {
     local $SIG{__WARN__} = sub { $w = shift };
-    require_ok( 'HTTP::BrowserDetect' );
+    require HTTP::BrowserDetect;
 }
-ok !$w;
+ok( !$w, 'no warnings on require' );
 
 my $json = path( "$FindBin::Bin/useragents.json" )->slurp;
 
