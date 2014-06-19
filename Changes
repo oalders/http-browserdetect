@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Remove File::Slurp from tests in favour of Path::Tiny
 
 1.71 2014-05-19 22:38:52 America/Toronto
     - Fixes warnings on "frakenagent" (Douglas Christopher Wilson)
