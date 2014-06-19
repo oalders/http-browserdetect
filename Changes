@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.72 2014-06-18 23:34:27 America/Toronto
     - Remove File::Slurp from tests in favour of Path::Tiny
 
 1.71 2014-05-19 22:38:52 America/Toronto
