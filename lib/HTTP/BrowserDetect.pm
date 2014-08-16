@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 
+use 5.006;
+
 package HTTP::BrowserDetect;
 
 use vars qw(@ALL_TESTS);
