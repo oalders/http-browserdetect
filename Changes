@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.73 2014-08-15 23:50:42 America/Toronto
     - Adds minimum Perl version
     - dzil tweaks to make CPANTS happier
 
