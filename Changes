@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Adds minimum Perl version
+    - dzil tweaks to make CPANTS happier
 
 1.72 2014-06-18 23:34:27 America/Toronto
     - Remove File::Slurp from tests in favour of Path::Tiny
