@@ -142,6 +142,7 @@ my %ROBOTS = (
     lotusnotes     => 'Lotus Notes',
     lwp            => 'LWP::UserAgent',
     lycos          => 'Lycos',
+    mj12bot        => 'Majestic-12 DSearch',
     msn            => 'MSN',
     msnmobile      => 'MSN Mobile',
     puf            => 'puf',
@@ -160,7 +161,7 @@ my %ROBOTS = (
 our @ROBOT_TESTS = qw(
     puf          curl        wget
     getright     robot       slurp
-    yahoo
+    yahoo        mj12bot
     altavista    lycos       infoseek
     lwp          webcrawler  linkexchange
     webtv        staroffice
@@ -789,6 +790,7 @@ sub _robot_tests {
     $tests->{LINKEXCHANGE}   = ( index( $ua, "lecodechecker" ) != -1 );
     $tests->{LINKCHECKER}    = ( index( $ua, "linkchecker" ) != -1 );
     $tests->{LYCOS}          = ( index( $ua, "lycos" ) != -1 );
+    $tests->{MJ12BOT}        = ( index( $ua, "mj12bot/" ) != -1 );
     $tests->{PUF}            = ( index( $ua, "puf/" ) != -1 );
     $tests->{SCOOTER}        = ( index( $ua, "scooter" ) != -1 );
     $tests->{SLURP}          = ( index( $ua, "slurp" ) != -1 );
@@ -1918,6 +1920,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 lwp
 
 =head3 lycos
+
+=head3 mj12bot
 
 =head3 msn (same as bing)
 

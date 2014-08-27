@@ -1094,6 +1094,13 @@
       "engine_version" : "4.0",
       "engine_string" : "Trident"
    },
+   "Mozilla/5.0 (compatible; MJ12bot/v1.4.5; http://www.majestic12.co.uk/bot.php?+)": {
+      "robot_name" : "Majestic-12 DSearch",
+      "match" : [
+        "mj12bot",
+        "robot"
+      ]
+   },
    "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)": {
       "browser_string": "MSIE",
       "major" : "9",
