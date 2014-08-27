@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    -  Adds detection for Majestic-12 bot (Douglas Christopher Wilson)
 
 1.73 2014-08-15 23:50:42 America/Toronto
     - Adds minimum Perl version
