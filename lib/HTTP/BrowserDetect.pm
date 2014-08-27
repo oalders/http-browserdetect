@@ -13,6 +13,7 @@ our @OS_TESTS = qw(
     unix    linux vms
     bsd     amiga firefoxos
     bb10    rimtabletos
+    chromeos
 );
 
 # More precise Windows
@@ -982,8 +983,13 @@ sub _os_tests {
     $tests->{FREEBSD} = ( index( $ua, "freebsd" ) != -1 );
     $tests->{BSD}     = ( index( $ua, "bsd" ) != -1 );
     $tests->{X11}     = ( index( $ua, "x11" ) != -1 );
+
+    $tests->{CHROMEOS}
+        = ( $tests->{X11} && index( $ua, "cros" ) != -1 );
+
     $tests->{UNIX}
-        = (    $tests->{X11}
+        = ( !$tests->{CHROMEOS}
+            && ($tests->{X11}
             || $tests->{SUN}
             || $tests->{IRIX}
             || $tests->{HPUX}
@@ -993,7 +999,7 @@ sub _os_tests {
             || $tests->{RELIANT}
             || $tests->{DEC}
             || $tests->{LINUX}
-            || $tests->{BSD} );
+            || $tests->{BSD} ) );
 
     $tests->{VMS}
         = ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 );
@@ -1112,6 +1118,7 @@ sub os_string {
     return 'Android'                     if $self->android;
     return 'Linux'                       if $self->linux;
     return 'Unix'                        if $self->unix;
+    return 'Chrome OS'                   if $self->chromeos;
     return 'Firefox OS'                  if $self->firefoxos;
     return 'BlackBerry 10'               if $self->bb10;
     return 'RIM Tablet OS'               if $self->rimtabletos;
@@ -1707,6 +1714,8 @@ winnt, which is a type of win32)
 
 =head2 dotnet()
 
+=head2 chromeos()
+
 =head2 firefoxos()
 
 =head2 mac()
@@ -1744,7 +1753,7 @@ compatibility with the L<HTTP::Headers::UserAgent> module.
 
   Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
   Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-  Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
   RIM Tablet OS, BlackBerry 10
 
 =head1 Detecting Browser Vendor
