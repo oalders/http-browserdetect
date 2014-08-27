@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.75 2014-08-27 17:55:01 America/Toronto
     - Adds detection for Chrome OS (Douglas Christopher Wilson)
 
 1.74 2014-08-27 10:32:16 America/Toronto
