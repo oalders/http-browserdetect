@@ -1,6 +1,7 @@
 *.swp
 .build
 .perl-version
+.tidyall.d/
 /blib/
 Build
 HTTP-BrowserDetect-*

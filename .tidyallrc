@@ -3,4 +3,3 @@ select = {bin,lib,t}/**/*.{pl,pm,t,psgi}
 
 [SortLines]
 select = .gitignore
-select = cpanfile
