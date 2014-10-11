@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Encourage use of public_* and engine_* over version(), major() and
+      minor().
 
 1.75 2014-08-27 17:55:01 America/Toronto
     - Adds detection for Chrome OS (Douglas Christopher Wilson)
