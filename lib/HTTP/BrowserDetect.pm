@@ -274,10 +274,10 @@ sub user_agent {
 sub _test {
     my ( $self ) = @_;
 
-    $self->{tests} = {};
+    # Initialize tests to all 0s
+    $self->{tests} = { map { uc($_) => 0 } @ALL_TESTS };
+
     my $tests = $self->{tests};
-    $self->_os_tests;
-    $self->_robot_tests;
 
     my @ff = ( 'firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
@@ -344,19 +344,20 @@ sub _test {
 
     # Opera browsers
 
-    $tests->{OPERA}
-        = ( index( $ua, "opera" ) != -1 || index( $ua, "opr/" ) != -1 );
-    $tests->{OPERA3}
-        = ( index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1 );
-    $tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
-        || ( index( $ua, "opera/4" ) != -1
-        && ( index( $ua, "nintendo dsi" ) == -1 ) );
-    $tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
-        || ( index( $ua, "opera/5" ) != -1 );
-    $tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
-        || ( index( $ua, "opera/6" ) != -1 );
-    $tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
-        || ( index( $ua, "opera/7" ) != -1 );
+    if ( $ua =~ m{opera|opr\/} ) {
+	$tests->{OPERA} = 1;
+
+	$tests->{OPERA3}
+            = ( index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1 );
+	$tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
+	    || ( index( $ua, "opera/4" ) != -1
+		 && ( index( $ua, "nintendo dsi" ) == -1 ) );
+	$tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
+	    || ( index( $ua, "opera/5" ) != -1 );
+	$tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
+	    || ( index( $ua, "opera/6" ) != -1 );
+	$tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
+	    || ( index( $ua, "opera/7" ) != -1 );
 
 # Opera needs to be dealt with specifically
 # http://dev.opera.com/articles/view/opera-ua-string-changes/
@@ -364,25 +365,24 @@ sub _test {
 # Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
 # Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
 
-    if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
-        $major = $1;
-        $minor = $2;
-    }
-    elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
-        $major = $1;
-        $minor = $2;
-    }
-    elsif ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
-        $major = $1;
-        $minor = $2;
-    }
-    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
-        $major = $1;
-        $minor = $2;
+	if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
+	elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
     }
 
-    $major = 0 if !$major;
-    $minor = $self->_format_minor( $minor );
+    if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
+	$major = $1;
+	$minor = $2;
+    }
+    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
+	$major = $1;
+	$minor = $2;
+    }
 
     # Mozilla browsers
 
@@ -399,8 +399,12 @@ sub _test {
     $tests->{MOBILE_SAFARI}
         = ( $tests->{SAFARI} && index( $ua, " mobile safari/" ) >= 0 );
 
-    # Chrome Version
+    $major = 0 if !$major;
+    $minor = $self->_format_minor( $minor );
+
     if ( $tests->{CHROME} ) {
+	# Chrome Version
+
         ( $major, $minor ) = (
             $ua =~ m{
                 chrome
@@ -408,11 +412,13 @@ sub _test {
                 ( \d+ )       # Major version number
                 ( \. \d+ )?   # Minor version number is dot and following digits
             }x
-        );
-    }
+	);
 
-    # Safari Version
-    elsif ( $tests->{SAFARI} ) {
+	$minor = 0 if !$minor;
+
+    } elsif ( $tests->{SAFARI} ) {
+	# Safari Version
+
         my ( $safari_build, $safari_minor ) = (
             $ua =~ m{
                 safari/
@@ -435,78 +441,83 @@ sub _test {
     }
 
     # Gecko-powered Netscape (i.e. Mozilla) versions
-    $tests->{NETSCAPE}
-        = (    !$tests->{FIREFOX}
-            && !$tests->{SAFARI}
-            && !$tests->{CHROME}
-            && !$tests->{OPERA}
-            && !$tests->{TRIDENT}
-            && index( $ua, "mozilla" ) != -1
-            && index( $ua, "msie" ) == -1
-            && index( $ua, "spoofer" ) == -1
-            && index( $ua, "compatible" ) == -1
-            && index( $ua, "webtv" ) == -1
-            && index( $ua, "hotjava" ) == -1
-            && index( $ua, "nintendo" ) == -1
-            && index( $ua, "playstation 3" ) == -1
-            && index( $ua, "playstation portable" ) == -1 );
-
-    if (   $tests->{GECKO}
-        && $tests->{NETSCAPE}
-        && index( $ua, "netscape" ) != -1 )
+    if ( !$tests->{FIREFOX}
+	   && !$tests->{SAFARI}
+	   && !$tests->{CHROME}
+           && !$tests->{OPERA}
+           && !$tests->{TRIDENT}
+           && index( $ua, "mozilla" ) != -1
+           && index( $ua, "msie" ) == -1
+           && index( $ua, "spoofer" ) == -1
+           && index( $ua, "compatible" ) == -1
+           && index( $ua, "webtv" ) == -1
+           && index( $ua, "hotjava" ) == -1
+           && index( $ua, "nintendo" ) == -1
+           && index( $ua, "playstation 3" ) == -1
+	   && index( $ua, "playstation portable" ) == -1 )
     {
-        ( $major, $minor, $beta ) = (
-            $ua =~ m{
-                netscape6?\/
-                ( [^.]* )      # Major version number is everything before first dot
-                \.             # The first dot
-                ( [\d]* )      # Minor version nnumber is digits after first dot
-                ( [^\s]* )
-            }x
-        );
-        $minor = 0 + ".$minor";
+
+	$tests->{NETSCAPE} = 1;
+
+	if ( $tests->{GECKO}
+	       && index( $ua, "netscape" ) != -1 )
+	{
+	    ( $major, $minor, $beta ) = (
+		$ua =~ m{
+                    netscape6?\/
+                    ( [^.]* )      # Major version number is everything before first dot
+                    \.             # The first dot
+                    ( [\d]* )      # Minor version nnumber is digits after first dot
+                    ( [^\s]* )
+                }x
+		);
+	    $minor = 0 + ".$minor";
+	}
+
+	# Netscape browsers
+	$tests->{NAV2}    = ( $major == 2 );
+	$tests->{NAV3}    = ( $major == 3 );
+	$tests->{NAV4}    = ( $major == 4 );
+	$tests->{NAV4UP}  = ( $major >= 4 );
+	$tests->{NAV45}   = ( $major == 4 && $minor == .5 );
+	$tests->{NAV45UP} = ( $tests->{NAV4}     && $minor >= .5 )
+	    || $major >= 5;
+	$tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
+	$tests->{NAV6} = ( $major == 5 || $major == 6 )
+	    ;    # go figure
+	$tests->{NAV6UP} = ( $major >= 5 );
+
+	$tests->{MOZILLA} = ( $tests->{GECKO} );
+
     }
-
-    # Netscape browsers
-    $tests->{NAV2}    = ( $tests->{NETSCAPE} && $major == 2 );
-    $tests->{NAV3}    = ( $tests->{NETSCAPE} && $major == 3 );
-    $tests->{NAV4}    = ( $tests->{NETSCAPE} && $major == 4 );
-    $tests->{NAV4UP}  = ( $tests->{NETSCAPE} && $major >= 4 );
-    $tests->{NAV45}   = ( $tests->{NETSCAPE} && $major == 4 && $minor == .5 );
-    $tests->{NAV45UP} = ( $tests->{NAV4}     && $minor >= .5 )
-        || ( $tests->{NETSCAPE} && $major >= 5 );
-    $tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
-    $tests->{NAV6} = ( $tests->{NETSCAPE} && ( $major == 5 || $major == 6 ) )
-        ;    # go figure
-    $tests->{NAV6UP} = ( $tests->{NETSCAPE} && $major >= 5 );
-
-    $tests->{MOZILLA} = ( $tests->{NETSCAPE} && $tests->{GECKO} );
 
     # Internet Explorer browsers
 
-    $tests->{IE}
-        = (    $tests->{TRIDENT}
-            || index( $ua, "msie" ) != -1
-            || index( $ua, 'microsoft internet explorer' ) != -1 );
-    $tests->{IE3}    = ( $tests->{IE}  && $major == 3 );
-    $tests->{IE4}    = ( $tests->{IE}  && $major == 4 );
-    $tests->{IE4UP}  = ( $tests->{IE}  && $major >= 4 );
-    $tests->{IE5}    = ( $tests->{IE}  && $major == 5 );
-    $tests->{IE5UP}  = ( $tests->{IE}  && $major >= 5 );
-    $tests->{IE55}   = ( $tests->{IE}  && $major == 5 && $minor >= .5 );
-    $tests->{IE55UP} = ( $tests->{IE5} && $minor >= .5 )
-        || ( $tests->{IE} && $major >= 6 );
-    $tests->{IE6}  = ( $tests->{IE} && $major == 6 );
-    $tests->{IE7}  = ( $tests->{IE} && $major == 7 );
-    $tests->{IE8}  = ( $tests->{IE} && $major == 8 );
-    $tests->{IE9}  = ( $tests->{IE} && $major == 9 );
-    $tests->{IE10} = ( $tests->{IE} && $major == 10 );
-    $tests->{IE11} = ( $tests->{IE} && $major == 11 );
+    if ( $tests->{TRIDENT}
+	     || index( $ua, "msie" ) != -1
+	     || index( $ua, 'microsoft internet explorer' ) != -1 )
+    {
 
-    $tests->{IE_COMPAT_MODE}
+	$tests->{IE} = 1;
+	$tests->{IE3}    = 1 if ( $major == 3 );
+	$tests->{IE4}    = 1 if ( $major == 4 );
+	$tests->{IE4UP}  = 1 if ( $major >= 4 );
+	$tests->{IE5}    = 1 if ( $major == 5 );
+	$tests->{IE5UP}  = 1 if ( $major >= 5 );
+	$tests->{IE55}   = 1 if ( $major == 5  && $minor >= .5 );
+	$tests->{IE55UP} = 1 if ( $minor >= .5 || $major >= 6 );
+	$tests->{IE6}  = 1 if ( $major == 6 );
+	$tests->{IE7}  = 1 if ( $major == 7 );
+	$tests->{IE8}  = 1 if ( $major == 8 );
+	$tests->{IE9}  = 1 if ( $major == 9 );
+	$tests->{IE10} = 1 if ( $major == 10 );
+	$tests->{IE11} = 1 if ( $major == 11 );
+
+	$tests->{IE_COMPAT_MODE}
         = (    $tests->{IE7}
-            && $tests->{TRIDENT}
-            && $self->{engine_version} + 0 >= 4 );
+	       && $tests->{TRIDENT}
+	       && $self->{engine_version} + 0 >= 4 );
+    }
 
     # Neoplanet browsers
 
@@ -516,57 +527,59 @@ sub _test {
 
     # AOL Browsers
 
-    $tests->{AOL}  = ( index( $ua, "aol" ) != -1 );
-    $tests->{AOL3} = ( index( $ua, "aol 3.0" ) != -1 )
-        || ( $tests->{AOL} && $tests->{IE3} );
-    $tests->{AOL4} = ( index( $ua, "aol 4.0" ) != -1 )
-        || ( $tests->{AOL} && $tests->{IE4} );
-    $tests->{AOL5}  = ( index( $ua, "aol 5.0" ) != -1 );
-    $tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
-    $tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
-        || ( index( $ua, "navio_aoltv" ) != -1 );
+    if ( index( $ua, "aol" ) != -1 ) {
+	$tests->{AOL}  = 1;
+	$tests->{AOL3} = ( index( $ua, "aol 3.0" ) != -1 )
+	    || $tests->{IE3};
+	$tests->{AOL4} = ( index( $ua, "aol 4.0" ) != -1 )
+	    || $tests->{IE4};
+	$tests->{AOL5}  = ( index( $ua, "aol 5.0" ) != -1 );
+	$tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
+	$tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
+	    || ( index( $ua, "navio_aoltv" ) != -1 );
+    }
 
     # Other browsers
 
-    $tests->{STAROFFICE} = ( index( $ua, "staroffice" ) != -1 );
-    $tests->{ICAB}       = ( index( $ua, "icab" ) != -1 );
-    $tests->{LOTUSNOTES} = ( index( $ua, "lotus-notes" ) != -1 );
-    $tests->{KONQUEROR}  = ( index( $ua, "konqueror" ) != -1 );
-    $tests->{LYNX}       = ( index( $ua, "lynx" ) != -1 );
-    $tests->{LINKS}      = ( index( $ua, "links" ) != -1 );
-    $tests->{ELINKS}     = ( index( $ua, "elinks" ) != -1 );
-    $tests->{WEBTV}      = ( index( $ua, "webtv" ) != -1 );
-    $tests->{MOSAIC}     = ( index( $ua, "mosaic" ) != -1 );
+    $tests->{STAROFFICE} = 1 if index( $ua, "staroffice" ) != -1;
+    $tests->{ICAB}       = 1 if index( $ua, "icab" ) != -1;
+    $tests->{LOTUSNOTES} = 1 if index( $ua, "lotus-notes" ) != -1;
+    $tests->{KONQUEROR}  = 1 if index( $ua, "konqueror" ) != -1;
+    $tests->{LYNX}       = 1 if index( $ua, "lynx" ) != -1;
+    $tests->{LINKS}      = 1 if index( $ua, "links" ) != -1;
+    $tests->{ELINKS}     = 1 if index( $ua, "elinks" ) != -1;
+    $tests->{WEBTV}      = 1 if index( $ua, "webtv" ) != -1;
+    $tests->{MOSAIC}     = 1 if index( $ua, "mosaic" ) != -1;
     $tests->{JAVA}
-        = (    index( $ua, "java" ) != -1
-            || index( $ua, "jdk" ) != -1
-            || index( $ua, "jakarta commons-httpclient" ) != -1 );
+        = 1 if ( index( $ua, "java" ) != -1
+              || index( $ua, "jdk" ) != -1
+              || index( $ua, "jakarta commons-httpclient" ) != -1 );
 
     $tests->{NETFRONT}
-        = (    index( $ua, "playstation 3" ) != -1
-            || index( $ua, "playstation portable" ) != -1
-            || index( $ua, "netfront" ) != -1 );
+        = 1 if ( index( $ua, "playstation 3" ) != -1
+              || index( $ua, "playstation portable" ) != -1
+              || index( $ua, "netfront" ) != -1 );
 
     # Devices
 
     $tests->{BLACKBERRY}
-        = (    index( $ua, "blackberry" ) != -1
-            || index( $ua, "bb10" ) != -1
-            || index( $ua, "rim tablet os" ) != -1 );
-    $tests->{IPHONE}   = ( index( $ua, "iphone" ) != -1 );
-    $tests->{WINCE}    = ( index( $ua, "windows ce" ) != -1 );
-    $tests->{WINPHONE} = ( index( $ua, "windows phone" ) != -1 );
-    $tests->{WEBOS}    = ( index( $ua, "webos" ) != -1 );
-    $tests->{IPOD}     = ( index( $ua, "ipod" ) != -1 );
-    $tests->{IPAD}     = ( index( $ua, "ipad" ) != -1 );
-    $tests->{KINDLE}   = ( index( $ua, "kindle" ) != -1 );
-    $tests->{AUDREY}   = ( index( $ua, "audrey" ) != -1 );
-    $tests->{IOPENER}  = ( index( $ua, "i-opener" ) != -1 );
-    $tests->{AVANTGO}  = ( index( $ua, "avantgo" ) != -1 );
-    $tests->{PALM} = ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
-    $tests->{OBIGO} = ( index( $ua, "obigo/" ) != -1 );
+        = 1 if ( index( $ua, "blackberry" ) != -1
+              || index( $ua, "bb10" ) != -1
+              || index( $ua, "rim tablet os" ) != -1 );
+    $tests->{IPHONE}   = 1 if index( $ua, "iphone" ) != -1;
+    $tests->{WINCE}    = 1 if index( $ua, "windows ce" ) != -1;
+    $tests->{WINPHONE} = 1 if index( $ua, "windows phone" ) != -1;
+    $tests->{WEBOS}    = 1 if index( $ua, "webos" ) != -1;
+    $tests->{IPOD}     = 1 if index( $ua, "ipod" ) != -1;
+    $tests->{IPAD}     = 1 if index( $ua, "ipad" ) != -1;
+    $tests->{KINDLE}   = 1 if index( $ua, "kindle" ) != -1;
+    $tests->{AUDREY}   = 1 if index( $ua, "audrey" ) != -1;
+    $tests->{IOPENER}  = 1 if index( $ua, "i-opener" ) != -1;
+    $tests->{AVANTGO}  = 1 if index( $ua, "avantgo" ) != -1;
+    $tests->{PALM} = 1 if ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
+    $tests->{OBIGO} = 1 if index( $ua, "obigo/" ) != -1;
     $tests->{WAP}
-        = (    $tests->{OBIGO}
+        = 1 if ( $tests->{OBIGO}
             || index( $ua, "up.browser" ) != -1
             || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
             || index( $ua, "alcatel" ) != -1
@@ -581,16 +594,16 @@ sub _test {
             || index( $ua, "wap" ) == 0
             || index( $ua, "wapper" ) != -1
             || index( $ua, "zetor" ) != -1 );
-    $tests->{PS3}    = ( index( $ua, "playstation 3" ) != -1 );
-    $tests->{PSP}    = ( index( $ua, "playstation portable" ) != -1 );
-    $tests->{DSI}    = ( index( $ua, "nintendo dsi" ) != -1 );
-    $tests->{'N3DS'} = ( index( $ua, "nintendo 3ds" ) != -1 );
+    $tests->{PS3}    = 1 if index( $ua, "playstation 3" ) != -1;
+    $tests->{PSP}    = 1 if index( $ua, "playstation portable" ) != -1;
+    $tests->{DSI}    = 1 if index( $ua, "nintendo dsi" ) != -1;
+    $tests->{'N3DS'} = 1 if index( $ua, "nintendo 3ds" ) != -1;
 
     $tests->{MOBILE} = (
-        ( $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
+        (   $tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
             || ( $tests->{IE}
-            && !$tests->{WINPHONE}
-            && index( $ua, "arm" ) != -1 )
+              && !$tests->{WINPHONE}
+              && index( $ua, "arm" ) != -1 )
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
             || index( $ua, "alcatel" ) != -1
@@ -614,9 +627,9 @@ sub _test {
             || index( $ua, "ipod" ) != -1
             || index( $ua, "ipad" ) != -1
             || ( index( $ua, "opera mini" ) != -1
-            && index( $ua, "tablet" ) == -1 )
+              && index( $ua, "tablet" ) == -1 )
             || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) != -1 )
+              && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
             || index( $ua, "webos" ) != -1
@@ -630,11 +643,11 @@ sub _test {
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
             || ( index( $ua, "bb10" ) != -1
-            && index( $ua, "mobile" ) != -1 )
+              && index( $ua, "mobile" ) != -1 )
             || $tests->{PSP}
             || $tests->{DSI}
             || $tests->{'N3DS'}
-            || $tests->{GOOGLEMOBILE}
+            || index( $ua, "googlebot-mobile" ) != -1 # FIXME these depend on robot being detected first
             || $tests->{MSNMOBILE}
     );
 
@@ -738,12 +751,12 @@ sub _test {
         $self->{device_name} =~ s/Kbd/Q10/;
     }
 
+    $self->_robot_tests;
+    $self->_os_tests;
+
     $self->{major} = $major;
     $self->{minor} = $minor;
     $self->{beta}  = $beta;
-
-    $self->_os_tests;
-    $self->_robot_tests;
 
     return undef unless $self->robot;
 
@@ -754,76 +767,50 @@ sub _robot_tests {
     my $ua    = lc $self->{user_agent};
     my $tests = $self->{tests};
 
-    $tests->{LWP}
-        = ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
-    $tests->{YAHOO} = ( index( $ua, "yahoo" ) != -1 )
+    my $is_r = 0;
+
+    $is_r = $tests->{LWP}
+        = 1 if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
+    $is_r = $tests->{YAHOO} = 1 if ( index( $ua, "yahoo" ) != -1 )
         && ( index( $ua, 'jp.co.yahoo.android' ) == -1 );
-    $tests->{MSN} = (
+    $is_r = $tests->{MSN} = 1 if (
         ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) ) != -1 );
-    $tests->{MSNMOBILE} = (
+    $is_r = $tests->{MSNMOBILE} = 1 if (
         (          index( $ua, "msnbot-mobile" ) != -1
                 || index( $ua, "bingbot-mobile" )
         ) != -1
     );
 
-    $tests->{AHREFS}         = ( index( $ua, "ahrefsbot" ) != -1 );
-    $tests->{ALTAVISTA}      = ( index( $ua, "altavista" ) != -1 );
-    $tests->{ASKJEEVES}      = ( index( $ua, "ask jeeves/teoma" ) != -1 );
-    $tests->{BAIDU}          = ( index( $ua, "baiduspider" ) != -1 );
-    $tests->{CURL}           = ( index( $ua, "libcurl" ) != -1 );
-    $tests->{FACEBOOK}       = ( index( $ua, "facebookexternalhit" ) != -1 );
-    $tests->{GETRIGHT}       = ( index( $ua, "getright" ) != -1 );
-    $tests->{GOOGLEADSBOT}   = ( index( $ua, "adsbot-google" ) != -1 );
-    $tests->{GOOGLEADSENSE}  = ( index( $ua, "mediapartners-google" ) != -1 );
-    $tests->{GOOGLEBOTIMAGE} = ( index( $ua, "googlebot-image" ) != -1 );
-    $tests->{GOOGLEBOTNEWS}  = ( index( $ua, "googlebot-news" ) != -1 );
-    $tests->{GOOGLEBOTVIDEO} = ( index( $ua, "googlebot-video" ) != -1 );
-    $tests->{GOOGLEMOBILE}   = ( index( $ua, "googlebot-mobile" ) != -1 );
-    $tests->{GOOGLE}         = ( index( $ua, "googlebot" ) != -1 );
-    $tests->{INFOSEEK}       = ( index( $ua, "infoseek" ) != -1 );
-    $tests->{LINKEXCHANGE}   = ( index( $ua, "lecodechecker" ) != -1 );
-    $tests->{LINKCHECKER}    = ( index( $ua, "linkchecker" ) != -1 );
-    $tests->{LYCOS}          = ( index( $ua, "lycos" ) != -1 );
-    $tests->{MJ12BOT}        = ( index( $ua, "mj12bot/" ) != -1 );
-    $tests->{PUF}            = ( index( $ua, "puf/" ) != -1 );
-    $tests->{SCOOTER}        = ( index( $ua, "scooter" ) != -1 );
-    $tests->{SLURP}          = ( index( $ua, "slurp" ) != -1 );
-    $tests->{SPECIALARCHIVER} = ( index( $ua, "special_archiver" ) != -1 );
-    $tests->{WEBCRAWLER}      = ( index( $ua, "webcrawler" ) != -1 );
-    $tests->{WGET}            = ( index( $ua, "wget" ) != -1 );
-    $tests->{YANDEX}          = ( index( $ua, "yandexbot" ) != -1 );
-    $tests->{YANDEXIMAGES}    = ( index( $ua, "yandeximages" ) != -1 );
+    $is_r = $tests->{AHREFS}          = 1 if ( index( $ua, "ahrefsbot" ) != -1 );
+    $is_r = $tests->{ALTAVISTA}       = 1 if ( index( $ua, "altavista" ) != -1 );
+    $is_r = $tests->{ASKJEEVES}       = 1 if ( index( $ua, "ask jeeves/teoma" ) != -1 );
+    $is_r = $tests->{BAIDU}           = 1 if ( index( $ua, "baiduspider" ) != -1 );
+    $is_r = $tests->{CURL}            = 1 if ( index( $ua, "libcurl" ) != -1 );
+    $is_r = $tests->{FACEBOOK}        = 1 if ( index( $ua, "facebookexternalhit" ) != -1 );
+    $is_r = $tests->{GETRIGHT}        = 1 if ( index( $ua, "getright" ) != -1 );
+    $is_r = $tests->{GOOGLEADSBOT}    = 1 if ( index( $ua, "adsbot-google" ) != -1 );
+    $is_r = $tests->{GOOGLEADSENSE}   = 1 if ( index( $ua, "mediapartners-google" ) != -1 );
+    $is_r = $tests->{GOOGLEBOTIMAGE}  = 1 if ( index( $ua, "googlebot-image" ) != -1 );
+    $is_r = $tests->{GOOGLEBOTNEWS}   = 1 if ( index( $ua, "googlebot-news" ) != -1 );
+    $is_r = $tests->{GOOGLEBOTVIDEO}  = 1 if ( index( $ua, "googlebot-video" ) != -1 );
+    $is_r = $tests->{GOOGLEMOBILE}    = 1 if ( index( $ua, "googlebot-mobile" ) != -1 );
+    $is_r = $tests->{GOOGLE}          = 1 if ( index( $ua, "googlebot" ) != -1 );
+    $is_r = $tests->{INFOSEEK}        = 1 if ( index( $ua, "infoseek" ) != -1 );
+    $is_r = $tests->{LINKEXCHANGE}    = 1 if ( index( $ua, "lecodechecker" ) != -1 );
+    $is_r = $tests->{LINKCHECKER}     = 1 if ( index( $ua, "linkchecker" ) != -1 );
+    $is_r = $tests->{LYCOS}           = 1 if ( index( $ua, "lycos" ) != -1 );
+    $is_r = $tests->{MJ12BOT}         = 1 if ( index( $ua, "mj12bot/" ) != -1 );
+    $is_r = $tests->{PUF}             = 1 if ( index( $ua, "puf/" ) != -1 );
+    $is_r = $tests->{SCOOTER}         = 1 if ( index( $ua, "scooter" ) != -1 );
+    $is_r = $tests->{SLURP}           = 1 if ( index( $ua, "slurp" ) != -1 );
+    $is_r = $tests->{SPECIALARCHIVER} = 1 if ( index( $ua, "special_archiver" ) != -1 );
+    $is_r = $tests->{WEBCRAWLER}      = 1 if ( index( $ua, "webcrawler" ) != -1 );
+    $is_r = $tests->{WGET}            = 1 if ( index( $ua, "wget" ) != -1 );
+    $is_r = $tests->{YANDEX}          = 1 if ( index( $ua, "yandexbot" ) != -1 );
+    $is_r = $tests->{YANDEXIMAGES}    = 1 if ( index( $ua, "yandeximages" ) != -1 );
 
-    $tests->{ROBOT}
-        = (    $tests->{AHREFS}
-            || $tests->{ALTAVISTA}
-            || $tests->{ASKJEEVES}
-            || $tests->{BAIDU}
-            || $tests->{FACEBOOK}
-            || $tests->{GETRIGHT}
-            || $tests->{GOOGLEADSBOT}
-            || $tests->{GOOGLEADSENSE}
-            || $tests->{GOOGLEMOBILE}
-            || $tests->{GOOGLEBOTNEWS}
-            || $tests->{GOOGLEBOTIMAGE}
-            || $tests->{GOOGLEBOTVIDEO}
-            || $tests->{GOOGLE}
-            || $tests->{INFOSEEK}
-            || $tests->{JAVA}
-            || $tests->{LINKEXCHANGE}
-            || $tests->{LINKCHECKER}
-            || $tests->{LWP}
-            || $tests->{LYCOS}
-            || $tests->{MSNMOBILE}
-            || $tests->{MSN}
-            || $tests->{PUF}
-            || $tests->{SLURP}
-            || $tests->{SPECIALARCHIVER}
-            || $tests->{WEBCRAWLER}
-            || $tests->{WGET}
-            || $tests->{YAHOO}
-            || $tests->{YANDEX}
-            || $tests->{YANDEXIMAGES} )
+    $tests->{ROBOT} = $is_r
+        || $tests->{JAVA} # FIXME - depends on browser being detected first
         || index( $ua, "agent" ) != -1
         || index( $ua, "bot" ) != -1
         || index( $ua, "copy" ) != -1
@@ -851,40 +838,48 @@ sub _os_tests {
     my $tests = $self->{tests};
     my $ua    = lc $self->{user_agent};
 
-    $tests->{WIN16}
-        = (    index( $ua, "win16" ) != -1
-            || index( $ua, "16bit" ) != -1
-            || index( $ua, "windows 3" ) != -1
-            || index( $ua, "windows 16-bit" ) != -1 );
-    $tests->{WIN3X}
-        = (    index( $ua, "win16" ) != -1
-            || index( $ua, "windows 3" ) != -1
-            || index( $ua, "windows 16-bit" ) != -1 );
-    $tests->{WIN31}
-        = (    index( $ua, "win16" ) != -1
-            || index( $ua, "windows 3.1" ) != -1
-            || index( $ua, "windows 16-bit" ) != -1 );
-    $tests->{WIN95}
-        = ( index( $ua, "win95" ) != -1 || index( $ua, "windows 95" ) != -1 );
-    $tests->{WIN98}
-        = ( index( $ua, "win98" ) != -1 || index( $ua, "windows 98" ) != -1 );
-    $tests->{WINNT}
-        = (    index( $ua, "winnt" ) != -1
-            || index( $ua, "windows nt" ) != -1
-            || index( $ua, "nt4" ) != -1
-            || index( $ua, "nt3" ) != -1 );
-    $tests->{WIN2K}
-        = ( index( $ua, "nt 5.0" ) != -1 || index( $ua, "nt5" ) != -1 );
-    $tests->{WINXP}    = ( index( $ua, "nt 5.1" ) != -1 );
-    $tests->{WIN2K3}   = ( index( $ua, "nt 5.2" ) != -1 );
-    $tests->{WINVISTA} = ( index( $ua, "nt 6.0" ) != -1 );
-    $tests->{WIN7}     = ( index( $ua, "nt 6.1" ) != -1 );
-    $tests->{WIN8_0}   = ( index( $ua, "nt 6.2" ) != -1 );
-    $tests->{WIN8_1}   = ( index( $ua, "nt 6.3" ) != -1 );
-    $tests->{WIN8} = ( $tests->{WIN8_0} || $tests->{WIN8_1} );
-    $tests->{DOTNET} = ( index( $ua, ".net clr" ) != -1 );
+    # Windows
 
-    $tests->{WINME} = ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
+    $tests->{WIN16} = $tests->{WINDOWS} = 1 if index( $ua, "16bit" ) != -1;
+    $tests->{DOTNET} = $tests->{WINDOWS} = 1 if index( $ua, ".net clr" ) != -1;
+
+    if ( index( $ua, "win" ) != -1 ) {
+	$tests->{WIN16}
+            = 1 if ( index( $ua, "win16" ) != -1
+	          || index( $ua, "windows 3" ) != -1
+	          || index( $ua, "windows 16-bit" ) != -1 );
+	$tests->{WIN3X}
+            = 1 if ( index( $ua, "win16" ) != -1
+                  || index( $ua, "windows 3" ) != -1
+                  || index( $ua, "windows 16-bit" ) != -1 );
+	$tests->{WIN31}
+            = 1 if ( index( $ua, "win16" ) != -1
+                  || index( $ua, "windows 3.1" ) != -1
+                  || index( $ua, "windows 16-bit" ) != -1 );
+	$tests->{WIN95}
+            = 1 if ( index( $ua, "win95" ) != -1 || index( $ua, "windows 95" ) != -1 );
+	$tests->{WIN98}
+            = 1 if ( index( $ua, "win98" ) != -1 || index( $ua, "windows 98" ) != -1 );
+        $tests->{WINME} = 1 if ( index( $ua, "win 9x 4.90" ) != -1 );    # whatever
+    }
+
+    if ( index( $ua, "nt" ) != -1 ) {
+	$tests->{WINNT}
+            = 1 if ( index( $ua, "winnt" ) != -1
+		  || index( $ua, "windows nt" ) != -1
+		  || index( $ua, "nt4" ) != -1
+		  || index( $ua, "nt3" ) != -1 );
+	$tests->{WIN2K}
+            = 1 if ( index( $ua, "nt 5.0" ) != -1 || index( $ua, "nt5" ) != -1 );
+	$tests->{WINXP}    = 1 if ( index( $ua, "nt 5.1" ) != -1 );
+	$tests->{WIN2K3}   = 1 if ( index( $ua, "nt 5.2" ) != -1 );
+	$tests->{WINVISTA} = 1 if ( index( $ua, "nt 6.0" ) != -1 );
+	$tests->{WIN7}     = 1 if ( index( $ua, "nt 6.1" ) != -1 );
+	$tests->{WIN8_0}   = 1 if ( index( $ua, "nt 6.2" ) != -1 );
+	$tests->{WIN8_1}   = 1 if ( index( $ua, "nt 6.3" ) != -1 );
+	$tests->{WIN8} = 1 if ( $tests->{WIN8_0} || $tests->{WIN8_1} );
+    }
+
     $tests->{WIN32} = (
         (          $tests->{WIN95}
                 || $tests->{WIN98}
@@ -899,6 +894,7 @@ sub _os_tests {
             || $tests->{WIN8}
             || index( $ua, "win32" ) != -1
     );
+
     $tests->{WINDOWS} = (
         (          $tests->{WIN16}
                 || $tests->{WIN31}
@@ -919,73 +915,81 @@ sub _os_tests {
             || index( $ua, "win" ) != -1
     );
 
-    $tests->{WINPHONE7}   = ( index( $ua, "windows phone os 7.0" ) != -1 );
-    $tests->{WINPHONE7_5} = ( index( $ua, "windows phone os 7.5" ) != -1 );
-    $tests->{WINPHONE8}   = ( index( $ua, "windows phone 8.0" ) != -1 );
+    $tests->{WINPHONE7}   = 1 if ( index( $ua, "windows phone os 7.0" ) != -1 );
+    $tests->{WINPHONE7_5} = 1 if ( index( $ua, "windows phone os 7.5" ) != -1 );
+    $tests->{WINPHONE8}   = 1 if ( index( $ua, "windows phone 8.0" ) != -1 );
 
     # Mac operating systems
 
     $tests->{MAC}
-        = ( index( $ua, "macintosh" ) != -1 || index( $ua, "mac_" ) != -1 );
-    $tests->{MACOSX} = ( index( $ua, "macintosh" ) != -1
+        = 1 if ( index( $ua, "macintosh" ) != -1 || index( $ua, "mac_" ) != -1 );
+    $tests->{MACOSX} = 1 if ( index( $ua, "macintosh" ) != -1
             && index( $ua, "mac os x" ) != -1 );
-    $tests->{MAC68K} = ( ( $tests->{MAC} )
+    $tests->{MAC68K} = 1 if ( ( $tests->{MAC} )
             && ( index( $ua, "68k" ) != -1 || index( $ua, "68000" ) != -1 ) );
     $tests->{MACPPC}
-        = (    ( $tests->{MAC} )
+        = 1 if (    ( $tests->{MAC} )
             && ( index( $ua, "ppc" ) != -1 || index( $ua, "powerpc" ) != -1 )
         );
+
+    # FIXME -- depends on browser being tested first
     $tests->{IOS} = $tests->{IPAD} || $tests->{IPOD} || $tests->{IPHONE};
 
     # Others
 
-    $tests->{AMIGA} = ( index( $ua, 'amiga' ) != -1 );
+    $tests->{AMIGA} = 1 if ( index( $ua, 'amiga' ) != -1 );
 
-    $tests->{EMACS} = ( index( $ua, 'emacs' ) != -1 );
-    $tests->{OS2}   = ( index( $ua, 'os/2' ) != -1 );
+    $tests->{EMACS} = 1 if ( index( $ua, 'emacs' ) != -1 );
+    $tests->{OS2}   = 1 if ( index( $ua, 'os/2' ) != -1 );
 
     if ( index( $ua, "samsung" ) < 0 ) {
-        $tests->{SUN}  = ( index( $ua, "sun" ) != -1 );
-        $tests->{SUN4} = ( index( $ua, "sunos 4" ) != -1 );
-        $tests->{SUN5} = ( index( $ua, "sunos 5" ) != -1 );
-        $tests->{SUNI86} = ( ( $tests->{SUN} ) && index( $ua, "i86" ) != -1 );
+        $tests->{SUN}  = 1 if ( index( $ua, "sun" ) != -1 );
+        $tests->{SUN4} = 1 if ( index( $ua, "sunos 4" ) != -1 );
+        $tests->{SUN5} = 1 if ( index( $ua, "sunos 5" ) != -1 );
+        $tests->{SUNI86} = 1 if ( ( $tests->{SUN} ) && index( $ua, "i86" ) != -1 );
     }
 
-    $tests->{IRIX}  = ( index( $ua, "irix" ) != -1 );
-    $tests->{IRIX5} = ( index( $ua, "irix5" ) != -1 );
-    $tests->{IRIX6} = ( index( $ua, "irix6" ) != -1 );
+    if ( index( $ua, "irix" ) != -1 ) {
+	$tests->{IRIX} = 1;
+	$tests->{IRIX5} = 1 if ( index( $ua, "irix5" ) != -1 );
+	$tests->{IRIX6} = 1 if ( index( $ua, "irix6" ) != -1 );
+    }
 
-    $tests->{HPUX} = ( index( $ua, "hp-ux" ) != -1 );
-    $tests->{HPUX9}  = ( ( $tests->{HPUX} ) && index( $ua, "09." ) != -1 );
-    $tests->{HPUX10} = ( ( $tests->{HPUX} ) && index( $ua, "10." ) != -1 );
+    if ( index( $ua, "hp-ux" ) != -1 ) {
+	$tests->{HPUX} = 1;
+	$tests->{HPUX9}  = 1 if index( $ua, "09." ) != -1;
+	$tests->{HPUX10} = 1 if index( $ua, "10." ) != -1;
+    }
 
-    $tests->{AIX}  = ( index( $ua, "aix" ) != -1 );
-    $tests->{AIX1} = ( index( $ua, "aix 1" ) != -1 );
-    $tests->{AIX2} = ( index( $ua, "aix 2" ) != -1 );
-    $tests->{AIX3} = ( index( $ua, "aix 3" ) != -1 );
-    $tests->{AIX4} = ( index( $ua, "aix 4" ) != -1 );
+    if ( index( $ua, "aix" ) != -1 ) {
+	$tests->{AIX}  = 1;
+	$tests->{AIX1} = 1 if ( index( $ua, "aix 1" ) != -1 );
+	$tests->{AIX2} = 1 if ( index( $ua, "aix 2" ) != -1 );
+	$tests->{AIX3} = 1 if ( index( $ua, "aix 3" ) != -1 );
+	$tests->{AIX4} = 1 if ( index( $ua, "aix 4" ) != -1 );
+    }
 
-    $tests->{LINUX}    = ( index( $ua, "inux" ) != -1 );
-    $tests->{SCO}      = $ua =~ m{(?:SCO|unix_sv)};
-    $tests->{UNIXWARE} = ( index( $ua, "unix_system_v" ) != -1 );
-    $tests->{MPRAS}    = ( index( $ua, "ncr" ) != -1 );
-    $tests->{RELIANT}  = ( index( $ua, "reliantunix" ) != -1 );
+    $tests->{LINUX}    = 1 if ( index( $ua, "inux" ) != -1 );
+    $tests->{SCO}      = 1 if ( index( $ua, "SCO" ) != -1 || index ( $ua, "unix_sv" ) != -1 );
+    $tests->{UNIXWARE} = 1 if ( index( $ua, "unix_system_v" ) != -1 );
+    $tests->{MPRAS}    = 1 if ( index( $ua, "ncr" ) != -1 );
+    $tests->{RELIANT}  = 1 if ( index( $ua, "reliantunix" ) != -1 );
 
     $tests->{DEC}
-        = (    index( $ua, "dec" ) != -1
-            || index( $ua, "osf1" ) != -1
-            || index( $ua, "declpha" ) != -1
-            || index( $ua, "alphaserver" ) != -1
-            || index( $ua, "ultrix" ) != -1
-            || index( $ua, "alphastation" ) != -1 );
+        = 1 if ( index( $ua, "dec" ) != -1
+	      || index( $ua, "osf1" ) != -1
+              || index( $ua, "declpha" ) != -1
+              || index( $ua, "alphaserver" ) != -1
+              || index( $ua, "ultrix" ) != -1
+              || index( $ua, "alphastation" ) != -1 );
 
-    $tests->{SINIX}   = ( index( $ua, "sinix" ) != -1 );
-    $tests->{FREEBSD} = ( index( $ua, "freebsd" ) != -1 );
-    $tests->{BSD}     = ( index( $ua, "bsd" ) != -1 );
-    $tests->{X11}     = ( index( $ua, "x11" ) != -1 );
+    $tests->{SINIX}   = 1 if ( index( $ua, "sinix" ) != -1 );
+    $tests->{FREEBSD} = 1 if ( index( $ua, "freebsd" ) != -1 );
+    $tests->{BSD}     = 1 if ( index( $ua, "bsd" ) != -1 );
+    $tests->{X11}     = 1 if ( index( $ua, "x11" ) != -1 );
 
     $tests->{CHROMEOS}
-        = ( $tests->{X11} && index( $ua, "cros" ) != -1 );
+        = 1 if ( $tests->{X11} && index( $ua, "cros" ) != -1 );
 
     $tests->{UNIX}
         = ( !$tests->{CHROMEOS}
@@ -1002,21 +1006,22 @@ sub _os_tests {
             || $tests->{BSD} ) );
 
     $tests->{VMS}
-        = ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 );
+        = 1 if ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 );
 
-    $tests->{ANDROID} = ( index( $ua, "android" ) != -1 );
+    $tests->{ANDROID} = 1 if ( index( $ua, "android" ) != -1 );
 
+    # FIXME -- depends on browser being tested first
     $tests->{FIREFOXOS}
-        = (    $tests->{FIREFOX}
+        = 1 if ( $tests->{FIREFOX}
             && ( $tests->{MOBILE} || $tests->{TABLET} )
             && !$tests->{ANDROID}
             && index( $ua, "fennec" ) == -1 );
 
-    $tests->{BB10}        = ( index( $ua, "bb10" ) != -1 );
-    $tests->{RIMTABLETOS} = ( index( $ua, "rim tablet os" ) != -1 );
+    $tests->{BB10}        = 1 if ( index( $ua, "bb10" ) != -1 );
+    $tests->{RIMTABLETOS} = 1 if ( index( $ua, "rim tablet os" ) != -1 );
 
-    $tests->{PS3GAMEOS} = $tests->{PS3} && $tests->{NETFRONT};
-    $tests->{PSPGAMEOS} = $tests->{PSP} && $tests->{NETFRONT};
+    $tests->{PS3GAMEOS} = 1 if $tests->{PS3} && $tests->{NETFRONT};
+    $tests->{PSPGAMEOS} = 1 if $tests->{PSP} && $tests->{NETFRONT};
 }
 
 # undocumented, experimental, volatile. not bothering with major/minor here as
