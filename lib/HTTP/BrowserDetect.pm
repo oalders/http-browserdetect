@@ -245,7 +245,7 @@ foreach my $test ( @ALL_TESTS ) {
     my $key = uc $test;
     *{$test} = sub {
         my ( $self ) = _self_or_default( @_ );
-        return $self->{tests}->{$key};
+        return $self->{tests}->{$key} || 0;
     };
 }
 
@@ -274,9 +274,7 @@ sub user_agent {
 sub _test {
     my ( $self ) = @_;
 
-    # Initialize tests to all 0s
-    $self->{tests} = { map { uc($_) => 0 } @ALL_TESTS };
-
+    $self->{tests} = { };
     my $tests = $self->{tests};
 
     my @ff = ( 'firefox', @FIREFOX_TESTS );
