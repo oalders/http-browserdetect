@@ -1276,6 +1276,9 @@ sub _public {
                     $version = $safari_build_to_version{$maybe_build}, last
                         if $self->_cmp_versions( $build, $maybe_build ) >= 0;
                 }
+
+		# Special case for specific worm
+		return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
             }
             my ( $major, $minor ) = split /\./, $version;
             my $beta;

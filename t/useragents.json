@@ -3917,5 +3917,18 @@
       ],
       "os" : "Win7",
       "public_version" : "27.0"
+  },
+  "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
+      "browser_string" : "Safari",
+      "public_major" : "1",
+      "public_minor" : ".2",
+      "match" : [
+         "mac",
+         "macosx",
+         "macppc",
+         "safari"
+      ],
+      "os" : "Mac OS X",
+      "public_version" : "1.2"
   }
 }
