@@ -81,7 +81,7 @@ our @BROWSER_TESTS = qw(
     elinks        neoplanet   neoplanet2
     avantgo       emacs       mozilla
     konqueror     r1          netfront
-    mobile_safari obigo
+    mobile_safari obigo       aol
 );
 
 our @IE_TESTS = qw(
@@ -99,7 +99,7 @@ our @OPERA_TESTS = qw(
 );
 
 our @AOL_TESTS = qw(
-    aol         aol3        aol4
+    aol3        aol4
     aol5        aol6
 );
 
@@ -252,14 +252,25 @@ foreach my $test ( @OS_TESTS, @WINDOWS_TESTS, @MAC_TESTS, @UNIX_TESTS,
     };
 }
 
-foreach my $test ( @BROWSER_TESTS, @IE_TESTS, @OPERA_TESTS, @AOL_TESTS,
-		   @NETSCAPE_TESTS, @FIREFOX_TESTS, @ROBOT_TESTS )
+foreach my $test ( @BROWSER_TESTS, @ROBOT_TESTS, @FIREFOX_TESTS )
 {
     no strict 'refs';
     my $key = uc $test;
     *{$test} = sub {
         my ( $self ) = @_;
         return $self->{browser_tests}->{$key} || 0;
+    };
+}
+
+foreach my $test ( @NETSCAPE_TESTS, @IE_TESTS, @AOL_TESTS,
+		   @OPERA_TESTS )
+{
+    no strict 'refs';
+    my $key = uc $test;
+    *{$test} = sub {
+        my ( $self ) = @_;
+	$self->_init_version() unless $self->{version_tests};
+        return $self->{version_tests}->{$key} || 0;
     };
 }
 
@@ -278,6 +289,11 @@ sub _test {
 
     $self->{tests} = { };
     $self->{browser_tests} = { };
+    $self->{version_tests} = undef;
+    $self->{major} = undef;
+    $self->{minor} = undef;
+    $self->{beta} = undef;
+
     my $tests = $self->{tests};
     my $browser_tests = $self->{browser_tests};
 
@@ -293,20 +309,6 @@ sub _test {
         $self->{engine_version} = $1;
     }
 
-    # Browser version
-    my ( $major, $minor, $beta ) = (
-        $ua =~ m{
-            \S+                     # Greedly catch anything leading up to forward slash.
-            \/                      # Version starts with a slash
-            [A-Za-z]*               # Eat any letters before the major version
-            ( [0-9A-Za-z]* )        # Major version number is everything before the first dot
-            \.                      # The first dot
-            ( [\d]* )               # Minor version number is every digit after the first dot
-            [\d.]*                  # Throw away remaining numbers and dots
-            ( [^\s]* )              # Beta version string is up to next space
-        }x
-    );
-
     # Firefox version
     if ($ua =~ m{
                 ($ff)
@@ -317,73 +319,15 @@ sub _test {
             }xo
         )
     {
-        $major               = $2;
-        $minor               = $3;
         $browser_tests->{ uc( $1 ) } = 1;
         $browser_tests->{'FIREFOX'}  = 1;
 
-    }
-
-    # IE (and others) version
-    if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
-
-        # Internet Explorer
-        ( $major, $minor, $beta ) = split /\./, $1;
-    }
-    elsif ( $ua
-        =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x
-        )
-    {
-        # Generic "compatible" formats
-        ( $major, $minor, $beta ) = split /\./, $1;
-
-    }
-    elsif ( $tests->{TRIDENT} && $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
-
-        # MSIE masking as Gecko really well ;)
-        ( $major, $minor, $beta ) = split /\./, $1;
     }
 
     # Opera browsers
 
     if ( $ua =~ m{opera|opr\/} ) {
 	$browser_tests->{OPERA} = 1;
-
-	$browser_tests->{OPERA3}
-            = ( index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1 );
-	$browser_tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
-	    || ( index( $ua, "opera/4" ) != -1
-		 && ( index( $ua, "nintendo dsi" ) == -1 ) );
-	$browser_tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
-	    || ( index( $ua, "opera/5" ) != -1 );
-	$browser_tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
-	    || ( index( $ua, "opera/6" ) != -1 );
-	$browser_tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
-	    || ( index( $ua, "opera/7" ) != -1 );
-
-# Opera needs to be dealt with specifically
-# http://dev.opera.com/articles/view/opera-ua-string-changes/
-# http://my.opera.com/community/openweb/idopera/
-# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
-# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
-
-	if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
-	    $major = $1;
-	    $minor = $2;
-	}
-	elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
-	    $major = $1;
-	    $minor = $2;
-	}
-    }
-
-    if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
-	$major = $1;
-	$minor = $2;
-    }
-    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
-	$major = $1;
-	$minor = $2;
     }
 
     # Mozilla browsers
@@ -400,47 +344,6 @@ sub _test {
         && ( index( $ua, "chrome" ) == -1 );
     $browser_tests->{MOBILE_SAFARI}
         = ( $browser_tests->{SAFARI} && index( $ua, " mobile safari/" ) >= 0 );
-
-    $major = 0 if !$major;
-    $minor = $self->_format_minor( $minor );
-
-    if ( $browser_tests->{CHROME} ) {
-	# Chrome Version
-
-        ( $major, $minor ) = (
-            $ua =~ m{
-                chrome
-                \/
-                ( \d+ )       # Major version number
-                ( \. \d+ )?   # Minor version number is dot and following digits
-            }x
-	);
-
-	$minor = 0 if !$minor;
-
-    } elsif ( $browser_tests->{SAFARI} ) {
-	# Safari Version
-
-        my ( $safari_build, $safari_minor ) = (
-            $ua =~ m{
-                safari/
-                ( \d+ )       # Major version number
-                ( \. \d+ )?   # Minor version number is dot and following digits
-            }x
-        );
-
-        if ( !$safari_build && $ua =~ m{applewebkit\/([\d\.]{1,})}xi ) {
-
-            # ignore digits after 2nd dot
-            ( $safari_build, $safari_minor ) = split /\./, $1;
-        }
-
-        if ( $safari_build ) {
-            $major = int( $safari_build / 100 );
-            $minor = int( $safari_build % 100 ) / 100;
-            $beta  = $safari_minor;
-        }
-    }
 
     # Gecko-powered Netscape (i.e. Mozilla) versions
     if ( !$browser_tests->{FIREFOX}
@@ -460,35 +363,6 @@ sub _test {
     {
 
 	$browser_tests->{NETSCAPE} = 1;
-
-	if ( $tests->{GECKO}
-	       && index( $ua, "netscape" ) != -1 )
-	{
-	    ( $major, $minor, $beta ) = (
-		$ua =~ m{
-                    netscape6?\/
-                    ( [^.]* )      # Major version number is everything before first dot
-                    \.             # The first dot
-                    ( [\d]* )      # Minor version nnumber is digits after first dot
-                    ( [^\s]* )
-                }x
-		);
-	    $minor = 0 + ".$minor";
-	}
-
-	# Netscape browsers
-	$browser_tests->{NAV2}    = ( $major == 2 );
-	$browser_tests->{NAV3}    = ( $major == 3 );
-	$browser_tests->{NAV4}    = ( $major == 4 );
-	$browser_tests->{NAV4UP}  = ( $major >= 4 );
-	$browser_tests->{NAV45}   = ( $major == 4 && $minor == .5 );
-	$browser_tests->{NAV45UP} = ( $browser_tests->{NAV4}     && $minor >= .5 )
-	    || $major >= 5;
-	$browser_tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
-	$browser_tests->{NAV6} = ( $major == 5 || $major == 6 )
-	    ;    # go figure
-	$browser_tests->{NAV6UP} = ( $major >= 5 );
-
 	$browser_tests->{MOZILLA} = ( $tests->{GECKO} );
 
     }
@@ -501,24 +375,6 @@ sub _test {
     {
 
 	$browser_tests->{IE} = 1;
-	$browser_tests->{IE3}    = 1 if ( $major == 3 );
-	$browser_tests->{IE4}    = 1 if ( $major == 4 );
-	$browser_tests->{IE4UP}  = 1 if ( $major >= 4 );
-	$browser_tests->{IE5}    = 1 if ( $major == 5 );
-	$browser_tests->{IE5UP}  = 1 if ( $major >= 5 );
-	$browser_tests->{IE55}   = 1 if ( $major == 5  && $minor >= .5 );
-	$browser_tests->{IE55UP} = 1 if ( $minor >= .5 || $major >= 6 );
-	$browser_tests->{IE6}  = 1 if ( $major == 6 );
-	$browser_tests->{IE7}  = 1 if ( $major == 7 );
-	$browser_tests->{IE8}  = 1 if ( $major == 8 );
-	$browser_tests->{IE9}  = 1 if ( $major == 9 );
-	$browser_tests->{IE10} = 1 if ( $major == 10 );
-	$browser_tests->{IE11} = 1 if ( $major == 11 );
-
-	$browser_tests->{IE_COMPAT_MODE}
-        = (    $browser_tests->{IE7}
-	       && $tests->{TRIDENT}
-	       && $self->{engine_version} + 0 >= 4 );
     }
 
     # Neoplanet browsers
@@ -531,14 +387,6 @@ sub _test {
 
     if ( index( $ua, "aol" ) != -1 ) {
 	$browser_tests->{AOL}  = 1;
-	$browser_tests->{AOL3} = ( index( $ua, "aol 3.0" ) != -1 )
-	    || $browser_tests->{IE3};
-	$browser_tests->{AOL4} = ( index( $ua, "aol 4.0" ) != -1 )
-	    || $browser_tests->{IE4};
-	$browser_tests->{AOL5}  = ( index( $ua, "aol 5.0" ) != -1 );
-	$browser_tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
-	$browser_tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
-	    || ( index( $ua, "navio_aoltv" ) != -1 );
     }
 
     # Other browsers
@@ -689,15 +537,6 @@ sub _test {
 
     # Operating System
 
-    # A final try at browser version, if we haven't gotten it so far
-    if ( !defined( $major ) || $major eq '' ) {
-        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
-            $major = $1;
-            $minor = 0;
-        }
-
-    }
-
     # Gecko version
     $self->{gecko_version} = undef;
     if ( $tests->{GECKO} ) {
@@ -710,19 +549,6 @@ sub _test {
     # RealPlayer
     $browser_tests->{REALPLAYER}
         = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
-
-    $self->{realplayer_version} = undef;
-    if ( $browser_tests->{REALPLAYER} ) {
-        if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
-            $self->{realplayer_version} = $1;
-            my @version = split( /\./, $self->{realplayer_version} );
-            $major = shift @version;
-            $minor = shift @version;
-        }
-        elsif ( $ua =~ /realplayer\s(\w+)/ ) {
-            $self->{realplayer_version} = $1;
-        }
-    }
 
     # Device from UA
 
@@ -755,10 +581,6 @@ sub _test {
 
     $self->_robot_tests;
     $self->_os_tests;
-
-    $self->{major} = $major;
-    $self->{minor} = $minor;
-    $self->{beta}  = $beta;
 
     return undef unless $self->robot;
 
@@ -1150,23 +972,13 @@ sub realplayer {
 sub _realplayer_version {
     my ( $self, $check ) = @_;
 
-    if ( exists $self->{realplayer_version}
-        && $self->{realplayer_version} )
-    {
-        my @version = split( /\./, $self->{realplayer_version} );
-        $self->{major}              = shift @version;
-        $self->{minor}              = $self->_format_minor( shift @version );
-        $self->{realplayer_version} = $self->{major} + $self->{minor};
-        return $self->{realplayer_version};
-    }
-
-    return 0;
+    $self->_init_version unless defined($self->{realplayer_version});
+    return $self->{realplayer_version} || 0;
 }
 
 sub realplayer_browser {
     my ( $self, $check ) = @_;
-    return 1 if $self->{realplayer_version};
-    return 0;
+    return $self->_realplayer_version ? 1 : 0;
 }
 
 sub gecko_version {
@@ -1181,10 +993,238 @@ sub gecko_version {
     }
 }
 
+sub _init_version {
+    my ( $self ) = @_;
+
+    my $ua = lc $self->{user_agent};
+    my $tests = $self->{tests};
+    my $browser_tests = $self->{browser_tests};
+
+    $self->{version_tests} = { };
+    my $version_tests = $self->{version_tests};
+
+    # Browser version
+    my ( $major, $minor, $beta ) = (
+        $ua =~ m{
+            \S+                     # Greedly catch anything leading up to forward slash.
+            \/                      # Version starts with a slash
+            [A-Za-z]*               # Eat any letters before the major version
+            ( [0-9A-Za-z]* )        # Major version number is everything before the first dot
+            \.                      # The first dot
+            ( [\d]* )               # Minor version number is every digit after the first dot
+            [\d.]*                  # Throw away remaining numbers and dots
+            ( [^\s]* )              # Beta version string is up to next space
+        }x
+    );
+
+    my $ff = join('|', 'firefox', @FIREFOX_TESTS);
+
+    # Firefox version
+    if ($ua =~ m{
+                ($ff)
+                \/
+                ( [^.]* )           # Major version number is everything before first dot
+                \.                  # The first dot
+                ( [\d]* )           # Minor version nnumber is digits after first dot
+            }xo
+        )
+    {
+        $major               = $2;
+        $minor               = $3;
+    }
+
+    # IE (and others) version
+    if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
+
+        # Internet Explorer
+        ( $major, $minor, $beta ) = split /\./, $1;
+    }
+    elsif ( $ua
+        =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x
+        )
+    {
+        # Generic "compatible" formats
+        ( $major, $minor, $beta ) = split /\./, $1;
+
+    }
+    elsif ( $tests->{TRIDENT} && $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
+
+        # MSIE masking as Gecko really well ;)
+        ( $major, $minor, $beta ) = split /\./, $1;
+    }
+
+# Opera needs to be dealt with specifically
+# http://dev.opera.com/articles/view/opera-ua-string-changes/
+# http://my.opera.com/community/openweb/idopera/
+# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
+# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
+
+    if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
+	$major = $1;
+	$minor = $2;
+    }
+    elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
+	$major = $1;
+	$minor = $2;
+    }
+
+    if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
+	$major = $1;
+	$minor = $2;
+    }
+    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
+	$major = $1;
+	$minor = $2;
+    }
+
+    $major = 0 if !$major;
+    $minor = $self->_format_minor( $minor );
+
+    if ( $browser_tests->{CHROME} ) {
+	# Chrome Version
+
+        ( $major, $minor ) = (
+            $ua =~ m{
+                chrome
+                \/
+                ( \d+ )       # Major version number
+                ( \. \d+ )?   # Minor version number is dot and following digits
+            }x
+	    );
+
+	$minor = 0 if !$minor;
+
+    } elsif ( $browser_tests->{SAFARI} ) {
+	# Safari Version
+
+        my ( $safari_build, $safari_minor ) = (
+            $ua =~ m{
+                safari/
+                ( \d+ )       # Major version number
+                ( \. \d+ )?   # Minor version number is dot and following digits
+            }x
+        );
+
+        if ( !$safari_build && $ua =~ m{applewebkit\/([\d\.]{1,})}xi ) {
+
+            # ignore digits after 2nd dot
+            ( $safari_build, $safari_minor ) = split /\./, $1;
+        }
+
+        if ( $safari_build ) {
+            $major = int( $safari_build / 100 );
+            $minor = int( $safari_build % 100 ) / 100;
+            $beta  = $safari_minor;
+        }
+    }
+
+    if ( $tests->{GECKO}
+	 && $browser_tests->{NETSCAPE}
+	 && index( $ua, "netscape" ) != -1 )
+    {
+	( $major, $minor, $beta ) = (
+	    $ua =~ m{
+                    netscape6?\/
+                    ( [^.]* )      # Major version number is everything before first dot
+                    \.             # The first dot
+                    ( [\d]* )      # Minor version nnumber is digits after first dot
+                    ( [^\s]* )
+                }x
+		);
+	$minor = 0 + ".$minor";
+    }
+
+    if ( $browser_tests->{NETSCAPE} ) {
+	# Netscape browsers
+	$version_tests->{NAV2}    = ( $major == 2 );
+	$version_tests->{NAV3}    = ( $major == 3 );
+	$version_tests->{NAV4}    = ( $major == 4 );
+	$version_tests->{NAV4UP}  = ( $major >= 4 );
+	$version_tests->{NAV45}   = ( $major == 4 && $minor == .5 );
+	$version_tests->{NAV45UP} = ( $version_tests->{NAV4}     && $minor >= .5 )
+	    || $major >= 5;
+	$version_tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
+	$version_tests->{NAV6} = ( $major == 5 || $major == 6 )
+	    ;    # go figure
+	$version_tests->{NAV6UP} = ( $major >= 5 );
+    }
+
+    if ( $browser_tests->{IE} ) {
+	$version_tests->{IE3}    = 1 if ( $major == 3 );
+	$version_tests->{IE4}    = 1 if ( $major == 4 );
+	$version_tests->{IE4UP}  = 1 if ( $major >= 4 );
+	$version_tests->{IE5}    = 1 if ( $major == 5 );
+	$version_tests->{IE5UP}  = 1 if ( $major >= 5 );
+	$version_tests->{IE55}   = 1 if ( $major == 5  && $minor >= .5 );
+	$version_tests->{IE55UP} = 1 if ( $minor >= .5 || $major >= 6 );
+	$version_tests->{IE6}  = 1 if ( $major == 6 );
+	$version_tests->{IE7}  = 1 if ( $major == 7 );
+	$version_tests->{IE8}  = 1 if ( $major == 8 );
+	$version_tests->{IE9}  = 1 if ( $major == 9 );
+	$version_tests->{IE10} = 1 if ( $major == 10 );
+	$version_tests->{IE11} = 1 if ( $major == 11 );
+
+	$version_tests->{IE_COMPAT_MODE}
+        = (    $version_tests->{IE7}
+	       && $tests->{TRIDENT}
+	       && $self->{engine_version} + 0 >= 4 );
+    }
+
+    if ( $browser_tests->{AOL} ) {
+	$version_tests->{AOL3} = ( index( $ua, "aol 3.0" ) != -1 )
+	    || $version_tests->{IE3};
+	$version_tests->{AOL4} = ( index( $ua, "aol 4.0" ) != -1 )
+	    || $version_tests->{IE4};
+	$version_tests->{AOL5}  = ( index( $ua, "aol 5.0" ) != -1 );
+	$version_tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
+	$version_tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
+	    || ( index( $ua, "navio_aoltv" ) != -1 );
+    }
+
+    if ( $browser_tests->{OPERA} ) {
+	$version_tests->{OPERA3}
+            = ( index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1 );
+	$version_tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
+	    || ( index( $ua, "opera/4" ) != -1
+		 && ( index( $ua, "nintendo dsi" ) == -1 ) );
+	$version_tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
+	    || ( index( $ua, "opera/5" ) != -1 );
+	$version_tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
+	    || ( index( $ua, "opera/6" ) != -1 );
+	$version_tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
+	    || ( index( $ua, "opera/7" ) != -1 );
+
+    }
+
+    $self->{realplayer_version} = undef;
+    if ( $browser_tests->{REALPLAYER} ) {
+        if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
+            $self->{realplayer_version} = $1;
+            ( $major, $minor ) = split( /\./, $self->{realplayer_version} );
+	    $minor = ".$minor" if $minor;
+        }
+        elsif ( $ua =~ /realplayer\s(\w+)/ ) {
+            $self->{realplayer_version} = $1;
+        }
+    }
+
+    # A final try at browser version, if we haven't gotten it so far
+    if ( !defined( $major ) || $major eq '' ) {
+        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
+            $major = $1;
+            $minor = 0;
+        }
+
+    }
+
+    $self->{major} = $major;
+    $self->{minor} = $minor;
+    $self->{beta}  = $beta;
+}
+
 sub version {
     my ( $self, $check ) = @_;
-
-    return $self->_realplayer_version if $self->_realplayer_version;
+    $self->_init_version() unless defined($self->{major});
 
     my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
@@ -1197,6 +1237,8 @@ sub version {
 
 sub major {
     my ( $self, $check ) = @_;
+    $self->_init_version() unless defined($self->{major});
+
     my ( $version ) = $self->{major};
     if ( defined $check ) {
         return $check == $version;
@@ -1208,6 +1250,8 @@ sub major {
 
 sub minor {
     my ( $self, $check ) = @_;
+    $self->_init_version() unless defined($self->{major});
+
     my ( $version ) = $self->{minor};
     if ( defined $check ) {
         return ( $check == $self->{minor} );
@@ -1491,21 +1535,25 @@ sub browser_properties {
 
     my ( $self, $check ) = @_;
 
+    $self->_init_version;
+
     my @browser_properties;
-    foreach my $property ( sort keys %{ $self->{tests} } ) {
-        push @browser_properties, lc( $property )
-            if ( ${ $self->{tests} }{$property} );
+    my ( $test, $value );
+    while ( ( $test, $value ) = each %{ $self->{tests} } ) {
+        push @browser_properties, lc( $test ) if $value;
     }
-    foreach my $property ( sort keys %{ $self->{browser_tests} } ) {
-        push @browser_properties, lc( $property )
-            if ( ${ $self->{browser_tests} }{$property} );
+    while ( ( $test, $value ) = each %{ $self->{browser_tests} } ) {
+        push @browser_properties, lc( $test ) if $value;
+    }
+    while ( ( $test, $value ) = each %{ $self->{version_tests} } ) {
+        push @browser_properties, lc( $test ) if $value;
     }
 
     # devices are a property too but it's not stored in %tests
     # so I explicitly test for it and add it
     push @browser_properties, 'device' if ( $self->device() );
 
-    return @browser_properties;
+    return sort @browser_properties;
 }
 
 sub robot_name {
