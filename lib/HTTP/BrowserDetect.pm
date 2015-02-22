@@ -1265,7 +1265,7 @@ sub _public {
                         if $self->_cmp_versions( $build, $maybe_build ) >= 0;
                 }
 
-		# Special case for specific worm
+		# Special case for specific worm that uses a malformed user agent
 		return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
             }
             my ( $major, $minor ) = split /\./, $version;
