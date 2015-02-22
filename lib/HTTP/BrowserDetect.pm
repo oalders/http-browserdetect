@@ -7,35 +7,6 @@ package HTTP::BrowserDetect;
 
 use vars qw(@ALL_TESTS);
 
-my %OS_NAMES = (
-    win95 => 'Win95',
-    win98 => 'Win98',
-    win2k => 'Win2k',
-    winxp => 'WinXP',
-    win2k3 => 'Win2k3',
-    winvista => 'WinVista',
-    win7 => 'Win7',
-    win8 => 'Win8',
-    win8_0 => 'Win8.0',
-    win8_1 => 'Win8.1',
-    winnt => 'WinNT',
-    winphone => 'Windows Phone',
-    win3x => 'Win3x',
-    android => 'Android',
-    linux => 'Linux',
-    unix => 'Unix',
-    chromeos => 'Chrome OS',
-    firefoxos => 'Firefox OS',
-    bb10 => 'BlackBerry 10',
-    rimtabletos => 'RIM Tablet OS',
-    ps3gameos => 'Playstation 3 GameOS',
-    pspgameos => 'Playstation Portable GameOS',
-    ios => 'iOS',
-    macosx => 'Mac OS X',
-    mac => 'Mac',
-    os2 => 'OS/2',
-);
-
 # Operating Systems
 our @OS_TESTS = qw(
     windows mac   os2
@@ -82,29 +53,11 @@ our @GAMING_TESTS = qw(
     ps3gameos pspgameos
 );
 
+# Device related tests
 our @DEVICE_TESTS = qw(
     android audrey blackberry dsi iopener ipad
     iphone ipod kindle n3ds palm ps3 psp wap webos
     mobile tablet firefoxos
-);
-
-# Device names
-my %DEVICES = (
-    android    => 'Android',
-    audrey     => 'Audrey',
-    blackberry => 'BlackBerry',
-    dsi        => 'Nintendo DSi',
-    iopener    => 'iopener',
-    ipad       => 'iPad',
-    iphone     => 'iPhone',
-    ipod       => 'iPod',
-    kindle     => 'Amazon Kindle',
-    n3ds       => 'Nintendo 3DS',
-    palm       => 'Palm',
-    ps3        => 'Sony PlayStation 3',
-    psp        => 'Sony PlayStation Portable',
-    wap        => 'WAP capable phone',
-    webos      => 'webOS',
 );
 
 # Browsers
@@ -116,30 +69,6 @@ our @BROWSER_TESTS = qw(
     avantgo       emacs       mozilla
     konqueror     realplayer  netfront
     mobile_safari obigo       aol
-);
-
-my %BROWSERS = (
-    netscape      => 'Netscape',
-    firefox       => 'Firefox',
-    mobile_safari => 'Mobile Safari',
-    realplayer    => 'RealPlayer',
-    safari        => 'Safari',
-    chrome        => 'Chrome',
-    aol           => 'AOL Browser',
-    ie            => 'MSIE',
-    webtv         => 'WebTV',
-    obigo         => 'Obigo',
-    dsi           => 'Nintendo DSi',
-    opera         => 'Opera',
-    mosaic        => 'Mosaic',
-    lynx          => 'Lynx',
-    elinks        => 'ELinks',
-    links         => 'Links',
-    curl          => 'curl',
-    puf           => 'puf',
-    netfront      => 'NetFront',
-    n3ds          => 'Nintendo 3DS',
-    blackberry    => 'BlackBerry',
 );
 
 our @IE_TESTS = qw(
@@ -173,13 +102,47 @@ our @FIREFOX_TESTS = qw(
     namoroka
 );
 
+# Engine tests
 our @ENGINE_TESTS = qw(
     gecko    trident
 );
 
+our @ROBOT_TESTS = qw(
+    puf          curl        wget
+    getright     robot       slurp
+    yahoo        mj12bot
+    altavista    lycos       infoseek
+    lwp          webcrawler  linkexchange
+    webtv        staroffice
+    lotusnotes   icab        googlemobile
+    msn          msnmobile
+    facebook     baidu       googleadsbot
+    askjeeves    googleadsense googlebotvideo
+    googlebotnews googlebotimage google
+    linkchecker  yandeximages specialarchiver
+    yandex       ahrefs
+);
+
+our @MISC_TESTS = qw(
+    dotnet      x11
+    java
+);
+
+push @ALL_TESTS,
+    (
+    @OS_TESTS,                       @WINDOWS_TESTS,
+    @MAC_TESTS,                      @UNIX_TESTS,
+    @BSD_TESTS,                      @GAMING_TESTS,
+    @DEVICE_TESTS,                   @BROWSER_TESTS,
+    @IE_TESTS,                       @OPERA_TESTS,
+    @AOL_TESTS,                      @NETSCAPE_TESTS,
+    @FIREFOX_TESTS,                  @ENGINE_TESTS,
+    @ROBOT_TESTS,                    @MISC_TESTS,
+    );
+
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
-my %ROBOTS = (
+my %ROBOT_NAMES = (
     ahrefs          => 'Ahrefs',
     altavista       => 'AltaVista',
     askjeeves       => 'AskJeeves',
@@ -217,38 +180,77 @@ my %ROBOTS = (
     yandeximages    => 'YandexImages',
 );
 
-our @ROBOT_TESTS = qw(
-    puf          curl        wget
-    getright     robot       slurp
-    yahoo        mj12bot
-    altavista    lycos       infoseek
-    lwp          webcrawler  linkexchange
-    webtv        staroffice
-    lotusnotes   icab        googlemobile
-    msn          msnmobile
-    facebook     baidu       googleadsbot
-    askjeeves    googleadsense googlebotvideo
-    googlebotnews googlebotimage google
-    linkchecker  yandeximages specialarchiver
-    yandex       ahrefs
+my %BROWSER_NAMES = (
+    netscape      => 'Netscape',
+    firefox       => 'Firefox',
+    mobile_safari => 'Mobile Safari',
+    realplayer    => 'RealPlayer',
+    safari        => 'Safari',
+    chrome        => 'Chrome',
+    aol           => 'AOL Browser',
+    ie            => 'MSIE',
+    webtv         => 'WebTV',
+    obigo         => 'Obigo',
+    dsi           => 'Nintendo DSi',
+    opera         => 'Opera',
+    mosaic        => 'Mosaic',
+    lynx          => 'Lynx',
+    elinks        => 'ELinks',
+    links         => 'Links',
+    curl          => 'curl',
+    puf           => 'puf',
+    netfront      => 'NetFront',
+    n3ds          => 'Nintendo 3DS',
+    blackberry    => 'BlackBerry',
 );
 
-our @MISC_TESTS = qw(
-    dotnet      x11
-    java
+# Device names
+my %DEVICE_NAMES = (
+    android    => 'Android',
+    audrey     => 'Audrey',
+    blackberry => 'BlackBerry',
+    dsi        => 'Nintendo DSi',
+    iopener    => 'iopener',
+    ipad       => 'iPad',
+    iphone     => 'iPhone',
+    ipod       => 'iPod',
+    kindle     => 'Amazon Kindle',
+    n3ds       => 'Nintendo 3DS',
+    palm       => 'Palm',
+    ps3        => 'Sony PlayStation 3',
+    psp        => 'Sony PlayStation Portable',
+    wap        => 'WAP capable phone',
+    webos      => 'webOS',
 );
 
-push @ALL_TESTS,
-    (
-    @OS_TESTS,                       @WINDOWS_TESTS,
-    @MAC_TESTS,                      @UNIX_TESTS,
-    @BSD_TESTS,                      @GAMING_TESTS,
-    @DEVICE_TESTS,                   @BROWSER_TESTS,
-    @IE_TESTS,                       @OPERA_TESTS,
-    @AOL_TESTS,                      @NETSCAPE_TESTS,
-    @FIREFOX_TESTS,                  @ENGINE_TESTS,
-    @ROBOT_TESTS,                    @MISC_TESTS,
-    );
+my %OS_NAMES = (
+    win95 => 'Win95',
+    win98 => 'Win98',
+    win2k => 'Win2k',
+    winxp => 'WinXP',
+    win2k3 => 'Win2k3',
+    winvista => 'WinVista',
+    win7 => 'Win7',
+    win8 => 'Win8',
+    win8_0 => 'Win8.0',
+    win8_1 => 'Win8.1',
+    winnt => 'WinNT',
+    winphone => 'Windows Phone',
+    win3x => 'Win3x',
+    android => 'Android',
+    linux => 'Linux',
+    unix => 'Unix',
+    chromeos => 'Chrome OS',
+    firefoxos => 'Firefox OS',
+    bb10 => 'BlackBerry 10',
+    rimtabletos => 'RIM Tablet OS',
+    ps3gameos => 'Playstation 3 GameOS',
+    pspgameos => 'Playstation Portable GameOS',
+    ios => 'iOS',
+    macosx => 'Mac OS X',
+    mac => 'Mac',
+    os2 => 'OS/2',
+);
 
 # Safari build -> version map for versions prior to 3.0
 # (since then, version appears in the user-agent string)
@@ -297,6 +299,8 @@ sub new {
     $self->user_agent( $user_agent );
     return $self;
 }
+
+### Accessors for computed-on-demand test attributes
 
 foreach my $test ( @ENGINE_TESTS, @MISC_TESTS )
 {
@@ -357,13 +361,17 @@ sub user_agent {
     my ( $self, $user_agent ) = @_;
     if ( defined $user_agent ) {
         $self->{user_agent} = $user_agent;
-        $self->_test();
+        $self->_init_core();
     }
     return $self->{user_agent};
 }
 
-# Private method -- test the UA string
-sub _test {
+### This is code for setting up $self based on a new
+### user-agent. Browser and engine tests always get run right away.
+
+# Private method -- Set up the basics (browser and misc attributes)
+# for a new user-agent string
+sub _init_core {
     my ( $self ) = @_;
 
     # Reset versions, this gets filled in on demand in _init_versions
@@ -582,7 +590,6 @@ sub _test {
     $self->_robot_tests;
 
     return undef unless $self->robot;
-
 }
 
 sub _robot_tests {
@@ -651,6 +658,8 @@ sub _robot_tests {
         || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
         || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x;
 }
+
+### OS tests, only run on demand
 
 sub _init_os {
     my $self  = shift;
@@ -845,86 +854,7 @@ sub _init_os {
     $self->{cached_os} = $os ? lc $os : undef;
 }
 
-# undocumented, experimental, volatile. not bothering with major/minor here as
-# that's flawed for 3 point versions the plan is to move this parsing into the
-# UeberAgent parser
-
-sub os_version {
-    my $self = shift;
-
-    if (   $self->ios
-        && $self->{user_agent} =~ m{OS (\d*_\d*|\d*_\d*_\d*) like Mac} )
-    {
-        my $version = $1;
-        $version =~ s{_}{.}g;
-        return $version;
-    }
-
-    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d)_(\d)_(\d)}x ) {
-        return join '.', $1, $2, $3;
-    }
-
-# firefox in mac
-# "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:25.0) Gecko/20100101 Firefox/25.0"
-    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d\.\d)}x ) {
-        return $1;
-    }
-
-    if (   $self->winphone
-        && $self->{user_agent}
-        =~ m{Windows \s Phone \s \w{0,2} \s{0,1} (\d+\.\d+);}x )
-    {
-        return $1;
-    }
-
-    if ( $self->android && $self->{user_agent} =~ m{Android ([\d\.\w-]*)} ) {
-        return $1;
-    }
-
-    if ( $self->firefoxos && $self->{user_agent} =~ m{Firefox/([\d\.]*)} ) {
-        return $1;
-    }
-}
-
-sub browser_string {
-    my ( $self ) = @_;
-    return undef unless defined $self->{user_agent};
-    return undef unless defined $self->{browser};
-    return $BROWSERS{lc $self->{browser}} || $self->{browser};
-}
-
-sub os_string {
-    my ( $self ) = @_;
-
-    return undef unless defined $self->{user_agent};
-    $self->_init_os unless exists($self->{cached_os});
-    return undef unless $self->{cached_os};
-    return $OS_NAMES{$self->{cached_os}};
-}
-
-sub _realplayer_version {
-    my ( $self, $check ) = @_;
-
-    $self->_init_version unless defined($self->{realplayer_version});
-    return $self->{realplayer_version} || 0;
-}
-
-sub realplayer_browser {
-    my ( $self, $check ) = @_;
-    return $self->{browser} eq 'REALPLAYER';
-}
-
-sub gecko_version {
-    my ( $self, $check ) = @_;
-    my $version;
-    $version = $self->{gecko_version};
-    if ( defined $check ) {
-        return $check == $version;
-    }
-    else {
-        return $version;
-    }
-}
+### Version determination, only run on demand
 
 sub _init_version {
     my ( $self ) = @_;
@@ -1143,140 +1073,7 @@ sub _init_version {
     $self->{beta}  = $beta;
 }
 
-sub version {
-    my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
-
-    my $version = $self->{major} + $self->{minor};
-    if ( defined $check ) {
-        return $check == $version;
-    }
-    else {
-        return $version;
-    }
-}
-
-sub major {
-    my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
-
-    my ( $version ) = $self->{major};
-    if ( defined $check ) {
-        return $check == $version;
-    }
-    else {
-        return $version;
-    }
-}
-
-sub minor {
-    my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
-
-    my ( $version ) = $self->{minor};
-    if ( defined $check ) {
-        return ( $check == $self->{minor} );
-    }
-    else {
-        return $version;
-    }
-}
-
-sub public_version {
-    my ( $self,  $check ) = @_;
-    my ( $major, $minor ) = $self->_public;
-
-    return $major + $minor;
-}
-
-sub public_major {
-    my ( $self,  $check ) = @_;
-    my ( $major, $minor ) = $self->_public;
-
-    return $major;
-}
-
-sub public_minor {
-    my ( $self,  $check ) = @_;
-    my ( $major, $minor ) = $self->_public;
-
-    return $minor;
-}
-
-sub public_beta {
-    my ( $self, $check ) = @_;
-    my ( $major, $minor, $beta ) = $self->_public;
-
-    return $beta;
-}
-
-sub _public {
-    my ( $self, $check ) = @_;
-
-    # Return Public version of Safari. See RT #48727.
-    if ( $self->safari ) {
-        my $ua = lc $self->{user_agent};
-
-        # Safari starting with version 3.0 provides its own public version
-        if ($ua =~ m{
-                version/
-                ( \d+ )       # Major version number is everything before first dot
-                ( \. \d+ )?   # Minor version number is first dot and following digits
-            }x
-            )
-        {
-            return ( $1, $2, undef );
-        }
-
-        # Safari before version 3.0 had only build numbers; use a lookup table
-        # provided by Apple to convert to version numbers
-
-        if ( $ua =~ m{ safari/ ( \d+ (?: \.\d+ )* ) }x ) {
-            my $build   = $1;
-            my $version = $safari_build_to_version{$build};
-            unless ( $version ) {
-
-                # if exact build -> version mapping doesn't exist, find next
-                # lower build
-
-                for my $maybe_build (
-                    sort { $self->_cmp_versions( $b, $a ) }
-                    keys %safari_build_to_version
-                    )
-                {
-                    $version = $safari_build_to_version{$maybe_build}, last
-                        if $self->_cmp_versions( $build, $maybe_build ) >= 0;
-                }
-
-		# Special case for specific worm that uses a malformed user agent
-		return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
-            }
-            my ( $major, $minor ) = split /\./, $version;
-            my $beta;
-            $minor =~ s/(\D.*)// and $beta = $1;
-            $minor = 0 + ( '.' . $minor );
-            return ( $major, $minor, ( $beta ? 1 : undef ) );
-        }
-    }
-
-    return ( $self->major, $self->minor, $self->beta( $check ) );
-}
-
-sub _cmp_versions {
-    my ( $self, $a, $b ) = @_;
-
-    my @a = split /\./, $a;
-    my @b = split /\./, $b;
-
-    while ( @b ) {
-        return -1 if @a == 0 || $a[0] < $b[0];
-        return 1  if @b == 0 || $b[0] < $a[0];
-        shift @a;
-        shift @b;
-    }
-
-    return @a <=> @b;
-}
+### Device tests, only run on demand
 
 sub _init_device {
     my ( $self ) = @_;
@@ -1457,7 +1254,7 @@ sub _init_device {
             pos( $ua ) - length $1, length $1;
         $self->{device_name} =~ s/Kbd/Q10/;
     } elsif ($device) {
-	$self->{device_name} = $DEVICES{lc $device}; 
+	$self->{device_name} = $DEVICE_NAMES{lc $device}; 
     } else {
 	$self->{device_name} = undef;
     }
@@ -1467,6 +1264,224 @@ sub _init_device {
     } else {
 	$self->{device} = undef; # Means we cache the fact that we found nothing
     }
+}
+
+### Now a big block of public accessors for tests and information
+
+# undocumented, experimental, volatile. not bothering with major/minor here as
+# that's flawed for 3 point versions the plan is to move this parsing into the
+# UeberAgent parser
+
+sub os_version {
+    my $self = shift;
+
+    if (   $self->ios
+        && $self->{user_agent} =~ m{OS (\d*_\d*|\d*_\d*_\d*) like Mac} )
+    {
+        my $version = $1;
+        $version =~ s{_}{.}g;
+        return $version;
+    }
+
+    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d)_(\d)_(\d)}x ) {
+        return join '.', $1, $2, $3;
+    }
+
+# firefox in mac
+# "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:25.0) Gecko/20100101 Firefox/25.0"
+    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d\.\d)}x ) {
+        return $1;
+    }
+
+    if (   $self->winphone
+        && $self->{user_agent}
+        =~ m{Windows \s Phone \s \w{0,2} \s{0,1} (\d+\.\d+);}x )
+    {
+        return $1;
+    }
+
+    if ( $self->android && $self->{user_agent} =~ m{Android ([\d\.\w-]*)} ) {
+        return $1;
+    }
+
+    if ( $self->firefoxos && $self->{user_agent} =~ m{Firefox/([\d\.]*)} ) {
+        return $1;
+    }
+}
+
+sub browser_string {
+    my ( $self ) = @_;
+    return undef unless defined $self->{user_agent};
+    return undef unless defined $self->{browser};
+    return $BROWSER_NAMES{lc $self->{browser}} || $self->{browser};
+}
+
+sub os_string {
+    my ( $self ) = @_;
+
+    return undef unless defined $self->{user_agent};
+    $self->_init_os unless exists($self->{cached_os});
+    return undef unless $self->{cached_os};
+    return $OS_NAMES{$self->{cached_os}};
+}
+
+sub _realplayer_version {
+    my ( $self, $check ) = @_;
+
+    $self->_init_version unless defined($self->{realplayer_version});
+    return $self->{realplayer_version} || 0;
+}
+
+sub realplayer_browser {
+    my ( $self, $check ) = @_;
+    return $self->{browser} eq 'REALPLAYER';
+}
+
+sub gecko_version {
+    my ( $self, $check ) = @_;
+    my $version;
+    $version = $self->{gecko_version};
+    if ( defined $check ) {
+        return $check == $version;
+    }
+    else {
+        return $version;
+    }
+}
+
+sub version {
+    my ( $self, $check ) = @_;
+    $self->_init_version() unless defined($self->{major});
+
+    my $version = $self->{major} + $self->{minor};
+    if ( defined $check ) {
+        return $check == $version;
+    }
+    else {
+        return $version;
+    }
+}
+
+sub major {
+    my ( $self, $check ) = @_;
+    $self->_init_version() unless defined($self->{major});
+
+    my ( $version ) = $self->{major};
+    if ( defined $check ) {
+        return $check == $version;
+    }
+    else {
+        return $version;
+    }
+}
+
+sub minor {
+    my ( $self, $check ) = @_;
+    $self->_init_version() unless defined($self->{major});
+
+    my ( $version ) = $self->{minor};
+    if ( defined $check ) {
+        return ( $check == $self->{minor} );
+    }
+    else {
+        return $version;
+    }
+}
+
+sub public_version {
+    my ( $self,  $check ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return $major + $minor;
+}
+
+sub public_major {
+    my ( $self,  $check ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return $major;
+}
+
+sub public_minor {
+    my ( $self,  $check ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return $minor;
+}
+
+sub public_beta {
+    my ( $self, $check ) = @_;
+    my ( $major, $minor, $beta ) = $self->_public;
+
+    return $beta;
+}
+
+sub _public {
+    my ( $self, $check ) = @_;
+
+    # Return Public version of Safari. See RT #48727.
+    if ( $self->safari ) {
+        my $ua = lc $self->{user_agent};
+
+        # Safari starting with version 3.0 provides its own public version
+        if ($ua =~ m{
+                version/
+                ( \d+ )       # Major version number is everything before first dot
+                ( \. \d+ )?   # Minor version number is first dot and following digits
+            }x
+            )
+        {
+            return ( $1, $2, undef );
+        }
+
+        # Safari before version 3.0 had only build numbers; use a lookup table
+        # provided by Apple to convert to version numbers
+
+        if ( $ua =~ m{ safari/ ( \d+ (?: \.\d+ )* ) }x ) {
+            my $build   = $1;
+            my $version = $safari_build_to_version{$build};
+            unless ( $version ) {
+
+                # if exact build -> version mapping doesn't exist, find next
+                # lower build
+
+                for my $maybe_build (
+                    sort { $self->_cmp_versions( $b, $a ) }
+                    keys %safari_build_to_version
+                    )
+                {
+                    $version = $safari_build_to_version{$maybe_build}, last
+                        if $self->_cmp_versions( $build, $maybe_build ) >= 0;
+                }
+
+		# Special case for specific worm that uses a malformed user agent
+		return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
+            }
+            my ( $major, $minor ) = split /\./, $version;
+            my $beta;
+            $minor =~ s/(\D.*)// and $beta = $1;
+            $minor = 0 + ( '.' . $minor );
+            return ( $major, $minor, ( $beta ? 1 : undef ) );
+        }
+    }
+
+    return ( $self->major, $self->minor, $self->beta( $check ) );
+}
+
+sub _cmp_versions {
+    my ( $self, $a, $b ) = @_;
+
+    my @a = split /\./, $a;
+    my @b = split /\./, $b;
+
+    while ( @b ) {
+        return -1 if @a == 0 || $a[0] < $b[0];
+        return 1  if @b == 0 || $b[0] < $a[0];
+        shift @a;
+        shift @b;
+    }
+
+    return @a <=> @b;
 }
 
 sub engine_string {
@@ -1676,7 +1691,7 @@ sub robot_name {
     foreach my $name ( @ROBOT_TESTS ) {
         next if $name eq 'robot';
         if ( $self->$name ) {
-            return $ROBOTS{$name};
+            return $ROBOT_NAMES{$name};
         }
     }
 }
