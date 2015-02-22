@@ -289,27 +289,35 @@ sub _test {
 
     $self->{tests} = { };
     $self->{browser_tests} = { };
+
+    # Reset versions, this gets filled in in _init_versions
     $self->{version_tests} = undef;
     $self->{major} = undef;
     $self->{minor} = undef;
     $self->{beta} = undef;
 
+    # These get filled in as we figure them out
     my $tests = $self->{tests};
     my $browser_tests = $self->{browser_tests};
+    my $browser = undef;
 
     my @ff = ( 'firefox', @FIREFOX_TESTS );
     my $ff = join "|", @ff;
 
     my $ua = lc $self->{user_agent};
 
-    # Trident Engine (detect early for sniffing out IE)
+    # Detect engine
     $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
 
     if ( $tests->{TRIDENT} && $ua =~ /trident\/([\w\.\d]*)/ ) {
         $self->{engine_version} = $1;
     }
 
-    # Firefox version
+    $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
+        && ( index( $ua, "like gecko" ) == -1 );
+
+    # Detect browser
+
     if ($ua =~ m{
                 ($ff)
                 \/
@@ -319,103 +327,121 @@ sub _test {
             }xo
         )
     {
-        $browser_tests->{ uc( $1 ) } = 1;
+	# Browser is Firefox, possibly under an alternate name
+
+	$browser = uc $1;
+        $browser_tests->{ $browser } = 1;
         $browser_tests->{'FIREFOX'}  = 1;
-
     }
-
-    # Opera browsers
-
-    if ( $ua =~ m{opera|opr\/} ) {
-	$browser_tests->{OPERA} = 1;
-    }
-
-    # Mozilla browsers
-
-    $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
-        && ( index( $ua, "like gecko" ) == -1 );
-
-    $browser_tests->{CHROME}
-        = ( !$browser_tests->{OPERA} && index( $ua, "chrome/" ) != -1 )
-        ;    #&& $ua =~ m{chrome/ ( [^.]* ) \. ( [^.]* )}x );
-    $browser_tests->{SAFARI}
-        = (    ( index( $ua, "safari" ) != -1 )
-            || ( index( $ua, "applewebkit" ) != -1 ) )
-        && ( index( $ua, "chrome" ) == -1 );
-    $browser_tests->{MOBILE_SAFARI}
-        = ( $browser_tests->{SAFARI} && index( $ua, " mobile safari/" ) >= 0 );
-
-    # Gecko-powered Netscape (i.e. Mozilla) versions
-    if ( !$browser_tests->{FIREFOX}
-	   && !$browser_tests->{SAFARI}
-	   && !$browser_tests->{CHROME}
-           && !$browser_tests->{OPERA}
-           && !$tests->{TRIDENT}
-           && index( $ua, "mozilla" ) != -1
-           && index( $ua, "msie" ) == -1
-           && index( $ua, "spoofer" ) == -1
-           && index( $ua, "compatible" ) == -1
-           && index( $ua, "webtv" ) == -1
-           && index( $ua, "hotjava" ) == -1
-           && index( $ua, "nintendo" ) == -1
-           && index( $ua, "playstation 3" ) == -1
-	   && index( $ua, "playstation portable" ) == -1 )
+    elsif ( $tests->{TRIDENT}
+	    || index( $ua, "msie" ) != -1
+	    || index( $ua, 'microsoft internet explorer' ) != -1 )
     {
-
-	$browser_tests->{NETSCAPE} = 1;
-	$browser_tests->{MOZILLA} = ( $tests->{GECKO} );
-
-    }
-
-    # Internet Explorer browsers
-
-    if ( $tests->{TRIDENT}
-	     || index( $ua, "msie" ) != -1
-	     || index( $ua, 'microsoft internet explorer' ) != -1 )
-    {
+	# Browser is MSIE (possibly AOL branded)
 
 	$browser_tests->{IE} = 1;
+
+	if ( index( $ua, "aol" ) == -1 ) {
+	    $browser = 'IE';
+	} else {
+	    $browser = 'AOL';
+	    $browser_tests->{AOL} = 1;
+	}
+    }
+    elsif ( $ua =~ m{opera|opr\/} )
+    {
+	# Browser is Opera
+
+	$browser = 'OPERA';
+	$browser_tests->{OPERA} = 1;
+    }
+    elsif ( index( $ua, "chrome/" ) != -1 )
+    {
+	# Browser is Chrome
+
+	$browser = 'CHROME';
+	$browser_tests->{CHROME} = 1;
+    }
+    elsif ( ( index( $ua, "safari" ) != -1 )
+            || ( index( $ua, "applewebkit" ) != -1 ) )
+    {
+	# Browser is Safari
+
+	$browser_tests->{SAFARI} = 1;
+	if ( index( $ua, " mobile safari/" ) == -1 ) {
+	    $browser = 'SAFARI';
+	} else {
+	    $browser = 'MOBILE_SAFARI';
+	    $browser_tests->{MOBILE_SAFARI} = 1;
+	}
+    }
+    elsif ( !$tests->{TRIDENT}
+	    && index( $ua, "mozilla" ) != -1
+	    && index( $ua, "msie" ) == -1
+	    && index( $ua, "spoofer" ) == -1
+	    && index( $ua, "compatible" ) == -1
+	    && index( $ua, "webtv" ) == -1
+	    && index( $ua, "hotjava" ) == -1
+	    && index( $ua, "nintendo" ) == -1
+	    && index( $ua, "playstation 3" ) == -1
+	    && index( $ua, "playstation portable" ) == -1 )
+    {
+	# Browser is a Gecko-powered Netscape (i.e. Mozilla) version
+
+	$browser = 'NETSCAPE';
+	$browser_tests->{NETSCAPE} = 1;
+	$browser_tests->{MOZILLA} = ( $tests->{GECKO} );
+    }
+    elsif ( index( $ua, "neoplanet" ) != -1 )
+    {
+	# Browser is Neoplanet (???)
+
+	$browser = undef;
+	$browser_tests->{NEOPLANET} = 1;
+	$browser_tests->{NEOPLANET2} = 1 if ( index( $ua, "2." ) != -1 );
     }
 
-    # Neoplanet browsers
-
-    $browser_tests->{NEOPLANET} = ( index( $ua, "neoplanet" ) != -1 );
-    $browser_tests->{NEOPLANET2}
-        = ( $browser_tests->{NEOPLANET} && index( $ua, "2." ) != -1 );
-
-    # AOL Browsers
-
-    if ( index( $ua, "aol" ) != -1 ) {
-	$browser_tests->{AOL}  = 1;
+    ## Long series of unlikely browsers
+    elsif ( index( $ua, "staroffice" ) != -1 ) {
+	$browser = 'STAROFFICE'; $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "icab" ) != -1 ) {
+	$browser = 'ICAB';       $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "lotus-notes" ) != -1 ) {
+	$browser = 'LOTUSNOTES'; $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "konqueror" ) != -1 ) {
+	$browser = 'KONQUEROR';  $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "lynx" ) != -1 ) {
+	$browser = 'LYNX';       $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "elinks" ) != -1 ) {
+	$browser = 'ELINKS';
+	$browser_tests->{ELINKS} = $browser_tests->{LINKS} = 1; # FIXME
+    } elsif ( index( $ua, "links" ) != -1 ) {
+	$browser = 'LINKS';      $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "webtv" ) != -1 ) {
+	$browser = 'WEBTV';      $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "mosaic" ) != -1 ) {
+	$browser = 'MOSAIC';     $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "playstation 3" ) != -1
+              || index( $ua, "playstation portable" ) != -1
+              || index( $ua, "netfront" ) != -1 )
+    {
+	$browser = 'NETFRONT';   $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "obigo/" ) != -1 ) {
+	$browser = 'OBIGO';      $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
+	$browser = 'N3DS';       $tests->{$browser} = 1;
     }
 
-    # Other browsers
-
-    $browser_tests->{STAROFFICE} = 1 if index( $ua, "staroffice" ) != -1;
-    $browser_tests->{ICAB}       = 1 if index( $ua, "icab" ) != -1;
-    $browser_tests->{LOTUSNOTES} = 1 if index( $ua, "lotus-notes" ) != -1;
-    $browser_tests->{KONQUEROR}  = 1 if index( $ua, "konqueror" ) != -1;
-    $browser_tests->{LYNX}       = 1 if index( $ua, "lynx" ) != -1;
-    $browser_tests->{LINKS}      = 1 if index( $ua, "links" ) != -1;
-    $browser_tests->{ELINKS}     = 1 if index( $ua, "elinks" ) != -1;
-    $browser_tests->{WEBTV}      = 1 if index( $ua, "webtv" ) != -1;
-    $browser_tests->{MOSAIC}     = 1 if index( $ua, "mosaic" ) != -1;
     $tests->{JAVA}
         = 1 if ( index( $ua, "java" ) != -1
               || index( $ua, "jdk" ) != -1
               || index( $ua, "jakarta commons-httpclient" ) != -1 );
 
-    $browser_tests->{NETFRONT}
-        = 1 if ( index( $ua, "playstation 3" ) != -1
-              || index( $ua, "playstation portable" ) != -1
-              || index( $ua, "netfront" ) != -1 );
-
     # Devices
 
-    $tests->{BLACKBERRY}
-        = 1 if ( index( $ua, "blackberry" ) != -1
-              || index( $ua, "bb10" ) != -1
-              || index( $ua, "rim tablet os" ) != -1 );
+    $tests->{BLACKBERRY} = 1 if index( $ua, "blackberry" ) != -1
+	|| index( $ua, "bb10" ) != -1
+	|| index( $ua, "rim tablet os" ) != -1;
     $tests->{IPHONE}   = 1 if index( $ua, "iphone" ) != -1;
     $tests->{WINCE}    = 1 if index( $ua, "windows ce" ) != -1;
     $tests->{WINPHONE} = 1 if index( $ua, "windows phone" ) != -1;
@@ -427,7 +453,6 @@ sub _test {
     $tests->{IOPENER}  = 1 if index( $ua, "i-opener" ) != -1;
     $tests->{AVANTGO}  = 1 if index( $ua, "avantgo" ) != -1;
     $tests->{PALM} = 1 if ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
-    $browser_tests->{OBIGO} = 1 if index( $ua, "obigo/" ) != -1;
     $tests->{WAP}
         = 1 if ( $browser_tests->{OBIGO}
             || index( $ua, "up.browser" ) != -1
@@ -447,7 +472,6 @@ sub _test {
     $tests->{PS3}    = 1 if index( $ua, "playstation 3" ) != -1;
     $tests->{PSP}    = 1 if index( $ua, "playstation portable" ) != -1;
     $tests->{DSI}    = 1 if index( $ua, "nintendo dsi" ) != -1;
-    $tests->{'N3DS'} = 1 if index( $ua, "nintendo 3ds" ) != -1;
 
     $tests->{MOBILE} = (
         (   $browser_tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
