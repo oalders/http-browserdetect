@@ -80,8 +80,32 @@ our @BROWSER_TESTS = qw(
     opera         lynx        links
     elinks        neoplanet   neoplanet2
     avantgo       emacs       mozilla
-    konqueror     r1          netfront
+    konqueror     realplayer  netfront
     mobile_safari obigo       aol
+);
+
+my %BROWSERS = (
+    netscape      => 'Netscape',
+    firefox       => 'Firefox',
+    mobile_safari => 'Mobile Safari',
+    realplayer    => 'RealPlayer',
+    safari        => 'Safari',
+    chrome        => 'Chrome',
+    aol           => 'AOL Browser',
+    ie            => 'MSIE',
+    webtv         => 'WebTV',
+    obigo         => 'Obigo',
+    dsi           => 'Nintendo DSi',
+    opera         => 'Opera',
+    mosaic        => 'Mosaic',
+    lynx          => 'Lynx',
+    elinks        => 'ELinks',
+    links         => 'Links',
+    curl          => 'curl',
+    puf           => 'puf',
+    netfront      => 'NetFront',
+    n3ds          => 'Nintendo 3DS',
+    blackberry    => 'BlackBerry',
 );
 
 our @IE_TESTS = qw(
@@ -325,12 +349,12 @@ sub _test {
                 \.                  # The first dot
                 ( [\d]* )           # Minor version nnumber is digits after first dot
             }xo
-        )
+	&& index( $ua, "not firefox") == -1 ) # Hack for Yahoo Slurp
     {
 	# Browser is Firefox, possibly under an alternate name
 
-	$browser = uc $1;
-        $browser_tests->{ $browser } = 1;
+	$browser = 'FIREFOX';
+        $browser_tests->{ uc $1 } = 1;
         $browser_tests->{'FIREFOX'}  = 1;
     }
     elsif ( $tests->{TRIDENT}
@@ -413,8 +437,7 @@ sub _test {
     } elsif ( index( $ua, "lynx" ) != -1 ) {
 	$browser = 'LYNX';       $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "elinks" ) != -1 ) {
-	$browser = 'ELINKS';
-	$browser_tests->{ELINKS} = $browser_tests->{LINKS} = 1; # FIXME
+	$browser = 'ELINKS';     $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "links" ) != -1 ) {
 	$browser = 'LINKS';      $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "webtv" ) != -1 ) {
@@ -430,7 +453,52 @@ sub _test {
 	$browser = 'OBIGO';      $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
 	$browser = 'N3DS';       $tests->{$browser} = 1;
+    } elsif ( index( $ua, "blackberry" ) != -1 ) {
+	$browser = 'BLACKBERRY'; # Test gets set during device check
+    } elsif ( index( $ua, "libcurl" ) != -1 ) {
+	$browser = 'CURL';
+	$browser_tests->{CURL} = 1;
+	$browser_tests->{ROBOT} = 1;
+    } elsif ( index( $ua, "puf/" ) != -1 ) {
+	$browser = 'PUF';
+	$browser_tests->{PUF} = 1;
+	$browser_tests->{ROBOT} = 1;
     }
+
+    if ( index( $ua, "realplayer" ) != -1 )
+    {
+	# RealPlayer browser
+
+	$self->_init_version; # Set appropriate tests for whatever the "real"
+	                      # browser is.
+
+	# Now set the browser to Realplayer.
+	$browser = 'REALPLAYER';
+	$browser_tests->{'REALPLAYER'} = 1;
+
+	# Now override the version with the Realplayer version (but leave
+	# alone the tests we already set, which might have been based on the
+	# "real" browser's version).
+	$self->{realplayer_version} = undef;
+	if ( $browser_tests->{REALPLAYER} ) {
+	    if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
+		$self->{realplayer_version} = $1;
+		( $self->{major}, $self->{minor} ) =
+		    split( /\./, $self->{realplayer_version} );
+		$self->{minor} = ".$self->{minor}" if $self->{minor};
+	    }
+	    elsif ( $ua =~ /realplayer\s(\w+)/ ) {
+		$self->{realplayer_version} = $1;
+	    }
+	}
+    }
+
+    if ( index( $ua, "(r1 " ) != -1 ) {
+	# Realplayer plugin -- don't override browser but do set property
+	$browser_tests->{REALPLAYER} = 1;
+    }
+
+    $self->{browser} = $browser;
 
     $tests->{JAVA}
         = 1 if ( index( $ua, "java" ) != -1
@@ -570,10 +638,6 @@ sub _test {
         }
     }
 
-    # RealPlayer
-    $browser_tests->{REALPLAYER}
-        = ( index( $ua, "(r1 " ) != -1 || index( $ua, "realplayer" ) != -1 );
-
     # Device from UA
 
     $self->{device_name} = undef;
@@ -634,7 +698,6 @@ sub _robot_tests {
     $is_r = $browser_tests->{ALTAVISTA}       = 1 if ( index( $ua, "altavista" ) != -1 );
     $is_r = $browser_tests->{ASKJEEVES}       = 1 if ( index( $ua, "ask jeeves/teoma" ) != -1 );
     $is_r = $browser_tests->{BAIDU}           = 1 if ( index( $ua, "baiduspider" ) != -1 );
-    $is_r = $browser_tests->{CURL}            = 1 if ( index( $ua, "libcurl" ) != -1 );
     $is_r = $browser_tests->{FACEBOOK}        = 1 if ( index( $ua, "facebookexternalhit" ) != -1 );
     $is_r = $browser_tests->{GETRIGHT}        = 1 if ( index( $ua, "getright" ) != -1 );
     $is_r = $browser_tests->{GOOGLEADSBOT}    = 1 if ( index( $ua, "adsbot-google" ) != -1 );
@@ -649,7 +712,6 @@ sub _robot_tests {
     $is_r = $browser_tests->{LINKCHECKER}     = 1 if ( index( $ua, "linkchecker" ) != -1 );
     $is_r = $browser_tests->{LYCOS}           = 1 if ( index( $ua, "lycos" ) != -1 );
     $is_r = $browser_tests->{MJ12BOT}         = 1 if ( index( $ua, "mj12bot/" ) != -1 );
-    $is_r = $browser_tests->{PUF}             = 1 if ( index( $ua, "puf/" ) != -1 );
     $is_r = $browser_tests->{SCOOTER}         = 1 if ( index( $ua, "scooter" ) != -1 );
     $is_r = $browser_tests->{SLURP}           = 1 if ( index( $ua, "slurp" ) != -1 );
     $is_r = $browser_tests->{SPECIALARCHIVER} = 1 if ( index( $ua, "special_archiver" ) != -1 );
@@ -658,8 +720,11 @@ sub _robot_tests {
     $is_r = $browser_tests->{YANDEX}          = 1 if ( index( $ua, "yandexbot" ) != -1 );
     $is_r = $browser_tests->{YANDEXIMAGES}    = 1 if ( index( $ua, "yandeximages" ) != -1 );
 
-    $browser_tests->{ROBOT} = $is_r
-        || $tests->{JAVA} # FIXME - depends on browser being detected first
+    $browser_tests->{ROBOT} =
+	$is_r
+	|| $browser_tests->{CURL}
+        || $browser_tests->{PUF}
+        || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
         || index( $ua, "bot" ) != -1
         || index( $ua, "copy" ) != -1
@@ -674,12 +739,6 @@ sub _robot_tests {
         || index( $ua, "zyborg" ) != -1
         || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
         || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x;
-
-    # Yahoo Slurp! hack this should apply to most browsers, but there's a case
-    # where GoogleBot masquerades as Safari on iOS.  not sure how to handle
-    # that.
-
-    delete $browser_tests->{FIREFOX} if $self->robot;
 }
 
 sub _os_tests {
@@ -928,30 +987,8 @@ sub os_version {
 sub browser_string {
     my ( $self ) = @_;
     return undef unless defined $self->{user_agent};
-
-    return 'Netscape'      if $self->netscape;
-    return 'IceWeasel'     if $self->iceweasel;
-    return 'Firefox'       if $self->firefox;
-    return 'BlackBerry'    if $self->blackberry;
-    return 'Mobile Safari' if $self->mobile_safari;
-    return 'RealPlayer'    if $self->realplayer_browser;
-    return 'Safari'        if $self->safari;
-    return 'Chrome'        if $self->chrome;
-    return 'AOL Browser'   if $self->aol;
-    return 'MSIE'          if $self->ie;
-    return 'WebTV'         if $self->webtv;
-    return 'Obigo'         if $self->obigo;
-    return 'Nintendo DSi'  if $self->dsi;
-    return 'Opera'         if $self->opera;
-    return 'Mosaic'        if $self->mosaic;
-    return 'Lynx'          if $self->lynx;
-    return 'ELinks'        if $self->elinks;
-    return 'Links'         if $self->links;
-    return 'curl'          if $self->curl;
-    return 'puf'           if $self->puf;
-    return 'NetFront'      if $self->netfront;
-    return 'Nintendo 3DS'  if $self->n3ds;
-    return undef;
+    return undef unless defined $self->{browser};
+    return $BROWSERS{lc $self->{browser}} || $self->{browser};
 }
 
 sub os_string {
@@ -986,13 +1023,6 @@ sub os_string {
     return undef;
 }
 
-sub realplayer {
-    my ( $self, $check ) = @_;
-
-    return 1 if $self->{browser_tests}->{REALPLAYER};
-    return 0;
-}
-
 sub _realplayer_version {
     my ( $self, $check ) = @_;
 
@@ -1002,7 +1032,7 @@ sub _realplayer_version {
 
 sub realplayer_browser {
     my ( $self, $check ) = @_;
-    return $self->_realplayer_version ? 1 : 0;
+    return $self->{browser} eq 'REALPLAYER';
 }
 
 sub gecko_version {
@@ -1218,18 +1248,6 @@ sub _init_version {
 	$version_tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
 	    || ( index( $ua, "opera/7" ) != -1 );
 
-    }
-
-    $self->{realplayer_version} = undef;
-    if ( $browser_tests->{REALPLAYER} ) {
-        if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
-            $self->{realplayer_version} = $1;
-            ( $major, $minor ) = split( /\./, $self->{realplayer_version} );
-	    $minor = ".$minor" if $minor;
-        }
-        elsif ( $ua =~ /realplayer\s(\w+)/ ) {
-            $self->{realplayer_version} = $1;
-        }
     }
 
     # A final try at browser version, if we haven't gotten it so far
@@ -1906,12 +1924,13 @@ the version of Trident in the engine_version method.
 
 =head3 realplayer
 
+The realplayer method above tests for the presence of either the RealPlayer
+plug-in "(r1 " or the browser "RealPlayer".
+
 =head3 realplayer_browser
 
-The realplayer method above tests for the presence of either the RealPlayer
-plug-in "(r1 " or the browser "RealPlayer". To preserve "bugwards
-compatibility" and prevent false reporting, browser_string calls this method
-which ignores the "(r1 " plug-in signature.
+The realplayer_browser method tests for the presence of the RealPlayer
+browser (but returns 0 for the plugin).
 
 =head3 safari
 
