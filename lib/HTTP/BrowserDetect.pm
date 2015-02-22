@@ -244,25 +244,13 @@ foreach my $test ( @ALL_TESTS ) {
     no strict 'refs';
     my $key = uc $test;
     *{$test} = sub {
-        my ( $self ) = _self_or_default( @_ );
+        my ( $self ) = @_;
         return $self->{tests}->{$key} || 0;
     };
 }
 
-sub _self_or_default {
-    my ( $self ) = $_[0];
-    return @_
-        if ( defined $self
-        && ref $self
-        && ( ref $self eq 'HTTP::BrowserDetect' )
-        || UNIVERSAL::isa( $self, 'HTTP::BrowserDetect' ) );
-    $default ||= HTTP::BrowserDetect->new();
-    unshift( @_, $default );
-    return @_;
-}
-
 sub user_agent {
-    my ( $self, $user_agent ) = _self_or_default( @_ );
+    my ( $self, $user_agent ) = @_;
     if ( defined $user_agent ) {
         $self->{user_agent} = $user_agent;
         $self->_test();
@@ -1074,7 +1062,7 @@ sub os_version {
 # lot of false positives we haven't checked for.
 
 sub browser_string {
-    my ( $self ) = _self_or_default( @_ );
+    my ( $self ) = @_;
     return undef unless defined $self->{user_agent};
 
     return 'Netscape'      if $self->netscape;
@@ -1103,7 +1091,7 @@ sub browser_string {
 }
 
 sub os_string {
-    my ( $self ) = _self_or_default( @_ );
+    my ( $self ) = @_;
     return undef unless defined $self->{user_agent};
 
     return 'Win95'                       if $self->win95;
@@ -1135,14 +1123,14 @@ sub os_string {
 }
 
 sub realplayer {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     return 1 if $self->{tests}->{REALPLAYER};
     return 0;
 }
 
 sub _realplayer_version {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( exists $self->{realplayer_version}
         && $self->{realplayer_version} )
@@ -1158,13 +1146,13 @@ sub _realplayer_version {
 }
 
 sub realplayer_browser {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     return 1 if $self->{realplayer_version};
     return 0;
 }
 
 sub gecko_version {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my $version;
     $version = $self->{gecko_version};
     if ( defined $check ) {
@@ -1176,7 +1164,7 @@ sub gecko_version {
 }
 
 sub version {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     return $self->_realplayer_version if $self->_realplayer_version;
 
@@ -1190,7 +1178,7 @@ sub version {
 }
 
 sub major {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my ( $version ) = $self->{major};
     if ( defined $check ) {
         return $check == $version;
@@ -1201,7 +1189,7 @@ sub major {
 }
 
 sub minor {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my ( $version ) = $self->{minor};
     if ( defined $check ) {
         return ( $check == $self->{minor} );
@@ -1212,35 +1200,35 @@ sub minor {
 }
 
 sub public_version {
-    my ( $self,  $check ) = _self_or_default( @_ );
+    my ( $self,  $check ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $major + $minor;
 }
 
 sub public_major {
-    my ( $self,  $check ) = _self_or_default( @_ );
+    my ( $self,  $check ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $major;
 }
 
 sub public_minor {
-    my ( $self,  $check ) = _self_or_default( @_ );
+    my ( $self,  $check ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $minor;
 }
 
 sub public_beta {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my ( $major, $minor, $beta ) = $self->_public;
 
     return $beta;
 }
 
 sub _public {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     # Return Public version of Safari. See RT #48727.
     if ( $self->safari ) {
@@ -1309,7 +1297,7 @@ sub _cmp_versions {
 
 sub engine_string {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( $self->gecko ) {
         return 'Gecko';
@@ -1336,7 +1324,7 @@ sub engine_string {
 
 sub _engine {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     return $self->{engine_version};
 
@@ -1344,7 +1332,7 @@ sub _engine {
 
 sub engine_version {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( $self->_engine ) {
         return $self->engine_major + $self->engine_minor;
@@ -1356,7 +1344,7 @@ sub engine_version {
 
 sub engine_major {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( $self->_engine ) {
         my @version = split( /\./, $self->_engine );
@@ -1369,7 +1357,7 @@ sub engine_major {
 
 sub engine_minor {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( $self->_engine ) {
         my @version = split( /\./, $self->_engine );
@@ -1382,7 +1370,7 @@ sub engine_minor {
 }
 
 sub beta {
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my ( $version ) = $self->{beta};
     if ( $check ) {
         return $check eq $version;
@@ -1394,7 +1382,7 @@ sub beta {
 
 sub language {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my $parsed = $self->_language_country();
     return $parsed->{'language'};
 
@@ -1402,7 +1390,7 @@ sub language {
 
 sub country {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
     my $parsed = $self->_language_country();
     return $parsed->{'country'};
 
@@ -1410,7 +1398,7 @@ sub country {
 
 sub device {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     foreach my $device ( sort keys %DEVICE_TESTS ) {
         return $device if ( $self->$device );
@@ -1421,7 +1409,7 @@ sub device {
 
 sub device_name {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     return $self->{device_name} if defined $self->{device_name};
 
@@ -1433,7 +1421,7 @@ sub device_name {
 
 sub _language_country {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     if ( $self->safari ) {
         if (   $self->major == 1
@@ -1483,7 +1471,7 @@ sub _format_minor {
 
 sub browser_properties {
 
-    my ( $self, $check ) = _self_or_default( @_ );
+    my ( $self, $check ) = @_;
 
     my @browser_properties;
     foreach my $property ( sort keys %{ $self->{tests} } ) {
