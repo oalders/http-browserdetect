@@ -11,7 +11,7 @@ use vars qw(@ALL_TESTS);
 our @OS_TESTS = qw(
     windows mac   os2
     unix    linux vms
-    bsd     amiga firefoxos
+    bsd     amiga
     bb10    rimtabletos
     chromeos
 );
@@ -54,8 +54,14 @@ our @GAMING_TESTS = qw(
     ps3gameos pspgameos
 );
 
-# Devices
-our %DEVICE_TESTS = (
+our @DEVICE_TESTS = qw(
+    android audrey blackberry dsi iopener ipad
+    iphone ipod kindle n3ds palm ps3 psp wap webos
+    mobile tablet firefoxos
+);
+
+# Device names
+my %DEVICES = (
     android    => 'Android',
     audrey     => 'Audrey',
     blackberry => 'BlackBerry',
@@ -200,8 +206,8 @@ our @ROBOT_TESTS = qw(
 );
 
 our @MISC_TESTS = qw(
-    mobile      dotnet      x11
-    java        tablet
+    dotnet      x11
+    java
 );
 
 push @ALL_TESTS,
@@ -209,7 +215,7 @@ push @ALL_TESTS,
     @OS_TESTS,                       @WINDOWS_TESTS,
     @MAC_TESTS,                      @UNIX_TESTS,
     @BSD_TESTS,                      @GAMING_TESTS,
-    ( sort ( keys %DEVICE_TESTS ) ), @BROWSER_TESTS,
+    @DEVICE_TESTS,                   @BROWSER_TESTS,
     @IE_TESTS,                       @OPERA_TESTS,
     @AOL_TESTS,                      @NETSCAPE_TESTS,
     @FIREFOX_TESTS,                  @ENGINE_TESTS,
@@ -265,7 +271,7 @@ sub new {
 }
 
 foreach my $test ( @OS_TESTS, @WINDOWS_TESTS, @MAC_TESTS, @UNIX_TESTS,
-		   @BSD_TESTS, @GAMING_TESTS, (keys %DEVICE_TESTS),
+		   @BSD_TESTS, @GAMING_TESTS,
 		   @ENGINE_TESTS, @MISC_TESTS )
 {
     no strict 'refs';
@@ -295,6 +301,17 @@ foreach my $test ( @NETSCAPE_TESTS, @IE_TESTS, @AOL_TESTS,
         my ( $self ) = @_;
 	$self->_init_version() unless $self->{version_tests};
         return $self->{version_tests}->{$key} || 0;
+    };
+}
+
+foreach my $test ( @DEVICE_TESTS )
+{
+    no strict 'refs';
+    my $key = uc $test;
+    *{$test} = sub {
+        my ( $self ) = @_;
+	$self->_init_device() unless $self->{device_tests};
+        return $self->{device_tests}->{$key} || 0;
     };
 }
 
@@ -331,14 +348,21 @@ sub _test {
     my $ua = lc $self->{user_agent};
 
     # Detect engine
-    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
+    $self->{engine_version} = undef;
 
+    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
     if ( $tests->{TRIDENT} && $ua =~ /trident\/([\w\.\d]*)/ ) {
         $self->{engine_version} = $1;
     }
 
-    $tests->{GECKO} = ( index( $ua, "gecko" ) != -1 )
-        && ( index( $ua, "like gecko" ) == -1 );
+    $self->{gecko_version} = undef;
+    if ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 ) {
+	$tests->{GECKO} = 1;
+        if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
+            $self->{gecko_version}  = $1;
+            $self->{engine_version} = $1;
+	}
+    }
 
     # Detect browser
 
@@ -452,7 +476,7 @@ sub _test {
     } elsif ( index( $ua, "obigo/" ) != -1 ) {
 	$browser = 'OBIGO';      $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
-	$browser = 'N3DS';       $tests->{$browser} = 1;
+	$browser = 'N3DS';       # Test gets set during device check
     } elsif ( index( $ua, "blackberry" ) != -1 ) {
 	$browser = 'BLACKBERRY'; # Test gets set during device check
     } elsif ( index( $ua, "libcurl" ) != -1 ) {
@@ -505,167 +529,8 @@ sub _test {
               || index( $ua, "jdk" ) != -1
               || index( $ua, "jakarta commons-httpclient" ) != -1 );
 
-    # Devices
-
-    $tests->{BLACKBERRY} = 1 if index( $ua, "blackberry" ) != -1
-	|| index( $ua, "bb10" ) != -1
-	|| index( $ua, "rim tablet os" ) != -1;
-    $tests->{IPHONE}   = 1 if index( $ua, "iphone" ) != -1;
-    $tests->{WINCE}    = 1 if index( $ua, "windows ce" ) != -1;
-    $tests->{WINPHONE} = 1 if index( $ua, "windows phone" ) != -1;
-    $tests->{WEBOS}    = 1 if index( $ua, "webos" ) != -1;
-    $tests->{IPOD}     = 1 if index( $ua, "ipod" ) != -1;
-    $tests->{IPAD}     = 1 if index( $ua, "ipad" ) != -1;
-    $tests->{KINDLE}   = 1 if index( $ua, "kindle" ) != -1;
-    $tests->{AUDREY}   = 1 if index( $ua, "audrey" ) != -1;
-    $tests->{IOPENER}  = 1 if index( $ua, "i-opener" ) != -1;
-    $tests->{AVANTGO}  = 1 if index( $ua, "avantgo" ) != -1;
-    $tests->{PALM} = 1 if ( $tests->{AVANTGO} || index( $ua, "palmos" ) != -1 );
-    $tests->{WAP}
-        = 1 if ( $browser_tests->{OBIGO}
-            || index( $ua, "up.browser" ) != -1
-            || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
-            || index( $ua, "alcatel" ) != -1
-            || index( $ua, "ericsson" ) != -1
-            || index( $ua, "sie-" ) == 0
-            || index( $ua, "wmlib" ) != -1
-            || index( $ua, " wap" ) != -1
-            || index( $ua, "wap " ) != -1
-            || index( $ua, "wap/" ) != -1
-            || index( $ua, "-wap" ) != -1
-            || index( $ua, "wap-" ) != -1
-            || index( $ua, "wap" ) == 0
-            || index( $ua, "wapper" ) != -1
-            || index( $ua, "zetor" ) != -1 );
-    $tests->{PS3}    = 1 if index( $ua, "playstation 3" ) != -1;
-    $tests->{PSP}    = 1 if index( $ua, "playstation portable" ) != -1;
-    $tests->{DSI}    = 1 if index( $ua, "nintendo dsi" ) != -1;
-
-    $tests->{MOBILE} = (
-        (   $browser_tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
-            || ( $browser_tests->{IE}
-              && !$tests->{WINPHONE}
-              && index( $ua, "arm" ) != -1 )
-            || index( $ua, "up.browser" ) != -1
-            || index( $ua, "nokia" ) != -1
-            || index( $ua, "alcatel" ) != -1
-            || index( $ua, "ericsson" ) != -1
-            || index( $ua, "sie-" ) == 0
-            || index( $ua, "wmlib" ) != -1
-            || index( $ua, " wap" ) != -1
-            || index( $ua, "wap " ) != -1
-            || index( $ua, "wap/" ) != -1
-            || index( $ua, "-wap" ) != -1
-            || index( $ua, "wap-" ) != -1
-            || index( $ua, "wap" ) == 0
-            || index( $ua, "wapper" ) != -1
-            || index( $ua, "blackberry" ) != -1
-            || index( $ua, "iemobile" ) != -1
-            || index( $ua, "palm" ) != -1
-            || index( $ua, "smartphone" ) != -1
-            || index( $ua, "windows ce" ) != -1
-            || index( $ua, "palmsource" ) != -1
-            || index( $ua, "iphone" ) != -1
-            || index( $ua, "ipod" ) != -1
-            || index( $ua, "ipad" ) != -1
-            || ( index( $ua, "opera mini" ) != -1
-              && index( $ua, "tablet" ) == -1 )
-            || ( index( $ua, "android" ) != -1
-              && index( $ua, "mobile" ) != -1 )
-            || index( $ua, "htc_" ) != -1
-            || index( $ua, "symbian" ) != -1
-            || index( $ua, "webos" ) != -1
-            || index( $ua, "samsung" ) != -1
-            || index( $ua, "samsung" ) != -1
-            || index( $ua, "zetor" ) != -1
-            || index( $ua, "android" ) != -1
-            || index( $ua, "symbos" ) != -1
-            || index( $ua, "opera mobi" ) != -1
-            || index( $ua, "fennec" ) != -1
-            || index( $ua, "opera tablet" ) != -1
-            || index( $ua, "rim tablet" ) != -1
-            || ( index( $ua, "bb10" ) != -1
-              && index( $ua, "mobile" ) != -1 )
-            || $tests->{PSP}
-            || $tests->{DSI}
-            || $tests->{'N3DS'}
-            || index( $ua, "googlebot-mobile" ) != -1 # FIXME these depend on robot being detected first
-            || $tests->{MSNMOBILE}
-    );
-
-    $tests->{TABLET} = (
-        index( $ua, "ipad" ) != -1
-            || ( $browser_tests->{IE}
-            && !$tests->{WINPHONE}
-            && index( $ua, "arm" ) != -1 )
-            || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) == -1
-            && index( $ua, "opera" ) == -1 )
-            || ( $browser_tests->{FIREFOX} && index( $ua, "tablet" ) != -1 )
-            || index( $ua, "kindle" ) != -1
-            || index( $ua, "xoom" ) != -1
-            || index( $ua, "flyer" ) != -1
-            || index( $ua, "jetstream" ) != -1
-            || index( $ua, "transformer" ) != -1
-            || index( $ua, "novo7" ) != -1
-            || index( $ua, "an10g2" ) != -1
-            || index( $ua, "an7bg3" ) != -1
-            || index( $ua, "an7fg3" ) != -1
-            || index( $ua, "an8g3" ) != -1
-            || index( $ua, "an8cg3" ) != -1
-            || index( $ua, "an7g3" ) != -1
-            || index( $ua, "an9g3" ) != -1
-            || index( $ua, "an7dg3" ) != -1
-            || index( $ua, "an7dg3st" ) != -1
-            || index( $ua, "an7dg3childpad" ) != -1
-            || index( $ua, "an10bg3" ) != -1
-            || index( $ua, "an10bg3dt" ) != -1
-            || index( $ua, "opera tablet" ) != -1
-            || index( $ua, "rim tablet" ) != -1
-            || index( $ua, "hp-tablet" )
-            != -1
-
-    );
-
-    # Operating System
-
-    # Gecko version
-    $self->{gecko_version} = undef;
-    if ( $tests->{GECKO} ) {
-        if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
-            $self->{gecko_version}  = $1;
-            $self->{engine_version} = $1;
-        }
-    }
-
-    # Device from UA
-
-    $self->{device_name} = undef;
-
-    if ( $browser_tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
-        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
-        $self->{device_name} =~ s/^MOT-/Motorola /i;
-    }
-    elsif (
-        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
-    {
-        $self->{device_name} = substr $self->{user_agent},
-            pos( $ua ) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
-    }
-    elsif ( $ua
-        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
-        )
-    {
-        $self->{device_name} = substr $self->{user_agent},
-            pos( $ua ) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
-    }
-    elsif ( $ua =~ /bb10; ([^;\)]+)/g ) {
-        $self->{device_name} = 'BlackBerry ' . substr $self->{user_agent},
-            pos( $ua ) - length $1, length $1;
-        $self->{device_name} =~ s/Kbd/Q10/;
-    }
+    delete $self->{device};
+    delete $self->{device_name};
 
     $self->_robot_tests;
     $self->_os_tests;
@@ -804,6 +669,8 @@ sub _os_tests {
             || index( $ua, "win32" ) != -1
     );
 
+    $tests->{WINCE} = 1 if index( $ua, "windows ce" ) != -1;
+
     $tests->{WINDOWS} = (
         (          $tests->{WIN16}
                 || $tests->{WIN31}
@@ -824,6 +691,7 @@ sub _os_tests {
             || index( $ua, "win" ) != -1
     );
 
+    $tests->{WINPHONE}    = 1 if ( index( $ua, "windows phone" ) != -1 );
     $tests->{WINPHONE7}   = 1 if ( index( $ua, "windows phone os 7.0" ) != -1 );
     $tests->{WINPHONE7_5} = 1 if ( index( $ua, "windows phone os 7.5" ) != -1 );
     $tests->{WINPHONE8}   = 1 if ( index( $ua, "windows phone 8.0" ) != -1 );
@@ -842,7 +710,9 @@ sub _os_tests {
         );
 
     # FIXME -- depends on browser being tested first
-    $tests->{IOS} = $tests->{IPAD} || $tests->{IPOD} || $tests->{IPHONE};
+    $tests->{IOS} = index( $ua, "ipod" ) != -1
+	|| index( $ua, "iphone" ) != -1
+	|| index( $ua, "ipad" ) != -1;
 
     # Others
 
@@ -917,20 +787,13 @@ sub _os_tests {
     $tests->{VMS}
         = 1 if ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 );
 
-    $tests->{ANDROID} = 1 if ( index( $ua, "android" ) != -1 );
-
-    # FIXME -- depends on browser being tested first
-    $tests->{FIREFOXOS}
-        = 1 if ( $browser_tests->{FIREFOX}
-            && ( $tests->{MOBILE} || $tests->{TABLET} )
-            && !$tests->{ANDROID}
-            && index( $ua, "fennec" ) == -1 );
-
     $tests->{BB10}        = 1 if ( index( $ua, "bb10" ) != -1 );
     $tests->{RIMTABLETOS} = 1 if ( index( $ua, "rim tablet os" ) != -1 );
 
-    $tests->{PS3GAMEOS} = 1 if $tests->{PS3} && $browser_tests->{NETFRONT};
-    $tests->{PSPGAMEOS} = 1 if $tests->{PSP} && $browser_tests->{NETFRONT};
+    $tests->{PS3GAMEOS} = 1 if index( $ua, "playstation 3" ) != -1
+	&& $browser_tests->{NETFRONT};
+    $tests->{PSPGAMEOS} = 1 if index( $ua, "playstation portable" ) != -1
+	&& $browser_tests->{NETFRONT};
 }
 
 # undocumented, experimental, volatile. not bothering with major/minor here as
@@ -1399,6 +1262,198 @@ sub _cmp_versions {
     return @a <=> @b;
 }
 
+sub _init_device {
+    my ( $self ) = @_;
+
+    my $ua = lc $self->{user_agent};
+    my $browser_tests = $self->{browser_tests};
+    my $tests = $self->{tests};
+
+    my ( $device, $device_name );
+    my $device_tests = $self->{device_tests} = { };
+
+    if ( index( $ua, "android" ) != -1 ) {
+	$device = 'ANDROID';      $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "blackberry" ) != -1
+	 || index( $ua, "bb10" ) != -1
+	 || index( $ua, "rim tablet os" ) != -1 )
+    {
+	$device = 'BLACKBERRY';   $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "ipod" ) != -1 ) {
+	$device = 'IPOD';         $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "ipad" ) != -1 ) {
+	$device = 'IPAD';         $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "iphone" ) != -1 ) {
+	$device = 'IPHONE';       $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "webos" ) != -1 ) {
+	$device = 'WEBOS';        $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "kindle" ) != -1 ) {
+	$device = 'KINDLE';       $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "audrey" ) != -1 ) {
+	$device = 'AUDREY';       $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "i-opener" ) != -1 ) {
+	$device = 'IOPENER';      $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "avantgo" ) != -1 ) {
+	$device = 'AVANTGO';
+	$device_tests->{$device} = 1;
+	$device_tests->{PALM} = 1;
+    } elsif ( index( $ua, "palmos" ) != -1 ) {
+	$device = 'PALM';         $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "playstation 3" ) != -1 ) {
+	$device = 'PS3';          $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "playstation portable" ) != -1 ) {
+	$device = 'PSP';          $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "nintendo dsi" ) != -1 ) {
+	$device = 'DSI';          $device_tests->{$device} = 1;
+    } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
+	$device = 'N3DS';         $device_tests->{$device} = 1;
+    } elsif ( $browser_tests->{OBIGO}
+	 || index( $ua, "up.browser" ) != -1
+	 || ( index( $ua, "nokia" ) != -1 && !$tests->{WINPHONE} )
+	 || index( $ua, "alcatel" ) != -1
+	 || index( $ua, "ericsson" ) != -1
+	 || index( $ua, "sie-" ) == 0
+	 || index( $ua, "wmlib" ) != -1
+	 || index( $ua, " wap" ) != -1
+	 || index( $ua, "wap " ) != -1
+	 || index( $ua, "wap/" ) != -1
+	 || index( $ua, "-wap" ) != -1
+	 || index( $ua, "wap-" ) != -1
+	 || index( $ua, "wap" ) == 0
+	 || index( $ua, "wapper" ) != -1
+	 || index( $ua, "zetor" ) != -1 )
+    {
+	$device = 'WAP';          $device_tests->{$device} = 1;
+    }
+
+    $device_tests->{MOBILE} = (
+        (   $browser_tests->{FIREFOX} && index( $ua, "mobile" ) != -1 )
+            || ( $browser_tests->{IE}
+              && !$tests->{WINPHONE}
+              && index( $ua, "arm" ) != -1 )
+            || index( $ua, "up.browser" ) != -1
+            || index( $ua, "nokia" ) != -1
+            || index( $ua, "alcatel" ) != -1
+            || index( $ua, "ericsson" ) != -1
+            || index( $ua, "sie-" ) == 0
+            || index( $ua, "wmlib" ) != -1
+            || index( $ua, " wap" ) != -1
+            || index( $ua, "wap " ) != -1
+            || index( $ua, "wap/" ) != -1
+            || index( $ua, "-wap" ) != -1
+            || index( $ua, "wap-" ) != -1
+            || index( $ua, "wap" ) == 0
+            || index( $ua, "wapper" ) != -1
+            || index( $ua, "blackberry" ) != -1
+            || index( $ua, "iemobile" ) != -1
+            || index( $ua, "palm" ) != -1
+            || index( $ua, "smartphone" ) != -1
+            || index( $ua, "windows ce" ) != -1
+            || index( $ua, "palmsource" ) != -1
+            || index( $ua, "iphone" ) != -1
+            || index( $ua, "ipod" ) != -1
+            || index( $ua, "ipad" ) != -1
+            || ( index( $ua, "opera mini" ) != -1
+              && index( $ua, "tablet" ) == -1 )
+            || ( index( $ua, "android" ) != -1
+              && index( $ua, "mobile" ) != -1 )
+            || index( $ua, "htc_" ) != -1
+            || index( $ua, "symbian" ) != -1
+            || index( $ua, "webos" ) != -1
+            || index( $ua, "samsung" ) != -1
+            || index( $ua, "samsung" ) != -1
+            || index( $ua, "zetor" ) != -1
+            || index( $ua, "android" ) != -1
+            || index( $ua, "symbos" ) != -1
+            || index( $ua, "opera mobi" ) != -1
+            || index( $ua, "fennec" ) != -1
+            || index( $ua, "opera tablet" ) != -1
+            || index( $ua, "rim tablet" ) != -1
+            || ( index( $ua, "bb10" ) != -1
+              && index( $ua, "mobile" ) != -1 )
+            || $device_tests->{PSP}
+            || $device_tests->{DSI}
+            || $device_tests->{'N3DS'}
+            || index( $ua, "googlebot-mobile" ) != -1 # FIXME these depend on robot being detected first
+            || $browser_tests->{MSNMOBILE}
+    );
+
+    $device_tests->{TABLET} = (
+        index( $ua, "ipad" ) != -1
+            || ( $browser_tests->{IE}
+            && !$tests->{WINPHONE}
+            && index( $ua, "arm" ) != -1 )
+            || ( index( $ua, "android" ) != -1
+            && index( $ua, "mobile" ) == -1
+            && index( $ua, "opera" ) == -1 )
+            || ( $browser_tests->{FIREFOX} && index( $ua, "tablet" ) != -1 )
+            || index( $ua, "kindle" ) != -1
+            || index( $ua, "xoom" ) != -1
+            || index( $ua, "flyer" ) != -1
+            || index( $ua, "jetstream" ) != -1
+            || index( $ua, "transformer" ) != -1
+            || index( $ua, "novo7" ) != -1
+            || index( $ua, "an10g2" ) != -1
+            || index( $ua, "an7bg3" ) != -1
+            || index( $ua, "an7fg3" ) != -1
+            || index( $ua, "an8g3" ) != -1
+            || index( $ua, "an8cg3" ) != -1
+            || index( $ua, "an7g3" ) != -1
+            || index( $ua, "an9g3" ) != -1
+            || index( $ua, "an7dg3" ) != -1
+            || index( $ua, "an7dg3st" ) != -1
+            || index( $ua, "an7dg3childpad" ) != -1
+            || index( $ua, "an10bg3" ) != -1
+            || index( $ua, "an10bg3dt" ) != -1
+            || index( $ua, "opera tablet" ) != -1
+            || index( $ua, "rim tablet" ) != -1
+            || index( $ua, "hp-tablet" )
+            != -1
+    );
+
+    # FIXME -- depends on browser being tested first
+    $device_tests->{FIREFOXOS}
+        = 1 if ( $browser_tests->{FIREFOX}
+		 && ( $device_tests->{MOBILE} || $device_tests->{TABLET} )
+            && index( $ua, "android" ) == -1
+            && index( $ua, "fennec" ) == -1 );
+
+    if ( $browser_tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
+        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
+        $self->{device_name} =~ s/^MOT-/Motorola /i;
+    }
+    elsif (
+        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
+    {
+        $self->{device_name} = substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+    elsif ( $ua
+        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
+        )
+    {
+        $self->{device_name} = substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/; / /;
+    }
+    elsif ( $ua =~ /bb10; ([^;\)]+)/g ) {
+        $self->{device_name} = 'BlackBerry ' . substr $self->{user_agent},
+            pos( $ua ) - length $1, length $1;
+        $self->{device_name} =~ s/Kbd/Q10/;
+    } elsif ($device) {
+	$self->{device_name} = $DEVICES{lc $device}; 
+    } else {
+	$self->{device_name} = undef;
+    }
+
+    if ($device) {
+	$self->{device} = lc $device;
+    } else {
+	$self->{device} = undef; # Means we cache the fact that we found nothing
+    }
+}
+
 sub engine_string {
 
     my ( $self, $check ) = @_;
@@ -1504,23 +1559,17 @@ sub device {
 
     my ( $self, $check ) = @_;
 
-    foreach my $device ( sort keys %DEVICE_TESTS ) {
-        return $device if ( $self->$device );
-    }
+    $self->_init_device if !exists( $self->{device} );
+    return $self->{device};
 
-    return undef;
 }
 
 sub device_name {
 
     my ( $self, $check ) = @_;
 
-    return $self->{device_name} if defined $self->{device_name};
-
-    my $device = $self->device;
-    return undef if !$device;
-
-    return $DEVICE_TESTS{ $self->device };
+    $self->_init_device if !exists( $self->{device_name} );
+    return $self->{device_name};
 }
 
 sub _language_country {
@@ -1577,7 +1626,8 @@ sub browser_properties {
 
     my ( $self, $check ) = @_;
 
-    $self->_init_version;
+    $self->_init_version unless exists( $self->{major} );
+    $self->_init_device unless exists( $self->{device} );
 
     my @browser_properties;
     my ( $test, $value );
@@ -1588,6 +1638,9 @@ sub browser_properties {
         push @browser_properties, lc( $test ) if $value;
     }
     while ( ( $test, $value ) = each %{ $self->{version_tests} } ) {
+        push @browser_properties, lc( $test ) if $value;
+    }
+    while ( ( $test, $value ) = each %{ $self->{device_tests} } ) {
         push @browser_properties, lc( $test ) if $value;
     }
 
