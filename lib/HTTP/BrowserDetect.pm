@@ -9,22 +9,22 @@ use vars qw(@ALL_TESTS);
 
 # Operating Systems
 our @OS_TESTS = qw(
-    windows mac   os2
-    unix    linux vms
-    bsd     amiga
-    bb10    rimtabletos
+    windows  mac     os2
+    unix     linux   vms
+    bsd      amiga
+    bb10     rimtabletos
     chromeos ios
     firefoxos
 );
 
 # More precise Windows
 our @WINDOWS_TESTS = qw(
-    win16    win3x     win31
-    win95    win98     winnt
-    winme    win32     win2k
-    winxp    win2k3    winvista
-    win7     win8      win8_0
-    win8_1   wince     winphone
+    win16      win3x        win31
+    win95      win98        winnt
+    winme      win32        win2k
+    winxp      win2k3       winvista
+    win7       win8         win8_0
+    win8_1     wince        winphone
     winphone7  winphone7_5  winphone8
 );
 
@@ -113,16 +113,15 @@ our @ENGINE_TESTS = qw(
 our @ROBOT_TESTS = qw(
     puf          curl        wget
     getright     robot       slurp
-    yahoo        mj12bot
+    yahoo        mj12bot     ahrefs
     altavista    lycos       infoseek
     lwp          webcrawler  linkexchange
-    googlemobile
-    msn          msnmobile
+    googlemobile msn         msnmobile
     facebook     baidu       googleadsbot
     askjeeves    googleadsense googlebotvideo
     googlebotnews googlebotimage google
     linkchecker  yandeximages specialarchiver
-    yandex       ahrefs
+    yandex
 );
 
 our @MISC_TESTS = qw(
@@ -386,7 +385,7 @@ sub user_agent {
 sub _init_core {
     my ( $self ) = @_;
 
-    # Reset versions, this gets filled in on demand in _init_versions
+    # Reset versions, this gets filled in on demand in _init_version
     delete $self->{version_tests};
     delete $self->{major};
     delete $self->{minor};
@@ -412,9 +411,6 @@ sub _init_core {
     my $browser_tests = $self->{browser_tests};
     my $browser = undef;
 
-    my @ff = ( 'firefox', @FIREFOX_TESTS );
-    my $ff = join "|", @ff;
-
     my $ua = lc $self->{user_agent};
 
     # Detect engine
@@ -437,7 +433,7 @@ sub _init_core {
     # Detect browser
 
     if ($ua =~ m{
-                ($ff)
+                (firebird|iceweasel|phoenix|namoroka|firefox)
                 \/
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
@@ -512,7 +508,7 @@ sub _init_core {
     }
     elsif ( index( $ua, "neoplanet" ) != -1 )
     {
-	# Browser is Neoplanet (???)
+	# Browser is Neoplanet
 
 	$browser = undef;
 	$browser_tests->{NEOPLANET} = 1;
@@ -940,8 +936,8 @@ sub _init_version {
 	# MSIE and some others use a "compatible" format
 	( $major, $minor, $beta ) = split /\./, $1;
     } elsif ( !$browser ) {
-	# We need to stop before we try to compare $browser -- we have some
-	# other generic approaches after this if statement is all done.
+	# Nothing else is going to work if $browser isn't defined; skip the
+	# specific approaches and go straight to the generic ones.
     } elsif ( $browser_tests->{CHROME} ) {
 	# Chrome Version
 
@@ -1057,12 +1053,8 @@ sub _init_version {
         }
     }
 
-    if ( !defined($major) ) {
-	# Oh well.
-
-	$major = 0;
-	$minor = 0;
-    }
+    $major = 0 if !$major;
+    $minor = 0 if !$minor;
 
     # Now set version tests
 
@@ -1128,7 +1120,6 @@ sub _init_version {
 
     }
 
-    $minor ||= 0;
     $minor = ".$minor";
 
     $self->{major} = $major;
@@ -1409,7 +1400,7 @@ sub gecko_version {
 
 sub version {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
+    $self->_init_version() unless exists($self->{major});
 
     my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
@@ -1422,7 +1413,7 @@ sub version {
 
 sub major {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
+    $self->_init_version() unless exists($self->{major});
 
     my ( $version ) = $self->{major};
     if ( defined $check ) {
@@ -1435,7 +1426,7 @@ sub major {
 
 sub minor {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless defined($self->{major});
+    $self->_init_version() unless exists($self->{major});
 
     my ( $version ) = $self->{minor};
     if ( defined $check ) {
