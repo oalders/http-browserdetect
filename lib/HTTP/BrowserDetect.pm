@@ -14,6 +14,7 @@ our @OS_TESTS = qw(
     bsd     amiga
     bb10    rimtabletos
     chromeos ios
+    firefoxos
 );
 
 # More precise Windows
@@ -57,7 +58,7 @@ our @GAMING_TESTS = qw(
 our @DEVICE_TESTS = qw(
     android audrey blackberry dsi iopener ipad
     iphone ipod kindle n3ds palm ps3 psp wap webos
-    mobile tablet firefoxos
+    mobile tablet
 );
 
 # Browsers
@@ -232,7 +233,7 @@ my %OS_NAMES = (
     winvista => 'WinVista',
     win7 => 'Win7',
     win8 => 'Win8',
-    win8_0 => 'Win8.0',
+    win8_0 => 'Win8', # FIXME bug compatibility
     win8_1 => 'Win8.1',
     winnt => 'WinNT',
     winphone => 'Windows Phone',
@@ -531,6 +532,7 @@ sub _init_core {
 	$browser = 'LYNX';       $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "elinks" ) != -1 ) {
 	$browser = 'ELINKS';     $browser_tests->{$browser} = 1;
+	$browser_tests->{LINKS} = 1; # FIXME bug compatibility
     } elsif ( index( $ua, "links" ) != -1 ) {
 	$browser = 'LINKS';      $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "webtv" ) != -1 ) {
@@ -590,6 +592,8 @@ sub _init_core {
     }
 
     $self->{browser} = $browser;
+
+    # Other random tests
 
     $tests->{JAVA}
         = 1 if ( index( $ua, "java" ) != -1
@@ -828,6 +832,9 @@ sub _init_os {
     } elsif ( index( $ua, "android" ) != -1 ) {
 	# Android
 	$os = 'ANDROID'; # Test gets set in the device testing
+
+	# FIXME bug compatibility:
+	$os_tests->{LINUX} = $os_tests->{UNIX} = 1 if index( $ua, "inux" ) != -1;
     } elsif ( index( $ua, "inux" ) != -1 ) {
 	# Linux
 	$os = 'LINUX'; $os_tests->{LINUX} = $os_tests->{UNIX} = 1;
@@ -892,6 +899,18 @@ sub _init_os {
 	$os = 'PSPGAMEOS'; $os_tests->{PSPGAMEOS} = 1;
     } else {
 	$os = undef;
+    }
+
+    # To deal with FirefoxOS we seem to have to load-on-demand devices
+    # also, by calling ->mobile and ->tablet. We have to be careful;
+    # if we ever created a loop back from _init_devices to _init_os
+    # we'd run forever.
+    if ( !$os
+	 && $browser_tests->{FIREFOX}
+	 && index( $ua, "fennec" ) == -1
+	 && ( $self->mobile || $self->tablet ) )
+    {
+	$os = 'FIREFOXOS'; $os_tests->{FIREFOXOS} = 1;
     }
 
     $self->{cached_os} = $os ? lc $os : undef;
@@ -1267,12 +1286,6 @@ sub _init_device {
             || index( $ua, "rim tablet" ) != -1
             || index( $ua, "hp-tablet" ) != -1
     );
-
-    $device_tests->{FIREFOXOS}
-        = 1 if ( $browser_tests->{FIREFOX}
-		 && ( $device_tests->{MOBILE} || $device_tests->{TABLET} )
-            && index( $ua, "android" ) == -1
-            && index( $ua, "fennec" ) == -1 );
 
     if ( $browser_tests->{OBIGO} && $ua =~ /^(mot-\S+)/ ) {
         $self->{device_name} = substr $self->{user_agent}, 0, length $1;
