@@ -69,6 +69,8 @@ our @BROWSER_TESTS = qw(
     avantgo       emacs       mozilla
     konqueror     realplayer  netfront
     mobile_safari obigo       aol
+    lotusnotes    staroffice  icab
+    webtv
 );
 
 our @IE_TESTS = qw(
@@ -113,8 +115,7 @@ our @ROBOT_TESTS = qw(
     yahoo        mj12bot
     altavista    lycos       infoseek
     lwp          webcrawler  linkexchange
-    webtv        staroffice
-    lotusnotes   icab        googlemobile
+    googlemobile
     msn          msnmobile
     facebook     baidu       googleadsbot
     askjeeves    googleadsense googlebotvideo
@@ -157,11 +158,9 @@ my %ROBOT_NAMES = (
     googlebotnews   => 'Googlebot News',
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Google Mobile',
-    icab            => 'iCab',
     infoseek        => 'InfoSeek',
     linkchecker     => 'LinkChecker',
     linkexchange    => 'LinkExchange',
-    lotusnotes      => 'Lotus Notes',
     lwp             => 'LWP::UserAgent',
     lycos           => 'Lycos',
     mj12bot         => 'Majestic-12 DSearch',
@@ -171,9 +170,7 @@ my %ROBOT_NAMES = (
     robot           => 'robot',
     slurp           => 'Yahoo! Slurp',
     specialarchiver => 'archive.org_bot',
-    staroffice      => 'StarOffice',
     webcrawler      => 'WebCrawler',
-    webtv           => 'WebTV',
     wget            => 'wget',
     yahoo           => 'Yahoo',
     yandex          => 'Yandex',
@@ -202,6 +199,9 @@ my %BROWSER_NAMES = (
     netfront      => 'NetFront',
     n3ds          => 'Nintendo 3DS',
     blackberry    => 'BlackBerry',
+    staroffice    => 'StarOffice',
+    lotusnotes    => 'Lotus Notes',
+    icab          => 'iCab',
 );
 
 # Device names
@@ -324,13 +324,24 @@ foreach my $test ( @OS_TESTS, @WINDOWS_TESTS, @MAC_TESTS, @UNIX_TESTS,
     };
 }
 
-foreach my $test ( @BROWSER_TESTS, @ROBOT_TESTS, @FIREFOX_TESTS )
+foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS )
 {
     no strict 'refs';
     my $key = uc $test;
     *{$test} = sub {
         my ( $self ) = @_;
         return $self->{browser_tests}->{$key} || 0;
+    };
+}
+
+foreach my $test ( @ROBOT_TESTS )
+{
+    no strict 'refs';
+    my $key = uc $test;
+    *{$test} = sub {
+        my ( $self ) = @_;
+	$self->_init_robots() unless $self->{robot_tests};
+        return $self->{robot_tests}->{$key} || 0;
     };
 }
 
@@ -387,6 +398,10 @@ sub _init_core {
     # Reset device info, this gets filled in on demand in _init_device
     delete $self->{device};
     delete $self->{device_name};
+
+    # Reset robot info
+    delete $self->{robot_tests};
+    delete $self->{robot_name};
 
     # These get filled in immediately
     $self->{tests} = { };
@@ -536,13 +551,9 @@ sub _init_core {
     } elsif ( index( $ua, "blackberry" ) != -1 ) {
 	$browser = 'BLACKBERRY'; # Test gets set during device check
     } elsif ( index( $ua, "libcurl" ) != -1 ) {
-	$browser = 'CURL';
-	$browser_tests->{CURL} = 1;
-	$browser_tests->{ROBOT} = 1;
+	$browser = 'CURL';       # Test gets set during robot check
     } elsif ( index( $ua, "puf/" ) != -1 ) {
-	$browser = 'PUF';
-	$browser_tests->{PUF} = 1;
-	$browser_tests->{ROBOT} = 1;
+	$browser = 'PUF';        # Test gets set during robot check
     }
 
     if ( index( $ua, "realplayer" ) != -1 )
@@ -586,62 +597,94 @@ sub _init_core {
               || index( $ua, "jakarta commons-httpclient" ) != -1 );
     $tests->{X11} = 1 if index( $ua, "x11" ) != -1;
     $tests->{DOTNET} = 1 if index( $ua, ".net clr" ) != -1;
-
-    $self->_robot_tests;
-
-    return undef unless $self->robot;
 }
 
-sub _robot_tests {
+sub _init_robots {
     my $self  = shift;
+
     my $ua    = lc $self->{user_agent};
     my $tests = $self->{tests};
     my $browser_tests = $self->{browser_tests};
 
-    my $is_r = 0;
+    my $robot_tests = $self->{robot_tests} = { };
 
-    $is_r = $browser_tests->{LWP}
-        = 1 if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 );
-    $is_r = $browser_tests->{YAHOO} = 1 if ( index( $ua, "yahoo" ) != -1 )
-        && ( index( $ua, 'jp.co.yahoo.android' ) == -1 );
-    $is_r = $browser_tests->{MSN} = 1 if (
-        ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) ) != -1 );
-    $is_r = $browser_tests->{MSNMOBILE} = 1 if (
-        (          index( $ua, "msnbot-mobile" ) != -1
-                || index( $ua, "bingbot-mobile" )
-        ) != -1
-    );
+    my $r = undef;
 
-    $is_r = $browser_tests->{AHREFS}          = 1 if ( index( $ua, "ahrefsbot" ) != -1 );
-    $is_r = $browser_tests->{ALTAVISTA}       = 1 if ( index( $ua, "altavista" ) != -1 );
-    $is_r = $browser_tests->{ASKJEEVES}       = 1 if ( index( $ua, "ask jeeves/teoma" ) != -1 );
-    $is_r = $browser_tests->{BAIDU}           = 1 if ( index( $ua, "baiduspider" ) != -1 );
-    $is_r = $browser_tests->{FACEBOOK}        = 1 if ( index( $ua, "facebookexternalhit" ) != -1 );
-    $is_r = $browser_tests->{GETRIGHT}        = 1 if ( index( $ua, "getright" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEADSBOT}    = 1 if ( index( $ua, "adsbot-google" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEADSENSE}   = 1 if ( index( $ua, "mediapartners-google" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEBOTIMAGE}  = 1 if ( index( $ua, "googlebot-image" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEBOTNEWS}   = 1 if ( index( $ua, "googlebot-news" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEBOTVIDEO}  = 1 if ( index( $ua, "googlebot-video" ) != -1 );
-    $is_r = $browser_tests->{GOOGLEMOBILE}    = 1 if ( index( $ua, "googlebot-mobile" ) != -1 );
-    $is_r = $browser_tests->{GOOGLE}          = 1 if ( index( $ua, "googlebot" ) != -1 );
-    $is_r = $browser_tests->{INFOSEEK}        = 1 if ( index( $ua, "infoseek" ) != -1 );
-    $is_r = $browser_tests->{LINKEXCHANGE}    = 1 if ( index( $ua, "lecodechecker" ) != -1 );
-    $is_r = $browser_tests->{LINKCHECKER}     = 1 if ( index( $ua, "linkchecker" ) != -1 );
-    $is_r = $browser_tests->{LYCOS}           = 1 if ( index( $ua, "lycos" ) != -1 );
-    $is_r = $browser_tests->{MJ12BOT}         = 1 if ( index( $ua, "mj12bot/" ) != -1 );
-    $is_r = $browser_tests->{SCOOTER}         = 1 if ( index( $ua, "scooter" ) != -1 );
-    $is_r = $browser_tests->{SLURP}           = 1 if ( index( $ua, "slurp" ) != -1 );
-    $is_r = $browser_tests->{SPECIALARCHIVER} = 1 if ( index( $ua, "special_archiver" ) != -1 );
-    $is_r = $browser_tests->{WEBCRAWLER}      = 1 if ( index( $ua, "webcrawler" ) != -1 );
-    $is_r = $browser_tests->{WGET}            = 1 if ( index( $ua, "wget" ) != -1 );
-    $is_r = $browser_tests->{YANDEX}          = 1 if ( index( $ua, "yandexbot" ) != -1 );
-    $is_r = $browser_tests->{YANDEXIMAGES}    = 1 if ( index( $ua, "yandeximages" ) != -1 );
+    if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
+	$r = 'LWP';
+    } elsif ( index( $ua, "slurp" ) != -1 ) {
+	$r = 'SLURP'; $robot_tests->{YAHOO} = 1;
+    } elsif ( index( $ua, "yahoo" ) != -1
+	      && index( $ua, 'jp.co.yahoo.android' ) == -1 )
+    {
+	$r = 'YAHOO';
+    } elsif ( index( $ua, "msnbot-mobile" ) != -1
+	      || index( $ua, "bingbot-mobile" ) != -1 )
+    {
+        $r = 'MSNMOBILE'; $robot_tests->{MSN} = 1;
+    } elsif ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) != -1 ) {
+	$r = 'MSN';
+    } elsif ( index( $ua, "ahrefsbot" ) != -1 ) {
+	$r = 'AHREFS';
+    } elsif ( index( $ua, "altavista" ) != -1 ) {
+	$r = 'ALTAVISTA';
+    } elsif ( index( $ua, "ask jeeves/teoma" ) != -1 ) {
+	$r = 'ASKJEEVES';
+    } elsif ( index( $ua, "baiduspider" ) != -1 ) {
+	$r = 'BAIDU';
+    } elsif ( index( $ua, "libcurl" ) != -1 ) {
+	$r = 'CURL';
+    } elsif ( index( $ua, "facebookexternalhit" ) != -1 ) {
+	$r = 'FACEBOOK';
+    } elsif ( index( $ua, "getright" ) != -1 ) {
+	$r = 'GETRIGHT';
+    } elsif ( index( $ua, "adsbot-google" ) != -1 ) {
+	$r = 'GOOGLEADSBOT';
+    } elsif ( index( $ua, "mediapartners-google" ) != -1 ) {
+	$r = 'GOOGLEADSENSE';
+    } elsif ( index( $ua, "googlebot-image" ) != -1 ) {
+	$r = 'GOOGLEBOTIMAGE';  $robot_tests->{GOOGLE} = 1;
+    } elsif ( index( $ua, "googlebot-news" ) != -1 ) {
+	$r = 'GOOGLEBOTNEWS';   $robot_tests->{GOOGLE} = 1;
+    } elsif ( index( $ua, "googlebot-video" ) != -1 ) {
+	$r = 'GOOGLEBOTVIDEO';  $robot_tests->{GOOGLE} = 1;
+    } elsif ( index( $ua, "googlebot-mobile" ) != -1 ) {
+	$r = 'GOOGLEMOBILE'; $robot_tests->{GOOGLE} = 1;
+    } elsif ( index( $ua, "googlebot" ) != -1 ) {
+	$r = 'GOOGLE';
+    } elsif ( index( $ua, "infoseek" ) != -1 ) {
+	$r = 'INFOSEEK';
+    } elsif ( index( $ua, "lecodechecker" ) != -1 ) {
+	$r = 'LINKEXCHANGE';
+    } elsif ( index( $ua, "linkchecker" ) != -1 ) {
+	$r = 'LINKCHECKER';
+    } elsif ( index( $ua, "lycos" ) != -1 ) {
+	$r = 'LYCOS';
+    } elsif ( index( $ua, "mj12bot/" ) != -1 ) {
+	$r = 'MJ12BOT';
+    } elsif ( index( $ua, "puf/" ) != -1 ) {
+	$r = 'PUF';
+    } elsif ( index( $ua, "scooter" ) != -1 ) {
+	$r = 'SCOOTER';
+    } elsif ( index( $ua, "special_archiver" ) != -1 ) {
+	$r = 'SPECIALARCHIVER';
+    } elsif ( index( $ua, "webcrawler" ) != -1 ) {
+	$r = 'WEBCRAWLER';
+    } elsif ( index( $ua, "wget" ) != -1 ) {
+	$r = 'WGET';
+    } elsif ( index( $ua, "yandexbot" ) != -1 ) {
+	$r = 'YANDEX';
+    } elsif ( index( $ua, "yandeximages" ) != -1 ) {
+	$r = 'YANDEXIMAGES';
+    }
 
-    $browser_tests->{ROBOT} =
-	$is_r
-	|| $browser_tests->{CURL}
-        || $browser_tests->{PUF}
+    if ( $r ) {
+	$robot_tests->{$r} = 1;
+	$self->{robot_name} = $ROBOT_NAMES{lc $r}; # Including undef
+    }
+
+    $robot_tests->{ROBOT} ||=
+	$r
         || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
         || index( $ua, "bot" ) != -1
@@ -1188,8 +1231,9 @@ sub _init_device {
             || $device_tests->{PSP}
             || $device_tests->{DSI}
             || $device_tests->{'N3DS'}
-            || index( $ua, "googlebot-mobile" ) != -1 # FIXME these depend on robot being detected first
-            || $browser_tests->{MSNMOBILE}
+            || index( $ua, "googlebot-mobile" ) != -1
+            || index( $ua, "msnbot-mobile" ) != -1
+            || index( $ua, "bingbot-mobile" ) != -1
     );
 
     $device_tests->{TABLET} = (
@@ -1657,7 +1701,8 @@ sub browser_properties {
     my ( $self, $check ) = @_;
 
     $self->_init_version unless exists( $self->{major} );
-    $self->_init_device unless exists( $self->{device} );
+    $self->_init_device unless exists( $self->{device_tests} );
+    $self->_init_robots unless exists( $self->{robot_tests} );
 
     my @browser_properties;
 
@@ -1675,6 +1720,9 @@ sub browser_properties {
     while ( ( $test, $value ) = each %{ $self->{os_tests} } ) {
         push @browser_properties, lc( $test ) if $value;
     }
+    while ( ( $test, $value ) = each %{ $self->{robot_tests} } ) {
+	push @browser_properties, lc( $test ) if $value;
+    }
     while ( ( $test, $value ) = each %{ $self->{version_tests} } ) {
         push @browser_properties, lc( $test ) if $value;
     }
@@ -1688,12 +1736,8 @@ sub browser_properties {
 
 sub robot_name {
     my $self = shift;
-    foreach my $name ( @ROBOT_TESTS ) {
-        next if $name eq 'robot';
-        if ( $self->$name ) {
-            return $ROBOT_NAMES{$name};
-        }
-    }
+    $self->_init_robots unless exists($self->{robot_name});
+    return $self->{robot_name};
 }
 
 1;
