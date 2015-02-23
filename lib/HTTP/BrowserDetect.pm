@@ -476,6 +476,20 @@ sub _init_core {
 	$browser = 'CHROME';
 	$browser_tests->{CHROME} = 1;
     }
+    elsif ( index( $ua, "blackberry" ) != -1
+	    || index( $ua, "bb10" ) != -1
+	    || index( $ua, "rim tablet os") != -1 )
+    {
+	# Needs to go above the Safari check
+	$browser = 'BLACKBERRY'; # Test gets set during device check
+
+	# FIXME bug compatibility?
+	$browser_tests->{SAFARI} = 1
+	    if index( $ua, "safari" ) != -1
+	    || index( $ua, "applewebkit" ) != -1;
+	$browser_tests->{MOBILE_SAFARI} = 1
+	    if index( $ua, "mobile safari" ) != -1;
+    }
     elsif ( ( index( $ua, "safari" ) != -1 )
             || ( index( $ua, "applewebkit" ) != -1 ) )
     {
@@ -546,8 +560,6 @@ sub _init_core {
 	$browser = 'OBIGO';      $browser_tests->{$browser} = 1;
     } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
 	$browser = 'N3DS';       # Test gets set during device check
-    } elsif ( index( $ua, "blackberry" ) != -1 ) {
-	$browser = 'BLACKBERRY'; # Test gets set during device check
     } elsif ( index( $ua, "libcurl" ) != -1 ) {
 	$browser = 'CURL';       # Test gets set during robot check
     } elsif ( index( $ua, "puf/" ) != -1 ) {
@@ -607,7 +619,6 @@ sub _init_robots {
     my $browser_tests = $self->{browser_tests};
 
     my $robot_tests = $self->{robot_tests} = { };
-
     my $r = undef;
 
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
