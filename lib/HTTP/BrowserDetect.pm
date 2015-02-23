@@ -924,140 +924,147 @@ sub _init_version {
     my $ua = lc $self->{user_agent};
     my $tests = $self->{tests};
     my $browser_tests = $self->{browser_tests};
+    my $browser = $self->{browser};
 
     $self->{version_tests} = { };
     my $version_tests = $self->{version_tests};
 
-    # Browser version
-    my ( $major, $minor, $beta ) = (
-        $ua =~ m{
-            \S+                     # Greedly catch anything leading up to forward slash.
-            \/                      # Version starts with a slash
-            [A-Za-z]*               # Eat any letters before the major version
-            ( [0-9A-Za-z]* )        # Major version number is everything before the first dot
-            \.                      # The first dot
-            ( [\d]* )               # Minor version number is every digit after the first dot
-            [\d.]*                  # Throw away remaining numbers and dots
-            ( [^\s]* )              # Beta version string is up to next space
-        }x
-    );
+    my ( $major, $minor, $beta );
 
-    my $ff = join('|', 'firefox', @FIREFOX_TESTS);
+    ### First figure out version numbers. We try the regexp that makes the most
+    ### sense for whatever browser we have, and if that doesn't work
+    ### we fall back to increasingly generic methods.
 
-    # Firefox version
-    if ($ua =~ m{
-                ($ff)
-                \/
-                ( [^.]* )           # Major version number is everything before first dot
-                \.                  # The first dot
-                ( [\d]* )           # Minor version nnumber is digits after first dot
-            }xo
-        )
+    if ( $ua =~ m{\b compatible; \s* [\w\-]* [/\s] ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9\.]* )? ;}x )
     {
-        $major               = $2;
-        $minor               = $3;
-    }
-
-    # IE (and others) version
-    if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
-
-        # Internet Explorer
-        ( $major, $minor, $beta ) = split /\./, $1;
-    }
-    elsif ( $ua
-        =~ m{\b compatible; \s* [\w\-]* / ( [0-9\.]* ) (?: [a-z]+ [a-z0-9\.]* )? ;}x
-        )
-    {
-        # Generic "compatible" formats
-        ( $major, $minor, $beta ) = split /\./, $1;
-
-    }
-    elsif ( $tests->{TRIDENT} && $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
-
-        # MSIE masking as Gecko really well ;)
-        ( $major, $minor, $beta ) = split /\./, $1;
-    }
-
-# Opera needs to be dealt with specifically
-# http://dev.opera.com/articles/view/opera-ua-string-changes/
-# http://my.opera.com/community/openweb/idopera/
-# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
-# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
-
-    if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
-	$major = $1;
-	$minor = $2;
-    }
-    elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
-	$major = $1;
-	$minor = $2;
-    }
-
-    if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
-	$major = $1;
-	$minor = $2;
-    }
-    elsif ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
-	$major = $1;
-	$minor = $2;
-    }
-
-    $major = 0 if !$major;
-    $minor = $self->_format_minor( $minor );
-
-    if ( $browser_tests->{CHROME} ) {
+	# MSIE and some others use a "compatible" format
+	( $major, $minor, $beta ) = split /\./, $1;
+    } elsif ( !$browser ) {
+	# We need to stop before we try to compare $browser -- we have some
+	# other generic approaches after this if statement is all done.
+    } elsif ( $browser_tests->{CHROME} ) {
 	# Chrome Version
 
         ( $major, $minor ) = (
             $ua =~ m{
                 chrome
                 \/
-                ( \d+ )       # Major version number
-                ( \. \d+ )?   # Minor version number is dot and following digits
+                ( \d+ )        # Major version number
+                (?:\.( \d+ ))? # Minor version number is dot and following digits
             }x
 	    );
-
-	$minor = 0 if !$minor;
 
     } elsif ( $browser_tests->{SAFARI} ) {
 	# Safari Version
 
-        my ( $safari_build, $safari_minor ) = (
-            $ua =~ m{
-                safari/
-                ( \d+ )       # Major version number
-                ( \. \d+ )?   # Minor version number is dot and following digits
+        if (0 && $ua =~ m{ # Disable this for bug compatibility
+                version/
+                ( \d+ )       # Major version number is everything before first dot
+                \.            # First dot
+                ( \d+ )?      # Minor version number follows dot
             }x
-        );
-
-        if ( !$safari_build && $ua =~ m{applewebkit\/([\d\.]{1,})}xi ) {
-
-            # ignore digits after 2nd dot
-            ( $safari_build, $safari_minor ) = split /\./, $1;
+            )
+        {
+	    # Safari starting with version 3.0 provides its own public version
+            ( $major, $minor ) = ( $1, $2, undef );
         }
-
-        if ( $safari_build ) {
-            $major = int( $safari_build / 100 );
-            $minor = int( $safari_build % 100 ) / 100;
-            $beta  = $safari_minor;
+	elsif ($ua =~ m{ safari/ ( \d+ (?: \.\d+ )* ) }x )
+	{
+            if ( my ( $safari_build, $safari_minor ) = split /\./, $1 ) {
+		$major = int( $safari_build / 100 );
+		$minor = int( $safari_build % 100 );
+		$beta  = ".$safari_minor;" if $safari_minor;
+	    }
+	}
+	elsif ($ua =~ m{applewebkit\/([\d\.]{1,})}xi )
+	{
+            if (my ( $safari_build, $safari_minor ) = split /\./, $1 ) {
+		$major = int( $safari_build / 100 );
+		$minor = int( $safari_build % 100 );
+		$beta  = ".$safari_minor;" if $safari_minor;
+	    }
         }
+    } elsif ( $browser_tests->{FIREFOX} || $browser_tests->{NETSCAPE} ) {
+	# Firefox or some variant
+
+	( $major, $minor, $beta ) =
+	    $ua =~ m{
+                (?:netscape6?|firefox|firebird|iceweasel|phoenix|namoroka)\/
+                ( [^.]* ) # Major version number is everything before first dot
+                \.       # The first dot
+                ( [\d]* ) # Minor version nnumber is digits after first dot
+                ( [^\s]* )
+            }x;
+    } elsif ( $browser_tests->{IE} ) {
+	# MSIE
+
+	if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
+	    # Internet Explorer
+	    ( $major, $minor, $beta ) = split /\./, $1;
+	}
+	elsif ( $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
+	    # MSIE masking as Gecko really well ;)
+	    ( $major, $minor, $beta ) = split /\./, $1;
+	}
+    } elsif ( $browser eq 'OPERA' ) {
+	# Opera needs to be dealt with specifically
+	# http://dev.opera.com/articles/view/opera-ua-string-changes/
+	# http://my.opera.com/community/openweb/idopera/
+	# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
+	# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
+
+	if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
+	    $major = $1;
+	    $minor = $2;
+	} elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
+    } elsif ( $browser eq 'NETFRONT' ) {
+	if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
+    } elsif ( $browser eq 'N3DS' ) {
+	if ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
     }
 
-    if ( $tests->{GECKO}
-	 && $browser_tests->{NETSCAPE}
-	 && index( $ua, "netscape" ) != -1 )
-    {
+    if ( !defined($major) ) {
+	# We still don't have a version. Try a generic approach.
+
 	( $major, $minor, $beta ) = (
 	    $ua =~ m{
-                    netscape6?\/
-                    ( [^.]* )      # Major version number is everything before first dot
-                    \.             # The first dot
-                    ( [\d]* )      # Minor version nnumber is digits after first dot
-                    ( [^\s]* )
-                }x
-		);
-	$minor = 0 + ".$minor";
+                \S+        # Greedly catch anything leading up to forward slash.
+                \/                # Version starts with a slash
+                [A-Za-z]*         # Eat any letters before the major version
+                ( [0-9A-Za-z]* )  # Major version number is everything before the first dot
+                 \.               # The first dot
+                ([\d]* )          # Minor version number is every digit after the first dot
+                [\d.]*            # Throw away remaining numbers and dots
+                ( [^\s]* )        # Beta version string is up to next space
+            }x
+	    );
     }
+
+    if ( !defined($major) ) {
+	# We still don't have one. More generic.
+        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
+            $major = $1;
+            $minor = 0;
+        }
+    }
+
+    if ( !defined($major) ) {
+	# Oh well.
+
+	$major = 0;
+	$minor = 0;
+    }
+
+    # Now set version tests
 
     if ( $browser_tests->{NETSCAPE} ) {
 	# Netscape browsers
@@ -1065,8 +1072,8 @@ sub _init_version {
 	$version_tests->{NAV3}    = ( $major == 3 );
 	$version_tests->{NAV4}    = ( $major == 4 );
 	$version_tests->{NAV4UP}  = ( $major >= 4 );
-	$version_tests->{NAV45}   = ( $major == 4 && $minor == .5 );
-	$version_tests->{NAV45UP} = ( $version_tests->{NAV4}     && $minor >= .5 )
+	$version_tests->{NAV45}   = ( $major == 4 && $minor == 5 );
+	$version_tests->{NAV45UP} = ( $major == 4 && ".$minor" >= .5 )
 	    || $major >= 5;
 	$version_tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
 	$version_tests->{NAV6} = ( $major == 5 || $major == 6 )
@@ -1080,8 +1087,8 @@ sub _init_version {
 	$version_tests->{IE4UP}  = 1 if ( $major >= 4 );
 	$version_tests->{IE5}    = 1 if ( $major == 5 );
 	$version_tests->{IE5UP}  = 1 if ( $major >= 5 );
-	$version_tests->{IE55}   = 1 if ( $major == 5  && $minor >= .5 );
-	$version_tests->{IE55UP} = 1 if ( $minor >= .5 || $major >= 6 );
+	$version_tests->{IE55}   = 1 if ( $major == 5  && $minor == 5 );
+	$version_tests->{IE55UP} = 1 if ( ".$minor" >= .5 || $major >= 6 );
 	$version_tests->{IE6}  = 1 if ( $major == 6 );
 	$version_tests->{IE7}  = 1 if ( $major == 7 );
 	$version_tests->{IE8}  = 1 if ( $major == 8 );
@@ -1121,14 +1128,8 @@ sub _init_version {
 
     }
 
-    # A final try at browser version, if we haven't gotten it so far
-    if ( !defined( $major ) || $major eq '' ) {
-        if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
-            $major = $1;
-            $minor = 0;
-        }
-
-    }
+    $minor ||= 0;
+    $minor = ".$minor";
 
     $self->{major} = $major;
     $self->{minor} = $minor;
@@ -1513,7 +1514,7 @@ sub _public {
 
 		# Special case for specific worm that uses a malformed user agent
 		return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
-            }
+	    }
             my ( $major, $minor ) = split /\./, $version;
             my $beta;
             $minor =~ s/(\D.*)// and $beta = $1;
