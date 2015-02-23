@@ -953,7 +953,7 @@ sub _init_version {
     } elsif ( $browser_tests->{SAFARI} ) {
 	# Safari Version
 
-        if (0 && $ua =~ m{ # Disable this for bug compatibility
+        if (0 && $ua =~ m{ # Disabled for bug compatibility
                 version/
                 ( \d+ )       # Major version number is everything before first dot
                 \.            # First dot
