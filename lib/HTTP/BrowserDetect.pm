@@ -250,7 +250,7 @@ my %OS_NAMES = (
     ios => 'iOS',
     macosx => 'Mac OS X',
     mac => 'Mac',
-    os2 => 'OS/2',
+    os2 => 'OS2',
 );
 
 # Safari build -> version map for versions prior to 3.0
@@ -1428,7 +1428,7 @@ sub version {
 
     my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
-        return $check == $version;
+        return $check == $version; # FIXME unreliable to compare floats for equality
     }
     else {
         return $version;
@@ -1454,7 +1454,7 @@ sub minor {
 
     my ( $version ) = $self->{minor};
     if ( defined $check ) {
-        return ( $check == $self->{minor} );
+        return ( $check == $self->{minor} ); # FIXME unreliable to compare floats for equality
     }
     else {
         return $version;
@@ -1633,6 +1633,9 @@ sub engine_minor {
 
 sub beta {
     my ( $self, $check ) = @_;
+
+    $self->_init_version unless exists( $self->{major} );
+
     my ( $version ) = $self->{beta};
     if ( $check ) {
         return $check eq $version;
@@ -1786,11 +1789,11 @@ __END__
       if ($browser->winnt) ...
       if ($browser->win95) ...
     }
-    print $browser->mac;
+    print "Mac\n" if $browser->mac;
 
     # Detect browser vendor and version
-    print $browser->netscape;
-    print $browser->ie;
+    print "Netscape\n" if $browser->netscape;
+    print "MSIE\n" if $browser->ie;
     if (browser->public_major(4)) {
     if ($browser->public_minor() > .5) {
         ...
@@ -1818,10 +1821,6 @@ The constructor may be called with a user agent string specified. Otherwise, it
 will use the value specified by $ENV{'HTTP_USER_AGENT'}, which is set by the
 web server when calling a CGI script.
 
-You may also use a non-object-oriented interface. For each method, you may call
-HTTP::BrowserDetect::method_name(). You will then be working with a default
-HTTP::BrowserDetect object that is created behind the scenes.
-
 =head1 SUBROUTINES/METHODS
 
 =head2 user_agent()
@@ -1844,7 +1843,7 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 =head2 device()
 
 Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: android, audrey, blackberry, dsi, iopener, ipad,
+Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
 iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
 hardware can be detected
 
@@ -2052,7 +2051,7 @@ version separately.
 
 =head3 icab
 
-=head3 ie ie3 ie4 ie4up ie5 ie55 ie6 ie7 ie8 ie9 ie10 ie11
+=head3 ie ie3 ie4 ie4up ie5 ie5up ie55 ie55up ie6 ie7 ie8 ie9 ie10 ie11
 
 =head3 ie_compat_mode
 
@@ -2104,14 +2103,13 @@ number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
 Firebird).
 
-
 =head2 browser_string()
 
 Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
 Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry.
+BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab.
 
 =head2 gecko_version()
 
