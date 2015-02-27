@@ -227,6 +227,7 @@ my %DEVICE_NAMES = (
 my %OS_NAMES = (
     win95 => 'Win95',
     win98 => 'Win98',
+    winme => 'WinME',
     win2k => 'Win2k',
     winxp => 'WinXP',
     win2k3 => 'Win2k3',
@@ -453,6 +454,13 @@ sub _init_core {
         $browser_tests->{ uc $1 } = 1;
         $browser_tests->{'FIREFOX'}  = 1;
     }
+    elsif ( $ua =~ m{opera|opr\/} )
+    {
+	# Browser is Opera
+
+	$browser = 'OPERA';
+	$browser_tests->{OPERA} = 1;
+    }
     elsif ( $tests->{TRIDENT}
 	    || index( $ua, "msie" ) != -1
 	    || index( $ua, 'microsoft internet explorer' ) != -1 )
@@ -461,19 +469,14 @@ sub _init_core {
 
 	$browser_tests->{IE} = 1;
 
-	if ( index( $ua, "aol" ) == -1 ) {
+	if ( index( $ua, "aol" ) == -1 # FIXME - bug compatibility?
+	    && index( $ua, "america online browser" ) == -1 )
+	{
 	    $browser = 'IE';
 	} else {
-	    $browser = 'AOL'; # FIXME - bug compatibility?
+	    $browser = 'AOL';
 	    $browser_tests->{AOL} = 1;
 	}
-    }
-    elsif ( $ua =~ m{opera|opr\/} )
-    {
-	# Browser is Opera
-
-	$browser = 'OPERA';
-	$browser_tests->{OPERA} = 1;
     }
     elsif ( index( $ua, "chrome/" ) != -1 )
     {
@@ -518,7 +521,8 @@ sub _init_core {
 	    && index( $ua, "hotjava" ) == -1
 	    && index( $ua, "nintendo" ) == -1
 	    && index( $ua, "playstation 3" ) == -1
-	    && index( $ua, "playstation portable" ) == -1 )
+	    && index( $ua, "playstation portable" ) == -1
+	    && index( $ua, "browsex" ) == -1)
     {
 	# Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
@@ -755,20 +759,24 @@ sub _init_os {
 	    $os = "WIN95";
 	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	}
+	elsif ( index( $ua, "win 9x 4.90" ) != -1 )    # whatever
+	{
+	    $os = "WINME";
+	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
+	}
 	elsif ( index( $ua, "win98" ) != -1
 		|| index( $ua, "windows 98" ) != -1 )
 	{
 	    $os = "WIN98";
 	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	}
-	elsif ( index( $ua, "win 9x 4.90" ) != -1 )    # whatever
+	elsif ( index( $ua, "windows ce" ) != -1 )
 	{
-	    $os = "WINME";
-	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
-	} elsif ( index( $ua, "windows ce" ) != -1 ) {
 	    $os = 'WINCE';
 	    $os_tests->{WINCE} = 1;
-	} elsif ( index( $ua, "windows phone" ) != -1 ) {
+	}
+	elsif ( index( $ua, "windows phone" ) != -1 )
+	{
 	    $os = 'WINPHONE';
 	    $os_tests->{WINPHONE} = 1;
 
@@ -779,9 +787,6 @@ sub _init_os {
 	    $os_tests->{WINPHONE8}   = 1
 		if index( $ua, "windows phone 8.0" ) != -1;
 	}
-
-	$os_tests->{WIN32} = 1 if index( $ua, "win32" ) != -1;
-	$os_tests->{WINDOWS} = 1;
     }
 
     if ( index( $ua, "nt" ) != -1 ) {
@@ -815,15 +820,13 @@ sub _init_os {
 	{
 	    $os = "WINNT";
 	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
-	} elsif ( index( $ua, "win32" ) != -1 ) {
-	    # FIXME - what about $os?
-	    $os_tests->{WIN32} = 1;
 	}
     }
 
     if ( $os ) {
 	# Windows, set through some path above
 	$os_tests->{WINDOWS} = 1;
+	$os_tests->{WIN32}   = 1 if index( $ua, "win32" ) != -1;
     }
     elsif ( index( $ua, "macintosh" ) != -1 || index( $ua, "mac_") != -1 )
     {
@@ -906,6 +909,10 @@ sub _init_os {
     } elsif ( index( $ua, "bsd" ) != -1 ) {
 	$os = 'UNIX'; $os_tests->{BSD} = $os_tests->{UNIX} = 1;
 	$os_tests->{FREEBSD} = 1 if index( $ua, "freebsd" ) != -1;
+    }  elsif ( $tests->{X11} ) {
+	# Some Unix we didn't identify
+	$os = 'UNIX';
+	$os_tests->{UNIX} = 1;
     } elsif ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 ) {
 	# FIXME - what about $os?
 	$os_tests->{VMS} = 1;
@@ -917,6 +924,11 @@ sub _init_os {
 	$os = 'PS3GAMEOS'; $os_tests->{PS3GAMEOS} = 1;
     } elsif ( index( $ua, "playstation portable" ) != -1 ) {
 	$os = 'PSPGAMEOS'; $os_tests->{PSPGAMEOS} = 1;
+    } elsif ( index( $ua, "windows" ) != -1 ) {
+	# Windows again, the super generic version
+	$os_tests->{WINDOWS} = 1;
+    } elsif ( index( $ua, "win32" ) != -1 ) {
+	$os_tests->{WIN32} = $os_tests->{WINDOWS} = 1;
     } else {
 	$os = undef;
     }
@@ -955,22 +967,43 @@ sub _init_version {
     ### sense for whatever browser we have, and if that doesn't work
     ### we fall back to increasingly generic methods.
 
-    if ( $ua =~ m{\b compatible; \s* [\w\-]* [/\s] ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9\.]* )? ;}x )
+    if ( defined($browser) && $browser eq 'OPERA' ) {
+        # Opera has a "compatible; " section, but lies sometimes. It needs
+        # special handling.
+
+	# http://dev.opera.com/articles/view/opera-ua-string-changes/
+	# http://my.opera.com/community/openweb/idopera/
+	# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
+	# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
+
+	if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
+	    $major = $1;
+	    $minor = $2;
+	} elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	} elsif ( $ua =~ m{Opera[ /](\d+).(\d+)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	}
+    }
+    elsif ( $ua =~ m{\b compatible; \s* [\w\-]* [/\s] ( [0-9]+ ) (?: .([0-9]+) (\S*) )? ;}x )
     {
 	# MSIE and some others use a "compatible" format
-	( $major, $minor, $beta ) = split /\./, $1;
+	( $major, $minor, $beta ) = ($1, $2, $3);
     } elsif ( !$browser ) {
 	# Nothing else is going to work if $browser isn't defined; skip the
 	# specific approaches and go straight to the generic ones.
     } elsif ( $browser_tests->{CHROME} ) {
 	# Chrome Version
 
-        ( $major, $minor ) = (
+        ( $major, $minor, $beta ) = (
             $ua =~ m{
                 chrome
                 \/
                 ( \d+ )        # Major version number
-                (?:\.( \d+ ))? # Minor version number is dot and following digits
+                (?:\.( \d+ ))? # Minor version number follows first dot
+                ([0-9\.]*)     # Beta is all other dots and digits
             }x
 	    );
 
@@ -993,7 +1026,7 @@ sub _init_version {
             if ( my ( $safari_build, $safari_minor ) = split /\./, $1 ) {
 		$major = int( $safari_build / 100 );
 		$minor = int( $safari_build % 100 );
-		$beta  = ".$safari_minor;" if $safari_minor;
+		$beta  = ".$safari_minor" if $safari_minor;
 	    }
 	}
 	elsif ($ua =~ m{applewebkit\/([\d\.]{1,})}xi )
@@ -1001,7 +1034,7 @@ sub _init_version {
             if (my ( $safari_build, $safari_minor ) = split /\./, $1 ) {
 		$major = int( $safari_build / 100 );
 		$minor = int( $safari_build % 100 );
-		$beta  = ".$safari_minor;" if $safari_minor;
+		$beta  = ".$safari_minor" if $safari_minor;
 	    }
         }
     } elsif ( $browser_tests->{FIREFOX} || $browser_tests->{NETSCAPE} ) {
@@ -1026,20 +1059,6 @@ sub _init_version {
 	    # MSIE masking as Gecko really well ;)
 	    ( $major, $minor, $beta ) = split /\./, $1;
 	}
-    } elsif ( $browser eq 'OPERA' ) {
-	# Opera needs to be dealt with specifically
-	# http://dev.opera.com/articles/view/opera-ua-string-changes/
-	# http://my.opera.com/community/openweb/idopera/
-	# Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00
-	# Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100
-
-	if ( $ua =~ m{\AOpera.*\sVersion/(\d*)\.(\d*)\z}i ) {
-	    $major = $1;
-	    $minor = $2;
-	} elsif ( $ua =~ m{\bOPR/(\d+)\.(\d+)}i ) {
-	    $major = $1;
-	    $minor = $2;
-	}
     } elsif ( $browser eq 'NETFRONT' ) {
 	if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
 	    $major = $1;
@@ -1060,10 +1079,10 @@ sub _init_version {
                 \S+        # Greedily catch anything leading up to forward slash.
                 \/                # Version starts with a slash
                 [A-Za-z]*         # Eat any letters before the major version
-                ( [0-9A-Za-z]* )  # Major version number is everything before the first dot
+                ( [0-9]+ )        # Major version number is everything before the first dot
                  \.               # The first dot
                 ([\d]* )          # Minor version number is every digit after the first dot
-                [\d.]*            # Throw away remaining numbers and dots
+                                  # Throw away remaining numbers and dots
                 ( [^\s]* )        # Beta version string is up to next space
             }x
 	    );
@@ -1080,6 +1099,7 @@ sub _init_version {
     # Oh well.
     $major = 0 if !$major;
     $minor = 0 if !$minor;
+    $beta = undef if ( defined($beta) && $beta eq '' );
 
     # Now set version tests
 
@@ -1274,11 +1294,12 @@ sub _init_device {
     $device_tests->{TABLET} = (
         index( $ua, "ipad" ) != -1
             || ( $browser_tests->{IE}
-            && index( $ua, "windows phone" ) == -1
-            && index( $ua, "arm" ) != -1 )
+		 && index( $ua, "windows phone" ) == -1
+		 && index( $ua, "arm" ) != -1 )
             || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) == -1
-            && index( $ua, "opera" ) == -1 )
+		 && index( $ua, "mobile" ) == -1
+		 && index( $ua, "opera" ) == -1
+		 && index( $ua, "silk" ) == -1 )
             || ( $browser_tests->{FIREFOX} && index( $ua, "tablet" ) != -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
@@ -2026,7 +2047,7 @@ distinguish between Win95 and WinNT.
 Returns one of the following strings, or undef. This method exists solely for
 compatibility with the L<HTTP::Headers::UserAgent> module.
 
-  Win95, Win98, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
+  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
   Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
   Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
   RIM Tablet OS, BlackBerry 10

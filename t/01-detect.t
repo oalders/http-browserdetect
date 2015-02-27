@@ -19,10 +19,13 @@ my $w;
 ok( !$w, 'no warnings on require' );
 
 my $json = path( "$FindBin::Bin/useragents.json" )->slurp;
-
 my $tests = JSON::PP->new->ascii->decode( $json );
 
-foreach my $ua ( sort keys %{$tests} ) {
+$json = path( "$FindBin::Bin/more-useragents.json" )->slurp;
+my $more_tests = JSON::PP->new->ascii->decode( $json );
+$tests = { %$tests, %$more_tests };
+
+foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     my $test = $tests->{$ua};
 
