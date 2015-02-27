@@ -1282,14 +1282,12 @@
    "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537": {
       "match" : [
          "android",
-         "chrome",
          "device",
          "ie",
+	 "ie11",
          "ie55up",
          "ie5up",
          "ie4up",
-         "iphone",
-         "ios",
          "mobile",
          "trident",
          "windows",
@@ -2734,8 +2732,8 @@
    },
    "Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20" : {
       "country" : "US",
-      "device" : "iphone",
-      "device_name" : "iPhone",
+      "device" : "ipod",
+      "device_name" : "iPod",
       "engine_string" : "KHTML",
       "language" : "EN",
       "match" : [
@@ -2743,7 +2741,6 @@
          "mobile",
          "ipod",
          "ios",
-         "iphone",
          "device"
       ]
    },
@@ -3543,7 +3540,7 @@
        "version" : "5.30"
    },
    "Opera/9.50 (Nintendo DSi; Opera/446; U; ja)" : {
-       "browser_string" : "Nintendo DSi",
+       "browser_string" : "Opera",
        "match" : [
          "opera",
          "device",

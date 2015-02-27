@@ -111,16 +111,16 @@ our @ENGINE_TESTS = qw(
 );
 
 our @ROBOT_TESTS = qw(
-    puf          curl        wget
-    getright     robot       slurp
-    yahoo        mj12bot     ahrefs
-    altavista    lycos       infoseek
-    lwp          webcrawler  linkexchange
-    googlemobile msn         msnmobile
-    facebook     baidu       googleadsbot
-    askjeeves    googleadsense googlebotvideo
+    puf           curl           wget
+    getright      robot          slurp
+    yahoo         mj12bot        ahrefs
+    altavista     lycos          infoseek
+    lwp           webcrawler     linkexchange
+    googlemobile  msn            msnmobile
+    facebook      baidu          googleadsbot
+    askjeeves     googleadsense  googlebotvideo
     googlebotnews googlebotimage google
-    linkchecker  yandeximages specialarchiver
+    linkchecker   yandeximages   specialarchiver
     yandex
 );
 
@@ -180,6 +180,7 @@ my %ROBOT_NAMES = (
 my %BROWSER_NAMES = (
     netscape      => 'Netscape',
     firefox       => 'Firefox',
+    iceweasel     => 'IceWeasel',
     mobile_safari => 'Mobile Safari',
     realplayer    => 'RealPlayer',
     safari        => 'Safari',
@@ -444,7 +445,11 @@ sub _init_core {
     {
 	# Browser is Firefox, possibly under an alternate name
 
-	$browser = 'FIREFOX';
+	if ( $1 eq 'iceweasel' ) { # FIXME - bug compatibility?
+	    $browser = 'ICEWEASEL';
+	} else {
+	    $browser = 'FIREFOX';
+	}
         $browser_tests->{ uc $1 } = 1;
         $browser_tests->{'FIREFOX'}  = 1;
     }
@@ -459,7 +464,7 @@ sub _init_core {
 	if ( index( $ua, "aol" ) == -1 ) {
 	    $browser = 'IE';
 	} else {
-	    $browser = 'AOL';
+	    $browser = 'AOL'; # FIXME - bug compatibility?
 	    $browser_tests->{AOL} = 1;
 	}
     }
@@ -557,10 +562,12 @@ sub _init_core {
               || index( $ua, "netfront" ) != -1 )
     {
 	$browser = 'NETFRONT';   $browser_tests->{$browser} = 1;
+    } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
+	$browser = 'N3DS'; # Test gets set during device check
+    } elsif ( index( $ua, "nintendo dsi") != -1 ) {
+	$browser = 'DSI'; # Test gets set during device check
     } elsif ( index( $ua, "obigo/" ) != -1 ) {
 	$browser = 'OBIGO';      $browser_tests->{$browser} = 1;
-    } elsif ( index( $ua, "nintendo 3ds" ) != -1 ) {
-	$browser = 'N3DS';       # Test gets set during device check
     } elsif ( index( $ua, "libcurl" ) != -1 ) {
 	$browser = 'CURL';       # Test gets set during robot check
     } elsif ( index( $ua, "puf/" ) != -1 ) {
@@ -844,7 +851,6 @@ sub _init_os {
     } elsif ( index( $ua, "android" ) != -1 ) {
 	# Android
 	$os = 'ANDROID'; # Test gets set in the device testing
-
 	# FIXME bug compatibility:
 	$os_tests->{LINUX} = $os_tests->{UNIX} = 1 if index( $ua, "inux" ) != -1;
     } elsif ( index( $ua, "inux" ) != -1 ) {
