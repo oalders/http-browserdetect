@@ -1,5 +1,25 @@
 #!/usr/bin/perl -w
 
+# Script for making regression test patterns.
+#
+# Recommended use:
+#
+# $ perl -I../lib make-more-useragents.pl < /wherever/apache.log > more-useragents.json
+#
+# This will create a test suite based on any user agents that seem at
+# all dissimilar to ones we're already testing. The answers are given
+# by the same code that the test suite runs against, meaning the tests
+# will start out all passing. The main usefulness is:
+#
+# (a) You can make -I different, getting the answers according to a
+# different version of the code, and then run it against the current
+# version to see what's different.
+#
+# (b) You can manually inspect the more-useragents.json file and see
+# if there are any results in it that don't make sense.
+#
+# (c) Any changes in behavior in the future will cause a test failure.
+
 use strict;
 
 use FindBin;
