@@ -396,10 +396,11 @@ sub _init_core {
     delete $self->{os_tests};
 
     # Reset device info, this gets filled in on demand in _init_device
+    delete $self->{device_tests};
     delete $self->{device};
     delete $self->{device_name};
 
-    # Reset robot info
+    # Reset robot info, this gets filled in on demand in _init_robots
     delete $self->{robot_tests};
     delete $self->{robot_name};
 
@@ -575,22 +576,21 @@ sub _init_core {
 
 	# Now set the browser to Realplayer.
 	$browser = 'REALPLAYER';
-	$browser_tests->{'REALPLAYER'} = 1;
+	$browser_tests->{REALPLAYER} = 1;
 
 	# Now override the version with the Realplayer version (but leave
 	# alone the tests we already set, which might have been based on the
 	# "real" browser's version).
 	$self->{realplayer_version} = undef;
-	if ( $browser_tests->{REALPLAYER} ) {
-	    if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
-		$self->{realplayer_version} = $1;
-		( $self->{major}, $self->{minor} ) =
-		    split( /\./, $self->{realplayer_version} );
-		$self->{minor} = ".$self->{minor}" if $self->{minor};
-	    }
-	    elsif ( $ua =~ /realplayer\s(\w+)/ ) {
-		$self->{realplayer_version} = $1;
-	    }
+
+	if ( $ua =~ /realplayer\/([\d+\.]+)/ ) {
+	    $self->{realplayer_version} = $1;
+	    ( $self->{major}, $self->{minor} ) =
+		split( /\./, $self->{realplayer_version} );
+	    $self->{minor} = ".$self->{minor}" if $self->{minor};
+	}
+	elsif ( $ua =~ /realplayer\s(\w+)/ ) {
+	    $self->{realplayer_version} = $1;
 	}
     }
 
@@ -745,16 +745,19 @@ sub _init_os {
 	elsif ( index( $ua, "win95" ) != -1
 		|| index( $ua, "windows 95" ) != -1 )
 	{
-	    $os = "WIN95";         $os_tests->{$os} = $os_tests->{WIN32} = 1;
+	    $os = "WIN95";
+	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	}
 	elsif ( index( $ua, "win98" ) != -1
 		|| index( $ua, "windows 98" ) != -1 )
 	{
-	    $os = "WIN98";         $os_tests->{$os} = $os_tests->{WIN32} = 1;
+	    $os = "WIN98";
+	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	}
 	elsif ( index( $ua, "win 9x 4.90" ) != -1 )    # whatever
 	{
-	    $os = "WINME";         $os_tests->{$os} = $os_tests->{WIN32} = 1;
+	    $os = "WINME";
+	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	} elsif ( index( $ua, "windows ce" ) != -1 ) {
 	    $os = 'WINCE';
 	    $os_tests->{WINCE} = 1;
@@ -806,7 +809,7 @@ sub _init_os {
 	    $os = "WINNT";
 	    $os_tests->{$os} = $os_tests->{WIN32} = 1;
 	} elsif ( index( $ua, "win32" ) != -1 ) {
-	    # FIXME - OS?
+	    # FIXME - what about $os?
 	    $os_tests->{WIN32} = 1;
 	}
     }
@@ -820,7 +823,8 @@ sub _init_os {
 	# Mac operating systems
 	$os_tests->{MAC} = 1;
 	if ( index( $ua, "mac os x" ) != -1 ) {
-	    $os = "MACOSX"; $os_tests->{$os} = 1;
+	    $os = "MACOSX";
+	    $os_tests->{$os} = 1;
 	} else {
 	    $os = "MAC";
 	}
@@ -835,7 +839,8 @@ sub _init_os {
 	    || index( $ua, "ipad" ) != -1 )
     {
 	# iOS
-	$os = 'IOS'; $os_tests->{$os} = 1;
+	$os = 'IOS';
+	$os_tests->{$os} = 1;
     } elsif ( index( $ua, "android" ) != -1 ) {
 	# Android
 	$os = 'ANDROID'; # Test gets set in the device testing
@@ -844,10 +849,12 @@ sub _init_os {
 	$os_tests->{LINUX} = $os_tests->{UNIX} = 1 if index( $ua, "inux" ) != -1;
     } elsif ( index( $ua, "inux" ) != -1 ) {
 	# Linux
-	$os = 'LINUX'; $os_tests->{LINUX} = $os_tests->{UNIX} = 1;
+	$os = 'LINUX';
+	$os_tests->{LINUX} = $os_tests->{UNIX} = 1;
     } elsif ( $tests->{X11} && index( $ua, "cros" ) != -1 ) {
 	# ChromeOS
-	$os = 'CHROMEOS'; $os_tests->{CHROMEOS} = 1;
+	$os = 'CHROMEOS';
+	$os_tests->{CHROMEOS} = 1;
     }
     ## Long series of unlikely OSs
     elsif ( index( $ua, 'amiga' ) != -1 ) {
@@ -894,7 +901,7 @@ sub _init_os {
 	$os = 'UNIX'; $os_tests->{BSD} = $os_tests->{UNIX} = 1;
 	$os_tests->{FREEBSD} = 1 if index( $ua, "freebsd" ) != -1;
     } elsif ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 ) {
-	# FIXME - os?
+	# FIXME - what about $os?
 	$os_tests->{VMS} = 1;
     } elsif ( index( $ua, "bb10" ) != -1 ) {
 	$os = 'BB10'; $os_tests->{BB10} = 1;
@@ -999,7 +1006,7 @@ sub _init_version {
                 (?:netscape6?|firefox|firebird|iceweasel|phoenix|namoroka)\/
                 ( [^.]* ) # Major version number is everything before first dot
                 \.       # The first dot
-                ( [\d]* ) # Minor version nnumber is digits after first dot
+                ( [\d]* ) # Minor version number is digits after first dot
                 ( [^\s]* )
             }x;
     } elsif ( $browser_tests->{IE} ) {
@@ -1044,7 +1051,7 @@ sub _init_version {
 
 	( $major, $minor, $beta ) = (
 	    $ua =~ m{
-                \S+        # Greedly catch anything leading up to forward slash.
+                \S+        # Greedily catch anything leading up to forward slash.
                 \/                # Version starts with a slash
                 [A-Za-z]*         # Eat any letters before the major version
                 ( [0-9A-Za-z]* )  # Major version number is everything before the first dot
@@ -1064,6 +1071,7 @@ sub _init_version {
         }
     }
 
+    # Oh well.
     $major = 0 if !$major;
     $minor = 0 if !$minor;
 
@@ -1071,17 +1079,17 @@ sub _init_version {
 
     if ( $browser_tests->{NETSCAPE} ) {
 	# Netscape browsers
-	$version_tests->{NAV2}    = ( $major == 2 );
-	$version_tests->{NAV3}    = ( $major == 3 );
-	$version_tests->{NAV4}    = ( $major == 4 );
-	$version_tests->{NAV4UP}  = ( $major >= 4 );
-	$version_tests->{NAV45}   = ( $major == 4 && $minor == 5 );
-	$version_tests->{NAV45UP} = ( $major == 4 && ".$minor" >= .5 )
+	$version_tests->{NAV2}    = 1 if $major == 2;
+	$version_tests->{NAV3}    = 1 if $major == 3;
+	$version_tests->{NAV4}    = 1 if $major == 4;
+	$version_tests->{NAV4UP}  = 1 if $major >= 4;
+	$version_tests->{NAV45}   = 1 if $major == 4 && $minor == 5;
+	$version_tests->{NAV45UP} = 1 if ( $major == 4 && ".$minor" >= .5 )
 	    || $major >= 5;
-	$version_tests->{NAVGOLD} = ( defined( $beta ) && index( $beta, "gold" ) != -1 );
-	$version_tests->{NAV6} = ( $major == 5 || $major == 6 )
+	$version_tests->{NAVGOLD} = 1 if defined( $beta ) && ( index( $beta, "gold" ) != -1 );
+	$version_tests->{NAV6} = 1 if ( $major == 5 || $major == 6 )
 	    ;    # go figure
-	$version_tests->{NAV6UP} = ( $major >= 5 );
+	$version_tests->{NAV6UP} = 1 if $major >= 5;
     }
 
     if ( $browser_tests->{IE} ) {
@@ -1106,27 +1114,26 @@ sub _init_version {
     }
 
     if ( $browser_tests->{AOL} ) {
-	$version_tests->{AOL3} = ( index( $ua, "aol 3.0" ) != -1 )
-	    || $version_tests->{IE3};
-	$version_tests->{AOL4} = ( index( $ua, "aol 4.0" ) != -1 )
+	$version_tests->{AOL3} = 1 if ( index( $ua, "aol 3.0" ) != -1
+	    || $version_tests->{IE3} );
+	$version_tests->{AOL4} = 1 if ( index( $ua, "aol 4.0" ) != -1 )
 	    || $version_tests->{IE4};
-	$version_tests->{AOL5}  = ( index( $ua, "aol 5.0" ) != -1 );
-	$version_tests->{AOL6}  = ( index( $ua, "aol 6.0" ) != -1 );
-	$version_tests->{AOLTV} = ( index( $ua, "navio" ) != -1 )
-	    || ( index( $ua, "navio_aoltv" ) != -1 );
+	$version_tests->{AOL5}  = 1 if index( $ua, "aol 5.0" ) != -1;
+	$version_tests->{AOL6}  = 1 if index( $ua, "aol 6.0" ) != -1;
+	$version_tests->{AOLTV} = 1 if index( $ua, "navio" ) != -1;
     }
 
     if ( $browser_tests->{OPERA} ) {
-	$version_tests->{OPERA3}
-            = ( index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1 );
-	$version_tests->{OPERA4} = ( index( $ua, "opera 4" ) != -1 )
+	$version_tests->{OPERA3} = 1 if
+            index( $ua, "opera 3" ) != -1 || index( $ua, "opera/3" ) != -1;
+	$version_tests->{OPERA4} = 1 if ( index( $ua, "opera 4" ) != -1 )
 	    || ( index( $ua, "opera/4" ) != -1
 		 && ( index( $ua, "nintendo dsi" ) == -1 ) );
-	$version_tests->{OPERA5} = ( index( $ua, "opera 5" ) != -1 )
+	$version_tests->{OPERA5} = 1 if ( index( $ua, "opera 5" ) != -1 )
 	    || ( index( $ua, "opera/5" ) != -1 );
-	$version_tests->{OPERA6} = ( index( $ua, "opera 6" ) != -1 )
+	$version_tests->{OPERA6} = 1 if ( index( $ua, "opera 6" ) != -1 )
 	    || ( index( $ua, "opera/6" ) != -1 );
-	$version_tests->{OPERA7} = ( index( $ua, "opera 7" ) != -1 )
+	$version_tests->{OPERA7} = 1 if ( index( $ua, "opera 7" ) != -1 )
 	    || ( index( $ua, "opera/7" ) != -1 );
 
     }
