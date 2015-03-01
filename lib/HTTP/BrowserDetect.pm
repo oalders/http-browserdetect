@@ -141,6 +141,10 @@ push @ALL_TESTS,
     @ROBOT_TESTS,                    @MISC_TESTS,
     );
 
+sub _all_tests {
+    return @ALL_TESTS;
+}
+
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
 my %ROBOT_NAMES = (
@@ -392,6 +396,7 @@ sub _init_core {
     delete $self->{major};
     delete $self->{minor};
     delete $self->{beta};
+    delete $self->{realplayer_version};
 
     # Reset OS tests, this gets filled in on demand in _init_os
     delete $self->{cached_os};
@@ -578,15 +583,26 @@ sub _init_core {
 	$browser = 'PUF';        # Test gets set during robot check
     }
 
+    $self->{browser} = $browser;
+
+    # Other random tests
+
+    $tests->{JAVA}
+        = 1 if ( index( $ua, "java" ) != -1
+              || index( $ua, "jdk" ) != -1
+              || index( $ua, "jakarta commons-httpclient" ) != -1 );
+    $tests->{X11} = 1 if index( $ua, "x11" ) != -1;
+    $tests->{DOTNET} = 1 if index( $ua, ".net clr" ) != -1;
+
     if ( index( $ua, "realplayer" ) != -1 )
     {
-	# RealPlayer browser
+	# Hack for Realplayer -- fix the version and "real" browser
 
 	$self->_init_version; # Set appropriate tests for whatever the "real"
 	                      # browser is.
 
 	# Now set the browser to Realplayer.
-	$browser = 'REALPLAYER';
+	$self->{browser} = 'REALPLAYER';
 	$browser_tests->{REALPLAYER} = 1;
 
 	# Now override the version with the Realplayer version (but leave
@@ -609,17 +625,6 @@ sub _init_core {
 	# Realplayer plugin -- don't override browser but do set property
 	$browser_tests->{REALPLAYER} = 1;
     }
-
-    $self->{browser} = $browser;
-
-    # Other random tests
-
-    $tests->{JAVA}
-        = 1 if ( index( $ua, "java" ) != -1
-              || index( $ua, "jdk" ) != -1
-              || index( $ua, "jakarta commons-httpclient" ) != -1 );
-    $tests->{X11} = 1 if index( $ua, "x11" ) != -1;
-    $tests->{DOTNET} = 1 if index( $ua, ".net clr" ) != -1;
 }
 
 sub _init_robots {
@@ -1414,7 +1419,7 @@ sub os_string {
     my ( $self ) = @_;
 
     return undef unless defined $self->{user_agent};
-    $self->_init_os unless exists($self->{cached_os});
+    $self->_init_os unless $self->{os_tests};
     return undef unless $self->{cached_os};
     return $OS_NAMES{$self->{cached_os}};
 }
@@ -1422,13 +1427,13 @@ sub os_string {
 sub _realplayer_version {
     my ( $self, $check ) = @_;
 
-    $self->_init_version unless defined($self->{realplayer_version});
+    $self->_init_version unless $self->{version_tests};
     return $self->{realplayer_version} || 0;
 }
 
 sub realplayer_browser {
     my ( $self, $check ) = @_;
-    return $self->{browser} eq 'REALPLAYER';
+    return defined($self->{browser}) && $self->{browser} eq 'REALPLAYER';
 }
 
 sub gecko_version {
@@ -1445,7 +1450,7 @@ sub gecko_version {
 
 sub version {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless exists($self->{major});
+    $self->_init_version() unless $self->{version_tests};
 
     my $version = $self->{major} + $self->{minor};
     if ( defined $check ) {
@@ -1458,7 +1463,7 @@ sub version {
 
 sub major {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless exists($self->{major});
+    $self->_init_version() unless $self->{version_tests};
 
     my ( $version ) = $self->{major};
     if ( defined $check ) {
@@ -1471,7 +1476,7 @@ sub major {
 
 sub minor {
     my ( $self, $check ) = @_;
-    $self->_init_version() unless exists($self->{major});
+    $self->_init_version() unless $self->{version_tests};
 
     my ( $version ) = $self->{minor};
     if ( defined $check ) {
@@ -1606,56 +1611,49 @@ sub engine_string {
 }
 
 sub _engine {
+    my ( $self ) = @_;
 
-    my ( $self, $check ) = @_;
+    if ( defined($self->{engine_version}) ) {
+	if ( $self->{engine_version} =~ m{(\d+)(\.\d+)?} ) {
+	    my $major = $1;
+	    my $minor = $2 || '.0';
+	    if ( wantarray ) {
+		return ( $major, $minor );
+	    } else {
+		return $major + $minor;
+	    }
+	}
+    }
 
-    return $self->{engine_version};
-
+    return undef;
 }
 
 sub engine_version {
 
     my ( $self, $check ) = @_;
 
-    if ( $self->_engine ) {
-        return $self->engine_major + $self->engine_minor;
-    }
-
-    return undef;
-
+    my $result = $self->_engine;
+    return $result;
 }
 
 sub engine_major {
+    my ( $self ) = @_;
 
-    my ( $self, $check ) = @_;
-
-    if ( $self->_engine ) {
-        my @version = split( /\./, $self->_engine );
-        return shift @version;
-    }
-
-    return undef;
-
+    my @result = $self->_engine;
+    return $result[0];
 }
 
 sub engine_minor {
+    my ( $self ) = @_;
 
-    my ( $self, $check ) = @_;
-
-    if ( $self->_engine ) {
-        my @version = split( /\./, $self->_engine );
-        shift @version;
-        return $self->_format_minor( shift @version );
-    }
-
-    return undef;
-
+    my @result = $self->_engine;
+    return $result[1];
 }
 
 sub beta {
     my ( $self, $check ) = @_;
 
-    $self->_init_version unless exists( $self->{major} );
+    $self->_init_version unless $self->{version_tests};
 
     my ( $version ) = $self->{beta};
     if ( $check ) {
@@ -1753,10 +1751,6 @@ sub browser_properties {
 
     my ( $self, $check ) = @_;
 
-    $self->_init_version unless exists( $self->{major} );
-    $self->_init_device unless exists( $self->{device_tests} );
-    $self->_init_robots unless exists( $self->{robot_tests} );
-
     my @browser_properties;
 
     my ( $test, $value );
@@ -1767,6 +1761,12 @@ sub browser_properties {
     while ( ( $test, $value ) = each %{ $self->{browser_tests} } ) {
         push @browser_properties, lc( $test ) if $value;
     }
+
+    $self->_init_device  unless $self->{device_tests};
+    $self->_init_os      unless $self->{os_tests};
+    $self->_init_robots  unless $self->{robot_tests};
+    $self->_init_version unless $self->{version_tests};
+
     while ( ( $test, $value ) = each %{ $self->{device_tests} } ) {
         push @browser_properties, lc( $test ) if $value;
     }
