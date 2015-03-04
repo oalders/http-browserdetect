@@ -28,38 +28,42 @@ use Path::Tiny qw( path );
 
 use HTTP::BrowserDetect;
 
-my $json_text = path( "$FindBin::Bin/useragents.json" )->slurp;
-my $tests = JSON::PP->new->ascii->decode( $json_text );
+my $json_text = path("$FindBin::Bin/useragents.json")->slurp;
+my $tests     = JSON::PP->new->ascii->decode($json_text);
 
 my %seen_tokens;
 
 foreach my $ua ( sort keys %{$tests} ) {
     my @tokens = ( $ua =~ m{ (\w+) }g );
-    foreach ( @tokens ) {
-	$seen_tokens{$_} = 1;
+    foreach (@tokens) {
+        $seen_tokens{$_} = 1;
     }
 }
 
 my %new_tests;
 
-while(<>) {
+while (<>) {
+
     # Match tokens, either single words or quote- or bracket-delimited strings
-    my @tokens = ( $_ =~ m{ ( \"  [^\"]*      \"   |
+    my @tokens = (
+        $_ =~ m{ ( \"  [^\"]*      \"   |
                                   [^\[\]\"\s]+       |
                               \[  [^\[\]]*    \]   )
-                    }xg );
-    my ( $ua ) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
-    @tokens = ( $ua =~ m{ (\w+) }g ); # Words within the user agent
+                    }xg
+    );
+    my ($ua) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+    @tokens = ( $ua =~ m{ (\w+) }g );    # Words within the user agent
     my $added = 0;
-    foreach my $word ( @tokens ) {
-	if (!$seen_tokens{lc $word} && !$added) {
-	    my $test = {
-		match => [ ],
-	    };
+    foreach my $word (@tokens) {
+        if ( !$seen_tokens{ lc $word } && !$added ) {
+            my $test = {
+                match => [],
+            };
 
-	    my $detect = HTTP::BrowserDetect->new( $ua );
-	    
-	    foreach my $method ( qw(
+            my $detect = HTTP::BrowserDetect->new($ua);
+
+            foreach my $method (
+                qw(
                 browser_string
                 engine_string
                 os_string
@@ -79,27 +83,28 @@ while(<>) {
                 device
                 device_name
                 robot_name
-                os_string ) )
-	    {
-		my $result = $detect->$method;
-		if ( defined( $result ) ) {
-		    $test->{$method} = $result;
-		}
-	    }
+                os_string )
+                ) {
+                my $result = $detect->$method;
 
-	    for my $prop ( 'device', @HTTP::BrowserDetect::ALL_TESTS ) {
-		if ( $detect->$prop ) {
-		    push @{$test->{match}}, $prop;
-		}
-	    }
+                if ( defined($result) ) {
+                    $test->{$method} = $result;
+                }
+            }
 
-	    $new_tests{$ua} = $test;
-	    $added = 1;
-	}
-	$seen_tokens{lc $word} = 1;
+            for my $prop ( 'device', @HTTP::BrowserDetect::ALL_TESTS ) {
+                if ( $detect->$prop ) {
+                    push @{ $test->{match} }, $prop;
+                }
+            }
+
+            $new_tests{$ua} = $test;
+            $added = 1;
+        }
+        $seen_tokens{ lc $word } = 1;
     }
 }
 
-my $json = JSON::PP->new->canonical->pretty;
+my $json   = JSON::PP->new->canonical->pretty;
 my $output = $json->encode( \%new_tests );
 print "$output\n";

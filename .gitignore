@@ -1,8 +1,8 @@
-*.swp
-.build
-.perl-version
-.tidyall.d/
+_build/
 /blib/
+.build
 Build
 HTTP-BrowserDetect-*
-_build/
+.perl-version
+*.swp
+.tidyall.d/

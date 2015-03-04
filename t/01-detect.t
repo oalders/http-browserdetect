@@ -18,26 +18,29 @@ my $w;
 }
 ok( !$w, 'no warnings on require' );
 
-my $json = path( "$FindBin::Bin/useragents.json" )->slurp;
-my $tests = JSON::PP->new->ascii->decode( $json );
+my $json  = path("$FindBin::Bin/useragents.json")->slurp;
+my $tests = JSON::PP->new->ascii->decode($json);
 
-$json = path( "$FindBin::Bin/more-useragents.json" )->slurp;
-my $more_tests = JSON::PP->new->ascii->decode( $json );
+$json = path("$FindBin::Bin/more-useragents.json")->slurp;
+my $more_tests = JSON::PP->new->ascii->decode($json);
 $tests = { %$tests, %$more_tests };
 
 foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     my $test = $tests->{$ua};
 
-    my $detected = HTTP::BrowserDetect->new( $ua );
+    my $detected = HTTP::BrowserDetect->new($ua);
     diag( $detected->user_agent );
 
-    foreach my $method ( 'browser_string', 'engine_string', 'os_string',
-        'os_version' )
-    {
+    foreach my $method (
+        'browser_string', 'engine_string', 'os_string',
+        'os_version'
+        ) {
         if ( $test->{$method} ) {
-            cmp_ok( $detected->$method, 'eq', $test->{$method},
-                "$method: $test->{$method}" );
+            cmp_ok(
+                $detected->$method, 'eq', $test->{$method},
+                "$method: $test->{$method}"
+            );
         }
     }
 
@@ -55,25 +58,26 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         ios
         tablet
         )
-        )
-    {
+        ) {
 
         if (    exists $test->{$method}
             and defined $test->{$method}
-            and length $test->{$method} )
-        {
-            cmp_ok( $detected->$method, '==', $test->{$method},
-                "$method: $test->{$method}" );
+            and length $test->{$method} ) {
+            cmp_ok(
+                $detected->$method, '==', $test->{$method},
+                "$method: $test->{$method}"
+            );
         }
     }
 
     foreach my $method ( 'language', 'device', 'device_name', 'robot_name' ) {
         if (    exists $test->{$method}
             and defined $test->{$method}
-            and length $test->{$method} )
-        {
-            cmp_ok( $detected->$method, 'eq', $test->{$method},
-                "$method: $test->{$method}" );
+            and length $test->{$method} ) {
+            cmp_ok(
+                $detected->$method, 'eq', $test->{$method},
+                "$method: $test->{$method}"
+            );
         }
     }
 
@@ -102,7 +106,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 
 }
 
-my $detected = HTTP::BrowserDetect->new( 'Nonesuch' );
+my $detected = HTTP::BrowserDetect->new('Nonesuch');
 diag( $detected->user_agent );
 
 foreach my $method (
@@ -115,10 +119,11 @@ foreach my $method (
     device_name
     gecko_version
     )
-    )
-{
-    is_deeply( [ $detected->$method ],
-        [undef], "$method should return undef in list context" );
+    ) {
+    is_deeply(
+        [ $detected->$method ],
+        [undef], "$method should return undef in list context"
+    );
 }
 
 done_testing();
