@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.76 2015-03-03 22:56:25 America/Toronto
     - Encourage use of public_* and engine_* over version(), major() and
       minor().
     - Speed optimizations (andrewmoise)
