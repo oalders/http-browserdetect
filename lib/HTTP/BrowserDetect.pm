@@ -229,33 +229,33 @@ my %DEVICE_NAMES = (
 );
 
 my %OS_NAMES = (
-    win95       => 'Win95',
-    win98       => 'Win98',
-    winme       => 'WinME',
+    android     => 'Android',
+    bb10        => 'BlackBerry 10',
+    chromeos    => 'Chrome OS',
+    firefoxos   => 'Firefox OS',
+    ios         => 'iOS',
+    linux       => 'Linux',
+    mac         => 'Mac',
+    macosx      => 'Mac OS X',
+    os2         => 'OS2',
+    ps3gameos   => 'Playstation 3 GameOS',
+    pspgameos   => 'Playstation Portable GameOS',
+    rimtabletos => 'RIM Tablet OS',
+    unix        => 'Unix',
     win2k       => 'Win2k',
-    winxp       => 'WinXP',
     win2k3      => 'Win2k3',
-    winvista    => 'WinVista',
+    win3x       => 'Win3x',
     win7        => 'Win7',
     win8        => 'Win8',
     win8_0      => 'Win8',                          # FIXME bug compatibility
     win8_1      => 'Win8.1',
+    win95       => 'Win95',
+    win98       => 'Win98',
+    winme       => 'WinME',
     winnt       => 'WinNT',
     winphone    => 'Windows Phone',
-    win3x       => 'Win3x',
-    android     => 'Android',
-    linux       => 'Linux',
-    unix        => 'Unix',
-    chromeos    => 'Chrome OS',
-    firefoxos   => 'Firefox OS',
-    bb10        => 'BlackBerry 10',
-    rimtabletos => 'RIM Tablet OS',
-    ps3gameos   => 'Playstation 3 GameOS',
-    pspgameos   => 'Playstation Portable GameOS',
-    ios         => 'iOS',
-    macosx      => 'Mac OS X',
-    mac         => 'Mac',
-    os2         => 'OS2',
+    winvista    => 'WinVista',
+    winxp       => 'WinXP',
 );
 
 # Safari build -> version map for versions prior to 3.0
@@ -1760,7 +1760,6 @@ sub _cmp_versions {
 }
 
 sub engine_string {
-
     my ( $self, $check ) = @_;
 
     if ( $self->gecko ) {
@@ -1806,7 +1805,6 @@ sub _engine {
 }
 
 sub engine_version {
-
     my ( $self, $check ) = @_;
 
     my $result = $self->_engine;
@@ -1842,32 +1840,27 @@ sub beta {
 }
 
 sub language {
-
     my ( $self, $check ) = @_;
+
     my $parsed = $self->_language_country();
     return $parsed->{'language'};
-
 }
 
 sub country {
-
     my ( $self, $check ) = @_;
+
     my $parsed = $self->_language_country();
     return $parsed->{'country'};
-
 }
 
 sub device {
-
     my ( $self, $check ) = @_;
 
     $self->_init_device if !exists( $self->{device} );
     return $self->{device};
-
 }
 
 sub device_name {
-
     my ( $self, $check ) = @_;
 
     $self->_init_device if !exists( $self->{device_name} );
@@ -1875,7 +1868,6 @@ sub device_name {
 }
 
 sub _language_country {
-
     my ( $self, $check ) = @_;
 
     if ( $self->safari ) {
@@ -1914,16 +1906,13 @@ sub _language_country {
 }
 
 sub _format_minor {
-
     my $self = shift;
-
     my $minor = shift;
-    return 0 + ( '.' . ( $minor || 0 ) );
 
+    return 0 + ( '.' . ( $minor || 0 ) );
 }
 
 sub browser_properties {
-
     my ( $self, $check ) = @_;
 
     my @browser_properties;
@@ -1964,6 +1953,7 @@ sub browser_properties {
 
 sub robot_name {
     my $self = shift;
+
     $self->_init_robots unless exists( $self->{robot_name} );
     return $self->{robot_name};
 }
