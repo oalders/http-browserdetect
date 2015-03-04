@@ -1,5 +1,5 @@
 [PerlTidy]
 select = {bin,lib,t}/**/*.{pl,pm,t,psgi}
 
-[SortLines]
+[SortLines::Naturally]
 select = .gitignore
