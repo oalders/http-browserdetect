@@ -2101,7 +2101,12 @@ a major and minor version with nothing following.
 This is probably not what you want.  Please use either public_version() or
 engine_version() instead.
 
-Returns the version as a string.
+Returns the version as a string. If passed a parameter, returns true
+if it equals the browser major version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head2 major($major)
 
@@ -2112,6 +2117,10 @@ Returns the integer portion of the browser version as a string. If
 passed a parameter, returns true if it equals the browser major
 version.
 
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
 =head2 minor($minor)
 
 This is probably not what you want. Please use either public_minor()
@@ -2121,12 +2130,20 @@ Returns the decimal portion of the browser version as a string.
 
 If passed a parameter, returns true if equals the minor version.
 
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
 =head2 beta($beta)
 
 This is probably not what you want. Please use public_beta() instead.
 
 Returns the beta version, consisting of any characters after the major
 and minor version number, as a string.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head1 Detecting Rendering Engine
 
