@@ -644,7 +644,7 @@ sub _init_core {
             $self->{realplayer_version} = $1;
             ( $self->{major}, $self->{minor} )
                 = split( /\./, $self->{realplayer_version} );
-            $self->{minor} = ".$self->{minor}" if $self->{minor};
+            $self->{minor} = ".$self->{minor}" if defined( $self->{minor} );
         }
         elsif ( $ua =~ /realplayer\s(\w+)/ ) {
             $self->{realplayer_version} = $1;
@@ -1627,7 +1627,7 @@ sub version {
     my ( $self, $check ) = @_;
     $self->_init_version() unless $self->{version_tests};
 
-    my $version = $self->{major} + $self->{minor};
+    my $version = "$self->{major}$self->{minor}";
     if ( defined $check ) {
         return $check
             == $version;    # FIXME unreliable to compare floats for equality
@@ -1668,7 +1668,7 @@ sub public_version {
     my ( $self,  $check ) = @_;
     my ( $major, $minor ) = $self->_public;
 
-    return $major + $minor;
+    return "$major$minor";
 }
 
 sub public_major {
@@ -1735,7 +1735,7 @@ sub _public {
             my ( $major, $minor ) = split /\./, $version;
             my $beta;
             $minor =~ s/(\D.*)// and $beta = $1;
-            $minor = 0 + ( '.' . $minor );
+            $minor = ( '.' . $minor );
             return ( $major, $minor, ( $beta ? 1 : undef ) );
         }
     }
