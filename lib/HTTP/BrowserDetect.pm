@@ -2068,62 +2068,82 @@ looking for.
 
 =head2 public_version()
 
-Returns the browser version as a floating-point number.
+Returns the browser version (major and minor) as a string.
 
 =head2 public_major()
 
-Returns the integer portion of the browser version.
+Returns the major part of the version as a string. For example, for
+Chrome 36.0.1985.67, this returns "36".
+
+Returns undef if no version information can be detected.
 
 =head2 public_minor()
 
-Returns the decimal portion of the browser version as a B<floating-point
-number> less than 1. For example, if the version is 4.05, this method returns
-.05; if the version is 4.5, this method returns .5.
+Returns the minor part of the version as a string. This includes the
+decimal point; for example, for Chrome 36.0.1985.67, this returns
+".0".
 
-On occasion a version may have more than one decimal point, such as
-'Wget/1.4.5'. The minor version does not include the second decimal point, or
-any further digits or decimals.
+Returns undef if no version information can be detected.
+
+=head2 public_beta()
+
+Returns any part of the version after the major and minor version, as
+a string. For example, for Chrome 36.0.1985.67, this returns
+".1985.67". The beta part of the string can contain any type of
+alphanumeric characters.
+
+Returns undef if no version information can be detected. Returns an
+empty string if version information is detected but it contains only
+a major and minor version with nothing following.
 
 =head2 version($version)
 
 This is probably not what you want.  Please use either public_version() or
 engine_version() instead.
 
-Returns the version as a floating-point number. If passed a parameter, returns
-true if it is equal to the version specified by the user agent string.
+Returns the version as a string. If passed a parameter, returns true
+if it equals the browser major version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head2 major($major)
 
-This is probably not what you want.  Please use either public_major() or
-engine_major() instead.
+This is probably not what you want. Please use either public_major()
+or engine_major() instead.
 
-Returns the integer portion of the browser version. If passed a parameter,
-returns true if it equals the browser major version.
+Returns the integer portion of the browser version as a string. If
+passed a parameter, returns true if it equals the browser major
+version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head2 minor($minor)
 
-This is probably not what you want.  Please use either public_minor() or
-engine_minor() instead.
+This is probably not what you want. Please use either public_minor()
+or engine_minor() instead.
 
-Returns the decimal portion of the browser version as a B<floating-point
-number> less than 1. For example, if the version is 4.05, this method returns
-.05; if the version is 4.5, this method returns .5. B<This is a change in
-behavior from previous versions of this module, which returned a string>.
+Returns the decimal portion of the browser version as a string.
 
 If passed a parameter, returns true if equals the minor version.
 
-On occasion a version may have more than one decimal point, such as
-'Wget/1.4.5'. The minor version does not include the second decimal point, or
-any further digits or decimals.
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head2 beta($beta)
 
-Returns any the beta version, consisting of any non-numeric characters after
-the version number. For instance, if the user agent string is 'Mozilla/4.0
-(compatible; MSIE 5.0b2; Windows NT)', returns 'b2'. If passed a parameter,
-returns true if equal to the beta version. If the beta starts with a dot, it
-is thrown away.
+This is probably not what you want. Please use public_beta() instead.
 
+Returns the beta version, consisting of any characters after the major
+and minor version number, as a string.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
 
 =head1 Detecting Rendering Engine
 
