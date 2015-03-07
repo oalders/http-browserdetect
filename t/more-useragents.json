@@ -47,7 +47,9 @@
    "CATExplorador/1.0beta (sistemes at domini dot cat; http://domini.cat/catexplorador.html)" : {
       "beta" : "beta",
       "major" : "1",
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_beta" : "beta",
@@ -58,7 +60,9 @@
    },
    "COMODO SSL Checker" : {
       "major" : 0,
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_major" : 0,
@@ -1803,7 +1807,9 @@
    },
    "Mozilla/5.0 (compatible; DomainAppender /1.0; +http://www.profound.net/domainappender)" : {
       "major" : "5",
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_major" : "5",
@@ -1813,7 +1819,7 @@
    },
    "Mozilla/5.0 (compatible; Konqueror/3.1-rc4; i686 Linux; 20020708)" : {
       "beta" : "-rc4",
-      "browser_string" : "KONQUEROR",
+      "browser_string" : "Konqueror",
       "major" : "3",
       "match" : [
          "unix",
@@ -1831,7 +1837,9 @@
    },
    "Mozilla/5.0 (compatible; Lipperhey SEO Service; http://www.lipperhey.com/)" : {
       "major" : "5",
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_major" : "5",
@@ -2203,7 +2211,9 @@
    "Xenu Link Sleuth/1.3.8" : {
       "beta" : ".8",
       "major" : "1",
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".3",
       "os_version" : 0,
       "public_beta" : ".8",
