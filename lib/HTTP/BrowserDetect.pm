@@ -71,7 +71,7 @@ our @BROWSER_TESTS = qw(
     konqueror     realplayer  netfront
     mobile_safari obigo       aol
     lotusnotes    staroffice  icab
-    webtv         browsex
+    webtv         browsex     silk
 );
 
 our @IE_TESTS = qw(
@@ -184,6 +184,7 @@ my %ROBOT_NAMES = (
 my %BROWSER_NAMES = (
     aol           => 'AOL Browser',
     blackberry    => 'BlackBerry',
+    browsex       => 'BrowseX',
     chrome        => 'Chrome',
     curl          => 'curl',
     dsi           => 'Nintendo DSi',
@@ -205,6 +206,7 @@ my %BROWSER_NAMES = (
     puf           => 'puf',
     realplayer    => 'RealPlayer',
     safari        => 'Safari',
+    silk          => 'Silk',
     staroffice    => 'StarOffice',
     webtv         => 'WebTV',
 );
@@ -485,6 +487,12 @@ sub _init_core {
             $browser = 'AOL';
             $browser_tests->{AOL} = 1;
         }
+    }
+    elsif ( index( $ua, "silk" ) != -1 ) {
+	# Has to go above Chrome, it includes "like Chrome/"
+
+	$browser = 'SILK';
+	$browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "chrome/" ) != -1 ) {
 
@@ -1214,6 +1222,13 @@ sub _init_version {
     }
     elsif ( $browser eq 'BROWSEX' ) {
 	if ( $ua =~ m{BrowseX \((\d+)\.(\d+)([\d.]*)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	    $beta = $3;
+	}
+    }
+    elsif ( $browser eq 'SILK' ) {
+	if ( $ua =~ m{Silk/(\d+)\.(\d+)([\d.]*)}i ) {
 	    $major = $1;
 	    $minor = $2;
 	    $beta = $3;
@@ -2326,7 +2341,8 @@ Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
 Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab.
+BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
+BrowseX, Silk.
 
 =head2 gecko_version()
 

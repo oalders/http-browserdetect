@@ -1196,54 +1196,50 @@
       "version" : 5.33
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.45 like Chrome/37.0.2026.117 Safari/537.36" : {
-      "beta" : ".2026.117",
-      "browser_string" : "Chrome",
+      "browser_string" : "Silk",
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "KHTML",
       "language" : "EN",
-      "major" : "37",
+      "major" : "3",
       "match" : [
          "device",
          "unix",
          "linux",
          "android",
          "mobile",
-         "chrome"
+         "silk"
       ],
-      "minor" : ".0",
+      "minor" : ".45",
       "os_string" : "Android",
       "os_version" : "4.0.3",
-      "public_beta" : ".2026.117",
-      "public_major" : "37",
-      "public_minor" : ".0",
-      "public_version" : 37,
-      "version" : 37
+      "public_major" : "3",
+      "public_minor" : ".45",
+      "public_version" : 3.45,
+      "version" : 3.45
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.44 like Chrome/37.0.2026.117 Safari/537.36" : {
-      "beta" : ".2026.117",
-      "browser_string" : "Chrome",
+      "browser_string" : "Silk",
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "KHTML",
       "language" : "EN",
-      "major" : "37",
+      "major" : "3",
       "match" : [
          "device",
          "unix",
          "linux",
          "android",
          "mobile",
-         "chrome"
+	 "silk"
       ],
-      "minor" : ".0",
+      "minor" : ".44",
       "os_string" : "Android",
       "os_version" : "4.0.3",
-      "public_beta" : ".2026.117",
-      "public_major" : "37",
-      "public_minor" : ".0",
-      "public_version" : 37,
-      "version" : 37
+      "public_major" : "3",
+      "public_minor" : ".44",
+      "public_version" : 3.44,
+      "version" : 3.44
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; C5170 Build/IML77) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
