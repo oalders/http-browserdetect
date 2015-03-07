@@ -804,7 +804,7 @@ sub _init_robots {
         || index( $ua, "index" ) != -1
         || index( $ua, "sleuth" ) != -1
         || index( $ua, "reap" ) != -1
-	|| index( $ua, "scanner" ) != -1
+	|| index( $ua, "scan" ) != -1
         || index( $ua, "service" ) != -1
         || index( $ua, "spider" ) != -1
         || index( $ua, "worm" ) != -1
