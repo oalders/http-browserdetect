@@ -611,7 +611,7 @@ sub _init_core {
     elsif ( index( $ua, "nintendo dsi" ) != -1 ) {
         $browser = 'DSI';     # Test gets set during device check
     }
-    elsif ( index( $ua, "obigo/" ) != -1 ) {
+    elsif ( index( $ua, "obigo" ) != -1 ) {
         $browser = 'OBIGO';
         $browser_tests->{$browser} = 1;
     }
@@ -631,7 +631,7 @@ sub _init_core {
     # Other random tests
 
     $tests->{JAVA} = 1
-        if ( index( $ua, "java" ) != -1
+        if ( $ua =~ m{\bjava}
         || index( $ua, "jdk" ) != -1
         || index( $ua, "jakarta commons-httpclient" ) != -1 );
     $tests->{X11}    = 1 if index( $ua, "x11" ) != -1;
@@ -1241,6 +1241,12 @@ sub _init_version {
 	    $beta = $3;
 	}
     }
+    elsif ( $browser eq 'OBIGO' ) {
+	# We have no working obigo version tests, so give up as opposed
+	# to setting wrong information.
+	$major = "0";
+	$minor = ".0";
+    }
 
     if ( !defined($major) ) {
 
@@ -1490,7 +1496,8 @@ sub _init_device {
             || index( $ua, "android" ) != -1
             || index( $ua, "symbos" ) != -1
             || index( $ua, "opera mobi" ) != -1
-            || index( $ua, "fennec" ) != -1
+	    || index( $ua, "fennec" ) != -1
+	    || index( $ua, "obigo" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
             || ( index( $ua, "bb10" ) != -1
