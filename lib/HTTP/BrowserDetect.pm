@@ -71,7 +71,7 @@ our @BROWSER_TESTS = qw(
     konqueror     realplayer  netfront
     mobile_safari obigo       aol
     lotusnotes    staroffice  icab
-    webtv
+    webtv         browsex
 );
 
 our @IE_TESTS = qw(
@@ -605,6 +605,10 @@ sub _init_core {
     elsif ( index( $ua, "obigo/" ) != -1 ) {
         $browser = 'OBIGO';
         $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "browsex" ) != -1 ) {
+	$browser = 'BROWSEX';
+	$browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $browser = 'CURL';    # Test gets set during robot check
@@ -1207,6 +1211,13 @@ sub _init_version {
             $major = $1;
             $minor = $2;
         }
+    }
+    elsif ( $browser eq 'BROWSEX' ) {
+	if ( $ua =~ m{BrowseX \((\d+)\.(\d+)([\d.]*)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	    $beta = $3;
+	}
     }
 
     if ( !defined($major) ) {

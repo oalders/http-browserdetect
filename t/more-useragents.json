@@ -742,18 +742,21 @@
    },
    "Mozilla/4.61 [en] (X11; U; ) - BrowseX (2.0.0 Windows)" : {
       "language" : "EN",
-      "major" : "4",
+      "major" : "2",
       "match" : [
+	 "browsex",
          "unix",
          "x11"
       ],
-      "minor" : ".61",
+      "minor" : ".0",
+      "beta" : ".0",
       "os_string" : "Unix",
       "os_version" : 0,
-      "public_major" : "4",
-      "public_minor" : ".61",
-      "public_version" : 4.61,
-      "version" : 4.61
+      "public_major" : "2",
+      "public_minor" : ".0",
+      "public_beta" : ".0",
+      "public_version" : 2.0,
+      "version" : 2.0
    },
    "Mozilla/5.0 (Linux; Android 4.1.1; Huawei Y301A1 Build/HuaweiY301A1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "beta" : ".1500.94",
