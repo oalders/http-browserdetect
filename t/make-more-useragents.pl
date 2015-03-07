@@ -52,7 +52,7 @@ while (<>) {
                     }xg
     );
     my ($ua) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
-    @tokens = ( $ua =~ m{ (\w+) }g );    # Words within the user agent
+    @tokens = ( $ua =~ m{ (\w+) }xg );    # Words within the user agent
     my $added = 0;
     foreach my $word (@tokens) {
         if ( !$seen_tokens{ lc $word } && !$added ) {
