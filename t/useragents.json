@@ -231,6 +231,7 @@
       "major" : null,
       "match" : [
          "device",
+	 "mobile",
          "obigo",
          "wap"
       ],
@@ -3927,5 +3928,50 @@
       ],
       "os" : "Mac OS X",
       "public_version" : "1.2"
+  },
+  "ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513003477632000000018014935480]" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+	  "device",
+	  "wap",
+	  "mobile",
+	  "obigo"
+      ]
+  },
+  "HUAWEI-H215G/1.0[TF860495020075686000000017029451468] Obigo-Browser/Q05A MMS/UNIBOX/V1.2 HuaweiJava/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1" : {
+      "beta" : "[tf860495020075686000000017029451468]",
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+	  "device",
+	  "wap",
+	  "mobile",
+	  "obigo"
+      ]
+  },
+  "LG-LG306G/V100[TF013948006538818000000018064370513] Obigo/Q7.3 Profile/MIDP-2.1 Configuration/CLDC-1.1" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+	  "device",
+	  "wap",
+	  "mobile",
+	  "obigo"
+      ]
+  },
+  "MOT-EX431G/[TF359486041608603004831018142290921] Obigo/Q03C MMP/2.0" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "Motorola EX431G/[TF359486041608603004831018142290921]",
+      "match" : [
+	  "device",
+	  "wap",
+	  "mobile",
+	  "obigo"
+      ]
   }
 }

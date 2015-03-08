@@ -71,7 +71,7 @@ our @BROWSER_TESTS = qw(
     konqueror     realplayer  netfront
     mobile_safari obigo       aol
     lotusnotes    staroffice  icab
-    webtv
+    webtv         browsex     silk
 );
 
 our @IE_TESTS = qw(
@@ -184,6 +184,7 @@ my %ROBOT_NAMES = (
 my %BROWSER_NAMES = (
     aol           => 'AOL Browser',
     blackberry    => 'BlackBerry',
+    browsex       => 'BrowseX',
     chrome        => 'Chrome',
     curl          => 'curl',
     dsi           => 'Nintendo DSi',
@@ -192,6 +193,7 @@ my %BROWSER_NAMES = (
     icab          => 'iCab',
     iceweasel     => 'IceWeasel',
     ie            => 'MSIE',
+    konqueror     => 'Konqueror',
     links         => 'Links',
     lotusnotes    => 'Lotus Notes',
     lynx          => 'Lynx',
@@ -205,6 +207,7 @@ my %BROWSER_NAMES = (
     puf           => 'puf',
     realplayer    => 'RealPlayer',
     safari        => 'Safari',
+    silk          => 'Silk',
     staroffice    => 'StarOffice',
     webtv         => 'WebTV',
 );
@@ -486,6 +489,12 @@ sub _init_core {
             $browser_tests->{AOL} = 1;
         }
     }
+    elsif ( index( $ua, "silk" ) != -1 ) {
+	# Has to go above Chrome, it includes "like Chrome/"
+
+	$browser = 'SILK';
+	$browser_tests->{$browser} = 1;
+    }
     elsif ( index( $ua, "chrome/" ) != -1 ) {
 
         # Browser is Chrome
@@ -602,9 +611,13 @@ sub _init_core {
     elsif ( index( $ua, "nintendo dsi" ) != -1 ) {
         $browser = 'DSI';     # Test gets set during device check
     }
-    elsif ( index( $ua, "obigo/" ) != -1 ) {
+    elsif ( index( $ua, "obigo" ) != -1 ) {
         $browser = 'OBIGO';
         $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "browsex" ) != -1 ) {
+	$browser = 'BROWSEX';
+	$browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $browser = 'CURL';    # Test gets set during robot check
@@ -618,7 +631,7 @@ sub _init_core {
     # Other random tests
 
     $tests->{JAVA} = 1
-        if ( index( $ua, "java" ) != -1
+        if ( $ua =~ m{\bjava}
         || index( $ua, "jdk" ) != -1
         || index( $ua, "jakarta commons-httpclient" ) != -1 );
     $tests->{X11}    = 1 if index( $ua, "x11" ) != -1;
@@ -779,14 +792,20 @@ sub _init_robots {
         ||= $r
         || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
-        || index( $ua, "bot" ) != -1
+        || index( $ua, "appender" ) != -1
+	|| index( $ua, "bot" ) != -1
+	|| index( $ua, "checker" ) != -1    
         || index( $ua, "copy" ) != -1
         || index( $ua, "crawl" ) != -1
+	|| index( $ua, "explorador" ) != -1
         || index( $ua, "fetch" ) != -1
         || index( $ua, "find" ) != -1
         || index( $ua, "ia_archive" ) != -1
         || index( $ua, "index" ) != -1
+        || index( $ua, "sleuth" ) != -1
         || index( $ua, "reap" ) != -1
+	|| index( $ua, "scan" ) != -1
+        || index( $ua, "service" ) != -1
         || index( $ua, "spider" ) != -1
         || index( $ua, "worm" ) != -1
         || index( $ua, "zyborg" ) != -1
@@ -1208,6 +1227,26 @@ sub _init_version {
             $minor = $2;
         }
     }
+    elsif ( $browser eq 'BROWSEX' ) {
+	if ( $ua =~ m{BrowseX \((\d+)\.(\d+)([\d.]*)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	    $beta = $3;
+	}
+    }
+    elsif ( $browser eq 'SILK' ) {
+	if ( $ua =~ m{Silk/(\d+)\.(\d+)([\d.]*)}i ) {
+	    $major = $1;
+	    $minor = $2;
+	    $beta = $3;
+	}
+    }
+    elsif ( $browser eq 'OBIGO' ) {
+	# We have no working obigo version tests, so give up as opposed
+	# to setting wrong information.
+	$major = "0";
+	$minor = ".0";
+    }
 
     if ( !defined($major) ) {
 
@@ -1457,7 +1496,8 @@ sub _init_device {
             || index( $ua, "android" ) != -1
             || index( $ua, "symbos" ) != -1
             || index( $ua, "opera mobi" ) != -1
-            || index( $ua, "fennec" ) != -1
+	    || index( $ua, "fennec" ) != -1
+	    || index( $ua, "obigo" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
             || ( index( $ua, "bb10" ) != -1
@@ -2315,7 +2355,8 @@ Returns undef on failure.  Otherwise returns one of the following:
 
 Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
 Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab.
+BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
+BrowseX, Silk.
 
 =head2 gecko_version()
 
