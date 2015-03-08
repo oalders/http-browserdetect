@@ -2,6 +2,8 @@ Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
     - Switch to using strings for version numbers (andrewmoise)
+    - Adds BrowseX and Silk detection (andrewmoise)
+    - Makes detection of Obigo more consistent (andrewmoise)
 
 1.76 2015-03-03 22:56:25 America/Toronto
     - Encourage use of public_* and engine_* over version(), major() and
