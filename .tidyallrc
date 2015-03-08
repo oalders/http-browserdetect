@@ -3,3 +3,6 @@ select = {bin,lib,t}/**/*.{pl,pm,t,psgi}
 
 [SortLines::Naturally]
 select = .gitignore
+
+[JSON]
+select = t/**/*json

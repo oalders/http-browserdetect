@@ -1,4 +1,15 @@
 {
+   "ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513003477632000000018014935480]" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "obigo"
+      ]
+   },
    "AdsBot-Google (+http://www.google.com/adsbot.html)" : {
       "browser_string" : null,
       "country" : null,
@@ -62,15 +73,32 @@
       "other" : null,
       "version" : "3.7"
    },
+   "BlackBerry8520/4.6.1.272 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/118" : {
+      "browser_string" : "BlackBerry",
+      "device_name" : "BlackBerry",
+      "match" : [
+         "mobile",
+         "blackberry",
+         "device"
+      ],
+      "minor" : ".6",
+      "no_match" : [
+         "robot"
+      ],
+      "public_major" : "4",
+      "public_minor" : ".6",
+      "public_version" : "4.6",
+      "version" : "4.6"
+   },
    "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
       "major" : "2",
-      "minor" : "0.1",
       "match" : [
          "googlemobile",
          "google",
          "mobile",
          "robot"
       ],
+      "minor" : "0.1",
       "public_major" : "2",
       "public_minor" : ".1",
       "public_version" : "2.1",
@@ -118,6 +146,17 @@
       "other" : null,
       "version" : "3.2"
    },
+   "Googlebot-Image/1.0" : {
+      "major" : "1",
+      "match" : [
+         "google",
+         "googlebotimage",
+         "robot"
+      ],
+      "minor" : "0",
+      "robot_name" : "Googlebot Images",
+      "version" : "1"
+   },
    "Googlebot-News" : {
       "match" : [
          "google",
@@ -126,45 +165,82 @@
       ],
       "robot_name" : "Googlebot News"
    },
-   "Googlebot-Image/1.0" : {
-      "major" : "1",
-      "minor" : "0",
-      "match" : [
-         "google",
-         "googlebotimage",
-         "robot"
-      ],
-      "robot_name" : "Googlebot Images",
-      "version" : "1"
-   },
    "Googlebot-Video/1.0" : {
       "major" : "1",
-      "minor" : "0",
       "match" : [
          "google",
          "googlebotvideo",
          "robot"
       ],
+      "minor" : "0",
       "robot_name" : "Googlebot Video",
       "version" : "1"
    },
    "Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)" : {
       "major" : "1",
-      "minor" : "0",
       "match" : [
          "google",
          "robot"
       ],
+      "minor" : "0",
       "version" : "1"
    },
    "Googlebot/2.1 (+http://www.google.com/bot.html)" : {
       "major" : "2",
-      "minor" : "0.1",
       "match" : [
          "google",
          "robot"
       ],
+      "minor" : "0.1",
       "version" : "2.1"
+   },
+   "HUAWEI-H215G/1.0[TF860495020075686000000017029451468] Obigo-Browser/Q05A MMS/UNIBOX/V1.2 HuaweiJava/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1" : {
+      "beta" : "[tf860495020075686000000017029451468]",
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "obigo"
+      ]
+   },
+   "Jakarta Commons-HttpClient/3.1" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "3",
+      "match" : [
+         "java",
+         "robot"
+      ],
+      "minor" : ".1",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "public_major" : "3",
+      "public_minor" : ".1",
+      "public_version" : "3.1",
+      "version" : "3.1"
+   },
+   "Java/1.6.0_17" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : "1",
+      "match" : [
+         "java",
+         "robot"
+      ],
+      "minor" : ".6",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "public_major" : "1",
+      "public_minor" : ".6",
+      "public_version" : "1.6",
+      "version" : "1.6"
    },
    "Konqueror/1.1.2" : {
       "browser_string" : null,
@@ -181,6 +257,24 @@
       "os" : null,
       "other" : null,
       "version" : "1.1"
+   },
+   "LG-LG306G/V100[TF013948006538818000000018064370513] Obigo/Q7.3 Profile/MIDP-2.1 Configuration/CLDC-1.1" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "WAP capable phone",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "obigo"
+      ]
+   },
+   "LinkChecker/7.4 (+http://linkchecker.sourceforge.net/)" : {
+      "match" : [
+         "robot",
+         "linkchecker"
+      ],
+      "robot_name" : "LinkChecker"
    },
    "Links (2.1pre15; Linux 2.4.26-vc4 i586; x)" : {
       "browser_string" : "Links",
@@ -215,15 +309,6 @@
       "other" : null,
       "version" : "4.5"
    },
-   "Mediapartners-Google/2.1" : {
-      "major" : "2",
-      "minor" : "0.1",
-      "match" : [
-         "googleadsense",
-         "robot"
-      ],
-      "version" : "2.1"
-   },
    "MOT-EX128 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1" : {
       "browser_string" : "Obigo",
       "device_name" : "Motorola EX128",
@@ -231,7 +316,7 @@
       "major" : null,
       "match" : [
          "device",
-	 "mobile",
+         "mobile",
          "obigo",
          "wap"
       ],
@@ -240,6 +325,26 @@
       "os" : null,
       "other" : null,
       "version" : null
+   },
+   "MOT-EX431G/[TF359486041608603004831018142290921] Obigo/Q03C MMP/2.0" : {
+      "browser_string" : "Obigo",
+      "device" : "wap",
+      "device_name" : "Motorola EX431G/[TF359486041608603004831018142290921]",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "obigo"
+      ]
+   },
+   "Mediapartners-Google/2.1" : {
+      "major" : "2",
+      "match" : [
+         "googleadsense",
+         "robot"
+      ],
+      "minor" : "0.1",
+      "version" : "2.1"
    },
    "Mozilla/1.1 (Windows 3.0; I)" : {
       "browser_string" : "Netscape",
@@ -456,79 +561,11 @@
       "other" : null,
       "version" : "3.03"
    },
-   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
-      "match" : [
-         "dotnet",
-         "ie",
-         "ie_compat_mode",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie7",
-         "trident",
-         "windows",
-         "winnt",
-         "win32",
-         "win7"
-      ],
-      "public_major" : "7",
-      "public_minor" : "0",
-      "public_version" : "7.0",
-      "version" : "7.0",
-      "engine_major" : "5",
-      "engine_minor" : "0",
-      "engine_version" : "5.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; .NET4.0E; .NET4.0C)" : {
-      "match" : [
-         "ie",
-         "ie_compat_mode",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie7",
-         "trident",
-         "win32",
-         "win8",
-         "win8_0",
-         "windows",
-         "winnt"
-      ],
-      "public_major" : "7",
-      "public_minor" : "0",
-      "public_version" : "7.0",
-      "version" : "7.0",
-      "engine_major" : "6",
-      "engine_minor" : "0",
-      "engine_version" : "6.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; Trident/7.0)" : {
-      "match" : [
-         "ie",
-         "ie_compat_mode",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie7",
-         "trident",
-         "win32",
-         "win8",
-         "win8_1",
-         "windows",
-         "winnt"
-      ],
-      "public_major" : "7",
-      "public_minor" : "0",
-      "public_version" : "7.0",
-      "version" : "7.0",
-      "engine_major" : "7",
-      "engine_minor" : "0",
-      "engine_version" : "7.0",
-      "engine_string" : "Trident"
-   },
    "Mozilla/4.0  (compatible;  MSIE 8.0; Windows NT 5.1; Trident/4.0; GoogleT5; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
+      "engine_major" : "4",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "winxp",
@@ -551,42 +588,8 @@
       "public_major" : "8",
       "public_minor" : "0",
       "public_version" : "8.0",
-      "version" : "8.0",
-      "engine_major" : "4",
-      "engine_minor" : "0",
-      "engine_version" : "4.0",
-      "engine_string" : "Trident"
+      "version" : "8.0"
    },
-   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
-      "major" : "8",
-      "match" : [
-         "winxp",
-         "windows",
-         "winnt",
-         "win32",
-         "dotnet",
-         "trident",
-         "ie",
-         "ie8",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "minor" : "0",
-      "no_match" : [
-         "ie_compat_mode",
-         "robot"
-      ],
-      "public_major" : "8",
-      "public_minor" : "0",
-      "public_version" : "8.0",
-      "version" : "8.0",
-      "engine_major" : "4",
-      "engine_minor" : "0",
-      "engine_version" : "4.0",
-      "engine_string" : "Trident"
-   },
-
    "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)" : {
       "device_name" : "Sony PlayStation Portable",
       "engine_string" : "NetFront",
@@ -921,6 +924,10 @@
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.5400; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; Seekmo 10.0.430.0; 3P_UPCPC 1.0.21.2; .NET CLR 3.5.30729; Tablet PC 2.0; .NET CLR 3.0.30729; .NET4.0C)" : {
       "browser_string" : "AOL Browser",
+      "engine_major" : "4",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "major" : "7",
       "match" : [
          "winvista",
@@ -940,11 +947,7 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ],
-      "engine_major" : "4",
-      "engine_minor" : "0",
-      "engine_version" : "4.0",
-      "engine_string" : "Trident"
+      ]
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; FunWebProducts; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; SeekmoToolbar 4.8.4)" : {
       "browser_string" : "MSIE",
@@ -1039,8 +1042,150 @@
       "other" : null,
       "version" : "7.0"
    },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
+      "engine_major" : "5",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "5.0",
+      "match" : [
+         "dotnet",
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "windows",
+         "winnt",
+         "win32",
+         "win7"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; .NET4.0E; .NET4.0C)" : {
+      "engine_major" : "6",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "6.0",
+      "match" : [
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "win32",
+         "win8",
+         "win8_0",
+         "windows",
+         "winnt"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; Trident/7.0)" : {
+      "engine_major" : "7",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "7.0",
+      "match" : [
+         "ie",
+         "ie_compat_mode",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7",
+         "trident",
+         "win32",
+         "win8",
+         "win8_1",
+         "windows",
+         "winnt"
+      ],
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0",
+      "version" : "7.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; T7575)" : {
+      "browser_string" : "MSIE",
+      "device_name" : "HTC T7575",
+      "language" : null,
+      "match" : [
+         "windows",
+         "winphone",
+         "winphone7",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie7"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "WinPhone",
+      "os_string" : "Windows Phone",
+      "os_version" : "7.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
+      "browser_string" : "AOL Browser",
+      "engine_string" : "Trident",
+      "language" : "EN",
+      "major" : "8",
+      "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "aol",
+         "trident",
+         "win32",
+         "windows",
+         "winnt",
+         "winxp",
+         "dotnet"
+      ],
+      "minor" : "0",
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "WinXP"
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
+      "language" : null,
+      "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "trident",
+         "win32",
+         "windows",
+         "winnt",
+         "winxp"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ]
+   },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; eMusic DLM/4; .NET4.0C)" : {
       "browser_string" : "MSIE",
+      "engine_major" : "4",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "match" : [
          "winxp",
          "windows",
@@ -1054,20 +1199,46 @@
          "ie5up",
          "ie8"
       ],
-      "no_match": [
-        "ie_compat_mode"
+      "no_match" : [
+         "ie_compat_mode"
       ],
       "os" : "WinXP",
       "public_major" : "8",
       "public_minor" : "0",
+      "public_version" : "8.0"
+   },
+   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; Crossrider130)" : {
+      "browser_string" : "MSIE",
+      "engine_string" : "Trident",
+      "match" : [
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie8",
+         "trident",
+         "win32",
+         "windows",
+         "winnt",
+         "winxp",
+         "dotnet"
+      ],
+      "minor" : "0",
+      "no_match" : [
+         "ie_compat_mode",
+         "robot"
+      ],
+      "public_major" : "8",
+      "public_minor" : "0",
       "public_version" : "8.0",
-      "engine_major" : "4",
-      "engine_minor" : "0",
-      "engine_version" : "4.0",
-      "engine_string" : "Trident"
+      "version" : "8.0"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NETi CLR 3.0.30729; Media Center PC 6.0; MS-RTC LM 8; InfoPath.3; .NET4.0C) chromeframe/4.0" : {
       "browser_string" : "MSIE",
+      "engine_major" : "4",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "windows",
@@ -1082,291 +1253,11 @@
          "ie5up",
          "ie4up"
       ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
       "minor" : "0",
       "no_match" : null,
       "os" : "Win7",
       "other" : null,
-      "version" : "8.0",
-      "engine_major" : "4",
-      "engine_minor" : "0",
-      "engine_version" : "4.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (compatible; MJ12bot/v1.4.5; http://www.majestic12.co.uk/bot.php?+)": {
-      "robot_name" : "Majestic-12 DSearch",
-      "match" : [
-        "mj12bot",
-        "robot"
-      ]
-   },
-   "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)": {
-      "browser_string": "MSIE",
-      "major" : "9",
-      "match" : [
-         "windows",
-         "win7",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie9",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os" : "Win7",
-      "other" : null,
-      "version" : "9.0",
-      "engine_major" : "5",
-      "engine_minor" : "0",
-      "engine_version" : "5.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1791 Mobile Safari/537.35+": {
-       "browser_string" : "BlackBerry",
-       "match" : [
-         "bb10",
-         "blackberry",
-         "device",
-         "mobile",
-         "mobile_safari",
-         "safari"
-       ],
-       "no_match" : [
-         "robot"
-       ],
-       "os_string" : "BlackBerry 10",
-       "public_version" : "10.2",
-       "device_name" : "BlackBerry Q10"
-   },
-   "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1803 Mobile Safari/537.35+": {
-       "browser_string" : "BlackBerry",
-       "match" : [
-         "bb10",
-         "blackberry",
-         "device",
-         "mobile",
-         "mobile_safari",
-         "safari"
-       ],
-       "no_match" : [
-         "robot"
-       ],
-       "device_name" : "BlackBerry Touch",
-       "os_string" : "BlackBerry 10",
-       "public_version" : "10.2"
-   },
-   "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)": {
-      "browser_string": "MSIE",
-      "major" : "9",
-      "match" : [
-         "windows",
-         "win7",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie9",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os" : "Win7",
-      "other" : null,
-      "version" : "9.0",
-      "engine_major" : "5",
-      "engine_minor" : "0",
-      "engine_version" : "5.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)": {
-      "browser_string": "MSIE",
-      "major" : "10",
-      "match" : [
-         "windows",
-         "win7",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie10",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os" : "Win7",
-      "other" : null,
-      "version" : "10.0",
-      "engine_major" : "6",
-      "engine_minor" : "0",
-      "engine_version" : "6.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)": {
-      "browser_string": "MSIE",
-      "major" : "10",
-      "match" : [
-         "ie",
-         "ie10",
-         "ie55up",
-         "ie4up",
-         "ie5up",
-         "mobile",
-         "tablet",
-         "trident",
-         "win32",
-         "win8",
-         "win8_0",
-         "windows",
-         "winnt"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os_string" : "Win8",
-      "other" : null,
-      "version" : "10.0",
-      "engine_major" : "6",
-      "engine_minor" : "0",
-      "engine_version" : "6.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)": {
-      "browser_string": "MSIE",
-      "major" : "10",
-      "match" : [
-         "windows",
-         "win8",
-         "win8_0",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie10",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os_string" : "Win8",
-      "other" : null,
-      "version" : "10.0",
-      "engine_major" : "6",
-      "engine_minor" : "0",
-      "engine_version" : "6.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537": {
-      "match" : [
-         "android",
-         "device",
-         "ie",
-	 "ie11",
-         "ie55up",
-         "ie5up",
-         "ie4up",
-         "mobile",
-         "trident",
-         "windows",
-         "winphone"
-      ]
-   },
-   "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko": {
-      "browser_string": "MSIE",
-      "major" : "11",
-      "match" : [
-         "windows",
-         "win7",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie11",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os_string" : "Win7",
-      "other" : null,
-      "version" : "11.0",
-      "engine_major" : "7",
-      "engine_minor" : "0",
-      "engine_version" : "7.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko": {
-      "browser_string": "MSIE",
-      "major" : "11",
-      "match" : [
-         "windows",
-         "win8",
-         "win8_1",
-         "winnt",
-         "win32",
-         "trident",
-         "ie",
-         "ie11",
-         "ie55up",
-         "ie5up",
-         "ie4up"
-      ],
-      "no_match": [
-        "ie_compat_mode"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os_string" : "Win8.1",
-      "other" : null,
-      "version" : "11.0",
-      "engine_major" : "7",
-      "engine_minor" : "0",
-      "engine_version" : "7.0",
-      "engine_string" : "Trident"
-   },
-   "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100" : {
-      "browser_string" : "Opera",
-      "major" : "15",
-      "match" : [
-         "windows",
-         "win7",
-         "winnt",
-         "win32",
-         "opera"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "os_string" : "Win7",
-      "other" : null,
-      "version" : "15.0"
+      "version" : "8.0"
    },
    "Mozilla/4.0 (compatible; Opera/3.0; Windows 4.10) 3.50" : {
       "browser_string" : "Opera",
@@ -1425,23 +1316,154 @@
       "other" : null,
       "version" : "4.5"
    },
-   "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
-      "browser_string" : null,
-      "country" : "NZ",
-      "engine_string" : "KHTML",
-      "language" : "EN",
-      "major" : "5",
+   "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "5",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "5.0",
+      "major" : "9",
       "match" : [
-         "linux",
-         "safari",
-         "tablet",
-         "unix"
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie9",
+         "ie55up",
+         "ie5up",
+         "ie4up"
       ],
-      "minor" : "0.34",
+      "minor" : "0",
       "no_match" : null,
-      "os" : null,
+      "os" : "Win7",
       "other" : null,
-      "version" : "5.34"
+      "version" : "9.0"
+   },
+   "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1791 Mobile Safari/537.35+" : {
+      "browser_string" : "BlackBerry",
+      "device_name" : "BlackBerry Q10",
+      "match" : [
+         "bb10",
+         "blackberry",
+         "device",
+         "mobile",
+         "mobile_safari",
+         "safari"
+      ],
+      "no_match" : [
+         "robot"
+      ],
+      "os_string" : "BlackBerry 10",
+      "public_version" : "10.2"
+   },
+   "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1803 Mobile Safari/537.35+" : {
+      "browser_string" : "BlackBerry",
+      "device_name" : "BlackBerry Touch",
+      "match" : [
+         "bb10",
+         "blackberry",
+         "device",
+         "mobile",
+         "mobile_safari",
+         "safari"
+      ],
+      "no_match" : [
+         "robot"
+      ],
+      "os_string" : "BlackBerry 10",
+      "public_version" : "10.2"
+   },
+   "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; fr) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.246 Mobile Safari/534.1+" : {
+      "browser_string" : "BlackBerry",
+      "device_name" : "BlackBerry",
+      "engine_string" : "KHTML",
+      "language" : "FR",
+      "match" : [
+         "safari",
+         "mobile",
+         "mobile_safari",
+         "blackberry",
+         "device"
+      ],
+      "no_match" : [
+         "robot"
+      ],
+      "public_version" : "6.0"
+   },
+   "Mozilla/5.0 (Linux; Android 4.3.1; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
+      "major" : "33",
+      "match" : [
+         "android",
+         "chrome",
+         "device",
+         "linux",
+         "unix",
+         "mobile"
+      ],
+      "minor" : "0",
+      "no_match" : [
+         "sun"
+      ],
+      "os_string" : "Android",
+      "os_version" : "4.3.1",
+      "public_major" : "33",
+      "public_minor" : "0",
+      "public_version" : "33.0",
+      "version" : "33.0"
+   },
+   "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
+      "major" : "33",
+      "match" : [
+         "android",
+         "mobile",
+         "device",
+         "linux",
+         "unix",
+         "chrome"
+      ],
+      "minor" : "0",
+      "os_string" : "Android",
+      "os_version" : "4.4.2",
+      "public_major" : "33",
+      "public_minor" : "0",
+      "public_version" : "33.0"
+   },
+   "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36 OPR/20.0.1396.73172" : {
+      "major" : "20",
+      "match" : [
+         "android",
+         "mobile",
+         "device",
+         "linux",
+         "unix",
+         "opera"
+      ],
+      "minor" : "0",
+      "os_string" : "Android",
+      "os_version" : "4.4.2",
+      "public_major" : "20",
+      "public_minor" : "0",
+      "public_version" : "20.0"
+   },
+   "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
+      "major" : "30",
+      "match" : [
+         "android",
+         "mobile",
+         "device",
+         "linux",
+         "unix",
+         "chrome"
+      ],
+      "minor" : "0",
+      "os_string" : "Android",
+      "os_version" : "4.4.2",
+      "public_major" : "30",
+      "public_minor" : "0",
+      "public_version" : "30.0",
+      "version" : "30.0"
    },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
       "country" : "US",
@@ -1510,6 +1532,80 @@
       "public_version" : "4.0",
       "version" : "5.30"
    },
+   "Mozilla/5.0 (Linux; U; Android 2.1-update1; ja-jp; IS03 Build/S2080) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 YJApp-ANDROID jp.co.yahoo.android.yjtop/1.0.3" : {
+      "browser_string" : "Mobile Safari",
+      "match" : [
+         "safari",
+         "linux",
+         "unix",
+         "mobile",
+         "mobile_safari",
+         "device",
+         "android"
+      ],
+      "minor" : ".30",
+      "no_match" : [
+         "robot"
+      ],
+      "os" : "Android",
+      "version" : "5.30"
+   },
+   "Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JOP12D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30" : {
+      "browser_string" : "Safari",
+      "country" : "US",
+      "engine_string" : "KHTML",
+      "language" : "EN",
+      "major" : "5",
+      "match" : [
+         "mobile",
+         "device",
+         "linux",
+         "safari",
+         "tablet",
+         "android",
+         "unix"
+      ],
+      "minor" : "0.34",
+      "public_major" : "4",
+      "public_minor" : ".0",
+      "public_version" : "4",
+      "version" : "5.34"
+   },
+   "Mozilla/5.0 (Linux; U; Android 4.3.1; en-gb; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 CyanogenMod/10.2.1/d2att" : {
+      "match" : [
+         "android",
+         "mobile",
+         "device",
+         "linux",
+         "unix",
+         "mobile_safari",
+         "safari"
+      ],
+      "no_match" : [
+         "sun"
+      ],
+      "os_string" : "Android",
+      "os_version" : "4.3.1",
+      "public_major" : "4",
+      "public_minor" : "0",
+      "public_version" : "4.0"
+   },
+   "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; Nexus 4 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16" : {
+      "match" : [
+         "android",
+         "mobile",
+         "mobile_safari",
+         "device",
+         "linux",
+         "unix",
+         "safari"
+      ],
+      "os_string" : "Android",
+      "os_version" : "4.4.2",
+      "public_major" : "4",
+      "public_minor" : "0",
+      "public_version" : "4.0"
+   },
    "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)" : {
       "browser_string" : "Safari",
       "match" : [
@@ -1525,6 +1621,46 @@
       "public_minor" : "0",
       "public_version" : "4.0"
    },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0" : {
+      "browser_string" : "Firefox",
+      "major" : "28",
+      "match" : [
+         "mac",
+         "macosx",
+         "firefox",
+         "gecko"
+      ],
+      "minor" : "0",
+      "os" : "Mac OS X",
+      "os_version" : "10.9",
+      "version" : "28.0"
+   },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
+      "browser_string" : "Chrome",
+      "match" : [
+         "mac",
+         "macosx",
+         "chrome"
+      ],
+      "os" : "Mac OS X",
+      "os_version" : "10.9.2",
+      "public_major" : "33",
+      "public_minor" : "0",
+      "public_version" : "33.0"
+   },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9" : {
+      "browser_string" : "Safari",
+      "match" : [
+         "mac",
+         "macosx",
+         "safari"
+      ],
+      "os" : "Mac OS X",
+      "os_version" : "10.9.2",
+      "public_major" : "7",
+      "public_minor" : "0",
+      "public_version" : "7.0"
+   },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; de; rv:1.9.2) Gecko/20100115 Firefox/3.6" : {
       "engine" : "4.6",
       "engine_string" : "Gecko",
@@ -1538,7 +1674,7 @@
       ],
       "minor" : "0.6",
       "os_string" : "Mac OS X",
-       "os_version" : "10.6",
+      "os_version" : "10.6",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6",
@@ -1728,20 +1864,6 @@
       "public_minor" : "0",
       "public_version" : "1.0"
    },
-   "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85.8.5 (KHTML, like Gecko) Safari/85.8.1" : {
-      "browser_string" : "Safari",
-      "match" : [
-         "mac",
-         "macosx",
-         "macppc",
-         "safari"
-      ],
-      "major" : "0",
-      "minor" : "0.85",
-      "public_major" : "1",
-      "public_minor" : "0",
-      "version" : "0.85"
-   },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US; rv:1.0.2) Gecko/20030208 Netscape/7.02" : {
       "browser_string" : "Netscape",
       "country" : "US",
@@ -1783,50 +1905,77 @@
       "other" : null,
       "version" : "0.74"
    },
+   "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85.8.5 (KHTML, like Gecko) Safari/85.8.1" : {
+      "browser_string" : "Safari",
+      "major" : "0",
+      "match" : [
+         "mac",
+         "macosx",
+         "macppc",
+         "safari"
+      ],
+      "minor" : "0.85",
+      "public_major" : "1",
+      "public_minor" : "0",
+      "version" : "0.85"
+   },
+   "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
+      "browser_string" : "Safari",
+      "match" : [
+         "mac",
+         "macosx",
+         "macppc",
+         "safari"
+      ],
+      "os" : "Mac OS X",
+      "public_major" : "1",
+      "public_minor" : ".2",
+      "public_version" : "1.2"
+   },
+   "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537" : {
+      "match" : [
+         "android",
+         "device",
+         "ie",
+         "ie11",
+         "ie55up",
+         "ie5up",
+         "ie4up",
+         "mobile",
+         "trident",
+         "windows",
+         "winphone"
+      ]
+   },
    "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0" : {
       "browser_string" : "Firefox",
       "engine_string" : "Gecko",
-      "engine_version": "18.0",
+      "engine_version" : "18.0",
       "match" : [
-        "firefox",
-        "firefoxos",
-        "gecko",
-        "mobile"
+         "firefox",
+         "firefoxos",
+         "gecko",
+         "mobile"
       ],
       "os_string" : "Firefox OS",
       "os_version" : "18.0",
       "public_version" : "18.0",
       "version" : "18.0"
    },
-   "Mozilla/5.0 (Tablet; rv:29.0) Gecko/29.0 Firefox/29.0" : {
-      "browser_string" : "Firefox",
-      "engine_string" : "Gecko",
-      "engine_version": "29.0",
+   "Mozilla/5.0 (Nintendo 3DS; U; ; ja) Version/1.7412.JP" : {
+      "browser_string" : "Nintendo 3DS",
       "match" : [
-        "firefox",
-        "firefoxos",
-        "gecko",
-        "tablet"
+         "device",
+         "mobile",
+         "n3ds"
       ],
-      "os_string" : "Firefox OS",
-      "os_version" : "29.0",
-      "public_version" : "29.0",
-      "version" : "29.0"
-   },
-   "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.0.0; en-US) AppleWebKit/535.8+ (KHTML, like Gecko) Version/7.2.0.0 Safari/535.8+" : {
-      "browser_string" : "BlackBerry",
-      "engine_string" : "KHTML",
-      "match" : [
-        "blackberry",
-        "device",
-        "mobile",
-        "rimtabletos",
-        "safari",
-        "tablet"
+      "no_match" : [
+         "robot"
       ],
-      "os_string" : "RIM Tablet OS",
-      "public_version" : "7.2",
-      "version" : "5.35"
+      "os" : null,
+      "public_major" : "1",
+      "public_minor" : "0.7412",
+      "public_version" : "1.7412"
    },
    "Mozilla/5.0 (PLAYSTATION 3; 2.00)" : {
       "device_name" : "Sony PlayStation 3",
@@ -1840,6 +1989,21 @@
       "no_match" : [
          "netscape"
       ]
+   },
+   "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.0.0; en-US) AppleWebKit/535.8+ (KHTML, like Gecko) Version/7.2.0.0 Safari/535.8+" : {
+      "browser_string" : "BlackBerry",
+      "engine_string" : "KHTML",
+      "match" : [
+         "blackberry",
+         "device",
+         "mobile",
+         "rimtabletos",
+         "safari",
+         "tablet"
+      ],
+      "os_string" : "RIM Tablet OS",
+      "public_version" : "7.2",
+      "version" : "5.35"
    },
    "Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0" : {
       "browser_string" : "Safari",
@@ -1878,6 +2042,136 @@
       "public_minor" : "0",
       "public_version" : "3.0",
       "version" : "5.25"
+   },
+   "Mozilla/5.0 (Tablet; rv:29.0) Gecko/29.0 Firefox/29.0" : {
+      "browser_string" : "Firefox",
+      "engine_string" : "Gecko",
+      "engine_version" : "29.0",
+      "match" : [
+         "firefox",
+         "firefoxos",
+         "gecko",
+         "tablet"
+      ],
+      "os_string" : "Firefox OS",
+      "os_version" : "29.0",
+      "public_version" : "29.0",
+      "version" : "29.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "7",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "7.0",
+      "major" : "11",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie11",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win7",
+      "other" : null,
+      "version" : "11.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100" : {
+      "browser_string" : "Opera",
+      "major" : "15",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "opera"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win7",
+      "other" : null,
+      "version" : "15.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36 OPR/20.0.1387.82" : {
+      "browser_string" : "Opera",
+      "match" : [
+         "windows",
+         "winnt",
+         "win32",
+         "win7",
+         "opera"
+      ],
+      "os" : "Win7",
+      "public_major" : "20",
+      "public_minor" : "0",
+      "public_version" : "20.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0" : {
+      "browser_string" : "Firefox",
+      "match" : [
+         "gecko",
+         "windows",
+         "winnt",
+         "win32",
+         "win7",
+         "firefox"
+      ],
+      "os" : "Win7",
+      "public_major" : "27",
+      "public_minor" : "0",
+      "public_version" : "27.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko" : {
+      "browser_string" : "MSIE",
+      "match" : [
+         "windows",
+         "winnt",
+         "win32",
+         "win7",
+         "ie11",
+         "ie4up",
+         "ie5up",
+         "ie55up",
+         "ie",
+         "trident"
+      ],
+      "os" : "Win7",
+      "public_major" : "11",
+      "public_minor" : "0",
+      "public_version" : "11.0"
+   },
+   "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "7",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "7.0",
+      "major" : "11",
+      "match" : [
+         "windows",
+         "win8",
+         "win8_1",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie11",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win8.1",
+      "other" : null,
+      "version" : "11.0"
    },
    "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010726 Netscape6/6.1" : {
       "browser_string" : "Netscape",
@@ -2246,19 +2540,50 @@
          "robot"
       ]
    },
-   "Mozilla/5.0 (X11; CrOS x86_64 5841.87.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.0 Safari/537.36": {
-     "major" : "36",
-     "minor" : "0",
-     "match" : [
-       "chrome",
-       "chromeos",
-       "x11"
-     ],
-     "os_string" : "Chrome OS",
-     "public_major" : "36",
-     "public_minor" : "0",
-     "public_version" : "36.0",
-     "version" : "36.0"
+   "Mozilla/5.0 (X11; CrOS x86_64 5841.87.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.0 Safari/537.36" : {
+      "major" : "36",
+      "match" : [
+         "chrome",
+         "chromeos",
+         "x11"
+      ],
+      "minor" : "0",
+      "os_string" : "Chrome OS",
+      "public_major" : "36",
+      "public_minor" : "0",
+      "public_version" : "36.0",
+      "version" : "36.0"
+   },
+   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
+      "major" : "33",
+      "match" : [
+         "linux",
+         "unix",
+         "x11",
+         "chrome"
+      ],
+      "minor" : "0",
+      "os_string" : "Linux",
+      "public_major" : "33",
+      "public_minor" : "0",
+      "public_version" : "33.0",
+      "version" : "33.0"
+   },
+   "Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0" : {
+      "major" : "28",
+      "match" : [
+         "linux",
+         "unix",
+         "x11",
+         "gecko",
+         "firefox"
+      ],
+      "minor" : "0",
+      "os_string" : "Linux",
+      "public_major" : "28",
+      "public_minor" : "0",
+      "public_version" : "28.0",
+      "version" : "28.0"
    },
    "Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.7) Gecko/20040619 Firefox/0.9" : {
       "browser_string" : "Firefox",
@@ -2453,6 +2778,21 @@
       "public_version" : "3.6",
       "version" : "3.6"
    },
+   "Mozilla/5.0 (X11; U; Linux i686; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Safari/534.12" : {
+      "browser_string" : "Safari",
+      "match" : [
+         "safari",
+         "linux",
+         "x11",
+         "unix"
+      ],
+      "minor" : ".34",
+      "no_match" : [
+         "robot"
+      ],
+      "os" : null,
+      "version" : "5.34"
+   },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.125 Safari/533.4" : {
       "browser_string" : "Chrome",
       "engine_string" : "KHTML",
@@ -2628,6 +2968,13 @@
       "public_minor" : "0",
       "public_version" : "2.0"
    },
+   "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
+      "match" : [
+         "ahrefs",
+         "robot"
+      ],
+      "robot_name" : "Ahrefs"
+   },
    "Mozilla/5.0 (compatible; Konqueror/3.5; Linux; X11; x86_64) KHTML/3.5.6 (like Gecko) (Kubuntu)" : {
       "match" : [
          "konqueror",
@@ -2660,6 +3007,235 @@
       "public_minor" : "0.4",
       "public_version" : "4.4"
    },
+   "Mozilla/5.0 (compatible; MJ12bot/v1.4.5; http://www.majestic12.co.uk/bot.php?+)" : {
+      "match" : [
+         "mj12bot",
+         "robot"
+      ],
+      "robot_name" : "Majestic-12 DSearch"
+   },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "6",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "6.0",
+      "major" : "10",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie10",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : "Win7",
+      "other" : null,
+      "version" : "10.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "6",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "6.0",
+      "major" : "10",
+      "match" : [
+         "ie",
+         "ie10",
+         "ie55up",
+         "ie4up",
+         "ie5up",
+         "mobile",
+         "tablet",
+         "trident",
+         "win32",
+         "win8",
+         "win8_0",
+         "windows",
+         "winnt"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win8",
+      "other" : null,
+      "version" : "10.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "6",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "6.0",
+      "major" : "10",
+      "match" : [
+         "windows",
+         "win8",
+         "win8_0",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie10",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os_string" : "Win8",
+      "other" : null,
+      "version" : "10.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; 8X)" : {
+      "browser_string" : "MSIE",
+      "device_name" : "HTC 8X",
+      "engine_version" : "6.0",
+      "language" : null,
+      "match" : [
+         "windows",
+         "winphone",
+         "winphone8",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie10"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "WinPhone",
+      "os_string" : "Windows Phone",
+      "os_version" : "8.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" : {
+      "browser_string" : "MSIE",
+      "engine_major" : "5",
+      "engine_minor" : "0",
+      "engine_string" : "Trident",
+      "engine_version" : "5.0",
+      "major" : "9",
+      "match" : [
+         "windows",
+         "win7",
+         "winnt",
+         "win32",
+         "trident",
+         "ie",
+         "ie9",
+         "ie55up",
+         "ie5up",
+         "ie4up"
+      ],
+      "minor" : "0",
+      "no_match" : null,
+      "os" : "Win7",
+      "other" : null,
+      "version" : "9.0"
+   },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T7575)" : {
+      "browser_string" : "MSIE",
+      "device_name" : "HTC T7575",
+      "language" : null,
+      "match" : [
+         "windows",
+         "winphone",
+         "winphone7_5",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie9"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "WinPhone",
+      "os_string" : "Windows Phone",
+      "os_versin" : "7.5"
+   },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 510)" : {
+      "browser_string" : "MSIE",
+      "device_name" : "NOKIA Lumia 510",
+      "engine_version" : "5.0",
+      "language" : null,
+      "match" : [
+         "windows",
+         "winphone",
+         "winphone7_5",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie9"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "WinPhone",
+      "os_string" : "Windows Phone",
+      "os_version" : "7.5"
+   },
+   "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp) NOT Firefox/3.5" : {
+      "match" : [
+         "robot",
+         "slurp",
+         "yahoo"
+      ],
+      "robot_name" : "Yahoo! Slurp"
+   },
+   "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
+      "match" : [
+         "yandex",
+         "robot"
+      ],
+      "robot_name" : "Yandex"
+   },
+   "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
+      "match" : [
+         "robot",
+         "yandeximages"
+      ],
+      "robot_name" : "YandexImages"
+   },
+   "Mozilla/5.0 (compatible; special_archiver/3.1.1 +http://www.archive.org/details/archive.org_bot)" : {
+      "match" : [
+         "robot",
+         "specialarchiver"
+      ],
+      "robot_name" : "archive.org_bot"
+   },
+   "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
+      "browser_string" : null,
+      "country" : "NZ",
+      "engine_string" : "KHTML",
+      "language" : "EN",
+      "major" : "5",
+      "match" : [
+         "linux",
+         "safari",
+         "tablet",
+         "unix"
+      ],
+      "minor" : "0.34",
+      "no_match" : null,
+      "os" : null,
+      "other" : null,
+      "version" : "5.34"
+   },
    "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B348b Safari/531.21.10" : {
       "country" : "US",
       "device" : "ipad",
@@ -2683,6 +3259,40 @@
       "public_minor" : "0",
       "public_version" : "4.0",
       "version" : "5.31"
+   },
+   "Mozilla/5.0 (iPad; U; CPU OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3565MS Mobile Safari/534.12" : {
+      "browser_string" : "Mobile Safari",
+      "device" : "ipad",
+      "device_name" : "iPad",
+      "ios" : 1,
+      "match" : [
+         "mobile",
+         "ios",
+         "ipad",
+         "mobile_safari",
+         "device",
+         "tablet",
+         "safari"
+      ],
+      "minor" : ".34",
+      "no_match" : [
+         "robot"
+      ],
+      "os" : null,
+      "os_version" : "5.0",
+      "version" : "5.34"
+   },
+   "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
+      "device" : "iphone",
+      "match" : [
+         "device",
+         "iphone",
+         "ios",
+         "mobile",
+         "safari"
+      ],
+      "os_string" : "iOS",
+      "os_version" : "6.1.3"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5C1 Safari/525.20" : {
       "browser_string" : "Safari",
@@ -2730,6 +3340,27 @@
       "public_major" : "4",
       "public_minor" : "0",
       "public_version" : "4.0"
+   },
+   "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Mobile Safari/534.12" : {
+      "browser_string" : "Mobile Safari",
+      "device" : "iphone",
+      "device_name" : "iPhone",
+      "ios" : 1,
+      "match" : [
+         "mobile",
+         "ios",
+         "iphone",
+         "mobile_safari",
+         "device",
+         "safari"
+      ],
+      "minor" : ".34",
+      "no_match" : [
+         "robot"
+      ],
+      "os" : null,
+      "os_version" : "5.0",
+      "version" : "5.34"
    },
    "Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20" : {
       "country" : "US",
@@ -2826,6 +3457,17 @@
       "other" : null,
       "version" : "5.432"
    },
+   "Mozilla/DnsHealthCheckBot/1.0" : {
+      "browser_string" : "",
+      "match" : [
+         "netscape",
+         "robot"
+      ],
+      "os" : null,
+      "public_major" : "1",
+      "public_minor" : "0",
+      "public_version" : "1.0"
+   },
    "Nokia-WAP-Toolkit/1.3beta" : {
       "browser_string" : null,
       "country" : null,
@@ -2870,6 +3512,22 @@
       "public_minor" : "0.21",
       "public_version" : "9.21"
    },
+   "Opera/9.50 (Nintendo DSi; Opera/446; U; ja)" : {
+      "browser_string" : "Opera",
+      "match" : [
+         "opera",
+         "device",
+         "mobile",
+         "dsi"
+      ],
+      "no_match" : [
+         "robot"
+      ],
+      "os" : null,
+      "public_major" : "9",
+      "public_minor" : "0.50",
+      "public_version" : "9.50"
+   },
    "Opera/9.80 (Android; Opera Mini/5.1.21126/19.916; U; en) Presto/2.5.25" : {
       "browser_string" : "Opera",
       "language" : "EN",
@@ -2880,7 +3538,7 @@
          "mobile"
       ],
       "os" : "Android",
-      "os_string": "Android",
+      "os_string" : "Android",
       "public_major" : "9",
       "public_minor" : "0.80",
       "public_version" : "9.80"
@@ -2928,6 +3586,29 @@
       "public_major" : "10",
       "public_minor" : "0.10",
       "public_version" : "10.10"
+   },
+   "Opera/9.80 (Windows NT 6.1; Opera Tablet/11648; U; en) Presto/2.7.81 Version/11.00" : {
+      "browser_string" : null,
+      "country" : null,
+      "language" : "EN",
+      "major" : "11",
+      "match" : [
+         "mobile",
+         "tablet",
+         "win32",
+         "windows",
+         "win7",
+         "opera",
+         "winnt"
+      ],
+      "minor" : ".0",
+      "no_match" : null,
+      "os" : "WinNT",
+      "other" : null,
+      "public_major" : "11.0",
+      "public_minor" : ".0",
+      "public_version" : "11.0",
+      "version" : "11.0"
    },
    "RealPlayer SP, Windows 7: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; (R1 1.6))" : {
       "browser_string" : "RealPlayer",
@@ -3000,6 +3681,37 @@
       "os_version" : "10.6.2",
       "other" : null,
       "version" : "11.0"
+   },
+   "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
+      "major" : "2",
+      "match" : [
+         "device",
+         "googlemobile",
+         "google",
+         "mobile",
+         "robot",
+         "wap"
+      ],
+      "minor" : "0.1",
+      "public_major" : "2",
+      "public_minor" : ".1",
+      "public_version" : "2.1",
+      "version" : "2.1"
+   },
+   "SonyEricssonU1i/R1CA; Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Profile/MIDP-2.1 Configuration/CLDC-1.1 model-orange) AppleWebKit/525 (KHTML like Gecko) Version/3.0 Safari/525" : {
+      "browser_string" : "Safari",
+      "engine_string" : "KHTML",
+      "major" : "5",
+      "match" : [
+         "device",
+         "mobile",
+         "safari",
+         "wap"
+      ],
+      "minor" : "0.25",
+      "public_major" : "3",
+      "public_minor" : "0",
+      "version" : "5.25"
    },
    "T-mobile Dash Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; Smartphone; 320x240;) msnbot-mobile/1.1 (+http://search.msn.com/msnbot.htm)" : {
       "browser_string" : null,
@@ -3206,772 +3918,5 @@
       "os" : null,
       "other" : null,
       "version" : "0.93"
-   },
-   "Jakarta Commons-HttpClient/3.1" : {
-      "browser_string" : null,
-      "country" : null,
-      "language" : null,
-      "major" : "3",
-      "match" : [
-         "java",
-         "robot"
-      ],
-      "minor" : ".1",
-      "no_match" : null,
-      "os" : null,
-      "other" : null,
-      "public_major" : "3",
-      "public_minor" : ".1",
-      "public_version" : "3.1",
-      "version" : "3.1"
-   },
-   "Java/1.6.0_17" : {
-      "browser_string" : null,
-      "country" : null,
-      "language" : null,
-      "major" : "1",
-      "match" : [
-         "java",
-         "robot"
-      ],
-      "minor" : ".6",
-      "no_match" : null,
-      "os" : null,
-      "other" : null,
-      "public_major" : "1",
-      "public_minor" : ".6",
-      "public_version" : "1.6",
-      "version" : "1.6"
-   },
-   //
-   "Opera/9.80 (Windows NT 6.1; Opera Tablet/11648; U; en) Presto/2.7.81 Version/11.00" : {
-      "browser_string" : null,
-      "country" : null,
-      "language" : "EN",
-      "major" : "11",
-      "match" : [
-        "mobile",
-        "tablet",
-        "win32",
-        "windows",
-        "win7",
-        "opera",
-        "winnt"
-      ],
-      "minor" : ".0",
-      "no_match" : null,
-      "os" : "WinNT",
-      "other" : null,
-      "public_major" : "11.0",
-      "public_minor" : ".0",
-      "public_version" : "11.0",
-      "version" : "11.0"
-   },
-   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
-       "language" : null,
-       "match" : [
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie8",
-         "trident",
-         "win32",
-         "windows",
-         "winnt",
-         "winxp"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ]
-   },
-   "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; T7575)" : {
-       "browser_string" : "MSIE",
-       "language" : null,
-       "match" : [
-         "windows",
-         "winphone",
-         "winphone7",
-         "mobile",
-         "trident",
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie7"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ],
-       "os" : "WinPhone",
-       "os_string" : "Windows Phone",
-       "os_version" : "7.0",
-       "device_name" : "HTC T7575"
-   },
-   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T7575)" : {
-       "browser_string": "MSIE",
-       "language": null,
-       "match" : [
-         "windows",
-         "winphone",
-         "winphone7_5",
-         "mobile",
-         "trident",
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie9"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ],
-       "os" : "WinPhone",
-       "os_string" : "Windows Phone",
-       "os_versin" : "7.5",
-       "device_name" : "HTC T7575"
-   },
-   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 510)" : {
-       "browser_string": "MSIE",
-       "engine_version": "5.0",
-       "language": null,
-       "match" : [
-         "windows",
-         "winphone",
-         "winphone7_5",
-         "mobile",
-         "trident",
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie9"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ],
-       "os" : "WinPhone",
-       "os_string" : "Windows Phone",
-       "os_version" : "7.5",
-       "device_name" : "NOKIA Lumia 510"
-   },
-   "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; 8X)" : {
-       "browser_string": "MSIE",
-       "engine_version": "6.0",
-       "language": null,
-       "match" : [
-         "windows",
-         "winphone",
-         "winphone8",
-         "mobile",
-         "trident",
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie10"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ],
-       "os" : "WinPhone",
-       "os_string" : "Windows Phone",
-       "os_version" : "8.0",
-       "device_name" : "HTC 8X"
-   },
-   "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
-       "browser_string" : "AOL Browser",
-       "major" : "8",
-       "minor" : "0",
-       "language" : "EN",
-       "engine_string" : "Trident",
-       "match" : [
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie8",
-         "aol",
-         "trident",
-         "win32",
-         "windows",
-         "winnt",
-         "winxp",
-         "dotnet"
-       ],
-       "no_match": [
-         "ie_compat_mode"
-       ],
-       "os" : "WinXP"
-   },
-   "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; Crossrider130)" : {
-       "browser_string" : "MSIE",
-       "engine_string" : "Trident",
-       "match" : [
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie8",
-         "trident",
-         "win32",
-         "windows",
-         "winnt",
-         "winxp",
-         "dotnet"
-       ],
-       "minor" : "0",
-      "no_match": [
-        "ie_compat_mode",
-        "robot"
-      ],
-      "public_major" : "8",
-      "public_minor" : "0",
-      "public_version" : "8.0",
-      "version" : "8.0"
-   },
-   "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; fr) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.246 Mobile Safari/534.1+" : {
-       "browser_string" : "BlackBerry",
-       "match" : [
-         "safari",
-         "mobile",
-         "mobile_safari",
-         "blackberry",
-         "device"
-       ],
-       "no_match" : [
-         "robot"
-       ],
-       "public_version" : "6.0",
-       "device_name" : "BlackBerry",
-       "language" : "FR",
-       "engine_string" : "KHTML"
-   },
-   "BlackBerry8520/4.6.1.272 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/118" : {
-       "browser_string" : "BlackBerry",
-       "match" : [
-         "mobile",
-         "blackberry",
-         "device"
-       ],
-       "minor" : ".6",
-       "no_match" : [
-         "robot"
-       ],
-       "public_major" : "4",
-       "public_minor" : ".6",
-       "public_version" : "4.6",
-       "version" : "4.6",
-       "device_name" : "BlackBerry"
-   },
-   "Mozilla/5.0 (iPad; U; CPU OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3565MS Mobile Safari/534.12" : {
-       "browser_string" : "Mobile Safari",
-       "ios" : 1,
-       "device" : "ipad",
-       "device_name" : "iPad",
-       "match" : [
-         "mobile",
-         "ios",
-         "ipad",
-         "mobile_safari",
-         "device",
-         "tablet",
-         "safari"
-       ],
-       "minor" : ".34",
-       "no_match" : [
-         "robot"
-       ],
-       "os" : null,
-       "os_version" : "5.0",
-       "version" : "5.34"
-   },
-   "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Mobile Safari/534.12" : {
-       "browser_string" : "Mobile Safari",
-       "ios" : 1,
-       "device" : "iphone",
-       "device_name" : "iPhone",
-       "match" : [
-         "mobile",
-         "ios",
-         "iphone",
-         "mobile_safari",
-         "device",
-         "safari"
-       ],
-       "minor" : ".34",
-       "no_match" : [
-         "robot"
-       ],
-       "os" : null,
-       "os_version" : "5.0",
-       "version" : "5.34"
-   },
-   "Mozilla/5.0 (X11; U; Linux i686; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Safari/534.12" : {
-       "browser_string" : "Safari",
-       "match" : [
-     "safari",
-         "linux",
-         "x11",
-         "unix"
-       ],
-       "minor" : ".34",
-       "no_match" : [
-         "robot"
-       ],
-       "os" : null,
-       "version" : "5.34"
-   },
-   "Mozilla/5.0 (Linux; U; Android 2.1-update1; ja-jp; IS03 Build/S2080) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 YJApp-ANDROID jp.co.yahoo.android.yjtop/1.0.3" : {
-       "browser_string" : "Mobile Safari",
-       "match" : [
-         "safari",
-         "linux",
-         "unix",
-         "mobile",
-         "mobile_safari",
-         "device",
-         "android"
-       ],
-       "minor" : ".30",
-       "no_match" : [
-         "robot"
-       ],
-       "os" : "Android",
-       "version" : "5.30"
-   },
-   "Opera/9.50 (Nintendo DSi; Opera/446; U; ja)" : {
-       "browser_string" : "Opera",
-       "match" : [
-         "opera",
-         "device",
-         "mobile",
-         "dsi"
-       ],
-       "no_match" : [
-         "robot"
-       ],
-       "os" : null,
-       "public_major" : "9",
-       "public_minor" : "0.50",
-       "public_version" : "9.50"
-   },
-   "Mozilla/5.0 (Nintendo 3DS; U; ; ja) Version/1.7412.JP" : {
-       "browser_string" : "Nintendo 3DS",
-       "match" : [
-         "device",
-         "mobile",
-         "n3ds"
-       ],
-       "no_match" : [
-         "robot"
-       ],
-       "os" : null,
-       "public_major" : "1",
-       "public_minor" : "0.7412",
-       "public_version" : "1.7412"
-   },
-   "Mozilla/DnsHealthCheckBot/1.0" : {
-       "browser_string" : "",
-       "match" : [
-         "netscape",
-         "robot"
-       ],
-       "os" : null,
-       "public_major" : "1",
-       "public_minor" : "0",
-       "public_version" : "1.0"
-   },
-   "Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JOP12D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30" : {
-      "browser_string" : "Safari",
-      "country" : "US",
-      "engine_string" : "KHTML",
-      "language" : "EN",
-      "major" : "5",
-      "match" : [
-         "mobile",
-         "device",
-         "linux",
-         "safari",
-         "tablet",
-         "android",
-         "unix"
-      ],
-      "minor" : "0.34",
-      "public_major" : "4",
-      "public_minor" : ".0",
-      "public_version" : "4",
-      "version" : "5.34"
-   },
-   "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
-      "major" : "2",
-      "minor" : "0.1",
-      "match" : [
-         "device",
-         "googlemobile",
-         "google",
-         "mobile",
-         "robot",
-         "wap"
-      ],
-      "public_major" : "2",
-      "public_minor" : ".1",
-      "public_version" : "2.1",
-      "version" : "2.1"
-   },
-   "SonyEricssonU1i/R1CA; Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Profile/MIDP-2.1 Configuration/CLDC-1.1 model-orange) AppleWebKit/525 (KHTML like Gecko) Version/3.0 Safari/525" : {
-      "browser_string" : "Safari",
-      "engine_string" : "KHTML",
-      "match" : [
-         "device",
-         "mobile",
-         "safari",
-         "wap"
-      ],
-      "major" : "5",
-      "minor" : "0.25",
-      "public_major" : "3",
-      "public_minor" : "0",
-      "version" : "5.25"
-  },
-  "Mozilla/5.0 (compatible; Yahoo! Slurp/3.0; http://help.yahoo.com/help/us/ysearch/slurp) NOT Firefox/3.5" : {
-      "robot_name" : "Yahoo! Slurp",
-      "match" : [
-        "robot",
-        "slurp",
-        "yahoo"
-      ]
-  },
-  "LinkChecker/7.4 (+http://linkchecker.sourceforge.net/)" : {
-    "robot_name" : "LinkChecker",
-    "match" : [
-      "robot",
-      "linkchecker"
-    ]
-  },
-  "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
-    "robot_name" : "YandexImages",
-    "match" : [
-      "robot",
-      "yandeximages"
-    ]
-  },
-  "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
-    "device" : "iphone",
-    "match" : [
-      "device",
-      "iphone",
-      "ios",
-      "mobile",
-      "safari"
-    ],
-    "os_string" : "iOS",
-    "os_version" : "6.1.3"
-  },
-  "Mozilla/5.0 (compatible; special_archiver/3.1.1 +http://www.archive.org/details/archive.org_bot)" : {
-    "robot_name" : "archive.org_bot",
-    "match" : [
-      "robot",
-      "specialarchiver"
-    ]
-  },
-  "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
-    "robot_name" : "Ahrefs",
-    "match" : [
-      "ahrefs",
-      "robot"
-    ]
-  },
-  "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
-    "robot_name" : "Yandex",
-    "match" : [
-      "yandex",
-      "robot"
-    ]
-  },
-  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
-      "major" : "33",
-      "minor" : "0",
-      "match" : [
-         "linux",
-         "unix",
-         "x11",
-         "chrome"
-      ],
-      "public_major" : "33",
-      "public_minor" : "0",
-      "public_version" : "33.0",
-      "version" : "33.0",
-      "os_string" : "Linux"
-  },
-  "Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0" : {
-      "major" : "28",
-      "minor" : "0",
-      "match" : [
-         "linux",
-         "unix",
-         "x11",
-         "gecko",
-         "firefox"
-      ],
-      "public_major" : "28",
-      "public_minor" : "0",
-      "public_version" : "28.0",
-      "version" : "28.0",
-      "os_string" : "Linux"
-  },
-  "Mozilla/5.0 (Linux; Android 4.3.1; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
-      "major" : "33",
-      "minor" : "0",
-      "match" : [
-         "android",
-         "chrome",
-         "device",
-         "linux",
-         "unix",
-         "mobile"
-      ],
-      "no_match" : [
-         "sun"
-      ],
-      "public_major" : "33",
-      "public_minor" : "0",
-      "public_version" : "33.0",
-      "version" : "33.0",
-      "os_string" : "Android",
-      "os_version" : "4.3.1"
-  },
-  "Mozilla/5.0 (Linux; U; Android 4.3.1; en-gb; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 CyanogenMod/10.2.1/d2att" : {
-      "match" : [
-         "android",
-         "mobile",
-         "device",
-         "linux",
-         "unix",
-         "mobile_safari",
-         "safari"
-      ],
-      "no_match" : [
-         "sun"
-      ],
-      "public_major" : "4",
-      "public_minor" : "0",
-      "public_version" : "4.0",
-      "os_string" : "Android",
-      "os_version" : "4.3.1"
-  },
-  "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
-      "major" : "30",
-      "minor" : "0",
-      "match" : [
-         "android",
-         "mobile",
-         "device",
-         "linux",
-         "unix",
-         "chrome"
-      ],
-      "public_major" : "30",
-      "public_minor" : "0",
-      "public_version" : "30.0",
-      "version" : "30.0",
-      "os_string" : "Android",
-      "os_version" : "4.4.2"
-  },
-  "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; Nexus 4 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16" : {
-      "match" : [
-         "android",
-         "mobile",
-         "mobile_safari",
-         "device",
-         "linux",
-         "unix",
-         "safari"
-      ],
-      "public_major" : "4",
-      "public_minor" : "0",
-      "public_version" : "4.0",
-      "os_string" : "Android",
-      "os_version" : "4.4.2"
-  },
-  "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36 OPR/20.0.1396.73172" : {
-      "major" : "20",
-      "minor" : "0",
-      "match" : [
-         "android",
-         "mobile",
-         "device",
-         "linux",
-         "unix",
-         "opera"
-      ],
-      "public_major" : "20",
-      "public_minor" : "0",
-      "public_version" : "20.0",
-      "os_string" : "Android",
-      "os_version" : "4.4.2"
-  },
-  "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
-      "major" : "33",
-      "minor" : "0",
-      "match" : [
-         "android",
-         "mobile",
-         "device",
-         "linux",
-         "unix",
-         "chrome"
-      ],
-      "public_major" : "33",
-      "public_minor" : "0",
-      "public_version" : "33.0",
-      "os_string" : "Android",
-      "os_version" : "4.4.2"
-  },
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0" : {
-      "browser_string" : "Firefox",
-      "major" : "28",
-      "minor" : "0",
-      "match" : [
-         "mac",
-         "macosx",
-         "firefox",
-         "gecko"
-      ],
-      "os" : "Mac OS X",
-      "os_version" : "10.9",
-      "version" : "28.0"
-  },
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9" : {
-      "browser_string" : "Safari",
-      "public_major" : "7",
-      "public_minor" : "0",
-      "match" : [
-         "mac",
-         "macosx",
-         "safari"
-      ],
-      "os" : "Mac OS X",
-      "os_version" : "10.9.2",
-      "public_version" : "7.0"
-  },
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
-      "browser_string" : "Chrome",
-      "public_major" : "33",
-      "public_minor" : "0",
-      "match" : [
-         "mac",
-         "macosx",
-         "chrome"
-      ],
-      "os" : "Mac OS X",
-      "os_version" : "10.9.2",
-      "public_version" : "33.0"
-  },
-  "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36 OPR/20.0.1387.82" : {
-      "browser_string" : "Opera",
-      "public_major" : "20",
-      "public_minor" : "0",
-      "match" : [
-         "windows",
-         "winnt",
-         "win32",
-         "win7",
-         "opera"
-      ],
-      "os" : "Win7",
-      "public_version" : "20.0"
-  },
-  "Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko" : {
-      "browser_string" : "MSIE",
-      "public_major" : "11",
-      "public_minor" : "0",
-      "match" : [
-         "windows",
-         "winnt",
-         "win32",
-         "win7",
-         "ie11",
-         "ie4up",
-         "ie5up",
-         "ie55up",
-         "ie",
-         "trident"
-      ],
-      "os" : "Win7",
-      "public_version" : "11.0"
-  },
-  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0" : {
-      "browser_string" : "Firefox",
-      "public_major" : "27",
-      "public_minor" : "0",
-      "match" : [
-         "gecko",
-         "windows",
-         "winnt",
-         "win32",
-         "win7",
-         "firefox"
-      ],
-      "os" : "Win7",
-      "public_version" : "27.0"
-  },
-  "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
-      "browser_string" : "Safari",
-      "public_major" : "1",
-      "public_minor" : ".2",
-      "match" : [
-         "mac",
-         "macosx",
-         "macppc",
-         "safari"
-      ],
-      "os" : "Mac OS X",
-      "public_version" : "1.2"
-  },
-  "ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513003477632000000018014935480]" : {
-      "browser_string" : "Obigo",
-      "device" : "wap",
-      "device_name" : "WAP capable phone",
-      "match" : [
-	  "device",
-	  "wap",
-	  "mobile",
-	  "obigo"
-      ]
-  },
-  "HUAWEI-H215G/1.0[TF860495020075686000000017029451468] Obigo-Browser/Q05A MMS/UNIBOX/V1.2 HuaweiJava/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1" : {
-      "beta" : "[tf860495020075686000000017029451468]",
-      "browser_string" : "Obigo",
-      "device" : "wap",
-      "device_name" : "WAP capable phone",
-      "match" : [
-	  "device",
-	  "wap",
-	  "mobile",
-	  "obigo"
-      ]
-  },
-  "LG-LG306G/V100[TF013948006538818000000018064370513] Obigo/Q7.3 Profile/MIDP-2.1 Configuration/CLDC-1.1" : {
-      "browser_string" : "Obigo",
-      "device" : "wap",
-      "device_name" : "WAP capable phone",
-      "match" : [
-	  "device",
-	  "wap",
-	  "mobile",
-	  "obigo"
-      ]
-  },
-  "MOT-EX431G/[TF359486041608603004831018142290921] Obigo/Q03C MMP/2.0" : {
-      "browser_string" : "Obigo",
-      "device" : "wap",
-      "device_name" : "Motorola EX431G/[TF359486041608603004831018142290921]",
-      "match" : [
-	  "device",
-	  "wap",
-	  "mobile",
-	  "obigo"
-      ]
-  }
+   }
 }
