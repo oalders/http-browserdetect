@@ -490,10 +490,11 @@ sub _init_core {
         }
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
-	# Has to go above Chrome, it includes "like Chrome/"
 
-	$browser = 'SILK';
-	$browser_tests->{$browser} = 1;
+        # Has to go above Chrome, it includes "like Chrome/"
+
+        $browser = 'SILK';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "chrome/" ) != -1 ) {
 
@@ -616,8 +617,8 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "browsex" ) != -1 ) {
-	$browser = 'BROWSEX';
-	$browser_tests->{$browser} = 1;
+        $browser = 'BROWSEX';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $browser = 'CURL';    # Test gets set during robot check
@@ -793,18 +794,18 @@ sub _init_robots {
         || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
         || index( $ua, "appender" ) != -1
-	|| index( $ua, "bot" ) != -1
-	|| index( $ua, "checker" ) != -1    
+        || index( $ua, "bot" ) != -1
+        || index( $ua, "checker" ) != -1
         || index( $ua, "copy" ) != -1
         || index( $ua, "crawl" ) != -1
-	|| index( $ua, "explorador" ) != -1
+        || index( $ua, "explorador" ) != -1
         || index( $ua, "fetch" ) != -1
         || index( $ua, "find" ) != -1
         || index( $ua, "ia_archive" ) != -1
         || index( $ua, "index" ) != -1
         || index( $ua, "sleuth" ) != -1
         || index( $ua, "reap" ) != -1
-	|| index( $ua, "scan" ) != -1
+        || index( $ua, "scan" ) != -1
         || index( $ua, "service" ) != -1
         || index( $ua, "spider" ) != -1
         || index( $ua, "worm" ) != -1
@@ -1228,24 +1229,25 @@ sub _init_version {
         }
     }
     elsif ( $browser eq 'BROWSEX' ) {
-	if ( $ua =~ m{BrowseX \((\d+)\.(\d+)([\d.]*)}i ) {
-	    $major = $1;
-	    $minor = $2;
-	    $beta = $3;
-	}
+        if ( $ua =~ m{BrowseX \((\d+)\.(\d+)([\d.]*)}i ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
     }
     elsif ( $browser eq 'SILK' ) {
-	if ( $ua =~ m{Silk/(\d+)\.(\d+)([\d.]*)}i ) {
-	    $major = $1;
-	    $minor = $2;
-	    $beta = $3;
-	}
+        if ( $ua =~ m{Silk/(\d+)\.(\d+)([\d.]*)}i ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
     }
     elsif ( $browser eq 'OBIGO' ) {
-	# We have no working obigo version tests, so give up as opposed
-	# to setting wrong information.
-	$major = "0";
-	$minor = ".0";
+
+        # We have no working obigo version tests, so give up as opposed
+        # to setting wrong information.
+        $major = "0";
+        $minor = ".0";
     }
 
     if ( !defined($major) ) {
@@ -1496,8 +1498,8 @@ sub _init_device {
             || index( $ua, "android" ) != -1
             || index( $ua, "symbos" ) != -1
             || index( $ua, "opera mobi" ) != -1
-	    || index( $ua, "fennec" ) != -1
-	    || index( $ua, "obigo" ) != -1
+            || index( $ua, "fennec" ) != -1
+            || index( $ua, "obigo" ) != -1
             || index( $ua, "opera tablet" ) != -1
             || index( $ua, "rim tablet" ) != -1
             || ( index( $ua, "bb10" ) != -1
@@ -1946,7 +1948,7 @@ sub _language_country {
 }
 
 sub _format_minor {
-    my $self = shift;
+    my $self  = shift;
     my $minor = shift;
 
     return 0 + ( '.' . ( $minor || 0 ) );

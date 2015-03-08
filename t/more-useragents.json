@@ -48,7 +48,7 @@
       "beta" : "beta",
       "major" : "1",
       "match" : [
-          "robot"
+         "robot"
       ],
       "minor" : ".0",
       "os_version" : 0,
@@ -61,7 +61,7 @@
    "COMODO SSL Checker" : {
       "major" : 0,
       "match" : [
-          "robot"
+         "robot"
       ],
       "minor" : ".0",
       "os_version" : 0,
@@ -745,22 +745,22 @@
       "version" : 4
    },
    "Mozilla/4.61 [en] (X11; U; ) - BrowseX (2.0.0 Windows)" : {
+      "beta" : ".0",
       "language" : "EN",
       "major" : "2",
       "match" : [
-	 "browsex",
+         "browsex",
          "unix",
          "x11"
       ],
       "minor" : ".0",
-      "beta" : ".0",
       "os_string" : "Unix",
       "os_version" : 0,
+      "public_beta" : ".0",
       "public_major" : "2",
       "public_minor" : ".0",
-      "public_beta" : ".0",
-      "public_version" : 2.0,
-      "version" : 2.0
+      "public_version" : 2,
+      "version" : 2
    },
    "Mozilla/5.0 (Linux; Android 4.1.1; Huawei Y301A1 Build/HuaweiY301A1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "beta" : ".1500.94",
@@ -1235,7 +1235,7 @@
          "linux",
          "android",
          "mobile",
-	 "silk"
+         "silk"
       ],
       "minor" : ".44",
       "os_string" : "Android",
@@ -1808,7 +1808,7 @@
    "Mozilla/5.0 (compatible; DomainAppender /1.0; +http://www.profound.net/domainappender)" : {
       "major" : "5",
       "match" : [
-          "robot"
+         "robot"
       ],
       "minor" : ".0",
       "os_version" : 0,
@@ -1838,7 +1838,7 @@
    "Mozilla/5.0 (compatible; Lipperhey SEO Service; http://www.lipperhey.com/)" : {
       "major" : "5",
       "match" : [
-          "robot"
+         "robot"
       ],
       "minor" : ".0",
       "os_version" : 0,
@@ -2212,7 +2212,7 @@
       "beta" : ".8",
       "major" : "1",
       "match" : [
-          "robot"
+         "robot"
       ],
       "minor" : ".3",
       "os_version" : 0,
@@ -2223,4 +2223,3 @@
       "version" : 1.3
    }
 }
-
