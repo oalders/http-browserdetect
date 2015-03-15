@@ -25,13 +25,16 @@
    },
    "AppleCoreMedia/1.0.0.9A405 (iPad; U; CPU OS 5_0_1 like Mac OS X; en_us)" : {
       "beta" : ".0.9a405",
+      "browser_string" : "AppleCoreMedia",
       "device" : "ipad",
       "device_name" : "iPad",
       "major" : "1",
       "match" : [
-         "device",
+         "applecoremedia",
+	 "device",
          "ios",
          "ipad",
+         "lib",
          "mobile",
          "tablet"
       ],

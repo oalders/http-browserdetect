@@ -72,6 +72,7 @@ our @BROWSER_TESTS = qw(
     mobile_safari obigo       aol
     lotusnotes    staroffice  icab
     webtv         browsex     silk
+    applecoremedia
 );
 
 our @IE_TESTS = qw(
@@ -183,6 +184,7 @@ my %ROBOT_NAMES = (
 
 my %BROWSER_NAMES = (
     aol           => 'AOL Browser',
+    applecoremedia => 'AppleCoreMedia',
     blackberry    => 'BlackBerry',
     browsex       => 'BrowseX',
     chrome        => 'Chrome',
@@ -626,6 +628,10 @@ sub _init_core {
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $browser = 'PUF';     # Test gets set during robot check
     }
+    elsif ( index( $ua, "applecoremedia/" ) != -1 ) {
+	$browser = 'APPLECOREMEDIA';
+	$browser_tests->{$browser} = 1;
+    }
 
     $self->{browser} = $browser;
 
@@ -787,6 +793,10 @@ sub _init_robots {
 	    || index( $ua, "jakarta commons-httpclient" ) != -1 )
     {
 	$r = 'JAVA';
+	$robot_tests->{LIB} = 1;
+    }
+
+    if ( $browser_tests->{APPLECOREMEDIA} ) {
 	$robot_tests->{LIB} = 1;
     }
 
@@ -1253,6 +1263,13 @@ sub _init_version {
         # to setting wrong information.
         $major = "0";
         $minor = ".0";
+    }
+    elsif ( $browser eq 'APPLECOREMEDIA' ) {
+        if ( $ua =~ m{AppleCoreMedia/(\d+)\.(\d+)([\d.]*)}i ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
     }
 
     if ( !defined($major) ) {
