@@ -10,19 +10,12 @@
    insights, GSA
    (Andrew Moise - 2015-02-26)
 
- - Add "lib" test for things like curl, AppleCoreMedia, wget, lwp
-    (Andrew Moise - 2015-03-08)
-
  - Update engine detection and add some options (my thought would to
    detect Blink, Gecko, iCab, KHTML, Netfront, Presto, Trident, and
    Webkit and report the version for each if possible).
     (Andrew Moise - 2015-03-08)
 
  - Update OS version detection and publicize the interface
-     (Andrew Moise - 2015-03-08)
-
- - Formally deprecate the backwards compatible Safari version
-   interface
      (Andrew Moise - 2015-03-08)
 
  - Test against other libraries (see http://neilb.org/reviews/user-agent.html)
