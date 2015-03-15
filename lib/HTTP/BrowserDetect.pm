@@ -2012,6 +2012,14 @@ __END__
 
     my $browser = HTTP::BrowserDetect->new($user_agent_string);
 
+    # Print general information
+    print "Browser: $browser->browser_string\n"
+        if $browser->browser_string;
+    print "Version: $browser->public_version$browser->public_beta\n"
+        if $browser->public_version;
+    print "OS: $browser->os_string\n"
+        if $browser->os_string;
+
     # Detect operating system
     if ($browser->windows) {
       if ($browser->winnt) ...
@@ -2027,7 +2035,7 @@ __END__
         ...
     }
     }
-    if ($browser->public_version() > 4) {
+    if ($browser->public_version() > 4.5) {
       ...;
     }
 
@@ -2036,7 +2044,8 @@ __END__
 The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
-This module is based upon the JavaScript browser detection code available at
+This module was originally based upon the JavaScript browser detection
+code available at
 L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 =head1 CONSTRUCTOR AND STARTUP
@@ -2051,62 +2060,29 @@ web server when calling a CGI script.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 user_agent()
+=head1 Browser Information
 
-Returns the value of the user agent string.
+=head2 browser_string()
 
-Calling this method with a parameter has now been deprecated and this feature
-will be removed in an upcoming release.
+Returns the name of the browser from among the following values:
 
-=head2 country()
+Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
+Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
+BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
+BrowseX, Silk.
 
-Returns the country string as it may be found in the user agent string. This
-will be in the form of an upper case 2 character code. ie: US, DE, etc
+If the browser could not be recognized, returns C<undef>.
 
-=head2 language()
-
-Returns the language string as it is found in the user agent string. This will
-be in the form of an upper case 2 character code. ie: EN, DE, etc
-
-=head2 device()
-
-Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
-iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
-hardware can be detected
-
-=head2 device_name()
-
-Returns a human formatted version of the hardware device name.  These names are
-subject to change and are really meant for display purposes.  You should use
-the device() method in your logic.  Returns one of: Android, Audrey,
-BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
-3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone,
-webOS. Also Windows-based smartphones will output various different names like
-HTC T7575. Returns C<undef> if this is not a device or if no device name can be
-detected.
-
-=head2 browser_properties()
-
-Returns a list of the browser properties, that is, all of the tests that passed
-for the provided user_agent string. Operating systems, devices, browser names,
-mobile and robots are all browser properties.
-
-=head1 Detecting Browser Version
+=head1 Browser Version
 
 Please note that that the version(), major() and minor() methods have been
-superceded as of release 1.07 of this module. They are not yet deprecated, but
-should be replaced with public_version(), public_major() and public_minor() in
-new development.
+deprecated as of release 1.78 of this module. They should be replaced
+with public_version(), public_major(), public_minor(), and public_beta().
 
 The reasoning behind this is that version() method will, in the case of Safari,
 return the Safari/XXX numbers even when Version/XXX numbers are present in the
-UserAgent string. Because this behaviour has been in place for so long, some
-clients may have come to rely upon it. So, it has been retained in the interest
-of "bugwards compatibility", but in almost all cases, the numbers returned by
-public_version(), public_major() and public_minor() will be what you are
-looking for.
-
+UserAgent string (i.e. it will return incorrect versions for Safari in
+some cases).
 
 =head2 public_version()
 
@@ -2138,84 +2114,33 @@ Returns undef if no version information can be detected. Returns an
 empty string if version information is detected but it contains only
 a major and minor version with nothing following.
 
-=head2 version($version)
+=head2 robot_name()
 
-This is probably not what you want.  Please use either public_version() or
-engine_version() instead.
+Returns the name of the robot, if the user-agent was determined to be
+a robot and can be identified. Use the C<robot> method to determine
+whether a user-agent is a robot; some robots will return C<undef> for
+C<robot_name> only because their name cannot be accurately
+determined.
 
-Returns the version as a string. If passed a parameter, returns true
-if it equals the browser major version.
+=head2 os_string()
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
+Returns one of the following strings, or undef.
 
-=head2 major($major)
+  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
+  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
+  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+  RIM Tablet OS, BlackBerry 10
 
-This is probably not what you want. Please use either public_major()
-or engine_major() instead.
+=head1 Browser Properties
 
-Returns the integer portion of the browser version as a string. If
-passed a parameter, returns true if it equals the browser major
-version.
+=head2 browser_properties()
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
+Returns a list of the browser properties. Operating systems, devices,
+browser names, and general tests (e.g. "mobile" and "robot") are all
+browser properties. All of the methods listed below are also browser
+properties.
 
-=head2 minor($minor)
-
-This is probably not what you want. Please use either public_minor()
-or engine_minor() instead.
-
-Returns the decimal portion of the browser version as a string.
-
-If passed a parameter, returns true if equals the minor version.
-
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
-
-=head2 beta($beta)
-
-This is probably not what you want. Please use public_beta() instead.
-
-Returns the beta version, consisting of any characters after the major
-and minor version number, as a string.
-
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
-
-=head1 Detecting Rendering Engine
-
-=head2 engine_string()
-
-Returns one of the following:
-
-Gecko, KHTML, Trident, MSIE, NetFront
-
-Returns C<undef> if no string can be found.
-
-=head2 engine_version()
-
-Returns the version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines. The output is simply C<engine_major> added with C<engine_minor>.
-
-=head2 engine_major()
-
-Returns the major version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
-
-=head2 engine_minor()
-
-Returns the minor version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
-
-=head1 Detecting OS Platform and Version
+=head1 OS Platform and Version
 
 The following methods are available, each returning a true or false value.
 Some methods also test for the operating system version. The indentations
@@ -2268,16 +2193,6 @@ mac68k macppc macosx ios
 It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
 distinguish between Win95 and WinNT.
-
-=head2 os_string()
-
-Returns one of the following strings, or undef. This method exists solely for
-compatibility with the L<HTTP::Headers::UserAgent> module.
-
-  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-  RIM Tablet OS, BlackBerry 10
 
 =head1 Detecting Browser Vendor
 
@@ -2351,24 +2266,7 @@ number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
 Firebird).
 
-=head2 browser_string()
-
-Returns undef on failure.  Otherwise returns one of the following:
-
-Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
-BrowseX, Silk.
-
-=head2 gecko_version()
-
-If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
-version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
-the particular browser name or version when correcting for quirks in different
-versions of this rendering engine. If no Gecko browser is being used, or the
-version number can't be detected, returns undef.
-
-=head1 Detecting Other Devices
+=head1 Detecting Devices
 
 The following methods are available, each returning a true or false value.
 
@@ -2467,6 +2365,126 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 yandex
 
 =head3 yandeximages
+
+=head1 Other information
+
+=head2 user_agent()
+
+Returns the value of the user agent string.
+
+Calling this method with a parameter has now been deprecated and this feature
+will be removed in an upcoming release.
+
+=head2 country()
+
+Returns the country string as it may be found in the user agent string. This
+will be in the form of an upper case 2 character code. ie: US, DE, etc
+
+=head2 language()
+
+Returns the language string as it is found in the user agent string. This will
+be in the form of an upper case 2 character code. ie: EN, DE, etc
+
+=head2 device()
+
+Returns the method name of the actual hardware, if it can be detected.
+Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
+hardware can be detected
+
+=head2 device_name()
+
+Returns a human formatted version of the hardware device name.  These names are
+subject to change and are really meant for display purposes.  You should use
+the device() method in your logic.  Returns one of: Android, Audrey,
+BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
+3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone,
+webOS. Also Windows-based smartphones will output various different names like
+HTC T7575. Returns C<undef> if this is not a device or if no device name can be
+detected.
+
+=head2 version($version)
+
+This is probably not what you want.  Please use either public_version() or
+engine_version() instead.
+
+Returns the version as a string. If passed a parameter, returns true
+if it equals the browser major version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 major($major)
+
+This is probably not what you want. Please use either public_major()
+or engine_major() instead.
+
+Returns the integer portion of the browser version as a string. If
+passed a parameter, returns true if it equals the browser major
+version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 minor($minor)
+
+This is probably not what you want. Please use either public_minor()
+or engine_minor() instead.
+
+Returns the decimal portion of the browser version as a string.
+
+If passed a parameter, returns true if equals the minor version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 beta($beta)
+
+This is probably not what you want. Please use public_beta() instead.
+
+Returns the beta version, consisting of any characters after the major
+and minor version number, as a string.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 engine_string()
+
+Returns the name of the rendering engine, one of the following:
+
+Gecko, KHTML, Trident, MSIE, NetFront
+
+Returns C<undef> otherwise.
+
+=head2 engine_version()
+
+Returns the version number of the rendering engine. Currently this only
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines. The output is simply C<engine_major> added with C<engine_minor>.
+
+=head2 engine_major()
+
+Returns the major version number of the rendering engine. Currently this only
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines.
+
+=head2 engine_minor()
+
+Returns the minor version number of the rendering engine. Currently this only
+returns a version number for Gecko and Trident. Returns C<undef> for all
+other engines.
+
+=head2 gecko_version()
+
+If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
+version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
+the particular browser name or version when correcting for quirks in different
+versions of this rendering engine. If no Gecko browser is being used, or the
+version number can't be detected, returns undef.
 
 =head1 CREDITS
 
