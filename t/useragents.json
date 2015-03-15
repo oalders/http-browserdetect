@@ -212,6 +212,7 @@
       "language" : null,
       "major" : "3",
       "match" : [
+         "lib",
          "java",
          "robot"
       ],
@@ -230,6 +231,7 @@
       "language" : null,
       "major" : "1",
       "match" : [
+         "lib",
          "java",
          "robot"
       ],
@@ -3859,6 +3861,7 @@
       "major" : "1",
       "match" : [
          "curl",
+         "lib",
          "robot"
       ],
       "minor" : "0",
@@ -3873,6 +3876,7 @@
       "language" : null,
       "major" : "5",
       "match" : [
+         "lib",
          "lwp",
          "robot"
       ],
@@ -3906,6 +3910,7 @@
       "language" : null,
       "major" : "0",
       "match" : [
+         "lib",
          "puf",
          "robot",
          "linux",

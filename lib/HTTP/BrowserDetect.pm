@@ -121,12 +121,11 @@ our @ROBOT_TESTS = qw(
     askjeeves     googleadsense  googlebotvideo
     googlebotnews googlebotimage google
     linkchecker   yandeximages   specialarchiver
-    yandex
+    yandex        java           lib
 );
 
 our @MISC_TESTS = qw(
     dotnet      x11
-    java
 );
 
 push @ALL_TESTS,
@@ -163,6 +162,7 @@ my %ROBOT_NAMES = (
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Google Mobile',
     infoseek        => 'InfoSeek',
+    java            => 'Java',
     linkchecker     => 'LinkChecker',
     linkexchange    => 'LinkExchange',
     lwp             => 'LWP::UserAgent',
@@ -631,10 +631,6 @@ sub _init_core {
 
     # Other random tests
 
-    $tests->{JAVA} = 1
-        if ( $ua =~ m{\bjava}
-        || index( $ua, "jdk" ) != -1
-        || index( $ua, "jakarta commons-httpclient" ) != -1 );
     $tests->{X11}    = 1 if index( $ua, "x11" ) != -1;
     $tests->{DOTNET} = 1 if index( $ua, ".net clr" ) != -1;
 
@@ -684,6 +680,7 @@ sub _init_robots {
 
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
         $r = 'LWP';
+	$robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "slurp" ) != -1 ) {
         $r = 'SLURP';
@@ -715,6 +712,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $r = 'CURL';
+	$robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "facebookexternalhit" ) != -1 ) {
         $r = 'FACEBOOK';
@@ -764,6 +762,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $r = 'PUF';
+	$robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "scooter" ) != -1 ) {
         $r = 'SCOOTER';
@@ -783,6 +782,13 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'YANDEXIMAGES';
     }
+    elsif ( $ua =~ m{\bjava}
+	    || index( $ua, "jdk" ) != -1
+	    || index( $ua, "jakarta commons-httpclient" ) != -1 )
+    {
+	$r = 'JAVA';
+	$robot_tests->{LIB} = 1;
+    }
 
     if ($r) {
         $robot_tests->{$r} = 1;
@@ -791,7 +797,6 @@ sub _init_robots {
 
     $robot_tests->{ROBOT}
         ||= $r
-        || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
         || index( $ua, "appender" ) != -1
         || index( $ua, "bot" ) != -1
@@ -2137,8 +2142,30 @@ Returns one of the following strings, or undef.
 
 Returns a list of the browser properties. Operating systems, devices,
 browser names, and general tests (e.g. "mobile" and "robot") are all
-browser properties. All of the methods listed below are also browser
-properties.
+browser properties.
+
+The methods listed below are all browser properties (in addition to
+being methods).
+
+=head1 General tests
+
+=head2 mobile()
+
+Returns true if the browser appears to belong to a handheld device.
+
+=head2 tablet()
+
+Returns true if the browser appears to belong to a tablet device.
+
+=head2 robot()
+
+Returns true if the user agent appears to be a robot, spider, crawler, or other
+automated Web client.
+
+=head3 lib()
+
+Returns true if the user agent appears to be a software library
+(e.g. LWP, curl, wget).
 
 =head1 OS Platform and Version
 
@@ -2204,8 +2231,6 @@ version separately.
 
 =head3 chrome
 
-=head3 curl
-
 =head3 emacs
 
 =head3 firefox
@@ -2222,8 +2247,6 @@ The ie_compat_mode is used to determine if the IE user agent is for
 the compatibility mode view, in which case the real version of IE is
 higher than that detected. The true version of IE can be inferred from
 the version of Trident in the engine_version method.
-
-=head3 java
 
 =head3 konqueror
 
@@ -2304,18 +2327,7 @@ The following methods are available, each returning a true or false value.
 
 =head3 ps3
 
-=head2 mobile()
-
-Returns true if the browser appears to belong to a handheld device.
-
-=head2 tablet()
-
-Returns true if the browser appears to belong to a tablet device.
-
-=head2 robot()
-
-Returns true if the user agent appears to be a robot, spider, crawler, or other
-automated Web client.
+=head1 Detecting robots
 
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
@@ -2327,6 +2339,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 askjeeves
 
 =head3 baidu
+
+=head3 curl
 
 =head3 facebook
 
@@ -2341,6 +2355,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 googlemobile
 
 =head3 infoseek
+
+=head3 java
 
 =head3 linkexchange
 
