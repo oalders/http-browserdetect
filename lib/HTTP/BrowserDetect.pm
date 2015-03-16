@@ -184,35 +184,35 @@ my %ROBOT_NAMES = (
 );
 
 my %BROWSER_NAMES = (
-    aol           => 'AOL Browser',
+    aol            => 'AOL Browser',
     applecoremedia => 'AppleCoreMedia',
-    blackberry    => 'BlackBerry',
-    browsex       => 'BrowseX',
-    chrome        => 'Chrome',
-    curl          => 'curl',
-    dsi           => 'Nintendo DSi',
-    elinks        => 'ELinks',
-    firefox       => 'Firefox',
-    icab          => 'iCab',
-    iceweasel     => 'IceWeasel',
-    ie            => 'MSIE',
-    konqueror     => 'Konqueror',
-    links         => 'Links',
-    lotusnotes    => 'Lotus Notes',
-    lynx          => 'Lynx',
-    mobile_safari => 'Mobile Safari',
-    mosaic        => 'Mosaic',
-    n3ds          => 'Nintendo 3DS',
-    netfront      => 'NetFront',
-    netscape      => 'Netscape',
-    obigo         => 'Obigo',
-    opera         => 'Opera',
-    puf           => 'puf',
-    realplayer    => 'RealPlayer',
-    safari        => 'Safari',
-    silk          => 'Silk',
-    staroffice    => 'StarOffice',
-    webtv         => 'WebTV',
+    blackberry     => 'BlackBerry',
+    browsex        => 'BrowseX',
+    chrome         => 'Chrome',
+    curl           => 'curl',
+    dsi            => 'Nintendo DSi',
+    elinks         => 'ELinks',
+    firefox        => 'Firefox',
+    icab           => 'iCab',
+    iceweasel      => 'IceWeasel',
+    ie             => 'MSIE',
+    konqueror      => 'Konqueror',
+    links          => 'Links',
+    lotusnotes     => 'Lotus Notes',
+    lynx           => 'Lynx',
+    mobile_safari  => 'Mobile Safari',
+    mosaic         => 'Mosaic',
+    n3ds           => 'Nintendo 3DS',
+    netfront       => 'NetFront',
+    netscape       => 'Netscape',
+    obigo          => 'Obigo',
+    opera          => 'Opera',
+    puf            => 'puf',
+    realplayer     => 'RealPlayer',
+    safari         => 'Safari',
+    silk           => 'Silk',
+    staroffice     => 'StarOffice',
+    webtv          => 'WebTV',
 );
 
 # Device names
@@ -430,26 +430,27 @@ sub _init_core {
     $self->{engine_version} = undef;
 
     if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
-	$tests->{TRIDENT} = 1;
-	$self->{engine_version} = $1;
+        $tests->{TRIDENT}       = 1;
+        $self->{engine_version} = $1;
     }
-    elsif ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 ) {
+    elsif ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 )
+    {
         $tests->{GECKO} = 1;
         if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
             $self->{engine_version} = $1;
         }
     }
     elsif ( $ua =~ m{applewebkit/([\d.]+)} ) {
-	$tests->{WEBKIT} = 1;
-	$self->{engine_version} = $1;
+        $tests->{WEBKIT}        = 1;
+        $self->{engine_version} = $1;
     }
     elsif ( $ua =~ m{presto/([\d.]+)} ) {
-	$tests->{PRESTO} = 1;
-	$self->{engine_version} = $1;
+        $tests->{PRESTO}        = 1;
+        $self->{engine_version} = $1;
     }
     elsif ( $ua =~ m{khtml/([\d.]+)} ) {
-	$tests->{KHTML} = 1;
-	$self->{engine_version} = $1;
+        $tests->{KHTML}         = 1;
+        $self->{engine_version} = $1;
     }
 
     # Detect browser
@@ -586,7 +587,7 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "elinks" ) != -1 ) {
-        $browser                   = 'ELINKS';
+        $browser = 'ELINKS';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "links" ) != -1 ) {
@@ -632,8 +633,8 @@ sub _init_core {
         $browser = 'PUF';     # Test gets set during robot check
     }
     elsif ( index( $ua, "applecoremedia/" ) != -1 ) {
-	$browser = 'APPLECOREMEDIA';
-	$browser_tests->{$browser} = 1;
+        $browser = 'APPLECOREMEDIA';
+        $browser_tests->{$browser} = 1;
     }
 
     $self->{browser} = $browser;
@@ -690,7 +691,7 @@ sub _init_robots {
 
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
         $r = 'LWP';
-	$robot_tests->{LIB} = 1;
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "slurp" ) != -1 ) {
         $r = 'SLURP';
@@ -722,7 +723,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $r = 'CURL';
-	$robot_tests->{LIB} = 1;
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "facebookexternalhit" ) != -1 ) {
         $r = 'FACEBOOK';
@@ -772,7 +773,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $r = 'PUF';
-	$robot_tests->{LIB} = 1;
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "scooter" ) != -1 ) {
         $r = 'SCOOTER';
@@ -792,16 +793,15 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'YANDEXIMAGES';
     }
-    elsif ( $ua =~ m{\bjava}
-	    || index( $ua, "jdk" ) != -1
-	    || index( $ua, "jakarta commons-httpclient" ) != -1 )
-    {
-	$r = 'JAVA';
-	$robot_tests->{LIB} = 1;
+    elsif ($ua =~ m{\bjava}
+        || index( $ua, "jdk" ) != -1
+        || index( $ua, "jakarta commons-httpclient" ) != -1 ) {
+        $r = 'JAVA';
+        $robot_tests->{LIB} = 1;
     }
 
     if ( $browser_tests->{APPLECOREMEDIA} ) {
-	$robot_tests->{LIB} = 1;
+        $robot_tests->{LIB} = 1;
     }
 
     if ($r) {
@@ -1060,7 +1060,7 @@ sub _init_os {
     }
     elsif ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 ) {
 
-	$os = 'VMS';
+        $os = 'VMS';
         $os_tests->{VMS} = 1;
     }
     elsif ( index( $ua, "bb10" ) != -1 ) {
@@ -1274,7 +1274,8 @@ sub _init_version {
     }
     elsif ( $browser eq 'BLACKBERRY' ) {
 
-        if ( $ua =~ m{
+        if (
+            $ua =~ m{
                 version/
                 ( \d+ )       # Major version number is everything before first dot
                 \.            # First dot
@@ -1690,12 +1691,13 @@ sub realplayer_browser {
 }
 
 sub gecko_version {
-    my ( $self ) = @_;
+    my ($self) = @_;
 
     if ( $self->gecko ) {
-	return $self->{engine_version};
-    } else {
-	return undef;
+        return $self->{engine_version};
+    }
+    else {
+        return undef;
     }
 }
 
@@ -1851,11 +1853,11 @@ sub engine_string {
     }
 
     if ( $self->webkit ) {
-	return 'WebKit';
+        return 'WebKit';
     }
 
     if ( $self->presto ) {
-	return 'Presto';
+        return 'Presto';
     }
 
     if ( $self->netfront ) {
@@ -1863,7 +1865,7 @@ sub engine_string {
     }
 
     if ( $self->khtml ) {
-	return 'KHTML';
+        return 'KHTML';
     }
 
     return undef;
@@ -1873,14 +1875,14 @@ sub engine_string {
 # for browser, engine, and OS
 
 sub engine_version {
-    my ( $self ) = @_;
+    my ($self) = @_;
 
     if ( $self->{engine_version} ) {
-	if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
-	    return $1;
-	}
+        if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
+            return $1;
+        }
     }
-    
+
     return $self->{engine_version};
 }
 
@@ -1888,11 +1890,11 @@ sub engine_major {
     my ($self) = @_;
 
     if ( $self->{engine_version} ) {
-	if ( $self->{engine_version} =~ m{^(\d+)} ) {
-	    return $1;
-	}
+        if ( $self->{engine_version} =~ m{^(\d+)} ) {
+            return $1;
+        }
     }
-    
+
     return undef;
 }
 
@@ -1900,11 +1902,11 @@ sub engine_minor {
     my ($self) = @_;
 
     if ( $self->{engine_version} ) {
-	if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
-	    return $1;
-	}
+        if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
+            return $1;
+        }
     }
-    
+
     return undef;
 }
 
