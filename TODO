@@ -25,7 +25,7 @@
     * HTTP::UA::Parser
     (Andrew Moise - 2015-03-15)
 
- - Standardize interface:
+ - Standardize interface
   My perfect interface would be:
     * browser() - returns a machine readable browser ID
     * browser_string() - returns a human readable browser name
@@ -38,6 +38,8 @@
     * engine_version() - returns the engine version
     * device() - returns machine readable ID
     * device_string() - returns human readable name
+    * robot() - returns machine readable ID
+    * robot_string() - returns human readable name
 
   So the interface is consistent, no matter what we're examining. We
   have machine comparable names (similar to what's currently returned
