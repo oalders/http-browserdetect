@@ -3,7 +3,6 @@
       "browser_string" : "Safari",
       "device" : "iphone",
       "device_name" : "iPhone",
-      "engine_string" : "KHTML",
       "major" : 0,
       "match" : [
          "device",
@@ -574,7 +573,7 @@
       "engine_major" : "7",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 7,
+      "engine_version" : "7.0",
       "major" : "7",
       "match" : [
          "windows",
@@ -629,7 +628,7 @@
       "engine_major" : "4",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 4,
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "windows",
@@ -657,7 +656,7 @@
       "engine_major" : "4",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 4,
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "windows",
@@ -685,7 +684,7 @@
       "engine_major" : "4",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 4,
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "windows",
@@ -713,7 +712,7 @@
       "engine_major" : "4",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 4,
+      "engine_version" : "4.0",
       "major" : "8",
       "match" : [
          "windows",
@@ -770,12 +769,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "28",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",	  
          "chrome"
       ],
       "minor" : ".0",
@@ -792,12 +793,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "535.19",
       "major" : "18",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -814,12 +817,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "28",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -836,13 +841,15 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "535.19",
       "language" : "EN",
       "major" : "18",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -859,12 +866,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "35",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -881,12 +890,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "30",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -903,12 +914,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -925,12 +938,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -947,12 +962,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "30",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -969,12 +986,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "35",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -991,12 +1010,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1013,12 +1034,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1035,12 +1058,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1057,12 +1082,14 @@
       "browser_string" : "Chrome",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",       
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1079,7 +1106,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "528.5",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1087,6 +1115,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".25",
@@ -1102,7 +1131,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "528.5",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1110,6 +1140,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".25",
@@ -1125,7 +1156,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "533.1",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1133,6 +1165,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".33",
@@ -1148,7 +1181,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "533.1",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1156,6 +1190,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".33",
@@ -1170,13 +1205,15 @@
       "browser_string" : "Silk",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "language" : "EN",
       "major" : "3",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "silk"
       ],
       "minor" : ".45",
@@ -1191,13 +1228,15 @@
       "browser_string" : "Silk",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "language" : "EN",
       "major" : "3",
       "match" : [
          "device",
          "android",
          "mobile",
+	 "webkit",
          "silk"
       ],
       "minor" : ".44",
@@ -1213,7 +1252,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1221,6 +1261,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1236,7 +1277,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1244,6 +1286,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1259,7 +1302,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1267,6 +1311,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1282,7 +1327,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1290,6 +1336,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1305,7 +1352,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1313,6 +1361,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1328,7 +1377,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1336,6 +1386,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1351,7 +1402,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1359,6 +1411,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1374,7 +1427,8 @@
       "browser_string" : "Mobile Safari",
       "device" : "android",
       "device_name" : "Android",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : 5,
       "match" : [
@@ -1382,6 +1436,7 @@
          "android",
          "mobile",
          "safari",
+	 "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1397,7 +1452,7 @@
       "engine_major" : "35",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 35,
+      "engine_version" : "35.0",
       "major" : "35",
       "match" : [
          "mac",
@@ -1415,7 +1470,6 @@
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
       "browser_string" : "Safari",
-      "engine_string" : "KHTML",
       "language" : "EN",
       "major" : 0,
       "match" : [
@@ -1438,7 +1492,7 @@
       "engine_major" : "6",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 6,
+      "engine_version" : "6.0",
       "major" : "6",
       "match" : [
          "windows",
@@ -1460,13 +1514,15 @@
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6 Chrome 19.0.1084.9" : {
       "beta" : ".1092.0",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "536.6",
       "major" : "20",
       "match" : [
          "windows",
          "winnt",
          "win32",
          "win7",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1481,13 +1537,15 @@
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0" : {
       "beta" : ".1916.153",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "35",
       "match" : [
          "windows",
          "winnt",
          "win32",
          "win7",
+	 "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1504,7 +1562,7 @@
       "engine_major" : "11",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 11,
+      "engine_version" : "11.0",
       "major" : "11",
       "match" : [
          "windows",
@@ -1528,7 +1586,7 @@
       "engine_major" : "12",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 12,
+      "engine_version" : "12.0",
       "major" : "14",
       "match" : [
          "windows",
@@ -1552,7 +1610,7 @@
       "engine_major" : "6",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 6,
+      "engine_version" : "6.0",
       "major" : "6",
       "match" : [
          "windows",
@@ -1576,7 +1634,7 @@
       "engine_major" : "1",
       "engine_minor" : 0.9,
       "engine_string" : "Gecko",
-      "engine_version" : 1.9,
+      "engine_version" : "1.9",
       "language" : "EN",
       "major" : "3",
       "match" : [
@@ -1600,11 +1658,13 @@
    "Mozilla/5.0 (X11; CrOS x86_64 6310.68.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.96 Safari/537.36" : {
       "beta" : ".2171.96",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "39",
       "match" : [
          "chromeos",
          "chrome",
+	 "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1619,13 +1679,15 @@
    "Mozilla/5.0 (X11; FreeBSD amd64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.65 Safari/535.11" : {
       "beta" : ".963.65",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "535.11",
       "major" : "17",
       "match" : [
          "unix",
          "bsd",
          "freebsd",
          "chrome",
+	 "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1642,7 +1704,7 @@
       "engine_major" : "31",
       "engine_minor" : 0,
       "engine_string" : "Gecko",
-      "engine_version" : 31,
+      "engine_version" : "31.0",
       "major" : "31",
       "match" : [
          "unix",
@@ -1662,12 +1724,14 @@
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) wkhtmltoimage Safari/534.34" : {
       "beta" : ".34",
       "browser_string" : "Safari",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.34",
       "major" : 5,
       "match" : [
          "unix",
          "linux",
          "safari",
+	 "webkit",
          "x11"
       ],
       "minor" : ".34",
@@ -1681,12 +1745,14 @@
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.21 (KHTML, like Gecko) profiller Safari/537.21" : {
       "beta" : ".21",
       "browser_string" : "Safari",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.21",
       "major" : 5,
       "match" : [
          "unix",
          "linux",
          "safari",
+	 "webkit",
          "x11"
       ],
       "minor" : ".37",
@@ -1700,12 +1766,14 @@
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/39.0.2171.65 Chrome/39.0.2171.65 Safari/537.36" : {
       "beta" : ".2171.65",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
       "major" : "39",
       "match" : [
          "unix",
          "linux",
          "chrome",
+	 "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1723,7 +1791,7 @@
       "engine_major" : "1",
       "engine_minor" : 0.9,
       "engine_string" : "Gecko",
-      "engine_version" : 1.9,
+      "engine_version" : "1.9",
       "language" : "EN",
       "major" : "3",
       "match" : [
@@ -1799,7 +1867,7 @@
       "engine_major" : "4",
       "engine_minor" : 0,
       "engine_string" : "Trident",
-      "engine_version" : 4,
+      "engine_version" : "4.0",
       "language" : "EN",
       "major" : "8",
       "match" : [
@@ -1871,7 +1939,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "536.26",
       "major" : 85,
       "match" : [
          "device",
@@ -1879,6 +1948,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".36",
@@ -1894,7 +1964,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.51",
       "major" : 95,
       "match" : [
          "device",
@@ -1902,6 +1973,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -1917,7 +1989,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.51",
       "major" : 95,
       "match" : [
          "device",
@@ -1925,6 +1998,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -1940,7 +2014,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.51",
       "major" : 95,
       "match" : [
          "device",
@@ -1948,6 +2023,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -1963,7 +2039,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "600.1",
       "major" : 6,
       "match" : [
          "device",
@@ -1971,6 +2048,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -1986,7 +2064,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "600.1",
       "major" : 6,
       "match" : [
          "device",
@@ -1994,6 +2073,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2009,7 +2089,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "600.1",
       "major" : 6,
       "match" : [
          "device",
@@ -2017,6 +2098,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2032,7 +2114,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "600.1",
       "major" : 6,
       "match" : [
          "device",
@@ -2040,6 +2123,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2055,7 +2139,8 @@
       "browser_string" : "Safari",
       "device" : "ipad",
       "device_name" : "iPad",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "600.1",
       "major" : 6,
       "match" : [
          "device",
@@ -2063,6 +2148,7 @@
          "ipad",
          "mobile",
          "tablet",
+	 "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2076,13 +2162,15 @@
    "Mozilla/5.0 ArchLinux (X11; U; Linux x86_64; en-US) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.60 Safari/534.30" : {
       "beta" : ".742.60",
       "browser_string" : "Chrome",
-      "engine_string" : "KHTML",
+      "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : "12",
       "match" : [
          "unix",
          "linux",
          "chrome",
+	 "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -2100,7 +2188,7 @@
       "engine_major" : "1",
       "engine_minor" : 0.9,
       "engine_string" : "Gecko",
-      "engine_version" : 1.9,
+      "engine_version" : "1.9",
       "language" : "EN",
       "major" : "3",
       "match" : [

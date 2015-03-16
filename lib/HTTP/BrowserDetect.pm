@@ -108,7 +108,8 @@ our @FIREFOX_TESTS = qw(
 
 # Engine tests
 our @ENGINE_TESTS = qw(
-    gecko    trident
+    gecko       trident     webkit
+    presto      khtml
 );
 
 our @ROBOT_TESTS = qw(
@@ -428,18 +429,27 @@ sub _init_core {
     # Detect engine
     $self->{engine_version} = undef;
 
-    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
-    if ( $tests->{TRIDENT} && $ua =~ /trident\/([\w\.\d]*)/ ) {
-        $self->{engine_version} = $1;
+    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
+	$tests->{TRIDENT} = 1;
+	$self->{engine_version} = $1;
     }
-
-    $self->{gecko_version} = undef;
-    if ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 ) {
+    elsif ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 ) {
         $tests->{GECKO} = 1;
         if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
-            $self->{gecko_version}  = $1;
             $self->{engine_version} = $1;
         }
+    }
+    elsif ( $ua =~ m{applewebkit/([\d.]+)} ) {
+	$tests->{WEBKIT} = 1;
+	$self->{engine_version} = $1;
+    }
+    elsif ( $ua =~ m{presto/([\d.]+)} ) {
+	$tests->{PRESTO} = 1;
+	$self->{engine_version} = $1;
+    }
+    elsif ( $ua =~ m{khtml/([\d.]+)} ) {
+	$tests->{KHTML} = 1;
+	$self->{engine_version} = $1;
     }
 
     # Detect browser
@@ -665,6 +675,7 @@ sub _init_core {
         # Realplayer plugin -- don't override browser but do set property
         $browser_tests->{REALPLAYER} = 1;
     }
+
 }
 
 sub _init_robots {
@@ -1679,14 +1690,12 @@ sub realplayer_browser {
 }
 
 sub gecko_version {
-    my ( $self, $check ) = @_;
-    my $version;
-    $version = $self->{gecko_version};
-    if ( defined $check ) {
-        return $check == $version;
-    }
-    else {
-        return $version;
+    my ( $self ) = @_;
+
+    if ( $self->gecko ) {
+	return $self->{engine_version};
+    } else {
+	return undef;
     }
 }
 
@@ -1841,55 +1850,62 @@ sub engine_string {
         return 'MSIE';
     }
 
+    if ( $self->webkit ) {
+	return 'WebKit';
+    }
+
+    if ( $self->presto ) {
+	return 'Presto';
+    }
+
     if ( $self->netfront ) {
         return 'NetFront';
     }
 
-    if ( $self->{user_agent} =~ m{\bKHTML\b} ) {
-        return 'KHTML';
+    if ( $self->khtml ) {
+	return 'KHTML';
     }
 
     return undef;
 }
 
-sub _engine {
-    my ($self) = @_;
-
-    if ( defined( $self->{engine_version} ) ) {
-        if ( $self->{engine_version} =~ m{(\d+)(\.\d+)?} ) {
-            my $major = $1;
-            my $minor = $2 || '.0';
-            if (wantarray) {
-                return ( $major, $minor );
-            }
-            else {
-                return $major + $minor;
-            }
-        }
-    }
-
-    return undef;
-}
+# FIXME -- make one consistent interface for handling version numbers
+# for browser, engine, and OS
 
 sub engine_version {
-    my ( $self, $check ) = @_;
+    my ( $self ) = @_;
 
-    my $result = $self->_engine;
-    return $result;
+    if ( $self->{engine_version} ) {
+	if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
+	    return $1;
+	}
+    }
+    
+    return $self->{engine_version};
 }
 
 sub engine_major {
     my ($self) = @_;
 
-    my @result = $self->_engine;
-    return $result[0];
+    if ( $self->{engine_version} ) {
+	if ( $self->{engine_version} =~ m{^(\d+)} ) {
+	    return $1;
+	}
+    }
+    
+    return undef;
 }
 
 sub engine_minor {
     my ($self) = @_;
 
-    my @result = $self->_engine;
-    return $result[1];
+    if ( $self->{engine_version} ) {
+	if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
+	    return $1;
+	}
+    }
+    
+    return undef;
 }
 
 sub beta {
@@ -2394,6 +2410,21 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 yandeximages
 
+=head1 Engine properties
+
+The following properties indicate if a particular rendering engine is
+being used.
+
+=head3 webkit
+
+=head3 gecko
+
+=head3 trident
+
+=head3 presto
+
+=head3 khtml
+
 =head1 Other information
 
 =head2 user_agent()
@@ -2484,35 +2515,34 @@ version numbers for Safari.
 
 Returns the name of the rendering engine, one of the following:
 
-Gecko, KHTML, Trident, MSIE, NetFront
+Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
+
+Note that this returns "WebKit" for webkit based browsers (including
+the Blink fork). This is a change from previous versions of this
+library, which returned "KHTML" for webkit.
 
 Returns C<undef> otherwise.
 
 =head2 engine_version()
 
-Returns the version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines. The output is simply C<engine_major> added with C<engine_minor>.
+Returns the version number of the rendering engine, major and minor,
+as a string.
 
 =head2 engine_major()
 
-Returns the major version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
+Returns the major version number of the rendering engine.
 
 =head2 engine_minor()
 
-Returns the minor version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
+Returns the minor version number of the rendering engine.
 
 =head2 gecko_version()
 
 If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
-version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
-the particular browser name or version when correcting for quirks in different
-versions of this rendering engine. If no Gecko browser is being used, or the
-version number can't be detected, returns undef.
+engine version. If no Gecko browser is being used, or the version
+number can't be detected, returns undef.
+
+This is an old function, preserved for compatibility.
 
 =head1 CREDITS
 
@@ -2608,10 +2638,7 @@ Perlover
 
 =head1 TO DO
 
-The C<_engine()> method currently only handles Gecko and Trident.  It needs to
-be expanded to handle other rendering engines.
-
-POD coverage is also not 100%.
+POD coverage is not 100%.
 
 =head1 SEE ALSO
 
