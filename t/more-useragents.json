@@ -730,7 +730,7 @@
          "dotnet"
       ],
       "minor" : ".0",
-      "os_string" : "Win8",
+      "os_string" : "Win8.0",
       "os_version" : 0,
       "public_major" : "8",
       "public_minor" : ".0",
@@ -774,8 +774,6 @@
       "major" : "28",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -798,8 +796,6 @@
       "major" : "18",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -822,8 +818,6 @@
       "major" : "28",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -847,8 +841,6 @@
       "major" : "18",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -871,8 +863,6 @@
       "major" : "35",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -895,8 +885,6 @@
       "major" : "30",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -919,8 +907,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -943,8 +929,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -967,8 +951,6 @@
       "major" : "30",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -991,8 +973,6 @@
       "major" : "35",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -1015,8 +995,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -1039,8 +1017,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -1063,8 +1039,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -1087,8 +1061,6 @@
       "major" : "40",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "chrome"
@@ -1112,8 +1084,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1137,8 +1107,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1162,8 +1130,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1187,8 +1153,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1211,8 +1175,6 @@
       "major" : "3",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "silk"
@@ -1234,8 +1196,6 @@
       "major" : "3",
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "silk"
@@ -1258,8 +1218,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1283,8 +1241,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1308,8 +1264,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1333,8 +1287,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1358,8 +1310,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1383,8 +1333,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1408,8 +1356,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",
@@ -1433,8 +1379,6 @@
       "major" : 5,
       "match" : [
          "device",
-         "unix",
-         "linux",
          "android",
          "mobile",
          "safari",

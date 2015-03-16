@@ -247,12 +247,13 @@ my %OS_NAMES = (
     pspgameos   => 'Playstation Portable GameOS',
     rimtabletos => 'RIM Tablet OS',
     unix        => 'Unix',
+    vms         => 'VMS',
     win2k       => 'Win2k',
     win2k3      => 'Win2k3',
     win3x       => 'Win3x',
     win7        => 'Win7',
     win8        => 'Win8',
-    win8_0      => 'Win8',                          # FIXME bug compatibility
+    win8_0      => 'Win8.0',
     win8_1      => 'Win8.1',
     win95       => 'Win95',
     win98       => 'Win98',
@@ -511,13 +512,6 @@ sub _init_core {
 
         # Needs to go above the Safari check
         $browser = 'BLACKBERRY';    # Test gets set during device check
-
-        # FIXME bug compatibility?
-        $browser_tests->{SAFARI} = 1
-            if index( $ua, "safari" ) != -1
-            || index( $ua, "applewebkit" ) != -1;
-        $browser_tests->{MOBILE_SAFARI} = 1
-            if index( $ua, "mobile safari" ) != -1;
     }
     elsif (( index( $ua, "safari" ) != -1 )
         || ( index( $ua, "applewebkit" ) != -1 ) ) {
@@ -584,7 +578,6 @@ sub _init_core {
     elsif ( index( $ua, "elinks" ) != -1 ) {
         $browser                   = 'ELINKS';
         $browser_tests->{$browser} = 1;
-        $browser_tests->{LINKS}    = 1;          # FIXME bug compatibility
     }
     elsif ( index( $ua, "links" ) != -1 ) {
         $browser = 'LINKS';
@@ -965,9 +958,6 @@ sub _init_os {
 
         # Android
         $os = 'ANDROID';    # Test gets set in the device testing
-                            # FIXME bug compatibility:
-        $os_tests->{LINUX} = $os_tests->{UNIX} = 1
-            if index( $ua, "inux" ) != -1;
     }
     elsif ( index( $ua, "inux" ) != -1 ) {
 
@@ -1059,7 +1049,7 @@ sub _init_os {
     }
     elsif ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 ) {
 
-        # FIXME - what about $os?
+	$os = 'VMS';
         $os_tests->{VMS} = 1;
     }
     elsif ( index( $ua, "bb10" ) != -1 ) {
@@ -1269,6 +1259,19 @@ sub _init_version {
             $major = $1;
             $minor = $2;
             $beta  = $3;
+        }
+    }
+    elsif ( $browser eq 'BLACKBERRY' ) {
+
+        if ( $ua =~ m{
+                version/
+                ( \d+ )       # Major version number is everything before first dot
+                \.            # First dot
+                ( \d* )       # Minor version number follows dot
+                ( [.\w]* )    # Beta is everything else
+            }x
+            ) {
+            ( $major, $minor, $beta ) = ( $1, $2, $3 );
         }
     }
 
@@ -2136,20 +2139,12 @@ Returns undef if no version information can be detected. Returns an
 empty string if version information is detected but it contains only
 a major and minor version with nothing following.
 
-=head2 robot_name()
-
-Returns the name of the robot, if the user-agent was determined to be
-a robot and can be identified. Use the C<robot> method to determine
-whether a user-agent is a robot; some robots will return C<undef> for
-C<robot_name> only because their name cannot be accurately
-determined.
-
 =head2 os_string()
 
 Returns one of the following strings, or undef.
 
   Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
+  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, VMS, Linux,
   Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
   RIM Tablet OS, BlackBerry 10
 

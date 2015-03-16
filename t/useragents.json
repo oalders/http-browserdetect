@@ -110,8 +110,7 @@
       "match" : [
          "linux",
          "unix",
-         "elinks",
-         "links"
+         "elinks"
       ],
       "os" : "Linux"
    },
@@ -1350,9 +1349,7 @@
          "bb10",
          "blackberry",
          "device",
-         "mobile",
-         "mobile_safari",
-         "safari"
+         "mobile"
       ],
       "no_match" : [
          "robot"
@@ -1367,9 +1364,7 @@
          "bb10",
          "blackberry",
          "device",
-         "mobile",
-         "mobile_safari",
-         "safari"
+         "mobile"
       ],
       "no_match" : [
          "robot"
@@ -1383,9 +1378,7 @@
       "engine_string" : "KHTML",
       "language" : "FR",
       "match" : [
-         "safari",
          "mobile",
-         "mobile_safari",
          "blackberry",
          "device"
       ],
@@ -1400,8 +1393,6 @@
          "android",
          "chrome",
          "device",
-         "linux",
-         "unix",
          "mobile"
       ],
       "minor" : "0",
@@ -1421,8 +1412,6 @@
          "android",
          "mobile",
          "device",
-         "linux",
-         "unix",
          "chrome"
       ],
       "minor" : "0",
@@ -1438,8 +1427,6 @@
          "android",
          "mobile",
          "device",
-         "linux",
-         "unix",
          "opera"
       ],
       "minor" : "0",
@@ -1455,8 +1442,6 @@
          "android",
          "mobile",
          "device",
-         "linux",
-         "unix",
          "chrome"
       ],
       "minor" : "0",
@@ -1477,8 +1462,6 @@
          "safari",
          "mobile",
          "mobile_safari",
-         "linux",
-         "unix",
          "android",
          "device"
       ],
@@ -1499,9 +1482,7 @@
          "safari",
          "mobile_safari",
          "mobile",
-         "linux",
          "android",
-         "unix",
          "device"
       ],
       "minor" : "0.25",
@@ -1522,10 +1503,8 @@
          "safari",
          "mobile_safari",
          "mobile",
-         "linux",
          "android",
-         "device",
-         "unix"
+         "device"
       ],
       "minor" : "0.30",
       "os_version" : "2.1-update1",
@@ -1538,8 +1517,6 @@
       "browser_string" : "Mobile Safari",
       "match" : [
          "safari",
-         "linux",
-         "unix",
          "mobile",
          "mobile_safari",
          "device",
@@ -1561,11 +1538,9 @@
       "match" : [
          "mobile",
          "device",
-         "linux",
          "safari",
          "tablet",
-         "android",
-         "unix"
+         "android"
       ],
       "minor" : "0.34",
       "public_major" : "4",
@@ -1578,8 +1553,6 @@
          "android",
          "mobile",
          "device",
-         "linux",
-         "unix",
          "mobile_safari",
          "safari"
       ],
@@ -1598,8 +1571,6 @@
          "mobile",
          "mobile_safari",
          "device",
-         "linux",
-         "unix",
          "safari"
       ],
       "os_string" : "Android",
@@ -2000,12 +1971,11 @@
          "device",
          "mobile",
          "rimtabletos",
-         "safari",
          "tablet"
       ],
       "os_string" : "RIM Tablet OS",
       "public_version" : "7.2",
-      "version" : "5.35"
+      "version" : "7.2"
    },
    "Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0" : {
       "browser_string" : "Safari",
@@ -3065,7 +3035,7 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os_string" : "Win8",
+      "os_string" : "Win8.0",
       "other" : null,
       "version" : "10.0"
    },
@@ -3091,7 +3061,7 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os_string" : "Win8",
+      "os_string" : "Win8.0",
       "other" : null,
       "version" : "10.0"
    },
