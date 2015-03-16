@@ -2195,7 +2195,8 @@ automated Web client.
 =head3 lib()
 
 Returns true if the user agent appears to be a software library
-(e.g. LWP, curl, wget).
+(e.g. LWP, curl, wget). Generally this also implies that robot() will
+return true.
 
 =head1 OS Platform and Version
 
