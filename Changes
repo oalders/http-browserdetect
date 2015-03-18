@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+1.78 2015-03-17 22:43:27 America/Toronto
     - Reorganize documentation (andrewmoise)
     - Make java a robot with the other libs and tools (andrewmoise)
     - Add a "lib" test to detect libs and tools (andrewmoise)
