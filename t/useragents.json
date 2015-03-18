@@ -1349,7 +1349,7 @@
          "bb10",
          "blackberry",
          "device",
-	 "webkit",
+         "webkit",
          "mobile"
       ],
       "no_match" : [
@@ -1365,7 +1365,7 @@
          "bb10",
          "blackberry",
          "device",
-	 "webkit",
+         "webkit",
          "mobile"
       ],
       "no_match" : [
@@ -1382,7 +1382,7 @@
       "match" : [
          "mobile",
          "blackberry",
-	 "webkit",
+         "webkit",
          "device"
       ],
       "no_match" : [
@@ -1396,7 +1396,7 @@
          "android",
          "chrome",
          "device",
-	 "webkit",
+         "webkit",
          "mobile"
       ],
       "minor" : "0",
@@ -1416,7 +1416,7 @@
          "android",
          "mobile",
          "device",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : "0",
@@ -1432,7 +1432,7 @@
          "android",
          "mobile",
          "device",
-	 "webkit",
+         "webkit",
          "opera"
       ],
       "minor" : "0",
@@ -1448,7 +1448,7 @@
          "android",
          "mobile",
          "device",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : "0",
@@ -1470,7 +1470,7 @@
          "mobile",
          "mobile_safari",
          "android",
-	 "webkit",
+         "webkit",
          "device"
       ],
       "minor" : "0.23",
@@ -1491,7 +1491,7 @@
          "mobile_safari",
          "mobile",
          "android",
-	 "webkit",
+         "webkit",
          "device"
       ],
       "minor" : "0.25",
@@ -1513,7 +1513,7 @@
          "mobile_safari",
          "mobile",
          "android",
-	 "webkit",
+         "webkit",
          "device"
       ],
       "minor" : "0.30",
@@ -1530,7 +1530,7 @@
          "mobile",
          "mobile_safari",
          "device",
-	 "webkit",
+         "webkit",
          "android"
       ],
       "minor" : ".30",
@@ -1551,7 +1551,7 @@
          "device",
          "safari",
          "tablet",
-	 "webkit",
+         "webkit",
          "android"
       ],
       "minor" : "0.34",
@@ -1566,7 +1566,7 @@
          "mobile",
          "device",
          "mobile_safari",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "no_match" : [
@@ -1584,7 +1584,7 @@
          "mobile",
          "mobile_safari",
          "device",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os_string" : "Android",
@@ -1601,7 +1601,7 @@
          "linux",
          "safari",
          "tablet",
-	 "webkit",
+         "webkit",
          "unix"
       ],
       "os" : "Linux",
@@ -1628,7 +1628,7 @@
       "match" : [
          "mac",
          "macosx",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "os" : "Mac OS X",
@@ -1642,7 +1642,7 @@
       "match" : [
          "mac",
          "macosx",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1675,7 +1675,7 @@
       "match" : [
          "safari",
          "mac",
-	 "webkit",
+         "webkit",
          "macosx"
       ],
       "os" : "Mac OS X",
@@ -1725,7 +1725,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0",
@@ -1745,7 +1745,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0.25",
@@ -1763,7 +1763,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1778,7 +1778,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1792,7 +1792,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1806,7 +1806,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "no_match" : [
@@ -1823,7 +1823,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "no_match" : [
@@ -1841,7 +1841,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1856,7 +1856,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Mac OS X",
@@ -1895,7 +1895,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0.74",
@@ -1913,7 +1913,7 @@
          "mac",
          "macosx",
          "macppc",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0.85",
@@ -2000,7 +2000,7 @@
          "device",
          "mobile",
          "rimtabletos",
-	 "webkit",
+         "webkit",
          "tablet"
       ],
       "os_string" : "RIM Tablet OS",
@@ -2015,7 +2015,7 @@
       "major" : "4",
       "match" : [
          "safari",
-	 "webkit",
+         "webkit",
          "mobile"
       ],
       "minor" : "0.13",
@@ -2035,7 +2035,7 @@
          "safari",
          "device",
          "mobile",
-	 "webkit",	  
+         "webkit",
          "wap"
       ],
       "minor" : ".25",
@@ -2095,7 +2095,7 @@
          "win7",
          "winnt",
          "win32",
-	 "webkit",
+         "webkit",
          "opera"
       ],
       "minor" : "0",
@@ -2111,7 +2111,7 @@
          "winnt",
          "win32",
          "win7",
-	 "webkit",
+         "webkit",
          "opera"
       ],
       "os" : "Win7",
@@ -2236,7 +2236,7 @@
          "winnt",
          "win2k",
          "win32",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Win2k",
@@ -2251,7 +2251,7 @@
          "windows",
          "winnt",
          "win2k",
-	 "webkit",
+         "webkit",
          "win32"
       ],
       "os" : "Win2k",
@@ -2266,7 +2266,7 @@
          "winnt",
          "win2k",
          "win32",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "Win2k",
@@ -2321,7 +2321,7 @@
          "winxp",
          "winnt",
          "win32",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "WinXP",
@@ -2339,7 +2339,7 @@
          "windows",
          "winnt",
          "win32",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "no_match" : [
@@ -2357,7 +2357,7 @@
          "windows",
          "winnt",
          "win32",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os" : "WinXP",
@@ -2481,7 +2481,7 @@
          "win32",
          "winnt",
          "winvista",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0.3",
@@ -2505,7 +2505,7 @@
          "win32",
          "winnt",
          "winvista",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : "0",
@@ -2559,7 +2559,7 @@
       "match" : [
          "chrome",
          "chromeos",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : "0",
@@ -2575,7 +2575,7 @@
          "linux",
          "unix",
          "x11",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : "0",
@@ -2800,7 +2800,7 @@
          "safari",
          "linux",
          "x11",
-	 "webkit",
+         "webkit",
          "unix"
       ],
       "minor" : ".34",
@@ -2817,7 +2817,7 @@
          "linux",
          "unix",
          "x11",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "no_match" : [
@@ -2835,7 +2835,7 @@
          "linux",
          "unix",
          "x11",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "no_match" : [
@@ -2853,7 +2853,7 @@
          "linux",
          "unix",
          "x11",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "no_match" : [
@@ -2871,7 +2871,7 @@
          "linux",
          "unix",
          "x11",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "no_match" : [
@@ -2997,8 +2997,10 @@
       "robot_name" : "Ahrefs"
    },
    "Mozilla/5.0 (compatible; Konqueror/3.5; Linux; X11; x86_64) KHTML/3.5.6 (like Gecko) (Kubuntu)" : {
+      "engine_string" : "KHTML",
+      "engine_version" : "3.5",
       "match" : [
-         "khtml",  
+         "khtml",
          "konqueror",
          "linux",
          "unix",
@@ -3007,29 +3009,26 @@
       "no_match" : [
          "gecko"
       ],
-      "engine_string" : "KHTML",
-      "engine_version" : "3.5",
       "os" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.5",
       "public_version" : "3.5"
    },
    "Mozilla/5.0 (compatible; Konqueror/4.4; Linux; X11; x86_64) KHTML/4.4.2 (like Gecko) Kubuntu" : {
-      "engine_string" : "WebKit",
+      "engine_string" : "KHTML",
+      "engine_version" : "4.4",
       "ios" : 0,
       "match" : [
          "linux",
          "unix",
          "x11",
-	 "khtml", 
+         "khtml",
          "konqueror"
       ],
       "no_match" : [
          "gecko"
       ],
       "os" : "Linux",
-      "engine_string" : "KHTML",
-      "engine_version" : "4.4",
       "public_major" : "4",
       "public_minor" : "0.4",
       "public_version" : "4.4"
@@ -3255,7 +3254,7 @@
          "linux",
          "safari",
          "tablet",
-	 "webkit",
+         "webkit",
          "unix"
       ],
       "minor" : "0.34",
@@ -3279,7 +3278,7 @@
          "ios",
          "ipad",
          "tablet",
-	 "webkit",
+         "webkit",
          "device"
       ],
       "minor" : "0.31",
@@ -3301,7 +3300,7 @@
          "mobile_safari",
          "device",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".34",
@@ -3319,7 +3318,7 @@
          "iphone",
          "ios",
          "mobile",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os_string" : "iOS",
@@ -3339,7 +3338,7 @@
          "mobile",
          "iphone",
          "device",
-	 "webkit",
+         "webkit",
          "ios"
       ],
       "minor" : "0.25",
@@ -3365,7 +3364,7 @@
          "ios",
          "mobile",
          "robot",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "os_string" : "iOS",
@@ -3385,7 +3384,7 @@
          "iphone",
          "mobile_safari",
          "device",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".34",
@@ -3407,7 +3406,7 @@
          "mobile",
          "ipod",
          "ios",
-	 "webkit",
+         "webkit",
          "device"
       ]
    },
@@ -3421,7 +3420,7 @@
          "safari",
          "mobile",
          "webos",
-	 "webkit",
+         "webkit",
          "device"
       ]
    },
@@ -3566,6 +3565,8 @@
    },
    "Opera/9.80 (Android; Opera Mini/5.1.21126/19.916; U; en) Presto/2.5.25" : {
       "browser_string" : "Opera",
+      "engine_string" : "Presto",
+      "engine_version" : "2.5",
       "language" : "EN",
       "match" : [
          "opera",
@@ -3576,22 +3577,20 @@
       ],
       "os" : "Android",
       "os_string" : "Android",
-      "engine_string" : "Presto",
-      "engine_version" : "2.5",
       "public_major" : "9",
       "public_minor" : "0.80",
       "public_version" : "9.80"
    },
    "Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.14427/19.916; U; en) Presto/2.5.25" : {
       "browser_string" : "Opera",
+      "engine_string" : "Presto",
+      "engine_version" : "2.5",
       "language" : "EN",
       "match" : [
          "opera",
          "presto",
          "mobile"
       ],
-      "engine_string" : "Presto",
-      "engine_version" : "2.5",
       "public_major" : "9",
       "public_minor" : "0.80",
       "public_version" : "9.80"
@@ -3599,6 +3598,8 @@
    "Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00" : {
       "browser_string" : null,
       "country" : null,
+      "engine_string" : "Presto",
+      "engine_version" : "2.4",
       "language" : null,
       "major" : "10",
       "match" : [
@@ -3606,8 +3607,6 @@
          "presto",
          "mobile"
       ],
-      "engine_string" : "Presto",
-      "engine_version" : "2.4",
       "minor" : ".0",
       "no_match" : null,
       "os" : null,
@@ -3619,6 +3618,8 @@
    },
    "Opera/9.80 (Windows NT 5.1; U; en) Presto/2.2.15 Version/10.10" : {
       "browser_string" : "Opera",
+      "engine_string" : "Presto",
+      "engine_version" : "2.2",
       "language" : "EN",
       "match" : [
          "windows",
@@ -3628,8 +3629,6 @@
          "presto",
          "opera"
       ],
-      "engine_string" : "Presto",
-      "engine_version" : "2.2",
       "os" : "WinXP",
       "public_major" : "10",
       "public_minor" : "0.10",
@@ -3638,6 +3637,8 @@
    "Opera/9.80 (Windows NT 6.1; Opera Tablet/11648; U; en) Presto/2.7.81 Version/11.00" : {
       "browser_string" : null,
       "country" : null,
+      "engine_string" : "Presto",
+      "engine_version" : "2.7",
       "language" : "EN",
       "major" : "11",
       "match" : [
@@ -3650,8 +3651,6 @@
          "presto",
          "winnt"
       ],
-      "engine_string" : "Presto",
-      "engine_version" : "2.7",
       "minor" : ".0",
       "no_match" : null,
       "os" : "WinNT",
@@ -3701,7 +3700,7 @@
          "macosx",
          "mac",
          "realplayer",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0.1",
@@ -3722,7 +3721,7 @@
          "macosx",
          "mac",
          "realplayer",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : "0",
@@ -3759,7 +3758,7 @@
          "device",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "wap"
       ],
       "minor" : "0.25",

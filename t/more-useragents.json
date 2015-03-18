@@ -30,7 +30,7 @@
       "major" : "1",
       "match" : [
          "applecoremedia",
-	 "device",
+         "device",
          "ios",
          "ipad",
          "lib",
@@ -776,7 +776,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",	  
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -800,7 +800,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -824,7 +824,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -849,7 +849,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -873,7 +873,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -897,7 +897,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -915,13 +915,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -939,13 +939,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -963,13 +963,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "30",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -987,13 +987,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "35",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1011,13 +1011,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1035,13 +1035,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1059,13 +1059,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1083,13 +1083,13 @@
       "device" : "android",
       "device_name" : "Android",
       "engine_string" : "WebKit",
-      "engine_version" : "537.36",       
+      "engine_version" : "537.36",
       "major" : "40",
       "match" : [
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1115,7 +1115,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".25",
@@ -1140,7 +1140,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".25",
@@ -1165,7 +1165,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".33",
@@ -1190,7 +1190,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".33",
@@ -1213,7 +1213,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "silk"
       ],
       "minor" : ".45",
@@ -1236,7 +1236,7 @@
          "device",
          "android",
          "mobile",
-	 "webkit",
+         "webkit",
          "silk"
       ],
       "minor" : ".44",
@@ -1261,7 +1261,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1286,7 +1286,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1311,7 +1311,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1336,7 +1336,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1361,7 +1361,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1386,7 +1386,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1411,7 +1411,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1436,7 +1436,7 @@
          "android",
          "mobile",
          "safari",
-	 "webkit",
+         "webkit",
          "mobile_safari"
       ],
       "minor" : ".34",
@@ -1522,7 +1522,7 @@
          "winnt",
          "win32",
          "win7",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1545,7 +1545,7 @@
          "winnt",
          "win32",
          "win7",
-	 "webkit",
+         "webkit",
          "chrome"
       ],
       "minor" : ".0",
@@ -1664,7 +1664,7 @@
       "match" : [
          "chromeos",
          "chrome",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1687,7 +1687,7 @@
          "bsd",
          "freebsd",
          "chrome",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1731,7 +1731,7 @@
          "unix",
          "linux",
          "safari",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".34",
@@ -1752,7 +1752,7 @@
          "unix",
          "linux",
          "safari",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".37",
@@ -1773,7 +1773,7 @@
          "unix",
          "linux",
          "chrome",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".0",
@@ -1948,7 +1948,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".36",
@@ -1973,7 +1973,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -1998,7 +1998,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -2023,7 +2023,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".37",
@@ -2048,7 +2048,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2073,7 +2073,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2098,7 +2098,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2123,7 +2123,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2148,7 +2148,7 @@
          "ipad",
          "mobile",
          "tablet",
-	 "webkit",
+         "webkit",
          "safari"
       ],
       "minor" : ".0",
@@ -2170,7 +2170,7 @@
          "unix",
          "linux",
          "chrome",
-	 "webkit",
+         "webkit",
          "x11"
       ],
       "minor" : ".0",
