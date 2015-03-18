@@ -4,6 +4,14 @@ SYNOPSIS
     
         my $browser = HTTP::BrowserDetect->new($user_agent_string);
     
+        # Print general information
+        print "Browser: $browser->browser_string\n"
+            if $browser->browser_string;
+        print "Version: $browser->public_version$browser->public_beta\n"
+            if $browser->public_version;
+        print "OS: $browser->os_string\n"
+            if $browser->os_string;
+    
         # Detect operating system
         if ($browser->windows) {
           if ($browser->winnt) ...
@@ -19,7 +27,7 @@ SYNOPSIS
             ...
         }
         }
-        if ($browser->public_version() > 4) {
+        if ($browser->public_version() > 4.5) {
           ...;
         }
 
@@ -29,8 +37,8 @@ DESCRIPTION
     agent string. The results of these tests are available via methods of
     the object.
 
-    This module is based upon the JavaScript browser detection code
-    available at
+    This module was originally based upon the JavaScript browser detection
+    code available at
     http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html.
 
 CONSTRUCTOR AND STARTUP
@@ -45,63 +53,30 @@ CONSTRUCTOR AND STARTUP
 
 SUBROUTINES/METHODS
 
- user_agent()
+Browser Information
 
-    Returns the value of the user agent string.
+ browser_string()
 
-    Calling this method with a parameter has now been deprecated and this
-    feature will be removed in an upcoming release.
+    Returns the name of the browser from among the following values:
 
- country()
+    Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
+    Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf,
+    NetFront, Mobile Safari, BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS,
+    StarOffice, Lotus Notes, iCab, BrowseX, Silk.
 
-    Returns the country string as it may be found in the user agent string.
-    This will be in the form of an upper case 2 character code. ie: US, DE,
-    etc
+    If the browser could not be recognized, returns undef.
 
- language()
-
-    Returns the language string as it is found in the user agent string.
-    This will be in the form of an upper case 2 character code. ie: EN, DE,
-    etc
-
- device()
-
-    Returns the method name of the actual hardware, if it can be detected.
-    Currently returns one of: android, audrey, avantgo, blackberry, dsi,
-    iopener, ipad, iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos.
-    Returns undef if no hardware can be detected
-
- device_name()
-
-    Returns a human formatted version of the hardware device name. These
-    names are subject to change and are really meant for display purposes.
-    You should use the device() method in your logic. Returns one of:
-    Android, Audrey, BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod,
-    Amazon Kindle, Nintendo 3DS, Palm, Sony PlayStation 3, Sony Playstation
-    Portable, WAP capable phone, webOS. Also Windows-based smartphones will
-    output various different names like HTC T7575. Returns undef if this is
-    not a device or if no device name can be detected.
-
- browser_properties()
-
-    Returns a list of the browser properties, that is, all of the tests
-    that passed for the provided user_agent string. Operating systems,
-    devices, browser names, mobile and robots are all browser properties.
-
-Detecting Browser Version
+Browser Version
 
     Please note that that the version(), major() and minor() methods have
-    been superceded as of release 1.07 of this module. They are not yet
-    deprecated, but should be replaced with public_version(),
-    public_major() and public_minor() in new development.
+    been deprecated as of release 1.78 of this module. They should be
+    replaced with public_version(), public_major(), public_minor(), and
+    public_beta().
 
     The reasoning behind this is that version() method will, in the case of
     Safari, return the Safari/XXX numbers even when Version/XXX numbers are
-    present in the UserAgent string. Because this behaviour has been in
-    place for so long, some clients may have come to rely upon it. So, it
-    has been retained in the interest of "bugwards compatibility", but in
-    almost all cases, the numbers returned by public_version(),
-    public_major() and public_minor() will be what you are looking for.
+    present in the UserAgent string (i.e. it will return incorrect versions
+    for Safari in some cases).
 
  public_version()
 
@@ -132,85 +107,48 @@ Detecting Browser Version
     empty string if version information is detected but it contains only a
     major and minor version with nothing following.
 
- version($version)
+ os_string()
 
-    This is probably not what you want. Please use either public_version()
-    or engine_version() instead.
+    Returns one of the following strings, or undef.
 
-    Returns the version as a string. If passed a parameter, returns true if
-    it equals the browser major version.
+      Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
+      Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, VMS, Linux,
+      Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+      RIM Tablet OS, BlackBerry 10
 
-    This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
-    version numbers for Safari.
+Browser Properties
 
- major($major)
+ browser_properties()
 
-    This is probably not what you want. Please use either public_major() or
-    engine_major() instead.
+    Returns a list of the browser properties. Operating systems, devices,
+    browser names, and general tests (e.g. "mobile" and "robot") are all
+    browser properties.
 
-    Returns the integer portion of the browser version as a string. If
-    passed a parameter, returns true if it equals the browser major
-    version.
+    The methods listed below are all browser properties (in addition to
+    being methods).
 
-    This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
-    version numbers for Safari.
+General tests
 
- minor($minor)
+ mobile()
 
-    This is probably not what you want. Please use either public_minor() or
-    engine_minor() instead.
+    Returns true if the browser appears to belong to a handheld device.
 
-    Returns the decimal portion of the browser version as a string.
+ tablet()
 
-    If passed a parameter, returns true if equals the minor version.
+    Returns true if the browser appears to belong to a tablet device.
 
-    This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
-    version numbers for Safari.
+ robot()
 
- beta($beta)
+    Returns true if the user agent appears to be a robot, spider, crawler,
+    or other automated Web client.
 
-    This is probably not what you want. Please use public_beta() instead.
+  lib()
 
-    Returns the beta version, consisting of any characters after the major
-    and minor version number, as a string.
+    Returns true if the user agent appears to be a software library (e.g.
+    LWP, curl, wget). Generally this also implies that robot() will return
+    true.
 
-    This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
-    version numbers for Safari.
-
-Detecting Rendering Engine
-
- engine_string()
-
-    Returns one of the following:
-
-    Gecko, KHTML, Trident, MSIE, NetFront
-
-    Returns undef if no string can be found.
-
- engine_version()
-
-    Returns the version number of the rendering engine. Currently this only
-    returns a version number for Gecko and Trident. Returns undef for all
-    other engines. The output is simply engine_major added with
-    engine_minor.
-
- engine_major()
-
-    Returns the major version number of the rendering engine. Currently
-    this only returns a version number for Gecko and Trident. Returns undef
-    for all other engines.
-
- engine_minor()
-
-    Returns the minor version number of the rendering engine. Currently
-    this only returns a version number for Gecko and Trident. Returns undef
-    for all other engines.
-
-Detecting OS Platform and Version
+OS Platform and Version
 
     The following methods are available, each returning a true or false
     value. Some methods also test for the operating system version. The
@@ -264,16 +202,6 @@ Detecting OS Platform and Version
     Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32,
     so you can't distinguish between Win95 and WinNT.
 
- os_string()
-
-    Returns one of the following strings, or undef. This method exists
-    solely for compatibility with the HTTP::Headers::UserAgent module.
-
-      Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-      Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-      Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-      RIM Tablet OS, BlackBerry 10
-
 Detecting Browser Vendor
 
     The following methods are available, each returning a true or false
@@ -283,8 +211,6 @@ Detecting Browser Vendor
   aol aol3 aol4 aol5 aol6
 
   chrome
-
-  curl
 
   emacs
 
@@ -302,8 +228,6 @@ Detecting Browser Vendor
     compatibility mode view, in which case the real version of IE is higher
     than that detected. The true version of IE can be inferred from the
     version of Trident in the engine_version method.
-
-  java
 
   konqueror
 
@@ -346,25 +270,7 @@ Detecting Browser Vendor
     quirk. The Firefox test correctly detects the older-named versions of
     the browser (Phoenix, Firebird).
 
- browser_string()
-
-    Returns undef on failure. Otherwise returns one of the following:
-
-    Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
-    Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf,
-    NetFront, Mobile Safari, BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS,
-    StarOffice, Lotus Notes, iCab, BrowseX, Silk.
-
- gecko_version()
-
-    If a Gecko rendering engine is used (as in Mozilla or Firefox), returns
-    the version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more
-    useful than the particular browser name or version when correcting for
-    quirks in different versions of this rendering engine. If no Gecko
-    browser is being used, or the version number can't be detected, returns
-    undef.
-
-Detecting Other Devices
+Detecting Devices
 
     The following methods are available, each returning a true or false
     value.
@@ -403,18 +309,7 @@ Detecting Other Devices
 
   ps3
 
- mobile()
-
-    Returns true if the browser appears to belong to a handheld device.
-
- tablet()
-
-    Returns true if the browser appears to belong to a tablet device.
-
- robot()
-
-    Returns true if the user agent appears to be a robot, spider, crawler,
-    or other automated Web client.
+Detecting robots
 
     The following additional methods are available, each returning a true
     or false value. This is by no means a complete list of robots that
@@ -427,6 +322,8 @@ Detecting Other Devices
   askjeeves
 
   baidu
+
+  curl
 
   facebook
 
@@ -441,6 +338,8 @@ Detecting Other Devices
   googlemobile
 
   infoseek
+
+  java
 
   linkexchange
 
@@ -465,6 +364,142 @@ Detecting Other Devices
   yandex
 
   yandeximages
+
+Engine properties
+
+    The following properties indicate if a particular rendering engine is
+    being used.
+
+  webkit
+
+  gecko
+
+  trident
+
+  presto
+
+  khtml
+
+Other information
+
+ user_agent()
+
+    Returns the value of the user agent string.
+
+    Calling this method with a parameter has now been deprecated and this
+    feature will be removed in an upcoming release.
+
+ country()
+
+    Returns the country string as it may be found in the user agent string.
+    This will be in the form of an upper case 2 character code. ie: US, DE,
+    etc
+
+ language()
+
+    Returns the language string as it is found in the user agent string.
+    This will be in the form of an upper case 2 character code. ie: EN, DE,
+    etc
+
+ device()
+
+    Returns the method name of the actual hardware, if it can be detected.
+    Currently returns one of: android, audrey, avantgo, blackberry, dsi,
+    iopener, ipad, iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos.
+    Returns undef if no hardware can be detected
+
+ device_name()
+
+    Returns a human formatted version of the hardware device name. These
+    names are subject to change and are really meant for display purposes.
+    You should use the device() method in your logic. Returns one of:
+    Android, Audrey, BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod,
+    Amazon Kindle, Nintendo 3DS, Palm, Sony PlayStation 3, Sony Playstation
+    Portable, WAP capable phone, webOS. Also Windows-based smartphones will
+    output various different names like HTC T7575. Returns undef if this is
+    not a device or if no device name can be detected.
+
+ version($version)
+
+    This is probably not what you want. Please use either public_version()
+    or engine_version() instead.
+
+    Returns the version as a string. If passed a parameter, returns true if
+    it equals the browser major version.
+
+    This function returns wrong values for some Safari versions, for
+    compatibility with earlier code. public_version() returns correct
+    version numbers for Safari.
+
+ major($major)
+
+    This is probably not what you want. Please use either public_major() or
+    engine_major() instead.
+
+    Returns the integer portion of the browser version as a string. If
+    passed a parameter, returns true if it equals the browser major
+    version.
+
+    This function returns wrong values for some Safari versions, for
+    compatibility with earlier code. public_version() returns correct
+    version numbers for Safari.
+
+ minor($minor)
+
+    This is probably not what you want. Please use either public_minor() or
+    engine_minor() instead.
+
+    Returns the decimal portion of the browser version as a string.
+
+    If passed a parameter, returns true if equals the minor version.
+
+    This function returns wrong values for some Safari versions, for
+    compatibility with earlier code. public_version() returns correct
+    version numbers for Safari.
+
+ beta($beta)
+
+    This is probably not what you want. Please use public_beta() instead.
+
+    Returns the beta version, consisting of any characters after the major
+    and minor version number, as a string.
+
+    This function returns wrong values for some Safari versions, for
+    compatibility with earlier code. public_version() returns correct
+    version numbers for Safari.
+
+ engine_string()
+
+    Returns the name of the rendering engine, one of the following:
+
+    Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
+
+    Note that this returns "WebKit" for webkit based browsers (including
+    the Blink fork). This is a change from previous versions of this
+    library, which returned "KHTML" for webkit.
+
+    Returns undef otherwise.
+
+ engine_version()
+
+    Returns the version number of the rendering engine, major and minor, as
+    a string.
+
+ engine_major()
+
+    Returns the major version number of the rendering engine.
+
+ engine_minor()
+
+    Returns the minor version number of the rendering engine.
+
+ gecko_version()
+
+    If a Gecko rendering engine is used (as in Mozilla or Firefox), returns
+    the engine version. If no Gecko browser is being used, or the version
+    number can't be detected, returns undef.
+
+    This is an old function, preserved for compatibility.
 
 CREDITS
 
@@ -560,10 +595,7 @@ ACKNOWLEDGEMENTS
 
 TO DO
 
-    The _engine() method currently only handles Gecko and Trident. It needs
-    to be expanded to handle other rendering engines.
-
-    POD coverage is also not 100%.
+    POD coverage is not 100%.
 
 SEE ALSO
 
