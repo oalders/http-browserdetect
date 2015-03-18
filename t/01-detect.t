@@ -52,7 +52,6 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         version
         major
         minor
-        engine_version
         engine_major
         engine_minor
         ios
@@ -70,7 +69,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         }
     }
 
-    foreach my $method ( 'language', 'device', 'device_name', 'robot_name' ) {
+    foreach my $method ( 'language', 'device', 'device_name', 'robot_name', 'engine_version' ) {
         if (    exists $test->{$method}
             and defined $test->{$method}
             and length $test->{$method} ) {

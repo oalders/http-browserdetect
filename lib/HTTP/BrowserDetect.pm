@@ -72,6 +72,7 @@ our @BROWSER_TESTS = qw(
     mobile_safari obigo       aol
     lotusnotes    staroffice  icab
     webtv         browsex     silk
+    applecoremedia
 );
 
 our @IE_TESTS = qw(
@@ -107,7 +108,8 @@ our @FIREFOX_TESTS = qw(
 
 # Engine tests
 our @ENGINE_TESTS = qw(
-    gecko    trident
+    gecko       trident     webkit
+    presto      khtml
 );
 
 our @ROBOT_TESTS = qw(
@@ -121,12 +123,11 @@ our @ROBOT_TESTS = qw(
     askjeeves     googleadsense  googlebotvideo
     googlebotnews googlebotimage google
     linkchecker   yandeximages   specialarchiver
-    yandex
+    yandex        java           lib
 );
 
 our @MISC_TESTS = qw(
     dotnet      x11
-    java
 );
 
 push @ALL_TESTS,
@@ -163,6 +164,7 @@ my %ROBOT_NAMES = (
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Google Mobile',
     infoseek        => 'InfoSeek',
+    java            => 'Java',
     linkchecker     => 'LinkChecker',
     linkexchange    => 'LinkExchange',
     lwp             => 'LWP::UserAgent',
@@ -182,34 +184,35 @@ my %ROBOT_NAMES = (
 );
 
 my %BROWSER_NAMES = (
-    aol           => 'AOL Browser',
-    blackberry    => 'BlackBerry',
-    browsex       => 'BrowseX',
-    chrome        => 'Chrome',
-    curl          => 'curl',
-    dsi           => 'Nintendo DSi',
-    elinks        => 'ELinks',
-    firefox       => 'Firefox',
-    icab          => 'iCab',
-    iceweasel     => 'IceWeasel',
-    ie            => 'MSIE',
-    konqueror     => 'Konqueror',
-    links         => 'Links',
-    lotusnotes    => 'Lotus Notes',
-    lynx          => 'Lynx',
-    mobile_safari => 'Mobile Safari',
-    mosaic        => 'Mosaic',
-    n3ds          => 'Nintendo 3DS',
-    netfront      => 'NetFront',
-    netscape      => 'Netscape',
-    obigo         => 'Obigo',
-    opera         => 'Opera',
-    puf           => 'puf',
-    realplayer    => 'RealPlayer',
-    safari        => 'Safari',
-    silk          => 'Silk',
-    staroffice    => 'StarOffice',
-    webtv         => 'WebTV',
+    aol            => 'AOL Browser',
+    applecoremedia => 'AppleCoreMedia',
+    blackberry     => 'BlackBerry',
+    browsex        => 'BrowseX',
+    chrome         => 'Chrome',
+    curl           => 'curl',
+    dsi            => 'Nintendo DSi',
+    elinks         => 'ELinks',
+    firefox        => 'Firefox',
+    icab           => 'iCab',
+    iceweasel      => 'IceWeasel',
+    ie             => 'MSIE',
+    konqueror      => 'Konqueror',
+    links          => 'Links',
+    lotusnotes     => 'Lotus Notes',
+    lynx           => 'Lynx',
+    mobile_safari  => 'Mobile Safari',
+    mosaic         => 'Mosaic',
+    n3ds           => 'Nintendo 3DS',
+    netfront       => 'NetFront',
+    netscape       => 'Netscape',
+    obigo          => 'Obigo',
+    opera          => 'Opera',
+    puf            => 'puf',
+    realplayer     => 'RealPlayer',
+    safari         => 'Safari',
+    silk           => 'Silk',
+    staroffice     => 'StarOffice',
+    webtv          => 'WebTV',
 );
 
 # Device names
@@ -245,12 +248,13 @@ my %OS_NAMES = (
     pspgameos   => 'Playstation Portable GameOS',
     rimtabletos => 'RIM Tablet OS',
     unix        => 'Unix',
+    vms         => 'VMS',
     win2k       => 'Win2k',
     win2k3      => 'Win2k3',
     win3x       => 'Win3x',
     win7        => 'Win7',
     win8        => 'Win8',
-    win8_0      => 'Win8',                          # FIXME bug compatibility
+    win8_0      => 'Win8.0',
     win8_1      => 'Win8.1',
     win95       => 'Win95',
     win98       => 'Win98',
@@ -425,18 +429,28 @@ sub _init_core {
     # Detect engine
     $self->{engine_version} = undef;
 
-    $tests->{TRIDENT} = ( index( $ua, "trident/" ) != -1 );
-    if ( $tests->{TRIDENT} && $ua =~ /trident\/([\w\.\d]*)/ ) {
+    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
+        $tests->{TRIDENT}       = 1;
         $self->{engine_version} = $1;
     }
-
-    $self->{gecko_version} = undef;
-    if ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 ) {
+    elsif ( index( $ua, "gecko" ) != -1 && index( $ua, "like gecko" ) == -1 )
+    {
         $tests->{GECKO} = 1;
         if ( $ua =~ /\([^)]*rv:([\w.\d]*)/ ) {
-            $self->{gecko_version}  = $1;
             $self->{engine_version} = $1;
         }
+    }
+    elsif ( $ua =~ m{applewebkit/([\d.]+)} ) {
+        $tests->{WEBKIT}        = 1;
+        $self->{engine_version} = $1;
+    }
+    elsif ( $ua =~ m{presto/([\d.]+)} ) {
+        $tests->{PRESTO}        = 1;
+        $self->{engine_version} = $1;
+    }
+    elsif ( $ua =~ m{khtml/([\d.]+)} ) {
+        $tests->{KHTML}         = 1;
+        $self->{engine_version} = $1;
     }
 
     # Detect browser
@@ -509,13 +523,6 @@ sub _init_core {
 
         # Needs to go above the Safari check
         $browser = 'BLACKBERRY';    # Test gets set during device check
-
-        # FIXME bug compatibility?
-        $browser_tests->{SAFARI} = 1
-            if index( $ua, "safari" ) != -1
-            || index( $ua, "applewebkit" ) != -1;
-        $browser_tests->{MOBILE_SAFARI} = 1
-            if index( $ua, "mobile safari" ) != -1;
     }
     elsif (( index( $ua, "safari" ) != -1 )
         || ( index( $ua, "applewebkit" ) != -1 ) ) {
@@ -580,9 +587,8 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "elinks" ) != -1 ) {
-        $browser                   = 'ELINKS';
+        $browser = 'ELINKS';
         $browser_tests->{$browser} = 1;
-        $browser_tests->{LINKS}    = 1;          # FIXME bug compatibility
     }
     elsif ( index( $ua, "links" ) != -1 ) {
         $browser = 'LINKS';
@@ -626,15 +632,15 @@ sub _init_core {
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $browser = 'PUF';     # Test gets set during robot check
     }
+    elsif ( index( $ua, "applecoremedia/" ) != -1 ) {
+        $browser = 'APPLECOREMEDIA';
+        $browser_tests->{$browser} = 1;
+    }
 
     $self->{browser} = $browser;
 
     # Other random tests
 
-    $tests->{JAVA} = 1
-        if ( $ua =~ m{\bjava}
-        || index( $ua, "jdk" ) != -1
-        || index( $ua, "jakarta commons-httpclient" ) != -1 );
     $tests->{X11}    = 1 if index( $ua, "x11" ) != -1;
     $tests->{DOTNET} = 1 if index( $ua, ".net clr" ) != -1;
 
@@ -670,6 +676,7 @@ sub _init_core {
         # Realplayer plugin -- don't override browser but do set property
         $browser_tests->{REALPLAYER} = 1;
     }
+
 }
 
 sub _init_robots {
@@ -684,6 +691,7 @@ sub _init_robots {
 
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
         $r = 'LWP';
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "slurp" ) != -1 ) {
         $r = 'SLURP';
@@ -715,6 +723,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "libcurl" ) != -1 ) {
         $r = 'CURL';
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "facebookexternalhit" ) != -1 ) {
         $r = 'FACEBOOK';
@@ -764,6 +773,7 @@ sub _init_robots {
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $r = 'PUF';
+        $robot_tests->{LIB} = 1;
     }
     elsif ( index( $ua, "scooter" ) != -1 ) {
         $r = 'SCOOTER';
@@ -783,6 +793,16 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'YANDEXIMAGES';
     }
+    elsif ($ua =~ m{\bjava}
+        || index( $ua, "jdk" ) != -1
+        || index( $ua, "jakarta commons-httpclient" ) != -1 ) {
+        $r = 'JAVA';
+        $robot_tests->{LIB} = 1;
+    }
+
+    if ( $browser_tests->{APPLECOREMEDIA} ) {
+        $robot_tests->{LIB} = 1;
+    }
 
     if ($r) {
         $robot_tests->{$r} = 1;
@@ -791,7 +811,6 @@ sub _init_robots {
 
     $robot_tests->{ROBOT}
         ||= $r
-        || $tests->{JAVA}
         || index( $ua, "agent" ) != -1
         || index( $ua, "appender" ) != -1
         || index( $ua, "bot" ) != -1
@@ -950,9 +969,6 @@ sub _init_os {
 
         # Android
         $os = 'ANDROID';    # Test gets set in the device testing
-                            # FIXME bug compatibility:
-        $os_tests->{LINUX} = $os_tests->{UNIX} = 1
-            if index( $ua, "inux" ) != -1;
     }
     elsif ( index( $ua, "inux" ) != -1 ) {
 
@@ -1044,7 +1060,7 @@ sub _init_os {
     }
     elsif ( index( $ua, "vax" ) != -1 || index( $ua, "openvms" ) != -1 ) {
 
-        # FIXME - what about $os?
+        $os = 'VMS';
         $os_tests->{VMS} = 1;
     }
     elsif ( index( $ua, "bb10" ) != -1 ) {
@@ -1248,6 +1264,27 @@ sub _init_version {
         # to setting wrong information.
         $major = "0";
         $minor = ".0";
+    }
+    elsif ( $browser eq 'APPLECOREMEDIA' ) {
+        if ( $ua =~ m{AppleCoreMedia/(\d+)\.(\d+)([\d.]*)}i ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
+    }
+    elsif ( $browser eq 'BLACKBERRY' ) {
+
+        if (
+            $ua =~ m{
+                version/
+                ( \d+ )       # Major version number is everything before first dot
+                \.            # First dot
+                ( \d* )       # Minor version number follows dot
+                ( [.\w]* )    # Beta is everything else
+            }x
+            ) {
+            ( $major, $minor, $beta ) = ( $1, $2, $3 );
+        }
     }
 
     if ( !defined($major) ) {
@@ -1654,14 +1691,13 @@ sub realplayer_browser {
 }
 
 sub gecko_version {
-    my ( $self, $check ) = @_;
-    my $version;
-    $version = $self->{gecko_version};
-    if ( defined $check ) {
-        return $check == $version;
+    my ($self) = @_;
+
+    if ( $self->gecko ) {
+        return $self->{engine_version};
     }
     else {
-        return $version;
+        return undef;
     }
 }
 
@@ -1816,55 +1852,62 @@ sub engine_string {
         return 'MSIE';
     }
 
+    if ( $self->webkit ) {
+        return 'WebKit';
+    }
+
+    if ( $self->presto ) {
+        return 'Presto';
+    }
+
     if ( $self->netfront ) {
         return 'NetFront';
     }
 
-    if ( $self->{user_agent} =~ m{\bKHTML\b} ) {
+    if ( $self->khtml ) {
         return 'KHTML';
     }
 
     return undef;
 }
 
-sub _engine {
+# FIXME -- make one consistent interface for handling version numbers
+# for browser, engine, and OS
+
+sub engine_version {
     my ($self) = @_;
 
-    if ( defined( $self->{engine_version} ) ) {
-        if ( $self->{engine_version} =~ m{(\d+)(\.\d+)?} ) {
-            my $major = $1;
-            my $minor = $2 || '.0';
-            if (wantarray) {
-                return ( $major, $minor );
-            }
-            else {
-                return $major + $minor;
-            }
+    if ( $self->{engine_version} ) {
+        if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
+            return $1;
+        }
+    }
+
+    return $self->{engine_version};
+}
+
+sub engine_major {
+    my ($self) = @_;
+
+    if ( $self->{engine_version} ) {
+        if ( $self->{engine_version} =~ m{^(\d+)} ) {
+            return $1;
         }
     }
 
     return undef;
 }
 
-sub engine_version {
-    my ( $self, $check ) = @_;
-
-    my $result = $self->_engine;
-    return $result;
-}
-
-sub engine_major {
-    my ($self) = @_;
-
-    my @result = $self->_engine;
-    return $result[0];
-}
-
 sub engine_minor {
     my ($self) = @_;
 
-    my @result = $self->_engine;
-    return $result[1];
+    if ( $self->{engine_version} ) {
+        if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
+            return $1;
+        }
+    }
+
+    return undef;
 }
 
 sub beta {
@@ -2012,6 +2055,14 @@ __END__
 
     my $browser = HTTP::BrowserDetect->new($user_agent_string);
 
+    # Print general information
+    print "Browser: $browser->browser_string\n"
+        if $browser->browser_string;
+    print "Version: $browser->public_version$browser->public_beta\n"
+        if $browser->public_version;
+    print "OS: $browser->os_string\n"
+        if $browser->os_string;
+
     # Detect operating system
     if ($browser->windows) {
       if ($browser->winnt) ...
@@ -2027,7 +2078,7 @@ __END__
         ...
     }
     }
-    if ($browser->public_version() > 4) {
+    if ($browser->public_version() > 4.5) {
       ...;
     }
 
@@ -2036,7 +2087,8 @@ __END__
 The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
-This module is based upon the JavaScript browser detection code available at
+This module was originally based upon the JavaScript browser detection
+code available at
 L<http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html>.
 
 =head1 CONSTRUCTOR AND STARTUP
@@ -2051,62 +2103,29 @@ web server when calling a CGI script.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 user_agent()
+=head1 Browser Information
 
-Returns the value of the user agent string.
+=head2 browser_string()
 
-Calling this method with a parameter has now been deprecated and this feature
-will be removed in an upcoming release.
+Returns the name of the browser from among the following values:
 
-=head2 country()
+Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
+Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
+BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
+BrowseX, Silk.
 
-Returns the country string as it may be found in the user agent string. This
-will be in the form of an upper case 2 character code. ie: US, DE, etc
+If the browser could not be recognized, returns C<undef>.
 
-=head2 language()
-
-Returns the language string as it is found in the user agent string. This will
-be in the form of an upper case 2 character code. ie: EN, DE, etc
-
-=head2 device()
-
-Returns the method name of the actual hardware, if it can be detected.
-Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
-iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
-hardware can be detected
-
-=head2 device_name()
-
-Returns a human formatted version of the hardware device name.  These names are
-subject to change and are really meant for display purposes.  You should use
-the device() method in your logic.  Returns one of: Android, Audrey,
-BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
-3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone,
-webOS. Also Windows-based smartphones will output various different names like
-HTC T7575. Returns C<undef> if this is not a device or if no device name can be
-detected.
-
-=head2 browser_properties()
-
-Returns a list of the browser properties, that is, all of the tests that passed
-for the provided user_agent string. Operating systems, devices, browser names,
-mobile and robots are all browser properties.
-
-=head1 Detecting Browser Version
+=head1 Browser Version
 
 Please note that that the version(), major() and minor() methods have been
-superceded as of release 1.07 of this module. They are not yet deprecated, but
-should be replaced with public_version(), public_major() and public_minor() in
-new development.
+deprecated as of release 1.78 of this module. They should be replaced
+with public_version(), public_major(), public_minor(), and public_beta().
 
 The reasoning behind this is that version() method will, in the case of Safari,
 return the Safari/XXX numbers even when Version/XXX numbers are present in the
-UserAgent string. Because this behaviour has been in place for so long, some
-clients may have come to rely upon it. So, it has been retained in the interest
-of "bugwards compatibility", but in almost all cases, the numbers returned by
-public_version(), public_major() and public_minor() will be what you are
-looking for.
-
+UserAgent string (i.e. it will return incorrect versions for Safari in
+some cases).
 
 =head2 public_version()
 
@@ -2138,84 +2157,48 @@ Returns undef if no version information can be detected. Returns an
 empty string if version information is detected but it contains only
 a major and minor version with nothing following.
 
-=head2 version($version)
+=head2 os_string()
 
-This is probably not what you want.  Please use either public_version() or
-engine_version() instead.
+Returns one of the following strings, or undef.
 
-Returns the version as a string. If passed a parameter, returns true
-if it equals the browser major version.
+  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
+  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, VMS, Linux,
+  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
+  RIM Tablet OS, BlackBerry 10
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
+=head1 Browser Properties
 
-=head2 major($major)
+=head2 browser_properties()
 
-This is probably not what you want. Please use either public_major()
-or engine_major() instead.
+Returns a list of the browser properties. Operating systems, devices,
+browser names, and general tests (e.g. "mobile" and "robot") are all
+browser properties.
 
-Returns the integer portion of the browser version as a string. If
-passed a parameter, returns true if it equals the browser major
-version.
+The methods listed below are all browser properties (in addition to
+being methods).
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
+=head1 General tests
 
-=head2 minor($minor)
+=head2 mobile()
 
-This is probably not what you want. Please use either public_minor()
-or engine_minor() instead.
+Returns true if the browser appears to belong to a handheld device.
 
-Returns the decimal portion of the browser version as a string.
+=head2 tablet()
 
-If passed a parameter, returns true if equals the minor version.
+Returns true if the browser appears to belong to a tablet device.
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
+=head2 robot()
 
-=head2 beta($beta)
+Returns true if the user agent appears to be a robot, spider, crawler, or other
+automated Web client.
 
-This is probably not what you want. Please use public_beta() instead.
+=head3 lib()
 
-Returns the beta version, consisting of any characters after the major
-and minor version number, as a string.
+Returns true if the user agent appears to be a software library
+(e.g. LWP, curl, wget). Generally this also implies that robot() will
+return true.
 
-This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
-version numbers for Safari.
-
-=head1 Detecting Rendering Engine
-
-=head2 engine_string()
-
-Returns one of the following:
-
-Gecko, KHTML, Trident, MSIE, NetFront
-
-Returns C<undef> if no string can be found.
-
-=head2 engine_version()
-
-Returns the version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines. The output is simply C<engine_major> added with C<engine_minor>.
-
-=head2 engine_major()
-
-Returns the major version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
-
-=head2 engine_minor()
-
-Returns the minor version number of the rendering engine. Currently this only
-returns a version number for Gecko and Trident. Returns C<undef> for all
-other engines.
-
-=head1 Detecting OS Platform and Version
+=head1 OS Platform and Version
 
 The following methods are available, each returning a true or false value.
 Some methods also test for the operating system version. The indentations
@@ -2269,16 +2252,6 @@ It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
 distinguish between Win95 and WinNT.
 
-=head2 os_string()
-
-Returns one of the following strings, or undef. This method exists solely for
-compatibility with the L<HTTP::Headers::UserAgent> module.
-
-  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, Linux,
-  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-  RIM Tablet OS, BlackBerry 10
-
 =head1 Detecting Browser Vendor
 
 The following methods are available, each returning a true or false value.
@@ -2288,8 +2261,6 @@ version separately.
 =head3 aol aol3 aol4 aol5 aol6
 
 =head3 chrome
-
-=head3 curl
 
 =head3 emacs
 
@@ -2307,8 +2278,6 @@ The ie_compat_mode is used to determine if the IE user agent is for
 the compatibility mode view, in which case the real version of IE is
 higher than that detected. The true version of IE can be inferred from
 the version of Trident in the engine_version method.
-
-=head3 java
 
 =head3 konqueror
 
@@ -2351,24 +2320,7 @@ number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
 Firebird).
 
-=head2 browser_string()
-
-Returns undef on failure.  Otherwise returns one of the following:
-
-Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera, Mosaic,
-Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf, NetFront, Mobile Safari,
-BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS, StarOffice, Lotus Notes, iCab,
-BrowseX, Silk.
-
-=head2 gecko_version()
-
-If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
-version of the renderer (e.g. 1.3a, 1.7, 1.8) This might be more useful than
-the particular browser name or version when correcting for quirks in different
-versions of this rendering engine. If no Gecko browser is being used, or the
-version number can't be detected, returns undef.
-
-=head1 Detecting Other Devices
+=head1 Detecting Devices
 
 The following methods are available, each returning a true or false value.
 
@@ -2406,18 +2358,7 @@ The following methods are available, each returning a true or false value.
 
 =head3 ps3
 
-=head2 mobile()
-
-Returns true if the browser appears to belong to a handheld device.
-
-=head2 tablet()
-
-Returns true if the browser appears to belong to a tablet device.
-
-=head2 robot()
-
-Returns true if the user agent appears to be a robot, spider, crawler, or other
-automated Web client.
+=head1 Detecting robots
 
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
@@ -2429,6 +2370,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 askjeeves
 
 =head3 baidu
+
+=head3 curl
 
 =head3 facebook
 
@@ -2443,6 +2386,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 googlemobile
 
 =head3 infoseek
+
+=head3 java
 
 =head3 linkexchange
 
@@ -2467,6 +2412,140 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 yandex
 
 =head3 yandeximages
+
+=head1 Engine properties
+
+The following properties indicate if a particular rendering engine is
+being used.
+
+=head3 webkit
+
+=head3 gecko
+
+=head3 trident
+
+=head3 presto
+
+=head3 khtml
+
+=head1 Other information
+
+=head2 user_agent()
+
+Returns the value of the user agent string.
+
+Calling this method with a parameter has now been deprecated and this feature
+will be removed in an upcoming release.
+
+=head2 country()
+
+Returns the country string as it may be found in the user agent string. This
+will be in the form of an upper case 2 character code. ie: US, DE, etc
+
+=head2 language()
+
+Returns the language string as it is found in the user agent string. This will
+be in the form of an upper case 2 character code. ie: EN, DE, etc
+
+=head2 device()
+
+Returns the method name of the actual hardware, if it can be detected.
+Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
+hardware can be detected
+
+=head2 device_name()
+
+Returns a human formatted version of the hardware device name.  These names are
+subject to change and are really meant for display purposes.  You should use
+the device() method in your logic.  Returns one of: Android, Audrey,
+BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
+3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone,
+webOS. Also Windows-based smartphones will output various different names like
+HTC T7575. Returns C<undef> if this is not a device or if no device name can be
+detected.
+
+=head2 version($version)
+
+This is probably not what you want.  Please use either public_version() or
+engine_version() instead.
+
+Returns the version as a string. If passed a parameter, returns true
+if it equals the browser major version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 major($major)
+
+This is probably not what you want. Please use either public_major()
+or engine_major() instead.
+
+Returns the integer portion of the browser version as a string. If
+passed a parameter, returns true if it equals the browser major
+version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 minor($minor)
+
+This is probably not what you want. Please use either public_minor()
+or engine_minor() instead.
+
+Returns the decimal portion of the browser version as a string.
+
+If passed a parameter, returns true if equals the minor version.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 beta($beta)
+
+This is probably not what you want. Please use public_beta() instead.
+
+Returns the beta version, consisting of any characters after the major
+and minor version number, as a string.
+
+This function returns wrong values for some Safari versions, for
+compatibility with earlier code. public_version() returns correct
+version numbers for Safari.
+
+=head2 engine_string()
+
+Returns the name of the rendering engine, one of the following:
+
+Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
+
+Note that this returns "WebKit" for webkit based browsers (including
+the Blink fork). This is a change from previous versions of this
+library, which returned "KHTML" for webkit.
+
+Returns C<undef> otherwise.
+
+=head2 engine_version()
+
+Returns the version number of the rendering engine, major and minor,
+as a string.
+
+=head2 engine_major()
+
+Returns the major version number of the rendering engine.
+
+=head2 engine_minor()
+
+Returns the minor version number of the rendering engine.
+
+=head2 gecko_version()
+
+If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
+engine version. If no Gecko browser is being used, or the version
+number can't be detected, returns undef.
+
+This is an old function, preserved for compatibility.
 
 =head1 CREDITS
 
@@ -2562,10 +2641,7 @@ Perlover
 
 =head1 TO DO
 
-The C<_engine()> method currently only handles Gecko and Trident.  It needs to
-be expanded to handle other rendering engines.
-
-POD coverage is also not 100%.
+POD coverage is not 100%.
 
 =head1 SEE ALSO
 

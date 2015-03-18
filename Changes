@@ -1,6 +1,14 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Reorganize documentation (andrewmoise)
+    - Make java a robot with the other libs and tools (andrewmoise)
+    - Add a "lib" test to detect libs and tools (andrewmoise)
+    - Add AppleCoreMedia (andrewmoise)
+    - Make Blackberry stop setting Safari tests (andrewmoise)
+    - Make Android stop setting Linux tests (andrewmoise)
+    - Implement much more engine detection and engine version
+      detection (andrewmoise)
 
 1.77 2015-03-08 12:06:17 America/Toronto
     - Switch to using strings for version numbers (andrewmoise)
