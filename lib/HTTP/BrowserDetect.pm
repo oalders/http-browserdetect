@@ -390,6 +390,10 @@ sub user_agent {
 sub _init_core {
     my ($self) = @_;
 
+    # Reset browser information
+    $self->{browser} = undef;
+    $self->{browser_string} = undef;
+
     # Reset versions, this gets filled in on demand in _init_version
     delete $self->{version_tests};
     delete $self->{major};
@@ -417,6 +421,7 @@ sub _init_core {
     my $tests         = $self->{tests};
     my $browser_tests = $self->{browser_tests};
     my $browser       = undef;
+    my $browser_string = undef;
 
     my $ua = lc $self->{user_agent};
 
@@ -463,13 +468,12 @@ sub _init_core {
         # Browser is Firefox, possibly under an alternate name
 
 	$browser = 'firefox';
+	$browser_string = ucfirst $1;
 
-        if ( $1 eq 'iceweasel' ) {    # FIXME - bug compatibility?
-            $browser = 'iceweasel';
-        }
-        else {
-            $browser = 'firefox';
-        }
+	if ( index( $ua, "galeon" ) != -1 ) {
+	    $browser_string = "Galeon";
+	}
+
         $browser_tests->{ $1 } = 1;
         $browser_tests->{'firefox'} = 1;
     }
@@ -486,17 +490,15 @@ sub _init_core {
 
         # Browser is MSIE (possibly AOL branded)
 
+	$browser = 'ie';
         $browser_tests->{ie} = 1;
 
         if (
-            index( $ua, "aol" ) == -1    # FIXME - bug compatibility?
-            && index( $ua, "america online browser" ) == -1
+            index( $ua, "aol" ) != -1
+            || index( $ua, "america online browser" ) != -1
             ) {
-            $browser = 'ie';
-        }
-        else {
-            $browser = 'aol';
-            $browser_tests->{aol} = 1;
+	    $browser_string = 'AOL Browser';
+	    $browser_tests->{aol} = 1;
         }
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
@@ -512,6 +514,10 @@ sub _init_core {
 
         $browser = 'chrome';
         $browser_tests->{chrome} = 1;
+
+	if ( index( $ua, "chromium" ) != -1 ) {
+	    $browser_string = "Chromium";
+	}
     }
     elsif (index( $ua, "blackberry" ) != -1
         || index( $ua, "bb10" ) != -1
@@ -526,13 +532,14 @@ sub _init_core {
         # Browser is Safari
 
         $browser_tests->{safari} = 1;
-        if ( index( $ua, " mobile safari/" ) == -1 ) {
-            $browser = 'safari';
+	$browser = 'safari';
+	if ( index( $ua, " mobile safari/" ) != -1 ) {
+	    $browser_string = 'Mobile Safari';
+	    $browser_tests->{mobile_safari} = 1;
         }
-        else {
-            $browser = 'mobile_safari';
-            $browser_tests->{mobile_safari} = 1;
-        }
+	if ( index( $ua, "puffin" ) != -1 ) {
+	    $browser_string = "Puffin";
+	}
     }
     elsif (!$tests->{trident}
         && index( $ua, "mozilla" ) != -1
@@ -549,6 +556,18 @@ sub _init_core {
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
         $browser                   = 'netscape';
+	if ( index( $ua, "netscape" ) != -1
+	    || !$tests->{gecko} ) {
+	    $browser_string = "Netscape";
+	} elsif ( index( $ua, "galeon" ) != -1 ) {
+	    $browser_string = "Galeon";
+	} elsif ( index( $ua, "seamonkey" ) != -1 ) {
+	    $browser_string = "Seamonkey";
+	} elsif ( index( $ua, "epiphany" ) != -1 ) {
+	    $browser_string = "Epiphany";
+	} else {
+	    $browser_string = 'Mozilla';
+	}
         $browser_tests->{netscape} = 1;
         $browser_tests->{mozilla}  = ( $tests->{gecko} );
     }
@@ -634,6 +653,8 @@ sub _init_core {
     }
 
     $self->{browser} = $browser;
+    $self->{browser_string} = $browser_string || $BROWSER_NAMES{$browser}
+        if defined($browser);
 
     # Other random tests
 
@@ -649,6 +670,7 @@ sub _init_core {
 
         # Now set the browser to Realplayer.
         $self->{browser}             = 'realplayer';
+	$self->{browser_string}      = 'RealPlayer';
         $browser_tests->{realplayer} = 1;
 
         # Now override the version with the Realplayer version (but leave
@@ -1658,11 +1680,16 @@ sub os_version {
     }
 }
 
+sub browser {
+    my ($self) = @_;
+    return undef unless defined $self->{user_agent};
+    return $self->{browser};
+}
+
 sub browser_string {
     my ($self) = @_;
     return undef unless defined $self->{user_agent};
-    return undef unless defined $self->{browser};
-    return $BROWSER_NAMES{ $self->{browser} } || $self->{browser};
+    return $self->{browser_string};
 }
 
 sub os_string {
@@ -2105,9 +2132,9 @@ web server when calling a CGI script.
 
 Returns the browser, as one of the following values:
 
-chrome, firefox, msie, netscape, opera, safari, blackberry, browsex, elinks,
-links, lynx, icab, lotusnotes, mosaic, netfront, nintendo_3ds,
-nintendo_dsi, obigo, realplayer, silk, staroffice, webtv
+chrome, firefox, ie, netscape, opera, safari, blackberry, browsex, elinks,
+links, lynx, emacs, konqueror, icab, lotusnotes, mosaic, netfront,
+n3ds, dsi, obigo, realplayer, silk, staroffice, webtv
 
 If the user agent could not be identified, or if it was identified as
 a robot, returns C<undef>.
@@ -2115,8 +2142,8 @@ a robot, returns C<undef>.
 =head2 browser_string()
 
 Returns a human formatted version of the browser name. These names are
-subject to change and are meant for display purposes. They generally
-match the exact string that is provided within the user-agent
+subject to change and are meant for display purposes. Generally this
+matches the string that is actually included in the user-agent
 (including distinctions between e.g. Firefox, Iceweasel, Firebird,
 and the like, all of which are classed as "firefox" for purposes of
 browser() ).

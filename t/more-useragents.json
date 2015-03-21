@@ -1765,7 +1765,7 @@
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/39.0.2171.65 Chrome/39.0.2171.65 Safari/537.36" : {
       "beta" : ".2171.65",
-      "browser_string" : "Chrome",
+      "browser_string" : "Chromium",
       "engine_string" : "WebKit",
       "engine_version" : "537.36",
       "major" : "39",
