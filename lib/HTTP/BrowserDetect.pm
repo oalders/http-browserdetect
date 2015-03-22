@@ -1147,9 +1147,9 @@ sub _init_version {
 
     my ( $major, $minor, $beta );
 
-    ### First figure out version numbers. We try the regexp that makes the most
-    ### sense for whatever browser we have, and if that doesn't work
-    ### we fall back to increasingly generic methods.
+    ### First figure out version numbers. First, we test if we're
+    ### using a browser that needs some special method to determine
+    ### the version.
 
     if ( defined($browser) && $browser eq 'opera' ) {
 
@@ -1185,21 +1185,6 @@ sub _init_version {
         # Nothing else is going to work if $browser isn't defined; skip the
         # specific approaches and go straight to the generic ones.
     }
-    elsif ( $browser_tests->{chrome} ) {
-
-        # Chrome Version
-
-        ( $major, $minor, $beta ) = (
-            $ua =~ m{
-                chrome
-                \/
-                ( \d+ )        # Major version number
-                (?:\.( \d+ ))? # Minor version number follows first dot
-                ([0-9\.]*)     # Beta is all other dots and digits
-            }x
-        );
-
-    }
     elsif ( $browser_tests->{safari} ) {
 
         # Safari Version
@@ -1231,39 +1216,6 @@ sub _init_version {
             }
         }
     }
-    elsif ( $browser eq 'galeon' ) {
-        if ( $ua =~ m{galeon/(\d*)\.(\d*)([.\d]*)} ) {
-            $major = $1;
-            $minor = $2;
-	    $beta = $3;
-        }
-    }
-    elsif ( $browser eq 'seamonkey' ) {
-        if ( $ua =~ m{seamonkey/(\d*)\.(\d*)([.\d]*)} ) {
-            $major = $1;
-            $minor = $2;
-	    $beta = $3;
-        }
-    }
-    elsif ( $browser eq 'epiphany' ) {
-        if ( $ua =~ m{epiphany/(\d*)\.(\d*)([.\d]*)} ) {
-            $major = $1;
-            $minor = $2;
-	    $beta = $3;
-        }
-    }
-    elsif ( $browser_tests->{firefox} || $browser_tests->{netscape} ) {
-
-        # Firefox/mozilla or some variant
-
-        ( $major, $minor, $beta ) = $ua =~ m{
-                (?:netscape6?|firefox|firebird|iceweasel|phoenix|namoroka)\/
-                ( [^.]* ) # Major version number is everything before first dot
-                \.       # The first dot
-                ( [\d]* ) # Minor version number is digits after first dot
-                ( [^\s]* )
-            }x;
-    }
     elsif ( $browser_tests->{ie} ) {
 
         # MSIE
@@ -1279,12 +1231,6 @@ sub _init_version {
             ( $major, $minor, $beta ) = split /\./, $1;
         }
     }
-    elsif ( $browser eq 'netfront' ) {
-        if ( $ua =~ m{NetFront/(\d*)\.(\d*) Kindle}i ) {
-            $major = $1;
-            $minor = $2;
-        }
-    }
     elsif ( $browser eq 'n3ds' ) {
         if ( $ua =~ m{Nintendo 3DS;.*\sVersion/(\d*)\.(\d*)}i ) {
             $major = $1;
@@ -1297,46 +1243,39 @@ sub _init_version {
             $minor = $2;
             $beta  = $3;
         }
-    }
-    elsif ( $browser eq 'silk' ) {
-        if ( $ua =~ m{Silk/(\d+)\.(\d+)([\d.]*)}i ) {
-            $major = $1;
-            $minor = $2;
-            $beta  = $3;
-        }
-    }
-    elsif ( $browser eq 'obigo' ) {
-
-        # We have no working obigo version tests, so give up as opposed
-        # to setting wrong information.
-        $major = "0";
-        $minor = ".0";
-    }
-    elsif ( $browser eq 'applecoremedia' ) {
-        if ( $ua =~ m{AppleCoreMedia/(\d+)\.(\d+)([\d.]*)}i ) {
-            $major = $1;
-            $minor = $2;
-            $beta  = $3;
-        }
-    }
-    elsif ( $browser eq 'blackberry' ) {
-
-        if (
-            $ua =~ m{
-                version/
-                ( \d+ )       # Major version number is everything before first dot
-                \.            # First dot
-                ( \d* )       # Minor version number follows dot
-                ( [.\w]* )    # Beta is everything else
-            }x
-            ) {
-            ( $major, $minor, $beta ) = ( $1, $2, $3 );
-        }
+    } elsif ( $ua =~ m{netscape6/(\d+)\.(\d+)([\d.]*)} ) {
+	# Other cases get handled below, we just need this to skip the "6"
+	$major = $1;
+	$minor = $2;
+	$beta  = $3;
     }
 
+    # If we didn't match a browser-specific test, we look for
+    # "$browser/x.y.z"
+    if ( !defined($major) and defined($self->{browser_string}) ) {
+	my $version_index = index( $ua, lc "$self->{browser_string}/" );
+	if ( $version_index != -1 ) {
+	    my $version_str = substr( $ua, $version_index + length($browser) );
+	    if ( $version_str =~ m{/(\d+)\.(\d+)([\w.]*)} ) {
+		$major = $1;
+		$minor = $2;
+		$beta = $3;
+	    }
+	}
+    }
+
+    # If that didn't work, we try "Version/x.y.z"
     if ( !defined($major) ) {
+	if ( $ua =~ m{version/(\d+)\.(\d+)([\w.]*)} ) {
+	    $major = $1;
+	    $minor = $2;
+	    $beta = $3;
+	}
+    }
 
-        # We still don't have a version. Try a generic approach.
+    # If that didn't work, we start guessing. Just grab
+    # anything after a word and a slash.
+    if ( !defined($major) ) {
 
         ( $major, $minor, $beta ) = (
             $ua =~ m{
@@ -1352,16 +1291,16 @@ sub _init_version {
         );
     }
 
+    # If that didn't work, try even more generic.
     if ( !defined($major) ) {
 
-        # We still don't have one. More generic.
         if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
             $major = $1;
             $minor = 0;
         }
     }
 
-    # Oh well.
+    # If that didn't work, give up.
     $major = 0     if !$major;
     $minor = 0     if !$minor;
     $beta  = undef if ( defined($beta) && $beta eq '' );
