@@ -12,6 +12,7 @@
          "mobile",
          "safari",
          "robot",
+         "google",
          "googleadsbot"
       ],
       "minor" : ".0",
@@ -20,7 +21,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
-      "robot_name" : "Google AdsBot",
+      "robot" : "googleadsbot",
+      "robot_string" : "Google AdsBot",
       "version" : 0
    },
    "AppleCoreMedia/1.0.0.9A405 (iPad; U; CPU OS 5_0_1 like Mac OS X; en_us)" : {
@@ -46,6 +48,8 @@
       "public_major" : "1",
       "public_minor" : ".0",
       "public_version" : 1,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 1
    },
    "CATExplorador/1.0beta (sistemes at domini dot cat; http://domini.cat/catexplorador.html)" : {
@@ -61,6 +65,8 @@
       "public_major" : "1",
       "public_minor" : ".0",
       "public_version" : 1,
+      "robot" : "unknown",
+      "robot_string" : "CATExplorador",
       "version" : 1
    },
    "COMODO SSL Checker" : {
@@ -74,6 +80,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : "unknown",
+      "robot_string" : "COMODO SSL Checker",
       "version" : 0
    },
    "Dolphin http client/11.3.8(421) (Android)" : {
@@ -95,6 +103,8 @@
       "public_major" : "11",
       "public_minor" : ".3",
       "public_version" : 11.3,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 11.3
    },
    "Feedfetcher-Google; (+http://www.google.com/feedfetcher.html; 1 subscribers; feed-id=331724573339007561)" : {
@@ -108,6 +118,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : "unknown",
+      "robot_string" : "Feedfetcher-Google",
       "version" : 0
    },
    "Ipad Iphone Safari" : {
@@ -130,6 +142,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 0
    },
    "MAUI WAP Browser" : {
@@ -147,23 +161,32 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 0
    },
    "Mozilla/3.0 (compatible; Indy Library)" : {
       "browser" : null,
       "major" : "3",
-      "match" : [],
+      "match" : [
+         "indy",
+         "lib",
+         "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_major" : "3",
       "public_minor" : ".0",
       "public_version" : 3,
+      "robot" : "indy",
+      "robot_string" : "Indy Library",
       "version" : 3
    },
    "Mozilla/3.0 (compatible; WebCapture 2.0; Auto; Windows)" : {
       "browser" : null,
       "major" : "2",
       "match" : [
+         "robot",
          "windows"
       ],
       "minor" : ".0",
@@ -171,6 +194,8 @@
       "public_major" : "2",
       "public_minor" : ".0",
       "public_version" : 2,
+      "robot" : "unknown",
+      "robot_string" : "WebCapture 2.0",
       "version" : 2
    },
    "Mozilla/4.0 (compatible: MSIE 7.0; Windows NT 6.0)" : {
@@ -195,6 +220,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 7
    },
    "Mozilla/4.0 (compatible; Blog Search;)" : {
@@ -208,6 +235,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : "unknown",
+      "robot_string" : "Blog Search",
       "version" : 4
    },
    "Mozilla/4.0 (compatible; MSIE 4.01; Digital AlphaServer 1000A 4/233; Windows NT; Powered By 64-Bit Alpha Processor)" : {
@@ -229,6 +258,8 @@
       "public_major" : "4",
       "public_minor" : ".01",
       "public_version" : 4.01,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 4.01
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; America Online Browser 1.1; rev1.2; Windows NT 5.1; SV1; .NET CLR 1.1.4322)" : {
@@ -255,6 +286,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Update a; AOL 6.0; Windows 98)" : {
@@ -280,6 +313,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Creative)" : {
@@ -303,6 +338,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; Avant Browser [avantbrowser.com]; Hotbar 4.4.5.0)" : {
@@ -327,6 +364,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; MRA 4.6 (build 01425))" : {
@@ -351,6 +390,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; MyIE2; Deepnet Explorer)" : {
@@ -375,6 +416,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Netcraft SSL Server Survey - contact info@netcraft.com)" : {
@@ -383,6 +426,7 @@
       "engine_string" : "MSIE",
       "major" : "6",
       "match" : [
+         "robot",
          "windows",
          "winnt",
          "win32",
@@ -399,6 +443,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : "unknown",
+      "robot_string" : "Netcraft SSL Server Survey - contact info",
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322) Babya Discoverer  8.0:" : {
@@ -416,7 +462,8 @@
          "ie5up",
          "ie55up",
          "ie6",
-         "dotnet"
+         "dotnet",
+         "robot"
       ],
       "minor" : ".0",
       "os_string" : "WinXP",
@@ -424,6 +471,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : "unknown",
+      "robot_string" : "Babya Discoverer  8.0:",
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; XMPP Tiscali Communicator v.10.0.2; .NET CLR 2.0.50727)" : {
@@ -449,6 +498,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; MAXTHON 2.0); Connect Us: webauth@cmcm.com" : {
@@ -474,6 +525,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Crazy Browser 2.0.0 Beta 1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)" : {
@@ -499,6 +552,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; .NET CLR 1.1.4322; PeoplePal 6.2)" : {
@@ -524,6 +579,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; YPC 3.0.2; .NET CLR 1.1.4322; yplus 4.4.02b)" : {
@@ -549,6 +606,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.0" : {
@@ -569,6 +628,8 @@
       "public_major" : "9",
       "public_minor" : ".0",
       "public_version" : 9,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 9
    },
    "Mozilla/4.0 (compatible; MSIE 6.0b; Windows 98; YComp 5.0.0.0)" : {
@@ -594,6 +655,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; NP08; InfoPath.2; .NET4.0C; .NET4.0E; MSOffice 12)" : {
@@ -624,6 +687,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 7
    },
    "Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 6.0 ; .NET CLR 2.0.50215; SL Commerce Client v1.0; Tablet PC 2.0" : {
@@ -651,6 +716,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 7
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SearchToolbar 1.2; GTB7.4; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; BRI/2)" : {
@@ -680,6 +747,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 8
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QS 4.2.4.0; QS 5.3.0.4; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; InfoPath.3; QS 4.2.4.0; QS 5.3.0.4)" : {
@@ -709,6 +778,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 8
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; MS-RTC LM 8)" : {
@@ -738,6 +809,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 8
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)" : {
@@ -768,17 +841,23 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 8
    },
    "Mozilla/4.0 (compatible; Netcraft Web Server Survey)" : {
       "browser" : null,
       "major" : "4",
-      "match" : [],
+      "match" : [
+          "robot"
+      ],
       "minor" : ".0",
       "os_version" : 0,
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : "unknown",
+      "robot_string" : "Netcraft Web Server Survey",
       "version" : 4
    },
    "Mozilla/4.61 [en] (X11; U; ) - BrowseX (2.0.0 Windows)" : {
@@ -798,6 +877,8 @@
       "public_major" : "2",
       "public_minor" : ".0",
       "public_version" : 2,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 2
    },
    "Mozilla/5.0 (Linux; Android 4.1.1; Huawei Y301A1 Build/HuaweiY301A1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
@@ -823,6 +904,8 @@
       "public_major" : "28",
       "public_minor" : ".0",
       "public_version" : 28,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 28
    },
    "Mozilla/5.0 (Linux; Android 4.1.2; Torque Build/JZO54K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19" : {
@@ -848,6 +931,8 @@
       "public_major" : "18",
       "public_minor" : ".0",
       "public_version" : 18,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 18
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH Fierce Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
@@ -873,6 +958,8 @@
       "public_major" : "28",
       "public_minor" : ".0",
       "public_version" : 28,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 28
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; en-us; SAMSUNG SGH-M919 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19" : {
@@ -899,6 +986,8 @@
       "public_major" : "18",
       "public_minor" : ".0",
       "public_version" : 18,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 18
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; 0PCV1 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36" : {
@@ -924,6 +1013,8 @@
       "public_major" : "35",
       "public_minor" : ".0",
       "public_version" : 35,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 35
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; Aqua Y2 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
@@ -949,6 +1040,8 @@
       "public_major" : "30",
       "public_minor" : ".0",
       "public_version" : 30,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 30
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LGMS395 Build/KOT49I.MS39510d) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -974,6 +1067,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; XT1056 Build/KXA20.16-1.32) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -999,6 +1094,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; XT907 Build/KDA20.62-15.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/3.4.16.1149292.arm" : {
@@ -1024,6 +1121,8 @@
       "public_major" : "30",
       "public_minor" : ".0",
       "public_version" : 30,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 30
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; D5503 Build/14.4.A.0.157) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36" : {
@@ -1049,6 +1148,8 @@
       "public_major" : "35",
       "public_minor" : ".0",
       "public_version" : 35,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 35
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1031 Build/KXB21.14-L1.57) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -1074,6 +1175,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1032 Build/KXB21.14-L1.40) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -1099,6 +1202,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1033 Build/KXB21.14-L1.40) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -1124,6 +1229,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; Nexus 5 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
@@ -1149,6 +1256,8 @@
       "public_major" : "40",
       "public_minor" : ".0",
       "public_version" : 40,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 40
    },
    "Mozilla/5.0 (Linux; U; Android 1.5; en-gb; HTC Hero Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" : {
@@ -1175,6 +1284,8 @@
       "public_major" : "3",
       "public_minor" : ".1",
       "public_version" : 3.1,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.25
    },
    "Mozilla/5.0 (Linux; U; Android 1.6; en-us; xpndr_ihome Build/DRD35) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" : {
@@ -1201,6 +1312,8 @@
       "public_major" : "3",
       "public_minor" : ".1",
       "public_version" : 3.1,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.25
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; DROID3 Build/5.5.1_84_D3G-66_M2-10) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
@@ -1227,6 +1340,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.33
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; ZTE V768 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
@@ -1253,6 +1368,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.33
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.45 like Chrome/37.0.2026.117 Safari/537.36" : {
@@ -1277,6 +1394,8 @@
       "public_major" : "3",
       "public_minor" : ".45",
       "public_version" : 3.45,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.45
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.44 like Chrome/37.0.2026.117 Safari/537.36" : {
@@ -1301,6 +1420,8 @@
       "public_major" : "3",
       "public_minor" : ".44",
       "public_version" : 3.44,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.44
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; C5170 Build/IML77) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1327,6 +1448,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; EVO Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1353,6 +1476,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; ADR910L 4G Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1379,6 +1504,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; DROID RAZR Build/9.8.2O-72_VZW-16) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1405,6 +1532,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.1; en-us; H920 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1431,6 +1560,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; EDGE Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1457,6 +1588,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Lenovo A316i/S008) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1483,6 +1616,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Wildfire S A510e Build/CM10.1-Release-Candidate-v2.1; CyanogenMod-CM10.1) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
@@ -1509,6 +1644,8 @@
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : 4,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:35.0) Gecko/20100101 Firefox/35.0" : {
@@ -1531,6 +1668,8 @@
       "public_major" : "35",
       "public_minor" : ".0",
       "public_version" : 35,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 35
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
@@ -1550,6 +1689,8 @@
       "public_major" : "1",
       "public_minor" : ".2",
       "public_version" : 1.2,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 0.12
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2" : {
@@ -1576,6 +1717,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6 Chrome 19.0.1084.9" : {
@@ -1600,6 +1743,8 @@
       "public_major" : "20",
       "public_minor" : ".0",
       "public_version" : 20,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 20
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0" : {
@@ -1624,6 +1769,8 @@
       "public_major" : "35",
       "public_minor" : ".0",
       "public_version" : 35,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 35
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:11.0) Gecko Firefox/11.0" : {
@@ -1648,6 +1795,8 @@
       "public_major" : "11",
       "public_minor" : ".0",
       "public_version" : 11,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 11
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:12.0) Gecko/ 20120405 Firefox/14.0.1" : {
@@ -1674,6 +1823,8 @@
       "public_major" : "14",
       "public_minor" : ".0",
       "public_version" : 14,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 14
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google favicon" : {
@@ -1698,6 +1849,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 GTB6 (.NET CLR 3.5.30729)" : {
@@ -1726,6 +1879,8 @@
       "public_major" : "3",
       "public_minor" : ".6",
       "public_version" : 3.6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.6
    },
    "Mozilla/5.0 (X11; CrOS x86_64 6310.68.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.96 Safari/537.36" : {
@@ -1748,6 +1903,8 @@
       "public_major" : "39",
       "public_minor" : ".0",
       "public_version" : 39,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 39
    },
    "Mozilla/5.0 (X11; FreeBSD amd64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.65 Safari/535.11" : {
@@ -1772,6 +1929,8 @@
       "public_major" : "17",
       "public_minor" : ".0",
       "public_version" : 17,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 17
    },
    "Mozilla/5.0 (X11; Linux i686 on x86_64; rv:31.0) Gecko/20100101 Firefox/31.0" : {
@@ -1795,6 +1954,8 @@
       "public_major" : "31",
       "public_minor" : ".0",
       "public_version" : 31,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 31
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) wkhtmltoimage Safari/534.34" : {
@@ -1817,6 +1978,8 @@
       "public_major" : "2",
       "public_minor" : 0,
       "public_version" : 2,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.34
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.21 (KHTML, like Gecko) profiller Safari/537.21" : {
@@ -1839,6 +2002,8 @@
       "public_major" : "2",
       "public_minor" : 0,
       "public_version" : 2,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5.37
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/39.0.2171.65 Chrome/39.0.2171.65 Safari/537.36" : {
@@ -1862,6 +2027,8 @@
       "public_major" : "39",
       "public_minor" : ".0",
       "public_version" : 39,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 39
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20100804 Gentoo Firefox/3.6.8" : {
@@ -1888,6 +2055,8 @@
       "public_major" : "3",
       "public_minor" : ".6",
       "public_version" : 3.6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.6
    },
    "Mozilla/5.0 (compatible; Add Catalog/2.1;)" : {
@@ -1899,6 +2068,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 5
    },
    "Mozilla/5.0 (compatible; DomainAppender /1.0; +http://www.profound.net/domainappender)" : {
@@ -1912,6 +2083,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : "unknown",
+      "robot_string" : "DomainAppender",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; Konqueror/3.1-rc4; i686 Linux; 20020708)" : {
@@ -1931,6 +2104,8 @@
       "public_major" : "3",
       "public_minor" : ".1",
       "public_version" : 3.1,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.1
    },
    "Mozilla/5.0 (compatible; Lipperhey SEO Service; http://www.lipperhey.com/)" : {
@@ -1944,6 +2119,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : "unknown",
+      "robot_string" : "Lipperhey SEO Service",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; MSIE 8.0; MSIE 9.0; Windows NT 6.0; Trident/4.0; InfoPath.1; SV1; .NET CLR 3.8.36217; WOW64; en-US)" : {
@@ -1974,6 +2151,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 8
    },
    "Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server; + http://tab.search.daum.net/aboutWebSearch.html) Daumoa/3.0" : {
@@ -1994,6 +2173,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : "unknown",
+      "robot_string" : "tab.search.daum.net",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; archive.org_bot; Wayback Machine Live Record; +http://archive.org/details/archive.org_bot)" : {
@@ -2007,6 +2188,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : "unknown",
+      "robot_string" : "archive.org_bot",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; pmoz.info ODP link checker; +http://pmoz.info/doc/botinfo.htm)" : {
@@ -2020,6 +2203,8 @@
       "public_major" : "5",
       "public_minor" : ".0",
       "public_version" : 5,
+      "robot" : "unknown",
+      "robot_string" : "pmoz.info ODP link checker",
       "version" : 5
    },
    "Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25" : {
@@ -2046,6 +2231,8 @@
       "public_major" : "6",
       "public_minor" : ".0",
       "public_version" : 6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 85.36
    },
    "Mozilla/5.0 (iPad; CPU OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B511 Safari/9537.53" : {
@@ -2072,6 +2259,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 95.37
    },
    "Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53" : {
@@ -2098,6 +2287,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 95.37
    },
    "Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53" : {
@@ -2124,6 +2315,8 @@
       "public_major" : "7",
       "public_minor" : ".0",
       "public_version" : 7,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 95.37
    },
    "Mozilla/5.0 (iPad; CPU OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A405 Safari/600.1.4" : {
@@ -2150,6 +2343,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (iPad; CPU OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4" : {
@@ -2176,6 +2371,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (iPad; CPU OS 8_1_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B435 Safari/600.1.4" : {
@@ -2202,6 +2399,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (iPad; CPU OS 8_1_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B440 Safari/600.1.4" : {
@@ -2228,6 +2427,8 @@
       "public_major" : "8",
       "public_minor" : ".0",
       "public_version" : 8,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 (iPad; CPU OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/40.0.2214.69 Mobile/12B466 Safari/600.1.4" : {
@@ -2254,6 +2455,8 @@
       "public_major" : "2",
       "public_minor" : 0,
       "public_version" : 2,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 6
    },
    "Mozilla/5.0 ArchLinux (X11; U; Linux x86_64; en-US) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.60 Safari/534.30" : {
@@ -2278,6 +2481,8 @@
       "public_major" : "12",
       "public_minor" : ".0",
       "public_version" : 12,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 12
    },
    "OMozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.9) Gecko/20100827 Red Hat/3.6.9-2.el6 Firefox/3.6.9" : {
@@ -2304,6 +2509,8 @@
       "public_major" : "3",
       "public_minor" : ".6",
       "public_version" : 3.6,
+      "robot" : 0,
+      "robot_string" : null,
       "version" : 3.6
    },
    "SafeSearch microdata crawler (https://safesearch.avira.com, safesearch-abuse@avira.com)" : {
@@ -2317,6 +2524,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : "unknown",
+      "robot_string" : "SafeSearch microdata crawler",
       "version" : 0
    },
    "ScreenerBot Crawler Beta 2.0 (+http://www.ScreenerBot.com)" : {
@@ -2330,6 +2539,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : "unknown",
+      "robot_string" : "ScreenerBot Crawler Beta 2.0",
       "version" : 0
    },
    "Wada.vn Vietnamese Search" : {
@@ -2343,6 +2554,8 @@
       "public_major" : 0,
       "public_minor" : ".0",
       "public_version" : 0,
+      "robot" : "unknown",
+      "robot_string" : "Wada.vn Vietnamese Search",
       "version" : 0
    },
    "Xenu Link Sleuth/1.3.8" : {
@@ -2358,6 +2571,8 @@
       "public_major" : "1",
       "public_minor" : ".3",
       "public_version" : 1.3,
+      "robot" : "unknown",
+      "robot_string" : "Xenu Link Sleuth",
       "version" : 1.3
    }
 }

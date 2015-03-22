@@ -114,17 +114,18 @@ our @ENGINE_TESTS = qw(
 );
 
 our @ROBOT_TESTS = qw(
-    puf           curl           wget
-    getright      robot          slurp
-    yahoo         mj12bot        ahrefs
-    altavista     lycos          infoseek
-    lwp           webcrawler     linkexchange
-    googlemobile  msn            msnmobile
-    facebook      baidu          googleadsbot
-    askjeeves     googleadsense  googlebotvideo
-    googlebotnews googlebotimage google
-    linkchecker   yandeximages   specialarchiver
-    yandex        java           lib
+    puf             curl           wget
+    getright        robot          slurp
+    yahoo           mj12bot        ahrefs
+    altavista       lycos          infoseek
+    lwp             webcrawler     linkexchange
+    googlemobile    msn            msnmobile
+    facebook        baidu          googleadsbot
+    askjeeves       googleadsense  googlebotvideo
+    googlebotnews   googlebotimage google
+    linkchecker     yandeximages   specialarchiver
+    yandex          java           lib
+    indy
 );
 
 our @MISC_TESTS = qw(
@@ -164,6 +165,7 @@ my %ROBOT_NAMES = (
     googlebotnews   => 'Googlebot News',
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Google Mobile',
+    indy            => 'Indy Library',
     infoseek        => 'InfoSeek',
     java            => 'Java',
     linkchecker     => 'LinkChecker',
@@ -413,11 +415,12 @@ sub _init_core {
     # Reset device info, this gets filled in on demand in _init_device
     delete $self->{device_tests};
     delete $self->{device};
-    delete $self->{device_name};
+    delete $self->{device_string};
 
     # Reset robot info, this gets filled in on demand in _init_robots
     delete $self->{robot_tests};
-    delete $self->{robot_name};
+    delete $self->{robot_string};
+    delete $self->{robot_fragment};
 
     # These get filled in immediately
     $self->{tests}         = {};
@@ -705,6 +708,34 @@ sub _init_core {
 
 }
 
+# Any of these fragments within a user-agent generally indicates it's
+# a robot. If we find one, we store it in $self->{robot_fragment}, and
+# if the user later asks for the robot string, we return the string
+# in the immediate area of the fragment.
+my @ROBOT_FRAGMENTS = qw(
+    agent
+    appender
+    babya
+    checker
+    bot
+    copy
+    crawl
+    explorador
+    fetch
+    find
+    ia_archive
+    index
+    netcraft
+    reap
+    sleuth
+    scan
+    service
+    spider
+    webcapture
+    worm
+    zyborg
+);
+
 sub _init_robots {
     my $self = shift;
 
@@ -759,28 +790,34 @@ sub _init_robots {
     }
     elsif ( index( $ua, "adsbot-google" ) != -1 ) {
         $r = 'googleadsbot';
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "mediapartners-google" ) != -1 ) {
         $r = 'googleadsense';
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-image" ) != -1 ) {
         $r = 'googlebotimage';
-        $robot_tests->{google} = 1;
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-news" ) != -1 ) {
         $r = 'googlebotnews';
-        $robot_tests->{google} = 1;
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-video" ) != -1 ) {
         $r = 'googlebotvideo';
-        $robot_tests->{google} = 1;
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-mobile" ) != -1 ) {
         $r = 'googlemobile';
-        $robot_tests->{google} = 1;
+	$robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
+    }
+    elsif ( index( $ua, "indy library" ) != -1 ) {
+	$r = 'indy';
+	$robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "infoseek" ) != -1 ) {
         $r = 'infoseek';
@@ -832,31 +869,30 @@ sub _init_robots {
 
     if ($r) {
         $robot_tests->{$r} = 1;
-        $self->{robot_name} = $ROBOT_NAMES{ $r };    # Including undef
+        $self->{robot_string} = $ROBOT_NAMES{ $r };    # Including undef
     }
 
-    $robot_tests->{robot}
-        ||= $r
-        || index( $ua, "agent" ) != -1
-        || index( $ua, "appender" ) != -1
-        || index( $ua, "bot" ) != -1
-        || index( $ua, "checker" ) != -1
-        || index( $ua, "copy" ) != -1
-        || index( $ua, "crawl" ) != -1
-        || index( $ua, "explorador" ) != -1
-        || index( $ua, "fetch" ) != -1
-        || index( $ua, "find" ) != -1
-        || index( $ua, "ia_archive" ) != -1
-        || index( $ua, "index" ) != -1
-        || index( $ua, "sleuth" ) != -1
-        || index( $ua, "reap" ) != -1
-        || index( $ua, "scan" ) != -1
-        || index( $ua, "service" ) != -1
-        || index( $ua, "spider" ) != -1
-        || index( $ua, "worm" ) != -1
-        || index( $ua, "zyborg" ) != -1
-        || $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x
-        || $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x;
+    if ($r) {
+	# Got a named robot
+	$robot_tests->{robot} = $r;
+    } elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
+	# Store the fragment for later, to determine full name
+	$self->{robot_fragment} = "seek";
+	$robot_tests->{robot} = 'unknown';
+    } elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x ) {
+	# Store the fragment for later, to determine full name
+	$self->{robot_fragment} = "search";
+	$robot_tests->{robot} = 'unknown';
+    } else {
+	# See if we have a simple fragment
+	for my $fragment (@ROBOT_FRAGMENTS) {
+	    if ( index( $ua, $fragment ) != -1 ) {
+		$self->{robot_fragment} = $fragment;
+		$robot_tests->{robot} = 'unknown';
+		last;
+	    }
+	}
+    }
 }
 
 ### OS tests, only run on demand
@@ -1402,7 +1438,7 @@ sub _init_device {
     my $browser_tests = $self->{browser_tests};
     my $tests         = $self->{tests};
 
-    my ( $device, $device_name );
+    my ( $device, $device_string );
     my $device_tests = $self->{device_tests} = {};
 
     if ( index( $ua, "android" ) != -1 ) {
@@ -1578,33 +1614,33 @@ sub _init_device {
     );
 
     if ( $browser_tests->{obigo} && $ua =~ /^(mot-\S+)/ ) {
-        $self->{device_name} = substr $self->{user_agent}, 0, length $1;
-        $self->{device_name} =~ s/^MOT-/Motorola /i;
+        $self->{device_string} = substr $self->{user_agent}, 0, length $1;
+        $self->{device_string} =~ s/^MOT-/Motorola /i;
     }
     elsif (
         $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
     {
-        $self->{device_name} = substr $self->{user_agent},
+        $self->{device_string} = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
+        $self->{device_string} =~ s/; / /;
     }
     elsif ( $ua
         =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
         ) {
-        $self->{device_name} = substr $self->{user_agent},
+        $self->{device_string} = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_name} =~ s/; / /;
+        $self->{device_string} =~ s/; / /;
     }
     elsif ( $ua =~ /bb10; ([^;\)]+)/g ) {
-        $self->{device_name} = 'BlackBerry ' . substr $self->{user_agent},
+        $self->{device_string} = 'BlackBerry ' . substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_name} =~ s/Kbd/Q10/;
+        $self->{device_string} =~ s/Kbd/Q10/;
     }
     elsif ($device) {
-        $self->{device_name} = $DEVICE_NAMES{ $device };
+        $self->{device_string} = $DEVICE_NAMES{ $device };
     }
     else {
-        $self->{device_name} = undef;
+        $self->{device_string} = undef;
     }
 
     if ($device) {
@@ -1939,17 +1975,22 @@ sub country {
 }
 
 sub device {
-    my ( $self, $check ) = @_;
+    my ( $self ) = @_;
 
     $self->_init_device if !exists( $self->{device} );
     return $self->{device};
 }
 
-sub device_name {
-    my ( $self, $check ) = @_;
+sub device_string {
+    my ( $self ) = @_;
 
-    $self->_init_device if !exists( $self->{device_name} );
-    return $self->{device_name};
+    $self->_init_device if !exists( $self->{device_string} );
+    return $self->{device_string};
+}
+
+sub device_name {
+    my ( $self ) = @_;
+    return $self->device_string;
 }
 
 sub _language_country {
@@ -2036,11 +2077,31 @@ sub browser_properties {
     return sort @browser_properties;
 }
 
-sub robot_name {
+sub robot_string {
     my $self = shift;
 
-    $self->_init_robots unless exists( $self->{robot_name} );
-    return $self->{robot_name};
+    $self->_init_robots unless exists( $self->{robot_string} );
+    if ( defined($self->{robot_fragment}) &&
+	 !defined($self->{robot_string}) ) {
+	# We haven't figured out what the name is, but we know which
+	# fragment led us to identify the robot. Set the string based
+	# on what surrounds the fragment.
+	my $fragment = $self->{robot_fragment};
+	if ( $self->{user_agent} =~ m{\s*               # Beginning whitespace
+                                      ([\w .:,\-\@\/]*  # Words before fragment
+                                       $fragment        # Match the fragment
+                                       [\w .:,\-\@\/]*) # Words after fragment
+                                     }ix ) {
+	    $self->{robot_string} = $1;
+	    $self->{robot_string} =~ s/ *$//; # Trim whitespace at end
+	}
+    }
+    return $self->{robot_string};
+}
+
+sub robot_name {
+    my ( $self ) = @_;
+    return $self->robot_string;
 }
 
 1;
@@ -2206,14 +2267,32 @@ Returns true if the browser appears to belong to a tablet device.
 
 =head2 robot()
 
-Returns true if the user agent appears to be a robot, spider, crawler, or other
-automated Web client.
+If the user agent appears to be a robot, spider, crawler, or other
+automated Web client, this returns one of the following values:
+
+lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, askjeeves,
+baidu, curl, facebook, getright, googleadsbot, googleadsense,
+googlebotimage, googlebotnews, googlebotvideo, googlemobile,
+google, indy, infoseek, linkexchange, linkchecker, lycos, mj12bot,
+puf, scooter, specialarchiver, webcrawler, wget, yandexbot,
+yandeximages, java, unknown
+
+Returns C<undef> if the user agent is not a robot or cannot be
+identified.
+
+Returns "unknown" when the user agent is believed to be a robot but
+is not identified as one of the above specific robots.
 
 =head3 lib()
 
 Returns true if the user agent appears to be a software library
-(e.g. LWP, curl, wget). Generally this also implies that robot() will
-return true.
+(e.g. LWP, curl, wget). Generally libraries are also classed as
+robots.
+
+=head3 robot_string()
+
+Returns a human formatted version of the robot name. These names are
+subject to change and are meant for display purposes.
 
 =head1 OS Platform and Version
 
@@ -2471,7 +2550,7 @@ Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ip
 iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
 hardware can be detected
 
-=head2 device_name()
+=head2 device_string()
 
 Returns a human formatted version of the hardware device name.  These names are
 subject to change and are really meant for display purposes.  You should use
@@ -2481,6 +2560,10 @@ BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
 webOS. Also Windows-based smartphones will output various different names like
 HTC T7575. Returns C<undef> if this is not a device or if no device name can be
 detected.
+
+=head2 device_name()
+
+Deprecated alternate name for device_string()
 
 =head2 version($version)
 

@@ -18,6 +18,7 @@
       "language" : null,
       "major" : null,
       "match" : [
+         "google",
          "googleadsbot",
          "robot"
       ],
@@ -368,6 +369,7 @@
       "browser" : null,
       "major" : "2",
       "match" : [
+         "google",
          "googleadsense",
          "robot"
       ],
