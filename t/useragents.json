@@ -2768,7 +2768,7 @@
       "version" : "0.9"
    },
    "Mozilla/5.0 (X11; U; Linux 2.4.3-20mdk i586; en-US; rv:0.9.1) Gecko/20010611" : {
-      "browser" : "netscape",
+      "browser" : "mozilla",
       "browser_string" : "Mozilla",
       "country" : "US",
       "engine_major" : "0",
@@ -3063,7 +3063,7 @@
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.4) Gecko/20061201 Galeon/2.0.2 (Ubuntu package 2.0.2-4ubuntu1) Firefox/2.0.0.4 (Ubuntu-feisty)" : {
-      "browser" : "firefox",
+      "browser" : "galeon",
       "browser_string" : "Galeon",
       "engine_major" : "1",
       "engine_minor" : "0.8",
@@ -3072,17 +3072,18 @@
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "firefox"
+	 "galeon",
+         "gecko"
       ],
       "os" : "Linux",
       "public_major" : "2",
-      "public_minor" : "0",
+      "public_minor" : ".0",
+      "public_beta": ".2",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.11) Gecko/20100722 SeaMonkey/2.0.6" : {
-      "browser" : "netscape",
-      "browser_string" : "Seamonkey",
+      "browser" : "seamonkey",
+      "browser_string" : "SeaMonkey",
       "engine_major" : "1",
       "engine_minor" : "0.9",
       "engine_version" : "1.9",
@@ -3096,12 +3097,16 @@
          "nav4up",
          "nav6",
          "nav6up",
-         "netscape"
+         "netscape",
+         "seamonkey"
       ],
+      "public_major" : "2",
+      "public_minor" : ".0",
+      "public_beta" : ".6",
       "os" : "Linux"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20091023 Galeon/2.0.7 (Ubuntu 2.0.7-1ubuntu2)" : {
-      "browser" : "netscape",
+      "browser" : "galeon",
       "browser_string" : "Galeon",
       "engine_major" : "1",
       "engine_minor" : "0.9",
@@ -3110,14 +3115,12 @@
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "mozilla",
-         "nav45up",
-         "nav4up",
-         "nav6",
-         "nav6up",
-         "netscape"
+         "galeon",
+         "gecko"
       ],
+      "public_major" : "2",
+      "public_minor" : ".0",
+      "public_beta" : ".7",
       "os" : "Linux"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20100723 Ubuntu/10.04 (lucid) Firefox/3.6.8" : {
@@ -3139,22 +3142,22 @@
       "public_version" : "3.6"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en; rv:1.8.1.4) Gecko/20061201 Epiphany/2.18 Firefox/2.0.0.4 (Ubuntu-feisty)" : {
-      "browser" : "firefox",
-      "browser_string" : "Firefox",
+      "browser" : "epiphany",
+      "browser_string" : "Epiphany",
       "engine_major" : "1",
       "engine_minor" : "0.8",
       "engine_version" : "1.8",
       "match" : [
+         "epiphany",
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "firefox"
+         "gecko"
       ],
       "os" : "Linux",
       "public_major" : "2",
-      "public_minor" : "0",
-      "public_version" : "2.0"
+      "public_minor" : ".18",
+      "public_version" : "2.18"
    },
    "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
       "browser" : null,

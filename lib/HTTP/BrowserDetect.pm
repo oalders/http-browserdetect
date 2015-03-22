@@ -63,16 +63,17 @@ our @DEVICE_TESTS = qw(
 
 # Browsers
 our @BROWSER_TESTS = qw(
-    mosaic        netscape    firefox
-    chrome        safari      ie
-    opera         lynx        links
-    elinks        neoplanet   neoplanet2
-    avantgo       emacs       mozilla
-    konqueror     realplayer  netfront
-    mobile_safari obigo       aol
-    lotusnotes    staroffice  icab
-    webtv         browsex     silk
-    applecoremedia
+    mosaic         netscape    firefox
+    chrome         safari      ie
+    opera          lynx        links
+    elinks         neoplanet   neoplanet2
+    avantgo        emacs       mozilla
+    konqueror      realplayer  netfront
+    mobile_safari  obigo       aol
+    lotusnotes     staroffice  icab
+    webtv          browsex     silk
+    applecoremedia galeon      seamonkey
+    epiphany
 );
 
 our @IE_TESTS = qw(
@@ -192,7 +193,9 @@ my %BROWSER_NAMES = (
     curl           => 'curl',
     dsi            => 'Nintendo DSi',
     elinks         => 'ELinks',
+    epiphany       => 'Epiphany',
     firefox        => 'Firefox',
+    galeon         => 'Galeon',
     icab           => 'iCab',
     iceweasel      => 'IceWeasel',
     ie             => 'MSIE',
@@ -202,6 +205,7 @@ my %BROWSER_NAMES = (
     lynx           => 'Lynx',
     mobile_safari  => 'Mobile Safari',
     mosaic         => 'Mosaic',
+    mozilla        => 'Mozilla',
     n3ds           => 'Nintendo 3DS',
     netfront       => 'NetFront',
     netscape       => 'Netscape',
@@ -210,6 +214,7 @@ my %BROWSER_NAMES = (
     puf            => 'puf',
     realplayer     => 'RealPlayer',
     safari         => 'Safari',
+    seamonkey      => 'SeaMonkey',
     silk           => 'Silk',
     staroffice     => 'StarOffice',
     webtv          => 'WebTV',
@@ -454,7 +459,18 @@ sub _init_core {
 
     # Detect browser
 
-    if (
+    if ( index( $ua, "galeon" ) != -1 ) {
+	# Needs to go above firefox
+
+	$browser = "galeon";
+	$browser_tests->{galeon} = 1;
+    }
+    elsif ( index( $ua, "epiphany" ) != -1 ) {
+	# Needs to go above firefox + mozilla
+
+	$browser = "epiphany";
+	$browser_tests->{epiphany} = 1;
+    } elsif (
         $ua =~ m{
                 (firebird|iceweasel|phoenix|namoroka|firefox)
                 \/
@@ -470,12 +486,8 @@ sub _init_core {
 	$browser = 'firefox';
 	$browser_string = ucfirst $1;
 
-	if ( index( $ua, "galeon" ) != -1 ) {
-	    $browser_string = "Galeon";
-	}
-
-        $browser_tests->{ $1 } = 1;
-        $browser_tests->{'firefox'} = 1;
+	$browser_tests->{ $1 } = 1;
+	$browser_tests->{firefox} = 1;
     }
     elsif ( $ua =~ m{opera|opr\/} ) {
 
@@ -555,27 +567,23 @@ sub _init_core {
 
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
-        $browser                   = 'netscape';
+        $browser                   = 'mozilla';
 	if ( index( $ua, "netscape" ) != -1
-	    || !$tests->{gecko} ) {
-	    $browser_string = "Netscape";
-	} elsif ( index( $ua, "galeon" ) != -1 ) {
-	    $browser_string = "Galeon";
+	     || !$tests->{gecko} ) {
+	    $browser = "netscape";
 	} elsif ( index( $ua, "seamonkey" ) != -1 ) {
-	    $browser_string = "Seamonkey";
-	} elsif ( index( $ua, "epiphany" ) != -1 ) {
-	    $browser_string = "Epiphany";
-	} else {
-	    $browser_string = 'Mozilla';
+	    $browser = 'seamonkey';
 	}
-        $browser_tests->{netscape} = 1;
+        $browser_tests->{$browser} = 1;
+	$browser_tests->{netscape} = 1;
         $browser_tests->{mozilla}  = ( $tests->{gecko} );
     }
     elsif ( index( $ua, "neoplanet" ) != -1 ) {
 
         # Browser is Neoplanet
 
-        $browser = undef;
+        $browser = 'ie';
+	$browser_tests->{$browser} = 1;
         $browser_tests->{neoplanet} = 1;
         $browser_tests->{neoplanet2} = 1 if ( index( $ua, "2." ) != -1 );
     }
@@ -1223,9 +1231,30 @@ sub _init_version {
             }
         }
     }
+    elsif ( $browser eq 'galeon' ) {
+        if ( $ua =~ m{galeon/(\d*)\.(\d*)([.\d]*)} ) {
+            $major = $1;
+            $minor = $2;
+	    $beta = $3;
+        }
+    }
+    elsif ( $browser eq 'seamonkey' ) {
+        if ( $ua =~ m{seamonkey/(\d*)\.(\d*)([.\d]*)} ) {
+            $major = $1;
+            $minor = $2;
+	    $beta = $3;
+        }
+    }
+    elsif ( $browser eq 'epiphany' ) {
+        if ( $ua =~ m{epiphany/(\d*)\.(\d*)([.\d]*)} ) {
+            $major = $1;
+            $minor = $2;
+	    $beta = $3;
+        }
+    }
     elsif ( $browser_tests->{firefox} || $browser_tests->{netscape} ) {
 
-        # Firefox or some variant
+        # Firefox/mozilla or some variant
 
         ( $major, $minor, $beta ) = $ua =~ m{
                 (?:netscape6?|firefox|firebird|iceweasel|phoenix|namoroka)\/
@@ -1355,6 +1384,15 @@ sub _init_version {
         $version_tests->{nav6} = 1
             if ( $major == 5 || $major == 6 );    # go figure
         $version_tests->{nav6up} = 1 if $major >= 5;
+
+	if ( $browser eq 'seamonkey' ) {
+	    # Ugh, seamonkey versions started back at 1.
+	    $version_tests->{nav2}    = 0;
+	    $version_tests->{nav4up}  = 1;
+	    $version_tests->{nav45up} = 1;
+	    $version_tests->{nav6}    = 1;
+	    $version_tests->{nav6up}  = 1;
+	}
     }
 
     if ( $browser_tests->{ie} ) {
@@ -2132,12 +2170,17 @@ web server when calling a CGI script.
 
 Returns the browser, as one of the following values:
 
-chrome, firefox, ie, netscape, opera, safari, blackberry, browsex, elinks,
-links, lynx, emacs, konqueror, icab, lotusnotes, mosaic, netfront,
-n3ds, dsi, obigo, realplayer, silk, staroffice, webtv
+chrome, firefox, ie, opera, safari, blackberry, browsex, elinks,
+links, lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes,
+mosaic, mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer,
+seamonkey, silk, staroffice, webtv
 
 If the user agent could not be identified, or if it was identified as
 a robot, returns C<undef>.
+
+FIXME: This is not strictly accurate -- if a robot masquerades as a
+particular browser, we generally identify it as the browser it's
+masquerading as (e.g. for googlebot-mobile).
 
 =head2 browser_string()
 
