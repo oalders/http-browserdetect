@@ -383,8 +383,7 @@ foreach my $test (@DEVICE_TESTS) {
 sub user_agent {
     my ( $self, $user_agent ) = @_;
     if ( defined $user_agent ) {
-        $self->{user_agent} = $user_agent;
-        $self->_init_core();
+        $self->_init_core($user_agent);
     }
     return $self->{user_agent};
 }
@@ -395,32 +394,39 @@ sub user_agent {
 # Private method -- Set up the basics (browser and misc attributes)
 # for a new user-agent string
 sub _init_core {
-    my ($self) = @_;
+    my ($self, $new_ua) = @_;
 
-    # Reset browser information
-    $self->{browser} = undef;
-    $self->{browser_string} = undef;
+    if ( exists($self->{user_agent}) ) {
+	# We're already set up, we need to delete everything first
 
-    # Reset versions, this gets filled in on demand in _init_version
-    delete $self->{version_tests};
-    delete $self->{major};
-    delete $self->{minor};
-    delete $self->{beta};
-    delete $self->{realplayer_version};
+	# Reset browser information
+	$self->{browser} = undef;
+	$self->{browser_string} = undef;
 
-    # Reset OS tests, this gets filled in on demand in _init_os
-    delete $self->{cached_os};
-    delete $self->{os_tests};
+	# Reset versions, this gets filled in on demand in _init_version
+	delete $self->{version_tests};
+	delete $self->{major};
+	delete $self->{minor};
+	delete $self->{beta};
+	delete $self->{realplayer_version};
 
-    # Reset device info, this gets filled in on demand in _init_device
-    delete $self->{device_tests};
-    delete $self->{device};
-    delete $self->{device_string};
+	# Reset OS tests, this gets filled in on demand in _init_os
+	delete $self->{cached_os};
+	delete $self->{os_tests};
 
-    # Reset robot info, this gets filled in on demand in _init_robots
-    delete $self->{robot_tests};
-    delete $self->{robot_string};
-    delete $self->{robot_fragment};
+	# Reset device info, this gets filled in on demand in _init_device
+	delete $self->{device_tests};
+	delete $self->{device};
+	delete $self->{device_string};
+
+	# Reset robot info, this gets filled in on demand in _init_robots
+	delete $self->{robot_tests};
+	delete $self->{robot_string};
+	delete $self->{robot_fragment};
+    }
+
+    $self->{user_agent} = $new_ua;
+    my $ua              = lc $new_ua;
 
     # These get filled in immediately
     $self->{tests}         = {};
@@ -430,8 +436,6 @@ sub _init_core {
     my $browser_tests = $self->{browser_tests};
     my $browser       = undef;
     my $browser_string = undef;
-
-    my $ua = lc $self->{user_agent};
 
     # Detect engine
     $self->{engine_version} = undef;
