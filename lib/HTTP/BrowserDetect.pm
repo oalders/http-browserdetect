@@ -1445,7 +1445,11 @@ sub _init_device {
     my ( $device, $device_string );
     my $device_tests = $self->{device_tests} = {};
 
-    if ( index( $ua, "android" ) != -1 ) {
+    if ( index( $ua, "windows phone" ) != -1 ) {
+	$device = 'winphone';
+	# Test is set in _init_os()
+    }
+    elsif ( index( $ua, "android" ) != -1 ) {
         $device = 'android';
         $device_tests->{$device} = 1;
     }
@@ -1533,8 +1537,9 @@ sub _init_device {
     $device_tests->{mobile} = (
         ( $browser_tests->{firefox} && index( $ua, "mobile" ) != -1 )
             || ( $browser_tests->{ie}
-            && index( $ua, "windows phone" ) == -1
-            && index( $ua, "arm" ) != -1 )
+                 && index( $ua, "windows phone" ) == -1
+                 && index( $ua, "arm" ) != -1 )
+            || index( $ua, "windows phone" ) != -1
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
             || index( $ua, "alcatel" ) != -1
@@ -1617,7 +1622,7 @@ sub _init_device {
             || index( $ua, "hp-tablet" ) != -1
     );
 
-    if ( $browser_tests->{obigo} && $ua =~ /^(mot-\S+)/ ) {
+    if ( $browser_tests->{obigo} && $ua =~ /^(mot-[^ \/]+)/ ) {
         $self->{device_string} = substr $self->{user_agent}, 0, length $1;
         $self->{device_string} =~ s/^MOT-/Motorola /i;
     }
@@ -1639,6 +1644,20 @@ sub _init_device {
         $self->{device_string} = 'BlackBerry ' . substr $self->{user_agent},
             pos($ua) - length $1, length $1;
         $self->{device_string} =~ s/Kbd/Q10/;
+    }
+    elsif ( $ua =~ /blackberry ([\w.]+)/ ) {
+	$self->{device_string} = "BlackBerry $1";
+    }
+    elsif ( $ua =~ /blackberry(\d+)\// ) {
+	$self->{device_string} = "BlackBerry $1";
+    }
+    elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
+	$self->{device_string} = $1;
+    }
+    elsif ( $self->{user_agent} =~
+	    /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i )
+    {
+	$self->{device_string} = $1;
     }
     elsif ($device) {
         $self->{device_string} = $DEVICE_NAMES{ $device };
@@ -2549,20 +2568,20 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 
 =head2 device()
 
-Returns the method name of the actual hardware, if it can be detected.
+Returns the name of mobile / tablet hardware, if it can be detected.
+
 Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
-iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos. Returns C<undef> if no
-hardware can be detected
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos, winphone.
+
+Returns C<undef> if no hardware can be detected.
 
 =head2 device_string()
 
 Returns a human formatted version of the hardware device name.  These names are
 subject to change and are really meant for display purposes.  You should use
-the device() method in your logic.  Returns one of: Android, Audrey,
-BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod, Amazon Kindle, Nintendo
-3DS, Palm, Sony PlayStation 3, Sony Playstation Portable, WAP capable phone,
-webOS. Also Windows-based smartphones will output various different names like
-HTC T7575. Returns C<undef> if this is not a device or if no device name can be
+the device() method in your logic.
+
+Returns C<undef> if this is not a device or if no device name can be
 detected.
 
 =head2 device_name()
