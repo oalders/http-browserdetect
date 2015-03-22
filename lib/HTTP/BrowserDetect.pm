@@ -394,47 +394,48 @@ sub user_agent {
 # Private method -- Set up the basics (browser and misc attributes)
 # for a new user-agent string
 sub _init_core {
-    my ($self, $new_ua) = @_;
+    my ( $self, $new_ua ) = @_;
 
-    if ( exists($self->{user_agent}) ) {
-	# We're already set up, we need to delete everything first
+    if ( exists( $self->{user_agent} ) ) {
 
-	# Reset browser information
-	$self->{browser} = undef;
-	$self->{browser_string} = undef;
+        # We're already set up, we need to delete everything first
 
-	# Reset versions, this gets filled in on demand in _init_version
-	delete $self->{version_tests};
-	delete $self->{major};
-	delete $self->{minor};
-	delete $self->{beta};
-	delete $self->{realplayer_version};
+        # Reset browser information
+        $self->{browser}        = undef;
+        $self->{browser_string} = undef;
 
-	# Reset OS tests, this gets filled in on demand in _init_os
-	delete $self->{cached_os};
-	delete $self->{os_tests};
+        # Reset versions, this gets filled in on demand in _init_version
+        delete $self->{version_tests};
+        delete $self->{major};
+        delete $self->{minor};
+        delete $self->{beta};
+        delete $self->{realplayer_version};
 
-	# Reset device info, this gets filled in on demand in _init_device
-	delete $self->{device_tests};
-	delete $self->{device};
-	delete $self->{device_string};
+        # Reset OS tests, this gets filled in on demand in _init_os
+        delete $self->{cached_os};
+        delete $self->{os_tests};
 
-	# Reset robot info, this gets filled in on demand in _init_robots
-	delete $self->{robot_tests};
-	delete $self->{robot_string};
-	delete $self->{robot_fragment};
+        # Reset device info, this gets filled in on demand in _init_device
+        delete $self->{device_tests};
+        delete $self->{device};
+        delete $self->{device_string};
+
+        # Reset robot info, this gets filled in on demand in _init_robots
+        delete $self->{robot_tests};
+        delete $self->{robot_string};
+        delete $self->{robot_fragment};
     }
 
     $self->{user_agent} = $new_ua;
-    my $ua              = lc $new_ua;
+    my $ua = lc $new_ua;
 
     # These get filled in immediately
     $self->{tests}         = {};
     $self->{browser_tests} = {};
 
-    my $tests         = $self->{tests};
-    my $browser_tests = $self->{browser_tests};
-    my $browser       = undef;
+    my $tests          = $self->{tests};
+    my $browser_tests  = $self->{browser_tests};
+    my $browser        = undef;
     my $browser_string = undef;
 
     # Detect engine
@@ -467,17 +468,20 @@ sub _init_core {
     # Detect browser
 
     if ( index( $ua, "galeon" ) != -1 ) {
-	# Needs to go above firefox
 
-	$browser = "galeon";
-	$browser_tests->{galeon} = 1;
+        # Needs to go above firefox
+
+        $browser = "galeon";
+        $browser_tests->{galeon} = 1;
     }
     elsif ( index( $ua, "epiphany" ) != -1 ) {
-	# Needs to go above firefox + mozilla
 
-	$browser = "epiphany";
-	$browser_tests->{epiphany} = 1;
-    } elsif (
+        # Needs to go above firefox + mozilla
+
+        $browser = "epiphany";
+        $browser_tests->{epiphany} = 1;
+    }
+    elsif (
         $ua =~ m{
                 (firebird|iceweasel|phoenix|namoroka|firefox)
                 \/
@@ -490,11 +494,11 @@ sub _init_core {
     {
         # Browser is Firefox, possibly under an alternate name
 
-	$browser = 'firefox';
-	$browser_string = ucfirst $1;
+        $browser        = 'firefox';
+        $browser_string = ucfirst $1;
 
-	$browser_tests->{ $1 } = 1;
-	$browser_tests->{firefox} = 1;
+        $browser_tests->{$1} = 1;
+        $browser_tests->{firefox} = 1;
     }
     elsif ( $ua =~ m{opera|opr\/} ) {
 
@@ -509,15 +513,13 @@ sub _init_core {
 
         # Browser is MSIE (possibly AOL branded)
 
-	$browser = 'ie';
+        $browser = 'ie';
         $browser_tests->{ie} = 1;
 
-        if (
-            index( $ua, "aol" ) != -1
-            || index( $ua, "america online browser" ) != -1
-            ) {
-	    $browser_string = 'AOL Browser';
-	    $browser_tests->{aol} = 1;
+        if (   index( $ua, "aol" ) != -1
+            || index( $ua, "america online browser" ) != -1 ) {
+            $browser_string = 'AOL Browser';
+            $browser_tests->{aol} = 1;
         }
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
@@ -534,9 +536,9 @@ sub _init_core {
         $browser = 'chrome';
         $browser_tests->{chrome} = 1;
 
-	if ( index( $ua, "chromium" ) != -1 ) {
-	    $browser_string = "Chromium";
-	}
+        if ( index( $ua, "chromium" ) != -1 ) {
+            $browser_string = "Chromium";
+        }
     }
     elsif (index( $ua, "blackberry" ) != -1
         || index( $ua, "bb10" ) != -1
@@ -551,14 +553,14 @@ sub _init_core {
         # Browser is Safari
 
         $browser_tests->{safari} = 1;
-	$browser = 'safari';
-	if ( index( $ua, " mobile safari/" ) != -1 ) {
-	    $browser_string = 'Mobile Safari';
-	    $browser_tests->{mobile_safari} = 1;
+        $browser = 'safari';
+        if ( index( $ua, " mobile safari/" ) != -1 ) {
+            $browser_string = 'Mobile Safari';
+            $browser_tests->{mobile_safari} = 1;
         }
-	if ( index( $ua, "puffin" ) != -1 ) {
-	    $browser_string = "Puffin";
-	}
+        if ( index( $ua, "puffin" ) != -1 ) {
+            $browser_string = "Puffin";
+        }
     }
     elsif (!$tests->{trident}
         && index( $ua, "mozilla" ) != -1
@@ -574,23 +576,24 @@ sub _init_core {
 
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
-        $browser                   = 'mozilla';
-	if ( index( $ua, "netscape" ) != -1
-	     || !$tests->{gecko} ) {
-	    $browser = "netscape";
-	} elsif ( index( $ua, "seamonkey" ) != -1 ) {
-	    $browser = 'seamonkey';
-	}
+        $browser = 'mozilla';
+        if ( index( $ua, "netscape" ) != -1
+            || !$tests->{gecko} ) {
+            $browser = "netscape";
+        }
+        elsif ( index( $ua, "seamonkey" ) != -1 ) {
+            $browser = 'seamonkey';
+        }
         $browser_tests->{$browser} = 1;
-	$browser_tests->{netscape} = 1;
+        $browser_tests->{netscape} = 1;
         $browser_tests->{mozilla}  = ( $tests->{gecko} );
     }
     elsif ( index( $ua, "neoplanet" ) != -1 ) {
 
         # Browser is Neoplanet
 
-        $browser = 'ie';
-	$browser_tests->{$browser} = 1;
+        $browser                    = 'ie';
+        $browser_tests->{$browser}  = 1;
         $browser_tests->{neoplanet} = 1;
         $browser_tests->{neoplanet2} = 1 if ( index( $ua, "2." ) != -1 );
     }
@@ -685,7 +688,7 @@ sub _init_core {
 
         # Now set the browser to Realplayer.
         $self->{browser}             = 'realplayer';
-	$self->{browser_string}      = 'RealPlayer';
+        $self->{browser_string}      = 'RealPlayer';
         $browser_tests->{realplayer} = 1;
 
         # Now override the version with the Realplayer version (but leave
@@ -794,34 +797,34 @@ sub _init_robots {
     }
     elsif ( index( $ua, "adsbot-google" ) != -1 ) {
         $r = 'googleadsbot';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "mediapartners-google" ) != -1 ) {
         $r = 'googleadsense';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-image" ) != -1 ) {
         $r = 'googlebotimage';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-news" ) != -1 ) {
         $r = 'googlebotnews';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-video" ) != -1 ) {
         $r = 'googlebotvideo';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot-mobile" ) != -1 ) {
         $r = 'googlemobile';
-	$robot_tests->{google} = 1;
+        $robot_tests->{google} = 1;
     }
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
     }
     elsif ( index( $ua, "indy library" ) != -1 ) {
-	$r = 'indy';
-	$robot_tests->{lib} = 1;
+        $r = 'indy';
+        $robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "infoseek" ) != -1 ) {
         $r = 'infoseek';
@@ -873,29 +876,35 @@ sub _init_robots {
 
     if ($r) {
         $robot_tests->{$r} = 1;
-        $self->{robot_string} = $ROBOT_NAMES{ $r };    # Including undef
+        $self->{robot_string} = $ROBOT_NAMES{$r};    # Including undef
     }
 
     if ($r) {
-	# Got a named robot
-	$robot_tests->{robot} = $r;
-    } elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
-	# Store the fragment for later, to determine full name
-	$self->{robot_fragment} = "seek";
-	$robot_tests->{robot} = 'unknown';
-    } elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x ) {
-	# Store the fragment for later, to determine full name
-	$self->{robot_fragment} = "search";
-	$robot_tests->{robot} = 'unknown';
-    } else {
-	# See if we have a simple fragment
-	for my $fragment (@ROBOT_FRAGMENTS) {
-	    if ( index( $ua, $fragment ) != -1 ) {
-		$self->{robot_fragment} = $fragment;
-		$robot_tests->{robot} = 'unknown';
-		last;
-	    }
-	}
+
+        # Got a named robot
+        $robot_tests->{robot} = $r;
+    }
+    elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
+
+        # Store the fragment for later, to determine full name
+        $self->{robot_fragment} = "seek";
+        $robot_tests->{robot}   = 'unknown';
+    }
+    elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x ) {
+
+        # Store the fragment for later, to determine full name
+        $self->{robot_fragment} = "search";
+        $robot_tests->{robot}   = 'unknown';
+    }
+    else {
+        # See if we have a simple fragment
+        for my $fragment (@ROBOT_FRAGMENTS) {
+            if ( index( $ua, $fragment ) != -1 ) {
+                $self->{robot_fragment} = $fragment;
+                $robot_tests->{robot}   = 'unknown';
+                last;
+            }
+        }
     }
 }
 
@@ -1283,34 +1292,37 @@ sub _init_version {
             $minor = $2;
             $beta  = $3;
         }
-    } elsif ( $ua =~ m{netscape6/(\d+)\.(\d+)([\d.]*)} ) {
-	# Other cases get handled below, we just need this to skip the "6"
-	$major = $1;
-	$minor = $2;
-	$beta  = $3;
+    }
+    elsif ( $ua =~ m{netscape6/(\d+)\.(\d+)([\d.]*)} ) {
+
+        # Other cases get handled below, we just need this to skip the "6"
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
     }
 
     # If we didn't match a browser-specific test, we look for
     # "$browser/x.y.z"
-    if ( !defined($major) and defined($self->{browser_string}) ) {
-	my $version_index = index( $ua, lc "$self->{browser_string}/" );
-	if ( $version_index != -1 ) {
-	    my $version_str = substr( $ua, $version_index + length($browser) );
-	    if ( $version_str =~ m{/(\d+)\.(\d+)([\w.]*)} ) {
-		$major = $1;
-		$minor = $2;
-		$beta = $3;
-	    }
-	}
+    if ( !defined($major) and defined( $self->{browser_string} ) ) {
+        my $version_index = index( $ua, lc "$self->{browser_string}/" );
+        if ( $version_index != -1 ) {
+            my $version_str
+                = substr( $ua, $version_index + length($browser) );
+            if ( $version_str =~ m{/(\d+)\.(\d+)([\w.]*)} ) {
+                $major = $1;
+                $minor = $2;
+                $beta  = $3;
+            }
+        }
     }
 
     # If that didn't work, we try "Version/x.y.z"
     if ( !defined($major) ) {
-	if ( $ua =~ m{version/(\d+)\.(\d+)([\w.]*)} ) {
-	    $major = $1;
-	    $minor = $2;
-	    $beta = $3;
-	}
+        if ( $ua =~ m{version/(\d+)\.(\d+)([\w.]*)} ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
     }
 
     # If that didn't work, we start guessing. Just grab
@@ -1364,14 +1376,15 @@ sub _init_version {
             if ( $major == 5 || $major == 6 );    # go figure
         $version_tests->{nav6up} = 1 if $major >= 5;
 
-	if ( $browser eq 'seamonkey' ) {
-	    # Ugh, seamonkey versions started back at 1.
-	    $version_tests->{nav2}    = 0;
-	    $version_tests->{nav4up}  = 1;
-	    $version_tests->{nav45up} = 1;
-	    $version_tests->{nav6}    = 1;
-	    $version_tests->{nav6up}  = 1;
-	}
+        if ( $browser eq 'seamonkey' ) {
+
+            # Ugh, seamonkey versions started back at 1.
+            $version_tests->{nav2}    = 0;
+            $version_tests->{nav4up}  = 1;
+            $version_tests->{nav45up} = 1;
+            $version_tests->{nav6}    = 1;
+            $version_tests->{nav6up}  = 1;
+        }
     }
 
     if ( $browser_tests->{ie} ) {
@@ -1446,8 +1459,9 @@ sub _init_device {
     my $device_tests = $self->{device_tests} = {};
 
     if ( index( $ua, "windows phone" ) != -1 ) {
-	$device = 'winphone';
-	# Test is set in _init_os()
+        $device = 'winphone';
+
+        # Test is set in _init_os()
     }
     elsif ( index( $ua, "android" ) != -1 ) {
         $device = 'android';
@@ -1537,8 +1551,8 @@ sub _init_device {
     $device_tests->{mobile} = (
         ( $browser_tests->{firefox} && index( $ua, "mobile" ) != -1 )
             || ( $browser_tests->{ie}
-                 && index( $ua, "windows phone" ) == -1
-                 && index( $ua, "arm" ) != -1 )
+            && index( $ua, "windows phone" ) == -1
+            && index( $ua, "arm" ) != -1 )
             || index( $ua, "windows phone" ) != -1
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
@@ -1646,21 +1660,20 @@ sub _init_device {
         $self->{device_string} =~ s/Kbd/Q10/;
     }
     elsif ( $ua =~ /blackberry ([\w.]+)/ ) {
-	$self->{device_string} = "BlackBerry $1";
+        $self->{device_string} = "BlackBerry $1";
     }
     elsif ( $ua =~ /blackberry(\d+)\// ) {
-	$self->{device_string} = "BlackBerry $1";
+        $self->{device_string} = "BlackBerry $1";
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-	$self->{device_string} = $1;
+        $self->{device_string} = $1;
     }
-    elsif ( $self->{user_agent} =~
-	    /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i )
-    {
-	$self->{device_string} = $1;
+    elsif ( $self->{user_agent}
+        =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
+        $self->{device_string} = $1;
     }
     elsif ($device) {
-        $self->{device_string} = $DEVICE_NAMES{ $device };
+        $self->{device_string} = $DEVICE_NAMES{$device};
     }
     else {
         $self->{device_string} = undef;
@@ -1998,21 +2011,21 @@ sub country {
 }
 
 sub device {
-    my ( $self ) = @_;
+    my ($self) = @_;
 
     $self->_init_device if !exists( $self->{device} );
     return $self->{device};
 }
 
 sub device_string {
-    my ( $self ) = @_;
+    my ($self) = @_;
 
     $self->_init_device if !exists( $self->{device_string} );
     return $self->{device_string};
 }
 
 sub device_name {
-    my ( $self ) = @_;
+    my ($self) = @_;
     return $self->device_string;
 }
 
@@ -2104,26 +2117,29 @@ sub robot_string {
     my $self = shift;
 
     $self->_init_robots unless exists( $self->{robot_string} );
-    if ( defined($self->{robot_fragment}) &&
-	 !defined($self->{robot_string}) ) {
-	# We haven't figured out what the name is, but we know which
-	# fragment led us to identify the robot. Set the string based
-	# on what surrounds the fragment.
-	my $fragment = $self->{robot_fragment};
-	if ( $self->{user_agent} =~ m{\s*               # Beginning whitespace
+    if ( defined( $self->{robot_fragment} )
+        && !defined( $self->{robot_string} ) ) {
+
+        # We haven't figured out what the name is, but we know which
+        # fragment led us to identify the robot. Set the string based
+        # on what surrounds the fragment.
+        my $fragment = $self->{robot_fragment};
+        if (
+            $self->{user_agent} =~ m{\s*               # Beginning whitespace
                                       ([\w .:,\-\@\/]*  # Words before fragment
                                        $fragment        # Match the fragment
                                        [\w .:,\-\@\/]*) # Words after fragment
-                                     }ix ) {
-	    $self->{robot_string} = $1;
-	    $self->{robot_string} =~ s/ *$//; # Trim whitespace at end
-	}
+                                     }ix
+            ) {
+            $self->{robot_string} = $1;
+            $self->{robot_string} =~ s/ *$//;    # Trim whitespace at end
+        }
     }
     return $self->{robot_string};
 }
 
 sub robot_name {
-    my ( $self ) = @_;
+    my ($self) = @_;
     return $self->robot_string;
 }
 
