@@ -2198,24 +2198,16 @@ links, lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes,
 mosaic, mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer,
 seamonkey, silk, staroffice, webtv
 
-If the user agent could not be identified, or if it was identified as
-a robot, returns C<undef>.
-
-FIXME: This is not strictly accurate -- if a robot masquerades as a
-particular browser, we generally identify it as the browser it's
-masquerading as (e.g. for googlebot-mobile).
+If the browser could not be identified (either because unrecognized
+or because it is a robot), returns C<undef>.
 
 =head2 browser_string()
 
 Returns a human formatted version of the browser name. These names are
-subject to change and are meant for display purposes. Generally this
-matches the string that is actually included in the user-agent
-(including distinctions between e.g. Firefox, Iceweasel, Firebird,
-and the like, all of which are classed as "firefox" for purposes of
-browser() ).
+subject to change and are meant for display purposes.
 
 If the user agent could not be identified, or if it was identified as
-a robot, returns C<undef>.
+a robot instead, returns C<undef>.
 
 =head1 Browser Version
 
@@ -2258,6 +2250,8 @@ Returns undef if no version information can be detected. Returns an
 empty string if version information is detected but it contains only
 a major and minor version with nothing following.
 
+=head1 Operating System
+
 =head2 os_string()
 
 Returns one of the following strings, or undef.
@@ -2267,18 +2261,7 @@ Returns one of the following strings, or undef.
   Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
   RIM Tablet OS, BlackBerry 10
 
-=head1 Browser Properties
-
-=head2 browser_properties()
-
-Returns a list of the browser properties. Operating systems, devices,
-browser names, and general tests (e.g. "mobile" and "robot") are all
-browser properties.
-
-The methods listed below are all browser properties (in addition to
-being methods).
-
-=head1 General tests
+=head1 Mobile Devices
 
 =head2 mobile()
 
@@ -2287,6 +2270,26 @@ Returns true if the browser appears to belong to a handheld device.
 =head2 tablet()
 
 Returns true if the browser appears to belong to a tablet device.
+
+=head2 device()
+
+Returns the name of mobile / tablet hardware, if it can be detected.
+
+Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
+iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos, winphone.
+
+Returns C<undef> if no hardware can be detected.
+
+=head2 device_string()
+
+Returns a human formatted version of the hardware device name.  These names are
+subject to change and are really meant for display purposes.  You should use
+the device() method in your logic.
+
+Returns C<undef> if this is not a device or if no device name can be
+detected.
+
+=head1 Robots
 
 =head2 robot()
 
@@ -2300,31 +2303,58 @@ google, indy, infoseek, linkexchange, linkchecker, lycos, mj12bot,
 puf, scooter, specialarchiver, webcrawler, wget, yandexbot,
 yandeximages, java, unknown
 
+Returns "unknown" when the user agent is believed to be a robot but
+is not identified as one of the above specific robots.
+
 Returns C<undef> if the user agent is not a robot or cannot be
 identified.
 
-Returns "unknown" when the user agent is believed to be a robot but
-is not identified as one of the above specific robots.
+Note that if a robot crafts a user agent designed to impersonate a
+particular browser, we generally set properties appropriate to both
+the actual robot, and the browser it is impersonating. For example,
+googlebot-mobile pretends to be mobile safari so that it will get
+mobile versions of pages. In this case, browser() will return 'safari',
+and robot() will return 'googlemobile'.
 
 =head3 lib()
 
 Returns true if the user agent appears to be a software library
-(e.g. LWP, curl, wget). Generally libraries are also classed as
-robots.
+(e.g. LWP, curl, wget, java). Generally libraries are also classified
+as robots, although it is impossible to tell whether they are being
+used as part of an automated system or not.
 
 =head3 robot_string()
 
 Returns a human formatted version of the robot name. These names are
 subject to change and are meant for display purposes.
 
-=head1 OS Platform and Version
+=head1 Browser Properties
+
+Operating systems, devices, browser names, rendering engines, and
+true-or-false methods (e.g. "mobile" and "lib") are all browser
+properties. For example, calling browser_properties() for Mobile
+Safari running on an Android will return this list:
+
+('android', 'device', 'mobile', 'mobile_safari', 'safari', 'webkit')
+
+=head2 browser_properties()
+
+Returns all properties for this user agent, as a list. Note that
+because a large number of cases must be considered, this will take
+significantly more time than simply querying the particular methods
+you care about.
+
+The complete list of properties follows (each of these methods is also
+a property):
+
+=head2 OS related properties
 
 The following methods are available, each returning a true or false value.
 Some methods also test for the operating system version. The indentations
 below show the hierarchy of tests (for example, win2k is considered a type of
 winnt, which is a type of win32)
 
-=head2 windows()
+=head3 windows()
 
     win16 win3x win31
     win32
@@ -2337,41 +2367,41 @@ winnt, which is a type of win32)
     winphone
         winphone7 winphone7_5 winphone8
 
-=head2 dotnet()
+=head3 dotnet()
 
-=head2 chromeos()
+=head3 chromeos()
 
-=head2 firefoxos()
+=head3 firefoxos()
 
-=head2 mac()
+=head3 mac()
 
 mac68k macppc macosx ios
 
-=head2 os2()
+=head3 os2()
 
-=head2 bb10()
+=head3 bb10()
 
-=head2 rimtabletos()
+=head3 rimtabletos()
 
-=head2 unix()
+=head3 unix()
 
   sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
   aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
   dec sinix freebsd bsd
 
-=head2 vms()
+=head3 vms()
 
-=head2 amiga()
+=head3 amiga()
 
-=head2 ps3gameos()
+=head3 ps3gameos()
 
-=head2 pspgameos()
+=head3 pspgameos()
 
 It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
 distinguish between Win95 and WinNT.
 
-=head1 Detecting Browser Vendor
+=head2 Browser related properties
 
 The following methods are available, each returning a true or false value.
 Some methods also test for the browser version, saving you from checking the
@@ -2439,7 +2469,7 @@ number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
 Firebird).
 
-=head1 Detecting Devices
+=head2 Device related properties
 
 The following methods are available, each returning a true or false value.
 
@@ -2477,7 +2507,7 @@ The following methods are available, each returning a true or false value.
 
 =head3 ps3
 
-=head1 Detecting robots
+=head2 Robot properties
 
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
@@ -2503,6 +2533,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 googleadsense
 
 =head3 googlemobile
+
+=head3 indy
 
 =head3 infoseek
 
@@ -2532,7 +2564,7 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 yandeximages
 
-=head1 Engine properties
+=head2 Engine properties
 
 The following properties indicate if a particular rendering engine is
 being used.
@@ -2547,7 +2579,7 @@ being used.
 
 =head3 khtml
 
-=head1 Other information
+=head1 Other methods
 
 =head2 user_agent()
 
@@ -2566,23 +2598,32 @@ will be in the form of an upper case 2 character code. ie: US, DE, etc
 Returns the language string as it is found in the user agent string. This will
 be in the form of an upper case 2 character code. ie: EN, DE, etc
 
-=head2 device()
+=head2 engine_string()
 
-Returns the name of mobile / tablet hardware, if it can be detected.
+Returns the name of the rendering engine, one of the following:
 
-Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
-iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos, winphone.
+Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
 
-Returns C<undef> if no hardware can be detected.
+Note that this returns "WebKit" for webkit based browsers (including
+the Blink fork). This is a change from previous versions of this
+library, which returned "KHTML" for webkit.
 
-=head2 device_string()
+Returns C<undef> otherwise.
 
-Returns a human formatted version of the hardware device name.  These names are
-subject to change and are really meant for display purposes.  You should use
-the device() method in your logic.
+=head2 engine_version()
 
-Returns C<undef> if this is not a device or if no device name can be
-detected.
+Returns the version number of the rendering engine, major and minor,
+as a string.
+
+=head2 engine_major()
+
+Returns the major version number of the rendering engine.
+
+=head2 engine_minor()
+
+Returns the minor version number of the rendering engine.
+
+=head1 Deprecated methods
 
 =head2 device_name()
 
@@ -2637,38 +2678,14 @@ This function returns wrong values for some Safari versions, for
 compatibility with earlier code. public_version() returns correct
 version numbers for Safari.
 
-=head2 engine_string()
-
-Returns the name of the rendering engine, one of the following:
-
-Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
-
-Note that this returns "WebKit" for webkit based browsers (including
-the Blink fork). This is a change from previous versions of this
-library, which returned "KHTML" for webkit.
-
-Returns C<undef> otherwise.
-
-=head2 engine_version()
-
-Returns the version number of the rendering engine, major and minor,
-as a string.
-
-=head2 engine_major()
-
-Returns the major version number of the rendering engine.
-
-=head2 engine_minor()
-
-Returns the minor version number of the rendering engine.
-
 =head2 gecko_version()
 
 If a Gecko rendering engine is used (as in Mozilla or Firefox), returns the
 engine version. If no Gecko browser is being used, or the version
 number can't be detected, returns undef.
 
-This is an old function, preserved for compatibility.
+This is an old function, preserved for compatibility; please use
+engine_version() in new code.
 
 =head1 CREDITS
 
