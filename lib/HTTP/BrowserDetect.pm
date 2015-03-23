@@ -2334,7 +2334,9 @@ or because it is a robot), returns C<undef>.
 =head2 browser_string()
 
 Returns a human formatted version of the browser name. These names are
-subject to change and are meant for display purposes.
+subject to change and are meant for display purposes. This may include
+information additional to what's in browser() (e.g. distinguishing
+Firefox from Iceweasel).
 
 If the user agent could not be identified, or if it was identified as
 a robot instead, returns C<undef>.
@@ -2393,8 +2395,11 @@ Returns one of the following strings, or C<undef>:
 =head2 os_string()
 
 Returns a human formatted version of the OS name.  These names are
-subject to change and are really meant for display purposes.  You should use
-the os() method in your logic.
+subject to change and are really meant for display purposes. This may
+include information additional to what's in os() (e.g. distinguishing
+various editions of Windows from one another) (although for a way to
+do that that's more suitable for your program logic, see below under
+"OS related properties").
 
 Returns C<undef> if no OS information could be detected.
 
@@ -2404,9 +2409,7 @@ Returns C<undef> if no OS information could be detected.
 =head2 os_beta()
 
 Returns version information for the OS, if any could be detected. The
-format is the same as for the public_version() functions. For Windows
-XP/ME/etc., the non-numerical version (e.g. "XP") is returned from
-both os_version() and os_major().
+format is the same as for the public_version() functions.
 
 =head1 Mobile Devices
 
@@ -2420,18 +2423,20 @@ Returns true if the browser appears to belong to a tablet device.
 
 =head2 device()
 
-Returns the name of mobile / tablet hardware, if it can be detected.
+Returns the type of mobile / tablet hardware, if it can be detected.
 
 Currently returns one of: android, audrey, avantgo, blackberry, dsi, iopener, ipad,
 iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos, winphone.
 
-Returns C<undef> if no hardware can be detected.
+Returns C<undef> if this is not a tablet/mobile device or no hardware
+information can be detected.
 
 =head2 device_string()
 
 Returns a human formatted version of the hardware device name.  These names are
 subject to change and are really meant for display purposes.  You should use
-the device() method in your logic.
+the device() method in your logic. This may include additional
+information (such as the model of phone if it is detectable).
 
 Returns C<undef> if this is not a device or if no device name can be
 detected.
@@ -2460,8 +2465,10 @@ Note that if a robot crafts a user agent designed to impersonate a
 particular browser, we generally set properties appropriate to both
 the actual robot, and the browser it is impersonating. For example,
 googlebot-mobile pretends to be mobile safari so that it will get
-mobile versions of pages. In this case, browser() will return 'safari',
-and robot() will return 'googlemobile'.
+mobile versions of pages. In this case, browser() will return
+'safari', the properties will generally be set as if for Mobile
+Safari, the 'robot' property will be set, and robot() will return
+'googlemobile'.
 
 =head3 lib()
 
@@ -2473,7 +2480,10 @@ used as part of an automated system or not.
 =head3 robot_string()
 
 Returns a human formatted version of the robot name. These names are
-subject to change and are meant for display purposes.
+subject to change and are meant for display purposes. This may include
+additional information (e.g. robots which return "unknown" from
+robot() generally can be identified in a human-readable fashion by
+reading robot_string() ).
 
 =head1 Browser Properties
 
@@ -2491,8 +2501,9 @@ because a large number of cases must be considered, this will take
 significantly more time than simply querying the particular methods
 you care about.
 
-The complete list of properties follows (each of these methods is also
-a property):
+The complete list of properties follows (i.e. each of these methods is
+both a method you can call, and also a property that will be in the
+list returned by browser_properties() if appropriate):
 
 =head2 OS related properties
 
@@ -2611,7 +2622,7 @@ browser (but returns 0 for the plugin).
 
 =head3 webtv
 
-Netscape 6, even though its called six, in the User-Agent string has version
+Netscape 6, even though it's called six, in the User-Agent string has version
 number 5. The nav6 and nav6up methods correctly handle this quirk. The Firefox
 test correctly detects the older-named versions of the browser (Phoenix,
 Firebird).
