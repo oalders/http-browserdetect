@@ -1760,7 +1760,7 @@ sub _init_device {
         $self->{device_string} = "BlackBerry $1";
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-        $self->{device_string} = $1;
+        $self->{device_string} = "Android ($1)";
     }
     elsif ( $self->{user_agent}
         =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
@@ -1807,7 +1807,7 @@ sub _os_version {
     my ( $self ) = @_;
 
     $self->_init_os_version if !exists($self->{os_version});
-    
+
     if ( defined($self->{os_version}) ) {
 	return $self->_parse_version($self->{os_version});
     } else {
@@ -2186,13 +2186,6 @@ sub _language_country {
     }
 
     return { language => undef, country => undef };
-}
-
-sub _format_minor {
-    my $self  = shift;
-    my $minor = shift;
-
-    return 0 + ( '.' . ( $minor || 0 ) );
 }
 
 sub browser_properties {
