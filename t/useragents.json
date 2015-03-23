@@ -2027,7 +2027,7 @@
    "Mozilla/5.0 (Linux; Android 4.3.1; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
       "browser" : "chrome",
       "device" : "android",
-      "device_string" : "SAMSUNG-SGH-I747",
+      "device_string" : "Android (SAMSUNG-SGH-I747)",
       "major" : "33",
       "match" : [
          "android",
@@ -2054,7 +2054,7 @@
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
       "browser" : "chrome",
       "device" : "android",
-      "device_string" : "Nexus 4",
+      "device_string" : "Android (Nexus 4)",
       "major" : "33",
       "match" : [
          "android",
@@ -2077,7 +2077,7 @@
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36 OPR/20.0.1396.73172" : {
       "browser" : "opera",
       "device" : "android",
-      "device_string" : "Nexus 4",
+      "device_string" : "Android (Nexus 4)",
       "major" : "20",
       "match" : [
          "android",
@@ -2100,7 +2100,7 @@
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
       "browser" : "chrome",
       "device" : "android",
-      "device_string" : "Nexus 4",
+      "device_string" : "Android (Nexus 4)",
       "major" : "30",
       "match" : [
          "android",
@@ -2155,7 +2155,7 @@
       "browser_string" : "Mobile Safari",
       "country" : "US",
       "device" : "android",
-      "device_string" : "Google Ion",
+      "device_string" : "Android (Google Ion)",
       "engine" : "5.25",
       "engine_string" : "WebKit",
       "language" : "EN",
@@ -2185,7 +2185,7 @@
       "browser_string" : "Mobile Safari",
       "country" : "US",
       "device" : "android",
-      "device_string" : "DROIDX",
+      "device_string" : "Android (DROIDX)",
       "engine" : "5.30",
       "engine_string" : "WebKit",
       "language" : "EN",
@@ -2214,7 +2214,7 @@
       "browser" : "safari",
       "browser_string" : "Mobile Safari",
       "device" : "android",
-      "device_string" : "IS03",
+      "device_string" : "Android (IS03)",
       "match" : [
          "safari",
          "mobile",
@@ -2240,7 +2240,7 @@
       "browser_string" : "Safari",
       "country" : "US",
       "device" : "android",
-      "device_string" : "Nexus 10",
+      "device_string" : "Android (Nexus 10)",
       "engine_string" : "WebKit",
       "language" : "EN",
       "major" : "5",
@@ -2267,7 +2267,7 @@
    "Mozilla/5.0 (Linux; U; Android 4.3.1; en-gb; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 CyanogenMod/10.2.1/d2att" : {
       "browser" : "safari",
       "device" : "android",
-      "device_string" : "SAMSUNG-SGH-I747",
+      "device_string" : "Android (SAMSUNG-SGH-I747)",
       "match" : [
          "android",
          "mobile",
@@ -2292,7 +2292,7 @@
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; Nexus 4 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16" : {
       "browser" : "safari",
       "device" : "android",
-      "device_string" : "Nexus 4",
+      "device_string" : "Android (Nexus 4)",
       "match" : [
          "android",
          "mobile",
