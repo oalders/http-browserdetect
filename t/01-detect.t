@@ -33,7 +33,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     diag( $detected->user_agent );
 
     foreach my $method (
-        'browser_string', 'engine_string', 'os_string',
+        'browser_string', 'engine_string', 'os', 'os_string',
         'os_version'
         ) {
         if ( $test->{$method} ) {
@@ -81,14 +81,6 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
                 "$method: $test->{$method}"
             );
         }
-    }
-
-    $test->{os} =~ tr[A-Z][a-z] if $test->{os};
-
-    if ( $test->{os} ) {
-        $test->{os} =~ s{\s}{}gxms;
-        my $method = $test->{os};
-        ok( $detected->$method, $test->{os} ) if $test->{os};
     }
 
     foreach my $type ( @{ $test->{match} } ) {

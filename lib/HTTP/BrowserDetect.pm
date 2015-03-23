@@ -242,6 +242,7 @@ my %DEVICE_NAMES = (
 );
 
 my %OS_NAMES = (
+    amiga       => 'Amiga',
     android     => 'Android',
     bb10        => 'BlackBerry 10',
     chromeos    => 'Chrome OS',
@@ -250,7 +251,7 @@ my %OS_NAMES = (
     linux       => 'Linux',
     mac         => 'Mac',
     macosx      => 'Mac OS X',
-    os2         => 'OS2',
+    os2         => 'OS/2',
     ps3gameos   => 'Playstation 3 GameOS',
     pspgameos   => 'Playstation Portable GameOS',
     rimtabletos => 'RIM Tablet OS',
@@ -412,7 +413,8 @@ sub _init_core {
         delete $self->{realplayer_version};
 
         # Reset OS tests, this gets filled in on demand in _init_os
-        delete $self->{cached_os};
+	delete $self->{os};
+        delete $self->{os_string};
         delete $self->{os_tests};
 
         # Reset device info, this gets filled in on demand in _init_device
@@ -919,11 +921,13 @@ sub _init_os {
 
     my $os_tests = $self->{os_tests} = {};
     my $os = undef;
+    my $os_string = undef;
 
     # Windows
 
     if ( index( $ua, "16bit" ) != -1 ) {
-        $os = 'win16';
+        $os = 'windows';
+	$os_string = '16-bit Windows';
         $os_tests->{win16} = $os_tests->{windows} = 1;
     }
 
@@ -933,78 +937,98 @@ sub _init_os {
             || index( $ua, "windows 16-bit" ) != -1 ) {
             $os_tests->{win16} = 1;
             $os_tests->{win3x} = 1;
-            $os_tests->{win31} = 1 if index( $ua, "windows 3.1" ) != -1;
-            $os                = "win3x";
+            $os = "windows";
+	    if ( index( $ua, "windows 3.1" ) != -1 ) {
+		$os_tests->{win31} = 1;
+		$os_string = 'Win3x'; # FIXME bug compatibility
+	    } else {
+		$os_string = 'Win3x';
+	    }
         }
         elsif (index( $ua, "win95" ) != -1
             || index( $ua, "windows 95" ) != -1 ) {
-            $os = "win95";
-            $os_tests->{$os} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'Win95';
+            $os_tests->{win95} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "win 9x 4.90" ) != -1 )    # whatever
         {
-            $os = "winme";
-            $os_tests->{$os} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'WinME';
+            $os_tests->{winme} = $os_tests->{win32} = 1;
         }
         elsif (index( $ua, "win98" ) != -1
             || index( $ua, "windows 98" ) != -1 ) {
-            $os = "win98";
-            $os_tests->{$os} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'Win98';
+            $os_tests->{win98} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "windows ce" ) != -1 ) {
-            $os = 'wince';
+            $os = 'windows';
+	    $os_string = 'WinCE';
             $os_tests->{wince} = 1;
         }
         elsif ( index( $ua, "windows phone" ) != -1 ) {
             $os = 'winphone';
             $os_tests->{winphone} = 1;
 
-            $os_tests->{winphone7} = 1
-                if index( $ua, "windows phone os 7.0" ) != -1;
-            $os_tests->{winphone7_5} = 1
-                if index( $ua, "windows phone os 7.5" ) != -1;
-            $os_tests->{winphone8} = 1
-                if index( $ua, "windows phone 8.0" ) != -1;
+	    if ( index( $ua, "windows phone os 7.0" ) != -1 ) {
+		$os_tests->{winphone7} = 1;
+	    } elsif ( index( $ua, "windows phone os 7.5" ) != -1 ) {
+		$os_tests->{winphone7_5} = 1;
+	    } elsif ( index( $ua, "windows phone 8.0" ) != -1 ) {
+		$os_tests->{winphone8} = 1;
+	    }
         }
     }
 
     if ( index( $ua, "nt" ) != -1 ) {
         if ( index( $ua, "nt 5.0" ) != -1 || index( $ua, "nt5" ) != -1 ) {
-            $os = "win2k";
-            $os_tests->{$os} = $os_tests->{winnt} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'Win2k';
+            $os_tests->{win2k} = $os_tests->{winnt} =
+		$os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 5.1" ) != -1 ) {
-            $os = "winxp";
-            $os_tests->{$os} = $os_tests->{winnt} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'WinXP';
+            $os_tests->{winxp} = $os_tests->{winnt} =
+		$os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 5.2" ) != -1 ) {
-            $os = "win2k3";
-            $os_tests->{$os} = $os_tests->{winnt} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'Win2k3';
+            $os_tests->{win2k3} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 6.0" ) != -1 ) {
-            $os = "winvista";
-            $os_tests->{$os} = $os_tests->{winnt} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'WinVista';
+            $os_tests->{winvista} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 6.1" ) != -1 ) {
-            $os = "win7";
-            $os_tests->{$os} = $os_tests->{winnt} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = 'Win7';
+            $os_tests->{win7} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 6.2" ) != -1 ) {
-            $os = "win8_0";
-            $os_tests->{$os} = $os_tests->{win8} = $os_tests->{winnt}
+            $os = "windows";
+	    $os_string = 'Win8.0';
+            $os_tests->{win8_0} = $os_tests->{win8} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "nt 6.3" ) != -1 ) {
-            $os = "win8_1";
-            $os_tests->{$os} = $os_tests->{win8} = $os_tests->{winnt}
+            $os = "windows";
+	    $os_string = 'Win8.1';
+            $os_tests->{win8_1} = $os_tests->{win8} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
         elsif (index( $ua, "winnt" ) != -1
             || index( $ua, "windows nt" ) != -1
             || index( $ua, "nt4" ) != -1
             || index( $ua, "nt3" ) != -1 ) {
-            $os = "winnt";
-            $os_tests->{$os} = $os_tests->{win32} = 1;
+            $os = "windows";
+	    $os_string = "WinNT";
+            $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
     }
 
@@ -1050,6 +1074,9 @@ sub _init_os {
         # Linux
         $os = 'linux';
         $os_tests->{linux} = $os_tests->{unix} = 1;
+	if ( index( $ua, "ubuntu" ) != -1) {
+	    $os_string = 'Ubuntu';
+	}
     }
     elsif ( $tests->{x11} && index( $ua, "cros" ) != -1 ) {
 
@@ -1066,8 +1093,14 @@ sub _init_os {
         $os = 'os2';
         $os_tests->{$os} = 1;
     }
+    elsif ( index( $ua, "solaris" ) != -1 ) {
+	$os = 'unix';
+	$os_string = 'Solaris';
+	$os_tests->{sun} = $os_tests->{unix} = 1;
+    }
     elsif ( index( $ua, "samsung" ) == -1 && index( $ua, "sun" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'SunOS';
         $os_tests->{sun} = $os_tests->{unix} = 1;
         $os_tests->{suni86} = 1 if index( $ua, "i86" ) != -1;
         $os_tests->{sun4}   = 1 if index( $ua, "sunos 4" ) != -1;
@@ -1075,18 +1108,21 @@ sub _init_os {
     }
     elsif ( index( $ua, "irix" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'Irix';
         $os_tests->{irix} = $os_tests->{unix} = 1;
         $os_tests->{irix5} = 1 if ( index( $ua, "irix5" ) != -1 );
         $os_tests->{irix6} = 1 if ( index( $ua, "irix6" ) != -1 );
     }
     elsif ( index( $ua, "hp-ux" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'HP-UX';
         $os_tests->{hpux} = $os_tests->{unix} = 1;
         $os_tests->{hpux9}  = 1 if index( $ua, "09." ) != -1;
         $os_tests->{hpux10} = 1 if index( $ua, "10." ) != -1;
     }
     elsif ( index( $ua, "aix" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'AIX';
         $os_tests->{aix} = $os_tests->{unix} = 1;
         $os_tests->{aix1} = 1 if ( index( $ua, "aix 1" ) != -1 );
         $os_tests->{aix2} = 1 if ( index( $ua, "aix 2" ) != -1 );
@@ -1095,18 +1131,22 @@ sub _init_os {
     }
     elsif ( index( $ua, "sco" ) != -1 || index( $ua, "unix_sv" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'SCO Unix';
         $os_tests->{sco} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, "unix_system_v" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'System V Unix';
         $os_tests->{unixware} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, "ncr" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'NCR Unix';
         $os_tests->{mpras} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, "reliantunix" ) != -1 ) {
         $os = 'unix';
+	$os_string = 'Reliant Unix';
         $os_tests->{reliant} = $os_tests->{unix} = 1;
     }
     elsif (index( $ua, "dec" ) != -1
@@ -1124,6 +1164,9 @@ sub _init_os {
     }
     elsif ( index( $ua, "bsd" ) != -1 ) {
         $os = 'unix';
+	if ( $self->{user_agent} =~ m{(\w*bsd[ \w]*)\;}i ) {
+	    $os_string = $1;
+	}
         $os_tests->{bsd} = $os_tests->{unix} = 1;
         $os_tests->{freebsd} = 1 if index( $ua, "freebsd" ) != -1;
     }
@@ -1178,7 +1221,11 @@ sub _init_os {
         $os_tests->{firefoxos} = 1;
     }
 
-    $self->{cached_os} = $os;
+    $self->{os} = $os;
+    if ( $os and !$os_string ) {
+	$os_string = $OS_NAMES{$os};
+    }
+    $self->{os_string} = $os_string;
 }
 
 ### Version determination, only run on demand
@@ -1741,13 +1788,20 @@ sub browser_string {
     return $self->{browser_string};
 }
 
+sub os {
+    my ($self) = @_;
+
+    return undef unless defined $self->{user_agent};
+    $self->_init_os unless $self->{os_tests};
+    return $self->{os};
+}
+
 sub os_string {
     my ($self) = @_;
 
     return undef    unless defined $self->{user_agent};
     $self->_init_os unless $self->{os_tests};
-    return undef    unless $self->{cached_os};
-    return $OS_NAMES{ $self->{cached_os} };
+    return $self->{os_string};
 }
 
 sub _realplayer_version {
@@ -2238,7 +2292,8 @@ some cases).
 
 =head2 public_version()
 
-Returns the browser version (major and minor) as a string.
+Returns the browser version (major and minor) as a string. For
+example, for Chrome 36.0.1985.67, this returns "36.0".
 
 =head2 public_major()
 
@@ -2268,14 +2323,30 @@ a major and minor version with nothing following.
 
 =head1 Operating System
 
+=head2 os()
+
+Returns one of the following strings, or C<undef>:
+
+  windows, winphone, mac, macosx, ios, os2, unix, vms, linux,
+  chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga
+
 =head2 os_string()
 
-Returns one of the following strings, or undef.
+Returns a human formatted version of the OS name.  These names are
+subject to change and are really meant for display purposes.  You should use
+the os() method in your logic.
 
-  Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-  Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, VMS, Linux,
-  Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-  RIM Tablet OS, BlackBerry 10
+Returns C<undef> if no OS information could be detected.
+
+=head2 os_version()
+=head2 os_major()
+=head2 os_minor()
+=head2 os_beta()
+
+Returns version information for the OS, if any could be detected. The
+format is the same as for the public_version() functions. For Windows
+XP/ME/etc., the non-numerical version (e.g. "XP") is returned from
+both os_version() and os_major().
 
 =head1 Mobile Devices
 
