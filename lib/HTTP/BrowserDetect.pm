@@ -416,6 +416,7 @@ sub _init_core {
 	delete $self->{os};
         delete $self->{os_string};
         delete $self->{os_tests};
+	delete $self->{os_version};
 
         # Reset device info, this gets filled in on demand in _init_device
         delete $self->{device_tests};
@@ -1228,6 +1229,52 @@ sub _init_os {
     $self->{os_string} = $os_string;
 }
 
+sub _init_os_version {
+    my ($self) = @_;
+
+    my $os = $self->os;
+    my $os_string = $self->os_string;
+    my $ua = lc $self->{user_agent};
+
+    my $os_version = undef;
+
+    if ( !defined($os) ) {
+	# Nothing is going to work if we have no OS. Skip everything.
+    } elsif ( $os eq 'winphone' ) {
+	if ( $ua =~ m{windows phone (?:os )?([\d.]+)} ) {
+	    $os_version = $1;
+	}
+    } elsif ( $os eq 'macosx' ) {
+	if ( $ua =~ m{os x (\d+)[\._](\d+)[\._]?(\d*)} ) {
+	    $os_version = "$1.$2";
+	    $os_version .= ".$3" if length($3) > 0;
+	}
+    } elsif ( $os eq 'ios' ) {
+	if ( $ua =~ m{ os (\d+)[\._](\d+)[\._]?(\d*)} ) {
+	    $os_version = "$1.$2";
+	    $os_version .= ".$3" if length($3) > 0;
+	}
+    } elsif ( $os eq 'chromeos' ) {
+	if ( $ua =~ m{ cros \S* ([\d\.]+)\)} ) {
+	    $os_version = $1;
+	}
+    } elsif ( $os eq 'android' ) {
+	if ( $ua =~ m{android ([\d\.]+)\;} ) {
+	    $os_version = $1;
+	} elsif ( $ua =~ m{android ([\d\.]+\-update[\d]+)\;} ) {
+	    $os_version = $1;
+	}
+    } elsif ( $os eq 'firefoxos' ) {
+	if ( $ua =~ m{firefox/([\d\.]*)} ) {
+	    $os_version = $1;
+	}
+    }
+
+    # Set the version. It might be set to undef, in which case we know
+    # not to go through this next time.
+    $self->{os_version} = $os_version;
+}
+
 ### Version determination, only run on demand
 
 sub _init_version {
@@ -1735,45 +1782,65 @@ sub _init_device {
     }
 }
 
+### Now some utility functions
+
+# Parse a version string into a list: (major, minor, beta)
+
+sub _parse_version {
+    my ($self, $version) = @_;
+
+    if ( $version =~ m{([^\.]+)     # major
+                       (\.[\d]+)?   # maybe minor (include dot)
+                       (.*)         # maybe beta (include dot)
+         }x )
+    {
+	return ($1, $2 || '', $3);
+    } else {
+	# This can only happen if the version is empty or just dots
+	return (undef, undef, undef);
+    }
+}
+
 ### Now a big block of public accessors for tests and information
 
-# undocumented, experimental, volatile. not bothering with major/minor here as
-# that's flawed for 3 point versions the plan is to move this parsing into the
-# UeberAgent parser
+sub _os_version {
+    my ( $self ) = @_;
+
+    $self->_init_os_version if !exists($self->{os_version});
+    
+    if ( defined($self->{os_version}) ) {
+	return $self->_parse_version($self->{os_version});
+    } else {
+	return undef;
+    }
+}
 
 sub os_version {
-    my $self = shift;
-
-    if (   $self->ios
-        && $self->{user_agent} =~ m{OS (\d*_\d*|\d*_\d*_\d*) like Mac} ) {
-        my $version = $1;
-        $version =~ s{_}{.}g;
-        return $version;
+    my ( $self ) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    if ( defined($major) ) {
+	return $major . (defined($minor) ? $minor : '');
+    } else {
+	return undef;
     }
+}
 
-    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d)_(\d)_(\d)}x ) {
-        return join '.', $1, $2, $3;
-    }
+sub os_major {
+    my ( $self ) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $major;
+}
 
-    # firefox in mac
-    # "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:25.0) Gecko/20100101 Firefox/25.0"
-    if ( $self->mac && $self->{user_agent} =~ m{ X \s (\d\d\.\d)}x ) {
-        return $1;
-    }
+sub os_minor {
+    my ( $self ) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $minor;
+}
 
-    if (   $self->winphone
-        && $self->{user_agent}
-        =~ m{Windows \s Phone \s \w{0,2} \s{0,1} (\d+\.\d+);}x ) {
-        return $1;
-    }
-
-    if ( $self->android && $self->{user_agent} =~ m{Android ([\d\.\w-]*)} ) {
-        return $1;
-    }
-
-    if ( $self->firefoxos && $self->{user_agent} =~ m{Firefox/([\d\.]*)} ) {
-        return $1;
-    }
+sub os_beta {
+    my ( $self ) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $beta;
 }
 
 sub browser {
@@ -2327,7 +2394,7 @@ a major and minor version with nothing following.
 
 Returns one of the following strings, or C<undef>:
 
-  windows, winphone, mac, macosx, ios, os2, unix, vms, linux,
+  windows, winphone, mac, macosx, linux, android, ios, os2, unix, vms,
   chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga
 
 =head2 os_string()

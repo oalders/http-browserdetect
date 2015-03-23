@@ -52,11 +52,17 @@ my @methods = (
         engine_version
         engine_major
         engine_minor
+        os
         os_string
+        os_version
+        os_major
+        os_minor
+        os_beta
         realplayer_browser
         browser_string
         gecko_version
         device
+        device_string
         browser_properties
         ), &HTTP::BrowserDetect::_all_tests()
 );
