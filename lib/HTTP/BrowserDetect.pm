@@ -455,7 +455,7 @@ sub _init_core {
             $self->{engine_version} = $1;
         }
     }
-    elsif ( $ua =~ m{applewebkit/([\d.]+)} ) {
+    elsif ( $ua =~ m{applewebkit/([\d.\+]+)} ) {
         $tests->{webkit}        = 1;
         $self->{engine_version} = $1;
     }
@@ -2029,6 +2029,40 @@ sub _cmp_versions {
     return @a <=> @b;
 }
 
+sub engine {
+    my ( $self, $check ) = @_;
+
+    if ( $self->gecko ) {
+        return 'gecko';
+    }
+
+    if ( $self->trident ) {
+        return 'trident';
+    }
+
+    if ( $self->ie ) {
+        return 'msie';
+    }
+
+    if ( $self->webkit ) {
+        return 'webkit';
+    }
+
+    if ( $self->presto ) {
+        return 'presto';
+    }
+
+    if ( $self->netfront ) {
+        return 'netfront';
+    }
+
+    if ( $self->khtml ) {
+        return 'khtml';
+    }
+
+    return undef;
+}
+
 sub engine_string {
     my ( $self, $check ) = @_;
 
@@ -2063,9 +2097,6 @@ sub engine_string {
     return undef;
 }
 
-# FIXME -- make one consistent interface for handling version numbers
-# for browser, engine, and OS
-
 sub engine_version {
     my ($self) = @_;
 
@@ -2095,6 +2126,18 @@ sub engine_minor {
 
     if ( $self->{engine_version} ) {
         if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
+            return $1;
+        }
+    }
+
+    return undef;
+}
+
+sub engine_beta {
+    my ($self) = @_;
+
+    if ( $self->{engine_version} ) {
+        if ( $self->{engine_version} =~ m{^\d+\.\d+([\.\d\+]*)} ) {
             return $1;
         }
     }
@@ -2266,32 +2309,33 @@ __END__
 
     use HTTP::BrowserDetect;
 
-    my $browser = HTTP::BrowserDetect->new($user_agent_string);
+    my $ua = HTTP::BrowserDetect->new($user_agent_string);
 
     # Print general information
-    print "Browser: $browser->browser_string\n"
-        if $browser->browser_string;
-    print "Version: $browser->browser_version$browser->browser_beta\n"
-        if $browser->browser_version;
-    print "OS: $browser->os_string\n"
-        if $browser->os_string;
+    print "Browser: $ua->browser_string\n"
+        if $ua->browser_string;
+    print "Version: $ua->browser_version$ua->browser_beta\n"
+        if $ua->browser_version;
+    print "OS: $ua->os_string\n"
+        if $ua->os_string;
 
     # Detect operating system
-    if ($browser->windows) {
-      if ($browser->winnt) ...
-      if ($browser->win95) ...
+    if ($ua->windows) {
+      if ($ua->winnt) ...
+      if ($ua->win95) ...
     }
-    print "Mac\n" if $browser->mac;
+    print "Mac\n" if $ua->macosx;
 
     # Detect browser vendor and version
-    print "Netscape\n" if $browser->netscape;
-    print "MSIE\n" if $browser->ie;
-    if (browser->browser_major(4)) {
-    if ($browser->browser_minor() > .5) {
+    print "Safari\n" if $ua->safari;
+    print "MSIE\n" if $ua->ie;
+    print "Mobile\n" if $ua->mobile;
+    if ($ua->browser_major(4)) {
+    if ($ua->browser_minor() > .5) {
         ...
     }
     }
-    if ($browser->browser_version() > 4.5) {
+    if ($ua->browser_version() > 4.5) {
       ...;
     }
 
@@ -2397,7 +2441,7 @@ Returns a human formatted version of the OS name.  These names are
 subject to change and are really meant for display purposes. This may
 include information additional to what's in os() (e.g. distinguishing
 various editions of Windows from one another) (although for a way to
-do that that's more suitable for your program logic, see below under
+do that that's more suitable for use in program logic, see below under
 "OS related properties").
 
 Returns C<undef> if no OS information could be detected.
@@ -2437,8 +2481,8 @@ subject to change and are really meant for display purposes.  You should use
 the device() method in your logic. This may include additional
 information (such as the model of phone if it is detectable).
 
-Returns C<undef> if this is not a device or if no device name can be
-detected.
+Returns C<undef> if this is not a portable device or if no device name
+can be detected.
 
 =head1 Robots
 
@@ -2755,30 +2799,38 @@ will be in the form of an upper case 2 character code. ie: US, DE, etc
 Returns the language string as it is found in the user agent string. This will
 be in the form of an upper case 2 character code. ie: EN, DE, etc
 
-=head2 engine_string()
+=head2 engine()
 
-Returns the name of the rendering engine, one of the following:
+Returns the rendering engine, one of the following:
 
-Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
+gecko, webkit, khtml, trident, msie, presto, netfront
 
-Note that this returns "WebKit" for webkit based browsers (including
-the Blink fork). This is a change from previous versions of this
+Note that this returns "webkit" for webkit based browsers (including
+Chrome/Blink). This is a change from previous versions of this
 library, which returned "KHTML" for webkit.
 
-Returns C<undef> otherwise.
+Returns C<undef> if none of the above rendering engines can be
+detected.
+
+=head2 engine_string()
+
+Returns a human formatted version of the rendering engine.
+
+Note that this returns "WebKit" for webkit based browsers (including
+Chrome/Blink). This is a change from previous versions of this
+library, which returned "KHTML" for webkit.
+
+Returns C<undef> if none of the known rendering engines can be
+detected.
 
 =head2 engine_version()
-
-Returns the version number of the rendering engine, major and minor,
-as a string.
-
 =head2 engine_major()
-
-Returns the major version number of the rendering engine.
-
 =head2 engine_minor()
+=head2 engine_beta()
 
-Returns the minor version number of the rendering engine.
+Returns version information for the rendering engine, if any can be
+detected. The format is the same as for the browser_version()
+functions.
 
 =head1 Deprecated methods
 
@@ -2786,45 +2838,40 @@ Returns the minor version number of the rendering engine.
 
 Deprecated alternate name for device_string()
 
-=head2 version($version)
+=head2 version()
 
 This is probably not what you want.  Please use either browser_version() or
 engine_version() instead.
 
-Returns the version as a string. If passed a parameter, returns true
-if it equals the browser major version.
+Returns the version (major and minor) as a string.
 
 This function returns wrong values for some Safari versions, for
 compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
-=head2 major($major)
+=head2 major()
 
 This is probably not what you want. Please use either browser_major()
 or engine_major() instead.
 
-Returns the integer portion of the browser version as a string. If
-passed a parameter, returns true if it equals the browser major
-version.
+Returns the integer portion of the browser version as a string.
 
 This function returns wrong values for some Safari versions, for
 compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
-=head2 minor($minor)
+=head2 minor()
 
 This is probably not what you want. Please use either browser_minor()
 or engine_minor() instead.
 
 Returns the decimal portion of the browser version as a string.
 
-If passed a parameter, returns true if equals the minor version.
-
 This function returns wrong values for some Safari versions, for
 compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
-=head2 beta($beta)
+=head2 beta()
 
 This is probably not what you want. Please use browser_beta() instead.
 
