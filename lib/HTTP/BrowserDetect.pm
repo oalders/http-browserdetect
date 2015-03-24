@@ -2486,10 +2486,10 @@ Safari, the 'robot' property will be set, and robot() will return
 
 =head3 lib()
 
-Returns true if the user agent appears to be a software library
+Returns true if the user agent appears to be an HTTP library or tool
 (e.g. LWP, curl, wget, java). Generally libraries are also classified
 as robots, although it is impossible to tell whether they are being
-used as part of an automated system or not.
+operated by an automated system or a human.
 
 =head3 robot_string()
 
