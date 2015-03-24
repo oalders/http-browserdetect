@@ -1245,38 +1245,36 @@ sub _init_os_version {
         # Nothing is going to work if we have no OS. Skip everything.
     }
     elsif ( $os eq 'winphone' ) {
-        if ( $ua =~ m{windows phone (?:os )?([\d.]+)} ) {
-            $os_version = $1;
+        if ( $ua =~ m{windows phone (?:os )?(\d+)(\.?\d*)([\.\d]*)} ) {
+            $os_version = [$1, $2, $3];
         }
     }
     elsif ( $os eq 'macosx' ) {
         if ( $ua =~ m{os x (\d+)[\._](\d+)[\._]?(\d*)} ) {
-            $os_version = "$1.$2";
-            $os_version .= ".$3" if length($3) > 0;
+	    $os_version = [$1, ".$2", length($3) ? ".$3" : '']
         }
     }
     elsif ( $os eq 'ios' ) {
         if ( $ua =~ m{ os (\d+)[\._](\d+)[\._]?(\d*)} ) {
-            $os_version = "$1.$2";
-            $os_version .= ".$3" if length($3) > 0;
+	    $os_version = [$1, ".$2", length($3) ? ".$3" : '']
         }
     }
     elsif ( $os eq 'chromeos' ) {
-        if ( $ua =~ m{ cros \S* ([\d\.]+)\)} ) {
-            $os_version = $1;
+        if ( $ua =~ m{ cros \S* (\d+)(\.?\d*)([\.\d]*)} ) {
+            $os_version = [$1, $2, $3];
         }
     }
     elsif ( $os eq 'android' ) {
-        if ( $ua =~ m{android ([\d\.]+)\;} ) {
-            $os_version = $1;
+        if ( $ua =~ m{android (\d+)(\.?\d*)([\.\d]*)} ) {
+            $os_version = [$1, $2, $3]
         }
-        elsif ( $ua =~ m{android ([\d\.]+\-update[\d]+)\;} ) {
-            $os_version = $1;
+        elsif ( $ua =~ m{android (\d+)(\.?\d*)(\-update[\.\d]*) } ) {
+            $os_version = [$1, $2, $3];
         }
     }
     elsif ( $os eq 'firefoxos' ) {
-        if ( $ua =~ m{firefox/([\d\.]*)} ) {
-            $os_version = $1;
+        if ( $ua =~ m{firefox/(\d+)(\.?\d*)([\.\d]*)} ) {
+            $os_version = [$1, $2, $3];
         }
     }
 
@@ -1792,70 +1790,7 @@ sub _init_device {
     }
 }
 
-### Now some utility functions
-
-# Parse a version string into a list: (major, minor, beta)
-
-sub _parse_version {
-    my ( $self, $version ) = @_;
-
-    if (
-        $version =~ m{([^\.]+)     # major
-                       (\.[\d]+)?   # maybe minor (include dot)
-                       (.*)         # maybe beta (include dot)
-         }x
-        ) {
-        return ( $1, $2 || '', $3 );
-    }
-    else {
-        # This can only happen if the version is empty or just dots
-        return ( undef, undef, undef );
-    }
-}
-
 ### Now a big block of public accessors for tests and information
-
-sub _os_version {
-    my ($self) = @_;
-
-    $self->_init_os_version if !exists( $self->{os_version} );
-
-    if ( defined( $self->{os_version} ) ) {
-        return $self->_parse_version( $self->{os_version} );
-    }
-    else {
-        return undef;
-    }
-}
-
-sub os_version {
-    my ($self) = @_;
-    my ( $major, $minor, $beta ) = $self->_os_version;
-    if ( defined($major) ) {
-        return $major . ( defined($minor) ? $minor : '' );
-    }
-    else {
-        return undef;
-    }
-}
-
-sub os_major {
-    my ($self) = @_;
-    my ( $major, $minor, $beta ) = $self->_os_version;
-    return $major;
-}
-
-sub os_minor {
-    my ($self) = @_;
-    my ( $major, $minor, $beta ) = $self->_os_version;
-    return $minor;
-}
-
-sub os_beta {
-    my ($self) = @_;
-    my ( $major, $minor, $beta ) = $self->_os_version;
-    return $beta;
-}
 
 sub browser {
     my ($self) = @_;
@@ -1883,6 +1818,44 @@ sub os_string {
     return undef unless defined $self->{user_agent};
     $self->_init_os unless $self->{os_tests};
     return $self->{os_string};
+}
+
+sub _os_version {
+    my ($self) = @_;
+    $self->_init_os_version if !exists( $self->{os_version} );
+    if ( $self->{os_version} ) {
+	return @{$self->{os_version}};
+    } else {
+	return (undef, undef, undef);
+    }
+}
+
+sub os_version {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    if ( defined($major) ) {
+	return "$major$minor";
+    } else {
+	return undef;
+    }
+}
+
+sub os_major {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $major;
+}
+
+sub os_minor {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $minor;
+}
+
+sub os_beta {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_os_version;
+    return $beta;
 }
 
 sub _realplayer_version {
