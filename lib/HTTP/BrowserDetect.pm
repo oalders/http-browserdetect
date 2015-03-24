@@ -1882,62 +1882,45 @@ sub gecko_version {
 }
 
 sub version {
-    my ( $self, $check ) = @_;
+    my ( $self ) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my $version = "$self->{major}$self->{minor}";
-    if ( defined $check ) {
-        return $check
-            == $version;    # FIXME unreliable to compare floats for equality
-    }
-    else {
-        return $version;
-    }
+    return $version;
 }
 
 sub major {
-    my ( $self, $check ) = @_;
+    my ( $self ) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my ($version) = $self->{major};
-    if ( defined $check ) {
-        return $check == $version;
-    }
-    else {
-        return $version;
-    }
+    return $version;
 }
 
 sub minor {
-    my ( $self, $check ) = @_;
+    my ( $self ) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my ($version) = $self->{minor};
-    if ( defined $check ) {
-        return ( $check == $self->{minor} )
-            ;    # FIXME unreliable to compare floats for equality
-    }
-    else {
-        return $version;
-    }
+    return $version;
 }
 
 sub public_version {
-    my ( $self,  $check ) = @_;
+    my ( $self ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return "$major$minor";
 }
 
 sub public_major {
-    my ( $self,  $check ) = @_;
+    my ( $self ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $major;
 }
 
 sub public_minor {
-    my ( $self,  $check ) = @_;
+    my ( $self ) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $minor;
@@ -1950,8 +1933,36 @@ sub public_beta {
     return $beta;
 }
 
-sub _public {
+sub browser_version {
+    my ( $self ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return "$major$minor";
+}
+
+sub browser_major {
+    my ( $self ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return $major;
+}
+
+sub browser_minor {
+    my ( $self ) = @_;
+    my ( $major, $minor ) = $self->_public;
+
+    return $minor;
+}
+
+sub browser_beta {
     my ( $self, $check ) = @_;
+    my ( $major, $minor, $beta ) = $self->_public;
+
+    return $beta;
+}
+
+sub _public {
+    my ( $self ) = @_;
 
     # Return Public version of Safari. See RT #48727.
     if ( $self->safari ) {
@@ -1998,7 +2009,8 @@ sub _public {
         }
     }
 
-    return ( $self->major, $self->minor, $self->beta($check) );
+    $self->_init_version() unless $self->{version_tests};
+    return ( $self->{major}, $self->{minor}, $self->{beta} );
 }
 
 sub _cmp_versions {
@@ -2259,8 +2271,8 @@ __END__
     # Print general information
     print "Browser: $browser->browser_string\n"
         if $browser->browser_string;
-    print "Version: $browser->public_version$browser->public_beta\n"
-        if $browser->public_version;
+    print "Version: $browser->browser_version$browser->browser_beta\n"
+        if $browser->browser_version;
     print "OS: $browser->os_string\n"
         if $browser->os_string;
 
@@ -2274,12 +2286,12 @@ __END__
     # Detect browser vendor and version
     print "Netscape\n" if $browser->netscape;
     print "MSIE\n" if $browser->ie;
-    if (browser->public_major(4)) {
-    if ($browser->public_minor() > .5) {
+    if (browser->browser_major(4)) {
+    if ($browser->browser_minor() > .5) {
         ...
     }
     }
-    if ($browser->public_version() > 4.5) {
+    if ($browser->browser_version() > 4.5) {
       ...;
     }
 
@@ -2332,26 +2344,26 @@ a robot instead, returns C<undef>.
 
 Please note that that the version(), major() and minor() methods have been
 deprecated as of release 1.78 of this module. They should be replaced
-with public_version(), public_major(), public_minor(), and public_beta().
+with browser_version(), browser_major(), browser_minor(), and browser_beta().
 
 The reasoning behind this is that version() method will, in the case of Safari,
 return the Safari/XXX numbers even when Version/XXX numbers are present in the
 UserAgent string (i.e. it will return incorrect versions for Safari in
 some cases).
 
-=head2 public_version()
+=head2 browser_version()
 
 Returns the browser version (major and minor) as a string. For
 example, for Chrome 36.0.1985.67, this returns "36.0".
 
-=head2 public_major()
+=head2 browser_major()
 
 Returns the major part of the version as a string. For example, for
 Chrome 36.0.1985.67, this returns "36".
 
 Returns undef if no version information can be detected.
 
-=head2 public_minor()
+=head2 browser_minor()
 
 Returns the minor part of the version as a string. This includes the
 decimal point; for example, for Chrome 36.0.1985.67, this returns
@@ -2359,7 +2371,7 @@ decimal point; for example, for Chrome 36.0.1985.67, this returns
 
 Returns undef if no version information can be detected.
 
-=head2 public_beta()
+=head2 browser_beta()
 
 Returns any part of the version after the major and minor version, as
 a string. For example, for Chrome 36.0.1985.67, this returns
@@ -2396,7 +2408,7 @@ Returns C<undef> if no OS information could be detected.
 =head2 os_beta()
 
 Returns version information for the OS, if any could be detected. The
-format is the same as for the public_version() functions.
+format is the same as for the browser_version() functions.
 
 =head1 Mobile Devices
 
@@ -2776,19 +2788,19 @@ Deprecated alternate name for device_string()
 
 =head2 version($version)
 
-This is probably not what you want.  Please use either public_version() or
+This is probably not what you want.  Please use either browser_version() or
 engine_version() instead.
 
 Returns the version as a string. If passed a parameter, returns true
 if it equals the browser major version.
 
 This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
+compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
 =head2 major($major)
 
-This is probably not what you want. Please use either public_major()
+This is probably not what you want. Please use either browser_major()
 or engine_major() instead.
 
 Returns the integer portion of the browser version as a string. If
@@ -2796,12 +2808,12 @@ passed a parameter, returns true if it equals the browser major
 version.
 
 This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
+compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
 =head2 minor($minor)
 
-This is probably not what you want. Please use either public_minor()
+This is probably not what you want. Please use either browser_minor()
 or engine_minor() instead.
 
 Returns the decimal portion of the browser version as a string.
@@ -2809,19 +2821,27 @@ Returns the decimal portion of the browser version as a string.
 If passed a parameter, returns true if equals the minor version.
 
 This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
+compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
 =head2 beta($beta)
 
-This is probably not what you want. Please use public_beta() instead.
+This is probably not what you want. Please use browser_beta() instead.
 
 Returns the beta version, consisting of any characters after the major
 and minor version number, as a string.
 
 This function returns wrong values for some Safari versions, for
-compatibility with earlier code. public_version() returns correct
+compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
+
+=head2 public_version()
+=head2 public_major()
+=head2 public_minor()
+=head2 public_beta()
+
+Deprecated alternate names for the browser_version() family of
+functions.
 
 =head2 gecko_version()
 
