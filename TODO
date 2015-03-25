@@ -7,11 +7,12 @@
 
  - Browsers to add: Dolphin, Avant (need user agent examples for both),
    Cometbird, Chromium, Chromeframe, Crowsnest, Google page speed
-   insights, GSA
+   insights, GSA, wOSbrowser, Deepnet explorer, CrazyBrowser,
+   wkhtmltoimage, CriOS
    (Andrew Moise - 2015-02-26)
 
- - Update OS version detection and publicize the interface
-     (Andrew Moise - 2015-03-08)
+ - Support Kindle Fire tablets
+   (Andrew Moise - 2015-03-23)
 
  - Test against other libraries (see http://neilb.org/reviews/user-agent.html)
     * HTML::ParseBrowser
@@ -25,29 +26,5 @@
     * HTTP::UA::Parser
     (Andrew Moise - 2015-03-15)
 
- - Standardize interface
-  My perfect interface would be:
-    * browser() - returns a machine readable browser ID
-    * browser_string() - returns a human readable browser name
-    * browser_version() - returns the version
-    * os() - returns machine readable OS
-    * os_string() - returns human readable OS
-    * os_version() - returns the OS version
-    * engine() - returns machine readable ID
-    * engine_string() - returns human readable name
-    * engine_version() - returns the engine version
-    * device() - returns machine readable ID
-    * device_string() - returns human readable name
-    * robot() - returns machine readable ID
-    * robot_string() - returns human readable name
-
-  So the interface is consistent, no matter what we're examining. We
-  have machine comparable names (similar to what's currently returned
-  from device() ) with a strictly defined interface, but we also have
-  human readable names where we have more flexibility. The version
-  numbers also should all act the same and get queried the same (maybe
-  by default, you get $major.$minor, but you can also pass an argument
-  requesting a particular format, e.g. $major.$minor.$beta, or just
-  the major number, or something).
-
-(Andrew Moise - 2015-03-15)
+ - Add "malware" test
+(Andrew Moise - 2015-03-22)

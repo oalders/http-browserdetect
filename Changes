@@ -1,9 +1,12 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
-    - Implement browser() (andrewmoise)
-    - Change device_name() and robot_name() to device_string() and
-      robot_string(), and implement more functionality for each
+    - Standardize interface:
+        browser         ()
+        device     X    _string()
+        engine          _version(), _major(), _minor(), _beta()
+        os
+        robot
       (andrewmoise)
     - Add Galeon, Seamonkey, and Epiphany as specifically detected
       browsers (andrewmoise)
