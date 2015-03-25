@@ -5783,7 +5783,7 @@
       "os_version" : null
    },
    "Mozilla/5.001 (Macintosh; N; PPC; ja) Gecko/25250101 MegaCorpBrowser/1.0 (MegaCorp, Inc.)" : {
-      "browser" : "netscape",
+      "browser" : "mozilla",
       "browser_string" : "Mozilla",
       "country" : null,
       "device" : null,
@@ -5818,7 +5818,7 @@
       "version" : "5.001"
    },
    "Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101" : {
-      "browser" : "netscape",
+      "browser" : "mozilla",
       "browser_string" : "Mozilla",
       "country" : "US",
       "device" : null,

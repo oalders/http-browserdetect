@@ -96,7 +96,7 @@
       "public_minor" : ".0",
       "public_version" : 1,
       "robot" : "unknown",
-      "robot_string" : "CATExplorador",
+      "robot_string" : "CATExplorador/1.0beta",
       "version" : 1
    },
    "COMODO SSL Checker" : {
@@ -661,7 +661,7 @@
       "public_minor" : ".0",
       "public_version" : 6,
       "robot" : "unknown",
-      "robot_string" : "Netcraft SSL Server Survey - contact info",
+      "robot_string" : "Netcraft SSL Server Survey - contact info@netcraft.com",
       "version" : 6
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322) Babya Discoverer  8.0:" : {
@@ -2856,7 +2856,7 @@
       "public_minor" : ".0",
       "public_version" : 5,
       "robot" : "unknown",
-      "robot_string" : "DomainAppender",
+      "robot_string" : "DomainAppender /1.0",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; Konqueror/3.1-rc4; i686 Linux; 20020708)" : {
@@ -2989,7 +2989,7 @@
       "public_minor" : ".0",
       "public_version" : 5,
       "robot" : "unknown",
-      "robot_string" : "tab.search.daum.net",
+      "robot_string" : "http://tab.search.daum.net/aboutWebSearch.html",
       "version" : 5
    },
    "Mozilla/5.0 (compatible; archive.org_bot; Wayback Machine Live Record; +http://archive.org/details/archive.org_bot)" : {
@@ -3549,7 +3549,7 @@
       "public_minor" : ".3",
       "public_version" : 1.3,
       "robot" : "unknown",
-      "robot_string" : "Xenu Link Sleuth",
+      "robot_string" : "Xenu Link Sleuth/1.3.8",
       "version" : 1.3
    }
 }

@@ -1277,10 +1277,7 @@ sub _init_os_version {
         }
     }
     elsif ( $os eq 'android' ) {
-        if ( $ua =~ m{android (\d+)(\.?\d*)([\.\d]*)} ) {
-            $os_version = [ $1, $2, $3 ];
-        }
-        elsif ( $ua =~ m{android (\d+)(\.?\d*)(\-update[\.\d]*) } ) {
+        if ( $ua =~ m{android (\d+)(\.?\d*)([\w\-\.]*)[\;\)]} ) {
             $os_version = [ $1, $2, $3 ];
         }
     }

@@ -33,8 +33,9 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     diag( $detected->user_agent );
 
     foreach my $method (
-        'browser_string', 'engine_string', 'os', 'os_string',
-        'os_version'
+        'browser', 'browser_string', 'browser_beta',
+	'engine', 'engine_string', 'engine_beta',
+	'os', 'os_string', 'os_beta',
         ) {
         if ( $test->{$method} ) {
             cmp_ok(
@@ -46,12 +47,16 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     foreach my $method (
         qw(
+        os_version
+        os_major
+        os_minor
         public_version
         public_major
         public_minor
         version
         major
         minor
+        engine_version
         engine_major
         engine_minor
         ios
@@ -70,8 +75,9 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     }
 
     foreach my $method (
-        'language', 'device', 'device_name', 'robot_name',
-        'engine_version'
+        'language',
+	'device', 'device_name', 'device_string',
+	'robot', 'robot_name', 'robot_string'
         ) {
         if (    exists $test->{$method}
             and defined $test->{$method}
