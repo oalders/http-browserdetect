@@ -1078,8 +1078,16 @@ sub _init_os {
         $os = 'linux';
         $os_tests->{linux} = $os_tests->{unix} = 1;
         if ( index( $ua, "ubuntu" ) != -1 ) {
-            $os_string = 'Ubuntu';
-        }
+            $os_string = 'Linux (Ubuntu)';
+        } elsif ( index ( $ua, "centos" ) != -1 ) {
+	    $os_string = 'Linux (CentOS)';
+	} elsif ( index ( $ua, "gentoo" ) != -1 ) {
+	    $os_string = 'Linux (Gentoo)';
+	} elsif ( index ( $ua, "red hat" ) != -1 ) {
+	    $os_string = 'Linux (Red Hat)';
+	} elsif ( index ( $ua, "archlinux" ) != -1 ) {
+	    $os_string = 'Linux (Archlinux)';
+	}
     }
     elsif ( $tests->{x11} && index( $ua, "cros" ) != -1 ) {
 
@@ -1167,7 +1175,7 @@ sub _init_os {
     }
     elsif ( index( $ua, "bsd" ) != -1 ) {
         $os = 'unix';
-        if ( $self->{user_agent} =~ m{(\w*bsd[ \w]*)\;}i ) {
+        if ( $self->{user_agent} =~ m{(\w*bsd\w*)}i ) {
             $os_string = $1;
         }
         $os_tests->{bsd} = $os_tests->{unix} = 1;
@@ -1255,7 +1263,7 @@ sub _init_os_version {
         }
     }
     elsif ( $os eq 'ios' ) {
-        if ( $ua =~ m{ os (\d+)[\._](\d+)[\._]?(\d*)} ) {
+        if ( $ua =~ m{ os (\d+)[\._ ](\d+)[\._ ]?(\d*)} ) {
 	    $os_version = [$1, ".$2", length($3) ? ".$3" : '']
         }
     }
