@@ -2040,35 +2040,12 @@ sub _cmp_versions {
 sub engine {
     my ( $self, $check ) = @_;
 
-    if ( $self->gecko ) {
-        return 'gecko';
+    # *shrug*
+    if ( my $engine_string = $self->engine_string ) {
+	return lc $engine_string;
+    } else {
+	return undef;
     }
-
-    if ( $self->trident ) {
-        return 'trident';
-    }
-
-    if ( $self->ie ) {
-        return 'msie';
-    }
-
-    if ( $self->webkit ) {
-        return 'webkit';
-    }
-
-    if ( $self->presto ) {
-        return 'presto';
-    }
-
-    if ( $self->netfront ) {
-        return 'netfront';
-    }
-
-    if ( $self->khtml ) {
-        return 'khtml';
-    }
-
-    return undef;
 }
 
 sub engine_string {
