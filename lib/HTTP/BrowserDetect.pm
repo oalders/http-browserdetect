@@ -1873,14 +1873,14 @@ sub os_beta {
 }
 
 sub _realplayer_version {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     $self->_init_version unless $self->{version_tests};
     return $self->{realplayer_version} || 0;
 }
 
 sub realplayer_browser {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
     return defined( $self->{browser} ) && $self->{browser} eq 'realplayer';
 }
 
@@ -1941,7 +1941,7 @@ sub public_minor {
 }
 
 sub public_beta {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_public;
 
     return $beta;
@@ -1969,7 +1969,7 @@ sub browser_minor {
 }
 
 sub browser_beta {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_public;
 
     return $beta;
@@ -2044,7 +2044,7 @@ sub _cmp_versions {
 }
 
 sub engine {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     # *shrug*
     if ( my $engine_string = $self->engine_string ) {
@@ -2056,7 +2056,7 @@ sub engine {
 }
 
 sub engine_string {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     if ( $self->gecko ) {
         return 'Gecko';
@@ -2138,28 +2138,23 @@ sub engine_beta {
 }
 
 sub beta {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     $self->_init_version unless $self->{version_tests};
 
     my ($version) = $self->{beta};
-    if ($check) {
-        return $check eq $version;
-    }
-    else {
-        return $version;
-    }
+    return $version;
 }
 
 sub language {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     my $parsed = $self->_language_country();
     return $parsed->{'language'};
 }
 
 sub country {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     my $parsed = $self->_language_country();
     return $parsed->{'country'};
@@ -2185,7 +2180,7 @@ sub device_name {
 }
 
 sub _language_country {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     if ( $self->safari ) {
         if (   $self->major == 1
@@ -2223,7 +2218,7 @@ sub _language_country {
 }
 
 sub browser_properties {
-    my ( $self, $check ) = @_;
+    my ($self) = @_;
 
     my @browser_properties;
 
