@@ -1079,15 +1079,19 @@ sub _init_os {
         $os_tests->{linux} = $os_tests->{unix} = 1;
         if ( index( $ua, "ubuntu" ) != -1 ) {
             $os_string = 'Linux (Ubuntu)';
-        } elsif ( index ( $ua, "centos" ) != -1 ) {
-	    $os_string = 'Linux (CentOS)';
-	} elsif ( index ( $ua, "gentoo" ) != -1 ) {
-	    $os_string = 'Linux (Gentoo)';
-	} elsif ( index ( $ua, "red hat" ) != -1 ) {
-	    $os_string = 'Linux (Red Hat)';
-	} elsif ( index ( $ua, "archlinux" ) != -1 ) {
-	    $os_string = 'Linux (Archlinux)';
-	}
+        }
+        elsif ( index( $ua, "centos" ) != -1 ) {
+            $os_string = 'Linux (CentOS)';
+        }
+        elsif ( index( $ua, "gentoo" ) != -1 ) {
+            $os_string = 'Linux (Gentoo)';
+        }
+        elsif ( index( $ua, "red hat" ) != -1 ) {
+            $os_string = 'Linux (Red Hat)';
+        }
+        elsif ( index( $ua, "archlinux" ) != -1 ) {
+            $os_string = 'Linux (Archlinux)';
+        }
     }
     elsif ( $tests->{x11} && index( $ua, "cros" ) != -1 ) {
 
@@ -1254,35 +1258,35 @@ sub _init_os_version {
     }
     elsif ( $os eq 'winphone' ) {
         if ( $ua =~ m{windows phone (?:os )?(\d+)(\.?\d*)([\.\d]*)} ) {
-            $os_version = [$1, $2, $3];
+            $os_version = [ $1, $2, $3 ];
         }
     }
     elsif ( $os eq 'macosx' ) {
         if ( $ua =~ m{os x (\d+)[\._](\d+)[\._]?(\d*)} ) {
-	    $os_version = [$1, ".$2", length($3) ? ".$3" : '']
+            $os_version = [ $1, ".$2", length($3) ? ".$3" : '' ];
         }
     }
     elsif ( $os eq 'ios' ) {
         if ( $ua =~ m{ os (\d+)[\._ ](\d+)[\._ ]?(\d*)} ) {
-	    $os_version = [$1, ".$2", length($3) ? ".$3" : '']
+            $os_version = [ $1, ".$2", length($3) ? ".$3" : '' ];
         }
     }
     elsif ( $os eq 'chromeos' ) {
         if ( $ua =~ m{ cros \S* (\d+)(\.?\d*)([\.\d]*)} ) {
-            $os_version = [$1, $2, $3];
+            $os_version = [ $1, $2, $3 ];
         }
     }
     elsif ( $os eq 'android' ) {
         if ( $ua =~ m{android (\d+)(\.?\d*)([\.\d]*)} ) {
-            $os_version = [$1, $2, $3]
+            $os_version = [ $1, $2, $3 ];
         }
         elsif ( $ua =~ m{android (\d+)(\.?\d*)(\-update[\.\d]*) } ) {
-            $os_version = [$1, $2, $3];
+            $os_version = [ $1, $2, $3 ];
         }
     }
     elsif ( $os eq 'firefoxos' ) {
         if ( $ua =~ m{firefox/(\d+)(\.?\d*)([\.\d]*)} ) {
-            $os_version = [$1, $2, $3];
+            $os_version = [ $1, $2, $3 ];
         }
     }
 
@@ -1832,9 +1836,10 @@ sub _os_version {
     my ($self) = @_;
     $self->_init_os_version if !exists( $self->{os_version} );
     if ( $self->{os_version} ) {
-	return @{$self->{os_version}};
-    } else {
-	return (undef, undef, undef);
+        return @{ $self->{os_version} };
+    }
+    else {
+        return ( undef, undef, undef );
     }
 }
 
@@ -1842,9 +1847,10 @@ sub os_version {
     my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_os_version;
     if ( defined($major) ) {
-	return "$major$minor";
-    } else {
-	return undef;
+        return "$major$minor";
+    }
+    else {
+        return undef;
     }
 }
 
@@ -1890,7 +1896,7 @@ sub gecko_version {
 }
 
 sub version {
-    my ( $self ) = @_;
+    my ($self) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my $version = "$self->{major}$self->{minor}";
@@ -1898,7 +1904,7 @@ sub version {
 }
 
 sub major {
-    my ( $self ) = @_;
+    my ($self) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my ($version) = $self->{major};
@@ -1906,7 +1912,7 @@ sub major {
 }
 
 sub minor {
-    my ( $self ) = @_;
+    my ($self) = @_;
     $self->_init_version() unless $self->{version_tests};
 
     my ($version) = $self->{minor};
@@ -1914,21 +1920,21 @@ sub minor {
 }
 
 sub public_version {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return "$major$minor";
 }
 
 sub public_major {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $major;
 }
 
 sub public_minor {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $minor;
@@ -1942,21 +1948,21 @@ sub public_beta {
 }
 
 sub browser_version {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return "$major$minor";
 }
 
 sub browser_major {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $major;
 }
 
 sub browser_minor {
-    my ( $self ) = @_;
+    my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
     return $minor;
@@ -1970,7 +1976,7 @@ sub browser_beta {
 }
 
 sub _public {
-    my ( $self ) = @_;
+    my ($self) = @_;
 
     # Return Public version of Safari. See RT #48727.
     if ( $self->safari ) {
@@ -2042,9 +2048,10 @@ sub engine {
 
     # *shrug*
     if ( my $engine_string = $self->engine_string ) {
-	return lc $engine_string;
-    } else {
-	return undef;
+        return lc $engine_string;
+    }
+    else {
+        return undef;
     }
 }
 
