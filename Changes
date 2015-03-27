@@ -13,8 +13,8 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Some internal changes that make things simpler and faster
       (andrewmoise)
     - Remove the $check argument (e.g. $ua->beta('.45') to check
-      whether the beta version is ".45").
-      (andrewmoise)
+      whether the beta version is ".45") (andrewmoise)
+    - Update and reorganize documentation (andrewmoise)
 
 1.78 2015-03-17 22:43:27 America/Toronto
     - Reorganize documentation (andrewmoise)
