@@ -120,7 +120,7 @@
          "elinks"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)"
+      "os_string" : "Linux"
    },
    "Emacs-W3/2.1.105 URL/1.267 ((Unix?) ; TTY ; sparc-sun-solaris2.3)" : {
       "browser" : "emacs",
@@ -3516,7 +3516,7 @@
          "firefox"
       ],
       "os" : "linux",
-      "os_string" : "Linux (CentOS)",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0"
@@ -3538,7 +3538,7 @@
          "namoroka"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
@@ -3734,7 +3734,7 @@
          "firefox"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
@@ -3755,7 +3755,7 @@
          "gecko"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_beta" : ".2",
       "public_major" : "2",
       "public_minor" : ".0",
@@ -3804,7 +3804,7 @@
          "gecko"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_beta" : ".7",
       "public_major" : "2",
       "public_minor" : ".0"
@@ -3825,7 +3825,7 @@
          "firefox"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
@@ -3846,7 +3846,7 @@
          "gecko"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "2",
       "public_minor" : ".18",
       "public_version" : "2.18"
@@ -3880,7 +3880,7 @@
          "gecko"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.5",
       "public_version" : "3.5"
@@ -3906,7 +3906,7 @@
          "gecko"
       ],
       "os" : "linux",
-      "os_string" : "Linux (Ubuntu)",
+      "os_string" : "Linux",
       "public_major" : "4",
       "public_minor" : "0.4",
       "public_version" : "4.4"

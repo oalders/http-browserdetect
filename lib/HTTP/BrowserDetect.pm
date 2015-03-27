@@ -1077,21 +1077,6 @@ sub _init_os {
         # Linux
         $os = 'linux';
         $os_tests->{linux} = $os_tests->{unix} = 1;
-        if ( index( $ua, "ubuntu" ) != -1 ) {
-            $os_string = 'Linux (Ubuntu)';
-        }
-        elsif ( index( $ua, "centos" ) != -1 ) {
-            $os_string = 'Linux (CentOS)';
-        }
-        elsif ( index( $ua, "gentoo" ) != -1 ) {
-            $os_string = 'Linux (Gentoo)';
-        }
-        elsif ( index( $ua, "red hat" ) != -1 ) {
-            $os_string = 'Linux (Red Hat)';
-        }
-        elsif ( index( $ua, "archlinux" ) != -1 ) {
-            $os_string = 'Linux (Archlinux)';
-        }
     }
     elsif ( $tests->{x11} && index( $ua, "cros" ) != -1 ) {
 
