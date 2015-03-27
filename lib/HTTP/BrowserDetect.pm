@@ -2045,7 +2045,11 @@ sub engine {
 
     # *shrug*
     if ( my $engine_string = $self->engine_string ) {
-        return lc $engine_string;
+	if ( $engine_string eq 'MSIE' ) {
+	    return 'ie';
+	} else {
+	    return lc $engine_string;
+	}
     }
     else {
         return undef;
@@ -2787,7 +2791,7 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 
 Returns the rendering engine, one of the following:
 
-gecko, webkit, khtml, trident, msie, presto, netfront
+gecko, webkit, khtml, trident, ie, presto, netfront
 
 Note that this returns "webkit" for webkit based browsers (including
 Chrome/Blink). This is a change from previous versions of this

@@ -26,7 +26,20 @@ my $tests     = JSON::PP->new->ascii->decode($json_text);
 foreach my $ua ( sort keys %{$tests} ) {
     my $test = $tests->{$ua};
     my $detect = HTTP::BrowserDetect->new($ua);
-    $test->{browser} = $detect->browser;
+    foreach my $field ( qw(browser browser_string device device_string
+        engine engine_beta engine_minor engine_major engine_version
+        os os_beta os_major os_minor os_version os_string
+        robot robot_string) )
+    {
+	no strict 'refs';
+	my $value = $detect->$field;
+	if ($field eq 'robot' ? $value : defined($value)) {
+	    $test->{$field} = $value;
+	} else {
+	    delete $test->{$field};
+	}
+    }
+    delete $test->{device_name};
 }
 
 my $json   = JSON::PP->new->canonical->pretty;
