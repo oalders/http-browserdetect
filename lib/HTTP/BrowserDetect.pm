@@ -2030,11 +2030,12 @@ sub engine {
 
     # *shrug*
     if ( my $engine_string = $self->engine_string ) {
-	if ( $engine_string eq 'MSIE' ) {
-	    return 'ie';
-	} else {
-	    return lc $engine_string;
-	}
+        if ( $engine_string eq 'MSIE' ) {
+            return 'ie';
+        }
+        else {
+            return lc $engine_string;
+        }
     }
     else {
         return undef;
