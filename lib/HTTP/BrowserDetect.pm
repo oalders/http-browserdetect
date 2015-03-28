@@ -317,7 +317,9 @@ sub new {
         $user_agent = $ENV{'HTTP_USER_AGENT'};
     }
 
-    $self->user_agent($user_agent);
+    $self->{user_agent} = $user_agent;
+    $self->_init_core;
+
     return $self;
 }
 
@@ -383,54 +385,60 @@ foreach my $test (@DEVICE_TESTS) {
 
 sub user_agent {
     my ( $self, $user_agent ) = @_;
-    if ( defined $user_agent ) {
-        $self->_init_core($user_agent);
+    if ( defined($user_agent) ) {
+	die "Calling HTTP::BrowserDetect::user_agent() with an argument is no longer allowed; please use new().";
+    } else {
+	return $self->{user_agent};
     }
-    return $self->{user_agent};
 }
 
-### This is code for setting up $self based on a new
-### user-agent. Browser and engine tests always get run right away.
+### Code for initializing various pieces of the object. Since it would
+### be needlessly slow if we examined every user agent for every piece
+### of information we might possibly need, we only initialize things
+### when they're actually queried about. Specifically:
+###
+### _init_core() sets up:
+###     $self->{browser_tests}
+###     $self->{browser}
+###     $self->{browser_string}
+###     $self->{tests}
+###     $self->{engine_version}
+###     $self->{realplayer_version}
+###
+### _init_version() sets up:
+###     $self->{version_tests}
+###     $self->{major}
+###     $self->{minor}
+###     $self->{beta}
+###     $self->{realplayer_version}
+###
+### _init_os() sets up:
+###     $self->{os}
+###     $self->{os_string}
+###     $self->{os_tests}
+###     $self->{os_version}
+###
+### _init_os_version() sets up:
+###     $self->{os_version}
+###
+### _init_device() sets up:
+###     $self->{device_tests}
+###     $self->{device}
+###     $self->{device_string}
+###
+### _init_robots() sets up:
+###     $self->{robot}
+###     $self->{robot_tests}
+###     $self->{robot_string}
+###     $self->{robot_fragment}
+###
 
 # Private method -- Set up the basics (browser and misc attributes)
 # for a new user-agent string
 sub _init_core {
     my ( $self, $new_ua ) = @_;
 
-    if ( exists( $self->{user_agent} ) ) {
-
-        # We're already set up, we need to delete everything first
-
-        # Reset browser information
-        $self->{browser}        = undef;
-        $self->{browser_string} = undef;
-
-        # Reset versions, this gets filled in on demand in _init_version
-        delete $self->{version_tests};
-        delete $self->{major};
-        delete $self->{minor};
-        delete $self->{beta};
-        delete $self->{realplayer_version};
-
-        # Reset OS tests, this gets filled in on demand in _init_os
-        delete $self->{os};
-        delete $self->{os_string};
-        delete $self->{os_tests};
-        delete $self->{os_version};
-
-        # Reset device info, this gets filled in on demand in _init_device
-        delete $self->{device_tests};
-        delete $self->{device};
-        delete $self->{device_string};
-
-        # Reset robot info, this gets filled in on demand in _init_robots
-        delete $self->{robot_tests};
-        delete $self->{robot_string};
-        delete $self->{robot_fragment};
-    }
-
-    $self->{user_agent} = $new_ua;
-    my $ua = lc $new_ua;
+    my $ua = lc $self->{user_agent};
 
     # These get filled in immediately
     $self->{tests}         = {};
@@ -2760,8 +2768,9 @@ being used.
 
 Returns the value of the user agent string.
 
-Calling this method with a parameter has now been deprecated and this feature
-will be removed in an upcoming release.
+Calling this method with a parameter to set the user agent has now
+been removed; please use HTTP::BrowserDetect->new() to pass the user
+agent string.
 
 =head2 country()
 
