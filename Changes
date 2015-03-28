@@ -15,6 +15,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Remove the $check argument (e.g. $ua->beta('.45') to check
       whether the beta version is ".45") (andrewmoise)
     - Update and reorganize documentation (andrewmoise)
+    - Remove deprecated user_agent($arg) usage
 
 1.78 2015-03-17 22:43:27 America/Toronto
     - Reorganize documentation (andrewmoise)

@@ -386,9 +386,11 @@ foreach my $test (@DEVICE_TESTS) {
 sub user_agent {
     my ( $self, $user_agent ) = @_;
     if ( defined($user_agent) ) {
-	die "Calling HTTP::BrowserDetect::user_agent() with an argument is no longer allowed; please use new().";
-    } else {
-	return $self->{user_agent};
+        die
+            "Calling HTTP::BrowserDetect::user_agent() with an argument is no longer allowed; please use new().";
+    }
+    else {
+        return $self->{user_agent};
     }
 }
 
