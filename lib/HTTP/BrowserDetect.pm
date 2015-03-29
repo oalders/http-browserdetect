@@ -1753,46 +1753,50 @@ sub _init_device {
     );
 
     if ( $browser_tests->{obigo} && $ua =~ /^(mot-[^ \/]+)/ ) {
-        $self->{device_string} = substr $self->{user_agent}, 0, length $1;
-        $self->{device_string} =~ s/^MOT-/Motorola /i;
+        $device_string = substr $self->{user_agent}, 0, length $1;
+        $device_string =~ s/^MOT-/Motorola /i;
     }
     elsif (
         $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
     {
-        $self->{device_string} = substr $self->{user_agent},
+        $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/; / /;
+        $device_string =~ s/; / /;
     }
     elsif ( $ua
         =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
         ) {
-        $self->{device_string} = substr $self->{user_agent},
+        $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/; / /;
+        $device_string =~ s/; / /;
     }
     elsif ( $ua =~ /bb10; ([^;\)]+)/g ) {
-        $self->{device_string} = 'BlackBerry ' . substr $self->{user_agent},
+        $device_string = 'BlackBerry ' . substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/Kbd/Q10/;
+        $device_string =~ s/Kbd/Q10/;
     }
     elsif ( $ua =~ /blackberry ([\w.]+)/ ) {
-        $self->{device_string} = "BlackBerry $1";
+        $device_string = "BlackBerry $1";
     }
     elsif ( $ua =~ /blackberry(\d+)\// ) {
-        $self->{device_string} = "BlackBerry $1";
+        $device_string = "BlackBerry $1";
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-        $self->{device_string} = "Android ($1)";
+	if ( index( $ua, "mobile" ) != -1 ) {
+	    $device_string = "Android ($1)";
+	} else {
+	    $device_string = "Android tablet ($1)";
+	}
     }
     elsif ( $self->{user_agent}
         =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
-        $self->{device_string} = $1;
+        $device_string = $1;
     }
     elsif ($device) {
-        $self->{device_string} = $DEVICE_NAMES{$device};
+        $device_string = $DEVICE_NAMES{$device};
     }
     else {
-        $self->{device_string} = undef;
+        $device_string = undef;
     }
 
     if ($device) {
@@ -1801,6 +1805,10 @@ sub _init_device {
     else {
         $self->{device}
             = undef;    # Means we cache the fact that we found nothing
+    }
+
+    if ($device_string) {
+	$self->{device_string} = $device_string;
     }
 }
 
