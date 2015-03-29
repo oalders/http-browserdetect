@@ -44,14 +44,20 @@ my %new_tests;
 
 while (<>) {
 
-    # Match tokens, either single words or quote- or bracket-delimited strings
-    my @tokens = (
-        $_ =~ m{ ( \"  [^\"]*      \"   |
-                                  [^\[\]\"\s]+       |
-                              \[  [^\[\]]*    \]   )
-                    }xg
-    );
-    my ($ua) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+    my $ua;
+    if ( m{^\d+\.\d+\.\d+\.\d+} ) {
+	# Apache log format, match tokens and get the user agent
+	my @tokens = (
+	    $_ =~ m{ ( \"  [^\"]*       \"   |
+                           [^\[\]\"\s]+      |
+                       \[  [^\[\]]*     \]   )
+                    }xg );
+	( $ua ) = ( $tokens[0] =~ m{\"(.*)\"} ) or next;
+    } else {
+	# Just a list of user agents
+	chomp;
+	$ua = $_;
+    }
     @tokens = ( $ua =~ m{ (\w+) }xg );    # Words within the user agent
     my $added = 0;
     foreach my $word (@tokens) {
@@ -64,26 +70,27 @@ while (<>) {
 
             foreach my $method (
                 qw(
+                browser
                 browser_string
+                browser_major
+                browser_minor
+                browser_beta
+                engine
                 engine_string
-                os_string
-                os_version
-                public_version
-                public_major
-                public_minor
-                public_beta
-                version
-                major
-                minor
-                beta
-                engine_version
                 engine_major
                 engine_minor
+                engine_beta
+                os
+                os_string
+                os_major
+                os_minor
+                os_beta
+                country
                 language
                 device
-                device_name
-                robot_name
-                os_string )
+                device_string
+                robot
+                robot_name )
                 ) {
                 my $result = $detect->$method;
 
