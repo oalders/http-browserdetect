@@ -1697,8 +1697,6 @@ sub _init_device {
             || index( $ua, "ipad" ) != -1
             || ( index( $ua, "opera mini" ) != -1
             && index( $ua, "tablet" ) == -1 )
-            || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
             || index( $ua, "webos" ) != -1
@@ -1729,8 +1727,7 @@ sub _init_device {
             && index( $ua, "arm" ) != -1 )
             || ( index( $ua, "android" ) != -1
             && index( $ua, "mobile" ) == -1
-            && index( $ua, "opera" ) == -1
-            && index( $ua, "silk" ) == -1 )
+            && index( $ua, "opera" ) == -1 )
             || ( $browser_tests->{firefox} && index( $ua, "tablet" ) != -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1

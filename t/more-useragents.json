@@ -1464,6 +1464,7 @@
          "device",
          "android",
          "mobile",
+         "tablet",
          "webkit",
          "silk"
       ],
@@ -1496,6 +1497,7 @@
          "device",
          "android",
          "mobile",
+         "tablet",
          "webkit",
          "silk"
       ],
