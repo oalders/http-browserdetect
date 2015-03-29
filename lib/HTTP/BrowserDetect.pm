@@ -73,7 +73,7 @@ our @BROWSER_TESTS = qw(
     lotusnotes     staroffice  icab
     webtv          browsex     silk
     applecoremedia galeon      seamonkey
-    epiphany
+    epiphany       ucbrowser
 );
 
 our @IE_TESTS = qw(
@@ -219,6 +219,7 @@ my %BROWSER_NAMES = (
     seamonkey      => 'SeaMonkey',
     silk           => 'Silk',
     staroffice     => 'StarOffice',
+    ucbrowser      => 'UCBrowser',
     webtv          => 'WebTV',
 );
 
@@ -542,7 +543,8 @@ sub _init_core {
         $browser = 'silk';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, "chrome/" ) != -1 ) {
+    elsif ( index( $ua, "chrome/" ) != -1
+	|| index( $ua, "crios" ) != -1 ) {
 
         # Browser is Chrome
 
@@ -681,6 +683,10 @@ sub _init_core {
     elsif ( index( $ua, "applecoremedia/" ) != -1 ) {
         $browser = 'applecoremedia';
         $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "ucbrowser" ) != -1 ) {
+	$browser = 'ucbrowser';
+	$browser_tests->{$browser} = 1;
     }
 
     $self->{browser} = $browser;
@@ -876,7 +882,7 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'yandeximages';
     }
-    elsif ($ua =~ m{\bjava}
+    elsif ( ($ua =~ m{\bjava} && !$self->{browser} )
         || index( $ua, "jdk" ) != -1
         || index( $ua, "jakarta commons-httpclient" ) != -1 ) {
         $r = 'java';
@@ -1402,6 +1408,13 @@ sub _init_version {
     elsif ( $ua =~ m{netscape6/(\d+)\.(\d+)([\d.]*)} ) {
 
         # Other cases get handled below, we just need this to skip the "6"
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
+    }
+    elsif ( $browser eq 'chrome' &&
+	    $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} )
+    {
         $major = $1;
         $minor = $2;
         $beta  = $3;
@@ -2353,7 +2366,7 @@ Returns the browser, as one of the following values:
 chrome, firefox, ie, opera, safari, blackberry, browsex, elinks,
 links, lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes,
 mosaic, mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer,
-seamonkey, silk, staroffice, webtv
+seamonkey, silk, staroffice, ucbrowser, webtv
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.

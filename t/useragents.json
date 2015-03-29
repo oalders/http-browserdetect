@@ -5099,5 +5099,87 @@
       "robot" : "puf",
       "robot_string" : "puf",
       "version" : "0.93"
+   },
+   "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3" : {
+      "browser" : "chrome",
+      "browser_major" : "19",
+      "browser_minor" : ".0",
+      "browser_beta" : ".1084.60",
+      "browser_string" : "Chrome",
+      "device" : "iphone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : ".0",
+      "engine_major" : "534",
+      "engine_minor" : ".46",
+      "engine_string" : "WebKit",
+      "language" : "EN",
+      "match" : [
+         "chrome",
+         "device",
+         "ios",
+         "iphone",
+         "mobile",
+         "webkit"
+      ],
+      "os" : "ios",
+      "os_beta" : ".1",
+      "os_major" : "5",
+      "os_minor" : ".1",
+      "os_string" : "iOS",
+      "robot" : 0
+   },
+   "NokiaX2-01/5.0 (08.65) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokiax2-01) U2/1.0.0 UCBrowser/9.1.0.291 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_string" : "UCBrowser",
+      "browser_major" : "9",
+      "browser_minor" : ".1",
+      "browser_beta" : ".0.291",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-01",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "ucbrowser",
+         "wap",
+         "mobile"
+      ],
+      "robot" : 0
+   },
+   "SonyEricssonG502/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; id; SonyEricssonG502) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_string" : "UCBrowser",
+      "browser_major" : "9",
+      "browser_minor" : ".1",
+      "browser_beta" : ".0.326",
+      "device" : "wap",
+      "device_string" : "SonyEricssonG502",
+      "language" : "ID",
+      "match" : [
+         "device",
+         "ucbrowser",
+         "wap",
+         "mobile"
+      ],
+      "robot" : 0
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaN70-1) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_string" : "UCBrowser",
+      "browser_major" : "9",
+      "browser_minor" : ".1",
+      "browser_beta" : ".0.326",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "WAP capable phone",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "ucbrowser",
+         "wap",
+         "mobile"
+      ],
+      "robot" : 0
    }
 }

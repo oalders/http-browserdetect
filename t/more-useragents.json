@@ -2621,9 +2621,8 @@
       "version" : 6
    },
    "Mozilla/5.0 (iPad; CPU OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/40.0.2214.69 Mobile/12B466 Safari/600.1.4" : {
-      "beta" : ".1",
-      "browser" : "safari",
-      "browser_string" : "Safari",
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
       "device" : "ipad",
       "device_string" : "iPad",
       "engine" : "webkit",
@@ -2632,27 +2631,24 @@
       "engine_minor" : ".1",
       "engine_string" : "WebKit",
       "engine_version" : "600.1",
-      "major" : 6,
       "match" : [
+         "chrome",
          "device",
          "ios",
          "ipad",
          "mobile",
          "tablet",
-         "webkit",
-         "safari"
+         "webkit"
       ],
-      "minor" : ".0",
       "os" : "ios",
       "os_beta" : ".3",
       "os_major" : "8",
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "public_major" : "2",
-      "public_minor" : 0,
-      "public_version" : 2,
-      "version" : 6
+      "public_major" : "40",
+      "public_minor" : ".0",
+      "public_beta" : ".2214.69"
    },
    "Mozilla/5.0 ArchLinux (X11; U; Linux x86_64; en-US) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.60 Safari/534.30" : {
       "beta" : ".742.60",
