@@ -1,6 +1,21 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Standardize interface:
+        browser         ()
+        device     X    _string()
+        engine          _version(), _major(), _minor(), _beta()
+        os
+        robot
+      (andrewmoise)
+    - Add Galeon, Seamonkey, and Epiphany as specifically detected
+      browsers (andrewmoise)
+    - Some internal changes that make things simpler and faster
+      (andrewmoise)
+    - Remove the $check argument (e.g. $ua->beta('.45') to check
+      whether the beta version is ".45") (andrewmoise)
+    - Update and reorganize documentation (andrewmoise)
+    - Remove deprecated user_agent($arg) usage
 
 1.78 2015-03-17 22:43:27 America/Toronto
     - Reorganize documentation (andrewmoise)

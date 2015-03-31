@@ -1,8 +1,9 @@
 {
    "ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513003477632000000018014935480]" : {
+      "browser" : "obigo",
       "browser_string" : "Obigo",
       "device" : "wap",
-      "device_name" : "WAP capable phone",
+      "device_string" : "ALCATEL_A392G",
       "match" : [
          "device",
          "wap",
@@ -11,22 +12,22 @@
       ]
    },
    "AdsBot-Google (+http://www.google.com/adsbot.html)" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : null,
       "match" : [
+         "google",
          "googleadsbot",
          "robot"
       ],
       "minor" : null,
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "googleadsbot",
+      "robot_string" : "Google AdsBot",
       "version" : null
    },
    "AmigaVoyager/3.3.50 (AmigaOS/PPC)" : {
-      "browser_string" : null,
       "country" : null,
       "ios" : 0,
       "language" : null,
@@ -36,12 +37,12 @@
       ],
       "minor" : "0.3",
       "no_match" : null,
-      "os" : null,
+      "os" : "amiga",
+      "os_string" : "Amiga",
       "other" : null,
       "version" : "3.3"
    },
    "Baiduspider+(+http://www.baidu.com/search/spider.htm)" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : null,
@@ -51,15 +52,17 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "baidu",
+      "robot_string" : "Baidu Spider",
       "version" : null
    },
    "BlackBerry7730/3.7.1 UP.Link/5.1.2.5" : {
-      "browser_string" : null,
+      "browser" : "blackberry",
+      "browser_string" : "BlackBerry",
       "country" : null,
       "device" : "blackberry",
-      "device_name" : "BlackBerry",
+      "device_string" : "BlackBerry 7730",
       "language" : null,
       "major" : "3",
       "match" : [
@@ -69,13 +72,14 @@
       ],
       "minor" : "0.7",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "3.7"
    },
    "BlackBerry8520/4.6.1.272 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/118" : {
+      "browser" : "blackberry",
       "browser_string" : "BlackBerry",
-      "device_name" : "BlackBerry",
+      "device" : "blackberry",
+      "device_string" : "BlackBerry 8520",
       "match" : [
          "mobile",
          "blackberry",
@@ -102,20 +106,24 @@
       "public_major" : "2",
       "public_minor" : ".1",
       "public_version" : "2.1",
-      "robot_name" : "Google Mobile",
+      "robot" : "googlemobile",
+      "robot_name" : "Googlebot Mobile",
+      "robot_string" : "Googlebot Mobile",
       "version" : "2.1"
    },
    "ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)" : {
+      "browser" : "elinks",
       "browser_string" : "ELinks",
       "match" : [
          "linux",
          "unix",
          "elinks"
       ],
-      "os" : "Linux"
+      "os" : "linux",
+      "os_string" : "Linux"
    },
    "Emacs-W3/2.1.105 URL/1.267 ((Unix?) ; TTY ; sparc-sun-solaris2.3)" : {
-      "browser_string" : null,
+      "browser" : "emacs",
       "country" : null,
       "language" : null,
       "major" : "2",
@@ -126,12 +134,12 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : "Unix",
+      "os" : "unix",
+      "os_string" : "Solaris",
       "other" : null,
       "version" : "2.1"
    },
    "GetRight/3.2.1" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "3",
@@ -141,8 +149,9 @@
       ],
       "minor" : "0.2",
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "getright",
+      "robot_string" : "GetRight",
       "version" : "3.2"
    },
    "Googlebot-Image/1.0" : {
@@ -153,7 +162,9 @@
          "robot"
       ],
       "minor" : "0",
+      "robot" : "googlebotimage",
       "robot_name" : "Googlebot Images",
+      "robot_string" : "Googlebot Images",
       "version" : "1"
    },
    "Googlebot-News" : {
@@ -162,7 +173,9 @@
          "googlebotnews",
          "robot"
       ],
-      "robot_name" : "Googlebot News"
+      "robot" : "googlebotnews",
+      "robot_name" : "Googlebot News",
+      "robot_string" : "Googlebot News"
    },
    "Googlebot-Video/1.0" : {
       "major" : "1",
@@ -172,7 +185,9 @@
          "robot"
       ],
       "minor" : "0",
+      "robot" : "googlebotvideo",
       "robot_name" : "Googlebot Video",
+      "robot_string" : "Googlebot Video",
       "version" : "1"
    },
    "Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)" : {
@@ -182,6 +197,8 @@
          "robot"
       ],
       "minor" : "0",
+      "robot" : "google",
+      "robot_string" : "Googlebot",
       "version" : "1"
    },
    "Googlebot/2.1 (+http://www.google.com/bot.html)" : {
@@ -191,13 +208,16 @@
          "robot"
       ],
       "minor" : "0.1",
+      "robot" : "google",
+      "robot_string" : "Googlebot",
       "version" : "2.1"
    },
    "HUAWEI-H215G/1.0[TF860495020075686000000017029451468] Obigo-Browser/Q05A MMS/UNIBOX/V1.2 HuaweiJava/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1" : {
       "beta" : "[tf860495020075686000000017029451468]",
+      "browser" : "obigo",
       "browser_string" : "Obigo",
       "device" : "wap",
-      "device_name" : "WAP capable phone",
+      "device_string" : "HUAWEI-H215G",
       "match" : [
          "device",
          "wap",
@@ -206,7 +226,6 @@
       ]
    },
    "Jakarta Commons-HttpClient/3.1" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "3",
@@ -217,15 +236,15 @@
       ],
       "minor" : ".1",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "public_major" : "3",
       "public_minor" : ".1",
       "public_version" : "3.1",
+      "robot" : "java",
+      "robot_string" : "Java",
       "version" : "3.1"
    },
    "Java/1.6.0_17" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "1",
@@ -236,15 +255,17 @@
       ],
       "minor" : ".6",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "public_major" : "1",
       "public_minor" : ".6",
       "public_version" : "1.6",
+      "robot" : "java",
+      "robot_string" : "Java",
       "version" : "1.6"
    },
    "Konqueror/1.1.2" : {
-      "browser_string" : null,
+      "browser" : "konqueror",
+      "browser_string" : "Konqueror",
       "country" : null,
       "language" : null,
       "major" : "1",
@@ -255,14 +276,14 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
       "other" : null,
       "version" : "1.1"
    },
    "LG-LG306G/V100[TF013948006538818000000018064370513] Obigo/Q7.3 Profile/MIDP-2.1 Configuration/CLDC-1.1" : {
+      "browser" : "obigo",
       "browser_string" : "Obigo",
       "device" : "wap",
-      "device_name" : "WAP capable phone",
+      "device_string" : "LG-LG306G",
       "match" : [
          "device",
          "wap",
@@ -275,28 +296,35 @@
          "robot",
          "linkchecker"
       ],
-      "robot_name" : "LinkChecker"
+      "robot" : "linkchecker",
+      "robot_name" : "LinkChecker",
+      "robot_string" : "LinkChecker"
    },
    "Links (2.1pre15; Linux 2.4.26-vc4 i586; x)" : {
+      "browser" : "links",
       "browser_string" : "Links",
       "match" : [
          "linux",
          "unix",
          "links"
       ],
-      "os" : "Linux"
+      "os" : "linux",
+      "os_string" : "Linux"
    },
    "Links (2.2; Linux 2.6.32-24-generic x86_64; 135x85)" : {
+      "browser" : "links",
       "browser_string" : "Links",
       "match" : [
          "linux",
          "unix",
          "links"
       ],
-      "os" : "Linux"
+      "os" : "linux",
+      "os_string" : "Linux"
    },
    "Lotus-Notes/4.5 ( OS/2 )" : {
-      "browser_string" : null,
+      "browser" : "lotusnotes",
+      "browser_string" : "Lotus Notes",
       "country" : null,
       "language" : null,
       "major" : "4",
@@ -306,13 +334,16 @@
       ],
       "minor" : "0.5",
       "no_match" : null,
-      "os" : "OS2",
+      "os" : "os2",
+      "os_string" : "OS/2",
       "other" : null,
       "version" : "4.5"
    },
    "MOT-EX128 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1" : {
+      "browser" : "obigo",
       "browser_string" : "Obigo",
-      "device_name" : "Motorola EX128",
+      "device" : "wap",
+      "device_string" : "Motorola EX128",
       "language" : null,
       "major" : null,
       "match" : [
@@ -323,14 +354,14 @@
       ],
       "minor" : null,
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : null
    },
    "MOT-EX431G/[TF359486041608603004831018142290921] Obigo/Q03C MMP/2.0" : {
+      "browser" : "obigo",
       "browser_string" : "Obigo",
       "device" : "wap",
-      "device_name" : "Motorola EX431G/[TF359486041608603004831018142290921]",
+      "device_string" : "Motorola EX431G",
       "match" : [
          "device",
          "wap",
@@ -341,13 +372,17 @@
    "Mediapartners-Google/2.1" : {
       "major" : "2",
       "match" : [
+         "google",
          "googleadsense",
          "robot"
       ],
       "minor" : "0.1",
+      "robot" : "googleadsense",
+      "robot_string" : "Google AdSense",
       "version" : "2.1"
    },
    "Mozilla/1.1 (Windows 3.0; I)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : null,
@@ -360,11 +395,13 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : "Win3x",
+      "os" : "windows",
+      "os_string" : "Win3x",
       "other" : null,
       "version" : "1.1"
    },
    "Mozilla/1.1 (Windows 3.1; I)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : null,
@@ -378,11 +415,13 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : "Win3x",
+      "os" : "windows",
+      "os_string" : "Win3x",
       "other" : null,
       "version" : "1.1"
    },
    "Mozilla/2.0 (Win95; I)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : null,
@@ -396,13 +435,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "2"
    },
    "Mozilla/2.0 (compatible; MSIE 3.01; Windows 95)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "3",
       "match" : [
@@ -414,13 +456,16 @@
       ],
       "minor" : "0.01",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "3.01"
    },
    "Mozilla/2.0 (compatible; MSIE 3.01; Windows NT)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "3",
       "match" : [
@@ -432,13 +477,16 @@
       ],
       "minor" : "0.01",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "WinNT",
       "other" : null,
       "version" : "3.01"
    },
    "Mozilla/2.0 (compatible; MSIE 3.0; AOL 3.0; Windows 95)" : {
+      "browser" : "ie",
       "browser_string" : "AOL Browser",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "3",
       "match" : [
@@ -452,13 +500,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "3"
    },
    "Mozilla/2.0 (compatible; MSIE 4.0; Windows 95)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "4",
       "match" : [
@@ -471,11 +522,13 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "4"
    },
    "Mozilla/3.0 (Macintosh; I; PPC)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : null,
@@ -488,13 +541,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Mac",
+      "os" : "mac",
+      "os_string" : "Mac",
       "other" : null,
       "version" : "3"
    },
    "Mozilla/3.0 (compatible; MSIE 4.0; Windows 95)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "4",
       "match" : [
@@ -507,12 +563,14 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "4"
    },
    "Mozilla/3.0 (compatible; StarOffice/5.1; Linux)" : {
-      "browser_string" : null,
+      "browser" : "staroffice",
+      "browser_string" : "StarOffice",
       "country" : null,
       "language" : null,
       "major" : "5",
@@ -523,12 +581,14 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : null,
       "version" : "5.1"
    },
    "Mozilla/3.0 (compatible; StarOffice/5.1; Win32)" : {
-      "browser_string" : null,
+      "browser" : "staroffice",
+      "browser_string" : "StarOffice",
       "country" : null,
       "language" : null,
       "major" : "5",
@@ -539,11 +599,11 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "5.1"
    },
    "Mozilla/3.03Gold (Win95; I)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : null,
@@ -558,13 +618,18 @@
       ],
       "minor" : "0.03",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "3.03"
    },
    "Mozilla/4.0  (compatible;  MSIE 8.0; Windows NT 5.1; Trident/4.0; GoogleT5; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "4",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "4.0",
       "major" : "8",
@@ -586,13 +651,19 @@
          "ie_compat_mode",
          "robot"
       ],
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "8",
       "public_minor" : "0",
       "public_version" : "8.0",
       "version" : "8.0"
    },
    "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)" : {
-      "device_name" : "Sony PlayStation Portable",
+      "browser" : "netfront",
+      "browser_string" : "NetFront",
+      "device" : "psp",
+      "device_string" : "Sony PlayStation Portable",
+      "engine" : "netfront",
       "engine_string" : "NetFront",
       "match" : [
          "psp",
@@ -603,10 +674,16 @@
       ],
       "no_match" : [
          "netscape"
-      ]
+      ],
+      "os" : "pspgameos",
+      "os_string" : "Playstation Portable GameOS"
    },
    "Mozilla/4.0 (compatible; Linux 2.6.22) NetFront/3.4 Kindle/2.5 (screen 600x800; rotate)" : {
+      "browser" : "netfront",
       "browser_string" : "NetFront",
+      "device" : "kindle",
+      "device_string" : "Amazon Kindle",
+      "engine" : "netfront",
       "match" : [
          "device",
          "kindle",
@@ -616,13 +693,16 @@
          "unix"
       ],
       "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.4",
       "public_version" : "3.4"
    },
    "Mozilla/4.0 (compatible; MSIE 4.01; Windows 95)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "4",
       "match" : [
@@ -635,13 +715,16 @@
       ],
       "minor" : "0.01",
       "no_match" : null,
-      "os" : "Win95",
+      "os" : "windows",
+      "os_string" : "Win95",
       "other" : null,
       "version" : "4.01"
    },
    "Mozilla/4.0 (compatible; MSIE 5.0; Win32)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -654,13 +737,14 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "5"
    },
    "Mozilla/4.0 (compatible; MSIE 5.0b1; Windows NT 5.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -675,13 +759,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "other" : null,
       "version" : "5"
    },
    "Mozilla/4.0 (compatible; MSIE 5.0b2; Windows NT)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -695,12 +782,15 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "WinNT",
       "other" : null,
       "version" : "5"
    },
    "Mozilla/4.0 (compatible; MSIE 5.22; Mac_PowerPC) " : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "major" : "5",
       "match" : [
          "mac",
@@ -712,13 +802,16 @@
       ],
       "minor" : "0.22",
       "no_match" : null,
-      "os" : "Mac",
+      "os" : "mac",
+      "os_string" : "Mac",
       "other" : null,
       "version" : "5.22"
    },
    "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0) via proxy gateway Something/1.23" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -735,13 +828,16 @@
       ],
       "minor" : "0.5",
       "no_match" : null,
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "other" : null,
       "version" : "5.5"
    },
    "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -757,13 +853,16 @@
       ],
       "minor" : "0.5",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "WinNT",
       "other" : null,
       "version" : "5.5"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "6",
       "match" : [
@@ -780,12 +879,15 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "other" : null,
       "version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "match" : [
          "windows",
          "winnt",
@@ -798,14 +900,17 @@
          "ie6",
          "dotnet"
       ],
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "public_major" : "6",
       "public_minor" : "0",
       "public_version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "6",
       "match" : [
@@ -821,13 +926,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : null,
       "version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "6",
       "match" : [
@@ -844,12 +952,15 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : null,
       "version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "match" : [
          "windows",
          "winnt",
@@ -861,13 +972,16 @@
          "ie55up",
          "ie6"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "6",
       "public_minor" : "0",
       "public_version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "match" : [
          "windows",
          "win32",
@@ -880,13 +994,16 @@
          "ie4up",
          "dotnet"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "6",
       "public_minor" : "0",
       "public_version" : "6.0"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; GTB6.6; PicMorphSearchToolbar 1.2; InfoPath.2)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "major" : "6",
       "match" : [
          "winxp",
@@ -902,10 +1019,14 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; GTB6.5; SearchToolbar 1.2)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "major" : "6",
       "match" : [
          "winxp",
@@ -921,12 +1042,17 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.5400; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; Seekmo 10.0.430.0; 3P_UPCPC 1.0.21.2; .NET CLR 3.5.30729; Tablet PC 2.0; .NET CLR 3.0.30729; .NET4.0C)" : {
+      "browser" : "ie",
       "browser_string" : "AOL Browser",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "4",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "4.0",
       "major" : "7",
@@ -948,10 +1074,14 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinVista"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; FunWebProducts; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; SeekmoToolbar 4.8.4)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "major" : "7",
       "match" : [
          "winxp",
@@ -968,10 +1098,14 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; GTB6.6; .NET CLR 1.1.4322; Seekmo 10.3.79.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "ie",
       "major" : "7",
       "match" : [
          "winxp",
@@ -988,11 +1122,15 @@
       "minor" : "0",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Tesco; YPC 3.2.0; .NET CLR 1.1.4322; yplus 5.3.04b)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "engine_string" : "MSIE",
       "language" : null,
       "major" : "7",
@@ -1013,7 +1151,8 @@
          "unix",
          "sco"
       ],
-      "os" : null,
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : null,
       "public_major" : "7",
       "public_minor" : "0",
@@ -1021,8 +1160,10 @@
       "version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; OfficeLive" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "7",
       "match" : [
@@ -1039,13 +1180,18 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "WinVista",
+      "os" : "windows",
+      "os_string" : "WinVista",
       "other" : null,
       "version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "5",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "5.0",
       "match" : [
@@ -1062,14 +1208,20 @@
          "win32",
          "win7"
       ],
+      "os" : "windows",
+      "os_string" : "Win7",
       "public_major" : "7",
       "public_minor" : "0",
       "public_version" : "7.0",
       "version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; .NET4.0E; .NET4.0C)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "6",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "6.0",
       "match" : [
@@ -1086,14 +1238,20 @@
          "windows",
          "winnt"
       ],
+      "os" : "windows",
+      "os_string" : "Win8.0",
       "public_major" : "7",
       "public_minor" : "0",
       "public_version" : "7.0",
       "version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; Trident/7.0)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "7",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "7.0",
       "match" : [
@@ -1110,16 +1268,26 @@
          "windows",
          "winnt"
       ],
+      "os" : "windows",
+      "os_string" : "Win8.1",
       "public_major" : "7",
       "public_minor" : "0",
       "public_version" : "7.0",
       "version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; T7575)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
-      "device_name" : "HTC T7575",
+      "device" : "winphone",
+      "device_string" : "HTC T7575",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "3",
+      "engine_minor" : ".1",
+      "engine_version" : "3.1",
       "language" : null,
       "match" : [
+         "device",
          "windows",
          "winphone",
          "winphone7",
@@ -1134,13 +1302,22 @@
       "no_match" : [
          "ie_compat_mode"
       ],
-      "os" : "WinPhone",
+      "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "7",
+      "os_minor" : ".0",
       "os_string" : "Windows Phone",
       "os_version" : "7.0"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.168; Windows NT 5.1; Trident/4.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; IE0006_ver1;EN_US)" : {
+      "browser" : "ie",
       "browser_string" : "AOL Browser",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "4",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "language" : "EN",
       "major" : "8",
       "match" : [
@@ -1161,9 +1338,17 @@
       "no_match" : [
          "ie_compat_mode"
       ],
-      "os" : "WinXP"
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "4",
+      "engine_minor" : ".0",
+      "engine_version" : "4.0",
       "language" : null,
       "match" : [
          "ie",
@@ -1179,12 +1364,17 @@
       ],
       "no_match" : [
          "ie_compat_mode"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; eMusic DLM/4; .NET4.0C)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "4",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "4.0",
       "match" : [
@@ -1203,14 +1393,21 @@
       "no_match" : [
          "ie_compat_mode"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "8",
       "public_minor" : "0",
       "public_version" : "8.0"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; Crossrider130)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "4",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "match" : [
          "ie",
          "ie4up",
@@ -1229,15 +1426,20 @@
          "ie_compat_mode",
          "robot"
       ],
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "8",
       "public_minor" : "0",
       "public_version" : "8.0",
       "version" : "8.0"
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NETi CLR 3.0.30729; Media Center PC 6.0; MS-RTC LM 8; InfoPath.3; .NET4.0C) chromeframe/4.0" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "4",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "4.0",
       "major" : "8",
@@ -1256,11 +1458,13 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "version" : "8.0"
    },
    "Mozilla/4.0 (compatible; Opera/3.0; Windows 4.10) 3.50" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
       "country" : null,
       "language" : null,
@@ -1272,11 +1476,11 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "3"
    },
    "Mozilla/4.06 [en] (Win98; I ;Nav)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : "EN",
@@ -1291,11 +1495,13 @@
       ],
       "minor" : "0.06",
       "no_match" : null,
-      "os" : "Win98",
+      "os" : "windows",
+      "os_string" : "Win98",
       "other" : null,
       "version" : "4.06"
    },
    "Mozilla/4.5 [en] (X11; I; FreeBSD 2.2.7-RELEASE i386)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
       "language" : "EN",
@@ -1313,14 +1519,18 @@
       ],
       "minor" : "0.5",
       "no_match" : null,
-      "os" : "Unix",
+      "os" : "unix",
+      "os_string" : "FreeBSD",
       "other" : null,
       "version" : "4.5"
    },
    "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "5",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "5.0",
       "major" : "9",
@@ -1338,13 +1548,21 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "version" : "9.0"
    },
    "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1791 Mobile Safari/537.35+" : {
+      "browser" : "blackberry",
       "browser_string" : "BlackBerry",
-      "device_name" : "BlackBerry Q10",
+      "device" : "blackberry",
+      "device_string" : "BlackBerry Q10",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "537",
+      "engine_minor" : ".35",
+      "engine_version" : "537.35",
       "match" : [
          "bb10",
          "blackberry",
@@ -1355,12 +1573,20 @@
       "no_match" : [
          "robot"
       ],
+      "os" : "bb10",
       "os_string" : "BlackBerry 10",
       "public_version" : "10.2"
    },
    "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.2.0.1803 Mobile Safari/537.35+" : {
+      "browser" : "blackberry",
       "browser_string" : "BlackBerry",
-      "device_name" : "BlackBerry Touch",
+      "device" : "blackberry",
+      "device_string" : "BlackBerry Touch",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "537",
+      "engine_minor" : ".35",
+      "engine_version" : "537.35",
       "match" : [
          "bb10",
          "blackberry",
@@ -1371,13 +1597,21 @@
       "no_match" : [
          "robot"
       ],
+      "os" : "bb10",
       "os_string" : "BlackBerry 10",
       "public_version" : "10.2"
    },
    "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; fr) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.246 Mobile Safari/534.1+" : {
+      "browser" : "blackberry",
       "browser_string" : "BlackBerry",
-      "device_name" : "BlackBerry",
+      "device" : "blackberry",
+      "device_string" : "BlackBerry 9800",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "534",
+      "engine_minor" : ".1",
       "engine_string" : "WebKit",
+      "engine_version" : "534.1",
       "language" : "FR",
       "match" : [
          "mobile",
@@ -1391,6 +1625,15 @@
       "public_version" : "6.0"
    },
    "Mozilla/5.0 (Linux; Android 4.3.1; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "device" : "android",
+      "device_string" : "Android (SAMSUNG-SGH-I747)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "33",
       "match" : [
          "android",
@@ -1403,14 +1646,27 @@
       "no_match" : [
          "sun"
       ],
+      "os" : "android",
+      "os_beta" : ".1",
+      "os_major" : "4",
+      "os_minor" : ".3",
       "os_string" : "Android",
-      "os_version" : "4.3.1",
+      "os_version" : "4.3",
       "public_major" : "33",
       "public_minor" : "0",
       "public_version" : "33.0",
       "version" : "33.0"
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "device" : "android",
+      "device_string" : "Android (Nexus 4)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "33",
       "match" : [
          "android",
@@ -1420,13 +1676,26 @@
          "chrome"
       ],
       "minor" : "0",
+      "os" : "android",
+      "os_beta" : ".2",
+      "os_major" : "4",
+      "os_minor" : ".4",
       "os_string" : "Android",
-      "os_version" : "4.4.2",
+      "os_version" : "4.4",
       "public_major" : "33",
       "public_minor" : "0",
       "public_version" : "33.0"
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36 OPR/20.0.1396.73172" : {
+      "browser" : "opera",
+      "browser_string" : "Opera",
+      "device" : "android",
+      "device_string" : "Android (Nexus 4)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "20",
       "match" : [
          "android",
@@ -1436,13 +1705,26 @@
          "opera"
       ],
       "minor" : "0",
+      "os" : "android",
+      "os_beta" : ".2",
+      "os_major" : "4",
+      "os_minor" : ".4",
       "os_string" : "Android",
-      "os_version" : "4.4.2",
+      "os_version" : "4.4",
       "public_major" : "20",
       "public_minor" : "0",
       "public_version" : "20.0"
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "device" : "android",
+      "device_string" : "Android (Nexus 4)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "30",
       "match" : [
          "android",
@@ -1452,17 +1734,29 @@
          "chrome"
       ],
       "minor" : "0",
+      "os" : "android",
+      "os_beta" : ".2",
+      "os_major" : "4",
+      "os_minor" : ".4",
       "os_string" : "Android",
-      "os_version" : "4.4.2",
+      "os_version" : "4.4",
       "public_major" : "30",
       "public_minor" : "0",
       "public_version" : "30.0",
       "version" : "30.0"
    },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
+      "browser" : "safari",
+      "browser_string" : "Mobile Safari",
       "country" : "US",
-      "engine" : "5.25",
+      "device" : "android",
+      "device_string" : "Android",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "525",
+      "engine_minor" : ".10",
       "engine_string" : "WebKit",
+      "engine_version" : "525.10",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -1474,16 +1768,29 @@
          "device"
       ],
       "minor" : "0.23",
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "1",
+      "os_minor" : ".0",
+      "os_string" : "Android",
+      "os_version" : "1.0",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0",
       "version" : "5.23"
    },
    "Mozilla/5.0 (Linux; U; Android 1.5; en-us; Google Ion Build/CRB43) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" : {
+      "browser" : "safari",
       "browser_string" : "Mobile Safari",
       "country" : "US",
-      "engine" : "5.25",
+      "device" : "android",
+      "device_string" : "Android (Google Ion)",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "528",
+      "engine_minor" : ".5",
       "engine_string" : "WebKit",
+      "engine_version" : "528.5",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -1495,6 +1802,11 @@
          "device"
       ],
       "minor" : "0.25",
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "1",
+      "os_minor" : ".5",
+      "os_string" : "Android",
       "os_version" : "1.5",
       "public_major" : "3",
       "public_minor" : "0.1",
@@ -1502,10 +1814,17 @@
       "version" : "5.25"
    },
    "Mozilla/5.0 (Linux; U; Android 2.1-update1; en-us; DROIDX Build/VZW) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 854X480 motorola DROIDX" : {
+      "browser" : "safari",
       "browser_string" : "Mobile Safari",
       "country" : "US",
-      "engine" : "5.30",
+      "device" : "android",
+      "device_string" : "Android (DROIDX)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".17",
       "engine_string" : "WebKit",
+      "engine_version" : "530.17",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -1517,14 +1836,27 @@
          "device"
       ],
       "minor" : "0.30",
-      "os_version" : "2.1-update1",
+      "os" : "android",
+      "os_beta" : "-update1",
+      "os_major" : "2",
+      "os_minor" : ".1",
+      "os_string" : "Android",
+      "os_version" : "2.1",
       "public_major" : "4",
       "public_minor" : "0",
       "public_version" : "4.0",
       "version" : "5.30"
    },
    "Mozilla/5.0 (Linux; U; Android 2.1-update1; ja-jp; IS03 Build/S2080) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 YJApp-ANDROID jp.co.yahoo.android.yjtop/1.0.3" : {
+      "browser" : "safari",
       "browser_string" : "Mobile Safari",
+      "device" : "android",
+      "device_string" : "Android (IS03)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".17",
+      "engine_version" : "530.17",
       "match" : [
          "safari",
          "mobile",
@@ -1537,13 +1869,26 @@
       "no_match" : [
          "robot"
       ],
-      "os" : "Android",
+      "os" : "android",
+      "os_beta" : "-update1",
+      "os_major" : "2",
+      "os_minor" : ".1",
+      "os_string" : "Android",
+      "os_version" : "2.1",
       "version" : "5.30"
    },
    "Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JOP12D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : "US",
+      "device" : "android",
+      "device_string" : "Android (Nexus 10)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".30",
       "engine_string" : "WebKit",
+      "engine_version" : "534.30",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -1555,12 +1900,27 @@
          "android"
       ],
       "minor" : "0.34",
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "4",
+      "os_minor" : ".2",
+      "os_string" : "Android",
+      "os_version" : "4.2",
       "public_major" : "4",
       "public_minor" : ".0",
       "public_version" : "4",
       "version" : "5.34"
    },
    "Mozilla/5.0 (Linux; U; Android 4.3.1; en-gb; SAMSUNG-SGH-I747 Build/JLS36I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 CyanogenMod/10.2.1/d2att" : {
+      "browser" : "safari",
+      "browser_string" : "Mobile Safari",
+      "device" : "android",
+      "device_string" : "Android (SAMSUNG-SGH-I747)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".30",
+      "engine_version" : "534.30",
       "match" : [
          "android",
          "mobile",
@@ -1572,13 +1932,26 @@
       "no_match" : [
          "sun"
       ],
+      "os" : "android",
+      "os_beta" : ".1",
+      "os_major" : "4",
+      "os_minor" : ".3",
       "os_string" : "Android",
-      "os_version" : "4.3.1",
+      "os_version" : "4.3",
       "public_major" : "4",
       "public_minor" : "0",
       "public_version" : "4.0"
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; Nexus 4 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16" : {
+      "browser" : "safari",
+      "browser_string" : "Mobile Safari",
+      "device" : "android",
+      "device_string" : "Android (Nexus 4)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".16",
+      "engine_version" : "537.16",
       "match" : [
          "android",
          "mobile",
@@ -1587,14 +1960,26 @@
          "webkit",
          "safari"
       ],
+      "os" : "android",
+      "os_beta" : ".2",
+      "os_major" : "4",
+      "os_minor" : ".4",
       "os_string" : "Android",
-      "os_version" : "4.4.2",
+      "os_version" : "4.4",
       "public_major" : "4",
       "public_minor" : "0",
       "public_version" : "4.0"
    },
    "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "device" : "kindle",
+      "device_string" : "Amazon Kindle",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "528",
+      "engine_minor" : ".5",
+      "engine_version" : "528.5",
       "match" : [
          "device",
          "kindle",
@@ -1604,13 +1989,20 @@
          "webkit",
          "unix"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "4",
       "public_minor" : "0",
       "public_version" : "4.0"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "28",
+      "engine_minor" : ".0",
+      "engine_version" : "28.0",
       "major" : "28",
       "match" : [
          "mac",
@@ -1619,41 +2011,71 @@
          "gecko"
       ],
       "minor" : "0",
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_beta" : "",
+      "os_major" : "10",
+      "os_minor" : ".9",
+      "os_string" : "Mac OS X",
       "os_version" : "10.9",
       "version" : "28.0"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "match" : [
          "mac",
          "macosx",
          "webkit",
          "chrome"
       ],
-      "os" : "Mac OS X",
-      "os_version" : "10.9.2",
+      "os" : "macosx",
+      "os_beta" : ".2",
+      "os_major" : "10",
+      "os_minor" : ".9",
+      "os_string" : "Mac OS X",
+      "os_version" : "10.9",
       "public_major" : "33",
       "public_minor" : "0",
       "public_version" : "33.0"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".9",
+      "engine_major" : "537",
+      "engine_minor" : ".74",
+      "engine_version" : "537.74",
       "match" : [
          "mac",
          "macosx",
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
-      "os_version" : "10.9.2",
+      "os" : "macosx",
+      "os_beta" : ".2",
+      "os_major" : "10",
+      "os_minor" : ".9",
+      "os_string" : "Mac OS X",
+      "os_version" : "10.9",
       "public_major" : "7",
       "public_minor" : "0",
       "public_version" : "7.0"
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; de; rv:1.9.2) Gecko/20100115 Firefox/3.6" : {
-      "engine" : "4.6",
+      "browser" : "firefox",
+      "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".2",
+      "engine_major" : "1",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
+      "engine_version" : "1.9",
       "language" : "DE",
       "major" : "3",
       "match" : [
@@ -1663,6 +2085,10 @@
          "macosx"
       ],
       "minor" : "0.6",
+      "os" : "macosx",
+      "os_beta" : "",
+      "os_major" : "10",
+      "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
       "public_major" : "3",
@@ -1671,22 +2097,30 @@
       "version" : "3.6"
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "419",
+      "engine_version" : "419",
       "match" : [
          "safari",
          "mac",
          "webkit",
          "macosx"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "mac",
@@ -1694,15 +2128,19 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "mac",
@@ -1711,14 +2149,21 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/106.2 (KHTML, like Gecko) Safari/100.1" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : null,
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "106",
+      "engine_minor" : ".2",
+      "engine_version" : "106.2",
       "language" : "EN",
       "major" : "1",
       "match" : [
@@ -1732,13 +2177,18 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "other" : null,
       "version" : "1.0"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/124 (KHTML, like Gecko) Safari/125.1" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : null,
+      "engine" : "webkit",
+      "engine_major" : "124",
+      "engine_version" : "124",
       "language" : "EN",
       "major" : "1",
       "match" : [
@@ -1752,13 +2202,20 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "other" : null,
       "version" : "1.25"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/125.2 (KHTML, like Gecko) Safari/125.8" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "125",
+      "engine_minor" : ".2",
       "engine_string" : "WebKit",
+      "engine_version" : "125.2",
       "match" : [
          "mac",
          "macosx",
@@ -1766,14 +2223,21 @@
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : "0.2",
       "public_version" : "1.2"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/125.5.6 (KHTML, like Gecko) Safari/125.12" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".6",
+      "engine_major" : "125",
+      "engine_minor" : ".5",
       "engine_string" : "WebKit",
+      "engine_version" : "125.5",
       "match" : [
          "mac",
          "macosx",
@@ -1781,13 +2245,18 @@
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : "0.2",
       "public_version" : "1.2"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "419",
+      "engine_version" : "419",
       "match" : [
          "mac",
          "macosx",
@@ -1795,13 +2264,18 @@
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/48 (like Gecko) Safari/48" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "48",
+      "engine_version" : "48",
       "match" : [
          "mac",
          "macosx",
@@ -1812,13 +2286,18 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "0",
       "public_minor" : "0.8",
       "public_version" : "0.8"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/60 (like Gecko) Safari/60" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "60",
+      "engine_version" : "60",
       "match" : [
          "mac",
          "macosx",
@@ -1829,14 +2308,19 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "0",
       "public_minor" : "0.8",
       "public_version" : "0.8"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/73 (KHTML, like Gecko) Safari/73" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "73",
       "engine_string" : "WebKit",
+      "engine_version" : "73",
       "match" : [
          "mac",
          "macosx",
@@ -1844,14 +2328,19 @@
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "0",
       "public_minor" : "0.9",
       "public_version" : "0.9"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/85 (KHTML, like Gecko) Safari/85" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_major" : "85",
       "engine_string" : "WebKit",
+      "engine_version" : "85",
       "match" : [
          "mac",
          "macosx",
@@ -1859,14 +2348,21 @@
          "webkit",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : "0",
       "public_version" : "1.0"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US; rv:1.0.2) Gecko/20030208 Netscape/7.02" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".2",
+      "engine_major" : "1",
+      "engine_minor" : ".0",
+      "engine_version" : "1.0",
       "language" : "EN",
       "major" : "7",
       "match" : [
@@ -1882,13 +2378,18 @@
       ],
       "minor" : "0.02",
       "no_match" : null,
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "other" : "1.0.2",
       "version" : "7.02"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/74 (KHTML, like Gecko) Safari/74" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_major" : "74",
+      "engine_version" : "74",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -1902,12 +2403,19 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "other" : null,
       "version" : "0.74"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85.8.5 (KHTML, like Gecko) Safari/85.8.1" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".5",
+      "engine_major" : "85",
+      "engine_minor" : ".8",
+      "engine_version" : "85.8",
       "major" : "0",
       "match" : [
          "mac",
@@ -1917,11 +2425,14 @@
          "safari"
       ],
       "minor" : "0.85",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : "0",
       "version" : "0.85"
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "match" : [
          "mac",
@@ -1929,14 +2440,22 @@
          "macppc",
          "safari"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : ".2",
       "public_version" : "1.2"
    },
    "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "device" : "winphone",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "7",
+      "engine_minor" : ".0",
+      "engine_version" : "7.0",
       "match" : [
-         "android",
          "device",
          "ie",
          "ie11",
@@ -1947,10 +2466,21 @@
          "trident",
          "windows",
          "winphone"
-      ]
+      ],
+      "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "8",
+      "os_minor" : ".1",
+      "os_string" : "Windows Phone",
+      "os_version" : "8.1"
    },
    "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "18",
+      "engine_minor" : ".0",
       "engine_string" : "Gecko",
       "engine_version" : "18.0",
       "match" : [
@@ -1959,13 +2489,20 @@
          "gecko",
          "mobile"
       ],
+      "os" : "firefoxos",
+      "os_beta" : "",
+      "os_major" : "18",
+      "os_minor" : ".0",
       "os_string" : "Firefox OS",
       "os_version" : "18.0",
       "public_version" : "18.0",
       "version" : "18.0"
    },
    "Mozilla/5.0 (Nintendo 3DS; U; ; ja) Version/1.7412.JP" : {
+      "browser" : "n3ds",
       "browser_string" : "Nintendo 3DS",
+      "device" : "n3ds",
+      "device_string" : "Nintendo 3DS",
       "match" : [
          "device",
          "mobile",
@@ -1974,13 +2511,16 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
       "public_major" : "1",
       "public_minor" : "0.7412",
       "public_version" : "1.7412"
    },
    "Mozilla/5.0 (PLAYSTATION 3; 2.00)" : {
-      "device_name" : "Sony PlayStation 3",
+      "browser" : "netfront",
+      "browser_string" : "NetFront",
+      "device" : "ps3",
+      "device_string" : "Sony PlayStation 3",
+      "engine" : "netfront",
       "engine_string" : "NetFront",
       "match" : [
          "ps3",
@@ -1990,11 +2530,21 @@
       ],
       "no_match" : [
          "netscape"
-      ]
+      ],
+      "os" : "ps3gameos",
+      "os_string" : "Playstation 3 GameOS"
    },
    "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.0.0; en-US) AppleWebKit/535.8+ (KHTML, like Gecko) Version/7.2.0.0 Safari/535.8+" : {
+      "browser" : "blackberry",
       "browser_string" : "BlackBerry",
+      "device" : "blackberry",
+      "device_string" : "BlackBerry",
+      "engine" : "webkit",
+      "engine_beta" : "+",
+      "engine_major" : "535",
+      "engine_minor" : ".8",
       "engine_string" : "WebKit",
+      "engine_version" : "535.8",
       "match" : [
          "blackberry",
          "device",
@@ -2003,14 +2553,19 @@
          "webkit",
          "tablet"
       ],
+      "os" : "rimtabletos",
       "os_string" : "RIM Tablet OS",
       "public_version" : "7.2",
       "version" : "7.2"
    },
    "Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.3.1.15.0" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_major" : "413",
       "engine_string" : "WebKit",
+      "engine_version" : "413",
       "language" : "EN",
       "major" : "4",
       "match" : [
@@ -2022,13 +2577,18 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : null,
       "other" : null,
       "version" : "4.13"
    },
    "Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 Nokia5230/20.0.005; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.3" : {
-      "browser_string" : null,
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "country" : null,
+      "device" : "wap",
+      "device_string" : "Nokia5230",
+      "engine" : "webkit",
+      "engine_major" : "525",
+      "engine_version" : "525",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -2040,7 +2600,6 @@
       ],
       "minor" : ".25",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "public_major" : "3",
       "public_minor" : "0",
@@ -2048,7 +2607,12 @@
       "version" : "5.25"
    },
    "Mozilla/5.0 (Tablet; rv:29.0) Gecko/29.0 Firefox/29.0" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "29",
+      "engine_minor" : ".0",
       "engine_string" : "Gecko",
       "engine_version" : "29.0",
       "match" : [
@@ -2057,15 +2621,22 @@
          "gecko",
          "tablet"
       ],
+      "os" : "firefoxos",
+      "os_beta" : "",
+      "os_major" : "29",
+      "os_minor" : ".0",
       "os_string" : "Firefox OS",
       "os_version" : "29.0",
       "public_version" : "29.0",
       "version" : "29.0"
    },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "7",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "7.0",
       "major" : "11",
@@ -2083,12 +2654,19 @@
       ],
       "minor" : "0",
       "no_match" : null,
+      "os" : "windows",
       "os_string" : "Win7",
       "other" : null,
       "version" : "11.0"
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "15",
       "match" : [
          "windows",
@@ -2100,12 +2678,19 @@
       ],
       "minor" : "0",
       "no_match" : null,
+      "os" : "windows",
       "os_string" : "Win7",
       "other" : null,
       "version" : "15.0"
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36 OPR/20.0.1387.82" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "match" : [
          "windows",
          "winnt",
@@ -2114,13 +2699,20 @@
          "webkit",
          "opera"
       ],
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "public_major" : "20",
       "public_minor" : "0",
       "public_version" : "20.0"
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "27",
+      "engine_minor" : ".0",
+      "engine_version" : "27.0",
       "match" : [
          "gecko",
          "windows",
@@ -2129,13 +2721,20 @@
          "win7",
          "firefox"
       ],
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "public_major" : "27",
       "public_minor" : "0",
       "public_version" : "27.0"
    },
    "Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "7",
+      "engine_minor" : ".0",
+      "engine_version" : "7.0",
       "match" : [
          "windows",
          "winnt",
@@ -2148,15 +2747,19 @@
          "ie",
          "trident"
       ],
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "public_major" : "11",
       "public_minor" : "0",
       "public_version" : "11.0"
    },
    "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "7",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "7.0",
       "major" : "11",
@@ -2175,15 +2778,19 @@
       ],
       "minor" : "0",
       "no_match" : null,
+      "os" : "windows",
       "os_string" : "Win8.1",
       "other" : null,
       "version" : "11.0"
    },
    "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010726 Netscape6/6.1" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".2",
       "engine_major" : "0",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
       "engine_version" : "0.9",
       "language" : "EN",
@@ -2202,7 +2809,8 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : "Win98",
+      "os" : "windows",
+      "os_string" : "Win98",
       "other" : null,
       "public_major" : "6",
       "public_minor" : "0.1",
@@ -2210,8 +2818,14 @@
       "version" : "6.1"
    },
    "Mozilla/5.0 (Windows; U; WinNT4.0; en-US; rv:1.3a) Gecko/20021207 Phoenix/0.5" : {
-      "browser_string" : "Firefox",
+      "browser" : "firefox",
+      "browser_string" : "Phoenix",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".3",
+      "engine_version" : "1.3",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -2224,13 +2838,20 @@
       ],
       "minor" : "0.5",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "WinNT",
       "other" : "1.3a",
       "version" : "0.5"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en) AppleWebKit/522.11.3 (KHTML, like Gecko) Version/3.0 Safari/522.11.3" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".3",
+      "engine_major" : "522",
+      "engine_minor" : ".11",
       "engine_string" : "WebKit",
+      "engine_version" : "522.11",
       "match" : [
          "windows",
          "winnt",
@@ -2239,13 +2860,20 @@
          "webkit",
          "safari"
       ],
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en) AppleWebKit/522.12.1 (KHTML, like Gecko) Version/3.0.1 Safari/522.12.2" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "522",
+      "engine_minor" : ".12",
+      "engine_version" : "522.12",
       "match" : [
          "safari",
          "windows",
@@ -2254,13 +2882,20 @@
          "webkit",
          "win32"
       ],
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en) AppleWebKit/522.13.1 (KHTML, like Gecko) Version/3.0.2 Safari/522.13.1" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "522",
+      "engine_minor" : ".13",
+      "engine_version" : "522.13",
       "match" : [
          "windows",
          "winnt",
@@ -2269,15 +2904,19 @@
          "webkit",
          "safari"
       ],
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_string" : "Gecko",
       "engine_version" : "1.8",
       "match" : [
@@ -2288,14 +2927,21 @@
          "firefox",
          "gecko"
       ],
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8a) Gecko/20040416 Firefox/0.8.0+" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".8",
+      "engine_version" : "1.8",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -2308,13 +2954,20 @@
       ],
       "minor" : "0.8",
       "no_match" : null,
-      "os" : "Win2k",
+      "os" : "windows",
+      "os_string" : "Win2k",
       "other" : "1.8a",
       "version" : "0.8"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en) AppleWebKit/522.12.1 (KHTML, like Gecko) Version/3.0.1 Safari/522.12.2" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "522",
+      "engine_minor" : ".12",
       "engine_string" : "WebKit",
+      "engine_version" : "522.12",
       "language" : "EN",
       "match" : [
          "windows",
@@ -2324,15 +2977,22 @@
          "webkit",
          "safari"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "3.0",
       "public_minor" : "0",
       "public_version" : "3.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/6.0.472.36 Safari/534.3" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".3",
       "engine_string" : "WebKit",
+      "engine_version" : "534.3",
       "language" : "EN",
       "match" : [
          "winxp",
@@ -2345,13 +3005,20 @@
       "no_match" : [
          "netscape"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "6",
       "public_minor" : "0",
       "public_version" : "6.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; AppleWebKit/533.17.8 (KHTML, like Gecko) Version/5.0.1 Safari/533.17.8" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "engine" : "webkit",
+      "engine_beta" : ".8",
+      "engine_major" : "533",
+      "engine_minor" : ".17",
+      "engine_version" : "533.17",
       "match" : [
          "winxp",
          "windows",
@@ -2360,14 +3027,21 @@
          "webkit",
          "safari"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "5",
       "public_minor" : "0",
       "public_version" : "5.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7) Gecko/20040614 Firefox/0.9" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".7",
+      "engine_version" : "1.7",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -2380,14 +3054,18 @@
       ],
       "minor" : "0.9",
       "no_match" : null,
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : "1.7",
       "version" : "0.9"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.12) Gecko/20070508 Firefox/1.5.0.12" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".0.12",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "windows",
@@ -2397,16 +3075,20 @@
          "gecko",
          "firefox"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "1",
       "public_minor" : "0.5",
       "public_version" : "1.5"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9) Gecko/2008062901 IceWeasel/3.0" : {
-      "browser_string" : "IceWeasel",
+      "browser" : "firefox",
+      "browser_string" : "Iceweasel",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
       "engine_version" : "1.9",
       "language" : "EN",
@@ -2422,15 +3104,19 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : null,
       "version" : "3"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8 ( .NET CLR 3.5.30729; .NET4.0C)" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".2.8",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_version" : "1.9",
       "language" : "EN",
       "match" : [
@@ -2442,17 +3128,20 @@
          "gecko",
          "firefox"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.5) Gecko/20031007 Firebird/0.7" : {
-      "browser_string" : "Firefox",
+      "browser" : "firefox",
+      "browser_string" : "Firebird",
       "country" : null,
-      "engine" : "Gecko",
+      "engine" : "gecko",
+      "engine_beta" : "",
       "engine_major" : "1",
-      "engine_minor" : "0.5",
+      "engine_minor" : ".5",
       "engine_version" : "1.5",
       "language" : "FR",
       "major" : "0",
@@ -2467,13 +3156,20 @@
       ],
       "minor" : "0.7",
       "no_match" : null,
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "other" : "1.5",
       "version" : "0.7"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.19.2 (KHTML, like Gecko) Version/4.0.2 Safari/530.19.1" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_beta" : ".2",
+      "engine_major" : "530",
+      "engine_minor" : ".19",
+      "engine_version" : "530.19",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -2488,7 +3184,8 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "WinVista",
+      "os" : "windows",
+      "os_string" : "WinVista",
       "other" : null,
       "public_major" : "4",
       "public_minor" : "0",
@@ -2496,8 +3193,14 @@
       "version" : "5.3"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/2.0.172.31 Safari/530.5" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".5",
+      "engine_version" : "530.5",
       "language" : "EN",
       "major" : "2",
       "match" : [
@@ -2514,13 +3217,20 @@
          "gecko",
          "netscape"
       ],
-      "os" : "WinVista",
+      "os" : "windows",
+      "os_string" : "WinVista",
       "other" : null,
       "version" : "2.0"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.10 NET_mmhpset SearchToolbar/1.2" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".2.12",
+      "engine_major" : "1",
+      "engine_minor" : ".9",
+      "engine_version" : "1.9",
       "language" : "EN",
       "major" : "3",
       "match" : [
@@ -2534,11 +3244,19 @@
       "minor" : "0.6",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "Win7"
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12 SearchToolbar" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".2.12",
+      "engine_major" : "1",
+      "engine_minor" : ".9",
+      "engine_version" : "1.9",
       "language" : "EN",
       "major" : "3",
       "match" : [
@@ -2552,9 +3270,18 @@
       "minor" : "0.6",
       "no_match" : [
          "robot"
-      ]
+      ],
+      "os" : "windows",
+      "os_string" : "Win7"
    },
    "Mozilla/5.0 (X11; CrOS x86_64 5841.87.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.0 Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "36",
       "match" : [
          "chrome",
@@ -2563,13 +3290,25 @@
          "x11"
       ],
       "minor" : "0",
+      "os" : "chromeos",
+      "os_beta" : ".0",
+      "os_major" : "5841",
+      "os_minor" : ".87",
       "os_string" : "Chrome OS",
+      "os_version" : "5841.87",
       "public_major" : "36",
       "public_minor" : "0",
       "public_version" : "36.0",
       "version" : "36.0"
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_version" : "537.36",
       "major" : "33",
       "match" : [
          "linux",
@@ -2579,6 +3318,7 @@
          "chrome"
       ],
       "minor" : "0",
+      "os" : "linux",
       "os_string" : "Linux",
       "public_major" : "33",
       "public_minor" : "0",
@@ -2586,6 +3326,13 @@
       "version" : "33.0"
    },
    "Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0" : {
+      "browser" : "firefox",
+      "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "28",
+      "engine_minor" : ".0",
+      "engine_version" : "28.0",
       "major" : "28",
       "match" : [
          "linux",
@@ -2595,6 +3342,7 @@
          "firefox"
       ],
       "minor" : "0",
+      "os" : "linux",
       "os_string" : "Linux",
       "public_major" : "28",
       "public_minor" : "0",
@@ -2602,8 +3350,14 @@
       "version" : "28.0"
    },
    "Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.7) Gecko/20040619 Firefox/0.9" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".7",
+      "engine_version" : "1.7",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -2616,15 +3370,19 @@
       ],
       "minor" : "0.9",
       "no_match" : null,
-      "os" : "Unix",
+      "os" : "unix",
+      "os_string" : "FreeBSD",
       "other" : "1.7",
       "version" : "0.9"
    },
    "Mozilla/5.0 (X11; U; Linux 2.4.3-20mdk i586; en-US; rv:0.9.1) Gecko/20010611" : {
-      "browser_string" : "Netscape",
+      "browser" : "mozilla",
+      "browser_string" : "Mozilla",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : ".1",
       "engine_major" : "0",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
       "engine_version" : "0.9",
       "language" : "EN",
@@ -2643,13 +3401,20 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : "0.9.1",
       "version" : "5"
    },
    "Mozilla/5.0 (X11; U; Linux i686; de-DE; rv:1.6) Gecko/20040207 Firefox/0.8" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
       "country" : "DE",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".6",
+      "engine_version" : "1.6",
       "language" : "DE",
       "major" : "0",
       "match" : [
@@ -2661,13 +3426,20 @@
       ],
       "minor" : "0.8",
       "no_match" : null,
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : "1.6",
       "version" : "0.8"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.5a) Gecko/20031002 Mozilla Firebird/0.6.1" : {
-      "browser_string" : "Firefox",
+      "browser" : "firefox",
+      "browser_string" : "Firebird",
       "country" : "US",
+      "engine" : "gecko",
+      "engine_beta" : "",
+      "engine_major" : "1",
+      "engine_minor" : ".5",
+      "engine_version" : "1.5",
       "language" : "EN",
       "major" : "0",
       "match" : [
@@ -2680,14 +3452,18 @@
       ],
       "minor" : "0.6",
       "no_match" : null,
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : "1.5a",
       "version" : "0.6"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.5) Gecko/20060719 Firefox/1.5.0.5" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".0.5",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "linux",
@@ -2696,15 +3472,19 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "1",
       "public_minor" : "0.5",
       "public_version" : "1.5"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.2) Gecko/20070220 Firefox/2.0.0.2" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".1.2",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "linux",
@@ -2713,15 +3493,19 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.18) Gecko/2010021718 CentOS/3.0.18-1.el5.centos Firefox/3.0.18" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".0.18",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
       "engine_version" : "1.9",
       "match" : [
@@ -2731,15 +3515,19 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0",
       "public_version" : "3.0"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.16pre) Gecko/20110308 Ubuntu/10.10 (maverick) Namoroka/3.6.16pre" : {
-      "browser_string" : "Firefox",
+      "browser" : "firefox",
+      "browser_string" : "Namoroka",
+      "engine" : "gecko",
+      "engine_beta" : ".2.16",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_version" : "1.9",
       "match" : [
          "linux",
@@ -2749,15 +3537,19 @@
          "gecko",
          "namoroka"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.3) Gecko/20100403 Fedora/3.6.3-4.fc13 Firefox/3.6.3" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".2.3",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_string" : "Gecko",
       "engine_version" : "1.9",
       "match" : [
@@ -2767,14 +3559,21 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.5) Gecko/20100614 Firefox/3.6.5pre Fennec/1.1" : {
-      "browser_string" : null,
+      "browser" : "firefox",
+      "browser_string" : "Firefox",
       "country" : null,
+      "engine" : "gecko",
+      "engine_beta" : ".2.5",
+      "engine_major" : "1",
+      "engine_minor" : ".9",
+      "engine_version" : "1.9",
       "language" : null,
       "major" : "3",
       "match" : [
@@ -2787,7 +3586,8 @@
       ],
       "minor" : ".6",
       "no_match" : null,
-      "os" : null,
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : null,
       "public_major" : "3",
       "public_minor" : ".6",
@@ -2795,7 +3595,13 @@
       "version" : "3.6"
    },
    "Mozilla/5.0 (X11; U; Linux i686; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Safari/534.12" : {
-      "browser_string" : "Safari",
+      "browser" : "safari",
+      "browser_string" : "Puffin",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".12",
+      "engine_version" : "534.12",
       "match" : [
          "safari",
          "linux",
@@ -2807,12 +3613,19 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
+      "os" : "linux",
+      "os_string" : "Linux",
       "version" : "5.34"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.125 Safari/533.4" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "533",
+      "engine_minor" : ".4",
       "engine_string" : "WebKit",
+      "engine_version" : "533.4",
       "match" : [
          "linux",
          "unix",
@@ -2823,14 +3636,21 @@
       "no_match" : [
          "netscape"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "5",
       "public_minor" : "0",
       "public_version" : "5.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "533",
+      "engine_minor" : ".4",
       "engine_string" : "WebKit",
+      "engine_version" : "533.4",
       "match" : [
          "linux",
          "unix",
@@ -2841,14 +3661,21 @@
       "no_match" : [
          "netscape"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "5",
       "public_minor" : "0",
       "public_version" : "5.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.6 (KHTML, like Gecko) Chrome/6.0.495.0 Safari/534.6" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".6",
       "engine_string" : "WebKit",
+      "engine_version" : "534.6",
       "match" : [
          "linux",
          "unix",
@@ -2859,14 +3686,21 @@
       "no_match" : [
          "netscape"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "6",
       "public_minor" : "0",
       "public_version" : "6.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.6 (KHTML, like Gecko) Chrome/7.0.503.1 Safari/534.6" : {
+      "browser" : "chrome",
       "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".6",
       "engine_string" : "WebKit",
+      "engine_version" : "534.6",
       "match" : [
          "linux",
          "unix",
@@ -2877,15 +3711,19 @@
       "no_match" : [
          "netscape"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "7",
       "public_minor" : "0",
       "public_version" : "7.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.4) Gecko/20061201 Firefox/2.0.0.4 (Ubuntu-feisty)" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_string" : "Gecko",
       "engine_version" : "1.8",
       "match" : [
@@ -2895,32 +3733,41 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.4) Gecko/20061201 Galeon/2.0.2 (Ubuntu package 2.0.2-4ubuntu1) Firefox/2.0.0.4 (Ubuntu-feisty)" : {
-      "browser_string" : "Firefox",
+      "browser" : "galeon",
+      "browser_string" : "Galeon",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "firefox"
+         "galeon",
+         "gecko"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
+      "public_beta" : ".2",
       "public_major" : "2",
-      "public_minor" : "0",
+      "public_minor" : ".0",
       "public_version" : "2.0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.11) Gecko/20100722 SeaMonkey/2.0.6" : {
-      "browser_string" : "Netscape",
+      "browser" : "seamonkey",
+      "browser_string" : "SeaMonkey",
+      "engine" : "gecko",
+      "engine_beta" : ".1.11",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_version" : "1.9",
       "match" : [
          "linux",
@@ -2932,33 +3779,43 @@
          "nav4up",
          "nav6",
          "nav6up",
-         "netscape"
+         "netscape",
+         "seamonkey"
       ],
-      "os" : "Linux"
+      "os" : "linux",
+      "os_string" : "Linux",
+      "public_beta" : ".6",
+      "public_major" : "2",
+      "public_minor" : ".0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20091023 Galeon/2.0.7 (Ubuntu 2.0.7-1ubuntu2)" : {
-      "browser_string" : "Netscape",
+      "browser" : "galeon",
+      "browser_string" : "Galeon",
+      "engine" : "gecko",
+      "engine_beta" : ".2.8",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_version" : "1.9",
       "match" : [
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "mozilla",
-         "nav45up",
-         "nav4up",
-         "nav6",
-         "nav6up",
-         "netscape"
+         "galeon",
+         "gecko"
       ],
-      "os" : "Linux"
+      "os" : "linux",
+      "os_string" : "Linux",
+      "public_beta" : ".7",
+      "public_major" : "2",
+      "public_minor" : ".0"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20100723 Ubuntu/10.04 (lucid) Firefox/3.6.8" : {
+      "browser" : "firefox",
       "browser_string" : "Firefox",
+      "engine" : "gecko",
+      "engine_beta" : ".2.8",
       "engine_major" : "1",
-      "engine_minor" : "0.9",
+      "engine_minor" : ".9",
       "engine_version" : "1.9",
       "match" : [
          "linux",
@@ -2967,36 +3824,49 @@
          "gecko",
          "firefox"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.6",
       "public_version" : "3.6"
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en; rv:1.8.1.4) Gecko/20061201 Epiphany/2.18 Firefox/2.0.0.4 (Ubuntu-feisty)" : {
-      "browser_string" : "Firefox",
+      "browser" : "epiphany",
+      "browser_string" : "Epiphany",
+      "engine" : "gecko",
+      "engine_beta" : ".1.4",
       "engine_major" : "1",
-      "engine_minor" : "0.8",
+      "engine_minor" : ".8",
       "engine_version" : "1.8",
       "match" : [
+         "epiphany",
          "linux",
          "unix",
          "x11",
-         "gecko",
-         "firefox"
+         "gecko"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "2",
-      "public_minor" : "0",
-      "public_version" : "2.0"
+      "public_minor" : ".18",
+      "public_version" : "2.18"
    },
    "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
       "match" : [
          "ahrefs",
          "robot"
       ],
-      "robot_name" : "Ahrefs"
+      "robot" : "ahrefs",
+      "robot_name" : "Ahrefs",
+      "robot_string" : "Ahrefs"
    },
    "Mozilla/5.0 (compatible; Konqueror/3.5; Linux; X11; x86_64) KHTML/3.5.6 (like Gecko) (Kubuntu)" : {
+      "browser" : "konqueror",
+      "browser_string" : "Konqueror",
+      "engine" : "khtml",
+      "engine_beta" : ".6",
+      "engine_major" : "3",
+      "engine_minor" : ".5",
       "engine_string" : "KHTML",
       "engine_version" : "3.5",
       "match" : [
@@ -3009,12 +3879,19 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "3",
       "public_minor" : "0.5",
       "public_version" : "3.5"
    },
    "Mozilla/5.0 (compatible; Konqueror/4.4; Linux; X11; x86_64) KHTML/4.4.2 (like Gecko) Kubuntu" : {
+      "browser" : "konqueror",
+      "browser_string" : "Konqueror",
+      "engine" : "khtml",
+      "engine_beta" : ".2",
+      "engine_major" : "4",
+      "engine_minor" : ".4",
       "engine_string" : "KHTML",
       "engine_version" : "4.4",
       "ios" : 0,
@@ -3028,7 +3905,8 @@
       "no_match" : [
          "gecko"
       ],
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "public_major" : "4",
       "public_minor" : "0.4",
       "public_version" : "4.4"
@@ -3038,12 +3916,17 @@
          "mj12bot",
          "robot"
       ],
-      "robot_name" : "Majestic-12 DSearch"
+      "robot" : "mj12bot",
+      "robot_name" : "Majestic-12 DSearch",
+      "robot_string" : "Majestic-12 DSearch"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "6",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "6.0",
       "major" : "10",
@@ -3061,14 +3944,18 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "version" : "10.0"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "6",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "6.0",
       "major" : "10",
@@ -3089,14 +3976,18 @@
       ],
       "minor" : "0",
       "no_match" : null,
+      "os" : "windows",
       "os_string" : "Win8.0",
       "other" : null,
       "version" : "10.0"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "6",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "6.0",
       "major" : "10",
@@ -3115,16 +4006,24 @@
       ],
       "minor" : "0",
       "no_match" : null,
+      "os" : "windows",
       "os_string" : "Win8.0",
       "other" : null,
       "version" : "10.0"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; 8X)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
-      "device_name" : "HTC 8X",
+      "device" : "winphone",
+      "device_string" : "HTC 8X",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "6",
+      "engine_minor" : ".0",
       "engine_version" : "6.0",
       "language" : null,
       "match" : [
+         "device",
          "windows",
          "winphone",
          "winphone8",
@@ -3139,14 +4038,20 @@
       "no_match" : [
          "ie_compat_mode"
       ],
-      "os" : "WinPhone",
+      "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "8",
+      "os_minor" : ".0",
       "os_string" : "Windows Phone",
       "os_version" : "8.0"
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
+      "engine" : "trident",
+      "engine_beta" : "",
       "engine_major" : "5",
-      "engine_minor" : "0",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
       "engine_version" : "5.0",
       "major" : "9",
@@ -3164,39 +4069,24 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "version" : "9.0"
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T7575)" : {
+      "browser" : "ie",
       "browser_string" : "MSIE",
-      "device_name" : "HTC T7575",
-      "language" : null,
-      "match" : [
-         "windows",
-         "winphone",
-         "winphone7_5",
-         "mobile",
-         "trident",
-         "ie",
-         "ie4up",
-         "ie55up",
-         "ie5up",
-         "ie9"
-      ],
-      "no_match" : [
-         "ie_compat_mode"
-      ],
-      "os" : "WinPhone",
-      "os_string" : "Windows Phone",
-      "os_versin" : "7.5"
-   },
-   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 510)" : {
-      "browser_string" : "MSIE",
-      "device_name" : "NOKIA Lumia 510",
+      "device" : "winphone",
+      "device_string" : "HTC T7575",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "5",
+      "engine_minor" : ".0",
       "engine_version" : "5.0",
       "language" : null,
       "match" : [
+         "device",
          "windows",
          "winphone",
          "winphone7_5",
@@ -3211,7 +4101,45 @@
       "no_match" : [
          "ie_compat_mode"
       ],
-      "os" : "WinPhone",
+      "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "7",
+      "os_minor" : ".5",
+      "os_string" : "Windows Phone",
+      "os_versin" : "7.5",
+      "os_version" : "7.5"
+   },
+   "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 510)" : {
+      "browser" : "ie",
+      "browser_string" : "MSIE",
+      "device" : "winphone",
+      "device_string" : "NOKIA Lumia 510",
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "5",
+      "engine_minor" : ".0",
+      "engine_version" : "5.0",
+      "language" : null,
+      "match" : [
+         "device",
+         "windows",
+         "winphone",
+         "winphone7_5",
+         "mobile",
+         "trident",
+         "ie",
+         "ie4up",
+         "ie55up",
+         "ie5up",
+         "ie9"
+      ],
+      "no_match" : [
+         "ie_compat_mode"
+      ],
+      "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "7",
+      "os_minor" : ".5",
       "os_string" : "Windows Phone",
       "os_version" : "7.5"
    },
@@ -3221,33 +4149,47 @@
          "slurp",
          "yahoo"
       ],
-      "robot_name" : "Yahoo! Slurp"
+      "robot" : "slurp",
+      "robot_name" : "Yahoo! Slurp",
+      "robot_string" : "Yahoo! Slurp"
    },
    "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
       "match" : [
          "yandex",
          "robot"
       ],
-      "robot_name" : "Yandex"
+      "robot" : "yandex",
+      "robot_name" : "Yandex",
+      "robot_string" : "Yandex"
    },
    "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
       "match" : [
          "robot",
          "yandeximages"
       ],
-      "robot_name" : "YandexImages"
+      "robot" : "yandeximages",
+      "robot_name" : "YandexImages",
+      "robot_string" : "YandexImages"
    },
    "Mozilla/5.0 (compatible; special_archiver/3.1.1 +http://www.archive.org/details/archive.org_bot)" : {
       "match" : [
          "robot",
          "specialarchiver"
       ],
-      "robot_name" : "archive.org_bot"
+      "robot" : "specialarchiver",
+      "robot_name" : "archive.org_bot",
+      "robot_string" : "archive.org_bot"
    },
    "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
-      "browser_string" : null,
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "country" : "NZ",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".6",
       "engine_string" : "WebKit",
+      "engine_version" : "534.6",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -3259,16 +4201,23 @@
       ],
       "minor" : "0.34",
       "no_match" : null,
-      "os" : null,
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : null,
       "version" : "5.34"
    },
    "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B348b Safari/531.21.10" : {
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "country" : "US",
       "device" : "ipad",
-      "device_name" : "iPad",
-      "engine" : "5.31",
+      "device_string" : "iPad",
+      "engine" : "webkit",
+      "engine_beta" : ".10",
+      "engine_major" : "531",
+      "engine_minor" : ".21",
       "engine_string" : "WebKit",
+      "engine_version" : "531.21",
       "ios" : 1,
       "language" : "EN",
       "major" : "5",
@@ -3282,6 +4231,11 @@
          "device"
       ],
       "minor" : "0.31",
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "3",
+      "os_minor" : ".2",
+      "os_string" : "iOS",
       "os_version" : "3.2",
       "public_major" : "4",
       "public_minor" : "0",
@@ -3289,9 +4243,15 @@
       "version" : "5.31"
    },
    "Mozilla/5.0 (iPad; U; CPU OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3565MS Mobile Safari/534.12" : {
-      "browser_string" : "Mobile Safari",
+      "browser" : "safari",
+      "browser_string" : "Puffin",
       "device" : "ipad",
-      "device_name" : "iPad",
+      "device_string" : "iPad",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".12",
+      "engine_version" : "534.12",
       "ios" : 1,
       "match" : [
          "mobile",
@@ -3307,12 +4267,24 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "5",
+      "os_minor" : ".0",
+      "os_string" : "iOS",
       "os_version" : "5.0",
       "version" : "5.34"
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "device" : "iphone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "536",
+      "engine_minor" : ".26",
+      "engine_version" : "536.26",
       "match" : [
          "device",
          "iphone",
@@ -3321,15 +4293,25 @@
          "webkit",
          "safari"
       ],
+      "os" : "ios",
+      "os_beta" : ".3",
+      "os_major" : "6",
+      "os_minor" : ".1",
       "os_string" : "iOS",
-      "os_version" : "6.1.3"
+      "os_version" : "6.1"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_0_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5C1 Safari/525.20" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "country" : "US",
       "device" : "iphone",
-      "device_name" : "iPhone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "525",
+      "engine_minor" : ".18",
       "engine_string" : "WebKit",
+      "engine_version" : "525.18",
       "ios" : 1,
       "language" : "EN",
       "major" : "5",
@@ -3343,8 +4325,12 @@
       ],
       "minor" : "0.25",
       "no_match" : null,
-      "os" : null,
+      "os" : "ios",
+      "os_beta" : ".2",
+      "os_major" : "2",
+      "os_minor" : ".0",
       "os_string" : "iOS",
+      "os_version" : "2.0",
       "other" : null,
       "public_major" : "3",
       "public_minor" : "0.1",
@@ -3352,10 +4338,16 @@
       "version" : "5.25"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
       "device" : "iphone",
-      "device_name" : "iPhone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "532",
+      "engine_minor" : ".9",
       "engine_string" : "WebKit",
+      "engine_version" : "532.9",
       "match" : [
          "device",
          "google",
@@ -3367,16 +4359,28 @@
          "webkit",
          "safari"
       ],
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "4",
+      "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "4.1",
       "public_major" : "4",
       "public_minor" : "0",
-      "public_version" : "4.0"
+      "public_version" : "4.0",
+      "robot" : "googlemobile",
+      "robot_string" : "Googlebot Mobile"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Mobile Safari/534.12" : {
-      "browser_string" : "Mobile Safari",
+      "browser" : "safari",
+      "browser_string" : "Puffin",
       "device" : "iphone",
-      "device_name" : "iPhone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "534",
+      "engine_minor" : ".12",
+      "engine_version" : "534.12",
       "ios" : 1,
       "match" : [
          "mobile",
@@ -3391,15 +4395,26 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "5",
+      "os_minor" : ".0",
+      "os_string" : "iOS",
       "os_version" : "5.0",
       "version" : "5.34"
    },
    "Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20" : {
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "country" : "US",
       "device" : "ipod",
-      "device_name" : "iPod",
+      "device_string" : "iPod",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "525",
+      "engine_minor" : ".18",
       "engine_string" : "WebKit",
+      "engine_version" : "525.18",
       "language" : "EN",
       "match" : [
          "safari",
@@ -3408,13 +4423,26 @@
          "ios",
          "webkit",
          "device"
-      ]
+      ],
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "2",
+      "os_minor" : ".1",
+      "os_string" : "iOS",
+      "os_version" : "2.1"
    },
    "Mozilla/5.0 (webOS/1.0; U; en-US) AppleWebKit/525.27.1 (KHTML, like Gecko) Version/1.0 Safari/525.27.1 Pre/1.0" : {
+      "browser" : "safari",
+      "browser_string" : "Safari",
       "country" : "US",
       "device" : "webos",
-      "device_name" : "webOS",
+      "device_string" : "webOS",
+      "engine" : "webkit",
+      "engine_beta" : ".1",
+      "engine_major" : "525",
+      "engine_minor" : ".27",
       "engine_string" : "WebKit",
+      "engine_version" : "525.27",
       "language" : "EN",
       "match" : [
          "safari",
@@ -3425,8 +4453,10 @@
       ]
    },
    "Mozilla/5.001 (Macintosh; N; PPC; ja) Gecko/25250101 MegaCorpBrowser/1.0 (MegaCorp, Inc.)" : {
-      "browser_string" : "Netscape",
+      "browser" : "mozilla",
+      "browser_string" : "Mozilla",
       "country" : null,
+      "engine" : "gecko",
       "language" : "JA",
       "major" : "5",
       "match" : [
@@ -3442,13 +4472,16 @@
       ],
       "minor" : "0.001",
       "no_match" : null,
-      "os" : "Mac",
+      "os" : "mac",
+      "os_string" : "Mac",
       "other" : null,
       "version" : "5.001"
    },
    "Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101" : {
-      "browser_string" : "Netscape",
+      "browser" : "mozilla",
+      "browser_string" : "Mozilla",
       "country" : "US",
+      "engine" : "gecko",
       "language" : "EN",
       "major" : "5",
       "match" : [
@@ -3465,13 +4498,16 @@
       ],
       "minor" : "0.001",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "WinNT",
       "other" : null,
       "version" : "5.001"
    },
    "Mozilla/9.876 (X11; U; Linux 2.2.12-20 i686, en) Gecko/25250101 Netscape/5.432b1 (C-MindSpring)" : {
+      "browser" : "netscape",
       "browser_string" : "Netscape",
       "country" : null,
+      "engine" : "gecko",
       "language" : null,
       "major" : "5",
       "match" : [
@@ -3488,24 +4524,28 @@
       ],
       "minor" : "0.432",
       "no_match" : null,
-      "os" : "Linux",
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : null,
       "version" : "5.432"
    },
    "Mozilla/DnsHealthCheckBot/1.0" : {
-      "browser_string" : "",
+      "browser" : "netscape",
+      "browser_string" : "Netscape",
       "match" : [
          "netscape",
          "robot"
       ],
-      "os" : null,
       "public_major" : "1",
       "public_minor" : "0",
-      "public_version" : "1.0"
+      "public_version" : "1.0",
+      "robot" : "unknown",
+      "robot_string" : "Mozilla/DnsHealthCheckBot/1.0"
    },
    "Nokia-WAP-Toolkit/1.3beta" : {
-      "browser_string" : null,
       "country" : null,
+      "device" : "wap",
+      "device_string" : "Nokia-WAP-Toolkit",
       "language" : null,
       "major" : "1",
       "match" : [
@@ -3515,13 +4555,13 @@
       ],
       "minor" : "0.3",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "1.3"
    },
    "Nokia7110/1.0 (30.05)" : {
-      "browser_string" : null,
       "country" : null,
+      "device" : "wap",
+      "device_string" : "Nokia7110",
       "language" : null,
       "major" : "1",
       "match" : [
@@ -3531,24 +4571,28 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "1"
    },
    "Opera/9.21 (Macintosh; Intel Mac OS X; U; en)" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
       "match" : [
          "mac",
          "macosx",
          "opera"
       ],
-      "os" : "Mac OS X",
+      "os" : "macosx",
+      "os_string" : "Mac OS X",
       "public_major" : "9",
       "public_minor" : "0.21",
       "public_version" : "9.21"
    },
    "Opera/9.50 (Nintendo DSi; Opera/446; U; ja)" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "device" : "dsi",
+      "device_string" : "Nintendo DSi",
       "match" : [
          "opera",
          "device",
@@ -3558,13 +4602,19 @@
       "no_match" : [
          "robot"
       ],
-      "os" : null,
       "public_major" : "9",
       "public_minor" : "0.50",
       "public_version" : "9.50"
    },
    "Opera/9.80 (Android; Opera Mini/5.1.21126/19.916; U; en) Presto/2.5.25" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "device" : "android",
+      "device_string" : "Android",
+      "engine" : "presto",
+      "engine_beta" : ".25",
+      "engine_major" : "2",
+      "engine_minor" : ".5",
       "engine_string" : "Presto",
       "engine_version" : "2.5",
       "language" : "EN",
@@ -3575,14 +4625,19 @@
          "presto",
          "mobile"
       ],
-      "os" : "Android",
+      "os" : "android",
       "os_string" : "Android",
       "public_major" : "9",
       "public_minor" : "0.80",
       "public_version" : "9.80"
    },
    "Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.14427/19.916; U; en) Presto/2.5.25" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "engine" : "presto",
+      "engine_beta" : ".25",
+      "engine_major" : "2",
+      "engine_minor" : ".5",
       "engine_string" : "Presto",
       "engine_version" : "2.5",
       "language" : "EN",
@@ -3596,8 +4651,13 @@
       "public_version" : "9.80"
    },
    "Opera/9.80 (S60; SymbOS; Opera Mobi/320; U; sv) Presto/2.4.15 Version/10.00" : {
-      "browser_string" : null,
+      "browser" : "opera",
+      "browser_string" : "Opera",
       "country" : null,
+      "engine" : "presto",
+      "engine_beta" : ".15",
+      "engine_major" : "2",
+      "engine_minor" : ".4",
       "engine_string" : "Presto",
       "engine_version" : "2.4",
       "language" : null,
@@ -3609,7 +4669,6 @@
       ],
       "minor" : ".0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "public_major" : "10.0",
       "public_minor" : ".0",
@@ -3617,7 +4676,12 @@
       "version" : "10.0"
    },
    "Opera/9.80 (Windows NT 5.1; U; en) Presto/2.2.15 Version/10.10" : {
+      "browser" : "opera",
       "browser_string" : "Opera",
+      "engine" : "presto",
+      "engine_beta" : ".15",
+      "engine_major" : "2",
+      "engine_minor" : ".2",
       "engine_string" : "Presto",
       "engine_version" : "2.2",
       "language" : "EN",
@@ -3629,14 +4693,20 @@
          "presto",
          "opera"
       ],
-      "os" : "WinXP",
+      "os" : "windows",
+      "os_string" : "WinXP",
       "public_major" : "10",
       "public_minor" : "0.10",
       "public_version" : "10.10"
    },
    "Opera/9.80 (Windows NT 6.1; Opera Tablet/11648; U; en) Presto/2.7.81 Version/11.00" : {
-      "browser_string" : null,
+      "browser" : "opera",
+      "browser_string" : "Opera",
       "country" : null,
+      "engine" : "presto",
+      "engine_beta" : ".81",
+      "engine_major" : "2",
+      "engine_minor" : ".7",
       "engine_string" : "Presto",
       "engine_version" : "2.7",
       "language" : "EN",
@@ -3653,7 +4723,8 @@
       ],
       "minor" : ".0",
       "no_match" : null,
-      "os" : "WinNT",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "public_major" : "11.0",
       "public_minor" : ".0",
@@ -3661,9 +4732,15 @@
       "version" : "11.0"
    },
    "RealPlayer SP, Windows 7: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; (R1 1.6))" : {
+      "browser" : "realplayer",
       "browser_string" : "RealPlayer",
       "country" : null,
+      "engine" : "trident",
+      "engine_beta" : "",
+      "engine_major" : "4",
+      "engine_minor" : ".0",
       "engine_string" : "Trident",
+      "engine_version" : "4.0",
       "language" : null,
       "major" : null,
       "match" : [
@@ -3686,14 +4763,21 @@
          "unix",
          "sco"
       ],
-      "os" : "Win7",
+      "os" : "windows",
+      "os_string" : "Win7",
       "other" : null,
       "version" : null
    },
    "RealPlayer version 10, Mac OS X: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.9 (KHTML, like Gecko) RealPlayer/10.1.0.503" : {
+      "browser" : "realplayer",
       "browser_string" : "RealPlayer",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "531",
+      "engine_minor" : ".9",
       "engine_string" : "WebKit",
+      "engine_version" : "531.9",
       "language" : "EN",
       "major" : "10",
       "match" : [
@@ -3707,14 +4791,25 @@
       "no_match" : [
          "windows"
       ],
-      "os" : null,
+      "os" : "macosx",
+      "os_beta" : ".2",
+      "os_major" : "10",
+      "os_minor" : ".6",
+      "os_string" : "Mac OS X",
+      "os_version" : "10.6",
       "other" : null,
       "version" : "10.1"
    },
    "RealPlayer version 11, Mac OS X: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.9 (KHTML, like Gecko) RealPlayer/11.0.1.949" : {
+      "browser" : "realplayer",
       "browser_string" : "RealPlayer",
       "country" : "US",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "531",
+      "engine_minor" : ".9",
       "engine_string" : "WebKit",
+      "engine_version" : "531.9",
       "language" : "EN",
       "major" : "11",
       "match" : [
@@ -3729,12 +4824,18 @@
          "unix",
          "sco"
       ],
-      "os" : "Mac",
-      "os_version" : "10.6.2",
+      "os" : "macosx",
+      "os_beta" : ".2",
+      "os_major" : "10",
+      "os_minor" : ".6",
+      "os_string" : "Mac OS X",
+      "os_version" : "10.6",
       "other" : null,
       "version" : "11.0"
    },
    "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
+      "device" : "wap",
+      "device_string" : "SAMSUNG-SGH-E250",
       "major" : "2",
       "match" : [
          "device",
@@ -3748,11 +4849,19 @@
       "public_major" : "2",
       "public_minor" : ".1",
       "public_version" : "2.1",
+      "robot" : "googlemobile",
+      "robot_string" : "Googlebot Mobile",
       "version" : "2.1"
    },
    "SonyEricssonU1i/R1CA; Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Profile/MIDP-2.1 Configuration/CLDC-1.1 model-orange) AppleWebKit/525 (KHTML like Gecko) Version/3.0 Safari/525" : {
+      "browser" : "safari",
       "browser_string" : "Safari",
+      "device" : "wap",
+      "device_string" : "SonyEricssonU1i",
+      "engine" : "webkit",
+      "engine_major" : "525",
       "engine_string" : "WebKit",
+      "engine_version" : "525",
       "major" : "5",
       "match" : [
          "device",
@@ -3767,8 +4876,10 @@
       "version" : "5.25"
    },
    "T-mobile Dash Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; Smartphone; 320x240;) msnbot-mobile/1.1 (+http://search.msn.com/msnbot.htm)" : {
-      "browser_string" : null,
+      "browser" : "ie",
+      "browser_string" : "MSIE",
       "country" : null,
+      "engine" : "ie",
       "language" : null,
       "major" : "4",
       "match" : [
@@ -3784,16 +4895,19 @@
       ],
       "minor" : ".01",
       "no_match" : null,
-      "os" : null,
+      "os" : "windows",
+      "os_string" : "WinCE",
       "other" : null,
       "public_major" : "4",
       "public_minor" : ".01",
       "public_version" : "4.01",
+      "robot" : "msnmobile",
+      "robot_string" : "MSN Mobile",
       "version" : "4.01"
    },
    "TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231" : {
-      "browser_string" : null,
       "country" : null,
+      "engine" : "gecko",
       "language" : null,
       "major" : "2",
       "match" : [
@@ -3801,13 +4915,13 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "2.000"
    },
    "UP.Browser/4.1.2a-XXXX" : {
-      "browser_string" : null,
       "country" : null,
+      "device" : "wap",
+      "device_string" : "WAP capable phone",
       "language" : null,
       "major" : "4",
       "match" : [
@@ -3817,13 +4931,13 @@
       ],
       "minor" : "0.1",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "4.1"
    },
    "Wapalizer/1.0" : {
-      "browser_string" : null,
       "country" : null,
+      "device" : "wap",
+      "device_string" : "WAP capable phone",
       "language" : null,
       "major" : "1",
       "match" : [
@@ -3833,12 +4947,10 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "1"
    },
    "Wget/1.4.5" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "1",
@@ -3848,13 +4960,15 @@
       ],
       "minor" : "0.4",
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "wget",
+      "robot_string" : "wget",
       "version" : "1.4"
    },
    "YourWap/1.16" : {
-      "browser_string" : null,
       "country" : null,
+      "device" : "wap",
+      "device_string" : "WAP capable phone",
       "language" : null,
       "major" : "1",
       "match" : [
@@ -3864,7 +4978,6 @@
       ],
       "minor" : "0.16",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "version" : "1.16"
    },
@@ -3872,10 +4985,11 @@
       "match" : [
          "robot",
          "facebook"
-      ]
+      ],
+      "robot" : "facebook",
+      "robot_string" : "Facebook"
    },
    "fetch/1.0 FreeBSD/4.0-CURRENT (i386)" : {
-      "browser_string" : null,
       "major" : "1",
       "match" : [
          "bsd",
@@ -3885,12 +4999,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Unix",
+      "os" : "unix",
+      "os_string" : "FreeBSD",
       "other" : null,
+      "robot" : "unknown",
+      "robot_string" : "fetch/1.0 FreeBSD/4.0-CURRENT",
       "version" : "1"
    },
    "iCab/Pre2.0 (Macintosh; I; PPC)" : {
-      "browser_string" : null,
+      "browser" : "icab",
+      "browser_string" : "iCab",
       "country" : null,
       "language" : null,
       "major" : "2",
@@ -3901,11 +5019,13 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : "Mac",
+      "os" : "mac",
+      "os_string" : "Mac",
       "other" : null,
       "version" : "2"
    },
    "libcurl-agent/1.0" : {
+      "browser" : "curl",
       "browser_string" : "curl",
       "country" : null,
       "language" : null,
@@ -3917,12 +5037,12 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "curl",
+      "robot_string" : "curl",
       "version" : "1"
    },
    "libwww-perl/5.11" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "5",
@@ -3933,12 +5053,12 @@
       ],
       "minor" : "0.11",
       "no_match" : null,
-      "os" : null,
       "other" : null,
+      "robot" : "lwp",
+      "robot_string" : "LWP::UserAgent",
       "version" : "5.11"
    },
    "msnbot/2.0b (+http://search.msn.com/msnbot.htm)" : {
-      "browser_string" : null,
       "country" : null,
       "language" : null,
       "major" : "2",
@@ -3948,14 +5068,16 @@
       ],
       "minor" : "0",
       "no_match" : null,
-      "os" : null,
       "other" : null,
       "public_major" : "2",
       "public_minor" : "0",
       "public_version" : "2.0",
+      "robot" : "msn",
+      "robot_string" : "MSN",
       "version" : "2.0"
    },
    "puf/0.93.2a (Linux 2.4.20-19.9; i686)" : {
+      "browser" : "puf",
       "browser_string" : "puf",
       "country" : null,
       "language" : null,
@@ -3971,8 +5093,12 @@
       "no_match" : [
          "mobile"
       ],
-      "os" : null,
+      "os" : "linux",
+      "os_string" : "Linux",
       "other" : null,
+      "robot" : "puf",
+      "robot_string" : "puf",
       "version" : "0.93"
    }
 }
+

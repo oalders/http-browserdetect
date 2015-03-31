@@ -31,33 +31,42 @@ my $N_DETECTS = 5;
 my $N_TESTS   = 30;
 
 my @detect;
-for my $i ( 0 .. $N_DETECTS - 1 ) {
-    $detect[$i] = HTTP::BrowserDetect->new();
-}
 
 my @methods = (
     qw(
+        beta
+        browser
+        browser_properties
+        browser_string
         country
-        language
+        device
         device
         device_name
-        version
-        major
-        minor
-        beta
-        public_version
-        public_major
-        public_minor
+        device_string
+        engine
+        engine_beta
+        engine_major
+        engine_minor
         engine_string
         engine_version
         engine_major
         engine_minor
-        os_string
-        realplayer_browser
-        browser_string
         gecko_version
-        device
-        browser_properties
+        language
+        major
+        minor
+        os
+        os_beta
+        os_major
+        os_minor
+        os_string
+        os_version
+        public_major
+        public_minor
+        public_version
+        realplayer_browser
+        robot_string
+        version
         ), &HTTP::BrowserDetect::_all_tests()
 );
 
@@ -68,12 +77,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     diag($ua);
 
     for my $i ( 0 .. $N_DETECTS - 1 ) {
-        if ( int( rand(2) ) ) {
-            $detect[$i] = HTTP::BrowserDetect->new($ua);
-        }
-        else {
-            $detect[$i]->user_agent($ua);
-        }
+	$detect[$i] = HTTP::BrowserDetect->new($ua);
 
         for my $j ( 1 .. $N_TESTS ) {
             my $method = $methods[ int( rand(@methods) ) ];
