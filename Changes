@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.00 2015-03-30 21:46:25 America/Toronto
     - Standardize interface:
         browser         ()
         device     X    _string()
