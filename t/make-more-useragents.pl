@@ -31,6 +31,12 @@ use HTTP::BrowserDetect;
 my $json_text = path("$FindBin::Bin/useragents.json")->slurp;
 my $tests     = JSON::PP->new->ascii->decode($json_text);
 
+if (1) {
+    $json_text = path("$FindBin::Bin/more-useragents.json")->slurp;
+    my $more_tests = JSON::PP->new->ascii->decode($json_text);
+    $tests = { %$tests, %$more_tests };
+}
+
 my %seen_tokens;
 
 foreach my $ua ( sort keys %{$tests} ) {
@@ -43,16 +49,17 @@ foreach my $ua ( sort keys %{$tests} ) {
 my %new_tests;
 
 while (<>) {
-
     my $ua;
-    if ( m{^\d+\.\d+\.\d+\.\d+} ) {
+    my @tokens;
+    if ( m{^\d+\.\d+\.\d+\.\d+} || m{^\w+\:\w+\:\w+\:} ) {
 	# Apache log format, match tokens and get the user agent
-	my @tokens = (
+	@tokens = (
 	    $_ =~ m{ ( \"  [^\"]*       \"   |
                            [^\[\]\"\s]+      |
                        \[  [^\[\]]*     \]   )
                     }xg );
-	( $ua ) = ( $tokens[0] =~ m{\"(.*)\"} ) or next;
+	( $ua ) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+	$ua =~ s/^\'(.*)\'$/$1/;
     } else {
 	# Just a list of user agents
 	chomp;

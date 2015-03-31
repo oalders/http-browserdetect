@@ -73,7 +73,7 @@ our @BROWSER_TESTS = qw(
     lotusnotes     staroffice  icab
     webtv          browsex     silk
     applecoremedia galeon      seamonkey
-    epiphany       ucbrowser
+    epiphany       ucbrowser   dalvik
 );
 
 our @IE_TESTS = qw(
@@ -125,7 +125,7 @@ our @ROBOT_TESTS = qw(
     googlebotnews   googlebotimage google
     linkchecker     yandeximages   specialarchiver
     yandex          java           lib
-    indy
+    indy            golib          rubylib
 );
 
 our @MISC_TESTS = qw(
@@ -165,6 +165,7 @@ my %ROBOT_NAMES = (
     googlebotnews   => 'Googlebot News',
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Googlebot Mobile',
+    golib           => 'Go language http library',
     indy            => 'Indy Library',
     infoseek        => 'InfoSeek',
     java            => 'Java',
@@ -177,6 +178,7 @@ my %ROBOT_NAMES = (
     msnmobile       => 'MSN Mobile',
     puf             => 'puf',
     robot           => 'robot',
+    rubylib         => 'Ruby http library',
     slurp           => 'Yahoo! Slurp',
     specialarchiver => 'archive.org_bot',
     webcrawler      => 'WebCrawler',
@@ -193,6 +195,7 @@ my %BROWSER_NAMES = (
     browsex        => 'BrowseX',
     chrome         => 'Chrome',
     curl           => 'curl',
+    dalvik         => 'Dalvik',
     dsi            => 'Nintendo DSi',
     elinks         => 'ELinks',
     epiphany       => 'Epiphany',
@@ -569,7 +572,9 @@ sub _init_core {
 
         $browser_tests->{safari} = 1;
         $browser = 'safari';
-        if ( index( $ua, " mobile safari/" ) != -1 ) {
+        if ( index( $ua, " mobile safari/" ) != -1
+	    || index( $ua, "mobilesafari" ) != -1 )
+	{
             $browser_string = 'Mobile Safari';
             $browser_tests->{mobile_safari} = 1;
         }
@@ -684,6 +689,10 @@ sub _init_core {
         $browser = 'applecoremedia';
         $browser_tests->{$browser} = 1;
     }
+    elsif ( index( $ua, "dalvik" ) != -1 ) {
+	$browser = 'dalvik';
+	$browser_tests->{$browser} = 1;
+    }
     elsif ( index( $ua, "ucbrowser" ) != -1 ) {
 	$browser = 'ucbrowser';
 	$browser_tests->{$browser} = 1;
@@ -753,10 +762,13 @@ my @ROBOT_FRAGMENTS = qw(
     index
     netcraft
     reap
+    resolver
     sleuth
     scan
     service
     spider
+    tiscali
+    validator
     webcapture
     worm
     zyborg
@@ -841,6 +853,10 @@ sub _init_robots {
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
     }
+    elsif ( $ua =~ m{go.*package http} ) {
+	$r = 'golib';
+	$robot_tests->{lib} = 1;
+    }
     elsif ( index( $ua, "indy library" ) != -1 ) {
         $r = 'indy';
         $robot_tests->{lib} = 1;
@@ -856,6 +872,10 @@ sub _init_robots {
     }
     elsif ( index( $ua, "lycos" ) != -1 ) {
         $r = 'lycos';
+    }
+    elsif ( index( $ua, "mechanize" ) != -1 ) {
+	$r = 'rubylib';
+	$robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "mj12bot/" ) != -1 ) {
         $r = 'mj12bot';
@@ -889,7 +909,9 @@ sub _init_robots {
         $robot_tests->{lib} = 1;
     }
 
-    if ( $browser_tests->{applecoremedia} ) {
+    if ( $browser_tests->{applecoremedia}
+	 || $browser_tests->{dalvik} )
+    {
         $robot_tests->{lib} = 1;
     }
 
@@ -914,6 +936,12 @@ sub _init_robots {
         # Store the fragment for later, to determine full name
         $self->{robot_fragment} = "search";
         $robot_tests->{robot}   = 'unknown';
+    }
+    elsif ( $self->{user_agent} =~ /([\w \/\.]+)\s*[\;\(]\s*\+http\:/i ) {
+	# Something followed by +http
+	$self->{robot_string} = $1;
+	$self->{robot_string} =~ s/^(.*?)\s*/$1/;
+	$robot_tests->{robot} = 'unknown';
     }
     else {
         # See if we have a simple fragment
@@ -1003,7 +1031,10 @@ sub _init_os {
     }
 
     if ( index( $ua, "nt" ) != -1 ) {
-        if ( index( $ua, "nt 5.0" ) != -1 || index( $ua, "nt5" ) != -1 ) {
+        if ( index( $ua, "nt 5.0" ) != -1
+	     || index( $ua, "nt5" ) != -1
+	     || index( $ua, "windows 2000" ) != -1 )
+	{
             $os        = "windows";
             $os_string = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
@@ -1155,7 +1186,7 @@ sub _init_os {
         $os_string = 'System V Unix';
         $os_tests->{unixware} = $os_tests->{unix} = 1;
     }
-    elsif ( index( $ua, "ncr" ) != -1 ) {
+    elsif ( $ua =~ m{\bncr\b} ) {
         $os        = 'unix';
         $os_string = 'NCR Unix';
         $os_tests->{mpras} = $os_tests->{unix} = 1;
@@ -2291,6 +2322,19 @@ sub robot_string {
             ) {
             $self->{robot_string} = $1;
             $self->{robot_string} =~ s/ *$//;    # Trim whitespace at end
+	    if ( $self->{user_agent} eq $self->{robot_string} ) {
+		# We matched the whole string, try seeing it as
+		# whitespace-limited "thing/ver" tokens
+		if ( $self->{user_agent} =~ m{
+                                      ([\w]*               # Words before fragment
+                                       $fragment           # Match the fragment
+                                       \/[\d\.]+           # Version
+                                       [\w]*)              # Beta stuff
+                                     }ix )
+		{
+		    $self->{robot_string} = $1;
+		}
+	    }
         }
     }
     return $self->{robot_string};
@@ -2368,10 +2412,11 @@ web server when calling a CGI script.
 
 Returns the browser, as one of the following values:
 
-chrome, firefox, ie, opera, safari, blackberry, browsex, elinks,
-links, lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes,
-mosaic, mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer,
-seamonkey, silk, staroffice, ucbrowser, webtv
+chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
+browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
+konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
+n3ds, dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser,
+webtv
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -2496,9 +2541,9 @@ automated Web client, this returns one of the following values:
 lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, askjeeves,
 baidu, curl, facebook, getright, googleadsbot, googleadsense,
 googlebotimage, googlebotnews, googlebotvideo, googlemobile,
-google, indy, infoseek, linkexchange, linkchecker, lycos, mj12bot,
-puf, scooter, specialarchiver, webcrawler, wget, yandexbot,
-yandeximages, java, unknown
+google, golib, indy, infoseek, linkexchange, linkchecker, lycos,
+mj12bot, puf, rubylib, scooter, specialarchiver, webcrawler, wget,
+yandexbot, yandeximages, java, unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
@@ -2729,6 +2774,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 getright
 
+=head3 golib
+
 =head3 google
 
 =head3 googleadsbot
@@ -2754,6 +2801,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 msn (same as bing)
 
 =head3 puf
+
+=head3 rubylib
 
 =head3 slurp
 
