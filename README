@@ -2,32 +2,33 @@ SYNOPSIS
 
         use HTTP::BrowserDetect;
     
-        my $browser = HTTP::BrowserDetect->new($user_agent_string);
+        my $ua = HTTP::BrowserDetect->new($user_agent_string);
     
         # Print general information
-        print "Browser: $browser->browser_string\n"
-            if $browser->browser_string;
-        print "Version: $browser->public_version$browser->public_beta\n"
-            if $browser->public_version;
-        print "OS: $browser->os_string\n"
-            if $browser->os_string;
+        print "Browser: $ua->browser_string\n"
+            if $ua->browser_string;
+        print "Version: $ua->browser_version$ua->browser_beta\n"
+            if $ua->browser_version;
+        print "OS: $ua->os_string\n"
+            if $ua->os_string;
     
         # Detect operating system
-        if ($browser->windows) {
-          if ($browser->winnt) ...
-          if ($browser->win95) ...
+        if ($ua->windows) {
+          if ($ua->winnt) ...
+          if ($ua->win95) ...
         }
-        print "Mac\n" if $browser->mac;
+        print "Mac\n" if $ua->macosx;
     
         # Detect browser vendor and version
-        print "Netscape\n" if $browser->netscape;
-        print "MSIE\n" if $browser->ie;
-        if (browser->public_major(4)) {
-        if ($browser->public_minor() > .5) {
+        print "Safari\n" if $ua->safari;
+        print "MSIE\n" if $ua->ie;
+        print "Mobile\n" if $ua->mobile;
+        if ($ua->browser_major(4)) {
+        if ($ua->browser_minor() > .5) {
             ...
         }
         }
-        if ($browser->public_version() > 4.5) {
+        if ($ua->browser_version() > 4.5) {
           ...;
         }
 
@@ -55,48 +56,60 @@ SUBROUTINES/METHODS
 
 Browser Information
 
+ browser()
+
+    Returns the browser, as one of the following values:
+
+    chrome, firefox, ie, opera, safari, blackberry, browsex, elinks, links,
+    lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes, mosaic,
+    mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer, seamonkey,
+    silk, staroffice, webtv
+
+    If the browser could not be identified (either because unrecognized or
+    because it is a robot), returns undef.
+
  browser_string()
 
-    Returns the name of the browser from among the following values:
+    Returns a human formatted version of the browser name. These names are
+    subject to change and are meant for display purposes. This may include
+    information additional to what's in browser() (e.g. distinguishing
+    Firefox from Iceweasel).
 
-    Netscape, Firefox, Safari, Chrome, MSIE, WebTV, AOL Browser, Opera,
-    Mosaic, Lynx, Links, ELinks, RealPlayer, IceWeasel, curl, puf,
-    NetFront, Mobile Safari, BlackBerry, Obigo, Nintendo DSi, Nintendo 3DS,
-    StarOffice, Lotus Notes, iCab, BrowseX, Silk.
-
-    If the browser could not be recognized, returns undef.
+    If the user agent could not be identified, or if it was identified as a
+    robot instead, returns undef.
 
 Browser Version
 
     Please note that that the version(), major() and minor() methods have
     been deprecated as of release 1.78 of this module. They should be
-    replaced with public_version(), public_major(), public_minor(), and
-    public_beta().
+    replaced with browser_version(), browser_major(), browser_minor(), and
+    browser_beta().
 
     The reasoning behind this is that version() method will, in the case of
     Safari, return the Safari/XXX numbers even when Version/XXX numbers are
     present in the UserAgent string (i.e. it will return incorrect versions
     for Safari in some cases).
 
- public_version()
+ browser_version()
 
-    Returns the browser version (major and minor) as a string.
+    Returns the browser version (major and minor) as a string. For example,
+    for Chrome 36.0.1985.67, this returns "36.0".
 
- public_major()
+ browser_major()
 
     Returns the major part of the version as a string. For example, for
     Chrome 36.0.1985.67, this returns "36".
 
     Returns undef if no version information can be detected.
 
- public_minor()
+ browser_minor()
 
     Returns the minor part of the version as a string. This includes the
     decimal point; for example, for Chrome 36.0.1985.67, this returns ".0".
 
     Returns undef if no version information can be detected.
 
- public_beta()
+ browser_beta()
 
     Returns any part of the version after the major and minor version, as a
     string. For example, for Chrome 36.0.1985.67, this returns ".1985.67".
@@ -107,27 +120,32 @@ Browser Version
     empty string if version information is detected but it contains only a
     major and minor version with nothing following.
 
+Operating System
+
+ os()
+
+    Returns one of the following strings, or undef:
+
+      windows, winphone, mac, macosx, linux, android, ios, os2, unix, vms,
+      chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga
+
  os_string()
 
-    Returns one of the following strings, or undef.
+    Returns a human formatted version of the OS name. These names are
+    subject to change and are really meant for display purposes. This may
+    include information additional to what's in os() (e.g. distinguishing
+    various editions of Windows from one another) (although for a way to do
+    that that's more suitable for use in program logic, see below under "OS
+    related properties").
 
-      Win95, Win98, WinME, WinNT, Win2K, WinXP, Win2k3, WinVista, Win7, Win8,
-      Win8.1, Windows Phone, Mac, Mac OS X, iOS, Win3x, OS2, Unix, VMS, Linux,
-      Chrome OS, Firefox OS, Playstation 3 GameOS, Playstation Portable GameOS,
-      RIM Tablet OS, BlackBerry 10
+    Returns undef if no OS information could be detected.
 
-Browser Properties
+ os_version() =head2 os_major() =head2 os_minor() =head2 os_beta()
 
- browser_properties()
+    Returns version information for the OS, if any could be detected. The
+    format is the same as for the browser_version() functions.
 
-    Returns a list of the browser properties. Operating systems, devices,
-    browser names, and general tests (e.g. "mobile" and "robot") are all
-    browser properties.
-
-    The methods listed below are all browser properties (in addition to
-    being methods).
-
-General tests
+Mobile Devices
 
  mobile()
 
@@ -137,25 +155,98 @@ General tests
 
     Returns true if the browser appears to belong to a tablet device.
 
+ device()
+
+    Returns the type of mobile / tablet hardware, if it can be detected.
+
+    Currently returns one of: android, audrey, avantgo, blackberry, dsi,
+    iopener, ipad, iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos,
+    winphone.
+
+    Returns undef if this is not a tablet/mobile device or no hardware
+    information can be detected.
+
+ device_string()
+
+    Returns a human formatted version of the hardware device name. These
+    names are subject to change and are really meant for display purposes.
+    You should use the device() method in your logic. This may include
+    additional information (such as the model of phone if it is
+    detectable).
+
+    Returns undef if this is not a portable device or if no device name can
+    be detected.
+
+Robots
+
  robot()
 
-    Returns true if the user agent appears to be a robot, spider, crawler,
-    or other automated Web client.
+    If the user agent appears to be a robot, spider, crawler, or other
+    automated Web client, this returns one of the following values:
+
+    lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, askjeeves, baidu,
+    curl, facebook, getright, googleadsbot, googleadsense, googlebotimage,
+    googlebotnews, googlebotvideo, googlemobile, google, indy, infoseek,
+    linkexchange, linkchecker, lycos, mj12bot, puf, scooter,
+    specialarchiver, webcrawler, wget, yandexbot, yandeximages, java,
+    unknown
+
+    Returns "unknown" when the user agent is believed to be a robot but is
+    not identified as one of the above specific robots.
+
+    Returns undef if the user agent is not a robot or cannot be identified.
+
+    Note that if a robot crafts a user agent designed to impersonate a
+    particular browser, we generally set properties appropriate to both the
+    actual robot, and the browser it is impersonating. For example,
+    googlebot-mobile pretends to be mobile safari so that it will get
+    mobile versions of pages. In this case, browser() will return 'safari',
+    the properties will generally be set as if for Mobile Safari, the
+    'robot' property will be set, and robot() will return 'googlemobile'.
 
   lib()
 
-    Returns true if the user agent appears to be a software library (e.g.
-    LWP, curl, wget). Generally this also implies that robot() will return
-    true.
+    Returns true if the user agent appears to be an HTTP library or tool
+    (e.g. LWP, curl, wget, java). Generally libraries are also classified
+    as robots, although it is impossible to tell whether they are being
+    operated by an automated system or a human.
 
-OS Platform and Version
+  robot_string()
+
+    Returns a human formatted version of the robot name. These names are
+    subject to change and are meant for display purposes. This may include
+    additional information (e.g. robots which return "unknown" from robot()
+    generally can be identified in a human-readable fashion by reading
+    robot_string() ).
+
+Browser Properties
+
+    Operating systems, devices, browser names, rendering engines, and
+    true-or-false methods (e.g. "mobile" and "lib") are all browser
+    properties. For example, calling browser_properties() for Mobile Safari
+    running on an Android will return this list:
+
+    ('android', 'device', 'mobile', 'mobile_safari', 'safari', 'webkit')
+
+ browser_properties()
+
+    Returns all properties for this user agent, as a list. Note that
+    because a large number of cases must be considered, this will take
+    significantly more time than simply querying the particular methods you
+    care about.
+
+    The complete list of properties follows (i.e. each of these methods is
+    both a method you can call, and also a property that will be in the
+    list returned by browser_properties() if appropriate):
+
+ OS related properties
 
     The following methods are available, each returning a true or false
     value. Some methods also test for the operating system version. The
     indentations below show the hierarchy of tests (for example, win2k is
     considered a type of winnt, which is a type of win32)
 
- windows()
+  windows()
 
         win16 win3x win31
         win32
@@ -168,41 +259,41 @@ OS Platform and Version
         winphone
             winphone7 winphone7_5 winphone8
 
- dotnet()
+  dotnet()
 
- chromeos()
+  chromeos()
 
- firefoxos()
+  firefoxos()
 
- mac()
+  mac()
 
     mac68k macppc macosx ios
 
- os2()
+  os2()
 
- bb10()
+  bb10()
 
- rimtabletos()
+  rimtabletos()
 
- unix()
+  unix()
 
       sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10
       aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant
       dec sinix freebsd bsd
 
- vms()
+  vms()
 
- amiga()
+  amiga()
 
- ps3gameos()
+  ps3gameos()
 
- pspgameos()
+  pspgameos()
 
     It may not be possibile to detect Win98 in Netscape 4.x and earlier. On
     Opera 3.0, the userAgent string includes "Windows 95/NT4" on all Win32,
     so you can't distinguish between Win95 and WinNT.
 
-Detecting Browser Vendor
+ Browser related properties
 
     The following methods are available, each returning a true or false
     value. Some methods also test for the browser version, saving you from
@@ -265,12 +356,12 @@ Detecting Browser Vendor
 
   webtv
 
-    Netscape 6, even though its called six, in the User-Agent string has
+    Netscape 6, even though it's called six, in the User-Agent string has
     version number 5. The nav6 and nav6up methods correctly handle this
     quirk. The Firefox test correctly detects the older-named versions of
     the browser (Phoenix, Firebird).
 
-Detecting Devices
+ Device related properties
 
     The following methods are available, each returning a true or false
     value.
@@ -309,7 +400,7 @@ Detecting Devices
 
   ps3
 
-Detecting robots
+ Robot properties
 
     The following additional methods are available, each returning a true
     or false value. This is by no means a complete list of robots that
@@ -336,6 +427,8 @@ Detecting robots
   googleadsense
 
   googlemobile
+
+  indy
 
   infoseek
 
@@ -365,7 +458,7 @@ Detecting robots
 
   yandeximages
 
-Engine properties
+ Engine properties
 
     The following properties indicate if a particular rendering engine is
     being used.
@@ -380,14 +473,15 @@ Engine properties
 
   khtml
 
-Other information
+Other methods
 
  user_agent()
 
     Returns the value of the user agent string.
 
-    Calling this method with a parameter has now been deprecated and this
-    feature will be removed in an upcoming release.
+    Calling this method with a parameter to set the user agent has now been
+    removed; please use HTTP::BrowserDetect->new() to pass the user agent
+    string.
 
  country()
 
@@ -401,97 +495,90 @@ Other information
     This will be in the form of an upper case 2 character code. ie: EN, DE,
     etc
 
- device()
+ engine()
 
-    Returns the method name of the actual hardware, if it can be detected.
-    Currently returns one of: android, audrey, avantgo, blackberry, dsi,
-    iopener, ipad, iphone, ipod, kindle, n3ds, palm, ps3, psp, wap, webos.
-    Returns undef if no hardware can be detected
+    Returns the rendering engine, one of the following:
+
+    gecko, webkit, khtml, trident, ie, presto, netfront
+
+    Note that this returns "webkit" for webkit based browsers (including
+    Chrome/Blink). This is a change from previous versions of this library,
+    which returned "KHTML" for webkit.
+
+    Returns undef if none of the above rendering engines can be detected.
+
+ engine_string()
+
+    Returns a human formatted version of the rendering engine.
+
+    Note that this returns "WebKit" for webkit based browsers (including
+    Chrome/Blink). This is a change from previous versions of this library,
+    which returned "KHTML" for webkit.
+
+    Returns undef if none of the known rendering engines can be detected.
+
+ engine_version() =head2 engine_major() =head2 engine_minor() =head2
+ engine_beta()
+
+    Returns version information for the rendering engine, if any can be
+    detected. The format is the same as for the browser_version()
+    functions.
+
+Deprecated methods
 
  device_name()
 
-    Returns a human formatted version of the hardware device name. These
-    names are subject to change and are really meant for display purposes.
-    You should use the device() method in your logic. Returns one of:
-    Android, Audrey, BlackBerry, Nintendo DSi, iopener, iPad, iPhone, iPod,
-    Amazon Kindle, Nintendo 3DS, Palm, Sony PlayStation 3, Sony Playstation
-    Portable, WAP capable phone, webOS. Also Windows-based smartphones will
-    output various different names like HTC T7575. Returns undef if this is
-    not a device or if no device name can be detected.
+    Deprecated alternate name for device_string()
 
- version($version)
+ version()
 
-    This is probably not what you want. Please use either public_version()
+    This is probably not what you want. Please use either browser_version()
     or engine_version() instead.
 
-    Returns the version as a string. If passed a parameter, returns true if
-    it equals the browser major version.
+    Returns the version (major and minor) as a string.
 
     This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
+    compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- major($major)
+ major()
 
-    This is probably not what you want. Please use either public_major() or
-    engine_major() instead.
+    This is probably not what you want. Please use either browser_major()
+    or engine_major() instead.
 
-    Returns the integer portion of the browser version as a string. If
-    passed a parameter, returns true if it equals the browser major
-    version.
+    Returns the integer portion of the browser version as a string.
 
     This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
+    compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- minor($minor)
+ minor()
 
-    This is probably not what you want. Please use either public_minor() or
-    engine_minor() instead.
+    This is probably not what you want. Please use either browser_minor()
+    or engine_minor() instead.
 
     Returns the decimal portion of the browser version as a string.
 
-    If passed a parameter, returns true if equals the minor version.
-
     This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
+    compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- beta($beta)
+ beta()
 
-    This is probably not what you want. Please use public_beta() instead.
+    This is probably not what you want. Please use browser_beta() instead.
 
     Returns the beta version, consisting of any characters after the major
     and minor version number, as a string.
 
     This function returns wrong values for some Safari versions, for
-    compatibility with earlier code. public_version() returns correct
+    compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- engine_string()
+ public_version() =head2 public_major() =head2 public_minor() =head2
+ public_beta()
 
-    Returns the name of the rendering engine, one of the following:
-
-    Gecko, WebKit, KHTML, Trident, MSIE, Presto, NetFront
-
-    Note that this returns "WebKit" for webkit based browsers (including
-    the Blink fork). This is a change from previous versions of this
-    library, which returned "KHTML" for webkit.
-
-    Returns undef otherwise.
-
- engine_version()
-
-    Returns the version number of the rendering engine, major and minor, as
-    a string.
-
- engine_major()
-
-    Returns the major version number of the rendering engine.
-
- engine_minor()
-
-    Returns the minor version number of the rendering engine.
+    Deprecated alternate names for the browser_version() family of
+    functions.
 
  gecko_version()
 
@@ -499,7 +586,8 @@ Other information
     the engine version. If no Gecko browser is being used, or the version
     number can't be detected, returns undef.
 
-    This is an old function, preserved for compatibility.
+    This is an old function, preserved for compatibility; please use
+    engine_version() in new code.
 
 CREDITS
 
