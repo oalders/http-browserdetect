@@ -34,8 +34,8 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     foreach my $method (
         'browser', 'browser_string', 'browser_beta',
-	'engine', 'engine_string', 'engine_beta',
-	'os', 'os_string', 'os_beta',
+        'engine',  'engine_string',  'engine_beta',
+        'os',      'os_string',      'os_beta',
         ) {
         if ( $test->{$method} ) {
             cmp_ok(
@@ -76,8 +76,8 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     foreach my $method (
         'language',
-	'device', 'device_name', 'device_string',
-	'robot', 'robot_name', 'robot_string'
+        'device', 'device_name', 'device_string',
+        'robot',  'robot_name',  'robot_string'
         ) {
         if (    exists $test->{$method}
             and defined $test->{$method}

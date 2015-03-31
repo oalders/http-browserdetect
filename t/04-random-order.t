@@ -77,7 +77,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     diag($ua);
 
     for my $i ( 0 .. $N_DETECTS - 1 ) {
-	$detect[$i] = HTTP::BrowserDetect->new($ua);
+        $detect[$i] = HTTP::BrowserDetect->new($ua);
 
         for my $j ( 1 .. $N_TESTS ) {
             my $method = $methods[ int( rand(@methods) ) ];
