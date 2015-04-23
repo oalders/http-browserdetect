@@ -536,26 +536,27 @@ sub _init_core {
         $browser_tests->{ie} = 1;
 
         if (   index( $ua, 'aol' ) != -1
-	       || index( $ua, 'america online browser' ) != -1 ) {
+            || index( $ua, 'america online browser' ) != -1 ) {
             $browser_string = 'AOL Browser';
             $browser_tests->{aol} = 1;
         }
-	# Disabled for now -- need to figure out how to deal with version numbers
-	#elsif ( index ( $ua, 'acoobrowser' ) != -1 ) {
-	#    $browser_string = 'Acoo Browser';
-	#}
-	#elsif ( index( $ua, 'avant' ) != -1 ) {
-	#    $browser_string = 'Avant Browser';
-	#}
-	#elsif ( index( $ua, 'crazy browser' ) != -1 ) {
-	#    $browser_string = 'Crazy Browser';
-	#}
-	#elsif ( index( $ua, 'deepnet explorer' ) != -1 ) {
-	#    $browser_string = 'Deepnet Explorer';
-	#}
-	#elsif ( index( $ua, 'maxthon' ) != -1 ) {
-	#    $browser_string = 'Maxthon';
-	#}
+
+        # Disabled for now -- need to figure out how to deal with version numbers
+        #elsif ( index ( $ua, 'acoobrowser' ) != -1 ) {
+        #    $browser_string = 'Acoo Browser';
+        #}
+        #elsif ( index( $ua, 'avant' ) != -1 ) {
+        #    $browser_string = 'Avant Browser';
+        #}
+        #elsif ( index( $ua, 'crazy browser' ) != -1 ) {
+        #    $browser_string = 'Crazy Browser';
+        #}
+        #elsif ( index( $ua, 'deepnet explorer' ) != -1 ) {
+        #    $browser_string = 'Deepnet Explorer';
+        #}
+        #elsif ( index( $ua, 'maxthon' ) != -1 ) {
+        #    $browser_string = 'Maxthon';
+        #}
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
 
@@ -564,8 +565,8 @@ sub _init_core {
         $browser = 'silk';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, "chrome/" ) != -1
-	|| index( $ua, "crios" ) != -1 ) {
+    elsif (index( $ua, "chrome/" ) != -1
+        || index( $ua, "crios" ) != -1 ) {
 
         # Browser is Chrome
 
@@ -590,9 +591,8 @@ sub _init_core {
 
         $browser_tests->{safari} = 1;
         $browser = 'safari';
-        if ( index( $ua, " mobile safari/" ) != -1
-	    || index( $ua, "mobilesafari" ) != -1 )
-	{
+        if (   index( $ua, " mobile safari/" ) != -1
+            || index( $ua, "mobilesafari" ) != -1 ) {
             $browser_string = 'Mobile Safari';
             $browser_tests->{mobile_safari} = 1;
         }
@@ -708,12 +708,12 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "dalvik" ) != -1 ) {
-	$browser = 'dalvik';
-	$browser_tests->{$browser} = 1;
+        $browser = 'dalvik';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "ucbrowser" ) != -1 ) {
-	$browser = 'ucbrowser';
-	$browser_tests->{$browser} = 1;
+        $browser = 'ucbrowser';
+        $browser_tests->{$browser} = 1;
     }
 
     $self->{browser} = $browser;
@@ -829,7 +829,7 @@ sub _init_robots {
         $r = 'altavista';
     }
     elsif ( index( $ua, "apache-httpclient" ) != -1 ) {
-	$r = 'apache';
+        $r = 'apache';
     }
     elsif ( index( $ua, "ask jeeves/teoma" ) != -1 ) {
         $r = 'askjeeves';
@@ -875,8 +875,8 @@ sub _init_robots {
         $r = 'google';
     }
     elsif ( $ua =~ m{go.*package http} ) {
-	$r = 'golib';
-	$robot_tests->{lib} = 1;
+        $r = 'golib';
+        $robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "indy library" ) != -1 ) {
         $r = 'indy';
@@ -895,8 +895,8 @@ sub _init_robots {
         $r = 'lycos';
     }
     elsif ( index( $ua, "mechanize" ) != -1 ) {
-	$r = 'rubylib';
-	$robot_tests->{lib} = 1;
+        $r = 'rubylib';
+        $robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "mj12bot/" ) != -1 ) {
         $r = 'mj12bot';
@@ -923,7 +923,7 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'yandeximages';
     }
-    elsif ( ($ua =~ m{^java} && !$self->{browser} )
+    elsif (( $ua =~ m{^java} && !$self->{browser} )
         || index( $ua, "jdk" ) != -1
         || index( $ua, "jakarta commons-httpclient" ) != -1
         || index( $ua, "google-http-java-client" ) != -1 ) {
@@ -931,9 +931,8 @@ sub _init_robots {
         $robot_tests->{lib} = 1;
     }
 
-    if ( $browser_tests->{applecoremedia}
-	 || $browser_tests->{dalvik} )
-    {
+    if (   $browser_tests->{applecoremedia}
+        || $browser_tests->{dalvik} ) {
         $robot_tests->{lib} = 1;
     }
 
@@ -959,11 +958,12 @@ sub _init_robots {
         $self->{robot_fragment} = "search";
         $robot_tests->{robot}   = 'unknown';
     }
-    elsif ( 0 && $self->{user_agent} =~ /([\w \/\.]+)\s*[\;\(]\s*\+http\:/i ) {
-	# Something followed by +http
-	$self->{robot_string} = $1;
-	$self->{robot_string} =~ s/^(.*?)\s*/$1/;
-	$robot_tests->{robot} = 'unknown';
+    elsif ( 0 && $self->{user_agent} =~ /([\w \/\.]+)\s*[\;\(]\s*\+http\:/i )
+    {
+        # Something followed by +http
+        $self->{robot_string} = $1;
+        $self->{robot_string} =~ s/^(.*?)\s*/$1/;
+        $robot_tests->{robot} = 'unknown';
     }
     else {
         # See if we have a simple fragment
@@ -1019,9 +1019,10 @@ sub _init_os {
             $os_string = 'Win95';
             $os_tests->{win95} = $os_tests->{win32} = 1;
         }
-        elsif ( index( $ua, "win 9x 4.90" ) != -1     # whatever
-		|| index( $ua, "windows me" ) != -1 )
-        {
+        elsif (
+            index( $ua, "win 9x 4.90" ) != -1    # whatever
+            || index( $ua, "windows me" ) != -1
+            ) {
             $os        = "windows";
             $os_string = 'WinME';
             $os_tests->{winme} = $os_tests->{win32} = 1;
@@ -1032,11 +1033,11 @@ sub _init_os {
             $os_string = 'Win98';
             $os_tests->{win98} = $os_tests->{win32} = 1;
         }
-	elsif ( index( $ua, "windows 2000" ) != -1 ) {
+        elsif ( index( $ua, "windows 2000" ) != -1 ) {
             $os        = "windows";
             $os_string = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
-	}
+        }
         elsif ( index( $ua, "windows ce" ) != -1 ) {
             $os                = 'windows';
             $os_string         = 'WinCE';
@@ -1059,9 +1060,8 @@ sub _init_os {
     }
 
     if ( index( $ua, "nt" ) != -1 ) {
-        if ( index( $ua, "nt 5.0" ) != -1
-	     || index( $ua, "nt5" ) != -1 )
-	{
+        if (   index( $ua, "nt 5.0" ) != -1
+            || index( $ua, "nt5" ) != -1 ) {
             $os        = "windows";
             $os_string = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
@@ -1470,9 +1470,8 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
-    elsif ( $browser eq 'chrome' &&
-	    $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} )
-    {
+    elsif ($browser eq 'chrome'
+        && $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} ) {
         $major = $1;
         $minor = $2;
         $beta  = $3;
@@ -1840,11 +1839,12 @@ sub _init_device {
         $device_string = "BlackBerry $1";
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-	if ( $device_tests->{tablet} ) {
-	    $device_string = "Android tablet ($1)";
-	} else {
-	    $device_string = "Android ($1)";
-	}
+        if ( $device_tests->{tablet} ) {
+            $device_string = "Android tablet ($1)";
+        }
+        else {
+            $device_string = "Android ($1)";
+        }
     }
     elsif ( $self->{user_agent}
         =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
@@ -1866,7 +1866,7 @@ sub _init_device {
     }
 
     if ($device_string) {
-	$self->{device_string} = $device_string;
+        $self->{device_string} = $device_string;
     }
 }
 
@@ -2349,20 +2349,21 @@ sub robot_string {
             ) {
             $self->{robot_string} = $1;
             $self->{robot_string} =~ s/ *$//;    # Trim whitespace at end
-	    if ( $self->{user_agent} eq $self->{robot_string}
-		&& $self->{user_agent} =~ m{\/.*\/}
-		&& $self->{user_agent} =~ m{
+            if (
+                   $self->{user_agent} eq $self->{robot_string}
+                && $self->{user_agent} =~ m{\/.*\/}
+                && $self->{user_agent} =~ m{
                                       ([\w]*               # Words before fragment
                                        $fragment           # Match the fragment
                                        \/[\d\.]+           # Version
                                        [\w]*)              # Beta stuff
-                                     }ix )
-	    {
-		# We matched the whole string, but it seems to
-		# make more sense as whitespace-separated
-		# "thing/ver" tokens
-		$self->{robot_string} = $1;
-	    }
+                                     }ix
+                ) {
+                # We matched the whole string, but it seems to
+                # make more sense as whitespace-separated
+                # "thing/ver" tokens
+                $self->{robot_string} = $1;
+            }
         }
     }
     return $self->{robot_string};
