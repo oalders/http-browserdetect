@@ -958,8 +958,8 @@ sub _init_robots {
         $self->{robot_fragment} = "search";
         $robot_tests->{robot}   = 'unknown';
     }
-    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i )
-    {
+    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
+
         # Something followed by +http
         $self->{robot_string} = $1;
         $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
