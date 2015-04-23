@@ -2853,8 +2853,11 @@
    "BUbiNG (+http://law.di.unimi.it/BUbiNG.html)" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_name" : "BUbiNG"
    },
    "Baiduspider-image+(+http://www.baidu.com/search/spider.htm)\\\\nReferer: http://image.baidu.com/i?ct=503316480&z=0&tn=baiduimagedetail" : {
       "browser_major" : 0,
@@ -2933,8 +2936,11 @@
    "Crowsnest/0.5 (+http://www.crowsnest.tv/)" : {
       "browser_major" : 0,
       "browser_minor" : ".5",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_name" : "Crowsnest/0.5"
    },
    "Dalvik/1.6.0 (Linux; U; Android 4.4.2; LGMS395 Build/KOT49I.MS39510d)" : {
       "browser" : "dalvik",
@@ -11349,14 +11355,16 @@
          "mac",
          "macosx",
          "firefox",
-         "gecko"
+         "gecko",
+         "robot"
       ],
       "os" : "macosx",
       "os_beta" : "",
       "os_major" : "10",
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
-      "robot" : 0
+      "robot" : "unknown",
+      "robot_string": "FlipboardProxy/1.1"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5" : {
       "browser" : "safari",
@@ -16638,14 +16646,10 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [
-         "unix",
-         "sco",
          "robot"
       ],
-      "os" : "unix",
-      "os_string" : "SCO Unix",
       "robot" : "unknown",
-      "robot_name" : "Blekkobot"
+      "robot_name" : "ScoutJet"
    },
    "Mozilla/5.0 (compatible; DomainAppender /1.0; +http://www.profound.net/domainappender)" : {
       "browser_major" : "5",
@@ -16663,7 +16667,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "http://domainsigma.com/robot"
+      "robot_name" : "DomainSigmaCrawler/0.1"
    },
    "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" : {
       "browser_major" : "1",
@@ -16725,8 +16729,11 @@
    "Mozilla/5.0 (compatible; GoogleDocs; documents; +http://docs.google.com)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "documents"
    },
    "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" : {
       "browser_major" : "2",
@@ -16750,8 +16757,11 @@
    "Mozilla/5.0 (compatible; GroupHigh/1.0; +http://www.grouphigh.com/)" : {
       "browser_major" : "1",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "GroupHigh/1.0"
    },
    "Mozilla/5.0 (compatible; HyperCrawl/0.2; +http://www.seograph.net/bot.html)" : {
       "browser_major" : 0,
@@ -16760,7 +16770,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "http://www.seograph.net/bot.html"
+      "robot_name" : "HyperCrawl/0.2"
    },
    "Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +http://go.mail.ru/help/robots)" : {
       "browser_major" : "5",
@@ -17528,8 +17538,11 @@
    "Mozilla/5.0 (compatible; Seznam screenshot-generator 2.1; +http://fulltext.sblog.cz/screenshot/)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "Seznam screenshot-generator 2.1"
    },
    "Mozilla/5.0 (compatible; SeznamBot/3.2; +http://fulltext.sblog.cz/)" : {
       "browser_major" : "3",
@@ -17593,7 +17606,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "archive.org_bot"
+      "robot_name" : "Wayback Machine Live Record"
    },
    "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" : {
       "browser_major" : "2",
@@ -17619,14 +17632,20 @@
    "Mozilla/5.0 (compatible; coccoc/1.0; +http://help.coccoc.com/)" : {
       "browser_major" : "1",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "coccoc/1.0"
    },
    "Mozilla/5.0 (compatible; heritrix/3.1.1 +http://www.baidu.com)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "heritrix/3.1.1"
    },
    "Mozilla/5.0 (compatible; linkdexbot/2.2; +http://www.linkdex.com/bots/)" : {
       "browser_major" : "2",
@@ -17689,13 +17708,9 @@
       "engine_string" : "WebKit",
       "language" : "EN",
       "match" : [
-         "unix",
-         "sco",
          "chrome",
          "webkit"
       ],
-      "os" : "unix",
-      "os_string" : "SCO Unix",
       "robot" : 0
    },
    "Mozilla/5.0 (iPad; CPU OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3" : {
@@ -18783,9 +18798,11 @@
          "nav4up",
          "nav45up",
          "nav6",
-         "nav6up"
+         "nav6up",
+         "robot"
       ],
-      "robot" : 0
+      "robot" : "unknown",
+      "robot_string" : "Mozilla/5.0 Moreover/5.1"
    },
    "NING/1.0" : {
       "browser_major" : "1",
@@ -19075,8 +19092,11 @@
       "browser_beta" : ".4",
       "browser_major" : 0,
       "browser_minor" : ".9",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "OrgProbe/0.9.4"
    },
    "PHP/5.2.17p1" : {
       "browser_beta" : ".17p1",
@@ -19321,7 +19341,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "http://www.wotbox.com/bot/"
+      "robot_name" : "Wotbox/2.01"
    },
    "Xenu Link Sleuth/1.3.8" : {
       "browser_beta" : ".8",

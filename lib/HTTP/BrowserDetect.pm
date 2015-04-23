@@ -958,11 +958,11 @@ sub _init_robots {
         $self->{robot_fragment} = "search";
         $robot_tests->{robot}   = 'unknown';
     }
-    elsif ( 0 && $self->{user_agent} =~ /([\w \/\.]+)\s*[\;\(]\s*\+http\:/i )
+    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i )
     {
         # Something followed by +http
         $self->{robot_string} = $1;
-        $self->{robot_string} =~ s/^(.*?)\s*/$1/;
+        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
         $robot_tests->{robot} = 'unknown';
     }
     else {
@@ -1203,7 +1203,7 @@ sub _init_os {
         $os_tests->{aix3} = 1 if ( index( $ua, "aix 3" ) != -1 );
         $os_tests->{aix4} = 1 if ( index( $ua, "aix 4" ) != -1 );
     }
-    elsif ( index( $ua, "sco" ) != -1 || index( $ua, "unix_sv" ) != -1 ) {
+    elsif ( $ua =~ m{\bsco\b} || index( $ua, "unix_sv" ) != -1 ) {
         $os        = 'unix';
         $os_string = 'SCO Unix';
         $os_tests->{sco} = $os_tests->{unix} = 1;
