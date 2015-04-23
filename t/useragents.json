@@ -4540,7 +4540,7 @@
       "public_minor" : "0",
       "public_version" : "1.0",
       "robot" : "unknown",
-      "robot_string" : "Mozilla/DnsHealthCheckBot/1.0"
+      "robot_string" : "DnsHealthCheckBot/1.0"
    },
    "Nokia-WAP-Toolkit/1.3beta" : {
       "country" : null,
