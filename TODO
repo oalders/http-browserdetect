@@ -8,7 +8,7 @@
  - Browsers to add: Dolphin, Avant (need user agent examples for both),
    Cometbird, Chromium, Chromeframe, Crowsnest, Google page speed
    insights, GSA, wOSbrowser, Deepnet explorer, CrazyBrowser,
-   wkhtmltoimage, CriOS
+   wkhtmltoimage, Palemoon, Nintendo WIIU, Wordpress, pythonlib
    (Andrew Moise - 2015-02-26)
 
  - Support Kindle Fire tablets
@@ -27,4 +27,4 @@
     (Andrew Moise - 2015-03-15)
 
  - Add "malware" test
-(Andrew Moise - 2015-03-22)
+    (Andrew Moise - 2015-03-22)

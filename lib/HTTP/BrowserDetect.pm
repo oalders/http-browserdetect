@@ -73,7 +73,7 @@ our @BROWSER_TESTS = qw(
     lotusnotes     staroffice  icab
     webtv          browsex     silk
     applecoremedia galeon      seamonkey
-    epiphany
+    epiphany       ucbrowser   dalvik
 );
 
 our @IE_TESTS = qw(
@@ -125,7 +125,8 @@ our @ROBOT_TESTS = qw(
     googlebotnews   googlebotimage google
     linkchecker     yandeximages   specialarchiver
     yandex          java           lib
-    indy
+    indy            golib          rubylib
+    apache
 );
 
 our @MISC_TESTS = qw(
@@ -153,6 +154,7 @@ sub _all_tests {
 my %ROBOT_NAMES = (
     ahrefs          => 'Ahrefs',
     altavista       => 'AltaVista',
+    apache          => 'Apache http client',
     askjeeves       => 'AskJeeves',
     baidu           => 'Baidu Spider',
     curl            => 'curl',
@@ -165,6 +167,7 @@ my %ROBOT_NAMES = (
     googlebotnews   => 'Googlebot News',
     googlebotvideo  => 'Googlebot Video',
     googlemobile    => 'Googlebot Mobile',
+    golib           => 'Go language http library',
     indy            => 'Indy Library',
     infoseek        => 'InfoSeek',
     java            => 'Java',
@@ -177,6 +180,7 @@ my %ROBOT_NAMES = (
     msnmobile       => 'MSN Mobile',
     puf             => 'puf',
     robot           => 'robot',
+    rubylib         => 'Ruby http library',
     slurp           => 'Yahoo! Slurp',
     specialarchiver => 'archive.org_bot',
     webcrawler      => 'WebCrawler',
@@ -193,6 +197,7 @@ my %BROWSER_NAMES = (
     browsex        => 'BrowseX',
     chrome         => 'Chrome',
     curl           => 'curl',
+    dalvik         => 'Dalvik',
     dsi            => 'Nintendo DSi',
     elinks         => 'ELinks',
     epiphany       => 'Epiphany',
@@ -219,6 +224,7 @@ my %BROWSER_NAMES = (
     seamonkey      => 'SeaMonkey',
     silk           => 'Silk',
     staroffice     => 'StarOffice',
+    ucbrowser      => 'UCBrowser',
     webtv          => 'WebTV',
 );
 
@@ -529,11 +535,28 @@ sub _init_core {
         $browser = 'ie';
         $browser_tests->{ie} = 1;
 
-        if (   index( $ua, "aol" ) != -1
-            || index( $ua, "america online browser" ) != -1 ) {
+        if (   index( $ua, 'aol' ) != -1
+            || index( $ua, 'america online browser' ) != -1 ) {
             $browser_string = 'AOL Browser';
             $browser_tests->{aol} = 1;
         }
+
+        # Disabled for now -- need to figure out how to deal with version numbers
+        #elsif ( index ( $ua, 'acoobrowser' ) != -1 ) {
+        #    $browser_string = 'Acoo Browser';
+        #}
+        #elsif ( index( $ua, 'avant' ) != -1 ) {
+        #    $browser_string = 'Avant Browser';
+        #}
+        #elsif ( index( $ua, 'crazy browser' ) != -1 ) {
+        #    $browser_string = 'Crazy Browser';
+        #}
+        #elsif ( index( $ua, 'deepnet explorer' ) != -1 ) {
+        #    $browser_string = 'Deepnet Explorer';
+        #}
+        #elsif ( index( $ua, 'maxthon' ) != -1 ) {
+        #    $browser_string = 'Maxthon';
+        #}
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
 
@@ -542,7 +565,8 @@ sub _init_core {
         $browser = 'silk';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, "chrome/" ) != -1 ) {
+    elsif (index( $ua, "chrome/" ) != -1
+        || index( $ua, "crios" ) != -1 ) {
 
         # Browser is Chrome
 
@@ -567,7 +591,8 @@ sub _init_core {
 
         $browser_tests->{safari} = 1;
         $browser = 'safari';
-        if ( index( $ua, " mobile safari/" ) != -1 ) {
+        if (   index( $ua, " mobile safari/" ) != -1
+            || index( $ua, "mobilesafari" ) != -1 ) {
             $browser_string = 'Mobile Safari';
             $browser_tests->{mobile_safari} = 1;
         }
@@ -682,6 +707,14 @@ sub _init_core {
         $browser = 'applecoremedia';
         $browser_tests->{$browser} = 1;
     }
+    elsif ( index( $ua, "dalvik" ) != -1 ) {
+        $browser = 'dalvik';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "ucbrowser" ) != -1 ) {
+        $browser = 'ucbrowser';
+        $browser_tests->{$browser} = 1;
+    }
 
     $self->{browser} = $browser;
     $self->{browser_string} = $browser_string || $BROWSER_NAMES{$browser}
@@ -747,10 +780,13 @@ my @ROBOT_FRAGMENTS = qw(
     index
     netcraft
     reap
+    resolver
     sleuth
     scan
     service
     spider
+    tiscali
+    validator
     webcapture
     worm
     zyborg
@@ -791,6 +827,9 @@ sub _init_robots {
     }
     elsif ( index( $ua, "altavista" ) != -1 ) {
         $r = 'altavista';
+    }
+    elsif ( index( $ua, "apache-httpclient" ) != -1 ) {
+        $r = 'apache';
     }
     elsif ( index( $ua, "ask jeeves/teoma" ) != -1 ) {
         $r = 'askjeeves';
@@ -835,6 +874,10 @@ sub _init_robots {
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
     }
+    elsif ( $ua =~ m{go.*package http} ) {
+        $r = 'golib';
+        $robot_tests->{lib} = 1;
+    }
     elsif ( index( $ua, "indy library" ) != -1 ) {
         $r = 'indy';
         $robot_tests->{lib} = 1;
@@ -850,6 +893,10 @@ sub _init_robots {
     }
     elsif ( index( $ua, "lycos" ) != -1 ) {
         $r = 'lycos';
+    }
+    elsif ( index( $ua, "mechanize" ) != -1 ) {
+        $r = 'rubylib';
+        $robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "mj12bot/" ) != -1 ) {
         $r = 'mj12bot';
@@ -876,14 +923,16 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'yandeximages';
     }
-    elsif ($ua =~ m{\bjava}
+    elsif (( $ua =~ m{^java} && !$self->{browser} )
         || index( $ua, "jdk" ) != -1
-        || index( $ua, "jakarta commons-httpclient" ) != -1 ) {
+        || index( $ua, "jakarta commons-httpclient" ) != -1
+        || index( $ua, "google-http-java-client" ) != -1 ) {
         $r = 'java';
         $robot_tests->{lib} = 1;
     }
 
-    if ( $browser_tests->{applecoremedia} ) {
+    if (   $browser_tests->{applecoremedia}
+        || $browser_tests->{dalvik} ) {
         $robot_tests->{lib} = 1;
     }
 
@@ -908,6 +957,13 @@ sub _init_robots {
         # Store the fragment for later, to determine full name
         $self->{robot_fragment} = "search";
         $robot_tests->{robot}   = 'unknown';
+    }
+    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
+
+        # Something followed by +http
+        $self->{robot_string} = $1;
+        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
+        $robot_tests->{robot} = 'unknown';
     }
     else {
         # See if we have a simple fragment
@@ -963,8 +1019,10 @@ sub _init_os {
             $os_string = 'Win95';
             $os_tests->{win95} = $os_tests->{win32} = 1;
         }
-        elsif ( index( $ua, "win 9x 4.90" ) != -1 )    # whatever
-        {
+        elsif (
+            index( $ua, "win 9x 4.90" ) != -1    # whatever
+            || index( $ua, "windows me" ) != -1
+            ) {
             $os        = "windows";
             $os_string = 'WinME';
             $os_tests->{winme} = $os_tests->{win32} = 1;
@@ -974,6 +1032,11 @@ sub _init_os {
             $os        = "windows";
             $os_string = 'Win98';
             $os_tests->{win98} = $os_tests->{win32} = 1;
+        }
+        elsif ( index( $ua, "windows 2000" ) != -1 ) {
+            $os        = "windows";
+            $os_string = 'Win2k';
+            $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, "windows ce" ) != -1 ) {
             $os                = 'windows';
@@ -997,7 +1060,8 @@ sub _init_os {
     }
 
     if ( index( $ua, "nt" ) != -1 ) {
-        if ( index( $ua, "nt 5.0" ) != -1 || index( $ua, "nt5" ) != -1 ) {
+        if (   index( $ua, "nt 5.0" ) != -1
+            || index( $ua, "nt5" ) != -1 ) {
             $os        = "windows";
             $os_string = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
@@ -1139,7 +1203,7 @@ sub _init_os {
         $os_tests->{aix3} = 1 if ( index( $ua, "aix 3" ) != -1 );
         $os_tests->{aix4} = 1 if ( index( $ua, "aix 4" ) != -1 );
     }
-    elsif ( index( $ua, "sco" ) != -1 || index( $ua, "unix_sv" ) != -1 ) {
+    elsif ( $ua =~ m{\bsco\b} || index( $ua, "unix_sv" ) != -1 ) {
         $os        = 'unix';
         $os_string = 'SCO Unix';
         $os_tests->{sco} = $os_tests->{unix} = 1;
@@ -1149,7 +1213,7 @@ sub _init_os {
         $os_string = 'System V Unix';
         $os_tests->{unixware} = $os_tests->{unix} = 1;
     }
-    elsif ( index( $ua, "ncr" ) != -1 ) {
+    elsif ( $ua =~ m{\bncr\b} ) {
         $os        = 'unix';
         $os_string = 'NCR Unix';
         $os_tests->{mpras} = $os_tests->{unix} = 1;
@@ -1402,6 +1466,12 @@ sub _init_version {
     elsif ( $ua =~ m{netscape6/(\d+)\.(\d+)([\d.]*)} ) {
 
         # Other cases get handled below, we just need this to skip the "6"
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
+    }
+    elsif ($browser eq 'chrome'
+        && $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} ) {
         $major = $1;
         $minor = $2;
         $beta  = $3;
@@ -1684,8 +1754,6 @@ sub _init_device {
             || index( $ua, "ipad" ) != -1
             || ( index( $ua, "opera mini" ) != -1
             && index( $ua, "tablet" ) == -1 )
-            || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) != -1 )
             || index( $ua, "htc_" ) != -1
             || index( $ua, "symbian" ) != -1
             || index( $ua, "webos" ) != -1
@@ -1716,8 +1784,7 @@ sub _init_device {
             && index( $ua, "arm" ) != -1 )
             || ( index( $ua, "android" ) != -1
             && index( $ua, "mobile" ) == -1
-            && index( $ua, "opera" ) == -1
-            && index( $ua, "silk" ) == -1 )
+            && index( $ua, "safari" ) != -1 )
             || ( $browser_tests->{firefox} && index( $ua, "tablet" ) != -1 )
             || index( $ua, "kindle" ) != -1
             || index( $ua, "xoom" ) != -1
@@ -1743,46 +1810,51 @@ sub _init_device {
     );
 
     if ( $browser_tests->{obigo} && $ua =~ /^(mot-[^ \/]+)/ ) {
-        $self->{device_string} = substr $self->{user_agent}, 0, length $1;
-        $self->{device_string} =~ s/^MOT-/Motorola /i;
+        $device_string = substr $self->{user_agent}, 0, length $1;
+        $device_string =~ s/^MOT-/Motorola /i;
     }
     elsif (
         $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
     {
-        $self->{device_string} = substr $self->{user_agent},
+        $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/; / /;
+        $device_string =~ s/; / /;
     }
     elsif ( $ua
         =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
         ) {
-        $self->{device_string} = substr $self->{user_agent},
+        $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/; / /;
+        $device_string =~ s/; / /;
     }
     elsif ( $ua =~ /bb10; ([^;\)]+)/g ) {
-        $self->{device_string} = 'BlackBerry ' . substr $self->{user_agent},
+        $device_string = 'BlackBerry ' . substr $self->{user_agent},
             pos($ua) - length $1, length $1;
-        $self->{device_string} =~ s/Kbd/Q10/;
+        $device_string =~ s/Kbd/Q10/;
     }
     elsif ( $ua =~ /blackberry ([\w.]+)/ ) {
-        $self->{device_string} = "BlackBerry $1";
+        $device_string = "BlackBerry $1";
     }
     elsif ( $ua =~ /blackberry(\d+)\// ) {
-        $self->{device_string} = "BlackBerry $1";
+        $device_string = "BlackBerry $1";
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-        $self->{device_string} = "Android ($1)";
+        if ( $device_tests->{tablet} ) {
+            $device_string = "Android tablet ($1)";
+        }
+        else {
+            $device_string = "Android ($1)";
+        }
     }
     elsif ( $self->{user_agent}
         =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
-        $self->{device_string} = $1;
+        $device_string = $1;
     }
     elsif ($device) {
-        $self->{device_string} = $DEVICE_NAMES{$device};
+        $device_string = $DEVICE_NAMES{$device};
     }
     else {
-        $self->{device_string} = undef;
+        $device_string = undef;
     }
 
     if ($device) {
@@ -1791,6 +1863,10 @@ sub _init_device {
     else {
         $self->{device}
             = undef;    # Means we cache the fact that we found nothing
+    }
+
+    if ($device_string) {
+        $self->{device_string} = $device_string;
     }
 }
 
@@ -2273,6 +2349,21 @@ sub robot_string {
             ) {
             $self->{robot_string} = $1;
             $self->{robot_string} =~ s/ *$//;    # Trim whitespace at end
+            if (
+                   $self->{user_agent} eq $self->{robot_string}
+                && $self->{user_agent} =~ m{\/.*\/}
+                && $self->{user_agent} =~ m{
+                                      ([\w]*               # Words before fragment
+                                       $fragment           # Match the fragment
+                                       \/[\d\.]+           # Version
+                                       [\w]*)              # Beta stuff
+                                     }ix
+                ) {
+                # We matched the whole string, but it seems to
+                # make more sense as whitespace-separated
+                # "thing/ver" tokens
+                $self->{robot_string} = $1;
+            }
         }
     }
     return $self->{robot_string};
@@ -2350,10 +2441,11 @@ web server when calling a CGI script.
 
 Returns the browser, as one of the following values:
 
-chrome, firefox, ie, opera, safari, blackberry, browsex, elinks,
-links, lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes,
-mosaic, mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer,
-seamonkey, silk, staroffice, webtv
+chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
+browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
+konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
+n3ds, dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser,
+webtv
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -2475,12 +2567,12 @@ can be detected.
 If the user agent appears to be a robot, spider, crawler, or other
 automated Web client, this returns one of the following values:
 
-lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, askjeeves,
-baidu, curl, facebook, getright, googleadsbot, googleadsense,
-googlebotimage, googlebotnews, googlebotvideo, googlemobile,
-google, indy, infoseek, linkexchange, linkchecker, lycos, mj12bot,
-puf, scooter, specialarchiver, webcrawler, wget, yandexbot,
-yandeximages, java, unknown
+lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, apache,
+askjeeves, baidu, curl, facebook, getright, googleadsbot,
+googleadsense, googlebotimage, googlebotnews, googlebotvideo,
+googlemobile, google, golib, indy, infoseek, linkexchange,
+linkchecker, lycos, mj12bot, puf, rubylib, scooter, specialarchiver,
+webcrawler, wget, yandexbot, yandeximages, java, unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
@@ -2528,9 +2620,11 @@ because a large number of cases must be considered, this will take
 significantly more time than simply querying the particular methods
 you care about.
 
-The complete list of properties follows (i.e. each of these methods is
-both a method you can call, and also a property that will be in the
-list returned by browser_properties() if appropriate):
+A mostly complete list of properties follows (i.e. each of these
+methods is both a method you can call, and also a property that may
+be in the list returned by browser_properties() ). In addition to this
+list, robot(), lib(), device(), mobile(), and tablet() are all
+browser properties.
 
 =head2 OS related properties
 
@@ -2701,6 +2795,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 altavista
 
+=head3 apache
+
 =head3 askjeeves
 
 =head3 baidu
@@ -2710,6 +2806,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 facebook
 
 =head3 getright
+
+=head3 golib
 
 =head3 google
 
@@ -2736,6 +2834,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 msn (same as bing)
 
 =head3 puf
+
+=head3 rubylib
 
 =head3 slurp
 

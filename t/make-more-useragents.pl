@@ -31,6 +31,12 @@ use HTTP::BrowserDetect;
 my $json_text = path("$FindBin::Bin/useragents.json")->slurp;
 my $tests     = JSON::PP->new->ascii->decode($json_text);
 
+if (1) {
+    $json_text = path("$FindBin::Bin/more-useragents.json")->slurp;
+    my $more_tests = JSON::PP->new->ascii->decode($json_text);
+    $tests = { %$tests, %$more_tests };
+}
+
 my %seen_tokens;
 
 foreach my $ua ( sort keys %{$tests} ) {
@@ -43,15 +49,22 @@ foreach my $ua ( sort keys %{$tests} ) {
 my %new_tests;
 
 while (<>) {
-
-    # Match tokens, either single words or quote- or bracket-delimited strings
-    my @tokens = (
-        $_ =~ m{ ( \"  [^\"]*      \"   |
-                                  [^\[\]\"\s]+       |
-                              \[  [^\[\]]*    \]   )
-                    }xg
-    );
-    my ($ua) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+    my $ua;
+    my @tokens;
+    if ( m{^\d+\.\d+\.\d+\.\d+} || m{^\w+\:\w+\:\w+\:} ) {
+	# Apache log format, match tokens and get the user agent
+	@tokens = (
+	    $_ =~ m{ ( \"  [^\"]*       \"   |
+                           [^\[\]\"\s]+      |
+                       \[  [^\[\]]*     \]   )
+                    }xg );
+	( $ua ) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+	$ua =~ s/^\'(.*)\'$/$1/;
+    } else {
+	# Just a list of user agents
+	chomp;
+	$ua = $_;
+    }
     @tokens = ( $ua =~ m{ (\w+) }xg );    # Words within the user agent
     my $added = 0;
     foreach my $word (@tokens) {
@@ -64,26 +77,27 @@ while (<>) {
 
             foreach my $method (
                 qw(
+                browser
                 browser_string
+                browser_major
+                browser_minor
+                browser_beta
+                engine
                 engine_string
-                os_string
-                os_version
-                public_version
-                public_major
-                public_minor
-                public_beta
-                version
-                major
-                minor
-                beta
-                engine_version
                 engine_major
                 engine_minor
+                engine_beta
+                os
+                os_string
+                os_major
+                os_minor
+                os_beta
+                country
                 language
                 device
-                device_name
-                robot_name
-                os_string )
+                device_string
+                robot
+                robot_name )
                 ) {
                 my $result = $detect->$method;
 
