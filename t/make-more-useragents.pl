@@ -52,18 +52,21 @@ while (<>) {
     my $ua;
     my @tokens;
     if ( m{^\d+\.\d+\.\d+\.\d+} || m{^\w+\:\w+\:\w+\:} ) {
-	# Apache log format, match tokens and get the user agent
-	@tokens = (
-	    $_ =~ m{ ( \"  [^\"]*       \"   |
+
+        # Apache log format, match tokens and get the user agent
+        @tokens = (
+            $_ =~ m{ ( \"  [^\"]*       \"   |
                            [^\[\]\"\s]+      |
                        \[  [^\[\]]*     \]   )
-                    }xg );
-	( $ua ) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
-	$ua =~ s/^\'(.*)\'$/$1/;
-    } else {
-	# Just a list of user agents
-	chomp;
-	$ua = $_;
+                    }xg
+        );
+        ($ua) = ( $tokens[8] =~ m{\"(.*)\"} ) or next;
+        $ua =~ s/^\'(.*)\'$/$1/;
+    }
+    else {
+        # Just a list of user agents
+        chomp;
+        $ua = $_;
     }
     @tokens = ( $ua =~ m{ (\w+) }xg );    # Words within the user agent
     my $added = 0;
