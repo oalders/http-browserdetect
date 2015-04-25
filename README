@@ -60,10 +60,10 @@ Browser Information
 
     Returns the browser, as one of the following values:
 
-    chrome, firefox, ie, opera, safari, blackberry, browsex, elinks, links,
-    lynx, emacs, epiphany, galeon, konqueror, icab, lotusnotes, mosaic,
-    mozilla, netfront, netscape, n3ds, dsi, obigo, realplayer, seamonkey,
-    silk, staroffice, webtv
+    chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
+    browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
+    konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape, n3ds,
+    dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser, webtv
 
     If the browser could not be identified (either because unrecognized or
     because it is a robot), returns undef.
@@ -184,12 +184,12 @@ Robots
     If the user agent appears to be a robot, spider, crawler, or other
     automated Web client, this returns one of the following values:
 
-    lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, askjeeves, baidu,
-    curl, facebook, getright, googleadsbot, googleadsense, googlebotimage,
-    googlebotnews, googlebotvideo, googlemobile, google, indy, infoseek,
-    linkexchange, linkchecker, lycos, mj12bot, puf, scooter,
-    specialarchiver, webcrawler, wget, yandexbot, yandeximages, java,
-    unknown
+    lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, apache,
+    askjeeves, baidu, curl, facebook, getright, googleadsbot,
+    googleadsense, googlebotimage, googlebotnews, googlebotvideo,
+    googlemobile, google, golib, indy, infoseek, linkexchange, linkchecker,
+    lycos, mj12bot, puf, rubylib, scooter, specialarchiver, webcrawler,
+    wget, yandexbot, yandeximages, java, unknown
 
     Returns "unknown" when the user agent is believed to be a robot but is
     not identified as one of the above specific robots.
@@ -235,9 +235,11 @@ Browser Properties
     significantly more time than simply querying the particular methods you
     care about.
 
-    The complete list of properties follows (i.e. each of these methods is
-    both a method you can call, and also a property that will be in the
-    list returned by browser_properties() if appropriate):
+    A mostly complete list of properties follows (i.e. each of these
+    methods is both a method you can call, and also a property that may be
+    in the list returned by browser_properties() ). In addition to this
+    list, robot(), lib(), device(), mobile(), and tablet() are all browser
+    properties.
 
  OS related properties
 
@@ -410,6 +412,8 @@ Browser Properties
 
   altavista
 
+  apache
+
   askjeeves
 
   baidu
@@ -419,6 +423,8 @@ Browser Properties
   facebook
 
   getright
+
+  golib
 
   google
 
@@ -445,6 +451,8 @@ Browser Properties
   msn (same as bing)
 
   puf
+
+  rubylib
 
   slurp
 
