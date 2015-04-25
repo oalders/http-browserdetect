@@ -1,6 +1,23 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Handle "CriOS" entries correctly (andrewmoise)
+    - Only detect java when no browser is detected, and make UCBrowser a
+      detected browser (andrewmoise)
+    - Detect "tablet" on Kindle Fire (and Chrome on Android tablets in general)
+      (andrewmoise)
+    - Distinguish Android tablets in device_string (andrewmoise)
+    - Handle CriOS, rubylib, golib, and Dalvik (andrewmoise)
+    - Detect "Mobilesafari/" as Mobile Safari (andrewmoise)
+    - Detect "Windows 2000" as Win2k (andrewmoise)
+    - Only detect NCR Unix on word boundary (andrewmoise)
+    - Try tighter detection of robot names based on fragments (andrewmoise)
+    - Fix java detection to be more strict (andrewmoise)
+    - Fix up Android tablet detection (andrewmoise)
+    - Add proper detection for old Windows versions in Opera (andrewmoise)
+    - Add apache http client detection (andrewmoise)
+    - Fix detection of SCO Unix to trigger fewer false positives (andrewmoise)
+    - Correct detection of (most) robots based on "+http://blah" (andrewmoise)
 
 2.00 2015-03-30 21:46:25 America/Toronto
     - Standardize interface:
