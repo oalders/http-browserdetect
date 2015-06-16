@@ -323,7 +323,7 @@ sub new {
         $user_agent = $ENV{'HTTP_USER_AGENT'};
     }
 
-    $self->{user_agent} = $user_agent;
+    $self->{user_agent} = $user_agent // '';
     $self->_init_core;
 
     return $self;
