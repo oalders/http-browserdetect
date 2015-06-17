@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Default to using an empty string if an undef UA is provided (ben hengst)
 
 2.01 2015-04-24 23:05:13 America/Toronto
     - Handle "CriOS" entries correctly (andrewmoise)
