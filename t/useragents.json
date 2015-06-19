@@ -2466,7 +2466,7 @@
          "trident",
          "windows",
          "winphone",
-		 "winphone8_1"
+         "winphone8_1"
       ],
       "os" : "winphone",
       "os_beta" : "",
