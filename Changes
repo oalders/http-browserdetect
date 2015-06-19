@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.03 2015-06-19 09:59:45 America/Toronto
     - Add win8_1 method (Daniel Stadie)
 
 2.02 2015-06-17 18:18:17 America/Toronto
