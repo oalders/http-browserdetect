@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Add win8_1 method (Daniel Stadie)
 
 2.02 2015-06-17 18:18:17 America/Toronto
     - Default to using an empty string if an undef UA is provided (ben hengst)
