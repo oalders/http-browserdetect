@@ -26,6 +26,7 @@ our @WINDOWS_TESTS = qw(
     win7       win8         win8_0
     win8_1     wince        winphone
     winphone7  winphone7_5  winphone8
+    winphone8_1
 );
 
 # More precise Mac
@@ -1056,6 +1057,9 @@ sub _init_os {
             elsif ( index( $ua, "windows phone 8.0" ) != -1 ) {
                 $os_tests->{winphone8} = 1;
             }
+			elsif ( index( $ua, "windows phone 8.1" ) != -1 ) {
+                $os_tests->{winphone8_1} = 1;
+            }
         }
     }
 
@@ -1813,16 +1817,20 @@ sub _init_device {
         $device_string = substr $self->{user_agent}, 0, length $1;
         $device_string =~ s/^MOT-/Motorola /i;
     }
-    elsif (
-        $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
-    {
+    elsif ( $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g ) {
+        # windows phone 7.x    
         $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
         $device_string =~ s/; / /;
     }
-    elsif ( $ua
-        =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g
-        ) {
+    elsif ( $ua =~ /windows phone [^\)]+ iemobile\/[^;]+; arm; touch; ([^;]+; [^;\)]+)/g ) {
+        # windows phone 8.0
+        $device_string = substr $self->{user_agent},
+            pos($ua) - length $1, length $1;
+        $device_string =~ s/; / /;
+    }
+	elsif ( $ua =~ /windows phone 8[^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g ) {
+        # windows phone 8.1
         $device_string = substr $self->{user_agent},
             pos($ua) - length $1, length $1;
         $device_string =~ s/; / /;
