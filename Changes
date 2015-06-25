@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fix test failures on Perl 5.8
 
 2.03 2015-06-19 09:59:45 America/Toronto
     - Add win8_1 method (Daniel Stadie)
