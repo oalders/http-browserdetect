@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.04 2015-06-24 23:26:28 America/Toronto
     - Fix test failures on Perl 5.8
 
 2.03 2015-06-19 09:59:45 America/Toronto
