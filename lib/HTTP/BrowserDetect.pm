@@ -467,7 +467,7 @@ sub _init_core {
     $self->{engine_version} = undef;
 
     if ( $ua =~ m{edge/([\d.]+)$} ) {
-        $tests->{edgehtml} = 1;
+        $tests->{edgehtml}      = 1;
         $self->{engine_version} = $1;
     }
     elsif ( $ua =~ /trident\/([\w\.\d]*)/ ) {
@@ -510,10 +510,10 @@ sub _init_core {
         $browser = "epiphany";
         $browser_tests->{epiphany} = 1;
     }
-    elsif (
-        $ua =~ m{^mozilla/.+windows (?:nt|phone) \d{2}\.\d+;.+ applewebkit/.+ chrome/.+ safari/.+ edge/[\d.]+$}
-    ) {
-        $browser = 'edge';
+    elsif ( $ua
+        =~ m{^mozilla/.+windows (?:nt|phone) \d{2}\.\d+;.+ applewebkit/.+ chrome/.+ safari/.+ edge/[\d.]+$}
+        ) {
+        $browser        = 'edge';
         $browser_string = 'Edge';
 
         $browser_tests->{edge} = 1;
@@ -1435,7 +1435,7 @@ sub _init_version {
         # specific approaches and go straight to the generic ones.
     }
     elsif ( $browser_tests->{edge} ) {
-      ($major, $minor, $beta) = $ua =~ m{Edge/(\d+)(.\d+)(.\d+)?};
+        ( $major, $minor, $beta ) = $ua =~ m{Edge/(\d+)(.\d+)(.\d+)?};
     }
     elsif ( $browser_tests->{safari} ) {
 
