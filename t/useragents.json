@@ -1524,6 +1524,49 @@
       "other" : null,
       "version" : "4.5"
    },
+   "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "engine" : "edge",
+      "engine_beta" : "",
+      "engine_major" : "12",
+      "engine_minor" : ".0",
+      "engine_string" : "Edge",
+      "match" : [
+         "edge",
+         "edge",
+         "windows",
+         "win32",
+         "winnt",
+         "win10",
+         "win10_0"
+      ],
+      "os" : "windows",
+      "os_string" : "Win10.0",
+      "robot" : 0
+   },
+   "Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "device" : "winphone",
+      "engine" : "edge",
+      "engine_beta" : "",
+      "engine_major" : "12",
+      "engine_minor" : ".0",
+      "engine_string" : "Edge",
+      "match" : [
+         "edge",
+         "edge",
+         "mobile",
+         "device",
+         "windows",
+         "winphone",
+         "winphone10"
+      ],
+      "os" : "winphone",
+      "os_string" : "Windows Phone",
+      "robot" : 0
+   },
    "Mozilla/5.0 ( ; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)" : {
       "browser" : "ie",
       "browser_string" : "MSIE",
