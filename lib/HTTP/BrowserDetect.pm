@@ -24,9 +24,10 @@ our @WINDOWS_TESTS = qw(
     winme      win32        win2k
     winxp      win2k3       winvista
     win7       win8         win8_0
-    win8_1     wince        winphone
-    winphone7  winphone7_5  winphone8
-    winphone8_1
+    win8_1     win10        win10_0
+    wince      winphone     winphone7
+    winphone7_5 winphone8   winphone8_1
+    winphone10
 );
 
 # More precise Mac
@@ -75,6 +76,7 @@ our @BROWSER_TESTS = qw(
     webtv          browsex     silk
     applecoremedia galeon      seamonkey
     epiphany       ucbrowser   dalvik
+    edge
 );
 
 our @IE_TESTS = qw(
@@ -111,7 +113,7 @@ our @FIREFOX_TESTS = qw(
 # Engine tests
 our @ENGINE_TESTS = qw(
     gecko       trident     webkit
-    presto      khtml
+    presto      khtml       edgehtml
 );
 
 our @ROBOT_TESTS = qw(
@@ -200,6 +202,7 @@ my %BROWSER_NAMES = (
     curl           => 'curl',
     dalvik         => 'Dalvik',
     dsi            => 'Nintendo DSi',
+    edge           => 'Edge',
     elinks         => 'ELinks',
     epiphany       => 'Epiphany',
     firefox        => 'Firefox',
@@ -271,6 +274,8 @@ my %OS_NAMES = (
     win8        => 'Win8',
     win8_0      => 'Win8.0',
     win8_1      => 'Win8.1',
+    win10       => 'Win10',
+    win10_0     => 'Win10.0',
     win95       => 'Win95',
     win98       => 'Win98',
     winme       => 'WinME',
@@ -461,7 +466,11 @@ sub _init_core {
     # Detect engine
     $self->{engine_version} = undef;
 
-    if ( $ua =~ /trident\/([\w\.\d]*)/ ) {
+    if ( $ua =~ m{edge/([\d.]+)$} ) {
+        $tests->{edgehtml} = 1;
+        $self->{engine_version} = $1;
+    }
+    elsif ( $ua =~ /trident\/([\w\.\d]*)/ ) {
         $tests->{trident}       = 1;
         $self->{engine_version} = $1;
     }
@@ -500,6 +509,14 @@ sub _init_core {
 
         $browser = "epiphany";
         $browser_tests->{epiphany} = 1;
+    }
+    elsif (
+        $ua =~ m{^mozilla/.+windows (?:nt|phone) \d{2}\.\d+;.+ applewebkit/.+ chrome/.+ safari/.+ edge/[\d.]+$}
+    ) {
+        $browser = 'edge';
+        $browser_string = 'Edge';
+
+        $browser_tests->{edge} = 1;
     }
     elsif (
         $ua =~ m{
@@ -1060,6 +1077,9 @@ sub _init_os {
             elsif ( index( $ua, "windows phone 8.1" ) != -1 ) {
                 $os_tests->{winphone8_1} = 1;
             }
+            elsif ( index( $ua, "windows phone 10.0" ) != -1 ) {
+                $os_tests->{winphone10} = 1;
+            }
         }
     }
 
@@ -1101,6 +1121,12 @@ sub _init_os {
             $os        = "windows";
             $os_string = 'Win8.1';
             $os_tests->{win8_1} = $os_tests->{win8} = $os_tests->{winnt}
+                = $os_tests->{win32} = 1;
+        }
+        elsif ( index( $ua, "nt 10.0" ) != -1 ) {
+            $os        = "windows";
+            $os_string = 'Win10.0';
+            $os_tests->{win10_0} = $os_tests->{win10} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
         elsif (index( $ua, "winnt" ) != -1
@@ -1407,6 +1433,9 @@ sub _init_version {
 
         # Nothing else is going to work if $browser isn't defined; skip the
         # specific approaches and go straight to the generic ones.
+    }
+    elsif ( $browser_tests->{edge} ) {
+      ($major, $minor, $beta) = $ua =~ m{Edge/(\d+)(.\d+)(.\d+)?};
     }
     elsif ( $browser_tests->{safari} ) {
 
@@ -2157,6 +2186,10 @@ sub engine_string {
         return 'MSIE';
     }
 
+    if ( $self->edge ) {
+        return 'EdgeHTML';
+    }
+
     if ( $self->webkit ) {
         return 'WebKit';
     }
@@ -2656,9 +2689,11 @@ winnt, which is a type of win32)
             win2k winxp win2k3 winvista win7
             win8
                 win8_0 win8_1
+            win10
+                win10_0
     wince
     winphone
-        winphone7 winphone7_5 winphone8
+        winphone7 winphone7_5 winphone8 winphone10
 
 =head3 dotnet()
 
