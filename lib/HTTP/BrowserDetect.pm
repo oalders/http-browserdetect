@@ -2570,9 +2570,20 @@ do that that's more suitable for use in program logic, see below under
 Returns C<undef> if no OS information could be detected.
 
 =head2 os_version()
+
+Returns Operating System version.
+
 =head2 os_major()
+
+Returns Operating System major version.
+
 =head2 os_minor()
+
+Returns Operating System minor version.
+
 =head2 os_beta()
+
+Returns Operating System beta version.
 
 Returns version information for the OS, if any could be detected. The
 format is the same as for the browser_version() functions.
@@ -2958,13 +2969,20 @@ Returns C<undef> if none of the known rendering engines can be
 detected.
 
 =head2 engine_version()
+
+Returns engine's version.
+
 =head2 engine_major()
+
+Returns engine's major version.
+
 =head2 engine_minor()
+
+Returns engine's minor version.
+
 =head2 engine_beta()
 
-Returns version information for the rendering engine, if any can be
-detected. The format is the same as for the browser_version()
-functions.
+Return's engine's beta version.
 
 =head1 Deprecated methods
 
@@ -3017,12 +3035,20 @@ compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
 =head2 public_version()
+
+Deprecated.  Please use browser_version() instead.
+
 =head2 public_major()
+
+Deprecated.  Please use browser_major() instead.
+
 =head2 public_minor()
+
+Deprecated.  Please use browser_minor() instead.
+
 =head2 public_beta()
 
-Deprecated alternate names for the browser_version() family of
-functions.
+Deprecated.  Please use browser_beta() instead.
 
 =head2 gecko_version()
 

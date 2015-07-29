@@ -140,7 +140,21 @@ Operating System
 
     Returns undef if no OS information could be detected.
 
- os_version() =head2 os_major() =head2 os_minor() =head2 os_beta()
+ os_version()
+
+    Returns Operating System version.
+
+ os_major()
+
+    Returns Operating System major version.
+
+ os_minor()
+
+    Returns Operating System minor version.
+
+ os_beta()
+
+    Returns Operating System beta version.
 
     Returns version information for the OS, if any could be detected. The
     format is the same as for the browser_version() functions.
@@ -527,12 +541,21 @@ Other methods
 
     Returns undef if none of the known rendering engines can be detected.
 
- engine_version() =head2 engine_major() =head2 engine_minor() =head2
+ engine_version()
+
+    Returns engine's version.
+
+ engine_major()
+
+    Returns engine's major version.
+
+ engine_minor()
+
+    Returns engine's minor version.
+
  engine_beta()
 
-    Returns version information for the rendering engine, if any can be
-    detected. The format is the same as for the browser_version()
-    functions.
+    Return's engine's beta version.
 
 Deprecated methods
 
@@ -584,11 +607,21 @@ Deprecated methods
     compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- public_version() =head2 public_major() =head2 public_minor() =head2
+ public_version()
+
+    Deprecated. Please use browser_version() instead.
+
+ public_major()
+
+    Deprecated. Please use browser_major() instead.
+
+ public_minor()
+
+    Deprecated. Please use browser_minor() instead.
+
  public_beta()
 
-    Deprecated alternate names for the browser_version() family of
-    functions.
+    Deprecated. Please use browser_beta() instead.
 
  gecko_version()
 
