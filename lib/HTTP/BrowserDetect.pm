@@ -113,7 +113,7 @@ our @FIREFOX_TESTS = qw(
 # Engine tests
 our @ENGINE_TESTS = qw(
     gecko       trident     webkit
-    presto      khtml
+    presto      khtml       edgehtml
 );
 
 our @ROBOT_TESTS = qw(
@@ -467,7 +467,7 @@ sub _init_core {
     $self->{engine_version} = undef;
 
     if ( $ua =~ m{edge/([\d.]+)$} ) {
-        $tests->{edge} = 1;
+        $tests->{edgehtml} = 1;
         $self->{engine_version} = $1;
     }
     elsif ( $ua =~ /trident\/([\w\.\d]*)/ ) {
@@ -2187,7 +2187,7 @@ sub engine_string {
     }
 
     if ( $self->edge ) {
-        return 'Edge';
+        return 'EdgeHTML';
     }
 
     if ( $self->webkit ) {
