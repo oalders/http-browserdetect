@@ -257,9 +257,11 @@ Browser Properties
                 win2k winxp win2k3 winvista win7
                 win8
                     win8_0 win8_1
+                win10
+                    win10_0
         wince
         winphone
-            winphone7 winphone7_5 winphone8
+            winphone7 winphone7_5 winphone8 winphone10
 
   dotnet()
 
@@ -688,6 +690,14 @@ ACKNOWLEDGEMENTS
     Hao Wu
 
     Perlover
+
+    Daniel Stadie
+
+    ben hengst
+
+    Andrew Moise
+
+    Atsushi Kato
 
 TO DO
 

@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Add Microsoft Windowns 10/Windows Phone 10 Edge Browser (Atsushi Kato)
 
 2.04 2015-06-24 23:26:28 America/Toronto
     - Fix test failures on Perl 5.8

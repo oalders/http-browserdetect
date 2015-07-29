@@ -3125,6 +3125,14 @@ Hao Wu
 
 Perlover
 
+Daniel Stadie
+
+ben hengst
+
+Andrew Moise
+
+Atsushi Kato
+
 =head1 TO DO
 
 POD coverage is not 100%.
