@@ -198,7 +198,7 @@ Robots
     If the user agent appears to be a robot, spider, crawler, or other
     automated Web client, this returns one of the following values:
 
-    lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, apache,
+    lwp, slurp, yahoo, msnmobile, msn, msoffice, ahrefs, altavista, apache,
     askjeeves, baidu, curl, facebook, getright, googleadsbot,
     googleadsense, googlebotimage, googlebotnews, googlebotvideo,
     googlemobile, google, golib, indy, infoseek, linkexchange, linkchecker,
@@ -465,6 +465,8 @@ Browser Properties
   mj12bot
 
   msn (same as bing)
+
+  msoffice
 
   puf
 

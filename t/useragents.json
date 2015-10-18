@@ -339,6 +339,24 @@
       "other" : null,
       "version" : "4.5"
    },
+   "Microsoft Office Existence Discovery" : {
+      "browser" : null,
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : null,
+      "match" : [
+         "msoffice",
+         "robot"
+      ],
+      "no_match" : [
+        "unix"
+      ],
+      "minor" : null,
+      "os" : null,
+      "other" : null,
+      "version" : null
+   },
    "MOT-EX128 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1" : {
       "browser" : "obigo",
       "browser_string" : "Obigo",
