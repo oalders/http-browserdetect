@@ -129,7 +129,7 @@ our @ROBOT_TESTS = qw(
     linkchecker     yandeximages   specialarchiver
     yandex          java           lib
     indy            golib          rubylib
-    apache
+    apache          msoffice
 );
 
 our @MISC_TESTS = qw(
@@ -181,6 +181,7 @@ my %ROBOT_NAMES = (
     mj12bot         => 'Majestic-12 DSearch',
     msn             => 'MSN',
     msnmobile       => 'MSN Mobile',
+    msoffice        => 'Microsoft Office',
     puf             => 'puf',
     robot           => 'robot',
     rubylib         => 'Ruby http library',
@@ -839,6 +840,9 @@ sub _init_robots {
     }
     elsif ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) != -1 ) {
         $r = 'msn';
+    }
+    elsif ( index( $ua, "microsoft office existence discovery" ) != -1 ) {
+        $r = 'msoffice';
     }
     elsif ( index( $ua, "ahrefsbot" ) != -1 ) {
         $r = 'ahrefs';
@@ -2625,7 +2629,7 @@ can be detected.
 If the user agent appears to be a robot, spider, crawler, or other
 automated Web client, this returns one of the following values:
 
-lwp, slurp, yahoo, msnmobile, msn, ahrefs, altavista, apache,
+lwp, slurp, yahoo, msnmobile, msn, msoffice, ahrefs, altavista, apache,
 askjeeves, baidu, curl, facebook, getright, googleadsbot,
 googleadsense, googlebotimage, googlebotnews, googlebotvideo,
 googlemobile, google, golib, indy, infoseek, linkexchange,
@@ -2892,6 +2896,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 mj12bot
 
 =head3 msn (same as bing)
+
+=head3 msoffice
 
 =head3 puf
 
