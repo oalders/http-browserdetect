@@ -339,24 +339,6 @@
       "other" : null,
       "version" : "4.5"
    },
-   "Microsoft Office Existence Discovery" : {
-      "browser" : null,
-      "browser_string" : null,
-      "country" : null,
-      "language" : null,
-      "major" : null,
-      "match" : [
-         "msoffice",
-         "robot"
-      ],
-      "no_match" : [
-        "unix"
-      ],
-      "minor" : null,
-      "os" : null,
-      "other" : null,
-      "version" : null
-   },
    "MOT-EX128 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1" : {
       "browser" : "obigo",
       "browser_string" : "Obigo",
@@ -398,6 +380,24 @@
       "robot" : "googleadsense",
       "robot_string" : "Google AdSense",
       "version" : "2.1"
+   },
+   "Microsoft Office Existence Discovery" : {
+      "browser" : null,
+      "browser_string" : null,
+      "country" : null,
+      "language" : null,
+      "major" : null,
+      "match" : [
+         "msoffice",
+         "robot"
+      ],
+      "minor" : null,
+      "no_match" : [
+         "unix"
+      ],
+      "os" : null,
+      "other" : null,
+      "version" : null
    },
    "Mozilla/1.1 (Windows 3.0; I)" : {
       "browser" : "netscape",
@@ -2649,13 +2649,13 @@
       "public_version" : "29.0",
       "version" : "29.0"
    },
-   "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586" : {
+   "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240" : {
       "browser" : "edge",
       "browser_string" : "Edge",
       "engine" : "edgehtml",
       "engine_beta" : "",
-      "engine_major" : "13",
-      "engine_minor" : ".10586",
+      "engine_major" : "12",
+      "engine_minor" : ".10240",
       "engine_string" : "EdgeHTML",
       "match" : [
          "edge",
@@ -2670,13 +2670,13 @@
       "os_string" : "Win10.0",
       "robot" : 0
    },
-   "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240" : {
+   "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586" : {
       "browser" : "edge",
       "browser_string" : "Edge",
       "engine" : "edgehtml",
       "engine_beta" : "",
-      "engine_major" : "12",
-      "engine_minor" : ".10240",
+      "engine_major" : "13",
+      "engine_minor" : ".10586",
       "engine_string" : "EdgeHTML",
       "match" : [
          "edge",
