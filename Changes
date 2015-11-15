@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.06 2015-11-15 10:59:30 America/Toronto
     - Detect more Edge versions (Marco Fontani)
 
 2.05 2015-07-29 12:36:01 America/Toronto
