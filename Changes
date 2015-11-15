@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Detect more Edge versions (Marco Fontani)
 
 2.05 2015-07-29 12:36:01 America/Toronto
     - Add Microsoft Windowns 10/Windows Phone 10 Edge Browser (Atsushi Kato)
