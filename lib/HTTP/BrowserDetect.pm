@@ -512,7 +512,7 @@ sub _init_core {
         $browser_tests->{epiphany} = 1;
     }
     elsif ( $ua
-        =~ m{^mozilla/.+windows (?:nt|phone) \d{2}\.\d+;.+ applewebkit/.+ chrome/.+ safari/.+ edge/[\d.]+$}
+        =~ m{^mozilla/.+windows (?:nt|phone) \d{2}\.\d+;?.+ applewebkit/.+ chrome/.+ safari/.+ edge/[\d.]+$}
         ) {
         $browser        = 'edge';
         $browser_string = 'Edge';
