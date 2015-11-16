@@ -455,6 +455,9 @@ sub _init_core {
 
     my $ua = lc $self->{user_agent};
 
+    # any UA via Google Translate gets this appended
+    $ua =~ s{,gzip\(gfe\)\z}{};
+
     # These get filled in immediately
     $self->{tests}         = {};
     $self->{browser_tests} = {};
