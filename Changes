@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Strip off anything Google Translate adds to UserAgent before parsing
+      (Marco Fontani)
 
 2.06 2015-11-15 10:59:30 America/Toronto
     - Detect more Edge versions (Marco Fontani)
