@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.07 2015-11-18 23:52:07 America/Toronto
     - Strip off anything Google Translate adds to UserAgent before parsing
       (Marco Fontani)
 
