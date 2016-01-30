@@ -10135,6 +10135,30 @@
       "os_string" : "Mac OS X",
       "robot" : 0
    },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.9 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36" : {
+      "browser" : "brave",
+      "browser_beta" : ".9",
+      "browser_major" : "0",
+      "browser_minor" : ".7",
+      "browser_string" : "Brave",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "match" : [
+         "mac",
+         "macosx",
+         "brave",
+         "webkit"
+      ],
+      "os" : "macosx",
+      "os_beta" : ".3",
+      "os_major" : "10",
+      "os_minor" : ".11",
+      "os_string" : "Mac OS X",
+      "robot" : 0
+   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_2) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.41 Safari/535.1" : {
       "browser" : "chrome",
       "browser_beta" : ".782.41",
@@ -12505,53 +12529,6 @@
       "os_string" : "Win7",
       "robot" : 0
    },
-   "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.10 Chrome/47.0.2526.110 Brave/0.36.5 Safari/537.36" : {
-      "browser" : "brave",
-      "browser_beta" : ".10",
-      "browser_major" : "0",
-      "browser_minor" : ".7",
-      "browser_string" : "Brave",
-      "engine" : "webkit",
-      "engine_beta" : "",
-      "engine_major" : "537",
-      "engine_minor" : ".36",
-      "engine_string" : "WebKit",
-      "match" : [
-         "windows",
-         "winnt",
-         "win32",
-         "win7",
-         "brave",
-         "webkit"
-      ],
-      "os" : "windows",
-      "os_string" : "Win7",
-      "robot" : 0
-   },
-   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.9 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36" : {
-      "browser" : "brave",
-      "browser_beta" : ".9",
-      "browser_major" : "0",
-      "browser_minor" : ".7",
-      "browser_string" : "Brave",
-      "engine" : "webkit",
-      "engine_beta" : "",
-      "engine_major" : "537",
-      "engine_minor" : ".36",
-      "engine_string" : "WebKit",
-      "match" : [
-         "mac",
-         "macosx",
-         "brave",
-         "webkit"
-      ],
-      "os" : "macosx",
-      "os_beta" : ".3",
-      "os_major" : "10",
-      "os_minor" : ".11",
-      "os_string" : "Mac OS X",
-      "robot" : 0
-   },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.122 Safari/537.36 OPR/24.0.1558.64" : {
       "browser" : "opera",
       "browser_major" : "24",
@@ -12755,6 +12732,29 @@
          "win7",
          "firefox",
          "gecko"
+      ],
+      "os" : "windows",
+      "os_string" : "Win7",
+      "robot" : 0
+   },
+   "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.10 Chrome/47.0.2526.110 Brave/0.36.5 Safari/537.36" : {
+      "browser" : "brave",
+      "browser_beta" : ".10",
+      "browser_major" : "0",
+      "browser_minor" : ".7",
+      "browser_string" : "Brave",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "match" : [
+         "windows",
+         "winnt",
+         "win32",
+         "win7",
+         "brave",
+         "webkit"
       ],
       "os" : "windows",
       "os_string" : "Win7",

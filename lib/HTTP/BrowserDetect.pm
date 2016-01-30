@@ -1518,21 +1518,21 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
-	elsif ( $browser eq 'brave' ) {
-	
-		# Note: since 0.7.10, Brave has changed the branding 
-		# of GitHub's "Electron" (http://electron.atom.io/) to "Brave".
-		# This means the browser string has both "brave/" (the browser) 
-		# and "Brave/" (re-branded Electron) in it.
-		# The generic section below looks at $self->{browser_string}, which is "Brave"
-		# (Electron) and not $self->{browser} which is "brave".
-		# Caveat parser.	
-		if ( $ua =~ m{brave/(\d+)\.(\d+)([\d.]*)} ) {
+    elsif ( $browser eq 'brave' ) {
+
+        # Note: since 0.7.10, Brave has changed the branding
+        # of GitHub's "Electron" (http://electron.atom.io/) to "Brave".
+        # This means the browser string has both "brave/" (the browser)
+        # and "Brave/" (re-branded Electron) in it.
+        # The generic section below looks at $self->{browser_string}, which is "Brave"
+        # (Electron) and not $self->{browser} which is "brave".
+        # Caveat parser.
+        if ( $ua =~ m{brave/(\d+)\.(\d+)([\d.]*)} ) {
             $major = $1;
             $minor = $2;
             $beta  = $3;
         }
-	}
+    }
     elsif ($browser eq 'chrome'
         && $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} ) {
         $major = $1;
