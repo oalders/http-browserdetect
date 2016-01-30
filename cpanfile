@@ -1,3 +1,4 @@
+requires "JSON::PP" => "2.27300";
 requires "perl" => "5.006";
 requires "strict" => "0";
 requires "vars" => "0";
@@ -9,7 +10,7 @@ on 'build' => sub {
 
 on 'test' => sub {
   requires "FindBin" => "0";
-  requires "JSON::PP" => "0";
+  requires "JSON::PP" => "2.27300";
   requires "Path::Tiny" => "0";
   requires "Test::FailWarnings" => "0";
   requires "Test::More" => "0";

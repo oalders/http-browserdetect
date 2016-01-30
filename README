@@ -63,7 +63,8 @@ Browser Information
     chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
     browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
     konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape, n3ds,
-    dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser, webtv
+    dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser, webtv,
+    brave
 
     If the browser could not be identified (either because unrecognized or
     because it is a robot), returns undef.
