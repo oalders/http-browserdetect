@@ -76,7 +76,7 @@ our @BROWSER_TESTS = qw(
     webtv          browsex     silk
     applecoremedia galeon      seamonkey
     epiphany       ucbrowser   dalvik
-    edge
+    edge           brave
 );
 
 our @IE_TESTS = qw(
@@ -198,6 +198,7 @@ my %BROWSER_NAMES = (
     aol            => 'AOL Browser',
     applecoremedia => 'AppleCoreMedia',
     blackberry     => 'BlackBerry',
+    brave          => 'Brave',
     browsex        => 'BrowseX',
     chrome         => 'Chrome',
     curl           => 'curl',
@@ -579,6 +580,13 @@ sub _init_core {
         #elsif ( index( $ua, 'maxthon' ) != -1 ) {
         #    $browser_string = 'Maxthon';
         #}
+    }
+    elsif ( index( $ua, "brave" ) != -1 ) {
+
+        # Has to go above Chrome, it includes "like Chrome/"
+
+        $browser = 'brave';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "silk" ) != -1 ) {
 
@@ -1510,6 +1518,21 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+	elsif ( $browser eq 'brave' ) {
+	
+		# Note: since 0.7.10, Brave has changed the branding 
+		# of GitHub's "Electron" (http://electron.atom.io/) to "Brave".
+		# This means the browser string has both "brave/" (the browser) 
+		# and "Brave/" (re-branded Electron) in it.
+		# The generic section below looks at $self->{browser_string}, which is "Brave"
+		# (Electron) and not $self->{browser} which is "brave".
+		# Caveat parser.	
+		if ( $ua =~ m{brave/(\d+)\.(\d+)([\d.]*)} ) {
+            $major = $1;
+            $minor = $2;
+            $beta  = $3;
+        }
+	}
     elsif ($browser eq 'chrome'
         && $ua =~ m{crios/(\d+)\.(\d+)([\d.]*)} ) {
         $major = $1;
@@ -2499,7 +2522,7 @@ chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
 browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
 n3ds, dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser,
-webtv
+webtv, brave
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
