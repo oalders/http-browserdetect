@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+2.08 2016-01-29 21:56:29 America/Toronto
     - Brave browser detection added (Nicolas Doye)
 
 2.07 2015-11-18 23:52:07 America/Toronto
