@@ -3193,6 +3193,8 @@ Atsushi Kato
 
 Marco Fontani
 
+Nicolas Doye
+
 =head1 TO DO
 
 POD coverage is not 100%.
