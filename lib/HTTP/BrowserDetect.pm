@@ -1787,12 +1787,46 @@ sub _init_device {
         $device_tests->{$device} = 1;
     }
 
-    $device_tests->{mobile} = (
-        ( $browser_tests->{firefox} && index( $ua, "mobile" ) != -1 )
+    $device_tests->{tablet} = (
+        index( $ua, "ipad" ) != -1
             || ( $browser_tests->{ie}
             && index( $ua, "windows phone" ) == -1
             && index( $ua, "arm" ) != -1 )
-            || index( $ua, "windows phone" ) != -1
+            || ( index( $ua, "android" ) != -1
+            && index( $ua, "mobile" ) == -1
+            && index( $ua, "safari" ) != -1 )
+            || ( $browser_tests->{firefox} && index( $ua, "tablet" ) != -1 )
+            || index( $ua, "kindle" ) != -1
+            || index( $ua, "xoom" ) != -1
+            || index( $ua, "flyer" ) != -1
+            || index( $ua, "jetstream" ) != -1
+            || index( $ua, "transformer" ) != -1
+            || index( $ua, "novo7" ) != -1
+            || index( $ua, "an10g2" ) != -1
+            || index( $ua, "an7bg3" ) != -1
+            || index( $ua, "an7fg3" ) != -1
+            || index( $ua, "an8g3" ) != -1
+            || index( $ua, "an8cg3" ) != -1
+            || index( $ua, "an7g3" ) != -1
+            || index( $ua, "an9g3" ) != -1
+            || index( $ua, "an7dg3" ) != -1
+            || index( $ua, "an7dg3st" ) != -1
+            || index( $ua, "an7dg3childpad" ) != -1
+            || index( $ua, "an10bg3" ) != -1
+            || index( $ua, "an10bg3dt" ) != -1
+            || index( $ua, "opera tablet" ) != -1
+            || index( $ua, "rim tablet" ) != -1
+            || index( $ua, "hp-tablet" ) != -1
+    );
+
+    if( !$device_tests->{tablet} )
+    {
+	$device_tests->{mobile} = (
+	    ( $browser_tests->{firefox} && index( $ua, "mobile" ) != -1 )
+	    || ( $browser_tests->{ie}
+		 && index( $ua, "windows phone" ) == -1
+		 && index( $ua, "arm" ) != -1 )
+	    || index( $ua, "windows phone" ) != -1
             || index( $ua, "up.browser" ) != -1
             || index( $ua, "nokia" ) != -1
             || index( $ua, "alcatel" ) != -1
@@ -1838,39 +1872,8 @@ sub _init_device {
             || index( $ua, "googlebot-mobile" ) != -1
             || index( $ua, "msnbot-mobile" ) != -1
             || index( $ua, "bingbot-mobile" ) != -1
-    );
-
-    $device_tests->{tablet} = (
-        index( $ua, "ipad" ) != -1
-            || ( $browser_tests->{ie}
-            && index( $ua, "windows phone" ) == -1
-            && index( $ua, "arm" ) != -1 )
-            || ( index( $ua, "android" ) != -1
-            && index( $ua, "mobile" ) == -1
-            && index( $ua, "safari" ) != -1 )
-            || ( $browser_tests->{firefox} && index( $ua, "tablet" ) != -1 )
-            || index( $ua, "kindle" ) != -1
-            || index( $ua, "xoom" ) != -1
-            || index( $ua, "flyer" ) != -1
-            || index( $ua, "jetstream" ) != -1
-            || index( $ua, "transformer" ) != -1
-            || index( $ua, "novo7" ) != -1
-            || index( $ua, "an10g2" ) != -1
-            || index( $ua, "an7bg3" ) != -1
-            || index( $ua, "an7fg3" ) != -1
-            || index( $ua, "an8g3" ) != -1
-            || index( $ua, "an8cg3" ) != -1
-            || index( $ua, "an7g3" ) != -1
-            || index( $ua, "an9g3" ) != -1
-            || index( $ua, "an7dg3" ) != -1
-            || index( $ua, "an7dg3st" ) != -1
-            || index( $ua, "an7dg3childpad" ) != -1
-            || index( $ua, "an10bg3" ) != -1
-            || index( $ua, "an10bg3dt" ) != -1
-            || index( $ua, "opera tablet" ) != -1
-            || index( $ua, "rim tablet" ) != -1
-            || index( $ua, "hp-tablet" ) != -1
-    );
+	);
+    }
 
     if ( $browser_tests->{obigo} && $ua =~ /^(mot-[^ \/]+)/ ) {
         $device_string = substr $self->{user_agent}, 0, length $1;
@@ -2622,7 +2625,12 @@ format is the same as for the browser_version() functions.
 
 =head2 mobile()
 
-Returns true if the browser appears to belong to a handheld device.
+Returns true if the browser appears to belong to a mobile phone or
+similar device (i.e. one small enough that the mobile version of a
+page is probably preferable over the desktop version).
+
+In previous versions, tablet devices sometimes had mobile() return
+true. They are now mutually exclusive.
 
 =head2 tablet()
 
