@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Make "mobile" false when "tablet" is true.  This is a breaking change and
+      has triggered a major version bump. (andrewmoise)
 
 2.08 2016-01-29 21:56:29 America/Toronto
     - Brave browser detection added (Nicolas Doye)

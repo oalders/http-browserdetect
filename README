@@ -164,7 +164,12 @@ Mobile Devices
 
  mobile()
 
-    Returns true if the browser appears to belong to a handheld device.
+    Returns true if the browser appears to belong to a mobile phone or
+    similar device (i.e. one small enough that the mobile version of a page
+    is probably preferable over the desktop version).
+
+    In previous versions, tablet devices sometimes had mobile() return
+    true. They are now mutually exclusive.
 
  tablet()
 
