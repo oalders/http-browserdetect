@@ -1910,7 +1910,6 @@
       "language" : "EN",
       "major" : "5",
       "match" : [
-         "mobile",
          "device",
          "safari",
          "tablet",
@@ -2567,7 +2566,6 @@
       "match" : [
          "blackberry",
          "device",
-         "mobile",
          "rimtabletos",
          "webkit",
          "tablet"
@@ -4090,7 +4088,6 @@
          "ie55up",
          "ie4up",
          "ie5up",
-         "mobile",
          "tablet",
          "trident",
          "win32",
@@ -4348,7 +4345,6 @@
       "major" : "5",
       "match" : [
          "safari",
-         "mobile",
          "ios",
          "ipad",
          "tablet",
@@ -4379,7 +4375,6 @@
       "engine_version" : "534.12",
       "ios" : 1,
       "match" : [
-         "mobile",
          "ios",
          "ipad",
          "mobile_safari",
@@ -4884,7 +4879,6 @@
       "language" : "EN",
       "major" : "11",
       "match" : [
-         "mobile",
          "tablet",
          "win32",
          "windows",
