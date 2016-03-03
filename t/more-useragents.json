@@ -81,9 +81,12 @@
       "robot_name" : "Apache http client"
    },
    "Apple-PubSub/28" : {
-      "browser_major" : 0,
+      "browser" : "pubsub",
+      "browser_major" : 28,
       "browser_minor" : ".0",
-      "match" : [],
+      "match" : [
+          "pubsub"
+      ],
       "robot" : 0
    },
    "AppleCoreMedia/1.0.0.9A405 (iPad; U; CPU OS 5_0_1 like Mac OS X; en_us)" : {
@@ -143,10 +146,11 @@
       "browser_major" : "1",
       "browser_minor" : ".0",
       "match" : [
+         "bingbot",
          "robot"
       ],
-      "robot" : "unknown",
-      "robot_name" : "BingLocalSearchBot/1.0"
+      "robot" : "bingbot",
+      "robot_name" : "Bingbot"
    },
    "BlackBerry9000/4.6.0.167 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/102 ips-agent" : {
       "browser" : "blackberry",
@@ -159,11 +163,12 @@
       "match" : [
          "device",
          "blackberry",
+         "ipsagent",
          "mobile",
          "robot"
       ],
-      "robot" : "unknown",
-      "robot_name" : "BlackBerry9000/4.6.0.167 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/102 ips-agent"
+      "robot" : "ipsagent",
+      "robot_name" : "Verisign ips-agent"
    },
    "CATExplorador/1.0beta (sistemes at domini dot cat; http://domini.cat/catexplorador.html)" : {
       "beta" : "beta",
@@ -401,14 +406,13 @@
       "robot" : 0
    },
    "ImageSearcherPro/2.2.2 CFNetwork/711.2.23 Darwin/14.0.0" : {
+      "browser" : "imagesearcherpro",
       "browser_beta" : ".2",
       "browser_major" : "2",
       "browser_minor" : ".2",
       "match" : [
-         "robot"
-      ],
-      "robot" : "unknown",
-      "robot_name" : "ImageSearcherPro/2.2.2 CFNetwork/711.2.23 Darwin/14.0.0"
+         "imagesearcherpro"
+      ]
    },
    "InAGist URL Resolver (http://inagist.com)" : {
       "browser_major" : 0,
@@ -12979,16 +12983,19 @@
       "engine_minor" : ".0",
       "engine_string" : "Gecko",
       "match" : [
+         "firefox",
+         "gecko",
+         "google",
+         "googlefavicon",
+         "robot",
          "windows",
          "winnt",
          "win32",
-         "win7",
-         "firefox",
-         "gecko"
+         "win7"
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : "googlefavicon"
    },
    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/27.0.1453.116 Safari/537.36" : {
       "browser" : "chrome",
@@ -16512,10 +16519,10 @@
       "browser_minor" : ".0",
       "match" : [
          "robot",
-         "msn"
+         "bingbot"
       ],
-      "robot" : "msn",
-      "robot_name" : "MSN"
+      "robot" : "bingbot",
+      "robot_name" : "Bingbot"
    },
    "Mozilla/5.0 (compatible; bingbot/3.0-alpha; +http://www.bing.com/bingbot.htm)" : {
       "browser_beta" : "-alpha",
@@ -16523,10 +16530,10 @@
       "browser_minor" : ".0",
       "match" : [
          "robot",
-         "msn"
+         "bingbot"
       ],
-      "robot" : "msn",
-      "robot_name" : "MSN"
+      "robot" : "bingbot",
+      "robot_name" : "Bingbot"
    },
    "Mozilla/5.0 (compatible; coccoc/1.0; +http://help.coccoc.com/)" : {
       "browser_major" : "1",
@@ -17338,15 +17345,15 @@
          "safari",
          "webkit",
          "robot",
-         "msn"
+         "bingbot"
       ],
       "os" : "ios",
       "os_beta" : "",
       "os_major" : "7",
       "os_minor" : ".0",
       "os_string" : "iOS",
-      "robot" : "msn",
-      "robot_name" : "MSN"
+      "robot" : "bingbot",
+      "robot_name" : "Bingbot"
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) GSA/3.1.0.23513 Mobile/11A501 Safari/8536.25" : {
       "browser" : "safari",
@@ -18856,8 +18863,12 @@
    "my sypder/Nutch-1.9" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "nutch",
+          "robot"
+      ],
+      "robot" : "nutch",
+      "robot_name" : "Apache Nutch"
    },
    "netscan.gtisc.gatech.edu" : {
       "browser_major" : 0,
@@ -18877,8 +18888,12 @@
    "pilican/Nutch-1.9" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+          "nutch",
+          "robot"
+      ],
+      "robot" : "nutch",
+      "robot_name" : "Apache Nutch"
    },
    "python-requests/2.2.1 CPython/2.7.6 Linux/3.13.0-45-generic" : {
       "browser_beta" : ".1",
@@ -18941,10 +18956,11 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [
-         "robot"
+          "nutch",
+          "robot"
       ],
-      "robot" : "unknown",
-      "robot_name" : "tsip-agent/Nutch-1.8"
+      "robot" : "nutch",
+      "robot_name" : "Apache Nutch"
    },
    "visionutils/0.2" : {
       "browser_major" : 0,

