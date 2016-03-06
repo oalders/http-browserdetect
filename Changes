@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Big change: Add robot version detection, distinct from browser
+      version (first cut) (andrewmoise)
     - Add browsers: Pubsub (Safari RSS reader), ADM (Android Download
       Manager), ImageSearcherPro (iOS app) (andrewmoise)
     - Add robots: Google favicon, malware/shellcode, phplib,
@@ -10,10 +12,10 @@ Revision history for Perl extension HTTP::BrowserDetect.
       (andrewmoise)
     - Misc fixes to test support scripts (andrewmoise)
     - Add Kindle Fire (andrewmoise)
-    - Add robot version detection, distinct from browser version
-      (first cut) (andrewmoise)
     - Detect curl by matching /^curl/ as well as /libcurl/
       (andrewmoise)
+    - Remove webcrawler robot test (it triggers on too many distinct
+      robots which all include "webcrawler") (andrewmoise)
 
 3.00 2016-02-29 22:57:45 America/Toronto
     - Make "mobile" false when "tablet" is true.  This is a breaking change and
