@@ -100,7 +100,9 @@ while (<>) {
                 device
                 device_string
                 robot
-                robot_name )
+                robot_version
+                robot_beta
+                robot_string )
                 ) {
                 my $result = $detect->$method;
 
