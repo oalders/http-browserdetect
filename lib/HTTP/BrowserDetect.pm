@@ -738,7 +738,7 @@ sub _init_core {
         $browser = 'browsex';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, "libcurl" ) != -1 ) {
+    elsif ( index( $ua, "libcurl" ) != -1 || $ua =~ /^curl/ ) {
         $browser = 'curl';    # Test gets set during robot check
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
@@ -916,7 +916,7 @@ sub _init_robots {
     elsif ( index( $ua, "baiduspider" ) != -1 ) {
         $r = 'baidu';
     }
-    elsif ( index( $ua, "libcurl" ) != -1 ) {
+    elsif ( index( $ua, "libcurl" ) != -1 || $ua =~ /^curl/ ) {
         $r = 'curl';
         $robot_tests->{lib} = 1;
     }

@@ -5329,6 +5329,22 @@
       "other" : null,
       "version" : "1.16"
    },
+   "curl/7.45.0" : {
+      "browser" : "curl",
+      "browser_beta" : ".0",
+      "browser_major" : "7",
+      "browser_minor" : ".45",
+      "browser_string" : "curl",
+      "match" : [
+	  "curl",
+	  "robot",
+	  "lib"
+      ],
+      "robot" : "curl",
+      "robot_beta" : ".0",
+      "robot_string" : "curl",
+      "robot_version" : "7.45"
+   },
    "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)" : {
       "match" : [
          "robot",
