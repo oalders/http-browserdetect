@@ -4823,7 +4823,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_string" : "DnsHealthCheckBot/1.0",
+      "robot_string" : "DnsHealthCheckBot",
       "robot_version" : "1.0"
    },
    "Nokia-WAP-Toolkit/1.3beta" : {

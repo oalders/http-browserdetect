@@ -1120,19 +1120,19 @@ sub _init_robots {
                 $full_string = $1;
             }
 
-	    # Set robot_string, if we don't already have an explictly set
-	    # one
-	    if ( !defined($self->{robot_string}) ) {
-		$self->{robot_string} = $full_string;
-	    }
-
 	    # Figure out robot version based on the string
 	    if ( $full_string and
-		 $full_string =~ s/[\/ ]*(\d+)(\.\d+)?([\.\w]*)$// )
+		 $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// )
 	    {
 		$self->{robot_version} = [ $1, $2, $3 ];
 	    } else {
 		$self->{robot_version} = undef;
+	    }
+
+	    # Set robot_string, if we don't already have an explictly set
+	    # one
+	    if ( !defined($self->{robot_string}) ) {
+		$self->{robot_string} = $full_string;
 	    }
 	}
     }
