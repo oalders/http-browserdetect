@@ -8,7 +8,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Distinguish Bingbot from MSNbot (andrewmoise)
     - Only detect wget based on the beginning of the user-agent
       (andrewmoise)
-    
+    - Misc fixes to test support scripts (andrewmoise)
 
 3.00 2016-02-29 22:57:45 America/Toronto
     - Make "mobile" false when "tablet" is true.  This is a breaking change and
