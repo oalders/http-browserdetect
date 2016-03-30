@@ -51,7 +51,7 @@ my %new_tests;
 while (<>) {
     my $ua;
     my @tokens;
-    if ( m{^\d+\.\d+\.\d+\.\d+} || m{^\w+\:\w+\:\w+\:} ) {
+    if ( m{^\d+\.\d+\.\d+\.\d+} || m{^\w+\:\w*\:\w*\:} ) {
 
         # Apache log format, match tokens and get the user agent
         @tokens = (
@@ -100,7 +100,9 @@ while (<>) {
                 device
                 device_string
                 robot
-                robot_name )
+                robot_version
+                robot_beta
+                robot_string )
                 ) {
                 my $result = $detect->$method;
 

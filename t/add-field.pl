@@ -30,18 +30,32 @@ foreach my $ua ( sort keys %{$tests} ) {
         qw(browser browser_string device device_string
         engine engine_beta engine_minor engine_major engine_version
         os os_beta os_major os_minor os_version os_string
-        robot robot_string)
+        robot robot_string
+        robot_version robot_major robot_minor robot_beta)
         ) {
         no strict 'refs';
+
+	my $field_name = $field;
         my $value = $detect->$field;
-        if ( $field eq 'robot' ? $value : defined($value) ) {
-            $test->{$field} = $value;
-        }
-        else {
-            delete $test->{$field};
-        }
+
+	if ( $field_name eq 'device_string' ) {
+	    if ( defined($test->{device_name}) ) {
+		$field_name = 'device_name';
+	    }
+	} elsif ( $field_name eq 'robot_string' ) {
+	    if ( defined($test->{robot_name}) ) {
+		$field_name = 'robot_name';
+	    }
+	} elsif ( $field_name eq 'robot' ) {
+	    next unless $value || defined($test->{$field_name});
+	}
+
+	if ( defined($value) || exists($test->{$field_name}) ) {
+	    $test->{$field_name} = $value;
+	} else {
+	    delete $test->{$field_name};
+	}
     }
-    delete $test->{device_name};
 }
 
 my $json   = JSON::PP->new->canonical->pretty;

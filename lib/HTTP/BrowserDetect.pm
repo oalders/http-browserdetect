@@ -65,18 +65,19 @@ our @DEVICE_TESTS = qw(
 
 # Browsers
 our @BROWSER_TESTS = qw(
-    mosaic         netscape    firefox
-    chrome         safari      ie
-    opera          lynx        links
-    elinks         neoplanet   neoplanet2
-    avantgo        emacs       mozilla
-    konqueror      realplayer  netfront
-    mobile_safari  obigo       aol
-    lotusnotes     staroffice  icab
-    webtv          browsex     silk
-    applecoremedia galeon      seamonkey
-    epiphany       ucbrowser   dalvik
-    edge           brave
+    mosaic         netscape         firefox
+    chrome         safari           ie
+    opera          lynx             links
+    elinks         neoplanet        neoplanet2
+    avantgo        emacs            mozilla
+    konqueror      realplayer       netfront
+    mobile_safari  obigo            aol
+    lotusnotes     staroffice       icab
+    webtv          browsex          silk
+    applecoremedia galeon           seamonkey
+    epiphany       ucbrowser        dalvik
+    edge           pubsub           adm
+    brave          imagesearcherpro
 );
 
 our @IE_TESTS = qw(
@@ -121,15 +122,17 @@ our @ROBOT_TESTS = qw(
     getright        robot          slurp
     yahoo           mj12bot        ahrefs
     altavista       lycos          infoseek
-    lwp             webcrawler     linkexchange
+    lwp             linkexchange
     googlemobile    msn            msnmobile
     facebook        baidu          googleadsbot
     askjeeves       googleadsense  googlebotvideo
     googlebotnews   googlebotimage google
-    linkchecker     yandeximages   specialarchiver
+    googlefavicon   yandeximages   specialarchiver
     yandex          java           lib
     indy            golib          rubylib
-    apache          msoffice
+    apache          malware        phplib
+    msoffice        ipsagent       nutch
+    linkchecker     bingbot
 );
 
 our @MISC_TESTS = qw(
@@ -160,6 +163,7 @@ my %ROBOT_NAMES = (
     apache          => 'Apache http client',
     askjeeves       => 'AskJeeves',
     baidu           => 'Baidu Spider',
+    bingbot         => 'Bingbot',
     curl            => 'curl',
     facebook        => 'Facebook',
     getright        => 'GetRight',
@@ -169,25 +173,29 @@ my %ROBOT_NAMES = (
     googlebotimage  => 'Googlebot Images',
     googlebotnews   => 'Googlebot News',
     googlebotvideo  => 'Googlebot Video',
+    googlefavicon   => 'Google Favicon',
     googlemobile    => 'Googlebot Mobile',
     golib           => 'Go language http library',
     indy            => 'Indy Library',
     infoseek        => 'InfoSeek',
+    ipsagent        => 'Verisign ips-agent',
     java            => 'Java',
     linkchecker     => 'LinkChecker',
     linkexchange    => 'LinkExchange',
     lwp             => 'LWP::UserAgent',
     lycos           => 'Lycos',
+    malware         => 'Malware / hack attempt',
     mj12bot         => 'Majestic-12 DSearch',
     msn             => 'MSN',
     msnmobile       => 'MSN Mobile',
     msoffice        => 'Microsoft Office',
+    nutch           => 'Apache Nutch',
+    phplib          => 'PHP http library',
     puf             => 'puf',
     robot           => 'robot',
     rubylib         => 'Ruby http library',
     slurp           => 'Yahoo! Slurp',
     specialarchiver => 'archive.org_bot',
-    webcrawler      => 'WebCrawler',
     wget            => 'wget',
     yahoo           => 'Yahoo',
     yandex          => 'Yandex',
@@ -195,6 +203,7 @@ my %ROBOT_NAMES = (
 );
 
 my %BROWSER_NAMES = (
+    adm            => 'Android Download Manager',
     aol            => 'AOL Browser',
     applecoremedia => 'AppleCoreMedia',
     blackberry     => 'BlackBerry',
@@ -212,6 +221,7 @@ my %BROWSER_NAMES = (
     icab           => 'iCab',
     iceweasel      => 'IceWeasel',
     ie             => 'MSIE',
+    imagesearcherpro => 'ImageSearcherPro',
     konqueror      => 'Konqueror',
     links          => 'Links',
     lotusnotes     => 'Lotus Notes',
@@ -224,6 +234,7 @@ my %BROWSER_NAMES = (
     netscape       => 'Netscape',
     obigo          => 'Obigo',
     opera          => 'Opera',
+    pubsub         => 'Safari RSS Reader',
     puf            => 'puf',
     realplayer     => 'RealPlayer',
     safari         => 'Safari',
@@ -446,7 +457,7 @@ sub user_agent {
 ###     $self->{robot}
 ###     $self->{robot_tests}
 ###     $self->{robot_string}
-###     $self->{robot_fragment}
+###     $self->{robot_version}
 ###
 
 # Private method -- Set up the basics (browser and misc attributes)
@@ -727,7 +738,7 @@ sub _init_core {
         $browser = 'browsex';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, "libcurl" ) != -1 ) {
+    elsif ( index( $ua, "libcurl" ) != -1 || $ua =~ /^curl/ ) {
         $browser = 'curl';    # Test gets set during robot check
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
@@ -737,6 +748,10 @@ sub _init_core {
         $browser = 'applecoremedia';
         $browser_tests->{$browser} = 1;
     }
+    elsif ( index( $ua, "androiddownloadmanager" ) != -1 ) {
+	$browser = 'adm';
+	$browser_tests->{$browser} = 1;
+    }
     elsif ( index( $ua, "dalvik" ) != -1 ) {
         $browser = 'dalvik';
         $browser_tests->{$browser} = 1;
@@ -744,6 +759,14 @@ sub _init_core {
     elsif ( index( $ua, "ucbrowser" ) != -1 ) {
         $browser = 'ucbrowser';
         $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "apple-pubsub" ) != -1 ) {
+	$browser = 'pubsub';
+	$browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "imagesearcherpro" ) != -1 ) {
+	$browser = 'imagesearcherpro';
+	$browser_tests->{$browser} = 1;
     }
 
     $self->{browser} = $browser;
@@ -792,9 +815,7 @@ sub _init_core {
 }
 
 # Any of these fragments within a user-agent generally indicates it's
-# a robot. If we find one, we store it in $self->{robot_fragment}, and
-# if the user later asks for the robot string, we return the string
-# in the immediate area of the fragment.
+# a robot.
 my @ROBOT_FRAGMENTS = qw(
     agent
     appender
@@ -815,6 +836,7 @@ my @ROBOT_FRAGMENTS = qw(
     scan
     service
     spider
+    thumbtack-thunderdome
     tiscali
     validator
     webcapture
@@ -832,9 +854,15 @@ sub _init_robots {
     my $robot_tests = $self->{robot_tests} = {};
     my $r = undef;
 
+    my $robot_fragment; # The text that indicates it's a robot (we'll
+			# use this later to detect robot version, and
+			# maybe robot_string)
+
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
         $r = 'lwp';
         $robot_tests->{lib} = 1;
+	$robot_fragment =
+	    ( ( index( $ua, "libwww-perl" ) != -1 ) ? 'libwww-perl' : 'lwp-');
     }
     elsif ( index( $ua, "slurp" ) != -1 ) {
         $r = 'slurp';
@@ -844,16 +872,29 @@ sub _init_robots {
         && index( $ua, 'jp.co.yahoo.android' ) == -1 ) {
         $r = 'yahoo';
     }
-    elsif (index( $ua, "msnbot-mobile" ) != -1
-        || index( $ua, "bingbot-mobile" ) != -1 ) {
-        $r = 'msnmobile';
-        $robot_tests->{msn} = 1;
+    elsif (index( $ua, "msnbot-mobile" ) != -1 ) {
+       $r = 'msnmobile';
+       $robot_tests->{msn} = 1;
+       $robot_fragment = "msnbot";
     }
-    elsif ( index( $ua, "msnbot" ) != -1 || index( $ua, "bingbot" ) != -1 ) {
+    elsif ( index( $ua, "bingbot-mobile" ) != -1 ) {
+        $r = 'bingbot';
+	$robot_tests->{bingbot} = 1;
+	$robot_fragment = "bingbot";
+    }
+    elsif ( index( $ua, "msnbot" ) != -1 ) {
         $r = 'msn';
+	$robot_fragment = 'msnbot';
+    }
+    elsif ( index( $ua, "binglocalsearch" ) != -1
+	    || index( $ua, "bingbot" ) != -1 ) {
+	$r = 'bingbot';
+	$robot_tests->{bingbot} = 1;
+	$robot_fragment = "bingbot";
     }
     elsif ( index( $ua, "microsoft office existence discovery" ) != -1 ) {
         $r = 'msoffice';
+	$robot_fragment = 'office';
     }
     elsif ( index( $ua, "ahrefsbot" ) != -1 ) {
         $r = 'ahrefs';
@@ -864,13 +905,18 @@ sub _init_robots {
     elsif ( index( $ua, "apache-httpclient" ) != -1 ) {
         $r = 'apache';
     }
+    elsif ( $ua =~ m{\( *\) *\{ *\: *\; *} ) {
+	# Shellcode for spawning a process, i.e. (){:;} with some kind of whitespace interleaved
+	$r = 'malware';
+    }
     elsif ( index( $ua, "ask jeeves/teoma" ) != -1 ) {
         $r = 'askjeeves';
+	$robot_fragment = 'teoma';
     }
     elsif ( index( $ua, "baiduspider" ) != -1 ) {
         $r = 'baidu';
     }
-    elsif ( index( $ua, "libcurl" ) != -1 ) {
+    elsif ( index( $ua, "libcurl" ) != -1 || $ua =~ /^curl/ ) {
         $r = 'curl';
         $robot_tests->{lib} = 1;
     }
@@ -883,26 +929,37 @@ sub _init_robots {
     elsif ( index( $ua, "adsbot-google" ) != -1 ) {
         $r = 'googleadsbot';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'adsbot-google';
     }
     elsif ( index( $ua, "mediapartners-google" ) != -1 ) {
         $r = 'googleadsense';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'mediapartners-google';
+    }
+    elsif ( index( $ua, "google favicon" ) != -1 ) {
+	$r = 'googlefavicon';
+	$robot_tests->{google} = 1;
+	$robot_fragment = 'favicon';
     }
     elsif ( index( $ua, "googlebot-image" ) != -1 ) {
         $r = 'googlebotimage';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'googlebot-image';
     }
     elsif ( index( $ua, "googlebot-news" ) != -1 ) {
         $r = 'googlebotnews';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'googlebot-news';
     }
     elsif ( index( $ua, "googlebot-video" ) != -1 ) {
         $r = 'googlebotvideo';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'googlebot-video';
     }
     elsif ( index( $ua, "googlebot-mobile" ) != -1 ) {
         $r = 'googlemobile';
         $robot_tests->{google} = 1;
+	$robot_fragment = 'googlebot-mobile';
     }
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
@@ -910,6 +967,16 @@ sub _init_robots {
     elsif ( $ua =~ m{go.*package http} ) {
         $r = 'golib';
         $robot_tests->{lib} = 1;
+	$robot_fragment = 'package';
+    }
+    elsif ( $ua =~ m{^http_request} ) {
+	$r = 'phplib';
+	$robot_tests->{lib} = 1;
+	$robot_fragment = 'http_request';
+    }
+    elsif ( $ua =~ m{^http_request} ) {
+	$r = 'phplib';
+	$robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "indy library" ) != -1 ) {
         $r = 'indy';
@@ -918,8 +985,13 @@ sub _init_robots {
     elsif ( index( $ua, "infoseek" ) != -1 ) {
         $r = 'infoseek';
     }
+    elsif ( index( $ua, "ips-agent" ) != -1 ) {
+	$r = 'ipsagent';
+	$robot_fragment = 'ips-agent';
+    }
     elsif ( index( $ua, "lecodechecker" ) != -1 ) {
         $r = 'linkexchange';
+	$robot_fragment = 'lecodechecker';
     }
     elsif ( index( $ua, "linkchecker" ) != -1 ) {
         $r = 'linkchecker';
@@ -930,9 +1002,13 @@ sub _init_robots {
     elsif ( index( $ua, "mechanize" ) != -1 ) {
         $r = 'rubylib';
         $robot_tests->{lib} = 1;
+	$robot_fragment = 'mechanize';
     }
     elsif ( index( $ua, "mj12bot/" ) != -1 ) {
         $r = 'mj12bot';
+    }
+    elsif ( index( $ua, "nutch" ) != -1 ) {
+	$r = 'nutch';
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $r = 'puf';
@@ -943,11 +1019,9 @@ sub _init_robots {
     }
     elsif ( index( $ua, "special_archiver" ) != -1 ) {
         $r = 'specialarchiver';
+	$robot_fragment = 'special_archiver';
     }
-    elsif ( index( $ua, "webcrawler" ) != -1 ) {
-        $r = 'webcrawler';
-    }
-    elsif ( index( $ua, "wget" ) != -1 ) {
+    elsif ( index( $ua, "wget" ) == 0 ) {
         $r = 'wget';
     }
     elsif ( index( $ua, "yandexbot" ) != -1 ) {
@@ -956,39 +1030,46 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'yandeximages';
     }
-    elsif (( $ua =~ m{^java} && !$self->{browser} )
-        || index( $ua, "jdk" ) != -1
-        || index( $ua, "jakarta commons-httpclient" ) != -1
-        || index( $ua, "google-http-java-client" ) != -1 ) {
+	elsif ( $ua =~ m{^java} && !$self->{browser} ) {
         $r = 'java';
         $robot_tests->{lib} = 1;
+    } elsif ( index( $ua, "jdk" ) != -1 ) {
+	$r = 'java';
+	$robot_tests->{lib} = 1;
+	$robot_fragment = 'jdk';
+    } elsif ( index( $ua, "jakarta commons-httpclient" ) != -1 ) {
+	$r = 'java';
+	$robot_tests->{lib} = 1;
+	$robot_fragment = 'jakarta';
+    } elsif ( index( $ua, "google-http-java-client" ) != -1 ) {
+	$r = 'java';
+	$robot_tests->{lib} = 1;
+	$robot_fragment = 'google';
     }
 
     if (   $browser_tests->{applecoremedia}
-        || $browser_tests->{dalvik} ) {
+        || $browser_tests->{dalvik}
+	|| $browser_tests->{adm} ) {
         $robot_tests->{lib} = 1;
     }
 
     if ($r) {
+        # Got a named robot
         $robot_tests->{$r} = 1;
         $self->{robot_string} = $ROBOT_NAMES{$r};    # Including undef
-    }
-
-    if ($r) {
-
-        # Got a named robot
         $robot_tests->{robot} = $r;
+	$robot_fragment = $r if !defined($robot_fragment);
     }
     elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
 
         # Store the fragment for later, to determine full name
-        $self->{robot_fragment} = "seek";
+        $robot_fragment = "seek";
         $robot_tests->{robot}   = 'unknown';
     }
-    elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b )/x ) {
+    elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b | erpro \b )/x ) {
 
         # Store the fragment for later, to determine full name
-        $self->{robot_fragment} = "search";
+        $robot_fragment = "search";
         $robot_tests->{robot}   = 'unknown';
     }
     elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
@@ -996,17 +1077,68 @@ sub _init_robots {
         # Something followed by +http
         $self->{robot_string} = $1;
         $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
+	$robot_fragment = $1;
         $robot_tests->{robot} = 'unknown';
     }
     else {
         # See if we have a simple fragment
         for my $fragment (@ROBOT_FRAGMENTS) {
             if ( index( $ua, $fragment ) != -1 ) {
-                $self->{robot_fragment} = $fragment;
+                $robot_fragment = $fragment;
                 $robot_tests->{robot}   = 'unknown';
                 last;
             }
         }
+    }
+
+    if ( defined( $robot_fragment ) ) {
+	# Examine what surrounds the fragment; that leads us to the
+	# version and the string (if we haven't explicitly set one).
+
+        if (
+            $self->{user_agent} =~ m{\s*                # Beginning whitespace
+                                      ([\w .:,\-\@\/]*  # Words before fragment
+                                       $robot_fragment  # Match the fragment
+                                       [\w .:,\-\@\/]*) # Words after fragment
+                                     }ix
+            ) {
+	    my $full_string = $1;
+            $full_string =~ s/ *$//;    # Trim whitespace at end
+            if (
+                $self->{user_agent} eq $full_string
+                && $self->{user_agent} =~ m{\/.*\/}
+                && $self->{user_agent} =~ m{
+                                      ([\w]*               # Words before fragment
+                                       $robot_fragment     # Match the fragment
+                                       (\/[\d\.]+)?        # Version
+                                       [\w]*)              # Beta stuff
+                                     }ix
+                ) {
+                # We matched the whole string, but it seems to
+                # make more sense as whitespace-separated
+                # "thing/ver" tokens
+                $full_string = $1;
+            }
+
+	    # Figure out robot version based on the string
+	    if ( $full_string and
+		 $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// )
+	    {
+		$self->{robot_version} = [ $1, $2, $3 ];
+	    } else {
+		$self->{robot_version} = undef;
+	    }
+
+	    # Set robot_string, if we don't already have an explictly set
+	    # one
+	    if ( !defined($self->{robot_string}) ) {
+		$self->{robot_string} = $full_string;
+	    }
+	}
+    }
+
+    if ( !exists($self->{robot_version}) ) {
+	$self->{robot_version} = undef;
     }
 }
 
@@ -1539,6 +1671,12 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+    elsif ( $browser eq 'pubsub'
+	    && $ua =~ m{apple-pubsub/(\d+)\.?(\d+)?([\d.]*)} ) {
+	$major = $1;
+	$minor = $2;
+	$beta = $3;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # "$browser/x.y.z"
@@ -1915,7 +2053,12 @@ sub _init_device {
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
         if ( $device_tests->{tablet} ) {
-            $device_string = "Android tablet ($1)";
+	    my $model = $1;
+	    if ( $model =~ m{^KF} ) {
+		$device_string = "Android tablet (Kindle Fire)";
+	    } else {
+		$device_string = "Android tablet ($model)";
+	    }
         }
         else {
             $device_string = "Android ($1)";
@@ -1957,6 +2100,60 @@ sub browser_string {
     my ($self) = @_;
     return undef unless defined $self->{user_agent};
     return $self->{browser_string};
+}
+
+sub robot_string {
+    my $self = shift;
+
+    $self->_init_robots unless exists( $self->{robot_string} );
+    return $self->{robot_string};
+}
+
+sub robot_name {
+    my ($self) = @_;
+    return $self->robot_string;
+}
+
+sub _robot_version {
+    my ($self) = @_;
+    $self->_init_robots unless exists( $self->{robot_string} );
+    if ( $self->{robot_version} ) {
+	return @{ $self->{robot_version} };
+    } else {
+	return ( undef, undef, undef );
+    }
+}
+
+sub robot_version {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_robot_version;
+    if ( defined($major) ) {
+	if ( defined( $minor ) ) {
+	    return "$major$minor";
+	} else {
+	    return $major;
+	}
+    } else {
+	return undef;
+    }
+}
+
+sub robot_major {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_robot_version;
+    return $major;
+}
+
+sub robot_minor {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_robot_version;
+    return $minor;
+}
+
+sub robot_beta {
+    my ($self) = @_;
+    my ( $major, $minor, $beta ) = $self->_robot_version;
+    return $beta;
 }
 
 sub os {
@@ -2408,51 +2605,6 @@ sub browser_properties {
     return sort @browser_properties;
 }
 
-sub robot_string {
-    my $self = shift;
-
-    $self->_init_robots unless exists( $self->{robot_string} );
-    if ( defined( $self->{robot_fragment} )
-        && !defined( $self->{robot_string} ) ) {
-
-        # We haven't figured out what the name is, but we know which
-        # fragment led us to identify the robot. Set the string based
-        # on what surrounds the fragment.
-        my $fragment = $self->{robot_fragment};
-        if (
-            $self->{user_agent} =~ m{\s*               # Beginning whitespace
-                                      ([\w .:,\-\@\/]*  # Words before fragment
-                                       $fragment        # Match the fragment
-                                       [\w .:,\-\@\/]*) # Words after fragment
-                                     }ix
-            ) {
-            $self->{robot_string} = $1;
-            $self->{robot_string} =~ s/ *$//;    # Trim whitespace at end
-            if (
-                   $self->{user_agent} eq $self->{robot_string}
-                && $self->{user_agent} =~ m{\/.*\/}
-                && $self->{user_agent} =~ m{
-                                      ([\w]*               # Words before fragment
-                                       $fragment           # Match the fragment
-                                       \/[\d\.]+           # Version
-                                       [\w]*)              # Beta stuff
-                                     }ix
-                ) {
-                # We matched the whole string, but it seems to
-                # make more sense as whitespace-separated
-                # "thing/ver" tokens
-                $self->{robot_string} = $1;
-            }
-        }
-    }
-    return $self->{robot_string};
-}
-
-sub robot_name {
-    my ($self) = @_;
-    return $self->robot_string;
-}
-
 1;
 
 # ABSTRACT: Determine Web browser, version, and platform from an HTTP user agent string
@@ -2520,11 +2672,11 @@ web server when calling a CGI script.
 
 Returns the browser, as one of the following values:
 
-chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
-browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
+chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
+brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
-n3ds, dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser,
-webtv, brave
+n3ds, dsi, obigo, pubsub, realplayer, seamonkey, silk, staroffice,
+ucbrowser, webtv
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -2662,12 +2814,13 @@ can be detected.
 If the user agent appears to be a robot, spider, crawler, or other
 automated Web client, this returns one of the following values:
 
-lwp, slurp, yahoo, msnmobile, msn, msoffice, ahrefs, altavista, apache,
-askjeeves, baidu, curl, facebook, getright, googleadsbot,
-googleadsense, googlebotimage, googlebotnews, googlebotvideo,
-googlemobile, google, golib, indy, infoseek, linkexchange,
-linkchecker, lycos, mj12bot, puf, rubylib, scooter, specialarchiver,
-webcrawler, wget, yandexbot, yandeximages, java, unknown
+lwp, slurp, yahoo, bingbot, msnmobile, msn, msoffice, ahrefs,
+altavista, apache, askjeeves, baidu, curl, facebook, getright,
+googleadsbot, googleadsense, googlebotimage, googlebotnews,
+googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
+infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
+mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
+wget, yandexbot, yandeximages, java, unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
@@ -2698,6 +2851,23 @@ subject to change and are meant for display purposes. This may include
 additional information (e.g. robots which return "unknown" from
 robot() generally can be identified in a human-readable fashion by
 reading robot_string() ).
+
+=head2 robot_version()
+=head2 robot_major()
+=head2 robot_minor()
+=head2 robot_beta()
+
+Returns version information for the robot, if any could be
+detected. The format is the same as for the browser_version()
+functions.
+
+Note that if a robot crafts a user agent designed to impersonate a
+particular browser, we generally return results appropriate to both
+the actual robot, and the browser it is impersonating. For example,
+googlebot-mobile pretends to be mobile safari so that it will get
+mobile versions of pages. In this case, robot_version() will return
+the version of googlebot-mobile, and browser_version() will return the
+version of Safari that googlebot-mobile is impersonating.
 
 =head1 Browser Properties
 
@@ -2783,15 +2953,27 @@ The following methods are available, each returning a true or false value.
 Some methods also test for the browser version, saving you from checking the
 version separately.
 
+=head3 adm
+
 =head3 aol aol3 aol4 aol5 aol6
+
+=head3 applecoremedia
+
+=head3 avantgo
+
+=head3 browsex
 
 =head3 chrome
 
+=head3 dalvik
+
 =head3 emacs
+
+=head3 epiphany
 
 =head3 firefox
 
-=head3 gecko
+=head3 galeon
 
 =head3 icab
 
@@ -2822,7 +3004,11 @@ the version of Trident in the engine_version method.
 
 =head3 netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
 
+=head3 obigo
+
 =head3 opera opera3 opera4 opera5 opera6 opera7
+
+=head3 pubsub
 
 =head3 realplayer
 
@@ -2836,7 +3022,13 @@ browser (but returns 0 for the plugin).
 
 =head3 safari
 
+=head3 seamonkey
+
+=head3 silk
+
 =head3 staroffice
+
+=head3 ucbrowser
 
 =head3 webtv
 
@@ -2898,6 +3090,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 baidu
 
+=head3 bingbot
+
 =head3 curl
 
 =head3 facebook
@@ -2918,6 +3112,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 infoseek
 
+=head3 ipsagent
+
 =head3 java
 
 =head3 linkexchange
@@ -2926,9 +3122,11 @@ value. This is by no means a complete list of robots that exist on the Web.
 
 =head3 lycos
 
+=head3 malware
+
 =head3 mj12bot
 
-=head3 msn (same as bing)
+=head3 msn
 
 =head3 msoffice
 
@@ -2937,8 +3135,6 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 rubylib
 
 =head3 slurp
-
-=head3 webcrawler
 
 =head3 wget
 
