@@ -1,4 +1,3 @@
-requires "JSON::PP" => "2.27300";
 requires "perl" => "5.006";
 requires "strict" => "0";
 requires "vars" => "0";
@@ -10,7 +9,7 @@ on 'build' => sub {
 
 on 'test' => sub {
   requires "FindBin" => "0";
-  requires "JSON::PP" => "2.27300";
+  requires "JSON::PP" => "0";
   requires "Path::Tiny" => "0";
   requires "Test::FailWarnings" => "0";
   requires "Test::More" => "0";
@@ -21,6 +20,10 @@ on 'test' => sub {
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
   requires "Module::Build" => "0.28";
+};
+
+on 'configure' => sub {
+  suggests "JSON::PP" => "2.27300";
 };
 
 on 'develop' => sub {

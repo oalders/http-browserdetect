@@ -60,11 +60,11 @@ Browser Information
 
     Returns the browser, as one of the following values:
 
-    chrome, firefox, ie, opera, safari, applecoremedia, blackberry,
-    browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
+    chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
+    brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
     konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape, n3ds,
-    dsi, obigo, realplayer, seamonkey, silk, staroffice, ucbrowser, webtv,
-    brave
+    dsi, obigo, pubsub, realplayer, seamonkey, silk, staroffice, ucbrowser,
+    webtv
 
     If the browser could not be identified (either because unrecognized or
     because it is a robot), returns undef.
@@ -204,12 +204,13 @@ Robots
     If the user agent appears to be a robot, spider, crawler, or other
     automated Web client, this returns one of the following values:
 
-    lwp, slurp, yahoo, msnmobile, msn, msoffice, ahrefs, altavista, apache,
-    askjeeves, baidu, curl, facebook, getright, googleadsbot,
-    googleadsense, googlebotimage, googlebotnews, googlebotvideo,
-    googlemobile, google, golib, indy, infoseek, linkexchange, linkchecker,
-    lycos, mj12bot, puf, rubylib, scooter, specialarchiver, webcrawler,
-    wget, yandexbot, yandeximages, java, unknown
+    lwp, slurp, yahoo, bingbot, msnmobile, msn, msoffice, ahrefs,
+    altavista, apache, askjeeves, baidu, curl, facebook, getright,
+    googleadsbot, googleadsense, googlebotimage, googlebotnews,
+    googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
+    infoseek, ipsagent, linkchecker, linkexchange, lycos, malware, mj12bot,
+    nutch, phplib, puf, rubylib, scooter, specialarchiver, wget, yandexbot,
+    yandeximages, java, unknown
 
     Returns "unknown" when the user agent is believed to be a robot but is
     not identified as one of the above specific robots.
@@ -238,6 +239,20 @@ Robots
     additional information (e.g. robots which return "unknown" from robot()
     generally can be identified in a human-readable fashion by reading
     robot_string() ).
+
+ robot_version() =head2 robot_major() =head2 robot_minor() =head2
+ robot_beta()
+
+    Returns version information for the robot, if any could be detected.
+    The format is the same as for the browser_version() functions.
+
+    Note that if a robot crafts a user agent designed to impersonate a
+    particular browser, we generally return results appropriate to both the
+    actual robot, and the browser it is impersonating. For example,
+    googlebot-mobile pretends to be mobile safari so that it will get
+    mobile versions of pages. In this case, robot_version() will return the
+    version of googlebot-mobile, and browser_version() will return the
+    version of Safari that googlebot-mobile is impersonating.
 
 Browser Properties
 
@@ -323,15 +338,27 @@ Browser Properties
     value. Some methods also test for the browser version, saving you from
     checking the version separately.
 
+  adm
+
   aol aol3 aol4 aol5 aol6
+
+  applecoremedia
+
+  avantgo
+
+  browsex
 
   chrome
 
+  dalvik
+
   emacs
+
+  epiphany
 
   firefox
 
-  gecko
+  galeon
 
   icab
 
@@ -362,7 +389,11 @@ Browser Properties
 
   netscape nav2 nav3 nav4 nav4up nav45 nav45up navgold nav6 nav6up
 
+  obigo
+
   opera opera3 opera4 opera5 opera6 opera7
+
+  pubsub
 
   realplayer
 
@@ -376,7 +407,13 @@ Browser Properties
 
   safari
 
+  seamonkey
+
+  silk
+
   staroffice
+
+  ucbrowser
 
   webtv
 
@@ -440,6 +477,8 @@ Browser Properties
 
   baidu
 
+  bingbot
+
   curl
 
   facebook
@@ -460,6 +499,8 @@ Browser Properties
 
   infoseek
 
+  ipsagent
+
   java
 
   linkexchange
@@ -468,9 +509,11 @@ Browser Properties
 
   lycos
 
+  malware
+
   mj12bot
 
-  msn (same as bing)
+  msn
 
   msoffice
 
@@ -479,8 +522,6 @@ Browser Properties
   rubylib
 
   slurp
-
-  webcrawler
 
   wget
 
