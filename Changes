@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+3.10 2016-03-29 22:15:35 America/Toronto
     - Big change: Add robot version detection, distinct from browser
       version (first cut) (andrewmoise)
     - Add browsers: Pubsub (Safari RSS reader), ADM (Android Download
