@@ -35,26 +35,29 @@ foreach my $ua ( sort keys %{$tests} ) {
         ) {
         no strict 'refs';
 
-	my $field_name = $field;
-        my $value = $detect->$field;
+        my $field_name = $field;
+        my $value      = $detect->$field;
 
-	if ( $field_name eq 'device_string' ) {
-	    if ( defined($test->{device_name}) ) {
-		$field_name = 'device_name';
-	    }
-	} elsif ( $field_name eq 'robot_string' ) {
-	    if ( defined($test->{robot_name}) ) {
-		$field_name = 'robot_name';
-	    }
-	} elsif ( $field_name eq 'robot' ) {
-	    next unless $value || defined($test->{$field_name});
-	}
+        if ( $field_name eq 'device_string' ) {
+            if ( defined( $test->{device_name} ) ) {
+                $field_name = 'device_name';
+            }
+        }
+        elsif ( $field_name eq 'robot_string' ) {
+            if ( defined( $test->{robot_name} ) ) {
+                $field_name = 'robot_name';
+            }
+        }
+        elsif ( $field_name eq 'robot' ) {
+            next unless $value || defined( $test->{$field_name} );
+        }
 
-	if ( defined($value) || exists($test->{$field_name}) ) {
-	    $test->{$field_name} = $value;
-	} else {
-	    delete $test->{$field_name};
-	}
+        if ( defined($value) || exists( $test->{$field_name} ) ) {
+            $test->{$field_name} = $value;
+        }
+        else {
+            delete $test->{$field_name};
+        }
     }
 }
 

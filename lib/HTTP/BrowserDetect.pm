@@ -203,46 +203,46 @@ my %ROBOT_NAMES = (
 );
 
 my %BROWSER_NAMES = (
-    adm            => 'Android Download Manager',
-    aol            => 'AOL Browser',
-    applecoremedia => 'AppleCoreMedia',
-    blackberry     => 'BlackBerry',
-    brave          => 'Brave',
-    browsex        => 'BrowseX',
-    chrome         => 'Chrome',
-    curl           => 'curl',
-    dalvik         => 'Dalvik',
-    dsi            => 'Nintendo DSi',
-    edge           => 'Edge',
-    elinks         => 'ELinks',
-    epiphany       => 'Epiphany',
-    firefox        => 'Firefox',
-    galeon         => 'Galeon',
-    icab           => 'iCab',
-    iceweasel      => 'IceWeasel',
-    ie             => 'MSIE',
+    adm              => 'Android Download Manager',
+    aol              => 'AOL Browser',
+    applecoremedia   => 'AppleCoreMedia',
+    blackberry       => 'BlackBerry',
+    brave            => 'Brave',
+    browsex          => 'BrowseX',
+    chrome           => 'Chrome',
+    curl             => 'curl',
+    dalvik           => 'Dalvik',
+    dsi              => 'Nintendo DSi',
+    edge             => 'Edge',
+    elinks           => 'ELinks',
+    epiphany         => 'Epiphany',
+    firefox          => 'Firefox',
+    galeon           => 'Galeon',
+    icab             => 'iCab',
+    iceweasel        => 'IceWeasel',
+    ie               => 'MSIE',
     imagesearcherpro => 'ImageSearcherPro',
-    konqueror      => 'Konqueror',
-    links          => 'Links',
-    lotusnotes     => 'Lotus Notes',
-    lynx           => 'Lynx',
-    mobile_safari  => 'Mobile Safari',
-    mosaic         => 'Mosaic',
-    mozilla        => 'Mozilla',
-    n3ds           => 'Nintendo 3DS',
-    netfront       => 'NetFront',
-    netscape       => 'Netscape',
-    obigo          => 'Obigo',
-    opera          => 'Opera',
-    pubsub         => 'Safari RSS Reader',
-    puf            => 'puf',
-    realplayer     => 'RealPlayer',
-    safari         => 'Safari',
-    seamonkey      => 'SeaMonkey',
-    silk           => 'Silk',
-    staroffice     => 'StarOffice',
-    ucbrowser      => 'UCBrowser',
-    webtv          => 'WebTV',
+    konqueror        => 'Konqueror',
+    links            => 'Links',
+    lotusnotes       => 'Lotus Notes',
+    lynx             => 'Lynx',
+    mobile_safari    => 'Mobile Safari',
+    mosaic           => 'Mosaic',
+    mozilla          => 'Mozilla',
+    n3ds             => 'Nintendo 3DS',
+    netfront         => 'NetFront',
+    netscape         => 'Netscape',
+    obigo            => 'Obigo',
+    opera            => 'Opera',
+    pubsub           => 'Safari RSS Reader',
+    puf              => 'puf',
+    realplayer       => 'RealPlayer',
+    safari           => 'Safari',
+    seamonkey        => 'SeaMonkey',
+    silk             => 'Silk',
+    staroffice       => 'StarOffice',
+    ucbrowser        => 'UCBrowser',
+    webtv            => 'WebTV',
 );
 
 # Device names
@@ -749,8 +749,8 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "androiddownloadmanager" ) != -1 ) {
-	$browser = 'adm';
-	$browser_tests->{$browser} = 1;
+        $browser = 'adm';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "dalvik" ) != -1 ) {
         $browser = 'dalvik';
@@ -761,12 +761,12 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "apple-pubsub" ) != -1 ) {
-	$browser = 'pubsub';
-	$browser_tests->{$browser} = 1;
+        $browser = 'pubsub';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "imagesearcherpro" ) != -1 ) {
-	$browser = 'imagesearcherpro';
-	$browser_tests->{$browser} = 1;
+        $browser = 'imagesearcherpro';
+        $browser_tests->{$browser} = 1;
     }
 
     $self->{browser} = $browser;
@@ -854,15 +854,15 @@ sub _init_robots {
     my $robot_tests = $self->{robot_tests} = {};
     my $r = undef;
 
-    my $robot_fragment; # The text that indicates it's a robot (we'll
-			# use this later to detect robot version, and
-			# maybe robot_string)
+    my $robot_fragment;    # The text that indicates it's a robot (we'll
+                           # use this later to detect robot version, and
+                           # maybe robot_string)
 
     if ( index( $ua, "libwww-perl" ) != -1 || index( $ua, "lwp-" ) != -1 ) {
-        $r = 'lwp';
+        $r                  = 'lwp';
         $robot_tests->{lib} = 1;
-	$robot_fragment =
-	    ( ( index( $ua, "libwww-perl" ) != -1 ) ? 'libwww-perl' : 'lwp-');
+        $robot_fragment     = (
+            ( index( $ua, "libwww-perl" ) != -1 ) ? 'libwww-perl' : 'lwp-' );
     }
     elsif ( index( $ua, "slurp" ) != -1 ) {
         $r = 'slurp';
@@ -872,29 +872,29 @@ sub _init_robots {
         && index( $ua, 'jp.co.yahoo.android' ) == -1 ) {
         $r = 'yahoo';
     }
-    elsif (index( $ua, "msnbot-mobile" ) != -1 ) {
-       $r = 'msnmobile';
-       $robot_tests->{msn} = 1;
-       $robot_fragment = "msnbot";
+    elsif ( index( $ua, "msnbot-mobile" ) != -1 ) {
+        $r                  = 'msnmobile';
+        $robot_tests->{msn} = 1;
+        $robot_fragment     = "msnbot";
     }
     elsif ( index( $ua, "bingbot-mobile" ) != -1 ) {
-        $r = 'bingbot';
-	$robot_tests->{bingbot} = 1;
-	$robot_fragment = "bingbot";
+        $r                      = 'bingbot';
+        $robot_tests->{bingbot} = 1;
+        $robot_fragment         = "bingbot";
     }
     elsif ( index( $ua, "msnbot" ) != -1 ) {
-        $r = 'msn';
-	$robot_fragment = 'msnbot';
+        $r              = 'msn';
+        $robot_fragment = 'msnbot';
     }
-    elsif ( index( $ua, "binglocalsearch" ) != -1
-	    || index( $ua, "bingbot" ) != -1 ) {
-	$r = 'bingbot';
-	$robot_tests->{bingbot} = 1;
-	$robot_fragment = "bingbot";
+    elsif (index( $ua, "binglocalsearch" ) != -1
+        || index( $ua, "bingbot" ) != -1 ) {
+        $r                      = 'bingbot';
+        $robot_tests->{bingbot} = 1;
+        $robot_fragment         = "bingbot";
     }
     elsif ( index( $ua, "microsoft office existence discovery" ) != -1 ) {
-        $r = 'msoffice';
-	$robot_fragment = 'office';
+        $r              = 'msoffice';
+        $robot_fragment = 'office';
     }
     elsif ( index( $ua, "ahrefsbot" ) != -1 ) {
         $r = 'ahrefs';
@@ -906,12 +906,13 @@ sub _init_robots {
         $r = 'apache';
     }
     elsif ( $ua =~ m{\( *\) *\{ *\: *\; *} ) {
-	# Shellcode for spawning a process, i.e. (){:;} with some kind of whitespace interleaved
-	$r = 'malware';
+
+        # Shellcode for spawning a process, i.e. (){:;} with some kind of whitespace interleaved
+        $r = 'malware';
     }
     elsif ( index( $ua, "ask jeeves/teoma" ) != -1 ) {
-        $r = 'askjeeves';
-	$robot_fragment = 'teoma';
+        $r              = 'askjeeves';
+        $robot_fragment = 'teoma';
     }
     elsif ( index( $ua, "baiduspider" ) != -1 ) {
         $r = 'baidu';
@@ -927,56 +928,56 @@ sub _init_robots {
         $r = 'getright';
     }
     elsif ( index( $ua, "adsbot-google" ) != -1 ) {
-        $r = 'googleadsbot';
+        $r                     = 'googleadsbot';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'adsbot-google';
+        $robot_fragment        = 'adsbot-google';
     }
     elsif ( index( $ua, "mediapartners-google" ) != -1 ) {
-        $r = 'googleadsense';
+        $r                     = 'googleadsense';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'mediapartners-google';
+        $robot_fragment        = 'mediapartners-google';
     }
     elsif ( index( $ua, "google favicon" ) != -1 ) {
-	$r = 'googlefavicon';
-	$robot_tests->{google} = 1;
-	$robot_fragment = 'favicon';
+        $r                     = 'googlefavicon';
+        $robot_tests->{google} = 1;
+        $robot_fragment        = 'favicon';
     }
     elsif ( index( $ua, "googlebot-image" ) != -1 ) {
-        $r = 'googlebotimage';
+        $r                     = 'googlebotimage';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'googlebot-image';
+        $robot_fragment        = 'googlebot-image';
     }
     elsif ( index( $ua, "googlebot-news" ) != -1 ) {
-        $r = 'googlebotnews';
+        $r                     = 'googlebotnews';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'googlebot-news';
+        $robot_fragment        = 'googlebot-news';
     }
     elsif ( index( $ua, "googlebot-video" ) != -1 ) {
-        $r = 'googlebotvideo';
+        $r                     = 'googlebotvideo';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'googlebot-video';
+        $robot_fragment        = 'googlebot-video';
     }
     elsif ( index( $ua, "googlebot-mobile" ) != -1 ) {
-        $r = 'googlemobile';
+        $r                     = 'googlemobile';
         $robot_tests->{google} = 1;
-	$robot_fragment = 'googlebot-mobile';
+        $robot_fragment        = 'googlebot-mobile';
     }
     elsif ( index( $ua, "googlebot" ) != -1 ) {
         $r = 'google';
     }
     elsif ( $ua =~ m{go.*package http} ) {
-        $r = 'golib';
+        $r                  = 'golib';
         $robot_tests->{lib} = 1;
-	$robot_fragment = 'package';
+        $robot_fragment     = 'package';
     }
     elsif ( $ua =~ m{^http_request} ) {
-	$r = 'phplib';
-	$robot_tests->{lib} = 1;
-	$robot_fragment = 'http_request';
+        $r                  = 'phplib';
+        $robot_tests->{lib} = 1;
+        $robot_fragment     = 'http_request';
     }
     elsif ( $ua =~ m{^http_request} ) {
-	$r = 'phplib';
-	$robot_tests->{lib} = 1;
+        $r = 'phplib';
+        $robot_tests->{lib} = 1;
     }
     elsif ( index( $ua, "indy library" ) != -1 ) {
         $r = 'indy';
@@ -986,12 +987,12 @@ sub _init_robots {
         $r = 'infoseek';
     }
     elsif ( index( $ua, "ips-agent" ) != -1 ) {
-	$r = 'ipsagent';
-	$robot_fragment = 'ips-agent';
+        $r              = 'ipsagent';
+        $robot_fragment = 'ips-agent';
     }
     elsif ( index( $ua, "lecodechecker" ) != -1 ) {
-        $r = 'linkexchange';
-	$robot_fragment = 'lecodechecker';
+        $r              = 'linkexchange';
+        $robot_fragment = 'lecodechecker';
     }
     elsif ( index( $ua, "linkchecker" ) != -1 ) {
         $r = 'linkchecker';
@@ -1000,15 +1001,15 @@ sub _init_robots {
         $r = 'lycos';
     }
     elsif ( index( $ua, "mechanize" ) != -1 ) {
-        $r = 'rubylib';
+        $r                  = 'rubylib';
         $robot_tests->{lib} = 1;
-	$robot_fragment = 'mechanize';
+        $robot_fragment     = 'mechanize';
     }
     elsif ( index( $ua, "mj12bot/" ) != -1 ) {
         $r = 'mj12bot';
     }
     elsif ( index( $ua, "nutch" ) != -1 ) {
-	$r = 'nutch';
+        $r = 'nutch';
     }
     elsif ( index( $ua, "puf/" ) != -1 ) {
         $r = 'puf';
@@ -1018,8 +1019,8 @@ sub _init_robots {
         $r = 'scooter';
     }
     elsif ( index( $ua, "special_archiver" ) != -1 ) {
-        $r = 'specialarchiver';
-	$robot_fragment = 'special_archiver';
+        $r              = 'specialarchiver';
+        $robot_fragment = 'special_archiver';
     }
     elsif ( index( $ua, "wget" ) == 0 ) {
         $r = 'wget';
@@ -1030,54 +1031,58 @@ sub _init_robots {
     elsif ( index( $ua, "yandeximages" ) != -1 ) {
         $r = 'yandeximages';
     }
-	elsif ( $ua =~ m{^java} && !$self->{browser} ) {
+    elsif ( $ua =~ m{^java} && !$self->{browser} ) {
         $r = 'java';
         $robot_tests->{lib} = 1;
-    } elsif ( index( $ua, "jdk" ) != -1 ) {
-	$r = 'java';
-	$robot_tests->{lib} = 1;
-	$robot_fragment = 'jdk';
-    } elsif ( index( $ua, "jakarta commons-httpclient" ) != -1 ) {
-	$r = 'java';
-	$robot_tests->{lib} = 1;
-	$robot_fragment = 'jakarta';
-    } elsif ( index( $ua, "google-http-java-client" ) != -1 ) {
-	$r = 'java';
-	$robot_tests->{lib} = 1;
-	$robot_fragment = 'google';
+    }
+    elsif ( index( $ua, "jdk" ) != -1 ) {
+        $r                  = 'java';
+        $robot_tests->{lib} = 1;
+        $robot_fragment     = 'jdk';
+    }
+    elsif ( index( $ua, "jakarta commons-httpclient" ) != -1 ) {
+        $r                  = 'java';
+        $robot_tests->{lib} = 1;
+        $robot_fragment     = 'jakarta';
+    }
+    elsif ( index( $ua, "google-http-java-client" ) != -1 ) {
+        $r                  = 'java';
+        $robot_tests->{lib} = 1;
+        $robot_fragment     = 'google';
     }
 
     if (   $browser_tests->{applecoremedia}
         || $browser_tests->{dalvik}
-	|| $browser_tests->{adm} ) {
+        || $browser_tests->{adm} ) {
         $robot_tests->{lib} = 1;
     }
 
     if ($r) {
+
         # Got a named robot
-        $robot_tests->{$r} = 1;
+        $robot_tests->{$r}    = 1;
         $self->{robot_string} = $ROBOT_NAMES{$r};    # Including undef
         $robot_tests->{robot} = $r;
-	$robot_fragment = $r if !defined($robot_fragment);
+        $robot_fragment = $r if !defined($robot_fragment);
     }
     elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
 
         # Store the fragment for later, to determine full name
         $robot_fragment = "seek";
-        $robot_tests->{robot}   = 'unknown';
+        $robot_tests->{robot} = 'unknown';
     }
     elsif ( $ua =~ /search (?! [\w\s]* toolbar \b | bar \b | erpro \b )/x ) {
 
         # Store the fragment for later, to determine full name
         $robot_fragment = "search";
-        $robot_tests->{robot}   = 'unknown';
+        $robot_tests->{robot} = 'unknown';
     }
     elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
 
         # Something followed by +http
         $self->{robot_string} = $1;
         $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
-	$robot_fragment = $1;
+        $robot_fragment = $1;
         $robot_tests->{robot} = 'unknown';
     }
     else {
@@ -1085,15 +1090,16 @@ sub _init_robots {
         for my $fragment (@ROBOT_FRAGMENTS) {
             if ( index( $ua, $fragment ) != -1 ) {
                 $robot_fragment = $fragment;
-                $robot_tests->{robot}   = 'unknown';
+                $robot_tests->{robot} = 'unknown';
                 last;
             }
         }
     }
 
-    if ( defined( $robot_fragment ) ) {
-	# Examine what surrounds the fragment; that leads us to the
-	# version and the string (if we haven't explicitly set one).
+    if ( defined($robot_fragment) ) {
+
+        # Examine what surrounds the fragment; that leads us to the
+        # version and the string (if we haven't explicitly set one).
 
         if (
             $self->{user_agent} =~ m{\s*                # Beginning whitespace
@@ -1102,10 +1108,10 @@ sub _init_robots {
                                        [\w .:,\-\@\/]*) # Words after fragment
                                      }ix
             ) {
-	    my $full_string = $1;
+            my $full_string = $1;
             $full_string =~ s/ *$//;    # Trim whitespace at end
             if (
-                $self->{user_agent} eq $full_string
+                   $self->{user_agent} eq $full_string
                 && $self->{user_agent} =~ m{\/.*\/}
                 && $self->{user_agent} =~ m{
                                       ([\w]*               # Words before fragment
@@ -1120,25 +1126,25 @@ sub _init_robots {
                 $full_string = $1;
             }
 
-	    # Figure out robot version based on the string
-	    if ( $full_string and
-		 $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// )
-	    {
-		$self->{robot_version} = [ $1, $2, $3 ];
-	    } else {
-		$self->{robot_version} = undef;
-	    }
+            # Figure out robot version based on the string
+            if (    $full_string
+                and $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// ) {
+                $self->{robot_version} = [ $1, $2, $3 ];
+            }
+            else {
+                $self->{robot_version} = undef;
+            }
 
-	    # Set robot_string, if we don't already have an explictly set
-	    # one
-	    if ( !defined($self->{robot_string}) ) {
-		$self->{robot_string} = $full_string;
-	    }
-	}
+            # Set robot_string, if we don't already have an explictly set
+            # one
+            if ( !defined( $self->{robot_string} ) ) {
+                $self->{robot_string} = $full_string;
+            }
+        }
     }
 
-    if ( !exists($self->{robot_version}) ) {
-	$self->{robot_version} = undef;
+    if ( !exists( $self->{robot_version} ) ) {
+        $self->{robot_version} = undef;
     }
 }
 
@@ -1671,11 +1677,11 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
-    elsif ( $browser eq 'pubsub'
-	    && $ua =~ m{apple-pubsub/(\d+)\.?(\d+)?([\d.]*)} ) {
-	$major = $1;
-	$minor = $2;
-	$beta = $3;
+    elsif ($browser eq 'pubsub'
+        && $ua =~ m{apple-pubsub/(\d+)\.?(\d+)?([\d.]*)} ) {
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
     }
 
     # If we didn't match a browser-specific test, we look for
@@ -2053,12 +2059,13 @@ sub _init_device {
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
         if ( $device_tests->{tablet} ) {
-	    my $model = $1;
-	    if ( $model =~ m{^KF} ) {
-		$device_string = "Android tablet (Kindle Fire)";
-	    } else {
-		$device_string = "Android tablet ($model)";
-	    }
+            my $model = $1;
+            if ( $model =~ m{^KF} ) {
+                $device_string = "Android tablet (Kindle Fire)";
+            }
+            else {
+                $device_string = "Android tablet ($model)";
+            }
         }
         else {
             $device_string = "Android ($1)";
@@ -2118,9 +2125,10 @@ sub _robot_version {
     my ($self) = @_;
     $self->_init_robots unless exists( $self->{robot_string} );
     if ( $self->{robot_version} ) {
-	return @{ $self->{robot_version} };
-    } else {
-	return ( undef, undef, undef );
+        return @{ $self->{robot_version} };
+    }
+    else {
+        return ( undef, undef, undef );
     }
 }
 
@@ -2128,13 +2136,15 @@ sub robot_version {
     my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_robot_version;
     if ( defined($major) ) {
-	if ( defined( $minor ) ) {
-	    return "$major$minor";
-	} else {
-	    return $major;
-	}
-    } else {
-	return undef;
+        if ( defined($minor) ) {
+            return "$major$minor";
+        }
+        else {
+            return $major;
+        }
+    }
+    else {
+        return undef;
     }
 }
 

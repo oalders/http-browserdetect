@@ -33,12 +33,12 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     diag( $detected->user_agent );
 
     foreach my $method (
-        'browser',                'browser_string', 'browser_beta',
-	'device',  'device_name', 'device_string',  'device_beta',
-        'engine',                 'engine_string',  'engine_beta',
+        'browser', 'browser_string', 'browser_beta',
+        'device', 'device_name',   'device_string', 'device_beta',
+        'engine', 'engine_string', 'engine_beta',
         'language',
-        'os',                     'os_string',      'os_beta',
-	'robot',   'robot_name',  'robot_string',   'robot_beta',
+        'os', 'os_string', 'os_beta',
+        'robot', 'robot_name', 'robot_string', 'robot_beta',
         ) {
         if ( $test->{$method} ) {
             cmp_ok(

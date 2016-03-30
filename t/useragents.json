@@ -5336,9 +5336,9 @@
       "browser_minor" : ".45",
       "browser_string" : "curl",
       "match" : [
-	  "curl",
-	  "robot",
-	  "lib"
+         "curl",
+         "robot",
+         "lib"
       ],
       "robot" : "curl",
       "robot_beta" : ".0",
@@ -5485,4 +5485,3 @@
       "version" : "0.93"
    }
 }
-
