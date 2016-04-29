@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Add a test for Kindle Fire (andrewmoise)
 
 3.10 2016-03-29 22:15:35 America/Toronto
     - Big change: Add robot version detection, distinct from browser
