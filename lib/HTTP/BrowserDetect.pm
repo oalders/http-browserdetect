@@ -1081,7 +1081,7 @@ sub _init_robots {
 
         # Something followed by +http
         $self->{robot_string} = $1;
-        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
+        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*?( *\/[\d\.]+ *)?$/$1/;
         $robot_fragment = $1;
         $robot_tests->{robot} = 'unknown';
     }

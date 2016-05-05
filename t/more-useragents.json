@@ -236,7 +236,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "CatchBot/2.0",
+      "robot_name" : "CatchBot",
       "robot_version" : "2.0"
    },
    "Crowsnest/0.5 (+http://www.crowsnest.tv/)" : {
@@ -249,7 +249,7 @@
       "robot_beta" : "",
       "robot_major" : "0",
       "robot_minor" : ".5",
-      "robot_name" : "Crowsnest/0.5",
+      "robot_name" : "Crowsnest",
       "robot_version" : "0.5"
    },
    "Dalvik/1.6.0 (Linux; U; Android 4.4.2; LGMS395 Build/KOT49I.MS39510d)" : {
@@ -10275,7 +10275,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".1",
-      "robot_string" : "FlipboardProxy/1.1",
+      "robot_string" : "FlipboardProxy",
       "robot_version" : "1.1"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5" : {
@@ -10486,7 +10486,7 @@
       "robot_beta" : "",
       "robot_major" : "0",
       "robot_minor" : ".1",
-      "robot_name" : "Applebot/0.1",
+      "robot_name" : "Applebot",
       "robot_version" : "0.1"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36" : {
@@ -11492,7 +11492,7 @@
       "robot_beta" : "",
       "robot_major" : "4",
       "robot_minor" : ".0",
-      "robot_name" : "TweetmemeBot/4.0",
+      "robot_name" : "TweetmemeBot",
       "robot_version" : "4.0"
    },
    "Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34" : {
@@ -16238,7 +16238,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "BLEXBot/1.0",
+      "robot_name" : "BLEXBot",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)" : {
@@ -16271,7 +16271,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "DomainAppender /1.0"
+      "robot_name" : "DomainAppender"
    },
    "Mozilla/5.0 (compatible; DomainSigmaCrawler/0.1; +http://domainsigma.com/robot)" : {
       "browser_major" : 0,
@@ -16283,7 +16283,7 @@
       "robot_beta" : "",
       "robot_major" : "0",
       "robot_minor" : ".1",
-      "robot_name" : "DomainSigmaCrawler/0.1",
+      "robot_name" : "DomainSigmaCrawler",
       "robot_version" : "0.1"
    },
    "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" : {
@@ -16309,7 +16309,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "DuckDuckGo-Favicons-Bot/1.0",
+      "robot_name" : "DuckDuckGo-Favicons-Bot",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; Exabot/3.0; +http://www.exabot.com/go/robot)" : {
@@ -16322,7 +16322,7 @@
       "robot_beta" : "",
       "robot_major" : "3",
       "robot_minor" : ".0",
-      "robot_name" : "Exabot/3.0",
+      "robot_name" : "Exabot",
       "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; Findxbot/1.0; +http://www.findxbot.com)" : {
@@ -16335,7 +16335,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "Findxbot/1.0",
+      "robot_name" : "Findxbot",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; Genieo/1.0 http://www.genieo.com/webfilter.html)" : {
@@ -16351,7 +16351,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_name" : "Gluten Free Crawler/1.0"
+      "robot_name" : "Gluten Free Crawler"
    },
    "Mozilla/5.0 (compatible; Google-Site-Verification/1.0)" : {
       "browser_major" : "5",
@@ -16392,7 +16392,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "GrapeshotCrawler/2.0",
+      "robot_name" : "GrapeshotCrawler",
       "robot_version" : "2.0"
    },
    "Mozilla/5.0 (compatible; GroupHigh/1.0; +http://www.grouphigh.com/)" : {
@@ -16405,7 +16405,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_string" : "GroupHigh/1.0",
+      "robot_string" : "GroupHigh",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; HyperCrawl/0.2; +http://www.seograph.net/bot.html)" : {
@@ -16418,7 +16418,7 @@
       "robot_beta" : "",
       "robot_major" : "0",
       "robot_minor" : ".2",
-      "robot_name" : "HyperCrawl/0.2",
+      "robot_name" : "HyperCrawl",
       "robot_version" : "0.2"
    },
    "Mozilla/5.0 (compatible; Konqueror/3.1-rc4; i686 Linux; 20020708)" : {
@@ -16454,7 +16454,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "Mail.RU_Bot/2.0",
+      "robot_name" : "Mail.RU_Bot",
       "robot_version" : "2.0"
    },
    "Mozilla/5.0 (compatible; Linux; InfegyAtlas/1.0; en-US; collection@infegy.com)" : {
@@ -17247,7 +17247,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "SMTBot/1.0",
+      "robot_name" : "SMTBot",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; SearchmetricsBot; http://www.searchmetrics.com/en/searchmetrics-bot/)" : {
@@ -17278,7 +17278,7 @@
       "robot_beta" : "",
       "robot_major" : "3",
       "robot_minor" : ".2",
-      "robot_name" : "SeznamBot/3.2",
+      "robot_name" : "SeznamBot",
       "robot_version" : "3.2"
    },
    "Mozilla/5.0 (compatible; U; Hootsuite-WebFeed/1.0; mailto:abuse@hootsuite.com)" : {
@@ -17297,7 +17297,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "XoviBot/2.0",
+      "robot_name" : "XoviBot",
       "robot_version" : "2.0"
    },
    "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)" : {
@@ -17383,7 +17383,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_string" : "coccoc/1.0",
+      "robot_string" : "coccoc",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; heritrix/3.1.1 +http://www.baidu.com)" : {
@@ -17396,7 +17396,7 @@
       "robot_beta" : ".1",
       "robot_major" : "3",
       "robot_minor" : ".1",
-      "robot_string" : "heritrix/3.1.1",
+      "robot_string" : "heritrix",
       "robot_version" : "3.1"
    },
    "Mozilla/5.0 (compatible; linkdexbot/2.2; +http://www.linkdex.com/bots/)" : {
@@ -17409,7 +17409,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".2",
-      "robot_name" : "linkdexbot/2.2",
+      "robot_name" : "linkdexbot",
       "robot_version" : "2.2"
    },
    "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" : {
@@ -17422,7 +17422,7 @@
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "meanpathbot/1.0",
+      "robot_name" : "meanpathbot",
       "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; oBot/2.3.1; http://filterdb.iss.net/crawler/)" : {
@@ -17459,7 +17459,7 @@
       "robot_beta" : ".2",
       "robot_major" : "4",
       "robot_minor" : ".4",
-      "robot_name" : "spbot/4.4.2",
+      "robot_name" : "spbot",
       "robot_version" : "4.4"
    },
    "Mozilla/5.0 (en-us) AppleWebKit/534.14 (KHTML, like Gecko; Google Wireless Transcoder) Chrome/9.0.597 Safari/534.14" : {
@@ -18964,7 +18964,7 @@
          "robot"
       ],
       "robot" : "unknown",
-      "robot_string" : "Mozilla/5.0 Moreover/5.1"
+      "robot_string" : "Mozilla/5.0 Moreover"
    },
    "NING/1.0" : {
       "browser_major" : "1",
@@ -19301,7 +19301,7 @@
       "robot_beta" : ".4",
       "robot_major" : "0",
       "robot_minor" : ".9",
-      "robot_string" : "OrgProbe/0.9.4",
+      "robot_string" : "OrgProbe",
       "robot_version" : "0.9"
    },
    "PHP/5.2.17p1" : {
@@ -19495,7 +19495,7 @@
       ],
       "robot" : "unknown",
       "robot_beta" : ".3",
-      "robot_string" : "UniversalFeedParser/5.1.3",
+      "robot_string" : "UniversalFeedParser",
       "robot_version" : "5.1"
    },
    "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5" : {
@@ -19606,7 +19606,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".01",
-      "robot_name" : "Wotbox/2.01",
+      "robot_name" : "Wotbox",
       "robot_version" : "2.01"
    },
    "Xenu Link Sleuth/1.3.8" : {
