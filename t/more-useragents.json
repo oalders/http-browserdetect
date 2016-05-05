@@ -19490,8 +19490,13 @@
       "browser_beta" : ".3",
       "browser_major" : "5",
       "browser_minor" : ".1",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+         "robot"
+      ],
+      "robot" : "unknown",
+      "robot_beta" : ".3",
+      "robot_string" : "UniversalFeedParser/5.1.3",
+      "robot_version" : "5.1"
    },
    "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5" : {
       "browser" : "firefox",

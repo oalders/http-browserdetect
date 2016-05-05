@@ -1077,7 +1077,7 @@ sub _init_robots {
         $robot_fragment = "search";
         $robot_tests->{robot} = 'unknown';
     }
-    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
+    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+https?\:/i ) {
 
         # Something followed by +http
         $self->{robot_string} = $1;
