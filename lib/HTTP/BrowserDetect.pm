@@ -2062,7 +2062,7 @@ sub _init_device {
             my $model = $1;
             if ( $model =~ m{^KF} ) {
                 $device_string = "Android tablet (Kindle Fire)";
-		$device_tests->{kindlefire} = 1;
+                $device_tests->{kindlefire} = 1;
             }
             else {
                 $device_string = "Android tablet ($model)";
