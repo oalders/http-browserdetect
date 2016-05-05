@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+3.12 2016-05-05 08:59:46 America/Toronto
     - Start detecting a few robots we weren't detecting before
       ('verify' or 'analyze' in the name, or +https: beginning
       the URL) (andrewmoise)
