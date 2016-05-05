@@ -380,10 +380,15 @@ foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
 
 foreach my $test (@ROBOT_TESTS) {
     no strict 'refs';
+
+    # For the 'robot' test, we return undef instead of 0 if it's
+    # false, to match os() and browser() and the like.
+    my $false_result = ($test eq 'robot' ? undef : 0);
+
     *{$test} = sub {
         my ($self) = @_;
         $self->_init_robots() unless $self->{robot_tests};
-        return $self->{robot_tests}->{$test} || 0;
+        return $self->{robot_tests}->{$test} || $false_result;
     };
 }
 
@@ -818,6 +823,7 @@ sub _init_core {
 # a robot.
 my @ROBOT_FRAGMENTS = qw(
     agent
+    analy
     appender
     babya
     checker
@@ -839,6 +845,7 @@ my @ROBOT_FRAGMENTS = qw(
     thumbtack-thunderdome
     tiscali
     validator
+    verif
     webcapture
     worm
     zyborg
@@ -1077,11 +1084,11 @@ sub _init_robots {
         $robot_fragment = "search";
         $robot_tests->{robot} = 'unknown';
     }
-    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+http\:/i ) {
+    elsif ( $self->{user_agent} =~ /([\w \/\.\-]+)[ \;\(\)]*\+https?\:/i ) {
 
         # Something followed by +http
         $self->{robot_string} = $1;
-        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*$/$1/;
+        $self->{robot_string} =~ s/^ *(.+?)[ \;\(\)]*?( *\/[\d\.]+ *)?$/$1/;
         $robot_fragment = $1;
         $robot_tests->{robot} = 'unknown';
     }
@@ -2764,21 +2771,7 @@ do that that's more suitable for use in program logic, see below under
 
 Returns C<undef> if no OS information could be detected.
 
-=head2 os_version()
-
-Returns Operating System version.
-
-=head2 os_major()
-
-Returns Operating System major version.
-
-=head2 os_minor()
-
-Returns Operating System minor version.
-
-=head2 os_beta()
-
-Returns Operating System beta version.
+=head2 os_version(), os_major(), os_minor(), os_beta()
 
 Returns version information for the OS, if any could be detected. The
 format is the same as for the browser_version() functions.
@@ -2863,10 +2856,7 @@ additional information (e.g. robots which return "unknown" from
 robot() generally can be identified in a human-readable fashion by
 reading robot_string() ).
 
-=head2 robot_version()
-=head2 robot_major()
-=head2 robot_minor()
-=head2 robot_beta()
+=head2 robot_version(), robot_major(), robot_minor(), robot_beta()
 
 Returns version information for the robot, if any could be
 detected. The format is the same as for the browser_version()
@@ -3216,21 +3206,11 @@ library, which returned "KHTML" for webkit.
 Returns C<undef> if none of the known rendering engines can be
 detected.
 
-=head2 engine_version()
+=head2 engine_version(), engine_major(), engine_minor(), engine_beta()
 
-Returns engine's version.
-
-=head2 engine_major()
-
-Returns engine's major version.
-
-=head2 engine_minor()
-
-Returns engine's minor version.
-
-=head2 engine_beta()
-
-Return's engine's beta version.
+Returns version information for the rendering engine, if any could be
+detected. The format is the same as for the browser_version()
+functions.
 
 =head1 Deprecated methods
 
@@ -3282,21 +3262,10 @@ This function returns wrong values for some Safari versions, for
 compatibility with earlier code. browser_version() returns correct
 version numbers for Safari.
 
-=head2 public_version()
+=head2 public_version(), public_major(), public_minor(), public_beta()
 
-Deprecated.  Please use browser_version() instead.
-
-=head2 public_major()
-
-Deprecated.  Please use browser_major() instead.
-
-=head2 public_minor()
-
-Deprecated.  Please use browser_minor() instead.
-
-=head2 public_beta()
-
-Deprecated.  Please use browser_beta() instead.
+Deprecated.  Please use browser_version() and related functions
+instead.
 
 =head2 gecko_version()
 
