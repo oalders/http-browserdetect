@@ -59,7 +59,7 @@ our @GAMING_TESTS = qw(
 # Device related tests
 our @DEVICE_TESTS = qw(
     android audrey blackberry dsi iopener ipad
-    iphone ipod kindle n3ds palm ps3 psp wap webos
+    iphone ipod kindle kindlefire n3ds palm ps3 psp wap webos
     mobile tablet
 );
 
@@ -2062,6 +2062,7 @@ sub _init_device {
             my $model = $1;
             if ( $model =~ m{^KF} ) {
                 $device_string = "Android tablet (Kindle Fire)";
+		$device_tests->{kindlefire} = 1;
             }
             else {
                 $device_string = "Android tablet ($model)";
@@ -3070,6 +3071,8 @@ The following methods are available, each returning a true or false value.
 =head3 ipad
 
 =head3 kindle
+
+=head3 kindlefire
 
 =head3 n3ds
 

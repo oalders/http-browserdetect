@@ -8952,7 +8952,8 @@
          "android",
          "tablet",
          "webkit",
-         "silk"
+         "silk",
+         "kindlefire"
       ],
       "minor" : ".45",
       "os" : "android",
@@ -8986,7 +8987,8 @@
          "android",
          "tablet",
          "silk",
-         "webkit"
+         "webkit",
+         "kindlefire"
       ],
       "os" : "android",
       "os_beta" : ".3",
@@ -9014,7 +9016,8 @@
          "android",
          "tablet",
          "webkit",
-         "silk"
+         "silk",
+         "kindlefire"
       ],
       "minor" : ".44",
       "os" : "android",
@@ -9048,7 +9051,8 @@
          "android",
          "tablet",
          "silk",
-         "webkit"
+         "webkit",
+         "kindlefire"
       ],
       "os" : "android",
       "os_beta" : ".3",
@@ -10117,7 +10121,8 @@
          "android",
          "tablet",
          "silk",
-         "webkit"
+         "webkit",
+         "kindlefire"
       ],
       "os" : "android",
       "os_beta" : ".3",
@@ -10147,7 +10152,8 @@
          "android",
          "tablet",
          "silk",
-         "webkit"
+         "webkit",
+         "kindlefire"
       ],
       "os" : "android",
       "os_beta" : ".3",
