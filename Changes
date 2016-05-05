@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+3.11 2016-05-04 20:32:47 America/Toronto
     - Add a test for Kindle Fire (andrewmoise)
 
 3.10 2016-03-29 22:15:35 America/Toronto
