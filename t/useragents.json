@@ -2127,6 +2127,32 @@
       "os_version" : "10.9",
       "version" : "28.0"
    },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36 Scanning for research (researchscan.comsys.rwth-aachen.de)" : {
+      "browser" : "chrome",
+      "browser_beta" : ".2490.86",
+      "browser_major" : "46",
+      "browser_minor" : ".0",
+      "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "match" : [
+         "mac",
+         "macosx",
+         "chrome",
+         "webkit",
+         "robot"
+      ],
+      "os" : "macosx",
+      "os_beta" : ".1",
+      "os_major" : "10",
+      "os_minor" : ".11",
+      "os_string" : "Mac OS X",
+      "robot" : "unknown",
+      "robot_string" : "Chrome/46.0.2490.86 Safari/537.36 Scanning for research"
+   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
       "browser" : "chrome",
       "browser_string" : "Chrome",
@@ -4088,6 +4114,15 @@
       "robot_string" : "Ahrefs",
       "robot_version" : "5.0"
    },
+   "Mozilla/5.0 (compatible; IODC-Odysseus Survey 21796-100-051215155936-107; +https://iodc.co.uk)" : {
+      "browser_major" : "5",
+      "browser_minor" : ".0",
+      "match" : [
+         "robot"
+      ],
+      "robot" : "unknown",
+      "robot_string" : "IODC-Odysseus Survey 21796-100-051215155936-107"
+   },
    "Mozilla/5.0 (compatible; Konqueror/3.5; Linux; X11; x86_64) KHTML/3.5.6 (like Gecko) (Kubuntu)" : {
       "browser" : "konqueror",
       "browser_string" : "Konqueror",
@@ -5483,41 +5518,5 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
-   },
-   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36 Scanning for research (researchscan.comsys.rwth-aachen.de)" : {
-      "browser" : "chrome",
-      "browser_beta" : ".2490.86",
-      "browser_major" : "46",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
-      "engine" : "webkit",
-      "engine_beta" : "",
-      "engine_major" : "537",
-      "engine_minor" : ".36",
-      "engine_string" : "WebKit",
-      "match" : [
-         "mac",
-         "macosx",
-         "chrome",
-         "webkit",
-         "robot"
-      ],
-      "os" : "macosx",
-      "os_beta" : ".1",
-      "os_major" : "10",
-      "os_minor" : ".11",
-      "os_string" : "Mac OS X",
-      "robot" : "unknown",
-      "robot_string" : "Chrome/46.0.2490.86 Safari/537.36 Scanning for research"
-   },
-   "Mozilla/5.0 (compatible; IODC-Odysseus Survey 21796-100-051215155936-107; +https://iodc.co.uk)" : {
-      "browser_major" : "5",
-      "browser_minor" : ".0",
-      "match" : [
-         "robot"
-      ],
-      "robot" : "unknown",
-      "robot_string" : "IODC-Odysseus Survey 21796-100-051215155936-107"
    }
 }
-

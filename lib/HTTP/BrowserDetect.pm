@@ -383,7 +383,7 @@ foreach my $test (@ROBOT_TESTS) {
 
     # For the 'robot' test, we return undef instead of 0 if it's
     # false, to match os() and browser() and the like.
-    my $false_result = ($test eq 'robot' ? undef : 0);
+    my $false_result = ( $test eq 'robot' ? undef : 0 );
 
     *{$test} = sub {
         my ($self) = @_;

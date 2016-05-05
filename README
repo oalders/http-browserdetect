@@ -141,21 +141,7 @@ Operating System
 
     Returns undef if no OS information could be detected.
 
- os_version()
-
-    Returns Operating System version.
-
- os_major()
-
-    Returns Operating System major version.
-
- os_minor()
-
-    Returns Operating System minor version.
-
- os_beta()
-
-    Returns Operating System beta version.
+ os_version(), os_major(), os_minor(), os_beta()
 
     Returns version information for the OS, if any could be detected. The
     format is the same as for the browser_version() functions.
@@ -240,8 +226,7 @@ Robots
     generally can be identified in a human-readable fashion by reading
     robot_string() ).
 
- robot_version() =head2 robot_major() =head2 robot_minor() =head2
- robot_beta()
+ robot_version(), robot_major(), robot_minor(), robot_beta()
 
     Returns version information for the robot, if any could be detected.
     The format is the same as for the browser_version() functions.
@@ -592,21 +577,11 @@ Other methods
 
     Returns undef if none of the known rendering engines can be detected.
 
- engine_version()
+ engine_version(), engine_major(), engine_minor(), engine_beta()
 
-    Returns engine's version.
-
- engine_major()
-
-    Returns engine's major version.
-
- engine_minor()
-
-    Returns engine's minor version.
-
- engine_beta()
-
-    Return's engine's beta version.
+    Returns version information for the rendering engine, if any could be
+    detected. The format is the same as for the browser_version()
+    functions.
 
 Deprecated methods
 
@@ -658,21 +633,9 @@ Deprecated methods
     compatibility with earlier code. browser_version() returns correct
     version numbers for Safari.
 
- public_version()
+ public_version(), public_major(), public_minor(), public_beta()
 
-    Deprecated. Please use browser_version() instead.
-
- public_major()
-
-    Deprecated. Please use browser_major() instead.
-
- public_minor()
-
-    Deprecated. Please use browser_minor() instead.
-
- public_beta()
-
-    Deprecated. Please use browser_beta() instead.
+    Deprecated. Please use browser_version() and related functions instead.
 
  gecko_version()
 
