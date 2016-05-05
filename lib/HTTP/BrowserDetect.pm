@@ -380,10 +380,15 @@ foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
 
 foreach my $test (@ROBOT_TESTS) {
     no strict 'refs';
+
+    # For the 'robot' test, we return undef instead of 0 if it's
+    # false, to match os() and browser() and the like.
+    my $false_result = ($test eq 'robot' ? undef : 0);
+
     *{$test} = sub {
         my ($self) = @_;
         $self->_init_robots() unless $self->{robot_tests};
-        return $self->{robot_tests}->{$test} || 0;
+        return $self->{robot_tests}->{$test} || $false_result;
     };
 }
 
