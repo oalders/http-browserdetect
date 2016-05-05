@@ -818,6 +818,7 @@ sub _init_core {
 # a robot.
 my @ROBOT_FRAGMENTS = qw(
     agent
+    analy
     appender
     babya
     checker
@@ -839,6 +840,7 @@ my @ROBOT_FRAGMENTS = qw(
     thumbtack-thunderdome
     tiscali
     validator
+    verif
     webcapture
     worm
     zyborg

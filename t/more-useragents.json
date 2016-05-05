@@ -16356,8 +16356,13 @@
    "Mozilla/5.0 (compatible; Google-Site-Verification/1.0)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+         "robot"
+      ],
+      "robot" : "unknown",
+      "robot_beta" : "",
+      "robot_string" : "Google-Site-Verification",
+      "robot_version" : "1.0"
    },
    "Mozilla/5.0 (compatible; GoogleDocs; documents; +http://docs.google.com)" : {
       "browser_major" : "5",
@@ -17203,8 +17208,13 @@
    "Mozilla/5.0 (compatible; PageAnalyzer/1.1;)" : {
       "browser_major" : "1",
       "browser_minor" : ".1",
-      "match" : [],
-      "robot" : 0
+      "match" : [
+         "robot"
+      ],
+      "robot" : "unknown",
+      "robot_beta" : "",
+      "robot_string" : "PageAnalyzer",
+      "robot_version" : "1.1"
    },
    "Mozilla/5.0 (compatible; Pagespeed/1.1 Fetcher; +http://www.pagespeed.de)" : {
       "browser_major" : "5",
