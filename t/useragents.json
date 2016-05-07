@@ -5675,10 +5675,10 @@
       "os_string" : "Brew"
    },
    "Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; Polaris/6.0/AMB) Sprint SCP-2700" : {
-      "browser" : "netscape",
-      "browser_major" : "4",
+      "browser" : "polaris",
+      "browser_major" : "6",
       "browser_minor" : ".0",
-      "browser_string" : "Netscape",
+      "browser_string" : "Polaris",
       "country" : "US",
       "device" : "wap",
       "device_string" : "WAP capable phone",
@@ -5688,9 +5688,7 @@
          "brew",
          "wap",
          "mobile",
-         "netscape",
-         "nav4",
-         "nav4up"
+         "polaris"
       ],
       "os" : "brew",
       "os_beta" : ".5",
@@ -5752,6 +5750,7 @@
       "os_string" : "WinXP"
    },
    "Mozilla/4.0 (compatible; Polaris 6.2; Brew 3.1.5; en)/240X320 Samsung sam-r631" : {
+      "browser" : "polaris",
       "browser_major" : "6",
       "browser_minor" : ".2",
       "device" : "wap",
@@ -5760,6 +5759,7 @@
       "match" : [
          "device",
          "brew",
+         "polaris",
          "wap",
          "mobile"
       ],
@@ -5770,6 +5770,7 @@
       "os_string" : "Brew"
    },
    "Mozilla/4.0(compatible;Polaris 6.2;Brew 3.1.5;U;en)/400x240 Samsung SCH-U820" : {
+      "browser" : "polaris",
       "browser_major" : "6",
       "browser_minor" : ".2",
       "device" : "wap",
@@ -5778,6 +5779,7 @@
       "match" : [
          "device",
          "brew",
+         "polaris",
          "wap",
          "mobile"
       ],

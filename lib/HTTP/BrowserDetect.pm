@@ -77,7 +77,7 @@ our @BROWSER_TESTS = qw(
     applecoremedia galeon           seamonkey
     epiphany       ucbrowser        dalvik
     edge           pubsub           adm
-    brave          imagesearcherpro
+    brave          imagesearcherpro polaris
 );
 
 our @IE_TESTS = qw(
@@ -234,6 +234,7 @@ my %BROWSER_NAMES = (
     netscape         => 'Netscape',
     obigo            => 'Obigo',
     opera            => 'Opera',
+    polaris          => 'Polaris',
     pubsub           => 'Safari RSS Reader',
     puf              => 'puf',
     realplayer       => 'RealPlayer',
@@ -658,7 +659,8 @@ sub _init_core {
         && index( $ua, "playstation 3" ) == -1
         && index( $ua, "playstation portable" ) == -1
         && index( $ua, "browsex" ) == -1
-	&& index( $ua, "netfront" ) == -1 )
+	&& index( $ua, "netfront" ) == -1
+        && index( $ua, "polaris" ) == -1 )
     {
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
@@ -745,6 +747,10 @@ sub _init_core {
         $browser = 'obigo';
 	$browser_string = 'Teleca';
         $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "polaris" ) != -1 ) {
+	$browser = 'polaris';
+	$browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "browsex" ) != -1 ) {
         $browser = 'browsex';
@@ -1717,6 +1723,12 @@ sub _init_version {
 	$minor = '';
 	$beta = $3;
     }
+    elsif ( $browser eq 'polaris'
+	    && $ua =~ m{polaris[ \/](\d+)\.?(\d+)?([\d\.]*)} ) {
+	$major = $1;
+	$minor = $2;
+	$beta = $3;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # "$browser/x.y.z"
@@ -2043,6 +2055,7 @@ sub _init_device {
 	        || $ua =~ m{\bbrew\b}
 	        || index( $ua, "obigo" ) != -1
 	        || index( $ua, "teleca" ) != -1
+	        || index( $ua, "polaris" ) != -1
                 || index( $ua, "opera tablet" ) != -1
                 || index( $ua, "rim tablet" ) != -1
                 || ( index( $ua, "bb10" ) != -1
@@ -2730,8 +2743,8 @@ Returns the browser, as one of the following values:
 chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
 brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
-n3ds, dsi, obigo, pubsub, realplayer, seamonkey, silk, staroffice,
-ucbrowser, webtv
+n3ds, dsi, obigo, polaris, pubsub, realplayer, seamonkey, silk,
+staroffice, ucbrowser, webtv
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -3046,6 +3059,8 @@ the version of Trident in the engine_version method.
 
 =head3 opera opera3 opera4 opera5 opera6 opera7
 
+=head3 polaris
+
 =head3 pubsub
 
 =head3 realplayer
@@ -3102,8 +3117,6 @@ The following methods are available, each returning a true or false value.
 =head3 kindlefire
 
 =head3 n3ds
-
-=head3 obigo
 
 =head3 palm
 
