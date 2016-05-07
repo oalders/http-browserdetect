@@ -11,7 +11,7 @@ use vars qw(@ALL_TESTS);
 our @OS_TESTS = qw(
     windows  mac     os2
     unix     linux   vms
-    bsd      amiga
+    bsd      amiga   brew
     bb10     rimtabletos
     chromeos ios
     firefoxos
@@ -268,6 +268,7 @@ my %OS_NAMES = (
     amiga       => 'Amiga',
     android     => 'Android',
     bb10        => 'BlackBerry 10',
+    brew        => 'Brew',
     chromeos    => 'Chrome OS',
     firefoxos   => 'Firefox OS',
     ios         => 'iOS',
@@ -656,8 +657,9 @@ sub _init_core {
         && index( $ua, "nintendo" ) == -1
         && index( $ua, "playstation 3" ) == -1
         && index( $ua, "playstation portable" ) == -1
-        && index( $ua, "browsex" ) == -1 ) {
-
+        && index( $ua, "browsex" ) == -1
+	&& index( $ua, "netfront" ) == -1 )
+    {
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
         $browser = 'mozilla';
@@ -737,6 +739,11 @@ sub _init_core {
     }
     elsif ( index( $ua, "obigo" ) != -1 ) {
         $browser = 'obigo';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, "teleca" ) != -1 ) {
+        $browser = 'obigo';
+	$browser_string = 'Teleca';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "browsex" ) != -1 ) {
@@ -1469,7 +1476,16 @@ sub _init_os {
     elsif ( index( $ua, "win32" ) != -1 ) {
         $os_tests->{win32} = $os_tests->{windows} = 1;
     }
-    else {
+    elsif ( $self->{user_agent} =~ m{(brew)|(\bbmp\b)}i )
+    {
+	$os = 'brew';
+	if ( $1 ) {
+	    $os_string = 'Brew';
+	} else {
+	    $os_string = 'Brew MP';
+	}
+	$os_tests->{brew} = 1;
+    } else {
         $os = undef;
     }
 
@@ -1534,6 +1550,11 @@ sub _init_os_version {
         if ( $ua =~ m{firefox/(\d+)(\.?\d*)([\.\d]*)} ) {
             $os_version = [ $1, $2, $3 ];
         }
+    }
+    elsif ( $os eq 'brew' ) {
+	if ( $ua =~ m{(brew|\bbmp) (\d+)(\.?\d*)([\.\d]*)} ) {
+	    $os_version = [ $2, $3, $4 ];
+	}
     }
 
     # Set the version. It might be set to undef, in which case we know
@@ -1689,6 +1710,12 @@ sub _init_version {
         $major = $1;
         $minor = $2;
         $beta  = $3;
+    }
+    elsif ( $browser eq 'obigo'
+	    && $self->{user_agent} =~ m{(obigo[\w\-]*|teleca)[\/ ]\w(\d+)(\w*)}i ) {
+	$major = $2;
+	$minor = '';
+	$beta = $3;
     }
 
     # If we didn't match a browser-specific test, we look for
@@ -1922,6 +1949,8 @@ sub _init_device {
         || (   index( $ua, "nokia" ) != -1
             && index( $ua, "windows phone" ) == -1 )
         || index( $ua, "alcatel" ) != -1
+        || $ua =~ m{\bbrew\b}
+	|| $ua =~ m{\bbmp\b}
         || index( $ua, "ericsson" ) != -1
         || index( $ua, "sie-" ) == 0
         || index( $ua, "wmlib" ) != -1
@@ -2011,7 +2040,9 @@ sub _init_device {
                 || index( $ua, "symbos" ) != -1
                 || index( $ua, "opera mobi" ) != -1
                 || index( $ua, "fennec" ) != -1
-                || index( $ua, "obigo" ) != -1
+	        || $ua =~ m{\bbrew\b}
+	        || index( $ua, "obigo" ) != -1
+	        || index( $ua, "teleca" ) != -1
                 || index( $ua, "opera tablet" ) != -1
                 || index( $ua, "rim tablet" ) != -1
                 || ( index( $ua, "bb10" ) != -1
@@ -2025,9 +2056,15 @@ sub _init_device {
         );
     }
 
-    if ( $browser_tests->{obigo} && $ua =~ /^(mot-[^ \/]+)/ ) {
-        $device_string = substr $self->{user_agent}, 0, length $1;
-        $device_string =~ s/^MOT-/Motorola /i;
+    if ( $ua =~ /^(\bmot-[^ \/]+)/ )
+    {
+	$device_string = substr $self->{user_agent}, 0, length $1;
+	$device_string =~ s/^MOT-/Motorola /i;
+    }
+    elsif ( ( $browser_tests->{obigo} || index( $ua, "brew" ) != -1 )
+	&& $self->{user_agent} =~ m{\d+x\d+ ([\d\w\- ]+?)( \S+\/\S+)*$}i )
+    {
+	$device_string = $1;
     }
     elsif (
         $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
@@ -2758,7 +2795,7 @@ a major and minor version with nothing following.
 Returns one of the following strings, or C<undef>:
 
   windows, winphone, mac, macosx, linux, android, ios, os2, unix, vms,
-  chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga
+  chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga, brew
 
 =head2 os_string()
 
@@ -3073,6 +3110,10 @@ The following methods are available, each returning a true or false value.
 =head3 webos
 
 =head3 wap
+
+Note that 'wap' indicates that the device is capable of WAP, not
+necessarily that the device is limited to WAP only. Most modern WAP
+devices are also capable of rendering standard HTML.
 
 =head3 psp
 
