@@ -659,9 +659,9 @@ sub _init_core {
         && index( $ua, "playstation 3" ) == -1
         && index( $ua, "playstation portable" ) == -1
         && index( $ua, "browsex" ) == -1
-	&& index( $ua, "netfront" ) == -1
-        && index( $ua, "polaris" ) == -1 )
-    {
+        && index( $ua, "netfront" ) == -1
+        && index( $ua, "polaris" ) == -1 ) {
+
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
         $browser = 'mozilla';
@@ -744,13 +744,13 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "teleca" ) != -1 ) {
-        $browser = 'obigo';
-	$browser_string = 'Teleca';
+        $browser                   = 'obigo';
+        $browser_string            = 'Teleca';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "polaris" ) != -1 ) {
-	$browser = 'polaris';
-	$browser_tests->{$browser} = 1;
+        $browser = 'polaris';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, "browsex" ) != -1 ) {
         $browser = 'browsex';
@@ -1482,16 +1482,17 @@ sub _init_os {
     elsif ( index( $ua, "win32" ) != -1 ) {
         $os_tests->{win32} = $os_tests->{windows} = 1;
     }
-    elsif ( $self->{user_agent} =~ m{(brew)|(\bbmp\b)}i )
-    {
-	$os = 'brew';
-	if ( $1 ) {
-	    $os_string = 'Brew';
-	} else {
-	    $os_string = 'Brew MP';
-	}
-	$os_tests->{brew} = 1;
-    } else {
+    elsif ( $self->{user_agent} =~ m{(brew)|(\bbmp\b)}i ) {
+        $os = 'brew';
+        if ($1) {
+            $os_string = 'Brew';
+        }
+        else {
+            $os_string = 'Brew MP';
+        }
+        $os_tests->{brew} = 1;
+    }
+    else {
         $os = undef;
     }
 
@@ -1558,9 +1559,9 @@ sub _init_os_version {
         }
     }
     elsif ( $os eq 'brew' ) {
-	if ( $ua =~ m{(brew|\bbmp) (\d+)(\.?\d*)([\.\d]*)} ) {
-	    $os_version = [ $2, $3, $4 ];
-	}
+        if ( $ua =~ m{(brew|\bbmp) (\d+)(\.?\d*)([\.\d]*)} ) {
+            $os_version = [ $2, $3, $4 ];
+        }
     }
 
     # Set the version. It might be set to undef, in which case we know
@@ -1717,17 +1718,18 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
-    elsif ( $browser eq 'obigo'
-	    && $self->{user_agent} =~ m{(obigo[\w\-]*|teleca)[\/ ]\w(\d+)(\w*)}i ) {
-	$major = $2;
-	$minor = '';
-	$beta = $3;
+    elsif ($browser eq 'obigo'
+        && $self->{user_agent} =~ m{(obigo[\w\-]*|teleca)[\/ ]\w(\d+)(\w*)}i )
+    {
+        $major = $2;
+        $minor = '';
+        $beta  = $3;
     }
-    elsif ( $browser eq 'polaris'
-	    && $ua =~ m{polaris[ \/](\d+)\.?(\d+)?([\d\.]*)} ) {
-	$major = $1;
-	$minor = $2;
-	$beta = $3;
+    elsif ($browser eq 'polaris'
+        && $ua =~ m{polaris[ \/](\d+)\.?(\d+)?([\d\.]*)} ) {
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
     }
 
     # If we didn't match a browser-specific test, we look for
@@ -1962,7 +1964,7 @@ sub _init_device {
             && index( $ua, "windows phone" ) == -1 )
         || index( $ua, "alcatel" ) != -1
         || $ua =~ m{\bbrew\b}
-	|| $ua =~ m{\bbmp\b}
+        || $ua =~ m{\bbmp\b}
         || index( $ua, "ericsson" ) != -1
         || index( $ua, "sie-" ) == 0
         || index( $ua, "wmlib" ) != -1
@@ -2052,10 +2054,10 @@ sub _init_device {
                 || index( $ua, "symbos" ) != -1
                 || index( $ua, "opera mobi" ) != -1
                 || index( $ua, "fennec" ) != -1
-	        || $ua =~ m{\bbrew\b}
-	        || index( $ua, "obigo" ) != -1
-	        || index( $ua, "teleca" ) != -1
-	        || index( $ua, "polaris" ) != -1
+                || $ua =~ m{\bbrew\b}
+                || index( $ua, "obigo" ) != -1
+                || index( $ua, "teleca" ) != -1
+                || index( $ua, "polaris" ) != -1
                 || index( $ua, "opera tablet" ) != -1
                 || index( $ua, "rim tablet" ) != -1
                 || ( index( $ua, "bb10" ) != -1
@@ -2069,15 +2071,13 @@ sub _init_device {
         );
     }
 
-    if ( $ua =~ /^(\bmot-[^ \/]+)/ )
-    {
-	$device_string = substr $self->{user_agent}, 0, length $1;
-	$device_string =~ s/^MOT-/Motorola /i;
+    if ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
+        $device_string = substr $self->{user_agent}, 0, length $1;
+        $device_string =~ s/^MOT-/Motorola /i;
     }
     elsif ( ( $browser_tests->{obigo} || index( $ua, "brew" ) != -1 )
-	&& $self->{user_agent} =~ m{\d+x\d+ ([\d\w\- ]+?)( \S+\/\S+)*$}i )
-    {
-	$device_string = $1;
+        && $self->{user_agent} =~ m{\d+x\d+ ([\d\w\- ]+?)( \S+\/\S+)*$}i ) {
+        $device_string = $1;
     }
     elsif (
         $ua =~ /windows phone os [^\)]+ iemobile\/[^;]+; ([^;]+; [^;\)]+)/g )
