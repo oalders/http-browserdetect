@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+
+3.13 2016-05-09 11:10:44 America/Toronto
     - Start detecting Brew OS (andrewmoise)
     - Fix detecting Netfront as Netscape in some cases (andrewmoise)
     - Start recognizing Teleca as an alias for Obigo (andrewmoise)
