@@ -63,8 +63,8 @@ Browser Information
     chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
     brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
     konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape, n3ds,
-    dsi, obigo, pubsub, realplayer, seamonkey, silk, staroffice, ucbrowser,
-    webtv
+    dsi, obigo, polaris, pubsub, realplayer, seamonkey, silk, staroffice,
+    ucbrowser, webtv
 
     If the browser could not be identified (either because unrecognized or
     because it is a robot), returns undef.
@@ -128,7 +128,7 @@ Operating System
     Returns one of the following strings, or undef:
 
       windows, winphone, mac, macosx, linux, android, ios, os2, unix, vms,
-      chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga
+      chromeos, firefoxos, ps3, psp, rimtabletos, blackberry, amiga, brew
 
  os_string()
 
@@ -378,6 +378,8 @@ Browser Properties
 
   opera opera3 opera4 opera5 opera6 opera7
 
+  polaris
+
   pubsub
 
   realplayer
@@ -436,13 +438,15 @@ Browser Properties
 
   n3ds
 
-  obigo
-
   palm
 
   webos
 
   wap
+
+    Note that 'wap' indicates that the device is capable of WAP, not
+    necessarily that the device is limited to WAP only. Most modern WAP
+    devices are also capable of rendering standard HTML.
 
   psp
 
