@@ -1980,7 +1980,7 @@ sub _init_device {
         $device = 'wap';
         $device_tests->{$device} = 1;
     }
-    
+
     $device_tests->{tablet} = (
         index( $ua, 'ipad' ) != -1
             || ( $browser_tests->{ie}
