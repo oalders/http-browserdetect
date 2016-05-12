@@ -629,8 +629,15 @@ sub _init_core {
         || index( $ua, 'bb10' ) != -1
         || index( $ua, 'rim tablet os' ) != -1 ) {
 
-        # Needs to go above the Safari check
+        # Has to go above Safari
         $browser = 'blackberry';    # test gets set during device check
+    }
+    elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
+
+	# Has to go above both Safari and Mozilla
+
+        $browser = 'ucbrowser';
+        $browser_tests->{$browser} = 1;
     }
     elsif (( index( $ua, 'safari' ) != -1 )
         || ( index( $ua, 'applewebkit' ) != -1 ) ) {
@@ -768,10 +775,6 @@ sub _init_core {
     }
     elsif ( index( $ua, 'dalvik' ) != -1 ) {
         $browser = 'dalvik';
-        $browser_tests->{$browser} = 1;
-    }
-    elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
-        $browser = 'ucbrowser';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'apple-pubsub' ) != -1 ) {
@@ -1954,7 +1957,8 @@ sub _init_device {
         $device_tests->{$device} = 1;
     }
     elsif (
-           $browser_tests->{obigo}
+	$browser_tests->{obigo}
+	|| $browser_tests->{ucbrowser}
         || index( $ua, 'up.browser' ) != -1
         || (   index( $ua, 'nokia' ) != -1
             && index( $ua, 'windows phone' ) == -1 )
@@ -1976,7 +1980,7 @@ sub _init_device {
         $device = 'wap';
         $device_tests->{$device} = 1;
     }
-
+    
     $device_tests->{tablet} = (
         index( $ua, 'ipad' ) != -1
             || ( $browser_tests->{ie}
@@ -2030,7 +2034,7 @@ sub _init_device {
                 || index( $ua, 'wap' ) == 0
                 || index( $ua, 'wapper' ) != -1
                 || index( $ua, 'blackberry' ) != -1
-                || index( $ua, 'iemobile' ) != -1
+                || index( $ua, 'mobile' ) != -1
                 || index( $ua, 'palm' ) != -1
                 || index( $ua, 'smartphone' ) != -1
                 || index( $ua, 'windows ce' ) != -1
@@ -2061,13 +2065,16 @@ sub _init_device {
                 || $device_tests->{psp}
                 || $device_tests->{dsi}
                 || $device_tests->{'n3ds'}
-                || index( $ua, 'googlebot-mobile' ) != -1
-                || index( $ua, 'msnbot-mobile' ) != -1
-                || index( $ua, 'bingbot-mobile' ) != -1
         );
     }
 
-    if ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
+    if ( $browser_tests->{ucbrowser}
+	 && ( $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){4}\s*([^\;\)]*?)\s*\)}i 
+	   || $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3}\s*([^\;\)]*?)\s*\)}i ) )
+    {
+	$device_string = $2;
+    }
+    elsif ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
         $device_string = substr $self->{user_agent}, 0, length $1;
         $device_string =~ s/^MOT-/Motorola /i;
     }
