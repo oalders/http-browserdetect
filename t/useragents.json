@@ -6110,5 +6110,959 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
+   },
+   "LG-GR500/V10o Teleca/Q7.0 Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; LG-GR500) U2/1.0.0 UCBrowser/9.4.0.342 U2/1.0.0 Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.342",
+      "browser_major" : "9",
+      "browser_minor" : ".4",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "LG-GR500",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Mozilla/5.0 (Java; U; ar-sa; mauie800) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.5.0.185/83/352/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.185",
+      "browser_major" : "8",
+      "browser_minor" : ".5",
+      "browser_string" : "UCBrowser",
+      "country" : "SA",
+      "device" : "wap",
+      "device_string" : "WAP capable phone",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".13",
+      "engine_string" : "WebKit",
+      "language" : "AR",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser",
+         "webkit"
+      ]
+   },
+   "Nokia110/2.0 (03.28) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; ar-SA; nokia110) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "SA",
+      "device" : "wap",
+      "device_string" : "nokia110",
+      "language" : "AR",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia114/2.0 (03.33) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; hi; nokia114) U2/1.0.0 UCBrowser/8.9.0.251 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.251",
+      "browser_major" : "8",
+      "browser_minor" : ".9",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "nokia114",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia114/2.0 (03.47) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; Nokia114) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia114",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia200/2.0 (11.56) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-in; nokia200) UCBrowser8.2.0.132/69/452/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.132",
+      "browser_major" : "8",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "IN",
+      "device" : "wap",
+      "device_string" : "Nokia200",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia200/2.0 (11.81) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-us; nokia200) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.6.0.199/69/405/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.199",
+      "browser_major" : "8",
+      "browser_minor" : ".6",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia200",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".13",
+      "engine_string" : "WebKit",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser",
+         "webkit"
+      ]
+   },
+   "Nokia2690/2.0 (10.10) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; es-LA; Nokia2690) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "LA",
+      "device" : "wap",
+      "device_string" : "Nokia2690",
+      "language" : "ES",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia2700c-2/2.0 (09.80) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokia2700c-2) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "nokia2700c-2",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia2700c-2/2.0 (09.98) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; Nokia2700c-2) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia2700c-2",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia305/2.0 (07.42) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; Nokia305) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia305",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia310/2.0 (07.35) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; Nokia310) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia310",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia3120classic/2.0 (09.41) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-us; nokia3120classic) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.6.0.199/69/352/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.199",
+      "browser_major" : "8",
+      "browser_minor" : ".6",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia3120classic",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".13",
+      "engine_string" : "WebKit",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser",
+         "webkit"
+      ]
+   },
+   "Nokia5130c-2/2.0 (07.91) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-us; nokia5130c-2) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.6.0.199/84/352/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.199",
+      "browser_major" : "8",
+      "browser_minor" : ".6",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia5130c-2",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".13",
+      "engine_string" : "WebKit",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser",
+         "webkit"
+      ]
+   },
+   "Nokia5130c-2/2.0 (07.97) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; bn; Nokia5130c-2) U2/1.0.0 UCBrowser/9.4.0.342 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.342",
+      "browser_major" : "9",
+      "browser_minor" : ".4",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "Nokia5130c-2",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "Nokia5610 XpressMusic/2.0 (04.88) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; es-LA; Nokia5610 XpressMusic) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "LA",
+      "device" : "wap",
+      "device_string" : "Nokia5610 XpressMusic",
+      "language" : "ES",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaC2-03/2.0 (07.57) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokiac2-03) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "nokiac2-03",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-00/5.0 (08.35) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaX2-00) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-00",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-01/5.0 (08.63) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaX2-01) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-01",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-01/5.0 (08.65) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokiax2-01) U2/1.0.0 UCBrowser/9.1.0.291 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.291",
+      "browser_major" : "9",
+      "browser_minor" : ".1",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "nokiax2-01",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-01/5.0 (08.70) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; vi; NokiaX2-01) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "NokiaX2-01",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-01/5.0 (08.71) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-in; nokiax2-01) UCBrowser8.3.0.154/69/444/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.154",
+      "browser_major" : "8",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "IN",
+      "device" : "wap",
+      "device_string" : "NokiaX2-01",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-01/5.0 (08.71) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; nokiax2-01) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "nokiax2-01",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-02/2.0 (11.79) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaX2-02) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-02",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-02/2.0 (11.84) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Java; U; en-us; nokiax2-02) UCBrowser8.3.1.161/70/405/UCWEB Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".1.161",
+      "browser_major" : "8",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-02",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "NokiaX2-02/2.0 (12.04) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaX2-02) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaX2-02",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "SonyEricssonG502/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; id; SonyEricssonG502) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "SonyEricssonG502",
+      "language" : "ID",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "SonyEricssonJ105i/R1HA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 Mozilla/5.0 (Java; U; en-in; sonyericssonj105i) UCBrowser8.2.1.144/69/444/UCWEB Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".1.144",
+      "browser_major" : "8",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "IN",
+      "device" : "wap",
+      "device_string" : "SonyEricssonJ105i",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "SonyEricssonW595/R3EA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 Mozilla/5.0 (Java; U; fa; sonyericssonw595) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.5.0.185/82/352/UCWEB Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.185",
+      "browser_major" : "8",
+      "browser_minor" : ".5",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "SonyEricssonW595",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "530",
+      "engine_minor" : ".13",
+      "engine_string" : "WebKit",
+      "language" : "FA",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser",
+         "webkit"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; Pt-BR; gt-i6220) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "gt-i6220",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; ar-SA; NokiaN70-1) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "SA",
+      "device" : "wap",
+      "device_string" : "NokiaN70-1",
+      "language" : "AR",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; ar-SA; nokia6120c) U2/1.0.0 UCBrowser/8.9.0.251 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.251",
+      "browser_major" : "8",
+      "browser_minor" : ".9",
+      "browser_string" : "UCBrowser",
+      "country" : "SA",
+      "device" : "wap",
+      "device_string" : "nokia6120c",
+      "language" : "AR",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; ar-SA; nokia701) U2/1.0.0 UCBrowser/8.9.0.251 U2/1.0.0 Mobile UNTRUSTED/1.0 3gpp-gba" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.251",
+      "browser_major" : "8",
+      "browser_minor" : ".9",
+      "browser_string" : "UCBrowser",
+      "country" : "SA",
+      "device" : "wap",
+      "device_string" : "nokia701",
+      "language" : "AR",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; GT-S5233S) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "GT-S5233S",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; LG-LG840G) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "LG-LG840G",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; MICROMAX) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "MICROMAX",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; MicromaxQ5) U2/1.0.0 UCBrowser/9.4.0.342 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.342",
+      "browser_major" : "9",
+      "browser_minor" : ".4",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "MicromaxQ5",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; MicromaxX510) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "MicromaxX510",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; Nokia5233) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0 3gpp-gba" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "Nokia5233",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; NokiaN70-1) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "NokiaN70-1",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-C6712) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-C6712",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S3650) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S3650",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S3653) U2/1.0.0 UCBrowser/9.4.0.342 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.342",
+      "browser_major" : "9",
+      "browser_minor" : ".4",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S3653",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S5253) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S5253",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S5333) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S5333",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S5350) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S5350",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; SAMSUNG-GT-S5620) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "SAMSUNG-GT-S5620",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; lg-lg800g) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "lg-lg800g",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; samsung-gt-s3850) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "samsung-gt-s3850",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; samsung-gt-s5380k) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.311",
+      "browser_major" : "9",
+      "browser_minor" : ".2",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "samsung-gt-s5380k",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0 (Java; U; MIDP-2.0; es-LA; cl381) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.260",
+      "browser_major" : "9",
+      "browser_minor" : ".0",
+      "browser_string" : "UCBrowser",
+      "country" : "LA",
+      "device" : "wap",
+      "device_string" : "cl381",
+      "language" : "ES",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0(Java; U; MIDP-2.0; en-US; nokia5800d-1) U2/1.0.0 UCBrowser/8.8.1.252 U2/1.0.0 Mobile UNTRUSTED/1.0 3gpp-gba" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".1.252",
+      "browser_major" : "8",
+      "browser_minor" : ".8",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "nokia5800d-1",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0(Java; U; MIDP-2.0; fa; samsung-gt-c6712) U2/1.0.0 UCBrowser/8.7.0.218 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.218",
+      "browser_major" : "8",
+      "browser_minor" : ".7",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "samsung-gt-c6712",
+      "language" : "FA",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UCWEB/2.0(Java; U; MIDP-2.0; id; maui) U2/1.0.0 UCBrowser/8.7.1.234 U2/1.0.0 Mobile UNTRUSTED/1.0" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".1.234",
+      "browser_major" : "8",
+      "browser_minor" : ".7",
+      "browser_string" : "UCBrowser",
+      "device" : "wap",
+      "device_string" : "maui",
+      "language" : "ID",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
+   "UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; en-US; ZTE-P107A20(Propus)) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".0.326",
+      "browser_major" : "9",
+      "browser_minor" : ".3",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "wap",
+      "device_string" : "ZTE-P107A20(Propus",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "wap",
+         "mobile",
+         "ucbrowser"
+      ]
    }
 }
+
