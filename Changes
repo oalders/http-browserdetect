@@ -6,6 +6,8 @@ Revision history for Perl extension HTTP::BrowserDetect.
     - Start detecting UCBrowser much more accurately (device, version,
       and detect some cases which were misidentified as something else
       previously) (andrewmoise)
+    - Detect more possibilities for Kindle Fire in Android model
+      ("Kindle Fire in addition to "KF.*") (andrewmoise)
 
 3.13 2016-05-09 11:10:44 America/Toronto
     - Start detecting Brew OS (andrewmoise)

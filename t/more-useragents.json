@@ -10165,6 +10165,34 @@
       "os_version" : "4.4",
       "robot" : 0
    },
+   "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1" : {
+      "browser" : "safari",
+      "browser_major" : "4",
+      "browser_minor" : ".0",
+      "browser_string" : "Safari",
+      "country" : "US",
+      "device" : "android",
+      "device_string" : "Android tablet (Kindle Fire)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "533",
+      "engine_minor" : ".1",
+      "engine_string" : "WebKit",
+      "language" : "EN",
+      "match" : [
+         "device",
+         "android",
+         "kindlefire",
+         "tablet",
+         "safari",
+         "webkit"
+      ],
+      "os" : "android",
+      "os_beta" : ".4",
+      "os_major" : "2",
+      "os_minor" : ".3",
+      "os_string" : "Android"
+   },
    "Mozilla/5.0 (Linux; U; Android 4.4.4; en-us; SM-G360P Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
       "browser_major" : "4",

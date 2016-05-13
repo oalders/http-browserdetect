@@ -2126,7 +2126,7 @@ sub _init_device {
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
         if ( $device_tests->{tablet} ) {
             my $model = $1;
-            if ( $model =~ m{^KF} ) {
+            if ( $model =~ m{^KF} || $model =~ m{kindle fire}i ) {
                 $device_string = 'Android tablet (Kindle Fire)';
                 $device_tests->{kindlefire} = 1;
             }
