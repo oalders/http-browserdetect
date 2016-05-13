@@ -1730,6 +1730,12 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+    elsif ($browser eq 'ucbrowser'
+	   && $ua =~ m{ucbrowser[\/ ]*(\d+)\.?(\d+)?([\d\.]*)} ) {
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # '$browser/x.y.z'
