@@ -1899,7 +1899,11 @@ sub _init_device {
 
         # Test is set in _init_os()
     }
-    elsif ( index( $ua, 'android' ) != -1 ) {
+    elsif ( index( $ua, 'android' ) != -1
+        || index( $ua, 'silk-accelerated' ) != -1 ) {
+	# Silk-accelerated indicates a 1st generation Kindle Fire,
+	# which may not have other indications of being an Android
+	# device.
         $device = 'android';
         $device_tests->{$device} = 1;
     }
@@ -2123,19 +2127,24 @@ sub _init_device {
     elsif ( $ua =~ /blackberry(\d+)\// ) {
         $device_string = "BlackBerry $1";
     }
+    elsif ( $ua =~ /silk-accelerated/ ) {
+	# Only first generation Kindle Fires have that string
+	$device_string = 'Kindle Fire';
+	$device_tests->{kindlefire} = 1;
+    }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-        if ( $device_tests->{tablet} ) {
-            my $model = $1;
-            if ( $model =~ m{^KF} || $model =~ m{kindle fire}i ) {
-                $device_string = 'Android tablet (Kindle Fire)';
-                $device_tests->{kindlefire} = 1;
-            }
-            else {
-                $device_string = "Android tablet ($model)";
-            }
+	my $model = $1;
+	if ( $model =~ m{^KF} || $model =~ m{kindle fire}i ) {
+	    # We might hit this even if tablet() is false, if we have
+	    # a Kindle Fire masquerading as a mobile device.
+	    $device_string = 'Kindle Fire';
+	    $device_tests->{kindlefire} = 1;
+	}
+	elsif ( $device_tests->{tablet} ) {
+	    $device_string = "Android tablet ($model)";
         }
         else {
-            $device_string = "Android ($1)";
+            $device_string = "Android ($model)";
         }
     }
     elsif ( $self->{user_agent}
