@@ -629,8 +629,15 @@ sub _init_core {
         || index( $ua, 'bb10' ) != -1
         || index( $ua, 'rim tablet os' ) != -1 ) {
 
-        # Needs to go above the Safari check
+        # Has to go above Safari
         $browser = 'blackberry';    # test gets set during device check
+    }
+    elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
+
+	# Has to go above both Safari and Mozilla
+
+        $browser = 'ucbrowser';
+        $browser_tests->{$browser} = 1;
     }
     elsif (( index( $ua, 'safari' ) != -1 )
         || ( index( $ua, 'applewebkit' ) != -1 ) ) {
@@ -648,20 +655,49 @@ sub _init_core {
             $browser_string = 'Puffin';
         }
     }
-    elsif (!$tests->{trident}
-        && index( $ua, 'mozilla' ) != -1
-        && index( $ua, 'msie' ) == -1
-        && index( $ua, 'spoofer' ) == -1
-        && index( $ua, 'compatible' ) == -1
-        && index( $ua, 'webtv' ) == -1
-        && index( $ua, 'hotjava' ) == -1
-        && index( $ua, 'nintendo' ) == -1
-        && index( $ua, 'playstation 3' ) == -1
-        && index( $ua, 'playstation portable' ) == -1
-        && index( $ua, 'browsex' ) == -1
-        && index( $ua, 'netfront' ) == -1
-        && index( $ua, 'polaris' ) == -1 ) {
+    elsif ( index( $ua, 'neoplanet' ) != -1 ) {
 
+        # Browser is Neoplanet
+
+        $browser                    = 'ie';
+        $browser_tests->{$browser}  = 1;
+        $browser_tests->{neoplanet} = 1;
+        $browser_tests->{neoplanet2} = 1 if ( index( $ua, '2.' ) != -1 );
+    }
+
+    ## The following browsers all need to be tested for *before*
+    ## Mozilla, otherwise we'll think they are Mozilla because they
+    ## look very much like it.
+    elsif ( index( $ua, 'webtv' ) != -1 ) {
+        $browser = 'webtv';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, 'nintendo 3ds' ) != -1 ) {
+        $browser = 'n3ds';    # Test gets set during device check
+    }
+    elsif ( index( $ua, 'nintendo dsi' ) != -1 ) {
+        $browser = 'dsi';     # Test gets set during device check
+    }
+    elsif (index( $ua, 'playstation 3' ) != -1
+        || index( $ua, 'playstation portable' ) != -1
+        || index( $ua, 'netfront' ) != -1 ) {
+        $browser = 'netfront';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, 'browsex' ) != -1 ) {
+        $browser = 'browsex';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, 'polaris' ) != -1 ) {
+        $browser = 'polaris';
+        $browser_tests->{$browser} = 1;
+    }
+
+    ## At this point if it looks like Mozilla but we haven't found
+    ## anything else for it to be, it's probably Mozilla.
+    elsif ( index( $ua, 'mozilla' ) != -1
+        && index( $ua, 'compatible' ) == -1 )
+    {
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
         $browser = 'mozilla';
@@ -676,17 +712,8 @@ sub _init_core {
         $browser_tests->{netscape} = 1;
         $browser_tests->{mozilla}  = ( $tests->{gecko} );
     }
-    elsif ( index( $ua, 'neoplanet' ) != -1 ) {
 
-        # Browser is Neoplanet
-
-        $browser                    = 'ie';
-        $browser_tests->{$browser}  = 1;
-        $browser_tests->{neoplanet} = 1;
-        $browser_tests->{neoplanet2} = 1 if ( index( $ua, '2.' ) != -1 );
-    }
-
-    ## Long series of unlikely browsers
+    ## Long series of unlikely browsers (ones that don't look like Mozilla)
     elsif ( index( $ua, 'staroffice' ) != -1 ) {
         $browser = 'staroffice';
         $browser_tests->{$browser} = 1;
@@ -715,10 +742,6 @@ sub _init_core {
         $browser = 'links';
         $browser_tests->{$browser} = 1;
     }
-    elsif ( index( $ua, 'webtv' ) != -1 ) {
-        $browser = 'webtv';
-        $browser_tests->{$browser} = 1;
-    }
     elsif ( index( $ua, 'mosaic' ) != -1 ) {
         $browser = 'mosaic';
         $browser_tests->{$browser} = 1;
@@ -727,18 +750,6 @@ sub _init_core {
         $browser = 'emacs';
         $browser_tests->{$browser} = 1;
     }
-    elsif (index( $ua, 'playstation 3' ) != -1
-        || index( $ua, 'playstation portable' ) != -1
-        || index( $ua, 'netfront' ) != -1 ) {
-        $browser = 'netfront';
-        $browser_tests->{$browser} = 1;
-    }
-    elsif ( index( $ua, 'nintendo 3ds' ) != -1 ) {
-        $browser = 'n3ds';    # Test gets set during device check
-    }
-    elsif ( index( $ua, 'nintendo dsi' ) != -1 ) {
-        $browser = 'dsi';     # Test gets set during device check
-    }
     elsif ( index( $ua, 'obigo' ) != -1 ) {
         $browser = 'obigo';
         $browser_tests->{$browser} = 1;
@@ -746,14 +757,6 @@ sub _init_core {
     elsif ( index( $ua, 'teleca' ) != -1 ) {
         $browser                   = 'obigo';
         $browser_string            = 'Teleca';
-        $browser_tests->{$browser} = 1;
-    }
-    elsif ( index( $ua, 'polaris' ) != -1 ) {
-        $browser = 'polaris';
-        $browser_tests->{$browser} = 1;
-    }
-    elsif ( index( $ua, 'browsex' ) != -1 ) {
-        $browser = 'browsex';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'libcurl' ) != -1 || $ua =~ /^curl/ ) {
@@ -772,10 +775,6 @@ sub _init_core {
     }
     elsif ( index( $ua, 'dalvik' ) != -1 ) {
         $browser = 'dalvik';
-        $browser_tests->{$browser} = 1;
-    }
-    elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
-        $browser = 'ucbrowser';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'apple-pubsub' ) != -1 ) {
@@ -1731,6 +1730,12 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+    elsif ($browser eq 'ucbrowser'
+	   && $ua =~ m{ucbrowser[\/ ]*(\d+)\.?(\d+)?([\d\.]*)} ) {
+        $major = $1;
+        $minor = $2;
+        $beta  = $3;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # '$browser/x.y.z'
@@ -1958,7 +1963,8 @@ sub _init_device {
         $device_tests->{$device} = 1;
     }
     elsif (
-           $browser_tests->{obigo}
+	$browser_tests->{obigo}
+	|| $browser_tests->{ucbrowser}
         || index( $ua, 'up.browser' ) != -1
         || (   index( $ua, 'nokia' ) != -1
             && index( $ua, 'windows phone' ) == -1 )
@@ -2034,7 +2040,7 @@ sub _init_device {
                 || index( $ua, 'wap' ) == 0
                 || index( $ua, 'wapper' ) != -1
                 || index( $ua, 'blackberry' ) != -1
-                || index( $ua, 'iemobile' ) != -1
+                || index( $ua, 'mobile' ) != -1
                 || index( $ua, 'palm' ) != -1
                 || index( $ua, 'smartphone' ) != -1
                 || index( $ua, 'windows ce' ) != -1
@@ -2065,13 +2071,16 @@ sub _init_device {
                 || $device_tests->{psp}
                 || $device_tests->{dsi}
                 || $device_tests->{'n3ds'}
-                || index( $ua, 'googlebot-mobile' ) != -1
-                || index( $ua, 'msnbot-mobile' ) != -1
-                || index( $ua, 'bingbot-mobile' ) != -1
         );
     }
 
-    if ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
+    if ( $browser_tests->{ucbrowser}
+	 && ( $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){4}\s*([^\;\)]*?)\s*\)}i 
+	   || $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3}\s*([^\;\)]*?)\s*\)}i ) )
+    {
+	$device_string = $2;
+    }
+    elsif ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
         $device_string = substr $self->{user_agent}, 0, length $1;
         $device_string =~ s/^MOT-/Motorola /i;
     }

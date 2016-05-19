@@ -1,6 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Slightly refactor the detection of several browsers that
+      identify as Mozilla initially (andrewmoise)
+    - Start detecting UCBrowser much more accurately (device, version,
+      and detect some cases which were misidentified as something else
+      previously) (andrewmoise)
 
 3.13 2016-05-09 11:10:44 America/Toronto
     - Start detecting Brew OS (andrewmoise)

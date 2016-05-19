@@ -683,6 +683,7 @@
       "browser_string" : "Mobile Safari",
       "match" : [
          "safari",
+         "mobile",
          "mobile_safari"
       ],
       "robot" : 0
@@ -694,6 +695,7 @@
       "browser_string" : "Mobile Safari",
       "match" : [
          "safari",
+         "mobile",
          "mobile_safari"
       ],
       "robot" : 0
@@ -19657,6 +19659,7 @@
       "browser_major" : "4",
       "browser_minor" : ".0",
       "match" : [
+         "mobile",
          "windows"
       ],
       "robot" : 0
