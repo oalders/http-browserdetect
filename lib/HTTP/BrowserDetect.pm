@@ -634,7 +634,7 @@ sub _init_core {
     }
     elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
 
-	# Has to go above both Safari and Mozilla
+        # Has to go above both Safari and Mozilla
 
         $browser = 'ucbrowser';
         $browser_tests->{$browser} = 1;
@@ -695,9 +695,9 @@ sub _init_core {
 
     ## At this point if it looks like Mozilla but we haven't found
     ## anything else for it to be, it's probably Mozilla.
-    elsif ( index( $ua, 'mozilla' ) != -1
-        && index( $ua, 'compatible' ) == -1 )
-    {
+    elsif (index( $ua, 'mozilla' ) != -1
+        && index( $ua, 'compatible' ) == -1 ) {
+
         # Browser is a Gecko-powered Netscape (i.e. Mozilla) version
 
         $browser = 'mozilla';
@@ -1731,7 +1731,7 @@ sub _init_version {
         $beta  = $3;
     }
     elsif ($browser eq 'ucbrowser'
-	   && $ua =~ m{ucbrowser[\/ ]*(\d+)\.?(\d+)?([\d\.]*)} ) {
+        && $ua =~ m{ucbrowser[\/ ]*(\d+)\.?(\d+)?([\d\.]*)} ) {
         $major = $1;
         $minor = $2;
         $beta  = $3;
@@ -1899,11 +1899,12 @@ sub _init_device {
 
         # Test is set in _init_os()
     }
-    elsif ( index( $ua, 'android' ) != -1
+    elsif (index( $ua, 'android' ) != -1
         || index( $ua, 'silk-accelerated' ) != -1 ) {
-	# Silk-accelerated indicates a 1st generation Kindle Fire,
-	# which may not have other indications of being an Android
-	# device.
+
+        # Silk-accelerated indicates a 1st generation Kindle Fire,
+        # which may not have other indications of being an Android
+        # device.
         $device = 'android';
         $device_tests->{$device} = 1;
     }
@@ -1967,8 +1968,8 @@ sub _init_device {
         $device_tests->{$device} = 1;
     }
     elsif (
-	$browser_tests->{obigo}
-	|| $browser_tests->{ucbrowser}
+           $browser_tests->{obigo}
+        || $browser_tests->{ucbrowser}
         || index( $ua, 'up.browser' ) != -1
         || (   index( $ua, 'nokia' ) != -1
             && index( $ua, 'windows phone' ) == -1 )
@@ -2078,11 +2079,14 @@ sub _init_device {
         );
     }
 
-    if ( $browser_tests->{ucbrowser}
-	 && ( $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){4}\s*([^\;\)]*?)\s*\)}i 
-	   || $self->{user_agent} =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3}\s*([^\;\)]*?)\s*\)}i ) )
-    {
-	$device_string = $2;
+    if (
+        $browser_tests->{ucbrowser}
+        && ( $self->{user_agent}
+            =~ m{ucweb/2.0\s*\(([^\;\)]*\;){4}\s*([^\;\)]*?)\s*\)}i
+            || $self->{user_agent}
+            =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3}\s*([^\;\)]*?)\s*\)}i )
+        ) {
+        $device_string = $2;
     }
     elsif ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
         $device_string = substr $self->{user_agent}, 0, length $1;
@@ -2128,20 +2132,22 @@ sub _init_device {
         $device_string = "BlackBerry $1";
     }
     elsif ( $ua =~ /silk-accelerated/ ) {
-	# Only first generation Kindle Fires have that string
-	$device_string = 'Kindle Fire';
-	$device_tests->{kindlefire} = 1;
+
+        # Only first generation Kindle Fires have that string
+        $device_string = 'Kindle Fire';
+        $device_tests->{kindlefire} = 1;
     }
     elsif ( $self->{user_agent} =~ /android .*\; ([^;]*) build/i ) {
-	my $model = $1;
-	if ( $model =~ m{^KF} || $model =~ m{kindle fire}i ) {
-	    # We might hit this even if tablet() is false, if we have
-	    # a Kindle Fire masquerading as a mobile device.
-	    $device_string = 'Kindle Fire';
-	    $device_tests->{kindlefire} = 1;
-	}
-	elsif ( $device_tests->{tablet} ) {
-	    $device_string = "Android tablet ($model)";
+        my $model = $1;
+        if ( $model =~ m{^KF} || $model =~ m{kindle fire}i ) {
+
+            # We might hit this even if tablet() is false, if we have
+            # a Kindle Fire masquerading as a mobile device.
+            $device_string = 'Kindle Fire';
+            $device_tests->{kindlefire} = 1;
+        }
+        elsif ( $device_tests->{tablet} ) {
+            $device_string = "Android tablet ($model)";
         }
         else {
             $device_string = "Android ($model)";
