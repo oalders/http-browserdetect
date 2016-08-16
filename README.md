@@ -47,6 +47,9 @@ version 3.14
 The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
+For an online demonstration of this module's parsing, you can check out
+[http://www.browserdetect.org/](http://www.browserdetect.org/)
+
 This module was originally based upon the JavaScript browser detection
 code available at
 [http://www.mozilla.org/docs/web-developer/sniffer/browser\_type.html](http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html).
