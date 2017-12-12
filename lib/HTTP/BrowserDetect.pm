@@ -216,62 +216,81 @@ push @ALL_TESTS,
     @OLD_ROBOT_TESTS, @MISC_TESTS,
     );
 
-# This method is only used by the test suite to find method names to test for.
-sub _all_tests {
-    return @ALL_TESTS;
-}
-
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
 my %ROBOT_NAMES = (
-    ahrefs              => 'Ahrefs',
-    altavista           => 'AltaVista',
-    apache              => 'Apache http client',
-    Applebot            => 'Apple',
-    askjeeves           => 'AskJeeves',
-    baidu               => 'Baidu Spider',
-    bingbot             => 'Bingbot',
-    curl                => 'curl',
-    Discordbot          => 'Discord',
-    facebook            => 'Facebook',
-    getright            => 'GetRight',
-    google              => 'Googlebot',
-    googleadsbot        => 'Google AdsBot',
-    googleadsense       => 'Google AdSense',
-    googlebotimage      => 'Googlebot Images',
-    googlebotnews       => 'Googlebot News',
-    googlebotvideo      => 'Googlebot Video',
-    googlefavicon       => 'Google Favicon',
-    googlemobile        => 'Googlebot Mobile',
-    'Google Page Speed' => 'Google Page Speed',
-    golib               => 'Go language http library',
-    indy                => 'Indy Library',
-    infoseek            => 'InfoSeek',
-    ipsagent            => 'Verisign ips-agent',
-    java                => 'Java',
-    linkchecker         => 'LinkChecker',
-    linkexchange        => 'LinkExchange',
-    lwp                 => 'LWP::UserAgent',
-    lycos               => 'Lycos',
-    malware             => 'Malware / hack attempt',
-    mj12bot             => 'Majestic-12 DSearch',
-    msn                 => 'MSN',
-    msnmobile           => 'MSN Mobile',
-    msoffice            => 'Microsoft Office',
-    nutch               => 'Apache Nutch',
-    phplib              => 'PHP http library',
-    'Pro-Sitemaps'      => 'Pro Sitemap Service',
-    puf                 => 'puf',
-    Qwantify            => 'Qwantify',
-    robot               => 'robot',
-    rubylib             => 'Ruby http library',
-    'SkypeUriPreview'   => 'Skype URI Preview',
-    slurp               => 'Yahoo! Slurp',
-    specialarchiver     => 'archive.org_bot',
-    wget                => 'wget',
-    yahoo               => 'Yahoo',
-    yandex              => 'Yandex',
-    yandeximages        => 'YandexImages',
+    Applebot                             => 'Apple',
+    Discordbot                           => 'Discord',
+    'Google Page Speed'                  => 'Google Page Speed',
+    'Pro-Sitemaps'                       => 'Pro Sitemap Service',
+    Qwantify                             => 'Qwantify',
+    'SkypeUriPreview'                    => 'Skype URI Preview',
+    Swiftbot                             => 'Swiftbot',
+    W3C_Validator                        => 'W3C Validator',
+    WhatsApp                             => 'WhatsApp',
+    ahrefs                               => 'Ahrefs',
+    altavista                            => 'AltaVista',
+    apache                               => 'Apache http client',
+    askjeeves                            => 'AskJeeves',
+    baidu                                => 'Baidu Spider',
+    baiduspider                          => 'Baidu',
+    bingbot                              => 'Bingbot',
+    bitlybot                             => 'bitly',
+    curl                                 => 'curl',
+    'developers.google.com//web/snippet' => 'Google+ Snippet',
+    embedly                              => 'Embedly',
+    facebook                             => 'Facebook',
+    facebookexternalhit                  => 'Facebook',
+    flipboard                            => 'Flipboard',
+    getright                             => 'GetRight',
+    golib                                => 'Go language http library',
+    google                               => 'Googlebot',
+    googleadsbot                         => 'Google AdsBot',
+    googleadsense                        => 'Google AdSense',
+    googlebotimage                       => 'Googlebot Images',
+    googlebotnews                        => 'Googlebot News',
+    googlebotvideo                       => 'Googlebot Video',
+    googlefavicon                        => 'Google Favicon',
+    googlemobile                         => 'Googlebot Mobile',
+    indy                                 => 'Indy Library',
+    infoseek                             => 'InfoSeek',
+    ipsagent                             => 'Verisign ips-agent',
+    java                                 => 'Java',
+    lib                                  => 'lib',
+    linkchecker                          => 'LinkChecker',
+    linkedinbot                          => 'LinkedIn',
+    linkexchange                         => 'LinkExchange',
+    lwp                                  => 'LWP::UserAgent',
+    lycos                                => 'Lycos',
+    malware                              => 'Malware / hack attempt',
+    mj12bot                              => 'Majestic-12 DSearch',
+    msn                                  => 'MSN',
+    msnmobile                            => 'MSN Mobile',
+    msoffice                             => 'Microsoft Office',
+    nutch                                => 'Apache Nutch',
+    nuzzel                               => 'Nuzzel',
+    outbrain                             => 'Outbrain',
+    phplib                               => 'PHP http library',
+    'pinterest/0.'                       => 'Pinterest',
+    'pinterestbot'                       => 'Pinterest',
+    puf                                  => 'puf',
+    'quora link preview'                 => 'Quora Link Preview',
+    redditbot                            => 'reddit',
+    robot                                => 'robot',
+    rogerbot                             => 'Moz',
+    rubylib                              => 'Ruby http library',
+    showyoubot                           => 'Showyou',
+    slackbot                             => 'slack',
+    slurp                                => 'Yahoo! Slurp',
+    specialarchiver                      => 'archive.org_bot',
+    tumblr                               => 'Tumblr',
+    twitterbot                           => 'Twitter',
+    url                                  => 'url',
+    vkShare                              => 'VK Share',
+    wget                                 => 'wget',
+    yahoo                                => 'Yahoo',
+    yandex                               => 'Yandex',
+    yandeximages                         => 'YandexImages',
 );
 
 my %BROWSER_NAMES = (
@@ -2767,6 +2786,19 @@ sub browser_properties {
     push @browser_properties, 'device' if ( $self->device() );
 
     return sort @browser_properties;
+}
+
+# These method are only used by the test suite.
+sub _all_tests {
+    return @ALL_TESTS;
+}
+
+sub _robot_tests {
+    return @ROBOT_TESTS;
+}
+
+sub _robot_names {
+    return %ROBOT_NAMES;
 }
 
 1;
