@@ -14,7 +14,10 @@ foreach my $key (@regexes) {
     subtest $key => sub {
         ok( $names{$key}, 'name' );
         ok( $ids{$key},   'id' );
-        unlike( $ids{$key}, qr{[^0-9a-z-]}, 'id contains only lower case letters or dashes' );
+        unlike(
+            $ids{$key}, qr{[^0-9a-z-]},
+            'id contains only lower case letters or dashes'
+        );
     };
 }
 

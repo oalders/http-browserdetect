@@ -1300,17 +1300,17 @@ sub _init_robots {
                                            (\/[\d\.]+)?        # Version
                                            [\w]*)              # Beta stuff
                                          }ix
-                    ) {
-                    # We matched the whole string, but it seems to
-                    # make more sense as whitespace-separated
-                    # 'thing/ver' tokens
-                    $full_string = $1;
-                }
+                ) {
+                # We matched the whole string, but it seems to
+                # make more sense as whitespace-separated
+                # 'thing/ver' tokens
+                $full_string = $1;
+            }
 
-                # Figure out robot version based on the string
-                if (    $full_string
-                    and $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// ) {
-                    $self->{robot_version} = [ $1, $2, $3 ];
+            # Figure out robot version based on the string
+            if (    $full_string
+                and $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// ) {
+                $self->{robot_version} = [ $1, $2, $3 ];
             }
             else {
                 $self->{robot_version} = undef;
@@ -2367,7 +2367,7 @@ sub robot_name {
 
 sub robot_id {
     my $self = shift;
-    return $self->robot ? $ROBOT_IDS{$self->robot} : undef;
+    return $self->robot ? $ROBOT_IDS{ $self->robot } : undef;
 }
 
 sub _robot_version {
