@@ -230,12 +230,12 @@ my %ROBOT_NAMES = (
     WhatsApp                             => 'WhatsApp',
     ahrefs                               => 'Ahrefs',
     altavista                            => 'AltaVista',
-    apache                               => 'Apache http client',
+    apache                               => 'Apache HttpClient',
     askjeeves                            => 'AskJeeves',
     baidu                                => 'Baidu',
     baiduspider                          => 'Baidu Spider',
     bingbot                              => 'Bingbot',
-    bitlybot                             => 'bitly',
+    bitlybot                             => 'Bitly',
     curl                                 => 'curl',
     'developers.google.com//web/snippet' => 'Google+ Snippet',
     embedly                              => 'Embedly',
@@ -275,19 +275,19 @@ my %ROBOT_NAMES = (
     'pinterestbot'                       => 'Pinterest',
     puf                                  => 'puf',
     'quora link preview'                 => 'Quora Link Preview',
-    redditbot                            => 'reddit',
+    redditbot                            => 'Reddit',
     robot                                => 'robot',
     rogerbot                             => 'Moz',
     rubylib                              => 'Ruby http library',
     showyoubot                           => 'Showyou',
     slackbot                             => 'slack',
     slurp                                => 'Yahoo! Slurp',
-    specialarchiver                      => 'archive.org_bot',
+    specialarchiver                      => 'Internet Archive',
     tumblr                               => 'Tumblr',
     twitterbot                           => 'Twitter',
     url                                  => 'url',
     vkShare                              => 'VK Share',
-    wget                                 => 'wget',
+    wget                                 => 'Wget',
     yahoo                                => 'Yahoo',
     yandex                               => 'Yandex',
     yandeximages                         => 'YandexImages',
@@ -3364,7 +3364,7 @@ devices are also capable of rendering standard HTML.
 
 These methods are now deprecated and will be removed in a future release.
 Please use the C<robot()> and C<robot_id()> methods to identify the bots.  Use
-C<robot_id()> if you need to match on a string, since the value which is
+C<robot_id()> if you need to match on a string, since the value that is
 returned by C<robot> could possibly change in a future release.
 
 The following additional methods are available, each returning a true or false

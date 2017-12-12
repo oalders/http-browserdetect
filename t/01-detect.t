@@ -30,7 +30,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     my $test = $tests->{$ua};
 
     my $detected = HTTP::BrowserDetect->new($ua);
-    subtest $detected->user_agent => sub {
+    subtest $ua => sub {
 
         foreach my $method (
             'browser', 'browser_string', 'browser_beta',
