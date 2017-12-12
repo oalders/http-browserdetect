@@ -293,6 +293,81 @@ my %ROBOT_NAMES = (
     yandeximages                         => 'YandexImages',
 );
 
+my %ROBOT_IDS = (
+    Applebot                             => 'apple',
+    Discordbot                           => 'discord',
+    'Google Page Speed'                  => 'google-page-speed',
+    'Pro-Sitemaps'                       => 'pro-sitemap-service',
+    Qwantify                             => 'qwantify',
+    SkypeUriPreview                      => 'skype-uri-preview',
+    Swiftbot                             => 'swiftbot',
+    W3C_Validator                        => 'w3c-validator',
+    WhatsApp                             => 'whatsapp',
+    ahrefs                               => 'ahrefs',
+    altavista                            => 'altavista',
+    apache                               => 'apache-http-client',
+    askjeeves                            => 'askjeeves',
+    baidu                                => 'baidu',
+    baiduspider                          => 'baidu',
+    bingbot                              => 'bingbot',
+    bitlybot                             => 'bitly',
+    curl                                 => 'curl',
+    'developers.google.com//web/snippet' => 'google-plus-snippet',
+    embedly                              => 'embedly',
+    facebook                             => 'facebook',
+    facebookexternalhit                  => 'facebook',
+    flipboard                            => 'flipboard',
+    getright                             => 'getright',
+    golib                                => 'go-language-http-library',
+    google                               => 'googlebot',
+    googleadsbot                         => 'google-adsbot',
+    googleadsense                        => 'google-adsense',
+    googlebotimage                       => 'googlebot-images',
+    googlebotnews                        => 'googlebot-news',
+    googlebotvideo                       => 'googlebot-video',
+    googlefavicon                        => 'google-favicon',
+    googlemobile                         => 'googlebot-mobile',
+    indy                                 => 'indy-library',
+    infoseek                             => 'infoseek',
+    ipsagent                             => 'verisign-ips-agent',
+    java                                 => 'java',
+    lib                                  => 'lib',
+    linkchecker                          => 'linkchecker',
+    linkedinbot                          => 'linkedin',
+    linkexchange                         => 'linkexchange',
+    lwp                                  => 'lwp-useragent',
+    lycos                                => 'lycos',
+    malware                              => 'malware-hack-attempt',
+    mj12bot                              => 'majestic-12-dsearch',
+    msn                                  => 'msn',
+    msnmobile                            => 'msn-mobile',
+    msoffice                             => 'microsoft-office',
+    nutch                                => 'apache-nutch',
+    nuzzel                               => 'nuzzel',
+    outbrain                             => 'outbrain',
+    phplib                               => 'php-http-library',
+    'pinterest/0.'                       => 'pinterest',
+    'pinterestbot'                       => 'pinterest',
+    puf                                  => 'puf',
+    'quora link preview'                 => 'quora-link-preview',
+    redditbot                            => 'reddit',
+    robot                                => 'robot',
+    rogerbot                             => 'moz',
+    rubylib                              => 'ruby-http-library',
+    showyoubot                           => 'showyou',
+    slackbot                             => 'slack',
+    slurp                                => 'yahoo-slurp',
+    specialarchiver                      => 'archive-org-bot',
+    tumblr                               => 'tumblr',
+    twitterbot                           => 'twitter',
+    url                                  => 'url',
+    vkShare                              => 'vk-share',
+    wget                                 => 'wget',
+    yahoo                                => 'yahoo',
+    yandex                               => 'yandex',
+    yandeximages                         => 'yandeximages',
+);
+
 my %BROWSER_NAMES = (
     adm              => 'Android Download Manager',
     aol              => 'AOL Browser',
@@ -2294,6 +2369,11 @@ sub robot_name {
     return $self->robot_string;
 }
 
+sub robot_id {
+    my $self = shift;
+    return $self->robot ? $ROBOT_IDS{$self->robot} : undef;
+}
+
 sub _robot_version {
     my ($self) = @_;
     $self->_init_robots unless exists( $self->{robot_string} );
@@ -2801,6 +2881,10 @@ sub _robot_names {
     return %ROBOT_NAMES;
 }
 
+sub _robot_ids {
+    return %ROBOT_IDS;
+}
+
 1;
 
 # ABSTRACT: Determine Web browser, version, and platform from an HTTP user agent string
@@ -3038,6 +3122,18 @@ additional information (e.g. robots which return "unknown" from
 robot() generally can be identified in a human-readable fashion by
 reading robot_string() ).
 
+=head3 robot_id()
+
+This method is currently in beta.
+
+Returns an id consisting of lower case letters, numbers and dashes.  This id
+will remain constant, so you can use it for matching against a particular
+robot.  The ids were introduced in version 3.14.  There may still be a few
+corrections to ids in subsequent releases.  Once this method becomes stable the
+ids will also be frozen.
+
+See C<%ROBOT_IDS> in the source of this library to view the possible
+
 =head2 robot_version(), robot_major(), robot_minor(), robot_beta()
 
 Returns version information for the robot, if any could be
@@ -3267,8 +3363,8 @@ devices are also capable of rendering standard HTML.
 =head2 Robot properties
 
 These methods are now deprecated and will be removed in a future release.
-Please use the C<robot()> and C<robot_name()> methods to identify the bots.
-Use C<robot_name()> if you need to match on a string, since the value which is
+Please use the C<robot()> and C<robot_id()> methods to identify the bots.  Use
+C<robot_id()> if you need to match on a string, since the value which is
 returned by C<robot> could possibly change in a future release.
 
 The following additional methods are available, each returning a true or false
