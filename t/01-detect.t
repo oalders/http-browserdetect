@@ -81,7 +81,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         }
 
         foreach my $type ( @{ $test->{match} } ) {
-            ok( $detected->$type, "$type should match" );
+            ok( $detected->can($type) && $detected->$type, "$type should match" );
         }
 
         is_deeply(
