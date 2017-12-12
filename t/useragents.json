@@ -87,7 +87,7 @@
       "no_match" : null,
       "other" : null,
       "robot" : "baidu",
-      "robot_string" : "Baidu Spider",
+      "robot_string" : "Baidu",
       "version" : null
    },
    "BlackBerry7730/3.7.1 UP.Link/5.1.2.5" : {
@@ -4850,8 +4850,8 @@
       "robot_beta" : ".1",
       "robot_major" : "3",
       "robot_minor" : ".1",
-      "robot_name" : "archive.org_bot",
-      "robot_string" : "archive.org_bot",
+      "robot_name" : "Internet Archive",
+      "robot_string" : "Internet Archive",
       "robot_version" : "3.1"
    },
    "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-NZ) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0" : {
@@ -6836,7 +6836,7 @@
       "robot_beta" : ".5",
       "robot_major" : "1",
       "robot_minor" : ".4",
-      "robot_string" : "wget",
+      "robot_string" : "Wget",
       "robot_version" : "1.4",
       "version" : "1.4"
    },

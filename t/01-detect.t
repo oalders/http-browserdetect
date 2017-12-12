@@ -30,71 +30,75 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     my $test = $tests->{$ua};
 
     my $detected = HTTP::BrowserDetect->new($ua);
-    diag( $detected->user_agent );
+    subtest $ua => sub {
 
-    foreach my $method (
-        'browser', 'browser_string', 'browser_beta',
-        'device', 'device_name',   'device_string', 'device_beta',
-        'engine', 'engine_string', 'engine_beta',
-        'language',
-        'os', 'os_string', 'os_beta',
-        'robot', 'robot_name', 'robot_string', 'robot_beta',
-        ) {
-        if ( $test->{$method} ) {
-            cmp_ok(
-                $detected->$method, 'eq', $test->{$method},
-                "$method: $test->{$method}"
+        foreach my $method (
+            'browser', 'browser_string', 'browser_beta',
+            'device', 'device_name',   'device_string', 'device_beta',
+            'engine', 'engine_string', 'engine_beta',
+            'language',
+            'os', 'os_string', 'os_beta',
+            'robot', 'robot_name', 'robot_string', 'robot_beta',
+            ) {
+            if ( $test->{$method} ) {
+                cmp_ok(
+                    $detected->$method, 'eq', $test->{$method},
+                    "$method: $test->{$method}"
+                );
+            }
+        }
+
+        foreach my $method (
+            qw(
+            os_version
+            os_major
+            os_minor
+            public_version
+            public_major
+            public_minor
+            robot_version
+            robot_major
+            robot_minor
+            version
+            major
+            minor
+            engine_version
+            engine_major
+            engine_minor
+            ios
+            tablet
+            )
+            ) {
+
+            if (    exists $test->{$method}
+                and defined $test->{$method}
+                and length $test->{$method} ) {
+                cmp_ok(
+                    $detected->$method, '==', $test->{$method},
+                    "$method: $test->{$method}"
+                );
+            }
+        }
+
+        foreach my $type ( @{ $test->{match} } ) {
+            ok(
+                $detected->can($type) && $detected->$type,
+                "$type should match"
             );
         }
-    }
 
-    foreach my $method (
-        qw(
-        os_version
-        os_major
-        os_minor
-        public_version
-        public_major
-        public_minor
-        robot_version
-        robot_major
-        robot_minor
-        version
-        major
-        minor
-        engine_version
-        engine_major
-        engine_minor
-        ios
-        tablet
-        )
-        ) {
+        is_deeply(
+            [ sort $detected->browser_properties() ],
+            [ sort @{ $test->{match} } ],
+            "browser properties match"
+        );
 
-        if (    exists $test->{$method}
-            and defined $test->{$method}
-            and length $test->{$method} ) {
-            cmp_ok(
-                $detected->$method, '==', $test->{$method},
-                "$method: $test->{$method}"
-            );
+        # Test that $ua doesn't match a specific method
+        foreach my $type ( @{ $test->{no_match} } ) {
+            ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
         }
-    }
 
-    foreach my $type ( @{ $test->{match} } ) {
-        ok( $detected->$type, "$type should match" );
-    }
-
-    is_deeply(
-        [ sort $detected->browser_properties() ],
-        [ sort @{ $test->{match} } ],
-        "browser properties match"
-    );
-
-    # Test that $ua doesn't match a specific method
-    foreach my $type ( @{ $test->{no_match} } ) {
-        ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
-    }
-
+    };
 }
 
 my $detected = HTTP::BrowserDetect->new('Nonesuch');

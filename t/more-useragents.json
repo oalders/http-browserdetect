@@ -71,7 +71,7 @@
       "robot_beta" : ".3",
       "robot_major" : "4",
       "robot_minor" : ".2",
-      "robot_name" : "Apache http client",
+      "robot_name" : "Apache HttpClient",
       "robot_version" : "4.2"
    },
    "Apache-HttpClient/UNAVAILABLE (java 1.4)" : {
@@ -82,7 +82,7 @@
          "robot"
       ],
       "robot" : "apache",
-      "robot_name" : "Apache http client"
+      "robot_name" : "Apache HttpClient"
    },
    "Apple-PubSub/28" : {
       "browser" : "pubsub",
@@ -145,7 +145,7 @@
          "baidu"
       ],
       "robot" : "baidu",
-      "robot_name" : "Baidu Spider"
+      "robot_name" : "Baidu"
    },
    "BingLocalSearchBot/1.0" : {
       "browser_major" : "1",
@@ -16416,7 +16416,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "Baidu Spider",
+      "robot_name" : "Baidu",
       "robot_version" : "2.0"
    },
    "Mozilla/5.0 (compatible; Blekkobot; ScoutJet; +http://blekko.com/about/blekkobot)" : {
@@ -19730,7 +19730,7 @@
          "robot"
       ],
       "robot" : "wget",
-      "robot_name" : "wget"
+      "robot_name" : "Wget"
    },
    "WikiDo/1.1 (http://wikido.com; crawler@wikido.com)" : {
       "browser_major" : "1",

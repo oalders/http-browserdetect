@@ -6,12 +6,13 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.14
+version 3.15
 
 # SYNOPSIS
 
     use HTTP::BrowserDetect;
 
+    my $user_agent_string = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36';
     my $ua = HTTP::BrowserDetect->new($user_agent_string);
 
     # Print general information
@@ -237,6 +238,18 @@ subject to change and are meant for display purposes. This may include
 additional information (e.g. robots which return "unknown" from
 robot() generally can be identified in a human-readable fashion by
 reading robot\_string() ).
+
+### robot\_id()
+
+This method is currently in beta.
+
+Returns an id consisting of lower case letters, numbers and dashes.  This id
+will remain constant, so you can use it for matching against a particular
+robot.  The ids were introduced in version 3.14.  There may still be a few
+corrections to ids in subsequent releases.  Once this method becomes stable the
+ids will also be frozen.
+
+See `%ROBOT_IDS` in the source of this library to view the possible
 
 ## robot\_version(), robot\_major(), robot\_minor(), robot\_beta()
 
@@ -465,6 +478,11 @@ devices are also capable of rendering standard HTML.
 ### ps3
 
 ## Robot properties
+
+These methods are now deprecated and will be removed in a future release.
+Please use the `robot()` and `robot_id()` methods to identify the bots.  Use
+`robot_id()` if you need to match on a string, since the value that is
+returned by `robot` could possibly change in a future release.
 
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
@@ -834,7 +852,7 @@ helpful tips to get you started.
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2016 by Lee Semel.
+This software is copyright (c) 2017 by Lee Semel.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
