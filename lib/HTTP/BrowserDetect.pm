@@ -1225,21 +1225,21 @@ sub _init_robots {
                 && $self->{user_agent} =~ m{\/.*\/}
                 && $self->{user_agent} =~ m{
                                       ([\w]*               # Words before fragment
-                                       $robot_fragment     # Match the fragment
-                                       (\/[\d\.]+)?        # Version
-                                       [\w]*)              # Beta stuff
-                                     }ix
-                ) {
-                # We matched the whole string, but it seems to
-                # make more sense as whitespace-separated
-                # 'thing/ver' tokens
-                $full_string = $1;
-            }
+                                           $robot_fragment     # Match the fragment
+                                           (\/[\d\.]+)?        # Version
+                                           [\w]*)              # Beta stuff
+                                         }ix
+                    ) {
+                    # We matched the whole string, but it seems to
+                    # make more sense as whitespace-separated
+                    # 'thing/ver' tokens
+                    $full_string = $1;
+                }
 
-            # Figure out robot version based on the string
-            if (    $full_string
-                and $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// ) {
-                $self->{robot_version} = [ $1, $2, $3 ];
+                # Figure out robot version based on the string
+                if (    $full_string
+                    and $full_string =~ s/[\/ \.v]*(\d+)(\.\d+)?([\.\w]*)$// ) {
+                    $self->{robot_version} = [ $1, $2, $3 ];
             }
             else {
                 $self->{robot_version} = undef;
