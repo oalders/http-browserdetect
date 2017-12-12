@@ -8,8 +8,10 @@ perl:
   - "5.18"
   - "5.16"
   - "5.14"
+before_install:
+  - cpanm -n App::cpm
 install:
-  - cpanm English Exporter File::Slurp FindBin JSON::PP Test::More Test::Most Test::FailWarnings
+  - cpm install -g
 script:
   - "prove -lr t"
 notifications:
