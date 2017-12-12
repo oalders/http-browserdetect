@@ -144,7 +144,6 @@ my @OLD_ROBOT_TESTS = qw(
     infoseek
     ipsagent
     java
-    lib
     linkchecker
     linkexchange
     lwp
@@ -196,7 +195,6 @@ our @ROBOT_TESTS = (
     'slackbot',
     'tumblr',
     'twitterbot',
-    'url',
     'vkShare',
 );
 
@@ -256,7 +254,6 @@ my %ROBOT_NAMES = (
     infoseek                             => 'InfoSeek',
     ipsagent                             => 'Verisign ips-agent',
     java                                 => 'Java',
-    lib                                  => 'lib',
     linkchecker                          => 'LinkChecker',
     linkedinbot                          => 'LinkedIn',
     linkexchange                         => 'LinkExchange',
@@ -285,7 +282,6 @@ my %ROBOT_NAMES = (
     specialarchiver                      => 'Internet Archive',
     tumblr                               => 'Tumblr',
     twitterbot                           => 'Twitter',
-    url                                  => 'url',
     vkShare                              => 'VK Share',
     wget                                 => 'Wget',
     yahoo                                => 'Yahoo',
@@ -331,7 +327,6 @@ my %ROBOT_IDS = (
     infoseek                             => 'infoseek',
     ipsagent                             => 'verisign-ips-agent',
     java                                 => 'java',
-    lib                                  => 'lib',
     linkchecker                          => 'linkchecker',
     linkedinbot                          => 'linkedin',
     linkexchange                         => 'linkexchange',
@@ -360,7 +355,6 @@ my %ROBOT_IDS = (
     specialarchiver                      => 'archive-org-bot',
     tumblr                               => 'tumblr',
     twitterbot                           => 'twitter',
-    url                                  => 'url',
     vkShare                              => 'vk-share',
     wget                                 => 'wget',
     yahoo                                => 'yahoo',
@@ -2866,6 +2860,12 @@ sub browser_properties {
     push @browser_properties, 'device' if ( $self->device() );
 
     return sort @browser_properties;
+}
+
+sub lib {
+    my $self = shift;
+    $self->_init_robots() unless $self->{robot_tests};
+    return $self->{robot_tests}->{lib};
 }
 
 # These method are only used by the test suite.
