@@ -145,7 +145,7 @@
          "baidu"
       ],
       "robot" : "baidu",
-      "robot_name" : "Baidu Spider"
+      "robot_name" : "Baidu"
    },
    "BingLocalSearchBot/1.0" : {
       "browser_major" : "1",
@@ -16416,7 +16416,7 @@
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".0",
-      "robot_name" : "Baidu Spider",
+      "robot_name" : "Baidu",
       "robot_version" : "2.0"
    },
    "Mozilla/5.0 (compatible; Blekkobot; ScoutJet; +http://blekko.com/about/blekkobot)" : {
