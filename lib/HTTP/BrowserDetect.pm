@@ -117,22 +117,87 @@ our @ENGINE_TESTS = qw(
     presto      khtml       edgehtml
 );
 
-our @ROBOT_TESTS = qw(
-    puf             curl           wget
-    getright        robot          slurp
-    yahoo           mj12bot        ahrefs
-    altavista       lycos          infoseek
-    lwp             linkexchange
-    googlemobile    msn            msnmobile
-    facebook        baidu          googleadsbot
-    askjeeves       googleadsense  googlebotvideo
-    googlebotnews   googlebotimage google
-    googlefavicon   yandeximages   specialarchiver
-    yandex          java           lib
-    indy            golib          rubylib
-    apache          malware        phplib
-    msoffice        ipsagent       nutch
-    linkchecker     bingbot
+# These bot names get turned into methods.  Crazy, right?  (I don't even think
+# this is documented anymore.)  We'll leave this in place for back compat, but
+# we won't add any new methods moving forward.
+
+my @OLD_ROBOT_TESTS = qw(
+    ahrefs
+    altavista
+    apache
+    askjeeves
+    baidu
+    bingbot
+    curl
+    facebook
+    getright
+    golib
+    google
+    googleadsbot
+    googleadsense
+    googlebotimage
+    googlebotnews
+    googlebotvideo
+    googlefavicon
+    googlemobile
+    indy
+    infoseek
+    ipsagent
+    java
+    lib
+    linkchecker
+    linkexchange
+    lwp
+    lycos
+    malware
+    mj12bot
+    msn
+    msnmobile
+    msoffice
+    nutch
+    phplib
+    puf
+    robot
+    rubylib
+    slurp
+    specialarchiver
+    wget
+    yahoo
+    yandex
+    yandeximages
+);
+
+our @ROBOT_TESTS = (
+    @OLD_ROBOT_TESTS,
+    'Applebot',
+    'Discordbot',
+    'Google Page Speed',
+    'Pro-Sitemaps',
+    'Qwantify',
+    'SkypeUriPreview',
+    'Swiftbot',
+    'W3C_Validator',
+    'WhatsApp',
+    'baiduspider',
+    'bitlybot',
+    'developers.google.com//web/snippet',
+    'embedly',
+    'facebookexternalhit',
+    'flipboard',
+    'linkedinbot',
+    'nuzzel',
+    'outbrain',
+    'pinterest/0.',
+    'pinterestbot',
+    'quora link preview',
+    'redditbot',
+    'rogerbot',
+    'showyoubot',
+    'slackbot',
+    'tumblr',
+    'twitterbot',
+    'url',
+    'vkShare',
 );
 
 our @MISC_TESTS = qw(
@@ -141,16 +206,17 @@ our @MISC_TESTS = qw(
 
 push @ALL_TESTS,
     (
-    @OS_TESTS,      @WINDOWS_TESTS,
-    @MAC_TESTS,     @UNIX_TESTS,
-    @BSD_TESTS,     @GAMING_TESTS,
-    @DEVICE_TESTS,  @BROWSER_TESTS,
-    @IE_TESTS,      @OPERA_TESTS,
-    @AOL_TESTS,     @NETSCAPE_TESTS,
-    @FIREFOX_TESTS, @ENGINE_TESTS,
-    @ROBOT_TESTS,   @MISC_TESTS,
+    @OS_TESTS,        @WINDOWS_TESTS,
+    @MAC_TESTS,       @UNIX_TESTS,
+    @BSD_TESTS,       @GAMING_TESTS,
+    @DEVICE_TESTS,    @BROWSER_TESTS,
+    @IE_TESTS,        @OPERA_TESTS,
+    @AOL_TESTS,       @NETSCAPE_TESTS,
+    @FIREFOX_TESTS,   @ENGINE_TESTS,
+    @OLD_ROBOT_TESTS, @MISC_TESTS,
     );
 
+# This method is only used by the test suite to find method names to test for.
 sub _all_tests {
     return @ALL_TESTS;
 }
@@ -158,48 +224,54 @@ sub _all_tests {
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
 my %ROBOT_NAMES = (
-    ahrefs          => 'Ahrefs',
-    altavista       => 'AltaVista',
-    apache          => 'Apache http client',
-    askjeeves       => 'AskJeeves',
-    baidu           => 'Baidu Spider',
-    bingbot         => 'Bingbot',
-    curl            => 'curl',
-    facebook        => 'Facebook',
-    getright        => 'GetRight',
-    google          => 'Googlebot',
-    googleadsbot    => 'Google AdsBot',
-    googleadsense   => 'Google AdSense',
-    googlebotimage  => 'Googlebot Images',
-    googlebotnews   => 'Googlebot News',
-    googlebotvideo  => 'Googlebot Video',
-    googlefavicon   => 'Google Favicon',
-    googlemobile    => 'Googlebot Mobile',
-    golib           => 'Go language http library',
-    indy            => 'Indy Library',
-    infoseek        => 'InfoSeek',
-    ipsagent        => 'Verisign ips-agent',
-    java            => 'Java',
-    linkchecker     => 'LinkChecker',
-    linkexchange    => 'LinkExchange',
-    lwp             => 'LWP::UserAgent',
-    lycos           => 'Lycos',
-    malware         => 'Malware / hack attempt',
-    mj12bot         => 'Majestic-12 DSearch',
-    msn             => 'MSN',
-    msnmobile       => 'MSN Mobile',
-    msoffice        => 'Microsoft Office',
-    nutch           => 'Apache Nutch',
-    phplib          => 'PHP http library',
-    puf             => 'puf',
-    robot           => 'robot',
-    rubylib         => 'Ruby http library',
-    slurp           => 'Yahoo! Slurp',
-    specialarchiver => 'archive.org_bot',
-    wget            => 'wget',
-    yahoo           => 'Yahoo',
-    yandex          => 'Yandex',
-    yandeximages    => 'YandexImages',
+    ahrefs              => 'Ahrefs',
+    altavista           => 'AltaVista',
+    apache              => 'Apache http client',
+    Applebot            => 'Apple',
+    askjeeves           => 'AskJeeves',
+    baidu               => 'Baidu Spider',
+    bingbot             => 'Bingbot',
+    curl                => 'curl',
+    Discordbot          => 'Discord',
+    facebook            => 'Facebook',
+    getright            => 'GetRight',
+    google              => 'Googlebot',
+    googleadsbot        => 'Google AdsBot',
+    googleadsense       => 'Google AdSense',
+    googlebotimage      => 'Googlebot Images',
+    googlebotnews       => 'Googlebot News',
+    googlebotvideo      => 'Googlebot Video',
+    googlefavicon       => 'Google Favicon',
+    googlemobile        => 'Googlebot Mobile',
+    'Google Page Speed' => 'Google Page Speed',
+    golib               => 'Go language http library',
+    indy                => 'Indy Library',
+    infoseek            => 'InfoSeek',
+    ipsagent            => 'Verisign ips-agent',
+    java                => 'Java',
+    linkchecker         => 'LinkChecker',
+    linkexchange        => 'LinkExchange',
+    lwp                 => 'LWP::UserAgent',
+    lycos               => 'Lycos',
+    malware             => 'Malware / hack attempt',
+    mj12bot             => 'Majestic-12 DSearch',
+    msn                 => 'MSN',
+    msnmobile           => 'MSN Mobile',
+    msoffice            => 'Microsoft Office',
+    nutch               => 'Apache Nutch',
+    phplib              => 'PHP http library',
+    'Pro-Sitemaps'      => 'Pro Sitemap Service',
+    puf                 => 'puf',
+    Qwantify            => 'Qwantify',
+    robot               => 'robot',
+    rubylib             => 'Ruby http library',
+    'SkypeUriPreview'   => 'Skype URI Preview',
+    slurp               => 'Yahoo! Slurp',
+    specialarchiver     => 'archive.org_bot',
+    wget                => 'wget',
+    yahoo               => 'Yahoo',
+    yandex              => 'Yandex',
+    yandeximages        => 'YandexImages',
 );
 
 my %BROWSER_NAMES = (
@@ -380,7 +452,7 @@ foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
     };
 }
 
-foreach my $test (@ROBOT_TESTS) {
+foreach my $test (@OLD_ROBOT_TESTS) {
     no strict 'refs';
 
     # For the 'robot' test, we return undef instead of 0 if it's
@@ -3161,6 +3233,11 @@ devices are also capable of rendering standard HTML.
 =head3 ps3
 
 =head2 Robot properties
+
+These methods are now deprecated and will be removed in a future release.
+Please use the C<robot()> and C<robot_name()> methods to identify the bots.
+Use C<robot_name()> if you need to match on a string, since the value which is
+returned by C<robot> could possibly change in a future release.
 
 The following additional methods are available, each returning a true or false
 value. This is by no means a complete list of robots that exist on the Web.
