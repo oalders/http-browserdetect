@@ -7010,5 +7010,30 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
+   },
+   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Page Speed Insights) Chrome/27.0.1453 Safari/537.36" : {
+      "browser_string" : "Chrome",
+      "browser_version" : "27.0",
+      "country" : null,
+      "engine" : "webkit",
+      "engine_version" : "537.36",
+      "language" : null,
+      "major" : "0",
+      "match" : [
+         "robot",
+         "robot_id"
+      ],
+      "minor" : "0.93",
+      "no_match" : [
+         "mobile",
+         "tablet"
+      ],
+      "os" : "linux",
+      "os_string" : "Linux",
+      "other" : null,
+      "robot" : "Google Page Speed Insights",
+      "robot_id" : "google-page-speed-insights",
+      "robot_string" : "Google Page Speed Insights",
+      "version" : "0.93"
    }
 }
