@@ -43,7 +43,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             ) {
             if ( $test->{$method} ) {
                 cmp_ok(
-                    $detected->$method, 'eq', $test->{$method},
+                    $detected->$method || q{}, 'eq', $test->{$method},
                     "$method: $test->{$method}"
                 );
             }
