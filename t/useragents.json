@@ -3963,10 +3963,9 @@
       "os" : "linux",
       "os_string" : "Linux",
       "other" : null,
-      "robot" : "google page speed",
-      "robot_id" : "google-page-speed-insights",
-      "robot_string" : "Google Page Speed Insights",
-      "version" : "0.93"
+      "robot" : "Google Page Speed",
+      "robot_id" : "google-page-speed",
+      "robot_string" : "Google Page Speed"
    },
    "Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0" : {
       "browser" : "firefox",
