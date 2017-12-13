@@ -3963,7 +3963,7 @@
       "os" : "linux",
       "os_string" : "Linux",
       "other" : null,
-      "robot" : "gooogle page speed",
+      "robot" : "google page speed",
       "robot_id" : "google-page-speed-insights",
       "robot_string" : "Google Page Speed Insights",
       "version" : "0.93"
