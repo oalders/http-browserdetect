@@ -8,6 +8,7 @@ use Test::FailWarnings;
 
 use FindBin;
 use JSON::PP;
+use List::Util qw();
 use Path::Tiny qw( path );
 
 # test that the module loads without errors
@@ -24,6 +25,8 @@ my $tests = JSON::PP->new->ascii->decode($json);
 $json = path("$FindBin::Bin/more-useragents.json")->slurp;
 my $more_tests = JSON::PP->new->ascii->decode($json);
 $tests = { %$tests, %$more_tests };
+
+my @robot_tests = HTTP::BrowserDetect->_robot_tests;
 
 foreach my $ua ( sort ( keys %{$tests} ) ) {
 
@@ -81,13 +84,15 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         }
 
         foreach my $type ( @{ $test->{match} } ) {
+            # New bots aren't getting added to methods
+            next if List::Util::any { lc($type) eq lc($_ )} @robot_tests;
             ok(
                 $detected->can($type) && $detected->$type,
                 "$type should match"
             );
         }
 
-        is_deeply(
+        eq_or_diff(
             [ sort $detected->browser_properties() ],
             [ sort @{ $test->{match} } ],
             "browser properties match"
