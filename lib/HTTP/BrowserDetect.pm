@@ -158,7 +158,6 @@ my @OLD_ROBOT_TESTS = qw(
     nutch
     phplib
     puf
-    robot
     rubylib
     slurp
     specialarchiver
@@ -2351,6 +2350,13 @@ sub browser_string {
     my ($self) = @_;
     return undef unless defined $self->{user_agent};
     return $self->{browser_string};
+}
+
+sub robot {
+    my $self = shift;
+
+    $self->_init_robots unless exists( $self->{robot_string} );
+    return $self->{robot_tests}->{robot};
 }
 
 sub robot_string {
