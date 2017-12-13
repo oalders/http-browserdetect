@@ -12,7 +12,8 @@ version 3.15
 
     use HTTP::BrowserDetect;
 
-    my $user_agent_string = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36';
+    my $user_agent_string
+        = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36';
     my $ua = HTTP::BrowserDetect->new($user_agent_string);
 
     # Print general information
@@ -24,9 +25,13 @@ version 3.15
         if $ua->os_string;
 
     # Detect operating system
-    if ($ua->windows) {
-      if ($ua->winnt) ...
-      if ($ua->win95) ...
+    if ( $ua->windows ) {
+        if ( $ua->winnt ) {
+            # do something
+        }
+        if ( $ua->win95 ) {
+            # do something
+        }
     }
     print "Mac\n" if $ua->macosx;
 
@@ -34,13 +39,13 @@ version 3.15
     print "Safari\n" if $ua->safari;
     print "MSIE\n" if $ua->ie;
     print "Mobile\n" if $ua->mobile;
-    if ($ua->browser_major(4)) {
-    if ($ua->browser_minor() > .5) {
-        ...
+    if ( $ua->browser_major(4) ) {
+        if ( $ua->browser_minor() > .5 ) {
+            # ...;
+        }
     }
-    }
-    if ($ua->browser_version() > 4.5) {
-      ...;
+    if ( $ua->browser_version() > 4.5 ) {
+        # ...;
     }
 
 # DESCRIPTION
