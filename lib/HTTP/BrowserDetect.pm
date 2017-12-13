@@ -2901,6 +2901,10 @@ sub _robot_names {
     return %ROBOT_NAMES;
 }
 
+sub _robot_tests {
+    return @ROBOT_TESTS;
+}
+
 sub _robot_ids {
     return %ROBOT_IDS;
 }
