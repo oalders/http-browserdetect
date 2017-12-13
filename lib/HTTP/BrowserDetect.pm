@@ -168,7 +168,6 @@ my @OLD_ROBOT_TESTS = qw(
 );
 
 our @ROBOT_TESTS = (
-    @OLD_ROBOT_TESTS,
     'Applebot',
     'Discordbot',
     'Google Page Speed',
@@ -1229,6 +1228,23 @@ sub _init_robots {
         $r                  = 'java';
         $robot_tests->{lib} = 1;
         $robot_fragment     = 'google';
+    }
+
+    # These @ROBOT_TESTS were added in 3.15.  Some of them may need more
+    # individualized treatment, but get them identified as bots for now.
+
+    else {
+    TEST:
+        for my $test (@ROBOT_TESTS) {
+            my $orig = $test;
+            $test = lc $test;
+
+            if ( index( $ua, $test ) != -1 ) {
+                $r              = $orig;
+                $robot_fragment = $test;
+                last TEST;
+            }
+        }
     }
 
     if (   $browser_tests->{applecoremedia}
