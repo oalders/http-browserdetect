@@ -2206,6 +2206,22 @@
       "public_version" : "30.0",
       "version" : "30.0"
    },
+   "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)" : {
+      "match" : [
+         "android",
+         "chrome",
+         "device",
+         "mobile",
+         "pinterestbot",
+         "robot",
+         "webkit"
+      ],
+      "os" : "android",
+      "os_string" : "Android",
+      "robot" : "pinterestbot",
+      "robot_id" : "pinterest",
+      "robot_string" : "Pinterest"
+   },
    "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" : {
       "browser" : "safari",
       "browser_string" : "Mobile Safari",
@@ -3926,6 +3942,31 @@
       "public_minor" : "0",
       "public_version" : "33.0",
       "version" : "33.0"
+   },
+   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Page Speed Insights) Chrome/27.0.1453 Safari/537.36" : {
+      "browser_string" : "Chrome",
+      "browser_version" : "27.0",
+      "country" : null,
+      "engine" : "webkit",
+      "engine_version" : "537.36",
+      "language" : null,
+      "major" : "0",
+      "match" : [
+         "robot",
+         "robot_id"
+      ],
+      "minor" : "0.93",
+      "no_match" : [
+         "mobile",
+         "tablet"
+      ],
+      "os" : "linux",
+      "os_string" : "Linux",
+      "other" : null,
+      "robot" : "gooogle page speed",
+      "robot_id" : "google-page-speed-insights",
+      "robot_string" : "Google Page Speed Insights",
+      "version" : "0.93"
    },
    "Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0" : {
       "browser" : "firefox",
@@ -7009,31 +7050,6 @@
       "robot_minor" : ".93",
       "robot_string" : "puf",
       "robot_version" : "0.93",
-      "version" : "0.93"
-   },
-   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Page Speed Insights) Chrome/27.0.1453 Safari/537.36" : {
-      "browser_string" : "Chrome",
-      "browser_version" : "27.0",
-      "country" : null,
-      "engine" : "webkit",
-      "engine_version" : "537.36",
-      "language" : null,
-      "major" : "0",
-      "match" : [
-         "robot",
-         "robot_id"
-      ],
-      "minor" : "0.93",
-      "no_match" : [
-         "mobile",
-         "tablet"
-      ],
-      "os" : "linux",
-      "os_string" : "Linux",
-      "other" : null,
-      "robot" : "Google Page Speed Insights",
-      "robot_id" : "google-page-speed-insights",
-      "robot_string" : "Google Page Speed Insights",
       "version" : "0.93"
    }
 }
