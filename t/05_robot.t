@@ -2,15 +2,15 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use Test::More;
+use List::Util qw( uniq );
+use Test::Most;
 
 my $detect = HTTP::BrowserDetect->new;
 
-my @regexes = $detect->_robot_tests;
 my %names   = $detect->_robot_names;
 my %ids     = $detect->_robot_ids;
 
-foreach my $key (@regexes) {
+foreach my $key (uniq( keys %names, keys %ids )) {
     subtest $key => sub {
         ok( $names{$key}, 'name' );
         ok( $ids{$key},   'id' );

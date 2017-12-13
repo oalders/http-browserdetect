@@ -2897,10 +2897,6 @@ sub _all_tests {
     return @ALL_TESTS;
 }
 
-sub _robot_tests {
-    return @ROBOT_TESTS;
-}
-
 sub _robot_names {
     return %ROBOT_NAMES;
 }
