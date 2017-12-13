@@ -36,12 +36,10 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     subtest $ua => sub {
 
         foreach my $method (
-            'browser', 'browser_string', 'browser_beta',
-            'device', 'device_name',   'device_string', 'device_beta',
-            'engine', 'engine_string', 'engine_beta',
-            'language',
-            'os', 'os_string', 'os_beta',
-            'robot', 'robot_name', 'robot_string', 'robot_beta',
+            'browser',     'browser_beta', 'browser_string', 'device',
+            'device_beta', 'device_name',  'device_string',  'engine',
+            'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
+            'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
             ) {
             if ( $test->{$method} ) {
                 cmp_ok(
