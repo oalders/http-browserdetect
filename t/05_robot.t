@@ -7,16 +7,32 @@ use Test::Most;
 
 my $detect = HTTP::BrowserDetect->new;
 
-my %names   = $detect->_robot_names;
-my %ids     = $detect->_robot_ids;
+my %names = $detect->_robot_names;
+my @ids   = $detect->all_robot_ids;
+is( scalar @ids, 70, 'correct number of ids' );
 
-foreach my $key (uniq( keys %names, keys %ids )) {
-    subtest $key => sub {
-        ok( $names{$key}, 'name' );
-        ok( $ids{$key},   'id' );
+foreach my $id (@ids) {
+    subtest $id => sub {
+        ok( $names{$id}, 'name' );
         unlike(
-            $ids{$key}, qr{[^0-9a-z-]},
+            $id, qr{[^0-9a-z-]},
             'id contains only lower case letters or dashes'
+        );
+    };
+}
+
+my @tests = $detect->_robot_tests;
+
+for my $test (@tests) {
+    my $id = $test->[1];
+    subtest "$id check" => sub {
+        unlike(
+            $id, qr{[^0-9a-z-]},
+            "$id contains only lower case letters or dashes"
+        );
+        ok(
+            ( List::Util::any { $_ eq $id } @ids ),
+            "$id found in all_robot_ids()"
         );
     };
 }

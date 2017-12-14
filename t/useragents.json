@@ -5,6 +5,7 @@
       "browser_minor" : ".192",
       "match" : [
          "robot",
+        "robot_id",
          "malware"
       ],
       "robot" : "malware",
@@ -29,7 +30,8 @@
       "match" : [
          "google",
          "googleadsbot",
-         "robot"
+         "robot",
+         "robot_id"
       ],
       "minor" : null,
       "no_match" : null,
@@ -2212,13 +2214,13 @@
          "chrome",
          "device",
          "mobile",
-         "pinterestbot",
+         "pinterest",
          "robot",
          "webkit"
       ],
       "os" : "android",
       "os_string" : "Android",
-      "robot" : "pinterestbot",
+      "robot" : "pinterest",
       "robot_id" : "pinterest",
       "robot_string" : "Pinterest"
    },
@@ -3950,12 +3952,18 @@
       "engine" : "webkit",
       "engine_version" : "537.36",
       "language" : null,
-      "major" : "0",
+      "major" : "27",
       "match" : [
+        "chrome",
+        "google-page-speed",
+        "linux",
          "robot",
-         "robot_id"
+         "robot_id",
+         "unix",
+         "webkit",
+         "x11"
       ],
-      "minor" : "0.93",
+      "minor" : "0",
       "no_match" : [
          "mobile",
          "tablet"
@@ -3963,7 +3971,7 @@
       "os" : "linux",
       "os_string" : "Linux",
       "other" : null,
-      "robot" : "Google Page Speed",
+      "robot" : "google-page-speed",
       "robot_id" : "google-page-speed",
       "robot_string" : "Google Page Speed"
    },
