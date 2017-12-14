@@ -74,30 +74,32 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     my %test_results;
 
-    diag($ua);
+    subtest $ua, sub {
+        for my $i ( 0 .. $N_DETECTS - 1 ) {
+            $detect[$i] = HTTP::BrowserDetect->new($ua);
 
-    for my $i ( 0 .. $N_DETECTS - 1 ) {
-        $detect[$i] = HTTP::BrowserDetect->new($ua);
-
-        for my $j ( 1 .. $N_TESTS ) {
-            my $method = $methods[ int( rand(@methods) ) ];
-            my $result = $detect[$i]->$method;
-            if ( exists( $test_results{$method} ) ) {
-                if ( !defined($result) ) {
-                    ok( !defined( $test_results{$method} ), $method );
-                }
-                elsif ( ref($result) eq 'ARRAY' ) {
-                    is_deeply( $result, $test_results{$method}, $method );
+            for my $j ( 1 .. $N_TESTS ) {
+                my $method = $methods[ int( rand(@methods) ) ];
+                my $result = $detect[$i]->$method;
+                if ( exists( $test_results{$method} ) ) {
+                    if ( !defined($result) ) {
+                        ok( !defined( $test_results{$method} ), $method );
+                    }
+                    elsif ( ref($result) eq 'ARRAY' ) {
+                        is_deeply( $result, $test_results{$method}, $method );
+                    }
+                    else {
+                        cmp_ok(
+                            $result, 'eq', $test_results{$method},
+                            $method
+                        );
+                    }
                 }
                 else {
-                    cmp_ok( $result, 'eq', $test_results{$method}, $method );
+                    $test_results{$method} = $result;
                 }
             }
-            else {
-                $test_results{$method} = $result;
-            }
         }
-    }
+    };
 }
-
 done_testing();

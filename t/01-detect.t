@@ -126,23 +126,24 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
 }
 
 my $detected = HTTP::BrowserDetect->new('Nonesuch');
-diag( $detected->user_agent );
 
-foreach my $method (
-    qw(
-    engine_string
-    engine_version
-    engine_major
-    engine_minor
-    device
-    device_name
-    gecko_version
-    )
-    ) {
-    is_deeply(
-        [ $detected->$method ],
-        [undef], "$method should return undef in list context"
-    );
-}
+subtest $detected->user_agent, sub {
+    foreach my $method (
+        qw(
+        engine_string
+        engine_version
+        engine_major
+        engine_minor
+        device
+        device_name
+        gecko_version
+        )
+        ) {
+        is_deeply(
+            [ $detected->$method ],
+            [undef], "$method should return undef in list context"
+        );
+    }
+};
 
 done_testing();
