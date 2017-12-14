@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use List::Util qw( uniq );
+use List::Util qw();
 use Test::Most;
 
 my $detect = HTTP::BrowserDetect->new;

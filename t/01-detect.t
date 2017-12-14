@@ -8,7 +8,7 @@ use Test::FailWarnings;
 
 use FindBin;
 use JSON::PP ();
-use List::Util qw(uniq);
+use List::Util 1.49 qw(uniq);
 use Path::Tiny qw( path );
 
 # test that the module loads without errors
