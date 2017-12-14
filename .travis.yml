@@ -13,7 +13,7 @@ before_install:
 install:
   - cpm install -g
 script:
-  - "prove -lr t"
+  - "prove -lr --jobs 2 t"
 notifications:
   email:
     recipients:
