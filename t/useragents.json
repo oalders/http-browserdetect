@@ -5,7 +5,7 @@
       "browser_minor" : ".192",
       "match" : [
          "robot",
-        "robot_id",
+         "robot_id",
          "malware"
       ],
       "robot" : "malware",
@@ -3954,9 +3954,9 @@
       "language" : null,
       "major" : "27",
       "match" : [
-        "chrome",
-        "google-page-speed",
-        "linux",
+         "chrome",
+         "google-page-speed",
+         "linux",
          "robot",
          "robot_id",
          "unix",
@@ -4808,6 +4808,16 @@
       "os_minor" : ".5",
       "os_string" : "Windows Phone",
       "os_version" : "7.5"
+   },
+   "Mozilla/5.0 (compatible; Pro Sitemaps Generator; pro-sitemaps.com) Gecko Pro-Sitemaps/1.0" : {
+      "match" : [
+         "gecko",
+         "pro-sitemaps",
+         "robot",
+         "robot_id"
+      ],
+      "robot_id" : "pro-sitemaps",
+      "robot_string" : "Pro Sitemap Service"
    },
    "Mozilla/5.0 (compatible; Teleca Q7; Brew 3.1.5; U; en) 320X240 LGE VX9200" : {
       "browser" : "obigo",
