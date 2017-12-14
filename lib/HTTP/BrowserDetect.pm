@@ -279,6 +279,7 @@ my %ROBOT_NAMES = (
     swiftbot              => 'Swiftbot',
     tumblr                => 'Tumblr',
     twitter               => 'Twitter',
+    unknown               => 'Unknown Bot',
     'verisign-ips-agent'  => 'Verisign ips-agent',
     vkshare               => 'VK Share',
     'w3c-validator'       => 'W3C Validator',
@@ -1275,6 +1276,10 @@ sub _init_robots {
                 last;
             }
         }
+    }
+
+    if ( exists $robot_tests->{robot} && $robot_tests->{robot} eq 'unknown' ) {
+        $robot_tests->{robot_id} = 'unknown';
     }
 
     if ( defined($robot_fragment) ) {
