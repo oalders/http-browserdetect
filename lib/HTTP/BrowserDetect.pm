@@ -3154,7 +3154,9 @@ robot.  The ids were introduced in version 3.14.  There may still be a few
 corrections to ids in subsequent releases.  Once this method becomes stable the
 ids will also be frozen.
 
-See C<%ROBOT_IDS> in the source of this library to view the possible
+=head3 all_robot_ids()
+
+This method returns an c<ArrayRef> of all possible C<robot_id> values.
 
 =head2 robot_version(), robot_major(), robot_minor(), robot_beta()
 

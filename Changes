@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fixes bot detection for new bots added in 3.15
+    - Adds all_robot_ids() method
 
 3.15      2017-12-13 03:25:42Z
     - Adds browserdetect.org to documentation
