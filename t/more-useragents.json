@@ -22,9 +22,10 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [
-         "robot",
+         "google",
          "googleadsbot",
-         "google"
+         "robot",
+         "robot_id"
       ],
       "robot" : "googleadsbot",
       "robot_name" : "Google AdsBot"
@@ -42,6 +43,7 @@
          "mobile",
          "safari",
          "robot",
+         "robot_id",
          "google",
          "googleadsbot"
       ],
@@ -10372,10 +10374,11 @@
       "engine_string" : "Gecko",
       "engine_version" : "28.0",
       "match" : [
+         "firefox",
+         "flipboard",
+         "gecko",
          "mac",
          "macosx",
-         "firefox",
-         "gecko",
          "robot"
       ],
       "os" : "macosx",
@@ -10384,11 +10387,11 @@
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
-      "robot" : "unknown",
+      "robot" : "flipboard",
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".1",
-      "robot_string" : "FlipboardProxy",
+      "robot_string" : "Flipboard",
       "robot_version" : "1.1"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5" : {
@@ -10583,6 +10586,7 @@
       "engine_string" : "WebKit",
       "engine_version" : "600.2",
       "match" : [
+         "apple",
          "mac",
          "macosx",
          "safari",
@@ -10595,11 +10599,11 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : "unknown",
+      "robot" : "apple",
       "robot_beta" : "",
       "robot_major" : "0",
       "robot_minor" : ".1",
-      "robot_name" : "Applebot",
+      "robot_name" : "Apple",
       "robot_version" : "0.1"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36" : {
@@ -19610,10 +19614,12 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [
-         "robot"
+         "robot",
+         "showyou"
       ],
-      "robot" : "unknown",
-      "robot_name" : "ShowyouBot"
+      "robot" : "showyou",
+      "robot_id" : "showyou",
+      "robot_name" : "Showyou"
    },
    "StatsInfo" : {
       "browser_major" : 0,
@@ -19638,13 +19644,14 @@
       "browser_major" : "1",
       "browser_minor" : ".0",
       "match" : [
-         "robot"
+         "robot",
+         "twitter"
       ],
-      "robot" : "unknown",
+      "robot" : "twitter",
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
-      "robot_name" : "Twitterbot",
+      "robot_name" : "Twitter",
       "robot_version" : "1.0"
    },
    "USATODAY/2.1.2.7 CFNetwork/548.1.4 Darwin/11.0.0" : {

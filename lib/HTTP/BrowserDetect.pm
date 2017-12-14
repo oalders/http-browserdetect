@@ -158,7 +158,6 @@ my @OLD_ROBOT_TESTS = qw(
     nutch
     phplib
     puf
-    robot
     rubylib
     slurp
     specialarchiver
@@ -169,35 +168,34 @@ my @OLD_ROBOT_TESTS = qw(
 );
 
 our @ROBOT_TESTS = (
-    @OLD_ROBOT_TESTS,
-    'Applebot',
-    'Discordbot',
-    'Google Page Speed',
-    'Pro-Sitemaps',
-    'Qwantify',
-    'SkypeUriPreview',
-    'Swiftbot',
-    'W3C_Validator',
-    'WhatsApp',
-    'baiduspider',
-    'bitlybot',
-    'developers.google.com//web/snippet',
-    'embedly',
-    'facebookexternalhit',
-    'flipboard',
-    'linkedinbot',
-    'nuzzel',
-    'outbrain',
-    'pinterest/0.',
-    'pinterestbot',
-    'quora link preview',
-    'redditbot',
-    'rogerbot',
-    'showyoubot',
-    'slackbot',
-    'tumblr',
-    'twitterbot',
-    'vkShare',
+    [ 'Applebot',                           'apple' ],
+    [ 'baiduspider',                        'baidu' ],
+    [ 'bitlybot',                           'bitly' ],
+    [ 'developers.google.com//web/snippet', 'google-plus-snippet' ],
+    [ 'Discordbot',                         'discordbot' ],
+    [ 'embedly',                            'embedly' ],
+    [ 'facebookexternalhit',                'facebook' ],
+    [ 'flipboard',                          'flipboard' ],
+    [ 'Google Page Speed',                  'google-page-speed' ],
+    [ 'linkedinbot',                        'linkedin' ],
+    [ 'nuzzel',                             'nuzzel' ],
+    [ 'outbrain',                           'outbrain' ],
+    [ 'pinterest/0.',                       'pinterest' ],
+    [ 'pinterestbot',                       'pinterest' ],
+    [ 'Pro-Sitemaps',                       'pro-sitemaps' ],
+    [ 'quora link preview',                 'quora-link-preview' ],
+    [ 'Qwantify',                           'qwantify' ],
+    [ 'redditbot',                          'reddit', ],
+    [ 'rogerbot',                           'rogerbot' ],
+    [ 'ShowyouBot',                         'showyou' ],
+    [ 'SkypeUriPreview',                    'skype-uri-preview' ],
+    [ 'slackbot',                           'slack' ],
+    [ 'Swiftbot',                           'swiftbot' ],
+    [ 'tumblr',                             'tumblr' ],
+    [ 'twitterbot',                         'twitter' ],
+    [ 'vkShare',                            'vkshare' ],
+    [ 'W3C_Validator',                      'w3c-validator' ],
+    [ 'WhatsApp',                           'whatsapp' ],
 );
 
 our @MISC_TESTS = qw(
@@ -219,149 +217,124 @@ push @ALL_TESTS,
 # https://support.google.com/webmasters/answer/1061943?hl=en
 
 my %ROBOT_NAMES = (
-    Applebot                             => 'Apple',
-    Discordbot                           => 'Discord',
-    'Google Page Speed'                  => 'Google Page Speed',
-    'Pro-Sitemaps'                       => 'Pro Sitemap Service',
-    Qwantify                             => 'Qwantify',
-    'SkypeUriPreview'                    => 'Skype URI Preview',
-    Swiftbot                             => 'Swiftbot',
-    W3C_Validator                        => 'W3C Validator',
-    WhatsApp                             => 'WhatsApp',
-    ahrefs                               => 'Ahrefs',
-    altavista                            => 'AltaVista',
-    apache                               => 'Apache HttpClient',
-    askjeeves                            => 'AskJeeves',
-    baidu                                => 'Baidu',
-    baiduspider                          => 'Baidu Spider',
-    bingbot                              => 'Bingbot',
-    bitlybot                             => 'Bitly',
-    curl                                 => 'curl',
-    'developers.google.com//web/snippet' => 'Google+ Snippet',
-    embedly                              => 'Embedly',
-    facebook                             => 'Facebook',
-    facebookexternalhit                  => 'Facebook',
-    flipboard                            => 'Flipboard',
-    getright                             => 'GetRight',
-    golib                                => 'Go language http library',
-    google                               => 'Googlebot',
-    googleadsbot                         => 'Google AdsBot',
-    googleadsense                        => 'Google AdSense',
-    googlebotimage                       => 'Googlebot Images',
-    googlebotnews                        => 'Googlebot News',
-    googlebotvideo                       => 'Googlebot Video',
-    googlefavicon                        => 'Google Favicon',
-    googlemobile                         => 'Googlebot Mobile',
-    indy                                 => 'Indy Library',
-    infoseek                             => 'InfoSeek',
-    ipsagent                             => 'Verisign ips-agent',
-    java                                 => 'Java',
-    linkchecker                          => 'LinkChecker',
-    linkedinbot                          => 'LinkedIn',
-    linkexchange                         => 'LinkExchange',
-    lwp                                  => 'LWP::UserAgent',
-    lycos                                => 'Lycos',
-    malware                              => 'Malware / hack attempt',
-    mj12bot                              => 'Majestic-12 DSearch',
-    msn                                  => 'MSN',
-    msnmobile                            => 'MSN Mobile',
-    msoffice                             => 'Microsoft Office',
-    nutch                                => 'Apache Nutch',
-    nuzzel                               => 'Nuzzel',
-    outbrain                             => 'Outbrain',
-    phplib                               => 'PHP http library',
-    'pinterest/0.'                       => 'Pinterest',
-    'pinterestbot'                       => 'Pinterest',
-    puf                                  => 'puf',
-    'quora link preview'                 => 'Quora Link Preview',
-    redditbot                            => 'Reddit',
-    robot                                => 'robot',
-    rogerbot                             => 'Moz',
-    rubylib                              => 'Ruby http library',
-    showyoubot                           => 'Showyou',
-    slackbot                             => 'slack',
-    slurp                                => 'Yahoo! Slurp',
-    specialarchiver                      => 'Internet Archive',
-    tumblr                               => 'Tumblr',
-    twitterbot                           => 'Twitter',
-    vkShare                              => 'VK Share',
-    wget                                 => 'Wget',
-    yahoo                                => 'Yahoo',
-    yandex                               => 'Yandex',
-    yandeximages                         => 'YandexImages',
+    ahrefs                => 'Ahrefs',
+    altavista             => 'AltaVista',
+    'apache-http-client'  => 'Apache HttpClient',
+    apple                 => 'Apple',
+    'archive-org'         => 'Internet Archive',
+    askjeeves             => 'AskJeeves',
+    baidu                 => 'Baidu',
+    baiduspider           => 'Baidu Spider',
+    bingbot               => 'Bingbot',
+    bitly                 => 'Bitly',
+    curl                  => 'curl',
+    discordbot            => 'Discord',
+    embedly               => 'Embedly',
+    facebook              => 'Facebook',
+    facebookexternalhit   => 'Facebook',
+    flipboard             => 'Flipboard',
+    getright              => 'GetRight',
+    golib                 => 'Go language http library',
+    google                => 'Googlebot',
+    'google-adsbot'       => 'Google AdsBot',
+    'google-adsense'      => 'Google AdSense',
+    'googlebot'           => 'Googlebot',
+    'googlebot-image'     => 'Googlebot Images',
+    'googlebot-mobile'    => 'Googlebot Mobile',
+    'googlebot-news'      => 'Googlebot News',
+    'googlebot-video'     => 'Googlebot Video',
+    'google-favicon'      => 'Google Favicon',
+    'google-mobile'       => 'Googlebot Mobile',
+    'google-page-speed'   => 'Google Page Speed',
+    'google-plus-snippet' => 'Google+ Snippet',
+    'indy-library'        => 'Indy Library',
+    infoseek              => 'InfoSeek',
+    java                  => 'Java',
+    'libwww-perl'         => 'LWP::UserAgent',
+    linkchecker           => 'LinkChecker',
+    linkedin              => 'LinkedIn',
+    linkexchange          => 'LinkExchange',
+    lycos                 => 'Lycos',
+    malware               => 'Malware / hack attempt',
+    'microsoft-office'    => 'Microsoft Office',
+    mj12bot               => 'Majestic-12 DSearch',
+    msn                   => 'MSN',
+    'msn-mobile'          => 'MSN Mobile',
+    nutch                 => 'Apache Nutch',
+    nuzzel                => 'Nuzzel',
+    outbrain              => 'Outbrain',
+    phplib                => 'PHP http library',
+    pinterest             => 'Pinterest',
+    'pro-sitemaps'        => 'Pro Sitemap Service',
+    puf                   => 'puf',
+    'quora-link-preview'  => 'Quora Link Preview',
+    qwantify              => 'Qwantify',
+    reddit                => 'Reddit',
+    robot                 => 'robot',
+    rogerbot              => 'Moz',
+    'ruby-http-library'   => 'Ruby http library',
+    showyou               => 'Showyou',
+    'skype-uri-preview'   => 'Skype URI Preview',
+    slack                 => 'slack',
+    swiftbot              => 'Swiftbot',
+    tumblr                => 'Tumblr',
+    twitter               => 'Twitter',
+    unknown               => 'Unknown Bot',
+    'verisign-ips-agent'  => 'Verisign ips-agent',
+    vkshare               => 'VK Share',
+    'w3c-validator'       => 'W3C Validator',
+    wget                  => 'Wget',
+    whatsapp              => 'WhatsApp',
+    yahoo                 => 'Yahoo',
+    'yahoo-slurp'         => 'Yahoo! Slurp',
+    yandex                => 'Yandex',
+    'yandex-images'       => 'YandexImages',
 );
 
 my %ROBOT_IDS = (
-    Applebot                             => 'apple',
-    Discordbot                           => 'discord',
-    'Google Page Speed'                  => 'google-page-speed',
-    'Pro-Sitemaps'                       => 'pro-sitemap-service',
-    Qwantify                             => 'qwantify',
-    SkypeUriPreview                      => 'skype-uri-preview',
-    Swiftbot                             => 'swiftbot',
-    W3C_Validator                        => 'w3c-validator',
-    WhatsApp                             => 'whatsapp',
-    ahrefs                               => 'ahrefs',
-    altavista                            => 'altavista',
-    apache                               => 'apache-http-client',
-    askjeeves                            => 'askjeeves',
-    baidu                                => 'baidu',
-    baiduspider                          => 'baidu',
-    bingbot                              => 'bingbot',
-    bitlybot                             => 'bitly',
-    curl                                 => 'curl',
-    'developers.google.com//web/snippet' => 'google-plus-snippet',
-    embedly                              => 'embedly',
-    facebook                             => 'facebook',
-    facebookexternalhit                  => 'facebook',
-    flipboard                            => 'flipboard',
-    getright                             => 'getright',
-    golib                                => 'go-language-http-library',
-    google                               => 'googlebot',
-    googleadsbot                         => 'google-adsbot',
-    googleadsense                        => 'google-adsense',
-    googlebotimage                       => 'googlebot-images',
-    googlebotnews                        => 'googlebot-news',
-    googlebotvideo                       => 'googlebot-video',
-    googlefavicon                        => 'google-favicon',
-    googlemobile                         => 'googlebot-mobile',
-    indy                                 => 'indy-library',
-    infoseek                             => 'infoseek',
-    ipsagent                             => 'verisign-ips-agent',
-    java                                 => 'java',
-    linkchecker                          => 'linkchecker',
-    linkedinbot                          => 'linkedin',
-    linkexchange                         => 'linkexchange',
-    lwp                                  => 'lwp-useragent',
-    lycos                                => 'lycos',
-    malware                              => 'malware-hack-attempt',
-    mj12bot                              => 'majestic-12-dsearch',
-    msn                                  => 'msn',
-    msnmobile                            => 'msn-mobile',
-    msoffice                             => 'microsoft-office',
-    nutch                                => 'apache-nutch',
-    nuzzel                               => 'nuzzel',
-    outbrain                             => 'outbrain',
-    phplib                               => 'php-http-library',
-    'pinterest/0.'                       => 'pinterest',
-    'pinterestbot'                       => 'pinterest',
-    puf                                  => 'puf',
-    'quora link preview'                 => 'quora-link-preview',
-    redditbot                            => 'reddit',
-    robot                                => 'robot',
-    rogerbot                             => 'moz',
-    rubylib                              => 'ruby-http-library',
-    showyoubot                           => 'showyou',
-    slackbot                             => 'slack',
-    slurp                                => 'yahoo-slurp',
-    specialarchiver                      => 'archive-org-bot',
-    tumblr                               => 'tumblr',
-    twitterbot                           => 'twitter',
-    vkShare                              => 'vk-share',
-    wget                                 => 'wget',
-    yahoo                                => 'yahoo',
-    yandex                               => 'yandex',
-    yandeximages                         => 'yandeximages',
+    ahrefs          => 'ahrefs',
+    altavista       => 'altavista',
+    apache          => 'apache-http-client',
+    askjeeves       => 'askjeeves',
+    baidu           => 'baidu',
+    baiduspider     => 'baidu',
+    bingbot         => 'bingbot',
+    curl            => 'curl',
+    facebook        => 'facebook',
+    getright        => 'getright',
+    golib           => 'golib',
+    google          => 'googlebot',
+    googleadsbot    => 'google-adsbot',
+    googleadsense   => 'google-adsense',
+    googlebotimage  => 'googlebot-image',
+    googlebotnews   => 'googlebot-news',
+    googlebotvideo  => 'googlebot-video',
+    googlefavicon   => 'google-favicon',
+    googlemobile    => 'googlebot-mobile',
+    indy            => 'indy-library',
+    infoseek        => 'infoseek',
+    ipsagent        => 'verisign-ips-agent',
+    java            => 'java',
+    linkchecker     => 'linkchecker',
+    linkexchange    => 'linkexchange',
+    lwp             => 'libwww-perl',
+    lycos           => 'lycos',
+    malware         => 'malware',
+    mj12bot         => 'mj12bot',
+    msn             => 'msn',
+    msnmobile       => 'msn-mobile',
+    msoffice        => 'microsoft-office',
+    nutch           => 'nutch',
+    phplib          => 'phplib',
+    puf             => 'puf',
+    robot           => 'robot',
+    rubylib         => 'ruby-http-library',
+    slurp           => 'yahoo-slurp',
+    specialarchiver => 'archive-org',
+    wget            => 'wget',
+    yahoo           => 'yahoo',
+    yandex          => 'yandex',
+    yandeximages    => 'yandex-images',
 );
 
 my %BROWSER_NAMES = (
@@ -1033,7 +1006,8 @@ sub _init_robots {
     my $browser_tests = $self->{browser_tests};
 
     my $robot_tests = $self->{robot_tests} = {};
-    my $r = undef;
+    my $id;
+    my $r;
 
     my $robot_fragment;    # The text that indicates it's a robot (we'll
                            # use this later to detect robot version, and
@@ -1232,6 +1206,24 @@ sub _init_robots {
         $robot_fragment     = 'google';
     }
 
+    # These @ROBOT_TESTS were added in 3.15.  Some of them may need more
+    # individualized treatment, but get them identified as bots for now.
+
+    # XXX
+    else {
+    TEST:
+        for my $set (@ROBOT_TESTS) {
+            my $match = lc $set->[0];
+
+            if ( index( $ua, lc($match) ) != -1 ) {
+                $id             = $set->[1];
+                $r              = $id;
+                $robot_fragment = lc $match;
+                last TEST;
+            }
+        }
+    }
+
     if (   $browser_tests->{applecoremedia}
         || $browser_tests->{dalvik}
         || $browser_tests->{adm} ) {
@@ -1241,8 +1233,17 @@ sub _init_robots {
     if ($r) {
 
         # Got a named robot
-        $robot_tests->{$r}    = 1;
-        $self->{robot_string} = $ROBOT_NAMES{$r};    # Including undef
+        $robot_tests->{$r} = 1;
+        if ( !$id ) {
+            $id = $ROBOT_IDS{$r};
+        }
+
+        if ( !exists $robot_tests->{robot_id} ) {
+            $robot_tests->{robot_id} = $id;
+        }
+
+        # This isn't all keyed on ids (yet)
+        $self->{robot_string} = $ROBOT_NAMES{$id} || $ROBOT_NAMES{$r};
         $robot_tests->{robot} = $r;
         $robot_fragment = $r if !defined($robot_fragment);
     }
@@ -1275,6 +1276,10 @@ sub _init_robots {
                 last;
             }
         }
+    }
+
+    if ( exists $robot_tests->{robot} && $robot_tests->{robot} eq 'unknown' ) {
+        $robot_tests->{robot_id} = 'unknown';
     }
 
     if ( defined($robot_fragment) ) {
@@ -2353,6 +2358,13 @@ sub browser_string {
     return $self->{browser_string};
 }
 
+sub robot {
+    my $self = shift;
+
+    $self->_init_robots unless exists( $self->{robot_string} );
+    return $self->{robot_tests}->{robot};
+}
+
 sub robot_string {
     my $self = shift;
 
@@ -2361,13 +2373,16 @@ sub robot_string {
 }
 
 sub robot_name {
-    my ($self) = @_;
+    my $self = shift;
     return $self->robot_string;
 }
 
 sub robot_id {
     my $self = shift;
-    return $self->robot ? $ROBOT_IDS{ $self->robot } : undef;
+    return
+          $self->{robot_tests}->{robot_id} ? $self->{robot_tests}->{robot_id}
+        : $self->robot                     ? $ROBOT_IDS{ $self->robot }
+        :                                    undef;
 }
 
 sub _robot_version {
@@ -2870,17 +2885,22 @@ sub lib {
     return $self->{robot_tests}->{lib};
 }
 
+sub all_robot_ids {
+    my $self = shift;
+    return keys %ROBOT_NAMES;
+}
+
 # These method are only used by the test suite.
 sub _all_tests {
     return @ALL_TESTS;
 }
 
-sub _robot_tests {
-    return @ROBOT_TESTS;
-}
-
 sub _robot_names {
     return %ROBOT_NAMES;
+}
+
+sub _robot_tests {
+    return @ROBOT_TESTS;
 }
 
 sub _robot_ids {
@@ -3139,7 +3159,9 @@ robot.  The ids were introduced in version 3.14.  There may still be a few
 corrections to ids in subsequent releases.  Once this method becomes stable the
 ids will also be frozen.
 
-See C<%ROBOT_IDS> in the source of this library to view the possible
+=head3 all_robot_ids()
+
+This method returns an c<ArrayRef> of all possible C<robot_id> values.
 
 =head2 robot_version(), robot_major(), robot_minor(), robot_beta()
 

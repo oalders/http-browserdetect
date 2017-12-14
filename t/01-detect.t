@@ -7,7 +7,8 @@ use Test::Most;
 use Test::FailWarnings;
 
 use FindBin;
-use JSON::PP;
+use JSON::PP ();
+use List::Util 1.49 qw(uniq);
 use Path::Tiny qw( path );
 
 # test that the module loads without errors
@@ -25,6 +26,10 @@ $json = path("$FindBin::Bin/more-useragents.json")->slurp;
 my $more_tests = JSON::PP->new->ascii->decode($json);
 $tests = { %$tests, %$more_tests };
 
+my @robot_tests = uniq map { $_->[1] } HTTP::BrowserDetect->_robot_tests;
+
+my %ids = map { $_ => 1 } HTTP::BrowserDetect->all_robot_ids;
+
 foreach my $ua ( sort ( keys %{$tests} ) ) {
 
     my $test = $tests->{$ua};
@@ -33,16 +38,14 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
     subtest $ua => sub {
 
         foreach my $method (
-            'browser', 'browser_string', 'browser_beta',
-            'device', 'device_name',   'device_string', 'device_beta',
-            'engine', 'engine_string', 'engine_beta',
-            'language',
-            'os', 'os_string', 'os_beta',
-            'robot', 'robot_name', 'robot_string', 'robot_beta',
+            'browser',     'browser_beta', 'browser_string', 'device',
+            'device_beta', 'device_name',  'device_string',  'engine',
+            'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
+            'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
             ) {
             if ( $test->{$method} ) {
                 cmp_ok(
-                    $detected->$method, 'eq', $test->{$method},
+                    $detected->$method || q{}, 'eq', $test->{$method},
                     "$method: $test->{$method}"
                 );
             }
@@ -81,15 +84,25 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         }
 
         foreach my $type ( @{ $test->{match} } ) {
+
+            # New bots aren't getting added to methods
+            next
+                if List::Util::any { lc($type) eq lc($_) } @robot_tests,
+                'robot_id';
+            ok( $detected->can($type), "$type is a method" );
             ok(
                 $detected->can($type) && $detected->$type,
                 "$type should match"
             );
         }
 
-        is_deeply(
-            [ sort $detected->browser_properties() ],
-            [ sort @{ $test->{match} } ],
+        # for now, avoid having to add robot_id to a bunch of profiles
+        eq_or_diff(
+            [
+                sort grep { $_ !~ m{\Arobot_id\z} }
+                    $detected->browser_properties()
+            ],
+            [ sort grep { $_ !~ m{\Arobot_id\z} } @{ $test->{match} } ],
             "browser properties match"
         );
 
@@ -98,27 +111,39 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
         }
 
+        if ( $detected->robot ) {
+            if ( $detected->robot_id ) {
+                ok(
+                    $ids{ $detected->robot_id },
+                    'id exists in list: ' . $detected->robot_id
+                );
+            }
+            else {
+                diag $detected->robot . ' has no id';
+            }
+        }
     };
 }
 
 my $detected = HTTP::BrowserDetect->new('Nonesuch');
-diag( $detected->user_agent );
 
-foreach my $method (
-    qw(
-    engine_string
-    engine_version
-    engine_major
-    engine_minor
-    device
-    device_name
-    gecko_version
-    )
-    ) {
-    is_deeply(
-        [ $detected->$method ],
-        [undef], "$method should return undef in list context"
-    );
-}
+subtest $detected->user_agent, sub {
+    foreach my $method (
+        qw(
+        engine_string
+        engine_version
+        engine_major
+        engine_minor
+        device
+        device_name
+        gecko_version
+        )
+        ) {
+        is_deeply(
+            [ $detected->$method ],
+            [undef], "$method should return undef in list context"
+        );
+    }
+};
 
 done_testing();
