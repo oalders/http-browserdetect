@@ -1278,7 +1278,8 @@ sub _init_robots {
         }
     }
 
-    if ( exists $robot_tests->{robot} && $robot_tests->{robot} eq 'unknown' ) {
+    if ( exists $robot_tests->{robot} && $robot_tests->{robot} eq 'unknown' )
+    {
         $robot_tests->{robot_id} = 'unknown';
     }
 
