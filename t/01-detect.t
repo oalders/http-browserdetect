@@ -7,7 +7,7 @@ use Test::Most;
 use Test::FailWarnings;
 
 use FindBin;
-use JSON::PP;
+use JSON::PP ();
 use List::Util qw(uniq);
 use Path::Tiny qw( path );
 
@@ -28,7 +28,7 @@ $tests = { %$tests, %$more_tests };
 
 my @robot_tests = uniq map { $_->[1] } HTTP::BrowserDetect->_robot_tests;
 
-my %ids = HTTP::BrowserDetect->_robot_ids;
+my %ids = map { $_ => 1 } HTTP::BrowserDetect->all_robot_ids;
 
 foreach my $ua ( sort ( keys %{$tests} ) ) {
 
@@ -84,17 +84,24 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
         }
 
         foreach my $type ( @{ $test->{match} } ) {
+
             # New bots aren't getting added to methods
-            next if List::Util::any { lc($type) eq lc($_ )} @robot_tests, 'robot_id';
-            ok($detected->can($type), "$type is a method" );
-            ok( $detected->can($type) && $detected->$type,
+            next
+                if List::Util::any { lc($type) eq lc($_) } @robot_tests,
+                'robot_id';
+            ok( $detected->can($type), "$type is a method" );
+            ok(
+                $detected->can($type) && $detected->$type,
                 "$type should match"
             );
         }
 
         # for now, avoid having to add robot_id to a bunch of profiles
         eq_or_diff(
-            [ sort grep { $_ !~ m{\Arobot_id\z} } $detected->browser_properties() ],
+            [
+                sort grep { $_ !~ m{\Arobot_id\z} }
+                    $detected->browser_properties()
+            ],
             [ sort grep { $_ !~ m{\Arobot_id\z} } @{ $test->{match} } ],
             "browser properties match"
         );
@@ -104,6 +111,17 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             ok( !$detected->$type, "$type shouldn't match (and doesn't)" );
         }
 
+        if ( $detected->robot ) {
+            if ( $detected->robot_id ) {
+                ok(
+                    $ids{ $detected->robot_id },
+                    'id exists in list: ' . $detected->robot_id
+                );
+            }
+            else {
+                diag $detected->robot . ' has no id';
+            }
+        }
     };
 }
 
