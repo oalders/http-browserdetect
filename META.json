@@ -64,6 +64,7 @@
             "File::Spec" : "0",
             "FindBin" : "0",
             "JSON::PP" : "0",
+            "List::Util" : "1.49",
             "Path::Tiny" : "0",
             "Test::FailWarnings" : "0",
             "Test::More" : "0",
@@ -84,7 +85,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.15",
+   "version" : "3.16",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.026000"
@@ -548,7 +549,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.15",
+                  "tag" : "v3.16",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },
