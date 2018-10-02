@@ -200,6 +200,7 @@ our @ROBOT_TESTS = (
 
 our @MISC_TESTS = qw(
     dotnet      x11
+    webview
 );
 
 push @ALL_TESTS,
@@ -962,6 +963,14 @@ sub _init_core {
 
         # Realplayer plugin -- don't override browser but do set property
         $browser_tests->{realplayer} = 1;
+    }
+
+    # Details: https://developer.chrome.com/multidevice/user-agent#webview_user_agent
+    if (    ( $self->android && index( $ua, '; wv)' ) > 0 )
+         || ( $self->chrome && $self->android && $self->browser_major >= 30 )
+    )
+    {
+        $tests->{webview} = 1;
     }
 
 }
@@ -2832,7 +2841,8 @@ sub _language_country {
     if ( $self->{user_agent} =~ m/\(([^)]+)\)/xms ) {
         my @parts = split( /;/, $1 );
         foreach my $part (@parts) {
-            if ( $part =~ /^\s*([a-z]{2})\s*$/ ) {
+            # 'vw' for WebView is not language code. Details here: https://developer.chrome.com/multidevice/user-agent#webview_user_agent
+            if ( $part =~ /^\s*([a-z]{2})\s*$/ && ! ( $self->webview && $1 eq 'wv' ) ) {
                 return { language => uc $1 };
             }
         }
@@ -3223,6 +3233,10 @@ winnt, which is a type of win32)
         winphone7 winphone7_5 winphone8 winphone10
 
 =head3 dotnet()
+
+=head3 x11()
+
+=head3 webview()
 
 =head3 chromeos()
 
