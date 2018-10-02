@@ -43,11 +43,13 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
             'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
             ) {
-            if ( $test->{$method} ) {
-                cmp_ok(
-                    $detected->$method || q{}, 'eq', $test->{$method},
-                    "$method: $test->{$method}"
-                );
+            if ( exists $test->{$method} ) {
+                if ( defined $test->{$method} ) {
+                    eq_or_diff( $detected->$method, $test->{$method}, "$method: $test->{$method}");
+                }
+                else {
+                    ok( ! defined $detected->$method, "$method should return undef" );
+                }
             }
         }
 

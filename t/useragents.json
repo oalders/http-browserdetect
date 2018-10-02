@@ -75,7 +75,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Baiduspider+(+http://www.baidu.com/search/spider.htm)" : {
       "country" : null,
@@ -3155,7 +3155,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win10.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586" : {
       "browser" : "edge",
@@ -3177,7 +3177,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win10.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0" : {
       "browser" : "edge",
@@ -3199,7 +3199,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win10.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586,gzip(gfe)" : {
       "browser" : "edge",
@@ -3221,7 +3221,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win10.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -3401,7 +3401,7 @@
       "os_minor" : ".0",
       "os_string" : "Windows Phone",
       "os_version" : "10.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010726 Netscape6/6.1" : {
       "browser" : "netscape",
@@ -4224,7 +4224,7 @@
       "engine_major" : "1",
       "engine_minor" : ".9",
       "engine_version" : "1.9",
-      "language" : null,
+      "language" : "EN",
       "major" : "3",
       "match" : [
          "unix",
@@ -5166,7 +5166,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "5.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20" : {
       "browser" : "safari",
@@ -6089,7 +6089,7 @@
       "engine_minor" : ".4",
       "engine_string" : "Presto",
       "engine_version" : "2.4",
-      "language" : null,
+      "language" : "SV",
       "major" : "10",
       "match" : [
          "opera",
