@@ -50,7 +50,6 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
                 }
                 else {
                     eq_or_diff( $detected->$method, $test->{$method}, "$method: undef" );
-                    #ok( ! defined $detected->$method, "$method should return undef" );
                 }
             }
         }
