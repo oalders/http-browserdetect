@@ -94,7 +94,7 @@
       "match" : [
          "pubsub"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "AppleCoreMedia/1.0.0.9A405 (iPad; U; CPU OS 5_0_1 like Mac OS X; en_us)" : {
       "beta" : ".0.9a405",
@@ -128,7 +128,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "BUbiNG (+http://law.di.unimi.it/BUbiNG.html)" : {
       "browser_major" : 0,
@@ -275,7 +275,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Dalvik/1.6.0 (Linux; U; Android 4.4.4; SAMSUNG-SM-G900A Build/KTU84P)" : {
       "browser" : "dalvik",
@@ -298,7 +298,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
       "browser_major" : "2",
@@ -339,13 +339,13 @@
       "browser_major" : "1",
       "browser_minor" : ".1",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "EventMachine HttpClient" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "FAST-WebCrawler/3.8" : {
       "browser_major" : "3",
@@ -373,7 +373,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Go 1.1 package http" : {
       "browser_major" : 0,
@@ -442,7 +442,7 @@
       "match" : [
          "windows"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "ImageSearcherPro/2.2.2 CFNetwork/711.2.23 Darwin/14.0.0" : {
       "browser" : "imagesearcherpro",
@@ -613,7 +613,7 @@
       "match" : [
          "lynx"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "MAUI WAP Browser" : {
       "device" : "wap",
@@ -667,7 +667,7 @@
       "browser_major" : "5",
       "browser_minor" : ".1",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "MixBot (+http://t.co/GSRLLKex24)" : {
       "browser_major" : 0,
@@ -688,7 +688,7 @@
          "mobile",
          "mobile_safari"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "MobileSafari/9537.53 CFNetwork/672.1.15 Darwin/14.0.0" : {
       "browser" : "safari",
@@ -700,7 +700,7 @@
          "mobile",
          "mobile_safari"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Morfeus Fucking Scanner" : {
       "browser_major" : 0,
@@ -720,7 +720,7 @@
          "windows",
          "netscape"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/1.22 (compatible; MSIE 2.0; Windows 95)" : {
       "browser" : "ie",
@@ -737,7 +737,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win95",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/1.22 (compatible; MSIE 2.0d; Windows NT)" : {
       "browser" : "ie",
@@ -755,7 +755,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinNT",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/2.0 (compatible; MSIE 3.02; Windows CE; 240x320)" : {
       "browser" : "ie",
@@ -773,13 +773,13 @@
       ],
       "os" : "windows",
       "os_string" : "WinCE",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/2.0 (compatible; crw)" : {
       "browser_major" : "2",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/3.0 (compatible; Indy Library)" : {
       "major" : "3",
@@ -826,7 +826,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0" : {
       "browser" : "netscape",
@@ -838,7 +838,7 @@
          "nav4",
          "nav4up"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (CMS Crawler: http://www.cmscrawler.com)" : {
       "browser" : "netscape",
@@ -904,7 +904,7 @@
          "ie55up",
          "ie7"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 4.01; Digital AlphaServer 1000A 4/233; Windows NT; Powered By 64-Bit Alpha Processor)" : {
       "browser" : "ie",
@@ -923,7 +923,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinNT",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.01; Windows 95; MSIECrawler)" : {
       "browser" : "ie",
@@ -966,7 +966,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.0; Windows 2000) Opera 6.0 [en]" : {
       "browser" : "opera",
@@ -984,7 +984,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.0; Windows 95) Opera 6.01  [en]" : {
       "browser" : "opera",
@@ -1001,7 +1001,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win95",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)" : {
       "browser" : "ie",
@@ -1021,7 +1021,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinNT",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95; BCD2000)" : {
       "browser" : "ie",
@@ -1043,7 +1043,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win95",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 4.0; .NET CLR 1.0.2914)" : {
       "browser" : "ie",
@@ -1066,7 +1066,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinNT",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; AOL 9.0; Windows NT 5.1)" : {
       "browser" : "ie",
@@ -1089,7 +1089,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; America Online Browser 1.1; rev1.2; Windows NT 5.1; SV1; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -1113,7 +1113,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; MSIE 5.5; Windows NT 5.0) Opera 7.02 Bork-edition [en]" : {
       "browser" : "opera",
@@ -1131,7 +1131,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Update a; AOL 6.0; Windows 98)" : {
       "browser" : "ie",
@@ -1154,7 +1154,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win98",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90)" : {
       "browser" : "ie",
@@ -1175,7 +1175,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinME",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Creative)" : {
       "browser" : "ie",
@@ -1220,7 +1220,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinME",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; MRA 4.1 (build 00975))" : {
       "browser" : "ie",
@@ -1241,7 +1241,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinME",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows ME) Opera 7.11  [en]" : {
       "browser" : "opera",
@@ -1258,7 +1258,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinME",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; Avant Browser [avantbrowser.com]; Hotbar 4.4.5.0)" : {
       "browser" : "ie",
@@ -1280,7 +1280,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; MRA 4.0 (build 00768))" : {
       "browser" : "ie",
@@ -1302,7 +1302,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; T312461)" : {
       "browser" : "ie",
@@ -1324,7 +1324,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) AdsFilter/1.0.0.15" : {
       "browser" : "ie",
@@ -1346,7 +1346,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) Opera 7.54 [en]" : {
       "browser" : "opera",
@@ -1364,7 +1364,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)" : {
       "browser" : "ie",
@@ -1387,7 +1387,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Avast Browser [avastye.com]; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -1410,7 +1410,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Crazy Browser 1.0.5)" : {
       "browser" : "ie",
@@ -1432,7 +1432,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Deepnet Explorer 1.5.0; .NET CLR 1.0.3705)" : {
       "browser" : "ie",
@@ -1455,7 +1455,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; FREE; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -1478,7 +1478,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; FunWebProducts-MyWay; (R1 1.3); .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -1502,7 +1502,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; KKman2.0)" : {
       "browser" : "ie",
@@ -1524,7 +1524,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; MRA 4.6 (build 01425))" : {
       "browser" : "ie",
@@ -1571,7 +1571,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Netcraft SSL Server Survey - contact info@netcraft.com)" : {
       "browser" : "ie",
@@ -1621,7 +1621,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR 2.0.40607)" : {
       "browser" : "ie",
@@ -1644,7 +1644,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322) Babya Discoverer  8.0:" : {
       "browser" : "ie",
@@ -1696,7 +1696,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; XMPP Tiscali Communicator v.10.0.2; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -1748,7 +1748,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -1771,7 +1771,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Crazy Browser 2.0.0 Beta 1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -1819,7 +1819,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; .NET CLR 1.1.4322; PeoplePal 6.2)" : {
       "browser" : "ie",
@@ -1842,7 +1842,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; MRA 4.6 (build 01425); .NET CLR 1.1.4322; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -1865,7 +1865,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; MRA 4.4 (build 01323))" : {
       "browser" : "ie",
@@ -1887,7 +1887,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; MRA 4.6 (build 01425); MRSPUTNIK 1, 5, 0, 19 SW)" : {
       "browser" : "ie",
@@ -1909,7 +1909,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; .NET CLR 2.0.50727 ; .NET CLR 4.0.30319)" : {
       "browser" : "ie",
@@ -1932,7 +1932,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; YPC 3.0.2; .NET CLR 1.1.4322; yplus 4.4.02b)" : {
       "browser" : "ie",
@@ -1955,7 +1955,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; TheFreeDictionary.com; .NET CLR 1.1.4322; .NET CLR 1.0.3705; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -1978,7 +1978,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 8.00" : {
       "browser" : "opera",
@@ -1995,7 +1995,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.0" : {
       "browser" : "opera",
@@ -2038,7 +2038,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5119)" : {
       "browser" : "ie",
@@ -2061,7 +2061,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5132)" : {
       "browser" : "ie",
@@ -2084,7 +2084,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5137)" : {
       "browser" : "ie",
@@ -2107,7 +2107,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5138)" : {
       "browser" : "ie",
@@ -2130,7 +2130,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5141)" : {
       "browser" : "ie",
@@ -2153,7 +2153,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5148)" : {
       "browser" : "ie",
@@ -2176,7 +2176,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5159)" : {
       "browser" : "ie",
@@ -2199,7 +2199,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5168)" : {
       "browser" : "ie",
@@ -2222,7 +2222,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5175)" : {
       "browser" : "ie",
@@ -2245,7 +2245,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5179)" : {
       "browser" : "ie",
@@ -2268,7 +2268,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5183)" : {
       "browser" : "ie",
@@ -2291,7 +2291,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5188)" : {
       "browser" : "ie",
@@ -2314,7 +2314,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5190)" : {
       "browser" : "ie",
@@ -2337,7 +2337,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5191)" : {
       "browser" : "ie",
@@ -2360,7 +2360,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.5192)" : {
       "browser" : "ie",
@@ -2383,7 +2383,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; Win64; AMD64)" : {
       "browser" : "ie",
@@ -2405,7 +2405,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0; Windows XP)" : {
       "browser" : "ie",
@@ -2422,7 +2422,7 @@
          "ie55up",
          "ie6"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 6.0b; Windows 98; YComp 5.0.0.0)" : {
       "beta" : "b",
@@ -2472,7 +2472,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322; MS-RTC LM 8; DTCuser; DTCuser)" : {
       "browser" : "ie",
@@ -2495,7 +2495,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 4.0.20506; AskTbARS/5.8.0.12304)" : {
       "browser" : "ie",
@@ -2518,7 +2518,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; AskTbPTV/5.11.3.15590)" : {
       "browser" : "ie",
@@ -2540,7 +2540,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; BTRS31753; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -2563,7 +2563,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.1; .NET CLR 1.0.3705; .NET CLR 3.0.04506.30)" : {
       "browser" : "ie",
@@ -2586,7 +2586,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; FunWebProducts; GTB7.0; .NET CLR 2.0.50727; InfoPath.2; AskTbLMW2/5.11.3.15590)" : {
       "browser" : "ie",
@@ -2609,7 +2609,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; GTB7.0; AskTbPTV2/5.11.3.15590; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -2632,7 +2632,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; InfoPath.2; AskTbBLPV5/5.9.1.14019)" : {
       "browser" : "ie",
@@ -2654,7 +2654,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Maxthon; QQDownload 1.7; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -2677,7 +2677,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SIMBAR={11B2B4E1-5AF0-4FC7-A2AD-AB681B4D2B3D}; InfoPath.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; .NET4.0E)" : {
       "browser" : "ie",
@@ -2700,7 +2700,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SearchToolbar 1.2; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -2723,7 +2723,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SearchToolbar 1.2; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; InfoPath.2; AskTbSTC/5.9.1.14019)" : {
       "browser" : "ie",
@@ -2746,7 +2746,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; InfoPath.2; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; msn OptimizedIE8;ESPE)" : {
       "browser" : "ie",
@@ -2775,7 +2775,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; AskTbFXTV5/5.11.3.15590; GreenBrowser)" : {
       "browser" : "ie",
@@ -2803,7 +2803,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; AskTbSTC/5.9.1.14019),gzip(gfe) (via translate.google.com)" : {
       "browser" : "ie",
@@ -2831,7 +2831,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; InfoPath.2; Zune 4.7; .NET4.0E; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -2860,7 +2860,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Wanadoo 5.6; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -2883,7 +2883,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; bgft)" : {
       "browser" : "ie",
@@ -2905,7 +2905,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; dial; E-nrgyPlus; .NET CLR 1.1.4322; InfoPath.1)" : {
       "browser" : "ie",
@@ -2928,7 +2928,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; dial; SV1; .NET CLR 1.0.3705)" : {
       "browser" : "ie",
@@ -2951,7 +2951,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; ds-66843412; Sgrunt|V109|1|S-66843412|dial; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -2974,7 +2974,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; eMusic DLM/3; MSN Optimized;US; MSN Optimized;US)" : {
       "browser" : "ie",
@@ -2996,7 +2996,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; elertz 2.4.025; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0)" : {
       "browser" : "ie",
@@ -3019,7 +3019,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; elertz 2.4.179[128]; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648)" : {
       "browser" : "ie",
@@ -3042,7 +3042,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; generic_01_01; InfoPath.1)" : {
       "browser" : "ie",
@@ -3064,7 +3064,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; generic_01_01; YPC 3.2.0; .NET CLR 1.1.4322; yplus 5.3.04b)" : {
       "browser" : "ie",
@@ -3087,7 +3087,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; iOpus-I-M; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -3110,7 +3110,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; iebar; Sgrunt|V109|1746|S-1740532934|dialno; snprtz|dialno; .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -3133,7 +3133,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; iebar; acc=; YPC 3.2.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; IEMB3; IEMB3; yplus 5.1.04b)" : {
       "browser" : "ie",
@@ -3156,7 +3156,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; iebar; acc=none; SV1; snprtz|S04087544802137; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -3179,7 +3179,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)" : {
       "browser" : "ie",
@@ -3202,7 +3202,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; GTB0.0; BTRS26718; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.0.04506; InfoPath.2)" : {
       "browser" : "ie",
@@ -3225,7 +3225,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; GTB6; FunWebProducts; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30618; .NET CLR 1.1.4322; InfoPath.2; Alexa Toolbar; .NET4.0C; AskTbSPC2/5.9.1.14019)" : {
       "browser" : "ie",
@@ -3248,7 +3248,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; GTB7.0; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.0.04506; InfoPath.2; AskTbGGSV5/5.12.1.16460)" : {
       "browser" : "ie",
@@ -3271,7 +3271,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; GTB7.0; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30618; AskTbNDV/5.12.1.16460)" : {
       "browser" : "ie",
@@ -3294,7 +3294,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; GTB7.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; AskTbMP3/5.9.1.14019)" : {
       "browser" : "ie",
@@ -3317,7 +3317,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; HPDTDF; Tablet PC 2.0; .NET4.0C; .NET4.0E; SE 2.X MetaSr 1.0)" : {
       "browser" : "ie",
@@ -3346,7 +3346,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/4.0; QS 4.2.4.0; QS 5.3.0.4; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; InfoPath.3; QS 4.2.4.0; QS 5.3.0.4)" : {
       "browser" : "ie",
@@ -3375,7 +3375,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; NP08; InfoPath.2; .NET4.0C; .NET4.0E; MSOffice 12)" : {
       "browser" : "ie",
@@ -3463,7 +3463,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; CMDTDF)" : {
       "browser" : "ie",
@@ -3491,7 +3491,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; HPNTDF; AskTbATU2/5.11.3.15590)" : {
       "browser" : "ie",
@@ -3519,7 +3519,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Ant.com Toolbar 1.6; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; InfoPath.2; .NET CLR 1.1.4322; BO1IE8_v1;ENUS)" : {
       "browser" : "ie",
@@ -3547,7 +3547,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; BTRS26707; GTB7.0; InfoPath.2; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -3575,7 +3575,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; BTRS26718; InfoPath.2; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; yie8; AskTbMOV/5.9.1.14019)" : {
       "browser" : "ie",
@@ -3603,7 +3603,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; BTRS6018; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -3631,7 +3631,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; BTRS7181; InfoPath.2)" : {
       "browser" : "ie",
@@ -3658,7 +3658,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; BTRS7239; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322; .NET4.0C; .NET4.0E; AskTbFF/5.11.3.15590)" : {
       "browser" : "ie",
@@ -3686,7 +3686,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; FBSMTWB; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; OfficeLiveConnector.1.3; OfficeLivePatch.0.0)" : {
       "browser" : "ie",
@@ -3714,7 +3714,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; FunWebProducts; GTB6.6; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; InfoPath.2; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; BO2IE8_v1;ENUS)" : {
       "browser" : "ie",
@@ -3742,7 +3742,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.3; .NET CLR 1.1.4322; WinNT-PAI 18.08.2009; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -3770,7 +3770,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.6; AskTbFWV5/5.12.2.16749; AskTb/)" : {
       "browser" : "ie",
@@ -3797,7 +3797,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.6; FDM; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -3825,7 +3825,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.6; InfoPath.2; OfficeLiveConnector.1.4; OfficeLivePatch.1.3; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; BRI/1; BRI/2; yie8; Creative AutoUpdate v1.10.10)" : {
       "browser" : "ie",
@@ -3853,7 +3853,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.6; SIMBAR={0390CFD2-2FBA-41D3-9086-6461EA0D204E}; BTRS7390; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; AskTbHIP/5.11.3.15590)" : {
       "browser" : "ie",
@@ -3881,7 +3881,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6.6; WinNT-A8U 19.03.2011; .NET4.0C; .NET CLR 2.0.50727; yie8)" : {
       "browser" : "ie",
@@ -3909,7 +3909,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB6; (R1 1.6); InfoPath.2)" : {
       "browser" : "ie",
@@ -3937,7 +3937,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB7.0; .NET CLR 2.0.50727; .NET CLR 1.1.4322; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; MS-RTC LM 8; AskTbNRO2/5.11.3.15590)" : {
       "browser" : "ie",
@@ -3965,7 +3965,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB7.0; .NET CLR 2.0.50727; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; AskTbUT2V5/5.9.1.14019)" : {
       "browser" : "ie",
@@ -3993,7 +3993,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB7.0; InfoPath.2; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; AskTbMP3DS/5.11.3.15590)" : {
       "browser" : "ie",
@@ -4021,7 +4021,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB7.0; InfoPath.2; .NET CLR 2.0.50727; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; AskTbMYC-ST/5.12.1.16460)" : {
       "browser" : "ie",
@@ -4049,7 +4049,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; InfoPath.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; AskTbIMB/5.12.1.16460)" : {
       "browser" : "ie",
@@ -4077,7 +4077,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; InfoPath.2; .NET CLR 2.0.50727; AskTbATU3/5.8.0.12304)" : {
       "browser" : "ie",
@@ -4105,7 +4105,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; InfoPath.2; AskTbMPC2/5.11.0.15286)" : {
       "browser" : "ie",
@@ -4132,7 +4132,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; MRA 5.10 (build 5339); GTB7.5; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -4160,7 +4160,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; QQDownload 627; GTB6.6)" : {
       "browser" : "ie",
@@ -4187,7 +4187,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SIMBAR={005E1D16-F67A-11DD-B20E-00215A1428B0}; GTB6.6; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -4215,7 +4215,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SIMBAR={6B1BE3BF-ED01-4022-B40F-D4ED79387298}; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -4243,7 +4243,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SIMBAR={A544FCB0-7389-11E0-B0E8-000AE661F44F}; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -4271,7 +4271,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SearchToolbar 1.2; GTB7.4; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Media Center PC 4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; BRI/2)" : {
       "browser" : "ie",
@@ -4330,7 +4330,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; chromeframe/11.0.696.68; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET4.0E; .NET4.0C; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)" : {
       "browser" : "ie",
@@ -4358,7 +4358,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; msn OptimizedIE8;ENIN)" : {
       "browser" : "ie",
@@ -4385,7 +4385,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; BLNGBAR; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.30729; .NET CLR 3.5.30729; .NET4.0C)" : {
       "browser" : "ie",
@@ -4413,7 +4413,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; BTRS26718; GTB7.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; eSobiSubscriber 2.0.4.16; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; InfoPath.2; BRI/2)" : {
       "browser" : "ie",
@@ -4441,7 +4441,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB7.0; SLCC1; .NET CLR 2.0.50727; InfoPath.1; .NET CLR 3.5.30729; InfoPath.2; .NET CLR 3.0.30729; .NET4.0C; OfficeLiveConnector.1.5; OfficeLivePatch.1.3; 898700716703; system:4.00231)" : {
       "browser" : "ie",
@@ -4469,7 +4469,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; GTB7.0; SLCC1; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.5.30729; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; .NET4.0C; .NET CLR 3.0.30729; msn OptimizedIE8;ESMX)" : {
       "browser" : "ie",
@@ -4497,7 +4497,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; MRA 5.5 (build 02842); SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; InfoPath.1; .NET CLR 3.5.30729; OfficeLiveConnector.1.4; .NET CLR 3.0.30729; OfficeLivePatch.1.3; .NET CLR 1.1.4322)" : {
       "browser" : "ie",
@@ -4525,7 +4525,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; SIMBAR={6909F680-0FB6-11E0-BDEF-001BB988ACEC}; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; .NET4.0C; .NET CLR 3.0.30729; InfoPath.2)" : {
       "browser" : "ie",
@@ -4553,7 +4553,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET4.0C; .NET CLR 3.0.30729; AskTbCS-ST/5.9.1.14019)" : {
       "browser" : "ie",
@@ -4581,7 +4581,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.5.30729; .NET CLR 3.0.30618; .NET CLR 1.1.4322; SVD; .NET4.0C)" : {
       "browser" : "ie",
@@ -4609,7 +4609,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0;  Embedded Web Browser from: http://bsalsa.com/; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; AskTB5.6)" : {
       "browser" : "ie",
@@ -4637,7 +4637,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; BTRS28059; SIMBAR={7F9B9B37-747C-11E0-9403-4487FC817C3B}; GTB6.6; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; ShopperReports 3.0.497.0; S" : {
       "browser" : "ie",
@@ -4665,7 +4665,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; BTRS28496; FunWebProducts; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)" : {
       "browser" : "ie",
@@ -4693,7 +4693,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; BTRS5841; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E)" : {
       "browser" : "ie",
@@ -4721,7 +4721,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; Facicons; BTRS26734; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; OfficeLiveConnector.1.5; OfficeLivePatch.1.3; .NET4.0C; BRI/2; AskTB5.8)" : {
       "browser" : "ie",
@@ -4749,7 +4749,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; FunWebProducts; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; AskTbFXTV5/5.11.3.15590)" : {
       "browser" : "ie",
@@ -4777,7 +4777,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB6.6; BTRS25104; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.3; InfoPath.1; Tablet PC 2.0; .NET4.0C)" : {
       "browser" : "ie",
@@ -4805,7 +4805,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB6.6; BTRS27190; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; BRI/2; AskTbSTC/5.9.1.14019)" : {
       "browser" : "ie",
@@ -4833,7 +4833,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB6.6; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET CLR 3.0.04506; .NET CLR 3.5.21022; Media Center PC 5.0; SLCC1; InfoPath.2; .NET4.0C; Table" : {
       "browser" : "ie",
@@ -4861,7 +4861,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB6.6; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.1; AskTbMPC2/5.11.0.15286; handyCafeCln/3.3.21; handyCafeCFW/3.3.33 en)" : {
       "browser" : "ie",
@@ -4889,7 +4889,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB6.6; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; AskTbBLT/5.12.1.16460)" : {
       "browser" : "ie",
@@ -4917,7 +4917,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; AskTbFLV/5.11.3.15590)" : {
       "browser" : "ie",
@@ -4945,7 +4945,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; AskTbSB/5.11.3.15590; .NET4.0C)" : {
       "browser" : "ie",
@@ -4973,7 +4973,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0; .NET4.0C; AskTbNG1V5/5.9.1.14019)" : {
       "browser" : "ie",
@@ -5001,7 +5001,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GoogleT5; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; AskTbGOM2/5.11.3.15590)" : {
       "browser" : "ie",
@@ -5029,7 +5029,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SIMBAR={3BC6F5F3-F29C-11DF-BE85-00247EEDA605}; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; AskTB5.5)" : {
       "browser" : "ie",
@@ -5057,7 +5057,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SIMBAR={5688C0A4-8195-11E0-BD2B-0023AE12D174}; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; AskTbFLV/5.12.1.16460; InfoPath.2)" : {
       "browser" : "ie",
@@ -5085,7 +5085,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SIMBAR={87F6FB80-4BC5-11E0-B2E6-0C607693518C}; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; AskTbPTV2/5.11.3.15590)" : {
       "browser" : "ie",
@@ -5113,7 +5113,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SIMBAR={B6443B10-2657-11E0-ACE1-0002721A8AA9}; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; OfficeLiveConnector.1.5; OfficeLivePatch.1.3" : {
       "browser" : "ie",
@@ -5141,7 +5141,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SIMBAR={E38C5794-2DB1-458B-AC51-59B95D8BC95D}; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; AskTbFF/5.12.1.16460)" : {
       "browser" : "ie",
@@ -5169,7 +5169,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.2; .NET CLR 1.1.4322; .NET4.0C; .NET4.0E; OfficeLiveConnector.1.5; OfficeLivePatch.1.3; Tablet PC 2.0; handyCafeCln" : {
       "browser" : "ie",
@@ -5197,7 +5197,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)" : {
       "browser" : "ie",
@@ -5225,7 +5225,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
       "browser" : "ie",
@@ -5253,7 +5253,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3; MCIT 1.0)" : {
       "browser" : "ie",
@@ -5281,7 +5281,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; AskTbACDS/5.11.0.15286)" : {
       "browser" : "ie",
@@ -5309,7 +5309,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; CPNTDF; InfoPath.1; Tablet PC 2.0; .NET4.0C)" : {
       "browser" : "ie",
@@ -5337,7 +5337,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; BRI/2; .NET CLR 1.1.4322; AskTB5.6)" : {
       "browser" : "ie",
@@ -5365,7 +5365,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; AskTbVDJ/5.11.3.15590)" : {
       "browser" : "ie",
@@ -5393,7 +5393,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; Tablet PC 2.0)" : {
       "browser" : "ie",
@@ -5421,7 +5421,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; Tablet PC 2.0; CIBA; .NET CLR 1.1.4322; 4399Box.560; 4399Box.560)" : {
       "browser" : "ie",
@@ -5449,7 +5449,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.6.1.82/28/351" : {
       "browser" : "ie",
@@ -5477,7 +5477,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.6.1.82/50/355" : {
       "browser" : "ie",
@@ -5505,7 +5505,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.7.1.88/50/350" : {
       "browser" : "ie",
@@ -5533,7 +5533,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.7.1.88/50/351" : {
       "browser" : "ie",
@@ -5561,7 +5561,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.7.1.88/50/354" : {
       "browser" : "ie",
@@ -5589,7 +5589,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)/UC Browser7.7.1.88/50/444" : {
       "browser" : "ie",
@@ -5617,7 +5617,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; BTRS25143; FunWebProducts; QQDownload 679; SIMBAR={CB5070E1-A3D9-11DF-9EE4-705AB60E87D4}; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0" : {
       "browser" : "ie",
@@ -5645,7 +5645,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; FunWebProducts; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; InfoPath.2; .NET4.0E; FDM; MATM)" : {
       "browser" : "ie",
@@ -5673,7 +5673,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; GTB0.0; SIMBAR={87BB6048-4BD1-11E0-92DD-001F16FE014C}; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; eSobiSubscriber 2.0.4.16; .NET4.0C)" : {
       "browser" : "ie",
@@ -5701,7 +5701,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; InfoPath.1; ShopperReports 3.0.517.0; SRS_IT_E8790777BD765C5430AA94; AskTbBLPV" : {
       "browser" : "ie",
@@ -5729,7 +5729,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; GTB7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; BRI/1; MDDC; .NET4.0C; BRI/2)" : {
       "browser" : "ie",
@@ -5757,7 +5757,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; MRA 5.6 (build 03278); MRSPUTNIK 2, 3, 0, 62; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)" : {
       "browser" : "ie",
@@ -5785,7 +5785,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QS 4.2.4.0; QS 5.3.0.4; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; InfoPath.3; QS 4.2.4.0; QS 5.3.0.4)" : {
       "browser" : "ie",
@@ -5844,7 +5844,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3; UHG_Win7_Build 11-15-2010)" : {
       "browser" : "ie",
@@ -5872,7 +5872,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; BRI/1; .NET4.0C; WWTClient2; AskTbCLM/5.11.3.15590; MASP)" : {
       "browser" : "ie",
@@ -5900,7 +5900,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; HPNTDF; OfficeLiveConnector.1.3; OfficeLivePatch.0.0; InfoPath.2)" : {
       "browser" : "ie",
@@ -5928,7 +5928,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; MS-RTC LM 8)" : {
       "browser" : "ie",
@@ -5987,7 +5987,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Win64; x64; Trident/4.0; Foxy/1; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; MALN; .NET4.0C; Tablet PC 2.0)" : {
       "browser" : "ie",
@@ -6015,7 +6015,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)" : {
       "browser" : "ie",
@@ -6062,7 +6062,7 @@
          "ie5up",
          "ie55up"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; MSIE8.0; Windows NT 6.0) .NET CLR 2.0.50727)" : {
       "browser" : "ie",
@@ -6083,7 +6083,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; Netcraft Web Server Survey)" : {
       "browser_major" : "4",
@@ -6104,13 +6104,13 @@
       ],
       "os" : "windows",
       "os_string" : "Win95",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; Synapse)" : {
       "browser_major" : "4",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 (compatible; Win32; WinHttp.WinHttpRequest.5)" : {
       "browser_major" : "4",
@@ -6119,7 +6119,7 @@
          "windows",
          "win32"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.0 compatible ZyBorg/1.0" : {
       "browser_major" : "4",
@@ -6148,7 +6148,7 @@
       ],
       "os" : "unix",
       "os_string" : "Unix",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/4.7 (compatible; OffByOne; Windows 2000) Webster Pro V3.4" : {
       "browser_major" : "4",
@@ -6161,7 +6161,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Auto Shell Spider)" : {
       "browser" : "netscape",
@@ -6206,7 +6206,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.1.1; Huawei Y301A1 Build/HuaweiY301A1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "beta" : ".1500.94",
@@ -6268,7 +6268,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.1.2; C1905 Build/15.1.C.2.8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6297,7 +6297,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.1.2; LG-P769 Build/JZO54K) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.58 Mobile Safari/537.31" : {
       "browser" : "chrome",
@@ -6326,7 +6326,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.1.2; LGMS500 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6355,7 +6355,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.1.2; Torque Build/JZO54K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19" : {
       "beta" : ".1025.166",
@@ -6419,7 +6419,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH Fierce Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "beta" : ".1500.94",
@@ -6481,7 +6481,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; Hudl HT7S3 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Safari/537.36" : {
       "browser" : "chrome",
@@ -6510,7 +6510,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; Lenovo A3000-H Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Safari/537.36" : {
       "browser" : "chrome",
@@ -6539,7 +6539,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; Micromax A177 Build/MicromaxA177) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6568,7 +6568,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; SM-T310 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.94 Safari/537.36" : {
       "browser" : "chrome",
@@ -6597,7 +6597,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.2.2; en-us; SAMSUNG SGH-M919 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19" : {
       "beta" : ".1025.308",
@@ -6662,7 +6662,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; 0PCV1 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6691,7 +6691,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; 7040N Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6720,7 +6720,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00J Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6749,7 +6749,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; Aqua Y2 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
       "beta" : ".0.0",
@@ -6811,7 +6811,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/4.3.10.88581490.arm" : {
       "browser" : "chrome",
@@ -6840,7 +6840,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; HTC One Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/4.2.16.87075793.arm" : {
       "browser" : "chrome",
@@ -6869,7 +6869,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LG-D321 Build/KOT49I.D32110c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/3.1.24.941712.arm" : {
       "browser" : "chrome",
@@ -6898,7 +6898,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LG-D415 Build/KOT49I.D41510e) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6927,7 +6927,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LG-D801 Build/KOT49I.D80120g) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -6956,7 +6956,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LG-D959 Build/KOT49I.D95920s) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/4.2.16.87075793.arm" : {
       "browser" : "chrome",
@@ -6985,7 +6985,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LGLS620 Build/KOT49I.LS620ZV3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7014,7 +7014,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; LGMS395 Build/KOT49I.MS39510d) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
       "beta" : ".2214.89",
@@ -7076,7 +7076,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; N9520 Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/3.1.24.941712.arm" : {
       "browser" : "chrome",
@@ -7105,7 +7105,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SAMSUNG-SGH-I537 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7134,7 +7134,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SCH-I535 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/3.6.16.1614640.arm" : {
       "browser" : "chrome",
@@ -7163,7 +7163,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SCH-I545 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7192,7 +7192,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-G386T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7221,7 +7221,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-G870W Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/4.3.10.88581490.arm" : {
       "browser" : "chrome",
@@ -7250,7 +7250,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900M Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7279,7 +7279,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/3.3.11.1069658.arm" : {
       "browser" : "chrome",
@@ -7308,7 +7308,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7337,7 +7337,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-N900T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7366,7 +7366,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-P600 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Safari/537.36" : {
       "browser" : "chrome",
@@ -7395,7 +7395,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-T230NU Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Safari/537.36" : {
       "browser" : "chrome",
@@ -7424,7 +7424,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SM-T520 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Safari/537.36" : {
       "browser" : "chrome",
@@ -7453,7 +7453,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; SPH-L710 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 GSA/4.3.10.88581490.arm" : {
       "browser" : "chrome",
@@ -7482,7 +7482,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; VS980 4G Build/KOT49I.VS98027A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7511,7 +7511,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; VS980 4G Build/KOT49I.VS98027A) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 ACHEETAHI/2100501074" : {
       "browser" : "chrome",
@@ -7540,7 +7540,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; VS985 4G Build/KVT49L.VS98512B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7569,7 +7569,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; XT1032 Build/KXB20.9-1.10-1.9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7598,7 +7598,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; XT1056 Build/KXA20.16-1.32) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
       "beta" : ".2214.89",
@@ -7695,7 +7695,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG GT-I9505 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7726,7 +7726,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SM-G900T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.6 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7757,7 +7757,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SPH-L520 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7788,7 +7788,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SPH-L720 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7819,7 +7819,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG-SGH-I257 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7850,7 +7850,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.3; HTC One Build/KTU84L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -7879,7 +7879,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.3; KFTHWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/44.1.54 like Chrome/44.0.2403.63 Safari/537.36" : {
       "browser" : "silk",
@@ -7968,7 +7968,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; Nexus 10 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.92 Safari/537.36" : {
       "browser" : "chrome",
@@ -7997,7 +7997,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SAMSUNG-SM-G900A Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8026,7 +8026,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SAMSUNG-SM-N900A Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 GSA/4.2.16.87075793.arm" : {
       "browser" : "chrome",
@@ -8055,7 +8055,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SAMSUNG-SM-N910A Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 GSA/4.2.16.87075793.arm" : {
       "browser" : "chrome",
@@ -8084,7 +8084,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SGH-M919 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8113,7 +8113,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SM-G900V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 GSA/4.2.16.87075793.arm" : {
       "browser" : "chrome",
@@ -8142,7 +8142,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; SM-N900V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8171,7 +8171,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1030 Build/SU6-7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8200,7 +8200,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1031 Build/KXB21.14-L1.57) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
       "beta" : ".2214.89",
@@ -8328,7 +8328,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1254 Build/SU2-12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8357,7 +8357,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; en-us; SAMSUNG SM-G900P Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.6 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8388,7 +8388,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 4.4.4; en-us; SAMSUNG SM-N900P Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8419,7 +8419,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; HTC One_M8 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8448,7 +8448,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; HTC6525LVW Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8477,7 +8477,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; LG-D850 Build/LRX21Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8506,7 +8506,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; Nexus 5 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8535,7 +8535,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.1; Nexus 5 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.89 Mobile Safari/537.36" : {
       "beta" : ".2214.89",
@@ -8597,7 +8597,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0.2; Nexus 7 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Safari/537.36 YJApp-ANDROID jp.co.yahoo.android.yjtop/10.0.31" : {
       "browser" : "chrome",
@@ -8626,7 +8626,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8655,7 +8655,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0; SM-G900V Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8684,7 +8684,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/LMY47D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -8713,7 +8713,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "5.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 1.5; en-gb; HTC Hero Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" : {
       "browser" : "safari",
@@ -8744,7 +8744,7 @@
       "os_minor" : ".5",
       "os_string" : "Android",
       "os_version" : "1.5",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 1.6; en-us; xpndr_ihome Build/DRD35) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" : {
       "browser" : "safari",
@@ -8775,7 +8775,7 @@
       "os_minor" : ".6",
       "os_string" : "Android",
       "os_version" : "1.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.4; en-gb; SonyEricssonMT15iv Build/4.0.2.A.0.62) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
       "browser" : "safari",
@@ -8806,7 +8806,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "2.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; DROID3 Build/5.5.1_84_D3G-66_M2-10) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
       "beta" : ".1",
@@ -8898,7 +8898,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "2.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 Silk-Accelerated=true" : {
       "browser" : "silk",
@@ -8958,7 +8958,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "2.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.6; nl-nl; GT-S5360 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
       "browser" : "safari",
@@ -8989,7 +8989,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "2.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; ZTE V768 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" : {
       "browser" : "safari",
@@ -9020,7 +9020,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "2.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.45 like Chrome/37.0.2026.117 Safari/537.36" : {
       "browser" : "silk",
@@ -9084,7 +9084,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.44 like Chrome/37.0.2026.117 Safari/537.36" : {
       "browser" : "silk",
@@ -9148,7 +9148,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; C5170 Build/IML77) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9179,7 +9179,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; LG-MS770 Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9210,7 +9210,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; SCH-S738C Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9241,7 +9241,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; SGH-T989 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9272,7 +9272,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; SPH-D710 Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9303,7 +9303,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; XT897 Build/7.7.1Q-6_SPR-89_ASA-36) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9334,7 +9334,7 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; EVO Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9399,7 +9399,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; ADR910L 4G Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9464,7 +9464,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; LG-D520 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9495,7 +9495,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SAMSUNG-SGH-I747 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9526,7 +9526,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SCH-I535 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9557,7 +9557,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-T999 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9588,7 +9588,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-T999L Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -9619,7 +9619,7 @@
       "os_minor" : ".1",
       "os_string" : "Android",
       "os_version" : "4.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.1; en-us; H920 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9684,7 +9684,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-ie; GT-S7580 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 GSA/4.2.16.87075793.arm" : {
       "browser" : "safari",
@@ -9715,7 +9715,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; EDGE Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9780,7 +9780,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Lenovo A316i/S008) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9844,7 +9844,7 @@
       "os_minor" : ".2",
       "os_string" : "Android",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Wildfire S A510e Build/CM10.1-Release-Candidate-v2.1; CyanogenMod-CM10.1) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "beta" : ".30",
@@ -9909,7 +9909,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "4.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.3; en-us; C6530N Build/JLS36C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 GSA/3.4.16.1149292.arm" : {
       "browser" : "safari",
@@ -9940,7 +9940,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "4.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.3; vi-vn; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 GSA/4.3.10.88581490.arm" : {
       "browser" : "safari",
@@ -9971,7 +9971,7 @@
       "os_minor" : ".3",
       "os_string" : "Android",
       "os_version" : "4.3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LG-D800/D80020y Build/KOT49I.D80020y) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.2 Chrome/30.0.1599.103 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -10002,7 +10002,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LG-D851 Build/KVT49L.D85110r) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.1847.118 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -10033,7 +10033,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.1599.103 Mobile Safari/537.36" : {
       "browser" : "chrome",
@@ -10064,7 +10064,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SM-T210R Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30" : {
       "browser" : "safari",
@@ -10094,7 +10094,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SPH-L710 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16" : {
       "browser" : "safari",
@@ -10125,7 +10125,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SPH-L900 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -10156,7 +10156,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; GT-I9500 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.0 QQ-Manager Mobile Safari/537.36" : {
       "browser" : "safari",
@@ -10187,7 +10187,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.3; KFTHWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/44.1.54 like Chrome/44.0.2403.63 Mobile Safari/537.36" : {
       "browser" : "silk",
@@ -10245,7 +10245,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.3; en-us; KFTHWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36" : {
       "browser" : "silk",
@@ -10276,7 +10276,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Linux; U; Android 4.4.4; en-us; SM-G360P Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" : {
       "browser" : "safari",
@@ -10307,7 +10307,7 @@
       "os_minor" : ".4",
       "os_string" : "Android",
       "os_version" : "4.4",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:35.0) Gecko/20100101 Firefox/35.0" : {
       "browser" : "firefox",
@@ -10360,7 +10360,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0 (FlipboardProxy/1.1; +http://flipboard.com/browserproxy)" : {
       "browser" : "firefox",
@@ -10417,7 +10417,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" : {
       "browser" : "chrome",
@@ -10443,7 +10443,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36" : {
       "browser" : "chrome",
@@ -10469,7 +10469,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36" : {
       "browser" : "chrome",
@@ -10495,7 +10495,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2251.0 Safari/537.36" : {
       "browser" : "chrome",
@@ -10521,7 +10521,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko) QuickLook/5.0" : {
       "browser" : "safari",
@@ -10547,7 +10547,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5" : {
       "browser" : "safari",
@@ -10572,7 +10572,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1; +http://www.apple.com/go/applebot)" : {
       "browser" : "safari",
@@ -10630,7 +10630,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.22 Safari/537.36" : {
       "browser" : "chrome",
@@ -10656,7 +10656,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18" : {
       "browser" : "safari",
@@ -10681,7 +10681,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.9 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36" : {
       "browser" : "brave",
@@ -10707,7 +10707,7 @@
       "os_minor" : ".11",
       "os_string" : "Mac OS X",
       "os_version" : "10.11",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_2) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.41 Safari/535.1" : {
       "browser" : "chrome",
@@ -10733,7 +10733,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_4) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" : {
       "browser" : "chrome",
@@ -10759,7 +10759,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.24 (KHTML, like Gecko) (Contact: backend@getprismatic.com)" : {
       "browser" : "safari",
@@ -10785,7 +10785,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.202 Safari/535.1" : {
       "browser" : "chrome",
@@ -10811,7 +10811,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.790.0 Safari/535.1" : {
       "browser" : "chrome",
@@ -10837,7 +10837,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2" : {
       "browser" : "safari",
@@ -10862,7 +10862,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.59.8 (KHTML, like Gecko) Version/5.1.9 Safari/534.59.8" : {
       "browser" : "safari",
@@ -10887,7 +10887,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.803.0 Safari/535.1" : {
       "browser" : "chrome",
@@ -10913,7 +10913,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.65 Safari/535.11" : {
       "browser" : "chrome",
@@ -10939,7 +10939,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22" : {
       "browser" : "safari",
@@ -10964,7 +10964,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20" : {
       "browser" : "chrome",
@@ -10990,7 +10990,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.11 (KHTML, like Gecko)(compatible; http://url-validation.citygrid.com/) Chrome/23.0.1271.95 Safari/537.11" : {
       "browser" : "chrome",
@@ -11016,7 +11016,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36" : {
       "browser" : "chrome",
@@ -11042,7 +11042,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.78.2 (KHTML, like Gecko) Version/6.1.6 Safari/537.78.2" : {
       "browser" : "safari",
@@ -11067,7 +11067,7 @@
       "os_minor" : ".7",
       "os_string" : "Mac OS X",
       "os_version" : "10.7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3" : {
       "browser" : "chrome",
@@ -11093,7 +11093,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" : {
       "browser" : "safari",
@@ -11118,7 +11118,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.13 (KHTML, like Gecko) Chrome/30.0.1599.66 Safari/537.13 Luminator/2.0" : {
       "browser" : "chrome",
@@ -11144,7 +11144,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36" : {
       "browser" : "chrome",
@@ -11170,7 +11170,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" : {
       "browser" : "chrome",
@@ -11196,7 +11196,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/6.2.3 Safari/537.85.12" : {
       "browser" : "safari",
@@ -11221,7 +11221,7 @@
       "os_minor" : ".8",
       "os_string" : "Mac OS X",
       "os_version" : "10.8",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/537.75.14" : {
       "browser" : "safari",
@@ -11246,7 +11246,7 @@
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36" : {
       "browser" : "chrome",
@@ -11272,7 +11272,7 @@
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.65 Safari/537.36" : {
       "browser" : "chrome",
@@ -11298,7 +11298,7 @@
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/7.1.2 Safari/537.85.11" : {
       "browser" : "safari",
@@ -11323,7 +11323,7 @@
       "os_minor" : ".9",
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; PPC Mac OS X; U; en) Opera 8.0" : {
       "browser" : "opera",
@@ -11339,7 +11339,7 @@
       ],
       "os" : "macosx",
       "os_string" : "Mac OS X",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3" : {
       "browser" : "firefox",
@@ -11367,7 +11367,7 @@
       "os_minor" : ".5",
       "os_string" : "Mac OS X",
       "os_version" : "10.5",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_8; zh-cn) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5" : {
       "browser" : "safari",
@@ -11394,7 +11394,7 @@
       "os_minor" : ".5",
       "os_string" : "Mac OS X",
       "os_version" : "10.5",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true" : {
       "browser" : "silk",
@@ -11465,7 +11465,7 @@
       ],
       "os" : "macosx",
       "os_string" : "Mac OS X",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; U; U; PPC Mac OS X 10_5_7 rv:2.0; de) AppleWebKit/533.37.2 (KHTML, like Gecko) Version/5.0.3 Safari/533.37.2" : {
       "browser" : "safari",
@@ -11492,7 +11492,7 @@
       "os_minor" : ".5",
       "os_string" : "Mac OS X",
       "os_version" : "10.5",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 520) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537" : {
       "browser" : "ie",
@@ -11526,7 +11526,7 @@
       "os_minor" : ".1",
       "os_string" : "Windows Phone",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 929) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537" : {
       "browser" : "ie",
@@ -11560,7 +11560,7 @@
       "os_minor" : ".1",
       "os_string" : "Windows Phone",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.15 NintendoBrowser/4.1.1.9601.US" : {
       "browser" : "safari",
@@ -11578,7 +11578,7 @@
          "safari",
          "webkit"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Series40; NokiaAsha230DualSIM/13.5.2/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/5.5.0.0.20" : {
       "browser" : "mozilla",
@@ -11601,7 +11601,7 @@
          "nav6up",
          "gecko"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (SymbianOS/9.2  U  Series60/3.1 NokiaE51-1/300.34.56  Proxxx/MIDP-2.0 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413" : {
       "browser" : "safari",
@@ -11621,7 +11621,7 @@
          "safari",
          "webkit"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (TweetmemeBot/4.0; +http://datasift.com/bot.html) Gecko/20100101 Firefox/31.0" : {
       "browser" : "firefox",
@@ -11661,7 +11661,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows  U  Windows NT 6.1  ru  rv:1.9.2.13) Gecko/20101203 MRA 5.7 (build 03797) Firefox/3.6.13 sputnik 2.4.0.54" : {
       "browser" : "firefox",
@@ -11685,7 +11685,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/5321 (KHTML, like Gecko) Chrome/13.0.893.0 Safari/5321" : {
       "browser" : "chrome",
@@ -11707,7 +11707,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/534.25 (KHTML, like Gecko) Chrome/12.0.704.0 Safari/534.25" : {
       "browser" : "chrome",
@@ -11731,7 +11731,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/534.25 (KHTML, like Gecko) Chrome/12.0.706.0 Safari/534.25" : {
       "browser" : "chrome",
@@ -11755,7 +11755,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79 Safari/535.11" : {
       "browser" : "chrome",
@@ -11779,7 +11779,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/24.0.1290.1 Safari/537.13" : {
       "browser" : "chrome",
@@ -11803,7 +11803,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60" : {
       "browser" : "opera",
@@ -11826,7 +11826,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36" : {
       "browser" : "chrome",
@@ -11850,7 +11850,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/46.0 Chrome/40.0.2214.121_coc_coc Safari/537.36" : {
       "browser" : "chrome",
@@ -11874,7 +11874,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)" : {
       "browser" : "firefox",
@@ -11897,7 +11897,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:12.0) Gecko/20120403211507 Firefox/12.0" : {
       "browser" : "firefox",
@@ -11920,7 +11920,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:21.0) Gecko/20130401 Firefox/21.0" : {
       "browser" : "firefox",
@@ -11943,7 +11943,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:22.0) Gecko/20100101 Firefox/22.0 Paros/3.2.13" : {
       "browser" : "firefox",
@@ -11966,7 +11966,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:24.0) Gecko/20140208 Firefox/24.0 PaleMoon/24.3.2" : {
       "browser" : "firefox",
@@ -11989,7 +11989,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:32.0) Gecko/20100101 Firefox/32.0" : {
       "browser" : "firefox",
@@ -12012,7 +12012,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:35.0) Gecko/20100101 Firefox/35.0" : {
       "browser" : "firefox",
@@ -12035,7 +12035,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:35.0) Gecko/20100101 Firefox/35.0 AlexaToolbar/alxf-2.21" : {
       "browser" : "firefox",
@@ -12058,7 +12058,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2" : {
       "browser" : "firefox",
@@ -12082,7 +12082,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.220 Safari/535.1" : {
       "browser" : "chrome",
@@ -12106,7 +12106,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.0; es-ES; rv:1.9.2.20) Gecko/20120126 Firefox/5.0" : {
       "browser" : "firefox",
@@ -12131,7 +12131,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.0; rv:22.0) Gecko/20130405 Firefox/22.0" : {
       "browser" : "firefox",
@@ -12154,7 +12154,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML like Gecko) Chrome/15.0.874.121 Safari/535.2" : {
       "browser" : "chrome",
@@ -12178,7 +12178,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/18.6.872.0 Safari/535.2 UNTRUSTED/1.0 3gpp-gba UNTRUSTED/1.0" : {
       "browser" : "chrome",
@@ -12202,7 +12202,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.11 (KHTML like Gecko) Chrome/20.0.1132.47 Safari/536.11" : {
       "browser" : "chrome",
@@ -12226,7 +12226,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML like Gecko) Chrome/21.0.1180.83 Safari/537.1" : {
       "browser" : "chrome",
@@ -12250,7 +12250,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatible; HaosouSpider; http://www.haosou.com/help/help_3_2.html)" : {
       "browser" : "chrome",
@@ -12303,7 +12303,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML like Gecko) Chrome/23.0.1271.97 Safari/537.11" : {
       "browser" : "chrome",
@@ -12327,7 +12327,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML like Gecko) Chrome/24.0.1312.56 Safari/537.17" : {
       "browser" : "chrome",
@@ -12351,7 +12351,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML like Gecko) Chrome/25.0.1364.152 Safari/537.22" : {
       "browser" : "chrome",
@@ -12375,7 +12375,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML like Gecko) Chrome/27.0.1453.110 Safari/537.36" : {
       "browser" : "chrome",
@@ -12399,7 +12399,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML like Gecko) Chrome/28.0.1500.71 Safari/537.36" : {
       "browser" : "chrome",
@@ -12423,7 +12423,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML like Gecko) Chrome/28.0.1500.72 Safari/537.36" : {
       "browser" : "chrome",
@@ -12447,7 +12447,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML like Gecko) Chrome/29.0.1547.57 Safari/537.36" : {
       "browser" : "chrome",
@@ -12471,7 +12471,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML like Gecko) Chrome/33.0.1750.146 Safari/537.36" : {
       "browser" : "chrome",
@@ -12495,7 +12495,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36 OPR/18.0.1284.63" : {
       "browser" : "opera",
@@ -12518,7 +12518,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 YaBrowser/14.10.2062.12521 Safari/537.36" : {
       "browser" : "chrome",
@@ -12542,7 +12542,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36" : {
       "browser" : "chrome",
@@ -12566,7 +12566,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36 OPR/27.0.1689.76" : {
       "browser" : "opera",
@@ -12589,7 +12589,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 YaBrowser/15.2.2214.3645 Safari/537.36" : {
       "browser" : "chrome",
@@ -12613,7 +12613,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36" : {
       "browser" : "chrome",
@@ -12637,7 +12637,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.4 (KHTML like Gecko) Chrome/22.0.1229.79 Safari/537.4" : {
       "browser" : "chrome",
@@ -12661,7 +12661,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b" : {
       "browser" : "safari",
@@ -12682,7 +12682,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML like Gecko) Chrome/13.0.782.112 Safari/535.1" : {
       "browser" : "chrome",
@@ -12706,7 +12706,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML like Gecko) Chrome/18.0.1025.162 Safari/535.19" : {
       "browser" : "chrome",
@@ -12730,7 +12730,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML like Gecko) Chrome/18.0.1025.168 Safari/535.19" : {
       "browser" : "chrome",
@@ -12754,7 +12754,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3" : {
       "browser" : "chrome",
@@ -12778,7 +12778,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML like Gecko) Chrome/19.0.1084.52 Safari/536.5" : {
       "browser" : "chrome",
@@ -12802,7 +12802,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6 Chrome 19.0.1084.9" : {
       "beta" : ".1092.0",
@@ -12854,7 +12854,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML like Gecko) Chrome/23.0.1271.64 Safari/537.11" : {
       "browser" : "chrome",
@@ -12878,7 +12878,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML like Gecko) Chrome/23.0.1271.91 Safari/537.11" : {
       "browser" : "chrome",
@@ -12902,7 +12902,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML like Gecko) Chrome/24.0.1312.57 Safari/537.17" : {
       "browser" : "chrome",
@@ -12926,7 +12926,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML like Gecko) Chrome/25.0.1364.172 Safari/537.22" : {
       "browser" : "chrome",
@@ -12950,7 +12950,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML like Gecko) Chrome/25.0.1364.97 Safari/537.22" : {
       "browser" : "chrome",
@@ -12974,7 +12974,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML like Gecko) Chrome/26.0.1410.43 Safari/537.31" : {
       "browser" : "chrome",
@@ -12998,7 +12998,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/29.0.1547.76 Safari/537.36" : {
       "browser" : "chrome",
@@ -13022,7 +13022,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/31.0.1650.63 Safari/537.36" : {
       "browser" : "chrome",
@@ -13046,7 +13046,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/34.0.1847.137 Safari/537.36" : {
       "browser" : "chrome",
@@ -13070,7 +13070,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/35.0.1916.153 Safari/537.36" : {
       "browser" : "chrome",
@@ -13094,7 +13094,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36" : {
       "browser" : "chrome",
@@ -13118,7 +13118,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0" : {
       "beta" : ".1916.153",
@@ -13170,7 +13170,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36" : {
       "browser" : "chrome",
@@ -13194,7 +13194,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36" : {
       "browser" : "chrome",
@@ -13218,7 +13218,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36" : {
       "browser" : "chrome",
@@ -13242,7 +13242,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.122 Safari/537.36 OPR/24.0.1558.64" : {
       "browser" : "opera",
@@ -13265,7 +13265,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36" : {
       "browser" : "chrome",
@@ -13289,7 +13289,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Dragon/36.1.1.21 Chrome/36.0.1985.97 Safari/537.36" : {
       "browser" : "chrome",
@@ -13313,7 +13313,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Iron/29.0.1600.1 Chrome/29.0.1600.1 Safari/537.36" : {
       "browser" : "chrome",
@@ -13337,7 +13337,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2" : {
       "browser" : "firefox",
@@ -13361,7 +13361,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:11.0) Gecko Firefox/11.0" : {
       "browser" : "firefox",
@@ -13411,7 +13411,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b7) Gecko/20101111 Firefox/4.0b7" : {
       "browser" : "firefox",
@@ -13435,7 +13435,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20130330 Firefox/21.0" : {
       "browser" : "firefox",
@@ -13458,7 +13458,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.10 Chrome/47.0.2526.110 Brave/0.36.5 Safari/537.36" : {
       "browser" : "brave",
@@ -13482,7 +13482,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) KomodiaBot/1.0" : {
       "browser" : "netscape",
@@ -13532,7 +13532,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.2) Gecko/20150122 Firefox/31.9 PaleMoon/25.2.1" : {
       "browser" : "firefox",
@@ -13555,7 +13555,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:12.0) Gecko/ 20120405 Firefox/14.0.1" : {
       "beta" : ".1",
@@ -13606,7 +13606,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:2.0b7pre) Gecko/20100921 Firefox/4.0b7pre" : {
       "browser" : "firefox",
@@ -13630,7 +13630,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:21.0) Gecko/20130328 Firefox/21.0" : {
       "browser" : "firefox",
@@ -13653,7 +13653,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:21.0) Gecko/20130331 Firefox/21.0" : {
       "browser" : "firefox",
@@ -13676,7 +13676,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:23.0) Gecko/20130406 Firefox/23.0" : {
       "browser" : "firefox",
@@ -13699,7 +13699,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:30.0) Gecko/20100101 Firefox/30.0" : {
       "browser" : "firefox",
@@ -13722,7 +13722,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google favicon" : {
       "browser" : "firefox",
@@ -13774,7 +13774,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/33.0.1750.117 Safari/537.36" : {
       "browser" : "chrome",
@@ -13799,7 +13799,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/33.0.1750.154 Safari/537.36" : {
       "browser" : "chrome",
@@ -13824,7 +13824,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2231.0 Safari/537.36" : {
       "browser" : "chrome",
@@ -13849,7 +13849,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:16.0.1) Gecko/20121011 Firefox/16.0.1" : {
       "browser" : "firefox",
@@ -13874,7 +13874,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36" : {
       "browser" : "chrome",
@@ -13899,7 +13899,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.2; rv:21.0) Gecko/20130326 Firefox/21.0" : {
       "browser" : "firefox",
@@ -13923,7 +13923,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/32.0.1700.107 Safari/537.36" : {
       "browser" : "chrome",
@@ -13948,7 +13948,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.65 Safari/537.36 OPR/26.0.1656.24" : {
       "browser" : "opera",
@@ -13972,7 +13972,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36" : {
       "browser" : "chrome",
@@ -13997,7 +13997,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.74 Safari/537.36" : {
       "browser" : "chrome",
@@ -14022,7 +14022,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; ASU2JS; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14050,7 +14050,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; LCJB; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14078,7 +14078,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MATBJS; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14106,7 +14106,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; TNJB; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14134,7 +14134,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; SMJB; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14162,7 +14162,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko" : {
       "browser" : "ie",
@@ -14190,7 +14190,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36" : {
       "browser" : "chrome",
@@ -14215,7 +14215,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.5a) Gecko/20030718" : {
       "browser" : "mozilla",
@@ -14245,7 +14245,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070309 Firefox/2.0.0.3" : {
       "browser" : "firefox",
@@ -14265,7 +14265,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070803 Firefox/1.5.0.12" : {
       "browser" : "firefox",
@@ -14285,7 +14285,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/3.0.195.21 Safari/532.0" : {
       "browser" : "chrome",
@@ -14311,7 +14311,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.5 (KHTML, like Gecko) Chrome/4.0.249.89 Safari/532.5" : {
       "browser" : "chrome",
@@ -14337,7 +14337,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.14 (KHTML, like Gecko) Chrome/10.0.601.0 Safari/534.14" : {
       "browser" : "chrome",
@@ -14363,7 +14363,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.14 (KHTML, like Gecko) Chrome/10.0.602.0 Safari/534.14" : {
       "browser" : "chrome",
@@ -14389,7 +14389,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.15 (KHTML, like Gecko) Chrome/10.0.612.1 Safari/534.15" : {
       "browser" : "chrome",
@@ -14415,7 +14415,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.628.0 Safari/534.16" : {
       "browser" : "chrome",
@@ -14441,7 +14441,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.644.0 Safari/534.16" : {
       "browser" : "chrome",
@@ -14467,7 +14467,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.127 Safari/534.16" : {
       "browser" : "chrome",
@@ -14493,7 +14493,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.151 Safari/534.16" : {
       "browser" : "chrome",
@@ -14519,7 +14519,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16 ChromePlus/1.6.1.0" : {
       "browser" : "chrome",
@@ -14545,7 +14545,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13" : {
       "browser" : "firefox",
@@ -14571,7 +14571,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14" : {
       "browser" : "firefox",
@@ -14597,7 +14597,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1" : {
       "browser" : "mozilla",
@@ -14627,7 +14627,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5" : {
       "browser" : "firefox",
@@ -14653,7 +14653,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; en; rv:1.9.0.13) Gecko/2009073022 Firefox/3.5.2 (.NET CLR 3.5.30729) SurveyBot/2.3 (DomainTools)" : {
       "browser" : "firefox",
@@ -14710,7 +14710,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; ru; rv:1.9.0.2) Gecko/2008091620 Firefox/3.0.2" : {
       "browser" : "firefox",
@@ -14735,7 +14735,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)" : {
       "browser" : "safari",
@@ -14760,7 +14760,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0" : {
       "browser" : "firefox",
@@ -14785,7 +14785,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.1.2) Firefox/3.5.2" : {
       "browser" : "firefox",
@@ -14804,7 +14804,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.2) Gecko/2008070208 Firefox/3.0.1" : {
       "browser" : "firefox",
@@ -14824,7 +14824,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.5a) Gecko/20030728 Mozilla Firebird/0.6.1" : {
       "browser" : "firefox",
@@ -14851,7 +14851,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.4) Gecko/20091007 Firefox/3.5.4" : {
       "browser" : "firefox",
@@ -14877,7 +14877,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-GB; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8 GTB5 (.NET CLR 3.5.30729)" : {
       "browser" : "firefox",
@@ -14904,7 +14904,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4" : {
       "browser" : "firefox",
@@ -14930,7 +14930,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6" : {
       "browser" : "firefox",
@@ -14956,7 +14956,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3 GTB6 (.NET CLR 3.5.30729)" : {
       "beta" : ".3",
@@ -15012,7 +15012,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; WOW64; en-US; rv:2.0.4) Gecko/20120718 AskTbAVR-IDW/3.12.5.17700 Firefox/14.0.1" : {
       "browser" : "firefox",
@@ -15038,7 +15038,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; de; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12" : {
       "browser" : "firefox",
@@ -15063,7 +15063,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.18 Safari/534.10" : {
       "browser" : "chrome",
@@ -15089,7 +15089,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.14 (KHTML, like Gecko) Chrome/10.0.606.0 Safari/534.14" : {
       "browser" : "chrome",
@@ -15115,7 +15115,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.638.0 Safari/534.16" : {
       "browser" : "chrome",
@@ -15141,7 +15141,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.642.2 Safari/534.16" : {
       "browser" : "chrome",
@@ -15167,7 +15167,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16" : {
       "browser" : "chrome",
@@ -15193,7 +15193,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" : {
       "browser" : "firefox",
@@ -15218,7 +15218,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.23) Gecko/20110920 Firefox/3.6.23" : {
       "browser" : "firefox",
@@ -15244,7 +15244,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.28) Gecko/20120306 Firefox/3.6.28" : {
       "browser" : "firefox",
@@ -15270,7 +15270,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; ru; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 sputnik 2.1.0.18 YB/4.3.0" : {
       "browser" : "firefox",
@@ -15295,7 +15295,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15" : {
       "browser" : "firefox",
@@ -15321,7 +15321,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS armv7l 6457.94.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.114 Safari/537.36" : {
       "browser" : "chrome",
@@ -15347,7 +15347,7 @@
       "os_minor" : ".94",
       "os_string" : "Chrome OS",
       "os_version" : "6457.94",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS i686 0.13.507) AppleWebKit/534.35 (KHTML, like Gecko) Chrome/13.0.763.0 Safari/534.35" : {
       "browser" : "chrome",
@@ -15373,7 +15373,7 @@
       "os_minor" : ".13",
       "os_string" : "Chrome OS",
       "os_version" : "0.13",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS i686 0.13.587) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.14 Safari/535.1" : {
       "browser" : "chrome",
@@ -15399,7 +15399,7 @@
       "os_minor" : ".13",
       "os_string" : "Chrome OS",
       "os_version" : "0.13",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS i686 1193.158.0) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.75 Safari/535.7" : {
       "browser" : "chrome",
@@ -15425,7 +15425,7 @@
       "os_minor" : ".158",
       "os_string" : "Chrome OS",
       "os_version" : "1193.158",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS x86_64 6310.68.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.96 Safari/537.36" : {
       "browser" : "chrome",
@@ -15451,7 +15451,7 @@
       "os_minor" : ".68",
       "os_string" : "Chrome OS",
       "os_version" : "6310.68",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; CrOS x86_64 6680.58.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36" : {
       "browser" : "chrome",
@@ -15477,7 +15477,7 @@
       "os_minor" : ".58",
       "os_string" : "Chrome OS",
       "os_version" : "6680.58",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; FreeBSD amd64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.65 Safari/535.11" : {
       "beta" : ".963.65",
@@ -15527,7 +15527,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux i686 on x86_64; rv:31.0) Gecko/20100101 Firefox/31.0" : {
       "browser" : "firefox",
@@ -15575,7 +15575,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.66 Safari/537.36" : {
       "browser" : "chrome",
@@ -15598,7 +15598,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5" : {
       "browser" : "mozilla",
@@ -15621,7 +15621,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) Arora/0.11.0 Safari/534.34" : {
       "browser" : "safari",
@@ -15643,7 +15643,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) Qt/4.8.2 Safari/534.34" : {
       "browser" : "safari",
@@ -15665,7 +15665,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) wkhtmltoimage Safari/534.34" : {
       "beta" : ".34",
@@ -15743,7 +15743,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.21 (KHTML, like Gecko) profiller Safari/537.21" : {
       "beta" : ".21",
@@ -15813,7 +15813,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/39.0.2171.65 Chrome/39.0.2171.65 Safari/537.36" : {
       "beta" : ".2171.65",
@@ -15863,7 +15863,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64; rv:2.0b9pre) Gecko/20110111 Firefox/4.0b9pre" : {
       "browser" : "firefox",
@@ -15886,7 +15886,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64; rv:24.0) Gecko/20140205 Firefox/24.0 Iceweasel/24.3.0" : {
       "browser" : "firefox",
@@ -15908,7 +15908,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.5) Gecko/20031021" : {
       "browser" : "mozilla",
@@ -15938,7 +15938,7 @@
       ],
       "os" : "unix",
       "os_string" : "FreeBSD",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i586; en-US) AppleWebKit/533.2 (KHTML, like Gecko) Chrome/5.0.342.1 Safari/533.2" : {
       "browser" : "chrome",
@@ -15963,7 +15963,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686 (x86_64); de; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13" : {
       "browser" : "firefox",
@@ -15982,7 +15982,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-GB; rv:1.9.0.18) Gecko/2010021501 Ubuntu/9.04 (jaunty) Firefox/3.0.18" : {
       "browser" : "firefox",
@@ -16007,7 +16007,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-GB; rv:1.9.0.6) Gecko/2009020414 CentOS/3.0.6-1.el5.centos Firefox/3.0.6" : {
       "browser" : "firefox",
@@ -16032,7 +16032,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.133 Safari/534.16" : {
       "browser" : "chrome",
@@ -16057,7 +16057,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041107 Firefox/1.0" : {
       "browser" : "firefox",
@@ -16081,7 +16081,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6" : {
       "browser" : "mozilla",
@@ -16110,7 +16110,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1.16) Gecko/20120421 Firefox/11.0" : {
       "browser" : "firefox",
@@ -16134,7 +16134,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.22) Gecko/20110905 Ubuntu/10.04 (lucid) Firefox/3.6.22" : {
       "browser" : "firefox",
@@ -16159,7 +16159,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.53 Safari/533.4" : {
       "browser" : "chrome",
@@ -16184,7 +16184,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.15 (KHTML, like Gecko) Chrome/10.0.613.0 Safari/534.15" : {
       "browser" : "chrome",
@@ -16209,7 +16209,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.12) Gecko/20080214 Firefox/2.0.0.12" : {
       "browser" : "firefox",
@@ -16234,7 +16234,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.0.11) Gecko/2009060309 Linux Mint/7 (Gloria) Firefox/3.0.11" : {
       "browser" : "firefox",
@@ -16259,7 +16259,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20100804 Gentoo Firefox/3.6.8" : {
       "beta" : ".8",
@@ -16312,7 +16312,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:10.0.7) Gecko/20120829 YextBot/Java Firefox/10.0.7" : {
       "browser" : "firefox",
@@ -16365,7 +16365,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; 007ac9 Crawler; http://crawler.007ac9.net/)" : {
       "browser_major" : "5",
@@ -16380,7 +16380,7 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
       "browser_major" : "5",
@@ -16510,7 +16510,7 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; Gluten Free Crawler/1.0; +http://glutenfreepleasure.com/)" : {
       "browser_major" : "5",
@@ -16641,7 +16641,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; Lipperhey SEO Service; http://www.lipperhey.com/)" : {
       "browser_major" : "5",
@@ -16691,7 +16691,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MAARJS)" : {
       "browser" : "ie",
@@ -16719,7 +16719,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MALNJS)" : {
       "browser" : "ie",
@@ -16747,7 +16747,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MASMJS)" : {
       "browser" : "ie",
@@ -16775,7 +16775,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MDDCJS)" : {
       "browser" : "ie",
@@ -16803,7 +16803,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 530)" : {
       "browser" : "ie",
@@ -16837,7 +16837,7 @@
       "os_minor" : ".0",
       "os_string" : "Windows Phone",
       "os_version" : "8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0" : {
       "browser" : "ie",
@@ -16865,7 +16865,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 8.0; MSIE 9.0; Windows NT 6.0; Trident/4.0; InfoPath.1; SV1; .NET CLR 3.8.36217; WOW64; en-US)" : {
       "browser" : "ie",
@@ -16895,7 +16895,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0; BOIE9;ENGB)" : {
       "browser" : "ie",
@@ -16922,7 +16922,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0; MSN Optimized;BE)" : {
       "browser" : "ie",
@@ -16949,7 +16949,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0; msn OptimizedIE8;PTPT)" : {
       "browser" : "ie",
@@ -16976,7 +16976,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinVista",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; BOIE9;NLNL)" : {
       "browser" : "ie",
@@ -17003,7 +17003,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; BOIE9;THTH)" : {
       "browser" : "ie",
@@ -17030,7 +17030,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; BOIE9;TRTR)" : {
       "browser" : "ie",
@@ -17057,7 +17057,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MANM)" : {
       "browser" : "ie",
@@ -17084,7 +17084,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; msn OptimizedIE8;ENMY)" : {
       "browser" : "ie",
@@ -17111,7 +17111,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; yie9)" : {
       "browser" : "ie",
@@ -17138,7 +17138,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; BOIE9;ENCA)" : {
       "browser" : "ie",
@@ -17165,7 +17165,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; BOIE9;ENUSMSNIP)" : {
       "browser" : "ie",
@@ -17192,7 +17192,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; MAAU)" : {
       "browser" : "ie",
@@ -17219,7 +17219,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; NP06)" : {
       "browser" : "ie",
@@ -17246,7 +17246,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506; .NET CLR 3.5.21022; InfoPath.2; BitTitan)" : {
       "browser" : "ie",
@@ -17274,7 +17274,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; BOIE9;ENUSSEM)" : {
       "browser" : "ie",
@@ -17301,7 +17301,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server; + http://tab.search.daum.net/aboutWebSearch.html) Daumoa/3.0" : {
       "browser" : "ie",
@@ -17463,7 +17463,7 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (compatible; XoviBot/2.0; +http://www.xovibot.net/)" : {
       "browser_major" : "2",
@@ -17658,7 +17658,7 @@
          "chrome",
          "webkit"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3" : {
       "browser" : "safari",
@@ -17687,7 +17687,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "5.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3" : {
       "browser" : "safari",
@@ -17716,7 +17716,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "5.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26(KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25" : {
       "browser" : "safari",
@@ -17745,7 +17745,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "6.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25" : {
       "beta" : ".25",
@@ -17807,7 +17807,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "6.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) GSA/3.2.1.25875 Mobile/10B329 Safari/8536.25" : {
       "browser" : "safari",
@@ -17836,7 +17836,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "6.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B511 Safari/9537.53" : {
       "beta" : ".53",
@@ -17898,7 +17898,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "7.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) GSA/4.1.0.31802 Mobile/11D201 Safari/9537.53" : {
       "browser" : "safari",
@@ -17927,7 +17927,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "7.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53" : {
       "beta" : ".53",
@@ -17989,7 +17989,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "7.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53" : {
       "beta" : ".53",
@@ -18213,7 +18213,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; CPU OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12D508 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18242,7 +18242,7 @@
       "os_minor" : ".2",
       "os_string" : "iOS",
       "os_version" : "8.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; U; CPU OS 3_2_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B500 Safari/531.21.10" : {
       "browser" : "safari",
@@ -18273,7 +18273,7 @@
       "os_minor" : ".2",
       "os_string" : "iOS",
       "os_version" : "3.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5" : {
       "browser" : "safari",
@@ -18304,7 +18304,7 @@
       "os_minor" : ".2",
       "os_string" : "iOS",
       "os_version" : "4.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B208 Safari/7534.48.3" : {
       "browser" : "safari",
@@ -18333,7 +18333,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "5.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" : {
       "browser" : "safari",
@@ -18398,7 +18398,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "6.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0;  http://www.bing.com/bingbot.htm)" : {
       "browser" : "safari",
@@ -18463,7 +18463,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "7.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) GSA/4.2.1.37597 Mobile/11B511 Safari/9537.53" : {
       "browser" : "safari",
@@ -18492,7 +18492,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "7.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a [FBAN/FBIOS;FBAV/13.0.0.25.19;FBBV/3507499;FBDV/iPhone6,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/7.0.4;FBSS/2; FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/5]" : {
       "browser" : "safari",
@@ -18522,7 +18522,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "7.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53" : {
       "browser" : "safari",
@@ -18551,7 +18551,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "7.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D167 Safari/9537.53" : {
       "browser" : "safari",
@@ -18580,7 +18580,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "7.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53" : {
       "browser" : "safari",
@@ -18609,7 +18609,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "7.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53" : {
       "browser" : "safari",
@@ -18638,7 +18638,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "7.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18667,7 +18667,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A405 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18696,7 +18696,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18725,7 +18725,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B411 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18754,7 +18754,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) GSA/4.2.2.38484 Mobile/12B435 Safari/9537.53" : {
       "browser" : "safari",
@@ -18783,7 +18783,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B435 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18812,7 +18812,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B436 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18841,7 +18841,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) GSA/5.2.43972 Mobile/12B440 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18870,7 +18870,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) OPiOS/10.0.0.89592 Mobile/12B466 Safari/9537.53" : {
       "browser" : "safari",
@@ -18899,7 +18899,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B466 Safari/600.1.4" : {
       "browser" : "safari",
@@ -18928,7 +18928,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12D508 [FBAN/FBIOS;FBAV/27.0.0.10.12;FBBV/8291884;FBDV/iPhone6,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/8.2;FBSS/2; FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5]" : {
       "browser" : "safari",
@@ -18958,7 +18958,7 @@
       "os_minor" : ".2",
       "os_string" : "iOS",
       "os_version" : "8.2",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16; Ipad" : {
       "browser" : "safari",
@@ -18989,7 +18989,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "3.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7" : {
       "browser" : "safari",
@@ -19020,7 +19020,7 @@
       "os_minor" : ".0",
       "os_string" : "iOS",
       "os_version" : "4.0",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPod touch; CPU iPhone OS 8_1_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B440 Safari/600.1.4" : {
       "browser" : "safari",
@@ -19049,7 +19049,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "8.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 (iPod; CPU iPhone OS 6_1_6 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B500 Safari/8536.25" : {
       "browser" : "safari",
@@ -19078,7 +19078,7 @@
       "os_minor" : ".1",
       "os_string" : "iOS",
       "os_version" : "6.1",
-      "robot" : 0
+      "robot" : null
    },
    "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview Analytics) Chrome/27.0.1453 Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" : {
       "browser" : "chrome",
@@ -19148,7 +19148,7 @@
       "browser_major" : "1",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "NerdyBot" : {
       "browser_major" : 0,
@@ -19170,7 +19170,7 @@
          "wap",
          "mobile"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "OMozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.9) Gecko/20100827 Red Hat/3.6.9-2.el6 Firefox/3.6.9" : {
       "beta" : ".9",
@@ -19216,7 +19216,7 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/7.60 (Windows NT 5.2; U)  [en] (IBM EVV/3.0/EAK01AG9/LE)" : {
       "browser" : "opera",
@@ -19234,7 +19234,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win2k3",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Android; Opera Mini/7.5.33361/31.1543; U; en) Presto/2.8.119 Version/11.1010" : {
       "browser" : "opera",
@@ -19259,7 +19259,7 @@
       ],
       "os" : "android",
       "os_string" : "Android",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Android; Opera Mini/7.5.54678/28.2555; U; ru) Presto/2.10.289 Version/12.02" : {
       "browser" : "opera",
@@ -19284,7 +19284,7 @@
       ],
       "os" : "android",
       "os_string" : "Android",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Android; Opera Mini/7.6.40234/35.7827; U; en) Presto/2.8.119 Version/11.10" : {
       "browser" : "opera",
@@ -19309,7 +19309,7 @@
       ],
       "os" : "android",
       "os_string" : "Android",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.23511/28.2555; U; ru) Presto/2.10.181 Version/12.00" : {
       "browser" : "opera",
@@ -19328,7 +19328,7 @@
          "opera",
          "presto"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31998/35.7827; U; en) Presto/2.8.119 Version/11.10" : {
       "browser" : "opera",
@@ -19347,7 +19347,7 @@
          "opera",
          "presto"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Macintosh; Intel Mac OS X 10.10.2; U; en) Presto/2.10.289 Version/12.02" : {
       "browser" : "opera",
@@ -19373,7 +19373,7 @@
       "os_minor" : ".10",
       "os_string" : "Mac OS X",
       "os_version" : "10.10",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52" : {
       "browser" : "opera",
@@ -19399,7 +19399,7 @@
       "os_minor" : ".6",
       "os_string" : "Mac OS X",
       "os_version" : "10.6",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Windows NT 6.1; U; ru) Presto/2.8.131 Version/11.10" : {
       "browser" : "opera",
@@ -19423,7 +19423,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win7",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" : {
       "browser" : "opera",
@@ -19447,7 +19447,7 @@
       ],
       "os" : "windows",
       "os_string" : "Win8.0",
-      "robot" : 0
+      "robot" : null
    },
    "Opera/9.80 (iOS; Opera Mini/7.0.73345/28.2555; U; ru) Presto/2.10.229 Version/11.62" : {
       "browser" : "opera",
@@ -19466,7 +19466,7 @@
          "opera",
          "presto"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "OrgProbe/0.9.4 (+http://www.blocked.org.uk)" : {
       "browser_beta" : ".4",
@@ -19487,7 +19487,7 @@
       "browser_major" : "5",
       "browser_minor" : ".2",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "PHPCrawl" : {
       "browser_major" : 0,
@@ -19511,26 +19511,26 @@
       ],
       "os" : "android",
       "os_string" : "Android",
-      "robot" : 0
+      "robot" : null
    },
    "Photon/1.0" : {
       "browser_major" : "1",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "PycURL/7.38.0-DEV" : {
       "browser_beta" : ".0-dev",
       "browser_major" : "7",
       "browser_minor" : ".38",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Python-urllib/2.7" : {
       "browser_major" : "2",
       "browser_minor" : ".7",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Robot/1.0" : {
       "browser_major" : "1",
@@ -19549,7 +19549,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
       "browser_major" : "2",
@@ -19625,7 +19625,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "SuperPagesUrlVerifyBot/1.0" : {
       "browser_major" : "1",
@@ -19659,13 +19659,13 @@
       "browser_major" : "2",
       "browser_minor" : ".1",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "UnCSS" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "UniversalFeedParser/5.1.3 +https://code.google.com/p/feedparser/" : {
       "browser_beta" : ".3",
@@ -19768,14 +19768,14 @@
       ],
       "os" : "windows",
       "os_string" : "WinXP",
-      "robot" : 0
+      "robot" : null
    },
    "WordPress/4.0.1; http://www.example.com/" : {
       "browser_beta" : ".1;",
       "browser_major" : "4",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "Wotbox/2.01 (+http://www.wotbox.com/bot/)" : {
       "browser_major" : "2",
@@ -19831,7 +19831,7 @@
          "mobile",
          "windows"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "betaBot" : {
       "browser_major" : 0,
@@ -19846,14 +19846,14 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "com.apple.WebKit.WebContent/10600.2.5 CFNetwork/720.1.1 Darwin/14.0.0 (x86_64)" : {
       "browser_beta" : ".5",
       "browser_major" : "10600",
       "browser_minor" : ".2",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "curl/7.15.5 (i386-redhat-linux-gnu) libcurl/7.15.5 OpenSSL/0.9.8b zlib/1.2.3 libidn/0.6.5" : {
       "browser" : "curl",
@@ -19970,7 +19970,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "groupon-qa-spiderman" : {
       "browser_major" : 0,
@@ -20003,7 +20003,7 @@
       "browser_major" : "1",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "izsearch.com" : {
       "browser_major" : 0,
@@ -20034,13 +20034,13 @@
       "browser_major" : "71",
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "marine dredger for sale ( http://www.dredger.biz )" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "masscan/1.0 (https://github.com/robertdavidgraham/masscan)" : {
       "browser_major" : "1",
@@ -20059,7 +20059,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "msnbot/2.0b (+http://search.msn.com/msnbot.htm)" : {
       "browser_beta" : "b",
@@ -20103,7 +20103,7 @@
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "pilican/Nutch-1.9" : {
       "browser_major" : 0,
@@ -20129,7 +20129,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "python-requests/2.3.0 CPython/2.7.3 Linux/3.2.0-70-generic" : {
       "browser_beta" : ".0",
@@ -20141,7 +20141,7 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "python-requests/2.5.1 CPython/2.7.2 Windows/2008ServerR2" : {
       "browser_beta" : ".1",
@@ -20150,7 +20150,7 @@
       "match" : [
          "windows"
       ],
-      "robot" : 0
+      "robot" : null
    },
    "python-requests/2.5.3 CPython/2.6.6 Linux/2.6.32-431.el6.x86_64" : {
       "browser_beta" : ".3",
@@ -20162,19 +20162,19 @@
       ],
       "os" : "linux",
       "os_string" : "Linux",
-      "robot" : 0
+      "robot" : null
    },
    "rf-chrome-nm-host/1 CFNetwork/673.4 Darwin/13.3.0 (x86_64) (Macmini3%2C1)" : {
       "browser_major" : "673",
       "browser_minor" : ".4",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "the beast" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    },
    "tsip-agent/Nutch-1.8" : {
       "browser_major" : 0,
@@ -20194,6 +20194,6 @@
       "browser_major" : 0,
       "browser_minor" : ".2",
       "match" : [],
-      "robot" : 0
+      "robot" : null
    }
 }
