@@ -1,5 +1,6 @@
 [PerlTidy]
 select = {bin,lib,t}/**/*.{pl,pm,t,psgi}
+ignore = xt/**/*
 
 ; [PerlCritic]
 ; select = {bin,lib,t}/**/*.{pl,pm,t,psgi}
