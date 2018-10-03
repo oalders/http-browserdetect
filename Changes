@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.17      2018-10-03 02:02:53Z
     - Fix of 'wv' is not language + the new webview property (GH#139) (Perlover)
     - Patch for tests (GH#138) (Perlover)
