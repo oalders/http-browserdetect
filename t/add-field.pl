@@ -32,7 +32,7 @@ foreach my $ua ( sort keys %{$tests} ) {
         os os_beta os_major os_minor os_version os_string
         robot robot_string
         robot_version robot_major robot_minor robot_beta)
-        ) {
+    ) {
         no strict 'refs';
 
         my $field_name = $field;

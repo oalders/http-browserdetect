@@ -103,7 +103,7 @@ while (<>) {
                 robot_version
                 robot_beta
                 robot_string )
-                ) {
+            ) {
                 my $result = $detect->$method;
 
                 if ( defined($result) ) {

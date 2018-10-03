@@ -43,13 +43,19 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
             'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
             'webview',
-            ) {
+        ) {
             if ( exists $test->{$method} ) {
                 if ( defined $test->{$method} ) {
-                    eq_or_diff( $detected->$method, $test->{$method}, "$method: $test->{$method}");
+                    eq_or_diff(
+                        $detected->$method, $test->{$method},
+                        "$method: $test->{$method}"
+                    );
                 }
                 else {
-                    eq_or_diff( $detected->$method, $test->{$method}, "$method: undef" );
+                    eq_or_diff(
+                        $detected->$method, $test->{$method},
+                        "$method: undef"
+                    );
                 }
             }
         }
@@ -74,7 +80,7 @@ foreach my $ua ( sort ( keys %{$tests} ) ) {
             ios
             tablet
             )
-            ) {
+        ) {
 
             if (    exists $test->{$method}
                 and defined $test->{$method}
@@ -141,7 +147,7 @@ subtest $detected->user_agent, sub {
         device_name
         gecko_version
         )
-        ) {
+    ) {
         is_deeply(
             [ $detected->$method ],
             [undef], "$method should return undef in list context"
