@@ -36,10 +36,5 @@ on 'develop' => sub {
 };
 
 on 'develop' => sub {
-  suggests "Dist::Zilla::Plugin::BumpVersionAfterRelease::Transitional" => "0.004";
-  suggests "Dist::Zilla::Plugin::CopyFilesFromRelease" => "0";
-  suggests "Dist::Zilla::Plugin::Git::Commit" => "2.020";
-  suggests "Dist::Zilla::Plugin::Git::Tag" => "0";
-  suggests "Dist::Zilla::Plugin::NextRelease" => "5.033";
-  suggests "Dist::Zilla::Plugin::RewriteVersion::Transitional" => "0.004";
+  recommends "Dist::Zilla::PluginBundle::Git::VersionManager" => "0.007";
 };
