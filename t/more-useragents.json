@@ -10683,6 +10683,20 @@
       "os_version" : "10.10",
       "robot" : null
    },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36 Scanning for research (researchscan.comsys.rwth-aachen.de)" : {
+      "browser_major" : "5",
+      "browser_minor" : ".0",
+      "match" : [
+         "chrome",
+         "mac",
+         "macosx",
+         "researchscan",
+         "robot",
+         "webkit"
+      ],
+      "robot" : "researchscan",
+      "robot_name" : "Researchscan RWTH Aachen"
+   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.9 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36" : {
       "browser" : "brave",
       "browser_beta" : ".9",
