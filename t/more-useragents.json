@@ -17459,6 +17459,19 @@
       "robot_name" : "SeznamBot",
       "robot_version" : "3.2"
    },
+   "Mozilla/5.0 (compatible; SeznamBot/3.2; +http://napoveda.seznam.cz/en/seznambot-intro/)" : {
+      "browser_major" : "3",
+      "browser_minor" : ".2",
+      "match" : [
+         "robot"
+      ],
+      "robot" : "unknown",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".2",
+      "robot_name" : "SeznamBot",
+      "robot_version" : "3.2"
+   },
    "Mozilla/5.0 (compatible; U; Hootsuite-WebFeed/1.0; mailto:abuse@hootsuite.com)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
