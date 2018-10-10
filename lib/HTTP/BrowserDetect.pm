@@ -3193,7 +3193,7 @@ ids will also be frozen.
 
 =head3 all_robot_ids()
 
-This method returns an c<ArrayRef> of all possible C<robot_id> values.
+This method returns an C<ArrayRef> of all possible C<robot_id> values.
 
 =head2 robot_version(), robot_major(), robot_minor(), robot_beta()
 
