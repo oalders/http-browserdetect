@@ -8330,34 +8330,6 @@
       "os_version" : "4.4",
       "robot" : null
    },
-   "Mozilla/5.0 (Linux; Android 5.1; CUBOT_NOTE_S Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36" : {
-      "browser" : "chrome",
-      "browser_beta" : ".2357.93",
-      "browser_major" : "43",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
-      "device" : "android",
-      "device_string" : "Android (CUBOT_NOTE_S)",
-      "engine" : "webkit",
-      "engine_beta" : "",
-      "engine_major" : "537",
-      "engine_minor" : ".36",
-      "engine_string" : "WebKit",
-      "engine_version" : "537.36",
-      "match" : [
-         "device",
-         "android",
-         "mobile",
-         "chrome",
-         "webkit"
-      ],
-      "os" : "android",
-      "os_major" : "5",
-      "os_minor" : ".1",
-      "os_string" : "Android",
-      "os_version" : "5.1",
-      "robot" : null
-   },
    "Mozilla/5.0 (Linux; Android 4.4.4; XT1254 Build/SU2-12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36" : {
       "browser" : "chrome",
       "browser_beta" : ".2214.109",
@@ -8712,6 +8684,34 @@
       "os_minor" : ".0",
       "os_string" : "Android",
       "os_version" : "5.0",
+      "robot" : null
+   },
+   "Mozilla/5.0 (Linux; Android 5.1; CUBOT_NOTE_S Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_beta" : ".2357.93",
+      "browser_major" : "43",
+      "browser_minor" : ".0",
+      "browser_string" : "Chrome",
+      "device" : "android",
+      "device_string" : "Android (CUBOT_NOTE_S)",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
+      "match" : [
+         "device",
+         "android",
+         "mobile",
+         "chrome",
+         "webkit"
+      ],
+      "os" : "android",
+      "os_major" : "5",
+      "os_minor" : ".1",
+      "os_string" : "Android",
+      "os_version" : "5.1",
       "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/LMY47D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36" : {
