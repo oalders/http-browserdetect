@@ -186,6 +186,7 @@ our @ROBOT_TESTS = (
     [ 'quora link preview',                 'quora-link-preview' ],
     [ 'Qwantify',                           'qwantify' ],
     [ 'redditbot',                          'reddit', ],
+    [ 'researchscan',                       'researchscan' ],
     [ 'rogerbot',                           'rogerbot' ],
     [ 'ShowyouBot',                         'showyou' ],
     [ 'SkypeUriPreview',                    'skype-uri-preview' ],
@@ -270,6 +271,7 @@ my %ROBOT_NAMES = (
     puf                   => 'puf',
     'quora-link-preview'  => 'Quora Link Preview',
     qwantify              => 'Qwantify',
+    researchscan          => 'Researchscan RWTH Aachen',
     reddit                => 'Reddit',
     robot                 => 'robot',
     rogerbot              => 'Moz',
@@ -330,6 +332,7 @@ my %ROBOT_IDS = (
     puf             => 'puf',
     robot           => 'robot',
     rubylib         => 'ruby-http-library',
+    researchscan    => 'researchscan',
     slurp           => 'yahoo-slurp',
     specialarchiver => 'archive-org',
     wget            => 'wget',
@@ -1212,6 +1215,9 @@ sub _init_robots {
         $r                  = 'java';
         $robot_tests->{lib} = 1;
         $robot_fragment     = 'google';
+    }
+    elsif ( index( $ua, 'researchscan.comsys.rwth-aachen.de' ) != -1 ) {
+        $r = 'researchscan';
     }
 
     # These @ROBOT_TESTS were added in 3.15.  Some of them may need more
