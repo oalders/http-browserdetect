@@ -1287,10 +1287,11 @@ sub _init_robots {
     }
     else {
         # See if we have a simple fragment
-        FRAGMENT:
+    FRAGMENT:
         for my $fragment (@ROBOT_FRAGMENTS) {
             if ( $ROBOT_FRAGMENT_EXCEPTIONS{$fragment} ) {
-                for my $exception ( @{ $ROBOT_FRAGMENT_EXCEPTIONS{$fragment} || [] } ) {
+                for my $exception (
+                    @{ $ROBOT_FRAGMENT_EXCEPTIONS{$fragment} || [] } ) {
                     if ( index( $ua, $exception ) != -1 ) {
                         next FRAGMENT;
                     }
