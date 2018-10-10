@@ -21,14 +21,22 @@
    "AdsBot-Google (+http://www.google.com/adsbot.html)" : {
       "browser_major" : 0,
       "browser_minor" : ".0",
+      "country" : null,
+      "language" : null,
+      "major" : null,
       "match" : [
          "google",
          "googleadsbot",
          "robot",
          "robot_id"
       ],
+      "minor" : null,
+      "no_match" : null,
+      "other" : null,
       "robot" : "googleadsbot",
-      "robot_name" : "Google AdsBot"
+      "robot_name" : "Google AdsBot",
+      "robot_string" : "Google AdsBot",
+      "version" : null
    },
    "AdsBot-Google-Mobile (+http://www.google.com/mobile/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari" : {
       "browser" : "safari",
@@ -303,18 +311,25 @@
    "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
       "browser_major" : "2",
       "browser_minor" : ".1",
+      "major" : "2",
       "match" : [
-         "mobile",
-         "robot",
+         "google",
          "googlemobile",
-         "google"
+         "mobile",
+         "robot"
       ],
+      "minor" : "0.1",
+      "public_major" : "2",
+      "public_minor" : ".1",
+      "public_version" : "2.1",
       "robot" : "googlemobile",
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".1",
       "robot_name" : "Googlebot Mobile",
-      "robot_version" : "2.1"
+      "robot_string" : "Googlebot Mobile",
+      "robot_version" : "2.1",
+      "version" : "2.1"
    },
    "Dolphin http client/11.3.8(421) (Android)" : {
       "beta" : ".8(421)",
@@ -410,17 +425,21 @@
    "Googlebot-Image/1.0" : {
       "browser_major" : "1",
       "browser_minor" : ".0",
+      "major" : "1",
       "match" : [
-         "robot",
+         "google",
          "googlebotimage",
-         "google"
+         "robot"
       ],
+      "minor" : "0",
       "robot" : "googlebotimage",
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".0",
       "robot_name" : "Googlebot Images",
-      "robot_version" : "1.0"
+      "robot_string" : "Googlebot Images",
+      "robot_version" : "1.0",
+      "version" : "1"
    },
    "Googlebot/2.1 (+http://www.googlebawt.com/bot.html)" : {
       "browser_major" : "2",
@@ -10712,8 +10731,16 @@
       "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36 Scanning for research (researchscan.comsys.rwth-aachen.de)" : {
-      "browser_major" : "5",
+      "browser" : "chrome",
+      "browser_beta" : ".2490.86",
+      "browser_major" : "46",
       "browser_minor" : ".0",
+      "browser_string" : "Chrome",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
       "match" : [
          "chrome",
          "mac",
@@ -10722,8 +10749,14 @@
          "robot",
          "webkit"
       ],
+      "os" : "macosx",
+      "os_beta" : ".1",
+      "os_major" : "10",
+      "os_minor" : ".11",
+      "os_string" : "Mac OS X",
       "robot" : "researchscan",
-      "robot_name" : "Researchscan RWTH Aachen"
+      "robot_name" : "Researchscan RWTH Aachen",
+      "robot_string" : "Researchscan RWTH Aachen"
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) brave/0.7.9 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36" : {
       "browser" : "brave",
@@ -11484,7 +11517,7 @@
       "os_string" : "Mac OS X",
       "public_major" : "1",
       "public_minor" : ".2",
-      "public_version" : 1.2,
+      "public_version" : "1.2",
       "version" : 0.12
    },
    "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; ru-ru) AppleWebKit/412 (KHTML, like Gecko) Safari/412" : {
@@ -16428,14 +16461,15 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [
-         "robot",
-         "ahrefs"
+         "ahrefs",
+         "robot"
       ],
       "robot" : "ahrefs",
       "robot_beta" : "",
       "robot_major" : "5",
       "robot_minor" : ".0",
       "robot_name" : "Ahrefs",
+      "robot_string" : "Ahrefs",
       "robot_version" : "5.0"
    },
    "Mozilla/5.0 (compatible; BLEXBot/1.0; +http://webmeup-crawler.com/)" : {
@@ -16698,14 +16732,15 @@
       "browser_major" : "5",
       "browser_minor" : ".0",
       "match" : [
-         "robot",
-         "mj12bot"
+         "mj12bot",
+         "robot"
       ],
       "robot" : "mj12bot",
       "robot_beta" : ".5",
       "robot_major" : "1",
       "robot_minor" : ".4",
       "robot_name" : "Majestic-12 DSearch",
+      "robot_string" : "Majestic-12 DSearch",
       "robot_version" : "1.4"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; MDDRJS)" : {
@@ -17556,6 +17591,7 @@
       "robot_major" : "3",
       "robot_minor" : ".0",
       "robot_name" : "Yandex",
+      "robot_string" : "Yandex",
       "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
@@ -17570,6 +17606,7 @@
       "robot_major" : "3",
       "robot_minor" : ".0",
       "robot_name" : "YandexImages",
+      "robot_string" : "YandexImages",
       "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; archive.org_bot; Wayback Machine Live Record; +http://archive.org/details/archive.org_bot)" : {
@@ -19611,20 +19648,27 @@
       "browser_minor" : ".1",
       "device" : "wap",
       "device_string" : "SAMSUNG-SGH-E250",
+      "major" : "2",
       "match" : [
          "device",
-         "wap",
+         "google",
+         "googlemobile",
          "mobile",
          "robot",
-         "googlemobile",
-         "google"
+         "wap"
       ],
+      "minor" : "0.1",
+      "public_major" : "2",
+      "public_minor" : ".1",
+      "public_version" : "2.1",
       "robot" : "googlemobile",
       "robot_beta" : "",
       "robot_major" : "2",
       "robot_minor" : ".1",
       "robot_name" : "Googlebot Mobile",
-      "robot_version" : "2.1"
+      "robot_string" : "Googlebot Mobile",
+      "robot_version" : "2.1",
+      "version" : "2.1"
    },
    "SafeSearch microdata crawler (https://safesearch.avira.com, safesearch-abuse@avira.com)" : {
       "major" : 0,
@@ -20002,14 +20046,15 @@
       "browser_major" : "1",
       "browser_minor" : ".1",
       "match" : [
-         "robot",
-         "facebook"
+         "facebook",
+         "robot"
       ],
       "robot" : "facebook",
       "robot_beta" : "",
       "robot_major" : "1",
       "robot_minor" : ".1",
       "robot_name" : "Facebook",
+      "robot_string" : "Facebook",
       "robot_version" : "1.1"
    },
    "finbot" : {
@@ -20120,16 +20165,27 @@
       "browser_beta" : "b",
       "browser_major" : "2",
       "browser_minor" : ".0",
+      "country" : null,
+      "language" : null,
+      "major" : "2",
       "match" : [
-         "robot",
-         "msn"
+         "msn",
+         "robot"
       ],
+      "minor" : "0",
+      "no_match" : null,
+      "other" : null,
+      "public_major" : "2",
+      "public_minor" : "0",
+      "public_version" : "2.0",
       "robot" : "msn",
       "robot_beta" : "b",
       "robot_major" : "2",
       "robot_minor" : ".0",
       "robot_name" : "MSN",
-      "robot_version" : "2.0"
+      "robot_string" : "MSN",
+      "robot_version" : "2.0",
+      "version" : "2.0"
    },
    "my sypder/Nutch-1.9" : {
       "browser_major" : 0,

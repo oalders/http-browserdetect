@@ -23,23 +23,6 @@
          "obigo"
       ]
    },
-   "AdsBot-Google (+http://www.google.com/adsbot.html)" : {
-      "country" : null,
-      "language" : null,
-      "major" : null,
-      "match" : [
-         "google",
-         "googleadsbot",
-         "robot",
-         "robot_id"
-      ],
-      "minor" : null,
-      "no_match" : null,
-      "other" : null,
-      "robot" : "googleadsbot",
-      "robot_string" : "Google AdsBot",
-      "version" : null
-   },
    "AmigaVoyager/3.3.50 (AmigaOS/PPC)" : {
       "country" : null,
       "ios" : 0,
@@ -129,27 +112,6 @@
       "public_version" : "4.6",
       "version" : "4.6"
    },
-   "DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
-      "major" : "2",
-      "match" : [
-         "googlemobile",
-         "google",
-         "mobile",
-         "robot"
-      ],
-      "minor" : "0.1",
-      "public_major" : "2",
-      "public_minor" : ".1",
-      "public_version" : "2.1",
-      "robot" : "googlemobile",
-      "robot_beta" : "",
-      "robot_major" : "2",
-      "robot_minor" : ".1",
-      "robot_name" : "Googlebot Mobile",
-      "robot_string" : "Googlebot Mobile",
-      "robot_version" : "2.1",
-      "version" : "2.1"
-   },
    "ELinks/0.12~pre5-2ubuntu1 (textmode; Ubuntu; Linux 2.6.32-24-generic x86_64; 135x85-2)" : {
       "browser" : "elinks",
       "browser_string" : "ELinks",
@@ -196,23 +158,6 @@
       "robot_string" : "GetRight",
       "robot_version" : "3.2",
       "version" : "3.2"
-   },
-   "Googlebot-Image/1.0" : {
-      "major" : "1",
-      "match" : [
-         "google",
-         "googlebotimage",
-         "robot"
-      ],
-      "minor" : "0",
-      "robot" : "googlebotimage",
-      "robot_beta" : "",
-      "robot_major" : "1",
-      "robot_minor" : ".0",
-      "robot_name" : "Googlebot Images",
-      "robot_string" : "Googlebot Images",
-      "robot_version" : "1.0",
-      "version" : "1"
    },
    "Googlebot-News" : {
       "match" : [
@@ -2530,32 +2475,6 @@
       "os_version" : "10.9",
       "version" : "28.0"
    },
-   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36 Scanning for research (researchscan.comsys.rwth-aachen.de)" : {
-      "browser" : "chrome",
-      "browser_beta" : ".2490.86",
-      "browser_major" : "46",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
-      "engine" : "webkit",
-      "engine_beta" : "",
-      "engine_major" : "537",
-      "engine_minor" : ".36",
-      "engine_string" : "WebKit",
-      "match" : [
-         "mac",
-         "macosx",
-         "chrome",
-         "webkit",
-         "robot"
-      ],
-      "os" : "macosx",
-      "os_beta" : ".1",
-      "os_major" : "10",
-      "os_minor" : ".11",
-      "os_string" : "Mac OS X",
-      "robot" : "unknown",
-      "robot_string" : "Chrome/46.0.2490.86 Safari/537.36 Scanning for research"
-   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
       "browser" : "chrome",
       "browser_string" : "Chrome",
@@ -2967,21 +2886,6 @@
       "public_major" : "1",
       "public_minor" : "0",
       "version" : "0.85"
-   },
-   "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/xxx.x (KHTML like Gecko) Safari/12x.x" : {
-      "browser" : "safari",
-      "browser_string" : "Safari",
-      "match" : [
-         "mac",
-         "macosx",
-         "macppc",
-         "safari"
-      ],
-      "os" : "macosx",
-      "os_string" : "Mac OS X",
-      "public_major" : "1",
-      "public_minor" : ".2",
-      "public_version" : "1.2"
    },
    "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Chrome/32 Mobile Safari/537" : {
       "browser" : "ie",
@@ -4534,19 +4438,6 @@
       "public_minor" : ".18",
       "public_version" : "2.18"
    },
-   "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)" : {
-      "match" : [
-         "ahrefs",
-         "robot"
-      ],
-      "robot" : "ahrefs",
-      "robot_beta" : "",
-      "robot_major" : "5",
-      "robot_minor" : ".0",
-      "robot_name" : "Ahrefs",
-      "robot_string" : "Ahrefs",
-      "robot_version" : "5.0"
-   },
    "Mozilla/5.0 (compatible; IODC-Odysseus Survey 21796-100-051215155936-107; +https://iodc.co.uk)" : {
       "browser_major" : "5",
       "browser_minor" : ".0",
@@ -4606,19 +4497,6 @@
       "public_major" : "4",
       "public_minor" : "0.4",
       "public_version" : "4.4"
-   },
-   "Mozilla/5.0 (compatible; MJ12bot/v1.4.5; http://www.majestic12.co.uk/bot.php?+)" : {
-      "match" : [
-         "mj12bot",
-         "robot"
-      ],
-      "robot" : "mj12bot",
-      "robot_beta" : ".5",
-      "robot_major" : "1",
-      "robot_minor" : ".4",
-      "robot_name" : "Majestic-12 DSearch",
-      "robot_string" : "Majestic-12 DSearch",
-      "robot_version" : "1.4"
    },
    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" : {
       "browser" : "ie",
@@ -4904,32 +4782,6 @@
       "robot_minor" : ".0",
       "robot_name" : "Yahoo! Slurp",
       "robot_string" : "Yahoo! Slurp",
-      "robot_version" : "3.0"
-   },
-   "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)" : {
-      "match" : [
-         "yandex",
-         "robot"
-      ],
-      "robot" : "yandex",
-      "robot_beta" : "",
-      "robot_major" : "3",
-      "robot_minor" : ".0",
-      "robot_name" : "Yandex",
-      "robot_string" : "Yandex",
-      "robot_version" : "3.0"
-   },
-   "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)" : {
-      "match" : [
-         "robot",
-         "yandeximages"
-      ],
-      "robot" : "yandeximages",
-      "robot_beta" : "",
-      "robot_major" : "3",
-      "robot_minor" : ".0",
-      "robot_name" : "YandexImages",
-      "robot_string" : "YandexImages",
       "robot_version" : "3.0"
    },
    "Mozilla/5.0 (compatible; special_archiver/3.1.1 +http://www.archive.org/details/archive.org_bot)" : {
@@ -6294,30 +6146,6 @@
       "other" : null,
       "version" : "11.0"
    },
-   "SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)" : {
-      "device" : "wap",
-      "device_string" : "SAMSUNG-SGH-E250",
-      "major" : "2",
-      "match" : [
-         "device",
-         "googlemobile",
-         "google",
-         "mobile",
-         "robot",
-         "wap"
-      ],
-      "minor" : "0.1",
-      "public_major" : "2",
-      "public_minor" : ".1",
-      "public_version" : "2.1",
-      "robot" : "googlemobile",
-      "robot_beta" : "",
-      "robot_major" : "2",
-      "robot_minor" : ".1",
-      "robot_string" : "Googlebot Mobile",
-      "robot_version" : "2.1",
-      "version" : "2.1"
-   },
    "SonyEricssonG502/R1FA Profile/MIDP-2.1 Configuration/CLDC-1.1 UNTRUSTED/1.0 UCWEB/2.0 (Java; U; MIDP-2.0; id; SonyEricssonG502) U2/1.0.0 UCBrowser/9.3.0.326 U2/1.0.0 Mobile" : {
       "browser" : "ucbrowser",
       "browser_beta" : ".0.326",
@@ -6963,18 +6791,6 @@
       "robot_string" : "curl",
       "robot_version" : "7.45"
    },
-   "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)" : {
-      "match" : [
-         "robot",
-         "facebook"
-      ],
-      "robot" : "facebook",
-      "robot_beta" : "",
-      "robot_major" : "1",
-      "robot_minor" : ".1",
-      "robot_string" : "Facebook",
-      "robot_version" : "1.1"
-   },
    "fetch/1.0 FreeBSD/4.0-CURRENT (i386)" : {
       "major" : "1",
       "match" : [
@@ -7051,28 +6867,6 @@
       "robot_string" : "LWP::UserAgent",
       "robot_version" : "5.11",
       "version" : "5.11"
-   },
-   "msnbot/2.0b (+http://search.msn.com/msnbot.htm)" : {
-      "country" : null,
-      "language" : null,
-      "major" : "2",
-      "match" : [
-         "msn",
-         "robot"
-      ],
-      "minor" : "0",
-      "no_match" : null,
-      "other" : null,
-      "public_major" : "2",
-      "public_minor" : "0",
-      "public_version" : "2.0",
-      "robot" : "msn",
-      "robot_beta" : "b",
-      "robot_major" : "2",
-      "robot_minor" : ".0",
-      "robot_string" : "MSN",
-      "robot_version" : "2.0",
-      "version" : "2.0"
    },
    "puf/0.93.2a (Linux 2.4.20-19.9; i686)" : {
       "browser" : "puf",
