@@ -1,6 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.18      2018-10-10 15:01:41Z
+    - Define exceptions for ROBOT_FRAGMENTS (fix for #136) (GH#140) (Renee)
+    - Add another test for SeznamBot. UA string was provided in #131. (GH#142) (Renee)
+    - Fix (GH#119): add researchscan.comsys.rwth-aachen.de as a robot (GH#141) (Renee)
 
 3.17      2018-10-03 02:02:53Z
     - Fix of 'wv' is not language + the new webview property (GH#139) (Perlover)
