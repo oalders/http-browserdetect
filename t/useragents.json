@@ -6895,5 +6895,19 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
+   },
+   "ltx71 - (http://ltx71.com/)" : {
+      "country" : null,
+      "language" : null,
+      "match" : [
+         "robot"
+      ],
+      "no_match" : [
+         "mobile"
+      ],
+      "other" : null,
+      "robot" : "ltx71",
+      "robot_string" : "ltx71",
+      "version" : null
    }
 }
