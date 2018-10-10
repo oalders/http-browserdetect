@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.18      2018-10-10 15:01:41Z
     - Define exceptions for ROBOT_FRAGMENTS (fix for #136) (GH#140) (Renee)
     - Add another test for SeznamBot. UA string was provided in #131. (GH#142) (Renee)
