@@ -7,6 +7,7 @@ use Test::Most;
 use Test::FailWarnings;
 
 use FindBin;
+use Hash::Merge qw( merge );
 use JSON::PP ();
 use List::Util 1.49 qw(uniq);
 use Path::Tiny qw( path );
@@ -19,20 +20,31 @@ my $w;
 }
 ok( !$w, 'no warnings on require' );
 
-my $json  = path("$FindBin::Bin/useragents.json")->slurp;
-my $tests = JSON::PP->new->ascii->decode($json);
+my $tests      = get_json('useragents.json');
+my $more_tests = get_json('more-useragents.json');
 
-$json = path("$FindBin::Bin/more-useragents.json")->slurp;
-my $more_tests = JSON::PP->new->ascii->decode($json);
-$tests = { %$tests, %$more_tests };
+sub get_json {
+    my $file = shift;
+    my $json = path( $FindBin::Bin, $file )->slurp;
+    return JSON::PP->new->ascii->decode($json);
+}
+
+my $first_test_count          = keys %{$tests};
+my $second_test_count         = keys %{$more_tests};
+my $expected_total_test_count = $first_test_count + $second_test_count;
+
+my $all_tests = merge( $tests, $more_tests );
+
+my $got_total_test_count = keys %{$all_tests};
+is( $expected_total_test_count, $got_total_test_count, 'no tests clobbered' );
 
 my @robot_tests = uniq map { $_->[1] } HTTP::BrowserDetect->_robot_tests;
 
 my %ids = map { $_ => 1 } HTTP::BrowserDetect->all_robot_ids;
 
-foreach my $ua ( sort ( keys %{$tests} ) ) {
+foreach my $ua ( sort ( keys %{$all_tests} ) ) {
 
-    my $test = $tests->{$ua};
+    my $test = $all_tests->{$ua};
 
     my $detected = HTTP::BrowserDetect->new($ua);
     subtest $ua => sub {
