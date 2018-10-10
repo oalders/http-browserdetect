@@ -1009,6 +1009,10 @@ my @ROBOT_FRAGMENTS = qw(
     zyborg
 );
 
+my %ROBOT_FRAGMENT_EXCEPTIONS = (
+    bot => ['cubot'],
+);
+
 sub _init_robots {
     my $self = shift;
 
@@ -1283,7 +1287,16 @@ sub _init_robots {
     }
     else {
         # See if we have a simple fragment
+        FRAGMENT:
         for my $fragment (@ROBOT_FRAGMENTS) {
+            if ( $ROBOT_FRAGMENT_EXCEPTIONS{$fragment} ) {
+                for my $exception ( @{ $ROBOT_FRAGMENT_EXCEPTIONS{$fragment} || [] } ) {
+                    if ( index( $ua, $exception ) != -1 ) {
+                        next FRAGMENT;
+                    }
+                }
+            }
+
             if ( index( $ua, $fragment ) != -1 ) {
                 $robot_fragment = $fragment;
                 $robot_tests->{robot} = 'unknown';
