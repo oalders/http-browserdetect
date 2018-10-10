@@ -42,20 +42,21 @@ my @robot_tests = uniq map { $_->[1] } HTTP::BrowserDetect->_robot_tests;
 
 my %ids = map { $_ => 1 } HTTP::BrowserDetect->all_robot_ids;
 
+my @methods = (
+    'browser',     'browser_beta', 'browser_string', 'device',
+    'device_beta', 'device_name',  'device_string',  'engine',
+    'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
+    'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
+    'webview',
+);
+
 foreach my $ua ( sort ( keys %{$all_tests} ) ) {
 
     my $test = $all_tests->{$ua};
 
     my $detected = HTTP::BrowserDetect->new($ua);
     subtest $ua => sub {
-
-        foreach my $method (
-            'browser',     'browser_beta', 'browser_string', 'device',
-            'device_beta', 'device_name',  'device_string',  'engine',
-            'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
-            'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
-            'webview',
-        ) {
+        foreach my $method (@methods) {
             if ( exists $test->{$method} ) {
                 if ( defined $test->{$method} ) {
                     eq_or_diff(
