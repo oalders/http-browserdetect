@@ -1,6 +1,11 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.19      2018-10-11 16:04:00Z
+    - Detect ltx71 bot (GH#147) (Olaf Alders)
+    - test for "ltx71" robot (GH#113) (Alexandr Ciornii)
+    - Stop clobbering useragent tests (GH#146) (Olaf Alders)
+    - Removed +x bit from package and test script. (GH#145) (Mohammad S Anwar)
+    - Fixed minor typo in the pod. (GH#144) (Mohammad S Anwar)
 
 3.18      2018-10-10 15:01:41Z
     - Define exceptions for ROBOT_FRAGMENTS (fix for #136) (GH#140) (Renee)

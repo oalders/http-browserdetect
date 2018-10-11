@@ -6,7 +6,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.18
+version 3.19
 
 # SYNOPSIS
 
@@ -256,7 +256,7 @@ ids will also be frozen.
 
 ### all\_robot\_ids()
 
-This method returns an c<ArrayRef> of all possible `robot_id` values.
+This method returns an `ArrayRef` of all possible `robot_id` values.
 
 ## robot\_version(), robot\_major(), robot\_minor(), robot\_beta()
 

@@ -58,6 +58,7 @@
             "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
             "FindBin" : "0",
+            "Hash::Merge" : "0",
             "JSON::PP" : "0",
             "List::Util" : "1.49",
             "Path::Tiny" : "0",
@@ -80,7 +81,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.18",
+   "version" : "3.19",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.026001"
@@ -121,7 +122,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MAXMIND::TidyAll",
             "name" : "@Author::OALDERS/MAXMIND::TidyAll",
-            "version" : "0.83"
+            "version" : "0.13"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",
@@ -555,7 +556,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.18",
+                  "tag" : "v3.19",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },
@@ -697,6 +698,7 @@
       }
    },
    "x_contributors" : [
+      "Alexandr Ciornii <alexchorny@gmail.com>",
       "Andrew Moise <andrew.moise@gmail.com>",
       "Aran Deltac <bluefeet@gmail.com>",
       "ben hengst <notbenh@cpan.org>",
@@ -712,6 +714,7 @@
       "lsaunders <lsaunders@dev05.backbone.i5invest.com>",
       "Marco Fontani <MFONTANI@cpan.org>",
       "Maros Kollar <maros@k-1.com>",
+      "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
       "Nicolas Doye <nic@worldofnic.org>",
       "Olaf Alders <olaf@wundersolutions.com>",
       "Olivier Bilodeau <olivier@bottomlesspit.org>",
@@ -728,6 +731,6 @@
       "yeahoffline <frank.gasser@gmail.com>"
    ],
    "x_generated_by_perl" : "v5.26.1",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.04"
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.02"
 }
 
