@@ -20133,8 +20133,15 @@
       "browser_beta" : "com/)",
       "browser_major" : "71",
       "browser_minor" : ".0",
-      "match" : [],
-      "robot" : null
+      "match" : [
+        "ltx71",
+         "robot"
+      ],
+      "no_match" : [
+         "mobile"
+      ],
+      "robot" : "ltx71",
+      "robot_string" : "ltx71"
    },
    "marine dredger for sale ( http://www.dredger.biz )" : {
       "browser_major" : 0,
