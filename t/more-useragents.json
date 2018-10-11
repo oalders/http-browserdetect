@@ -20134,7 +20134,7 @@
       "browser_major" : "71",
       "browser_minor" : ".0",
       "match" : [
-        "ltx71",
+         "ltx71",
          "robot"
       ],
       "no_match" : [
