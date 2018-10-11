@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.19      2018-10-11 16:04:00Z
     - Detect ltx71 bot (GH#147) (Olaf Alders)
     - test for "ltx71" robot (GH#113) (Alexandr Ciornii)
