@@ -3290,7 +3290,7 @@ mac68k macppc macosx ios
 
 =head3 pspgameos()
 
-It may not be possibile to detect Win98 in Netscape 4.x and earlier. On Opera
+It may not be possible to detect Win98 in Netscape 4.x and earlier. On Opera
 3.0, the userAgent string includes "Windows 95/NT4" on all Win32, so you can't
 distinguish between Win95 and WinNT.
 
