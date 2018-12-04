@@ -928,7 +928,7 @@ sub _init_core {
         $browser_tests->{$browser} = 1;
     }
 
-    $self->{browser} = $browser;
+    $self->{browser}        = $browser;
     $self->{browser_string} = $browser_string || $BROWSER_NAMES{$browser}
         if defined($browser);
 
@@ -1376,7 +1376,7 @@ sub _init_os {
     my $ua            = lc $self->{user_agent};
 
     my $os_tests = $self->{os_tests} = {};
-    my $os = undef;
+    my $os       = undef;
     my $os_string = undef;
 
     # Windows
@@ -1514,7 +1514,7 @@ sub _init_os {
 
         # windows, set through some path above
         $os_tests->{windows} = 1;
-        $os_tests->{win32} = 1 if index( $ua, 'win32' ) != -1;
+        $os_tests->{win32}   = 1 if index( $ua, 'win32' ) != -1;
     }
     elsif ( index( $ua, 'macintosh' ) != -1 || index( $ua, 'mac_' ) != -1 ) {
 
