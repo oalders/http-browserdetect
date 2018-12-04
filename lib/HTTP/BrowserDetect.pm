@@ -2569,6 +2569,7 @@ sub public_version {
     my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
 
+    $minor ||= q{};
     return "$major$minor";
 }
 
@@ -2596,6 +2597,7 @@ sub public_beta {
 sub browser_version {
     my ($self) = @_;
     my ( $major, $minor ) = $self->_public;
+    $minor ||= q{};
 
     return "$major$minor";
 }
