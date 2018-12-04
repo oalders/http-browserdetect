@@ -43,11 +43,11 @@ my @robot_tests = uniq map { $_->[1] } HTTP::BrowserDetect->_robot_tests;
 my %ids = map { $_ => 1 } HTTP::BrowserDetect->all_robot_ids;
 
 my @methods = (
-    'browser',     'browser_beta', 'browser_string', 'device',
-    'device_beta', 'device_name',  'device_string',  'engine',
-    'engine_beta', 'engine_string', 'language', 'os', 'os_beta',
-    'os_string', 'robot', 'robot_beta', 'robot_name', 'robot_string',
-    'webview',
+    'browser', 'browser_beta', 'browser_string', 'browser_version',
+    'browser_major', 'browser_minor', 'device', 'device_beta', 'device_name',
+    'device_string', 'engine', 'engine_beta', 'engine_string', 'language',
+    'os', 'os_beta', 'os_string', 'robot', 'robot_beta', 'robot_name',
+    'robot_string', 'webview',
 );
 
 foreach my $ua ( sort ( keys %{$all_tests} ) ) {

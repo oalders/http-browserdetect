@@ -18398,6 +18398,19 @@
       "os_version" : "4.2",
       "robot" : null
    },
+   "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/10 Mobile/16A366 Safari/605.1.15 GAYL/2.0.8b1" : {
+      "browser_major" : 10,
+      "browser_minor" : null,
+      "browser_version" : 10,
+      "match" : [
+         "device",
+         "ios",
+         "iphone",
+         "mobile",
+         "safari",
+         "webkit"
+      ]
+   },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B208 Safari/7534.48.3" : {
       "browser" : "safari",
       "browser_major" : "5",
