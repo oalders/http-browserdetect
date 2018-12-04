@@ -30,10 +30,18 @@ on 'configure' => sub {
 };
 
 on 'develop' => sub {
+  requires "Code::TidyAll" => "0.71";
+  requires "Code::TidyAll::Plugin::SortLines::Naturally" => "0.000003";
+  requires "Code::TidyAll::Plugin::Test::Vars" => "0.04";
+  requires "Parallel::ForkManager" => "1.19";
+  requires "Perl::Critic" => "1.132";
+  requires "Perl::Tidy" => "20180220";
   requires "Test::CPAN::Changes" => "0.19";
   requires "Test::Code::TidyAll" => "0.50";
   requires "Test::More" => "0.96";
+  requires "Test::Pod" => "1.41";
   requires "Test::Synopsis" => "0";
+  requires "Test::Vars" => "0.014";
 };
 
 on 'develop' => sub {
