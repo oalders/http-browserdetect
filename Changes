@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.20      2018-12-04 18:37:08Z
     - Fix minor version warning (GH#152) (Olaf Alders)
     - Fix a typo in the POD. (GH#149) (gregor herrmann)
