@@ -6,8 +6,6 @@ addons:
       - aspell-en
 before_install:
   - 'eval $(curl https://travis-perl.github.io/init) --auto'
-  - 'cpanm -n App::cpm'
-  - 'AUTHOR_TESTING=0 cpm install --workers $(test-jobs) --global Code::TidyAll::Plugin::SortLines::Naturally Code::TidyAll::Plugin::UniqueLines Perl::Tidy'
 cache:
   directories:
     - '~/perl5'
