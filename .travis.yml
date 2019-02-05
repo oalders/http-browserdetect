@@ -6,12 +6,13 @@ addons:
       - aspell-en
 before_install:
   - 'eval $(curl https://travis-perl.github.io/init) --auto'
+  - 'cpanm -n App::cpm'
 cache:
   directories:
     - '~/perl5'
 install:
   - 'cpan-install --coverage   # installs coverage prereqs, if enabled'
-  - 'cpm install -g'
+  - 'cpm install -g --workers $(test-jobs)'
 language: perl
 matrix:
   allow_failures:
