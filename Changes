@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Faster edge test (GH#158) (Marco Fontani)
 
 3.20      2018-12-04 18:37:08Z
     - Fix minor version warning (GH#152) (Olaf Alders)
