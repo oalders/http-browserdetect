@@ -41,4 +41,3 @@ perl:
   - '5.28'
 script:
   - 'prove -lr -j$(test-jobs) t'
-sudo: 'false'
