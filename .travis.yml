@@ -21,7 +21,7 @@ matrix:
   include:
     -
       env: COVERAGE=1
-      perl: '5.26'
+      perl: '5.28'
 notifications:
   email:
     on_failure: always
