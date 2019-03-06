@@ -2983,11 +2983,11 @@ __END__
     print "MSIE\n" if $ua->ie;
     print "Mobile\n" if $ua->mobile;
     if ( $ua->browser_major(4) ) {
-        if ( $ua->browser_minor() > .5 ) {
+        if ( $ua->browser_minor > .5 ) {
             # ...;
         }
     }
-    if ( $ua->browser_version() > 4.5 ) {
+    if ( $ua->browser_version > 4.5 ) {
         # ...;
     }
 
