@@ -2040,7 +2040,8 @@ sub _init_version {
         $version_tests->{ie_compat_mode}
             = (    $version_tests->{ie7}
                 && $tests->{trident}
-                && $self->{engine_version} + 0 >= 4 );
+                && defined $self->engine_version
+                && $self->engine_version >= 4 );
     }
 
     if ( $browser_tests->{aol} ) {
@@ -2755,7 +2756,7 @@ sub engine_version {
         }
     }
 
-    return $self->{engine_version};
+    return undef;
 }
 
 sub engine_major {
