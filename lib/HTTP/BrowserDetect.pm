@@ -2493,12 +2493,7 @@ sub _os_version {
 sub os_version {
     my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_os_version;
-    if ( defined($major) ) {
-        return "$major$minor";
-    }
-    else {
-        return undef;
-    }
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub os_major {
@@ -2571,7 +2566,7 @@ sub public_version {
     my ( $major, $minor ) = $self->_public;
 
     $minor ||= q{};
-    return "$major$minor";
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub public_major {
@@ -2600,7 +2595,7 @@ sub browser_version {
     my ( $major, $minor ) = $self->_public;
     $minor ||= q{};
 
-    return "$major$minor";
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub browser_major {
@@ -2664,6 +2659,8 @@ sub _public {
                 # Special case for specific worm that uses a malformed user agent
                 return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
             }
+
+            return ( undef, undef, undef ) unless defined $version;
             my ( $major, $minor ) = split /\./, $version;
             my $beta;
             $minor =~ s/(\D.*)// and $beta = $1;
