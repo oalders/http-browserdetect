@@ -930,7 +930,7 @@ sub _init_core {
 
     $self->{browser}        = $browser;
     $self->{browser_string} = $browser_string || $BROWSER_NAMES{$browser}
-        if defined($browser);
+        if defined $browser;
 
     # Other random tests
 
@@ -958,7 +958,7 @@ sub _init_core {
             $self->{realplayer_version} = $1;
             ( $self->{major}, $self->{minor} )
                 = split( /\./, $self->{realplayer_version} );
-            $self->{minor} = ".$self->{minor}" if defined( $self->{minor} );
+            $self->{minor} = ".$self->{minor}" if defined $self->{minor};
         }
         elsif ( $ua =~ /realplayer\s(\w+)/ ) {
             $self->{realplayer_version} = $1;
@@ -1266,7 +1266,7 @@ sub _init_robots {
         # This isn't all keyed on ids (yet)
         $self->{robot_string} = $ROBOT_NAMES{$id} || $ROBOT_NAMES{$r};
         $robot_tests->{robot} = $r;
-        $robot_fragment = $r if !defined($robot_fragment);
+        $robot_fragment = $r if !defined $robot_fragment;
     }
     elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
 
@@ -1314,7 +1314,7 @@ sub _init_robots {
         $robot_tests->{robot_id} = 'unknown';
     }
 
-    if ( defined($robot_fragment) ) {
+    if ( defined $robot_fragment ) {
 
         # Examine what surrounds the fragment; that leads us to the
         # version and the string (if we haven't explicitly set one).
@@ -1355,7 +1355,7 @@ sub _init_robots {
 
             # Set robot_string, if we don't already have an explictly set
             # one
-            if ( !defined( $self->{robot_string} ) ) {
+            if ( !defined $self->{robot_string} ) {
                 $self->{robot_string} = $full_string;
             }
         }
@@ -1722,7 +1722,7 @@ sub _init_os_version {
 
     my $os_version = undef;
 
-    if ( !defined($os) ) {
+    if ( !defined $os ) {
 
         # Nothing is going to work if we have no OS. Skip everything.
     }
@@ -1786,7 +1786,7 @@ sub _init_version {
     ### using a browser that needs some special method to determine
     ### the version.
 
-    if ( defined($browser) && $browser eq 'opera' ) {
+    if ( defined $browser && $browser eq 'opera' ) {
 
         # Opera has a 'compatible; ' section, but lies sometimes. It needs
         # special handling.
@@ -1843,7 +1843,7 @@ sub _init_version {
             if ( my ( $safari_build, $safari_minor ) = split /\./, $1 ) {
                 $major = int( $safari_build / 100 );
                 $minor = int( $safari_build % 100 );
-                $beta  = ".$safari_minor" if $safari_minor;
+                $beta  = ".$safari_minor" if defined $safari_minor;
             }
         }
         elsif ( $ua =~ m{applewebkit\/([\d\.]{1,})}xi ) {
@@ -1938,7 +1938,7 @@ sub _init_version {
 
     # If we didn't match a browser-specific test, we look for
     # '$browser/x.y.z'
-    if ( !defined($major) and defined( $self->{browser_string} ) ) {
+    if ( !defined $major && defined $self->{browser_string} ) {
         my $version_index = index( $ua, lc "$self->{browser_string}/" );
         if ( $version_index != -1 ) {
             my $version_str
@@ -1952,7 +1952,7 @@ sub _init_version {
     }
 
     # If that didn't work, we try 'Version/x.y.z'
-    if ( !defined($major) ) {
+    if ( !defined $major ) {
         if ( $ua =~ m{version/(\d+)\.(\d+)([\w.]*)} ) {
             $major = $1;
             $minor = $2;
@@ -1962,7 +1962,7 @@ sub _init_version {
 
     # If that didn't work, we start guessing. Just grab
     # anything after a word and a slash.
-    if ( !defined($major) ) {
+    if ( !defined $major ) {
 
         ( $major, $minor, $beta ) = (
             $ua =~ m{
@@ -1979,7 +1979,7 @@ sub _init_version {
     }
 
     # If that didn't work, try even more generic.
-    if ( !defined($major) ) {
+    if ( !defined $major ) {
 
         if ( $ua =~ /[A-Za-z]+\/(\d+)\;/ ) {
             $major = $1;
@@ -1990,7 +1990,7 @@ sub _init_version {
     # If that didn't work, give up.
     $major = 0     if !$major;
     $minor = 0     if !$minor;
-    $beta  = undef if ( defined($beta) && $beta eq q{} );
+    $beta  = undef if ( defined $beta && $beta eq q{} );
 
     # Now set version tests
 
@@ -2006,7 +2006,7 @@ sub _init_version {
             if ( $major == 4 && ".$minor" >= .5 )
             || $major >= 5;
         $version_tests->{navgold} = 1
-            if defined($beta) && ( index( $beta, 'gold' ) != -1 );
+            if defined $beta && ( index( $beta, 'gold' ) != -1 );
         $version_tests->{nav6} = 1
             if ( $major == 5 || $major == 6 );    # go figure
         $version_tests->{nav6up} = 1 if $major >= 5;
@@ -2040,7 +2040,8 @@ sub _init_version {
         $version_tests->{ie_compat_mode}
             = (    $version_tests->{ie7}
                 && $tests->{trident}
-                && $self->{engine_version} + 0 >= 4 );
+                && defined $self->engine_version
+                && $self->engine_version >= 4 );
     }
 
     if ( $browser_tests->{aol} ) {
@@ -2431,8 +2432,8 @@ sub _robot_version {
 sub robot_version {
     my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_robot_version;
-    if ( defined($major) ) {
-        if ( defined($minor) ) {
+    if ( defined $major ) {
+        if ( defined $minor ) {
             return "$major$minor";
         }
         else {
@@ -2492,12 +2493,7 @@ sub _os_version {
 sub os_version {
     my ($self) = @_;
     my ( $major, $minor, $beta ) = $self->_os_version;
-    if ( defined($major) ) {
-        return "$major$minor";
-    }
-    else {
-        return undef;
-    }
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub os_major {
@@ -2545,8 +2541,7 @@ sub version {
     my ($self) = @_;
     $self->_init_version() unless $self->{version_tests};
 
-    my $version = "$self->{major}$self->{minor}";
-    return $version;
+    return defined $self->{major} ? "$self->{major}$self->{minor}" : undef;
 }
 
 sub major {
@@ -2570,7 +2565,7 @@ sub public_version {
     my ( $major, $minor ) = $self->_public;
 
     $minor ||= q{};
-    return "$major$minor";
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub public_major {
@@ -2599,7 +2594,7 @@ sub browser_version {
     my ( $major, $minor ) = $self->_public;
     $minor ||= q{};
 
-    return "$major$minor";
+    return defined $major ? "$major$minor" : undef;
 }
 
 sub browser_major {
@@ -2663,6 +2658,8 @@ sub _public {
                 # Special case for specific worm that uses a malformed user agent
                 return ( '1', '.2', undef ) if $ua =~ m{safari/12x};
             }
+
+            return ( undef, undef, undef ) unless defined $version;
             my ( $major, $minor ) = split /\./, $version;
             my $beta;
             $minor =~ s/(\D.*)// and $beta = $1;
@@ -2755,7 +2752,7 @@ sub engine_version {
         }
     }
 
-    return $self->{engine_version};
+    return undef;
 }
 
 sub engine_major {
@@ -2982,11 +2979,11 @@ __END__
     print "MSIE\n" if $ua->ie;
     print "Mobile\n" if $ua->mobile;
     if ( $ua->browser_major(4) ) {
-        if ( $ua->browser_minor() > .5 ) {
+        if ( $ua->browser_minor > .5 ) {
             # ...;
         }
     }
-    if ( $ua->browser_version() > 4.5 ) {
+    if ( $ua->browser_version > 4.5 ) {
         # ...;
     }
 

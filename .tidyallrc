@@ -8,6 +8,7 @@ ignore = xt/**/*
 
 [SortLines::Naturally]
 select = .gitignore
+select = .stopwords
 
 [JSON]
 select = t/**/*json
