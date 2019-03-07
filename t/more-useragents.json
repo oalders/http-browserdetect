@@ -10804,10 +10804,10 @@
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" : {
       "match" : [
-        "chrome",
-        "mac",
-        "macosx",
-        "webkit"
+         "chrome",
+         "mac",
+         "macosx",
+         "webkit"
       ],
       "u2f" : 1
    },
