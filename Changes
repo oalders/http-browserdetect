@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.22      2019-03-07 15:11:01Z
+    - Add a u2f() method (GH#161) (Patrick Cronin and Olaf Alders)
+    - Don't warn on fake UA strings. (GH#160) (Olaf Alders)
 
 3.21      2019-02-05 01:50:40Z
     - Faster edge test (GH#158) (Marco Fontani)

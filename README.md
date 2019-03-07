@@ -6,7 +6,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.21
+version 3.22
 
 # SYNOPSIS
 
@@ -40,11 +40,11 @@ version 3.21
     print "MSIE\n" if $ua->ie;
     print "Mobile\n" if $ua->mobile;
     if ( $ua->browser_major(4) ) {
-        if ( $ua->browser_minor() > .5 ) {
+        if ( $ua->browser_minor > .5 ) {
             # ...;
         }
     }
-    if ( $ua->browser_version() > 4.5 ) {
+    if ( $ua->browser_version > 4.5 ) {
         # ...;
     }
 
@@ -587,6 +587,12 @@ Calling this method with a parameter to set the user agent has now
 been removed; please use HTTP::BrowserDetect->new() to pass the user
 agent string.
 
+## u2f()
+
+Returns true if this browser and version are known to support Universal Second
+Factor (U2F).  This method will need future updates as more browsers fully
+support this standard.
+
 ## country()
 
 Returns the country string as it may be found in the user agent string. This
@@ -863,7 +869,7 @@ helpful tips to get you started.
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2017 by Lee Semel.
+This software is copyright (c) 2019 by Lee Semel.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
