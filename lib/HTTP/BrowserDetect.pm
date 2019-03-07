@@ -2924,6 +2924,28 @@ sub all_robot_ids {
     return keys %ROBOT_NAMES;
 }
 
+# The list of U2F supported browsers is expected to increase:
+# https://www.bit-tech.net/news/tech/software/w3c-adopts-fidos-webauthn-standard/1/
+
+sub u2f {
+    my $self = shift;
+
+    # Chrome version 41 and up can U2F
+    return 1
+        if $self->chrome
+        && $self->browser_major
+        && $self->browser_major >= 41;
+
+    # Opera versions 40 and >= 42 can U2F
+    return 1
+        if $self->opera
+        && $self->browser_major
+        && ( $self->browser_major == 40
+        || $self->browser_major >= 42 );
+
+    return undef;
+}
+
 # These method are only used by the test suite.
 sub _all_tests {
     return @ALL_TESTS;
@@ -3525,6 +3547,12 @@ Returns the value of the user agent string.
 Calling this method with a parameter to set the user agent has now
 been removed; please use HTTP::BrowserDetect->new() to pass the user
 agent string.
+
+=head2 u2f()
+
+Returns true if this browser and version are known to support Universal Second
+Factor (U2F).  This method will need future updates as more browsers fully
+support this standard.
 
 =head2 country()
 
