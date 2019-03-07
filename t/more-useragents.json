@@ -10802,6 +10802,15 @@
       "os_version" : "10.11",
       "robot" : null
    },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" : {
+      "match" : [
+        "chrome",
+        "mac",
+        "macosx",
+        "webkit"
+      ],
+      "u2f" : 1
+   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_2) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.41 Safari/535.1" : {
       "browser" : "chrome",
       "browser_beta" : ".782.41",
@@ -20350,7 +20359,8 @@
       "robot_major" : "1",
       "robot_minor" : ".8",
       "robot_name" : "Apache Nutch",
-      "robot_version" : "1.8"
+      "robot_version" : "1.8",
+      "u2f" : null
    },
    "visionutils/0.2" : {
       "browser_major" : 0,
