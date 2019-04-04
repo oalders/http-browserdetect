@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.23      2019-04-04 19:26:18Z
     - Add BingPreview to bot checker (GH#162) (James Waters)
 
