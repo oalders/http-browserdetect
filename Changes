@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.23      2019-04-04 19:26:18Z
+    - Add BingPreview to bot checker (GH#162) (James Waters)
 
 3.22      2019-03-07 15:11:01Z
     - Add a u2f() method (GH#161) (Patrick Cronin and Olaf Alders)
