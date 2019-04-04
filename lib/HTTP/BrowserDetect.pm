@@ -1060,7 +1060,8 @@ sub _init_robots {
         $robot_fragment = 'msnbot';
     }
     elsif (index( $ua, 'binglocalsearch' ) != -1
-        || index( $ua, 'bingbot' ) != -1 ) {
+        || index( $ua, 'bingbot' ) != -1
+        || index( $ua, 'bingpreview' ) != -1) {
         $r                      = 'bingbot';
         $robot_tests->{bingbot} = 1;
         $robot_fragment         = 'bingbot';
