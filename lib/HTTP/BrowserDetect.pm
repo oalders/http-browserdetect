@@ -2972,19 +2972,16 @@ __END__
 
 =head1 SYNOPSIS
 
-    use HTTP::BrowserDetect;
+    use HTTP::BrowserDetect ();
 
     my $user_agent_string
         = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36';
     my $ua = HTTP::BrowserDetect->new($user_agent_string);
 
     # Print general information
-    print "Browser: $ua->browser_string\n"
-        if $ua->browser_string;
-    print "Version: $ua->browser_version$ua->browser_beta\n"
-        if $ua->browser_version;
-    print "OS: $ua->os_string\n"
-        if $ua->os_string;
+    print 'Browser: ' . $ua->browser_string . "\n" if $ua->browser_string;
+    print 'Version: ' . $ua->browser_version . $ua->browser_beta . "\n" if $ua->browser_version;
+    print 'OS: ' . $ua->os_string . "\n" if $ua->os_string;
 
     # Detect operating system
     if ( $ua->windows ) {
