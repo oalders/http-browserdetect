@@ -3770,8 +3770,6 @@ POD coverage is not 100%.
 
 L<HTML::ParseBrowser>.
 
-=head1
-
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
