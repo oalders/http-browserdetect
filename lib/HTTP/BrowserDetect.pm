@@ -3788,10 +3788,6 @@ L<http://github.com/oalders/http-browserdetect>
 
 L<https://github.com/oalders/http-browserdetect/issues>
 
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/HTTP-BrowserDetect>
-
 =item * CPAN Ratings
 
 L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
