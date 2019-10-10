@@ -1,45 +1,56 @@
 ---
+dist: trusty
 addons:
   apt:
     packages:
       - aspell
       - aspell-en
-before_install:
-  - 'eval $(curl https://travis-perl.github.io/init) --auto'
-  - 'cpanm -n App::cpm'
+language: perl
+perl:
+  - blead
+  - dev
+  - "5.30"
+  - "5.28"
+  - "5.26"
+  - "5.24"
+  - "5.22"
+  - "5.20"
+  - "5.18"
+  - "5.16"
+  - "5.14"
+  - "5.12"
+  - "5.10"
 cache:
   directories:
-    - '~/perl5'
-dist: trusty
-install:
-  - 'cpan-install --coverage   # installs coverage prereqs, if enabled'
-  - 'cpm install -g --workers $(test-jobs)'
-language: perl
+    - "~/perl5"
 matrix:
   allow_failures:
-    -
-      env: COVERAGE=1
-  fast_finish: 'true'
+    - env: COVERAGE=1
+    - perl: blead
+  fast_finish: 1
   include:
-    -
-      env: COVERAGE=1
-      perl: '5.28'
+    - env: COVERAGE=1
+      perl: "5.30"
+env:
+  global:
+    - AUTHOR_TESTING=1
+    - RELEASE_TESTING=1
+before_install:
+  - eval $(curl https://travis-perl.github.io/init) --auto --always-upgrade-modules
+install:
+  - cpanm --notest App::cpm
+  - cpm install -g --workers $(test-jobs)
+script:
+  - prove -lr -j$(test-jobs) t
 notifications:
   email:
     on_failure: always
     on_success: always
     recipients:
       - olaf@wundersolutions.com
-perl:
-  - '5.10'
-  - '5.12'
-  - '5.14'
-  - '5.16'
-  - '5.18'
-  - '5.20'
-  - '5.22'
-  - '5.24'
-  - '5.26'
-  - '5.28'
-script:
-  - 'prove -lr -j$(test-jobs) t'
+### __app_cisetup__
+# ---
+# force_threaded_perls: 0
+# perl_caching: 1
+
+### __app_cisetup__
