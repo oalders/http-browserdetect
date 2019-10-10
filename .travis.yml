@@ -10,6 +10,7 @@ before_install:
 cache:
   directories:
     - '~/perl5'
+dist: trusty
 install:
   - 'cpan-install --coverage   # installs coverage prereqs, if enabled'
   - 'cpm install -g --workers $(test-jobs)'
