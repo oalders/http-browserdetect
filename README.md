@@ -829,10 +829,6 @@ You can also look for information at:
 
     [https://github.com/oalders/http-browserdetect/issues](https://github.com/oalders/http-browserdetect/issues)
 
-- AnnoCPAN: Annotated CPAN documentation
-
-    [http://annocpan.org/dist/HTTP-BrowserDetect](http://annocpan.org/dist/HTTP-BrowserDetect)
-
 - CPAN Ratings
 
     [http://cpanratings.perl.org/d/HTTP-BrowserDetect](http://cpanratings.perl.org/d/HTTP-BrowserDetect)
