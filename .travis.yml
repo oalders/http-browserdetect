@@ -27,6 +27,7 @@ matrix:
   allow_failures:
     - env: COVERAGE=1
     - perl: blead
+    - perl: dev
   fast_finish: 1
   include:
     - env: COVERAGE=1
