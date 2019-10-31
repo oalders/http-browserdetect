@@ -70,7 +70,7 @@
             "File::Spec" : "0",
             "FindBin" : "0",
             "Hash::Merge" : "0",
-            "JSON::PP" : "0",
+            "JSON::PP" : "4.04",
             "List::Util" : "1.49",
             "Path::Tiny" : "0",
             "Test::FailWarnings" : "0",
@@ -92,10 +92,10 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.23",
+   "version" : "3.24",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.026001"
+         "version" : "5.030000"
       },
       "plugins" : [
          {
@@ -133,7 +133,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MAXMIND::TidyAll",
             "name" : "@Author::OALDERS/MAXMIND::TidyAll",
-            "version" : "0.83"
+            "version" : "0.13"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",
@@ -202,8 +202,14 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::InstallGuide",
+            "config" : {
+               "Dist::Zilla::Role::ModuleMetadata" : {
+                  "Module::Metadata" : "1.000037",
+                  "version" : "0.006"
+               }
+            },
             "name" : "@Author::OALDERS/InstallGuide",
-            "version" : "1.200012"
+            "version" : "1.200013"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -566,7 +572,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "repo_root" : "."
                }
             },
@@ -577,7 +583,7 @@
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
             "config" : {
                "Dist::Zilla::Plugin::Git::Contributors" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "include_authors" : 0,
                   "include_releaser" : 1,
                   "order_by" : "name",
@@ -598,6 +604,17 @@
             "version" : "0.163250"
          },
          {
+            "class" : "Dist::Zilla::Plugin::StaticInstall",
+            "config" : {
+               "Dist::Zilla::Plugin::StaticInstall" : {
+                  "dry_run" : 0,
+                  "mode" : "on"
+               }
+            },
+            "name" : "@Author::OALDERS/StaticInstall",
+            "version" : "0.012"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::ShareDir",
             "name" : "@Author::OALDERS/ShareDir",
             "version" : "6.012"
@@ -610,7 +627,7 @@
          {
             "class" : "Dist::Zilla::Plugin::CheckIssues",
             "name" : "@Author::OALDERS/CheckIssues",
-            "version" : "0.010"
+            "version" : "0.011"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
@@ -690,7 +707,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -707,12 +724,12 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.23",
+                  "tag" : "v3.24",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -762,7 +779,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -782,7 +799,7 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.21.0",
+                  "git_version" : "2.23.0",
                   "repo_root" : "."
                }
             },
@@ -793,23 +810,12 @@
             "class" : "Dist::Zilla::Plugin::Prereqs",
             "config" : {
                "Dist::Zilla::Plugin::Prereqs" : {
-                  "phase" : "develop",
+                  "phase" : "test",
                   "type" : "requires"
                }
             },
-            "name" : "DevelopRequires",
+            "name" : "TestRequires",
             "version" : "6.012"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::StaticInstall",
-            "config" : {
-               "Dist::Zilla::Plugin::StaticInstall" : {
-                  "dry_run" : 0,
-                  "mode" : "on"
-               }
-            },
-            "name" : "StaticInstall",
-            "version" : "0.012"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
@@ -891,10 +897,12 @@
       "Maros Kollar <maros@k-1.com>",
       "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
       "Nicolas Doye <nic@worldofnic.org>",
+      "Olaf Alders <olaf.alders@gmail.com>",
       "Olaf Alders <olaf@wundersolutions.com>",
       "Olivier Bilodeau <olivier@bottomlesspit.org>",
       "Paul Findlay <paul@findlay.net.nz>",
       "Perlover <perlover@perlover.com>",
+      "Petr <petr@kle.cz>",
       "Ramanan Balakrishnan <ramanan90@gmail.com>",
       "reneeb <info@perl-services.de>",
       "Robin Smidsr\u00f8d <robin@smidsrod.no>",
@@ -905,8 +913,8 @@
       "vti <viacheslav.t@gmail.com>",
       "yeahoffline <frank.gasser@gmail.com>"
    ],
-   "x_generated_by_perl" : "v5.26.1",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.04",
+   "x_generated_by_perl" : "v5.30.0",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.14",
    "x_static_install" : 1
 }
 

@@ -6,23 +6,20 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.23
+version 3.24
 
 # SYNOPSIS
 
-    use HTTP::BrowserDetect;
+    use HTTP::BrowserDetect ();
 
     my $user_agent_string
         = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36';
     my $ua = HTTP::BrowserDetect->new($user_agent_string);
 
     # Print general information
-    print "Browser: $ua->browser_string\n"
-        if $ua->browser_string;
-    print "Version: $ua->browser_version$ua->browser_beta\n"
-        if $ua->browser_version;
-    print "OS: $ua->os_string\n"
-        if $ua->os_string;
+    print 'Browser: ' . $ua->browser_string . "\n" if $ua->browser_string;
+    print 'Version: ' . $ua->browser_version . $ua->browser_beta . "\n" if $ua->browser_version;
+    print 'OS: ' . $ua->os_string . "\n" if $ua->os_string;
 
     # Detect operating system
     if ( $ua->windows ) {
@@ -809,9 +806,7 @@ POD coverage is not 100%.
 
 "Browser ID (User-Agent) Strings", [http://www.zytrax.com/tech/web/browser\_ids.htm](http://www.zytrax.com/tech/web/browser_ids.htm)
 
-[HTML::ParseBrowser](https://metacpan.org/pod/HTML::ParseBrowser).
-
-# 
+[HTML::ParseBrowser](https://metacpan.org/pod/HTML%3A%3AParseBrowser).
 
 # SUPPORT
 
@@ -853,7 +848,7 @@ If you're able to add test cases, this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
 changes you have made. Please contact me if you have any questions.
 
-This distribution uses [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla). If you're not familiar with this module,
+This distribution uses [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla). If you're not familiar with this module,
 please see [https://github.com/oalders/http-browserdetect/issues/5](https://github.com/oalders/http-browserdetect/issues/5) for some
 helpful tips to get you started.
 

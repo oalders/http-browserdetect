@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.24      2019-10-31 17:48:35Z
     - Bump JSON::PP to 4.04. Fixes #169 (GH#170) (Olaf Alders)
     - Remove links to AnnoCPAN (GH#168) (Petr)
     - Fixed pod error as reported by CPANTS. (GH#166) (Mohammad S Anwar)
