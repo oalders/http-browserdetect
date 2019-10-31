@@ -801,9 +801,9 @@ sub _init_core {
 
         # Browser is Neoplanet
 
-        $browser                    = 'ie';
-        $browser_tests->{$browser}  = 1;
-        $browser_tests->{neoplanet} = 1;
+        $browser                     = 'ie';
+        $browser_tests->{$browser}   = 1;
+        $browser_tests->{neoplanet}  = 1;
         $browser_tests->{neoplanet2} = 1 if ( index( $ua, '2.' ) != -1 );
     }
 
@@ -1267,7 +1267,7 @@ sub _init_robots {
         # This isn't all keyed on ids (yet)
         $self->{robot_string} = $ROBOT_NAMES{$id} || $ROBOT_NAMES{$r};
         $robot_tests->{robot} = $r;
-        $robot_fragment = $r if !defined $robot_fragment;
+        $robot_fragment       = $r if !defined $robot_fragment;
     }
     elsif ( $ua =~ /seek (?! mo (?: toolbar )? \s+ \d+\.\d+ )/x ) {
 
