@@ -1,7 +1,10 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
-    - Fix bad syntax in SYNOPSIS (reported by John Blumel)
+    - Bump JSON::PP to 4.04. Fixes #169 (GH#170) (Olaf Alders)
+    - Remove links to AnnoCPAN (GH#168) (Petr)
+    - Fixed pod error as reported by CPANTS. (GH#166) (Mohammad S Anwar)
+    - Fix bad syntax in SYNOPSIS (reported by John Blumel) (GH#163) (Olaf Alders)
 
 3.23      2019-04-04 19:26:18Z
     - Add BingPreview to bot checker (GH#162) (James Waters)
