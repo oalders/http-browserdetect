@@ -2280,13 +2280,9 @@ sub _init_device {
         );
     }
 
-    if (
-        $browser_tests->{ucbrowser}
-        && ( $self->{user_agent}
-            =~ m{ucweb/2.0\s*\(([^\;\)]*\;){4}\s*([^\;\)]*?)\s*\)}i
-            || $self->{user_agent}
-            =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3}\s*([^\;\)]*?)\s*\)}i )
-    ) {
+    if (   $browser_tests->{ucbrowser}
+        && $self->{user_agent}
+        =~ m{ucweb/2.0\s*\(([^\;\)]*\;){3,4}\s*([^\;\)]*?)\s*\)}i ) {
         $device_string = $2;
     }
     elsif ( $ua =~ /^(\bmot-[^ \/]+)/ ) {
