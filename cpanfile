@@ -40,11 +40,15 @@ on 'develop' => sub {
   requires "Pod::Wordlist" => "0";
   requires "Test::CPAN::Changes" => "0.19";
   requires "Test::Code::TidyAll" => "0.50";
+  requires "Test::EOL" => "0";
+  requires "Test::Mojibake" => "0";
   requires "Test::More" => "0.96";
   requires "Test::Pod" => "1.41";
+  requires "Test::Portability::Files" => "0";
   requires "Test::Spelling" => "0.12";
   requires "Test::Synopsis" => "0";
   requires "Test::Vars" => "0.014";
+  requires "Test::Version" => "1";
 };
 
 on 'develop' => sub {
