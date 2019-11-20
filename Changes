@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.25      2019-11-20 14:11:51Z
     - Remove a near duplicate regex (GH#171) (Gregory Oschwald)
 
