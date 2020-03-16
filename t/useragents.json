@@ -3164,11 +3164,11 @@
       "browser" : "edge",
       "browser_string" : "Edge",
       "engine" : "edgehtml",
-      "engine_beta" : "",
+      "engine_beta" : ".361.62",
       "engine_major" : "80",
       "engine_minor" : ".0",
       "engine_string" : "EdgeHTML",
-      "engine_version" : "80.0.361.62",
+      "engine_version" : "80.0",
       "match" : [
          "edge",
          "edgehtml",
