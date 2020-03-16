@@ -6,7 +6,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.25
+version 3.26
 
 # SYNOPSIS
 
@@ -860,7 +860,7 @@ helpful tips to get you started.
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2019 by Lee Semel.
+This software is copyright (c) 1999 by Lee Semel.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

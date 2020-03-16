@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.26      2020-03-16 21:54:21Z
+    - Fix Microsoft Edge detection (GH#176) (Mahdi Zarei)
 
 3.25      2019-11-20 14:11:51Z
     - Remove a near duplicate regex (GH#171) (Gregory Oschwald)
