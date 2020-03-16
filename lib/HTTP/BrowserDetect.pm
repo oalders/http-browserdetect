@@ -631,7 +631,7 @@ sub _init_core {
     # Detect engine
     $self->{engine_version} = undef;
 
-    if ( $ua =~ m{edge/([\d.]+)$} ) {
+    if ( $ua =~ m{(?:edge|edg)/([\d.]+)$} ) {
         $tests->{edgehtml}      = 1;
         $self->{engine_version} = $1;
     }
