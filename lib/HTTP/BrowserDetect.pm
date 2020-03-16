@@ -1376,15 +1376,15 @@ sub _init_os {
     my $browser_tests = $self->{browser_tests};
     my $ua            = lc $self->{user_agent};
 
-    my $os_tests = $self->{os_tests} = {};
-    my $os       = undef;
+    my $os_tests  = $self->{os_tests} = {};
+    my $os        = undef;
     my $os_string = undef;
 
     # Windows
 
     if ( index( $ua, '16bit' ) != -1 ) {
-        $os        = 'windows';
-        $os_string = '16-bit Windows';
+        $os                = 'windows';
+        $os_string         = '16-bit Windows';
         $os_tests->{win16} = $os_tests->{windows} = 1;
     }
 
@@ -1405,27 +1405,27 @@ sub _init_os {
         }
         elsif (index( $ua, 'win95' ) != -1
             || index( $ua, 'windows 95' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win95';
+            $os                = 'windows';
+            $os_string         = 'Win95';
             $os_tests->{win95} = $os_tests->{win32} = 1;
         }
         elsif (
             index( $ua, 'win 9x 4.90' ) != -1    # whatever
             || index( $ua, 'windows me' ) != -1
         ) {
-            $os        = 'windows';
-            $os_string = 'WinME';
+            $os                = 'windows';
+            $os_string         = 'WinME';
             $os_tests->{winme} = $os_tests->{win32} = 1;
         }
         elsif (index( $ua, 'win98' ) != -1
             || index( $ua, 'windows 98' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win98';
+            $os                = 'windows';
+            $os_string         = 'Win98';
             $os_tests->{win98} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'windows 2000' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win2k';
+            $os                = 'windows';
+            $os_string         = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'windows ce' ) != -1 ) {
@@ -1458,46 +1458,46 @@ sub _init_os {
     if ( index( $ua, 'nt' ) != -1 ) {
         if (   index( $ua, 'nt 5.0' ) != -1
             || index( $ua, 'nt5' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win2k';
+            $os                = 'windows';
+            $os_string         = 'Win2k';
             $os_tests->{win2k} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 5.1' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'WinXP';
+            $os                = 'windows';
+            $os_string         = 'WinXP';
             $os_tests->{winxp} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 5.2' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win2k3';
+            $os                 = 'windows';
+            $os_string          = 'Win2k3';
             $os_tests->{win2k3} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 6.0' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'WinVista';
+            $os                   = 'windows';
+            $os_string            = 'WinVista';
             $os_tests->{winvista} = $os_tests->{winnt} = $os_tests->{win32}
                 = 1;
         }
         elsif ( index( $ua, 'nt 6.1' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win7';
+            $os               = 'windows';
+            $os_string        = 'Win7';
             $os_tests->{win7} = $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 6.2' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win8.0';
+            $os                 = 'windows';
+            $os_string          = 'Win8.0';
             $os_tests->{win8_0} = $os_tests->{win8} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 6.3' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win8.1';
+            $os                 = 'windows';
+            $os_string          = 'Win8.1';
             $os_tests->{win8_1} = $os_tests->{win8} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
         elsif ( index( $ua, 'nt 10.0' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'Win10.0';
+            $os                  = 'windows';
+            $os_string           = 'Win10.0';
             $os_tests->{win10_0} = $os_tests->{win10} = $os_tests->{winnt}
                 = $os_tests->{win32} = 1;
         }
@@ -1505,8 +1505,8 @@ sub _init_os {
             || index( $ua, 'windows nt' ) != -1
             || index( $ua, 'nt4' ) != -1
             || index( $ua, 'nt3' ) != -1 ) {
-            $os        = 'windows';
-            $os_string = 'WinNT';
+            $os                = 'windows';
+            $os_string         = 'WinNT';
             $os_tests->{winnt} = $os_tests->{win32} = 1;
         }
     }
@@ -1570,35 +1570,35 @@ sub _init_os {
         $os_tests->{$os} = 1;
     }
     elsif ( index( $ua, 'solaris' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'Solaris';
+        $os              = 'unix';
+        $os_string       = 'Solaris';
         $os_tests->{sun} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, 'samsung' ) == -1 && index( $ua, 'sun' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'SunOS';
+        $os              = 'unix';
+        $os_string       = 'SunOS';
         $os_tests->{sun} = $os_tests->{unix} = 1;
         $os_tests->{suni86} = 1 if index( $ua, 'i86' ) != -1;
         $os_tests->{sun4}   = 1 if index( $ua, 'sunos 4' ) != -1;
         $os_tests->{sun5}   = 1 if index( $ua, 'sunos 5' ) != -1;
     }
     elsif ( index( $ua, 'irix' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'Irix';
+        $os               = 'unix';
+        $os_string        = 'Irix';
         $os_tests->{irix} = $os_tests->{unix} = 1;
         $os_tests->{irix5} = 1 if ( index( $ua, 'irix5' ) != -1 );
         $os_tests->{irix6} = 1 if ( index( $ua, 'irix6' ) != -1 );
     }
     elsif ( index( $ua, 'hp-ux' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'HP-UX';
+        $os               = 'unix';
+        $os_string        = 'HP-UX';
         $os_tests->{hpux} = $os_tests->{unix} = 1;
         $os_tests->{hpux9}  = 1 if index( $ua, '09.' ) != -1;
         $os_tests->{hpux10} = 1 if index( $ua, '10.' ) != -1;
     }
     elsif ( index( $ua, 'aix' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'AIX';
+        $os              = 'unix';
+        $os_string       = 'AIX';
         $os_tests->{aix} = $os_tests->{unix} = 1;
         $os_tests->{aix1} = 1 if ( index( $ua, 'aix 1' ) != -1 );
         $os_tests->{aix2} = 1 if ( index( $ua, 'aix 2' ) != -1 );
@@ -1606,23 +1606,23 @@ sub _init_os {
         $os_tests->{aix4} = 1 if ( index( $ua, 'aix 4' ) != -1 );
     }
     elsif ( $ua =~ m{\bsco\b} || index( $ua, 'unix_sv' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'SCO Unix';
+        $os              = 'unix';
+        $os_string       = 'SCO Unix';
         $os_tests->{sco} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, 'unix_system_v' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'System V Unix';
+        $os                   = 'unix';
+        $os_string            = 'System V Unix';
         $os_tests->{unixware} = $os_tests->{unix} = 1;
     }
     elsif ( $ua =~ m{\bncr\b} ) {
-        $os        = 'unix';
-        $os_string = 'NCR Unix';
+        $os                = 'unix';
+        $os_string         = 'NCR Unix';
         $os_tests->{mpras} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, 'reliantunix' ) != -1 ) {
-        $os        = 'unix';
-        $os_string = 'Reliant Unix';
+        $os                  = 'unix';
+        $os_string           = 'Reliant Unix';
         $os_tests->{reliant} = $os_tests->{unix} = 1;
     }
     elsif (index( $ua, 'dec' ) != -1
@@ -1643,7 +1643,7 @@ sub _init_os {
         if ( $self->{user_agent} =~ m{(\w*bsd\w*)}i ) {
             $os_string = $1;
         }
-        $os_tests->{bsd} = $os_tests->{unix} = 1;
+        $os_tests->{bsd}     = $os_tests->{unix} = 1;
         $os_tests->{freebsd} = 1 if index( $ua, 'freebsd' ) != -1;
     }
     elsif ( $tests->{x11} ) {
