@@ -1,0 +1,93 @@
+---
+name: test
+
+on:
+  - push
+
+jobs:
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+    container:
+      image: perldocker/perl-tester:5.30
+    steps:
+      - uses: actions/checkout@v1
+      - name: perl -V
+        run: perl -V
+      - name: Get latest author bundle
+        run: >
+          cpm install -g
+          --show-build-log-on-failure
+          Dist::Zilla::PluginBundle::Author::OALDERS
+      - name: Install author deps
+        run: dzil authordeps | xargs cpm install -g --show-build-log-on-failure
+      - name: Build
+        run: dzil build --no-tgz --in dzil_build_dir
+      - uses: actions/upload-artifact@master
+        with:
+          name: build_dir
+          path: dzil_build_dir
+      - name: Install deps
+        if: success()
+        run: >
+          cd dzil_build_dir
+          && cpm install -g
+          --cpanfile cpanfile
+          --with-develop
+          --with-suggests
+          --show-build-log-on-failure
+      - name: Run Tests with coverage
+        if: success()
+        env:
+          AUTHOR_TESTING: 1
+          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+          HARNESS_PERL_SWITCHES: "-MDevel::Cover=+ignore,^local/|^t/|^xt"
+          RELEASE_TESTING: 1
+        run: >
+          cpm install -g
+          --show-build-log-on-failure
+          Devel::Cover::Report::Codecov &&
+          cd dzil_build_dir
+          && prove -lvr --jobs 2 t xt
+          && cover -report codecov
+  test:
+    runs-on: ubuntu-latest
+    name: Test distribution
+    needs: build
+    strategy:
+      matrix:
+        perl-version:
+          - "5.10"
+          - "5.12"
+          - "5.14"
+          - "5.16"
+          - "5.18"
+          - "5.20"
+          - "5.22"
+          - "5.24"
+          - "5.26"
+          - "5.28"
+          - "5.30"
+    container:
+      image: perldocker/perl-tester:${{ matrix.perl-version }}
+      env:
+        AUTHOR_TESTING: 1
+        RELEASE_TESTING: 1
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: build_dir
+          path: .
+      - name: Install deps
+        if: success()
+        run: >
+          cpm install -g
+          --cpanfile cpanfile
+          --with-develop
+          --with-suggests
+          --show-build-log-on-failure
+      - name: Run Tests
+        if: success()
+        run: prove -lvr --jobs 2 t xt
