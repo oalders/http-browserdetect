@@ -631,7 +631,7 @@ sub _init_core {
     # Detect engine
     $self->{engine_version} = undef;
 
-    if ( $ua =~ m{edge/([\d.]+)$} ) {
+    if ( $ua =~ m{(?:edge|edg)/([\d.]+)$} ) {
         $tests->{edgehtml}      = 1;
         $self->{engine_version} = $1;
     }
@@ -676,7 +676,7 @@ sub _init_core {
         $browser_tests->{epiphany} = 1;
     }
     elsif ( $ua
-        =~ m{^mozilla/[\d.]+ [(]windows (?:nt|phone) \d{2}\..+?[)] applewebkit/[\d.]+ [(]khtml,? like gecko[)] chrome/[\d.]+ (?:mobile )?safari/[\d.]+ edge/[\d.]+$}
+        =~ m{^mozilla/[\d.]+ [(]windows (?:nt|phone) \d{2}\..+?[)] applewebkit/[\d.]+ [(]khtml,? like gecko[)] chrome/[\d.]+ (?:mobile )?safari/[\d.]+ (?:edge|edg)/[\d.]+$}
     ) {
         $browser        = 'edge';
         $browser_string = 'Edge';
