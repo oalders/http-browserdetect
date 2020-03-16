@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.26      2020-03-16 21:54:21Z
     - Fix Microsoft Edge detection (GH#176) (Mahdi Zarei)
 
