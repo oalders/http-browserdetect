@@ -3160,6 +3160,28 @@
       "os_string" : "Win10.0",
       "robot" : null
    },
+   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.137 Safari/537.36 Edg/80.0.361.62" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "engine" : "edgehtml",
+      "engine_beta" : "",
+      "engine_major" : "13",
+      "engine_minor" : ".10586",
+      "engine_string" : "EdgeHTML",
+      "engine_version" : "13.10586",
+      "match" : [
+         "edge",
+         "edgehtml",
+         "windows",
+         "win32",
+         "winnt",
+         "win10",
+         "win10_0"
+      ],
+      "os" : "windows",
+      "os_string" : "Win10.0",
+      "robot" : null
+   },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
       "browser" : "ie",
       "browser_string" : "MSIE",
