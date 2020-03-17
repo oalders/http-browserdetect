@@ -90,4 +90,4 @@ jobs:
           --show-build-log-on-failure
       - name: Run Tests
         if: success()
-        run: prove -lvr --jobs 2 t xt
+        run: prove -lr --jobs 2 t xt
