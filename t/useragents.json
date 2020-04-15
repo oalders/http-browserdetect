@@ -2186,6 +2186,30 @@
       "version" : "62.0",
       "webview" : 1
    },
+   "Mozilla/5.0 (Linux; Android 6.0.1; HTC Desire 10 lifestyle) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.02.2.4931" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "engine" : "edgehtml",
+      "engine_beta" : ".2.4931",
+      "engine_major" : "45",
+      "engine_minor" : ".02",
+      "engine_string" : "EdgeHTML",
+      "engine_version" : "45.02",
+      "match" : [
+         "android",
+         "mobile",
+         "device",
+         "edgehtml",
+         "edge"
+      ],
+      "os" : "android",
+      "os_beta" : ".1",
+      "os_major" : "6",
+      "os_minor" : ".0",
+      "os_string" : "Android",
+      "os_version" : "6.0",
+      "robot" : null
+   },
    "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Pinterestbot/1.0; +https://www.pinterest.com/bot.html)" : {
       "match" : [
          "android",
@@ -2474,6 +2498,29 @@
       "os_string" : "Mac OS X",
       "os_version" : "10.9",
       "version" : "28.0"
+   },
+   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36 Edg/80.0.361.111" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "engine" : "edgehtml",
+      "engine_beta" : ".361.111",
+      "engine_major" : "80",
+      "engine_minor" : ".0",
+      "engine_string" : "EdgeHTML",
+      "engine_version" : "80.0",
+      "match" : [
+         "mac",
+         "macosx",
+         "edgehtml",
+         "edge"
+      ],
+      "os" : "macosx",
+      "os_beta" : ".4",
+      "os_major" : "10",
+      "os_minor" : ".15",
+      "os_string" : "Mac OS X",
+      "os_version" : "10.15",
+      "robot" : null
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36" : {
       "browser" : "chrome",
@@ -3180,79 +3227,6 @@
       ],
       "os" : "windows",
       "os_string" : "Win10.0",
-      "robot" : null
-   },
-   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36 Edg/80.0.361.111" : {
-      "browser" : "edge",
-      "browser_string" : "Edge",
-      "engine" : "edgehtml",
-      "engine_beta" : ".361.111",
-      "engine_major" : "80",
-      "engine_minor" : ".0",
-      "engine_string" : "EdgeHTML",
-      "engine_version" : "80.0",
-      "match" : [
-         "mac",
-         "macosx",
-         "edgehtml",
-         "edge"
-      ],
-      "os" : "macosx",
-      "os_beta" : ".4",
-      "os_major" : "10",
-      "os_minor" : ".15",
-      "os_string" : "Mac OS X",
-      "os_version" : "10.15",
-      "robot" : null
-   },
-   "Mozilla/5.0 (Linux; Android 6.0.1; HTC Desire 10 lifestyle) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.02.2.4931" : {
-      "browser" : "edge",
-      "browser_string" : "Edge",
-      "engine" : "edgehtml",
-      "engine_beta" : ".2.4931",
-      "engine_major" : "45",
-      "engine_minor" : ".02",
-      "engine_string" : "EdgeHTML",
-      "engine_version" : "45.02",
-      "match" : [
-         "android",
-         "mobile",
-         "device",
-         "edgehtml",
-         "edge"
-      ],
-      "os" : "android",
-      "os_beta" : ".1",
-      "os_major" : "6",
-      "os_minor" : ".0",
-      "os_string" : "Android",
-      "os_version" : "6.0",
-      "robot" : null
-   },
-   "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 EdgiOS/44.10.19 Mobile/15E148 Safari/605.1.15" : {
-      "browser" : "edge",
-      "browser_string" : "Edge",
-      "engine" : "edgehtml",
-      "engine_beta" : ".19",
-      "engine_major" : "44",
-      "engine_minor" : ".10",
-      "engine_string" : "EdgeHTML",
-      "engine_version" : "44.10",
-      "ios" : 1,
-      "match" : [
-         "device",
-         "ios",
-         "iphone",
-         "mobile",
-         "edgehtml",
-         "edge"
-      ],
-      "os" : "ios",
-      "os_beta" : "",
-      "os_major" : "13",
-      "os_minor" : ".3",
-      "os_string" : "iOS",
-      "os_version" : "13.3",
       "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
@@ -4984,6 +4958,32 @@
       "os_string" : "iOS",
       "os_version" : "5.0",
       "version" : "5.34"
+   },
+   "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 EdgiOS/44.10.19 Mobile/15E148 Safari/605.1.15" : {
+      "browser" : "edge",
+      "browser_string" : "Edge",
+      "engine" : "edgehtml",
+      "engine_beta" : ".19",
+      "engine_major" : "44",
+      "engine_minor" : ".10",
+      "engine_string" : "EdgeHTML",
+      "engine_version" : "44.10",
+      "ios" : 1,
+      "match" : [
+         "device",
+         "ios",
+         "iphone",
+         "mobile",
+         "edgehtml",
+         "edge"
+      ],
+      "os" : "ios",
+      "os_beta" : "",
+      "os_major" : "13",
+      "os_minor" : ".3",
+      "os_string" : "iOS",
+      "os_version" : "13.3",
+      "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
       "browser" : "safari",

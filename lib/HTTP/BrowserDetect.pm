@@ -675,8 +675,7 @@ sub _init_core {
         $browser = 'epiphany';
         $browser_tests->{epiphany} = 1;
     }
-    elsif ( $ua =~ m{(?:edg|edga|edge|edgios)/[\d.]+}
-    ) {
+    elsif ( $ua =~ m{(?:edg|edga|edge|edgios)/[\d.]+} ) {
         $browser        = 'edge';
         $browser_string = 'Edge';
 
