@@ -6,7 +6,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.26
+version 3.27
 
 # SYNOPSIS
 
@@ -806,7 +806,7 @@ POD coverage is not 100%.
 
 "Browser ID (User-Agent) Strings", [http://www.zytrax.com/tech/web/browser\_ids.htm](http://www.zytrax.com/tech/web/browser_ids.htm)
 
-[HTML::ParseBrowser](https://metacpan.org/pod/HTML%3A%3AParseBrowser).
+[HTML::ParseBrowser](https://metacpan.org/pod/HTML::ParseBrowser).
 
 # SUPPORT
 
@@ -848,7 +848,7 @@ If you're able to add test cases, this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
 changes you have made. Please contact me if you have any questions.
 
-This distribution uses [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla). If you're not familiar with this module,
+This distribution uses [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla). If you're not familiar with this module,
 please see [https://github.com/oalders/http-browserdetect/issues/5](https://github.com/oalders/http-browserdetect/issues/5) for some
 helpful tips to get you started.
 

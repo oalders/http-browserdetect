@@ -37,9 +37,11 @@
          },
          "requires" : {
             "Code::TidyAll" : "0.71",
+            "Code::TidyAll::Plugin::JSON" : "0.75",
             "Code::TidyAll::Plugin::SortLines::Naturally" : "0.000003",
             "Code::TidyAll::Plugin::Test::Vars" : "0.04",
             "Code::TidyAll::Plugin::UniqueLines" : "0.000003",
+            "JSON::MaybeXS" : "1.004000",
             "Parallel::ForkManager" : "1.19",
             "Perl::Critic" : "1.132",
             "Perl::Tidy" : "20180220",
@@ -96,10 +98,10 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.26",
+   "version" : "3.27",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.030000"
+         "version" : "5.026001"
       },
       "plugins" : [
          {
@@ -209,7 +211,7 @@
             "config" : {
                "Dist::Zilla::Role::ModuleMetadata" : {
                   "Module::Metadata" : "1.000037",
-                  "version" : "0.006"
+                  "version" : "0.004"
                }
             },
             "name" : "@Author::OALDERS/InstallGuide",
@@ -245,6 +247,7 @@
                      "Alders'",
                      "AnnoCPAN",
                      "Atsushi",
+                     "CGI",
                      "Cebrin",
                      "Firebird",
                      "Florian",
@@ -291,6 +294,7 @@
                      "galeon",
                      "getright",
                      "golib",
+                     "google",
                      "googleadsbot",
                      "googleadsense",
                      "googlebot",
@@ -318,6 +322,7 @@
                      "lycos",
                      "macosx",
                      "macppc",
+                     "malware",
                      "merlynkline",
                      "mj",
                      "mozilla",
@@ -612,7 +617,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "repo_root" : "."
                }
             },
@@ -623,7 +628,7 @@
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
             "config" : {
                "Dist::Zilla::Plugin::Git::Contributors" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "include_authors" : 0,
                   "include_releaser" : 1,
                   "order_by" : "name",
@@ -747,7 +752,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -764,12 +769,12 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.26",
+                  "tag" : "v3.27",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -819,7 +824,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -839,7 +844,7 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.26.1",
                   "repo_root" : "."
                }
             },
@@ -855,6 +860,17 @@
                }
             },
             "name" : "TestRequires",
+            "version" : "6.014"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "develop",
+                  "type" : "requires"
+               }
+            },
+            "name" : "DevelopRequires",
             "version" : "6.014"
          },
          {
@@ -953,10 +969,11 @@
       "Thom Blake <thom@odonnellpdc.com>",
       "Uwe <uwe@uwevoelker.de>",
       "vti <viacheslav.t@gmail.com>",
-      "yeahoffline <frank.gasser@gmail.com>"
+      "yeahoffline <frank.gasser@gmail.com>",
+      "Zak B. Elep <zakame@zakame.net>"
    ],
-   "x_generated_by_perl" : "v5.30.0",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.14",
+   "x_generated_by_perl" : "v5.26.1",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.04",
    "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later",
    "x_static_install" : 1
 }
