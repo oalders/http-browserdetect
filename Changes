@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fix typo for 'wv' (GH#178) (Jon Jensen
 
 3.27      2020-04-15 16:18:20Z
     - Improve detection for MS Edge (GH#177) (Zak B. Elep)
