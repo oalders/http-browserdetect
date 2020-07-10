@@ -2858,7 +2858,7 @@ sub _language_country {
         my @parts = split( /;/, $1 );
         foreach my $part (@parts) {
 
-            # 'vw' for WebView is not language code. Details here: https://developer.chrome.com/multidevice/user-agent#webview_user_agent
+            # 'wv' for WebView is not language code. Details here: https://developer.chrome.com/multidevice/user-agent#webview_user_agent
             if ( $part =~ /^\s*([a-z]{2})\s*$/
                 && !( $self->webview && $1 eq 'wv' ) ) {
                 return { language => uc $1 };
