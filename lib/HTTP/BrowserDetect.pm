@@ -2461,7 +2461,7 @@ sub robot_beta {
 sub os {
     my ($self) = @_;
 
-    return undef unless defined $self->{user_agent};
+    return undef    unless defined $self->{user_agent};
     $self->_init_os unless $self->{os_tests};
     return $self->{os};
 }
@@ -2469,7 +2469,7 @@ sub os {
 sub os_string {
     my ($self) = @_;
 
-    return undef unless defined $self->{user_agent};
+    return undef    unless defined $self->{user_agent};
     $self->_init_os unless $self->{os_tests};
     return $self->{os_string};
 }
