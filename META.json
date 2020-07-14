@@ -98,7 +98,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.28",
+   "version" : "3.29",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.030002"
@@ -791,7 +791,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.28",
+                  "tag" : "v3.29",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
@@ -976,6 +976,7 @@
       "Marco Fontani <MFONTANI@cpan.org>",
       "Maros Kollar <maros@k-1.com>",
       "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
+      "motxx <motohiko.ave@gmail.com>",
       "Nicolas Doye <nic@worldofnic.org>",
       "Olaf Alders <olaf.alders@gmail.com>",
       "Olaf Alders <olaf@wundersolutions.com>",
