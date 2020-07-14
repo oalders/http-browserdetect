@@ -1820,7 +1820,7 @@ sub _init_version {
         # specific approaches and go straight to the generic ones.
     }
     elsif ( $browser_tests->{edge} ) {
-        ( $major, $minor, $beta ) = $ua =~ m{Edge/(\d+)(.\d+)(.\d+)?};
+        ( $major, $minor, $beta ) = $ua =~ m{Edge/(\d+)\.(\d+)\.?(\d+)?};
     }
     elsif ( $browser_tests->{safari} ) {
 
