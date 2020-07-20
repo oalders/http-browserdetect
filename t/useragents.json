@@ -2188,6 +2188,9 @@
    },
    "Mozilla/5.0 (Linux; Android 6.0.1; HTC Desire 10 lifestyle) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.02.2.4931" : {
       "browser" : "edge",
+      "browser_beta" : ".2.4931",
+      "browser_major" : "45",
+      "browser_minor" : ".02",
       "browser_string" : "Edge",
       "browser_version" : "45.02",
       "engine" : "webkit",
@@ -2504,6 +2507,9 @@
    },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36 Edg/80.0.361.111" : {
       "browser" : "edge",
+      "browser_beta" : ".361.111",
+      "browser_major" : "80",
+      "browser_minor" : ".0",
       "browser_string" : "Edge",
       "engine" : "webkit",
       "engine_beta" : "",
@@ -3212,6 +3218,9 @@
    },
    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.137 Safari/537.36 Edg/80.0.361.62" : {
       "browser" : "edge",
+      "browser_beta" : ".361.62",
+      "browser_major" : "80",
+      "browser_minor" : ".0",
       "browser_string" : "Edge",
       "engine" : "webkit",
       "engine_beta" : "",
@@ -4964,6 +4973,9 @@
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 EdgiOS/44.10.19 Mobile/15E148 Safari/605.1.15" : {
       "browser" : "edge",
+      "browser_beta" : ".19",
+      "browser_major" : "44",
+      "browser_minor" : ".10",
       "browser_string" : "Edge",
       "browser_version" : "44.10",
       "engine" : "webkit",
