@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.30      2020-07-20 15:45:22Z
     - Fix MS Edge browser_beta capturing (GH#181) (moti)
 
