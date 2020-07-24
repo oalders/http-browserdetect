@@ -7,8 +7,6 @@ package HTTP::BrowserDetect;
 
 our $VERSION = '3.31';
 
-use vars qw(@ALL_TESTS);
-
 # Operating Systems
 our @OS_TESTS = qw(
     windows  mac     os2
@@ -206,8 +204,7 @@ our @MISC_TESTS = qw(
     webview
 );
 
-push @ALL_TESTS,
-    (
+our @ALL_TESTS = (
     @OS_TESTS,        @WINDOWS_TESTS,
     @MAC_TESTS,       @UNIX_TESTS,
     @BSD_TESTS,       @GAMING_TESTS,
@@ -216,7 +213,7 @@ push @ALL_TESTS,
     @AOL_TESTS,       @NETSCAPE_TESTS,
     @FIREFOX_TESTS,   @ENGINE_TESTS,
     @OLD_ROBOT_TESTS, @MISC_TESTS,
-    );
+);
 
 # https://support.google.com/webmasters/answer/1061943?hl=en
 

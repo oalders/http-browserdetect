@@ -3,7 +3,6 @@
 
 requires "perl" => "5.006";
 requires "strict" => "0";
-requires "vars" => "0";
 requires "warnings" => "0";
 
 on 'test' => sub {
