@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.31      2020-07-29 14:29:55Z
+    - Replace last use of "vars" with "our" (GH#182) (James Raspass)
 
 3.30      2020-07-20 15:45:22Z
     - Fix MS Edge browser_beta capturing (GH#181) (moti)

@@ -97,7 +97,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.30",
+   "version" : "3.31",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.030002"
@@ -790,7 +790,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.30",
+                  "tag" : "v3.31",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
@@ -966,6 +966,7 @@
       "gregor herrmann <gregor+github@comodo.priv.at>",
       "Gregory Oschwald <goschwald@maxmind.com>",
       "Hao Wu <hwu@intellisurvey.com>",
+      "James Raspass <jraspass@gmail.com>",
       "James Waters <james@jcwaters.co.uk>",
       "joatis <joatis3@gmail.com>",
       "Jon Jensen <jon@endpoint.com>",
