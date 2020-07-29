@@ -18,7 +18,6 @@ my %WriteMakefileArgs = (
   "NAME" => "HTTP::BrowserDetect",
   "PREREQ_PM" => {
     "strict" => 0,
-    "vars" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
@@ -54,7 +53,6 @@ my %FallbackPrereqs = (
   "Test::Most" => 0,
   "Test::NoWarnings" => 0,
   "strict" => 0,
-  "vars" => 0,
   "warnings" => 0
 );
 
