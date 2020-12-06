@@ -1399,7 +1399,7 @@ sub _init_os {
             $os                = 'windows';
             if ( index( $ua, 'windows 3.1' ) != -1 ) {
                 $os_tests->{win31} = 1;
-                $os_string = 'Win3x';    # FIXME bug compatibility
+                $os_string = 'Win3x';            # FIXME bug compatibility
             }
             else {
                 $os_string = 'Win3x';
@@ -1577,31 +1577,31 @@ sub _init_os {
         $os_tests->{sun} = $os_tests->{unix} = 1;
     }
     elsif ( index( $ua, 'samsung' ) == -1 && index( $ua, 'sun' ) != -1 ) {
-        $os              = 'unix';
-        $os_string       = 'SunOS';
-        $os_tests->{sun} = $os_tests->{unix} = 1;
+        $os                 = 'unix';
+        $os_string          = 'SunOS';
+        $os_tests->{sun}    = $os_tests->{unix} = 1;
         $os_tests->{suni86} = 1 if index( $ua, 'i86' ) != -1;
         $os_tests->{sun4}   = 1 if index( $ua, 'sunos 4' ) != -1;
         $os_tests->{sun5}   = 1 if index( $ua, 'sunos 5' ) != -1;
     }
     elsif ( index( $ua, 'irix' ) != -1 ) {
-        $os               = 'unix';
-        $os_string        = 'Irix';
-        $os_tests->{irix} = $os_tests->{unix} = 1;
+        $os                = 'unix';
+        $os_string         = 'Irix';
+        $os_tests->{irix}  = $os_tests->{unix} = 1;
         $os_tests->{irix5} = 1 if ( index( $ua, 'irix5' ) != -1 );
         $os_tests->{irix6} = 1 if ( index( $ua, 'irix6' ) != -1 );
     }
     elsif ( index( $ua, 'hp-ux' ) != -1 ) {
-        $os               = 'unix';
-        $os_string        = 'HP-UX';
-        $os_tests->{hpux} = $os_tests->{unix} = 1;
+        $os                 = 'unix';
+        $os_string          = 'HP-UX';
+        $os_tests->{hpux}   = $os_tests->{unix} = 1;
         $os_tests->{hpux9}  = 1 if index( $ua, '09.' ) != -1;
         $os_tests->{hpux10} = 1 if index( $ua, '10.' ) != -1;
     }
     elsif ( index( $ua, 'aix' ) != -1 ) {
-        $os              = 'unix';
-        $os_string       = 'AIX';
-        $os_tests->{aix} = $os_tests->{unix} = 1;
+        $os               = 'unix';
+        $os_string        = 'AIX';
+        $os_tests->{aix}  = $os_tests->{unix} = 1;
         $os_tests->{aix1} = 1 if ( index( $ua, 'aix 1' ) != -1 );
         $os_tests->{aix2} = 1 if ( index( $ua, 'aix 2' ) != -1 );
         $os_tests->{aix3} = 1 if ( index( $ua, 'aix 3' ) != -1 );
@@ -2004,11 +2004,11 @@ sub _init_version {
     if ( $browser_tests->{netscape} ) {
 
         # Netscape browsers
-        $version_tests->{nav2}   = 1 if $major == 2;
-        $version_tests->{nav3}   = 1 if $major == 3;
-        $version_tests->{nav4}   = 1 if $major == 4;
-        $version_tests->{nav4up} = 1 if $major >= 4;
-        $version_tests->{nav45}  = 1 if $major == 4 && $minor == 5;
+        $version_tests->{nav2}    = 1 if $major == 2;
+        $version_tests->{nav3}    = 1 if $major == 3;
+        $version_tests->{nav4}    = 1 if $major == 4;
+        $version_tests->{nav4up}  = 1 if $major >= 4;
+        $version_tests->{nav45}   = 1 if $major == 4 && $minor == 5;
         $version_tests->{nav45up} = 1
             if ( $major == 4 && ".$minor" >= .5 )
             || $major >= 5;
