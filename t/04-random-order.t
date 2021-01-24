@@ -3,12 +3,11 @@
 use strict;
 use warnings;
 
-use Test::Most;
-use Test::FailWarnings;
-
-use FindBin;
-use JSON::PP;
+use FindBin  ();
+use JSON::PP ();
 use Path::Tiny qw( path );
+use Test::FailWarnings;
+use Test::More;
 
 # test that the module loads without errors
 my $w;
@@ -67,7 +66,7 @@ my @methods = (
         realplayer_browser
         robot_string
         version
-        ), &HTTP::BrowserDetect::_all_tests()
+    ), &HTTP::BrowserDetect::_all_tests()
 );
 
 foreach my $ua ( sort ( keys %{$tests} ) ) {
