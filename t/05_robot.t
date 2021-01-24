@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use List::Util ();
+use List::Util          ();
 use Test::More;
 
 my $detect = HTTP::BrowserDetect->new;
