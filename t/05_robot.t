@@ -2,8 +2,8 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use List::Util qw();
-use Test::Most;
+use List::Util ();
+use Test::More;
 
 my $detect = HTTP::BrowserDetect->new;
 
