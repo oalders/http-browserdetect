@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.32      2021-07-20 21:13:13Z
     - add headlesschrome as robot (GH#187) (Ilya Rassadin)
     - Tidy imports (GH#184) (Olaf Alders)
 

@@ -2,11 +2,9 @@
 
 HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP user agent string
 
-[![Build Status](https://travis-ci.org/oalders/http-browserdetect.png?branch=master)](https://travis-ci.org/oalders/http-browserdetect)
-
 # VERSION
 
-version 3.31
+version 3.32
 
 # SYNOPSIS
 
@@ -209,7 +207,7 @@ googleadsbot, googleadsense, googlebotimage, googlebotnews,
 googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
 infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
 mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
-wget, yandexbot, yandeximages, java, unknown
+wget, yandexbot, yandeximages, java, headlesschrome, unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
@@ -558,6 +556,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 ### yandex
 
 ### yandeximages
+
+### headlesschrome
 
 ## Engine properties
 
