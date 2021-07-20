@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - add headlesschrome as robot (GH#187) (Ilya Rassadin)
+    - Tidy imports (GH#184) (Olaf Alders)
 
 3.31      2020-07-29 14:29:55Z
     - Replace last use of "vars" with "our" (GH#182) (James Raspass)
