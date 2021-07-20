@@ -164,6 +164,7 @@ my @OLD_ROBOT_TESTS = qw(
     yahoo
     yandex
     yandeximages
+    headlesschrome
 );
 
 our @ROBOT_TESTS = (
@@ -292,6 +293,7 @@ my %ROBOT_NAMES = (
     'yahoo-slurp'         => 'Yahoo! Slurp',
     yandex                => 'Yandex',
     'yandex-images'       => 'YandexImages',
+    'headless-chrome'     => 'HeadlessChrome',
 );
 
 my %ROBOT_IDS = (
@@ -340,6 +342,7 @@ my %ROBOT_IDS = (
     yahoo           => 'yahoo',
     yandex          => 'yandex',
     yandeximages    => 'yandex-images',
+    headlesschrome  => 'headless-chrome',
 );
 
 my %BROWSER_NAMES = (
@@ -1206,6 +1209,9 @@ sub _init_robots {
     }
     elsif ( index( $ua, 'yandeximages' ) != -1 ) {
         $r = 'yandeximages';
+    }
+    elsif ( index( $ua, 'headlesschrome') != -1) {
+        $r = 'headlesschrome';
     }
     elsif ( $ua =~ m{^java} && !$self->{browser} ) {
         $r = 'java';
@@ -3173,7 +3179,7 @@ googleadsbot, googleadsense, googlebotimage, googlebotnews,
 googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
 infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
 mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
-wget, yandexbot, yandeximages, java, unknown
+wget, yandexbot, yandeximages, java, headlesschrome, unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
@@ -3522,6 +3528,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 yandex
 
 =head3 yandeximages
+
+=head3 headlesschrome
 
 =head2 Engine properties
 
