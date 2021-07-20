@@ -1210,7 +1210,7 @@ sub _init_robots {
     elsif ( index( $ua, 'yandeximages' ) != -1 ) {
         $r = 'yandeximages';
     }
-    elsif ( index( $ua, 'headlesschrome') != -1) {
+    elsif ( index( $ua, 'headlesschrome' ) != -1 ) {
         $r = 'headlesschrome';
     }
     elsif ( $ua =~ m{^java} && !$self->{browser} ) {

@@ -15876,6 +15876,27 @@
       "public_version" : 2,
       "version" : 5.37
    },
+   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/86.0.4240.75 Safari/537.36" : {
+      "browser_major" : "86",
+      "browser_minor" : ".0",
+      "browser_version" : "86.0",
+      "match" : [
+         "robot",
+         "headlesschrome",
+         "chrome",
+         "linux",
+         "unix",
+         "webkit",
+         "x11"
+      ],
+      "robot" : "headlesschrome",
+      "robot_beta" : "",
+      "robot_major" : "537",
+      "robot_minor" : ".36",
+      "robot_name" : "HeadlessChrome",
+      "robot_string" : "HeadlessChrome",
+      "robot_version" : "537.36"
+   },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Silk/44.1.54 like Chrome/44.0.2403.63 Safari/537.36" : {
       "browser" : "silk",
       "browser_beta" : ".54",
@@ -17638,27 +17659,6 @@
       "robot_name" : "YandexImages",
       "robot_string" : "YandexImages",
       "robot_version" : "3.0"
-   },
-   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/86.0.4240.75 Safari/537.36" : {
-      "browser_version" : "86.0",
-      "browser_major": "86",
-      "browser_minor": ".0",
-      "match": [
-         "robot",
-         "headlesschrome",
-         "chrome",
-         "linux",
-         "unix",
-         "webkit",
-         "x11"
-      ],
-      "robot" : "headlesschrome",
-      "robot_beta" : "",
-      "robot_major" : "537",
-      "robot_minor" : ".36",
-      "robot_name" : "HeadlessChrome",
-      "robot_string" : "HeadlessChrome",
-      "robot_version" : "537.36"
    },
    "Mozilla/5.0 (compatible; archive.org_bot; Wayback Machine Live Record; +http://archive.org/details/archive.org_bot)" : {
       "browser_major" : "5",
