@@ -97,7 +97,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.32",
+   "version" : "3.33",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.030002"
@@ -603,7 +603,7 @@
                }
             },
             "name" : "@Author::OALDERS/Git::GatherDir",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::CopyFilesFromRelease",
@@ -644,7 +644,7 @@
                }
             },
             "name" : "@Author::OALDERS/Git::Check",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
@@ -778,7 +778,7 @@
                }
             },
             "name" : "@Author::OALDERS/@Git::VersionManager/release snapshot",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
@@ -787,7 +787,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.32",
+                  "tag" : "v3.33",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
@@ -800,7 +800,7 @@
                }
             },
             "name" : "@Author::OALDERS/@Git::VersionManager/Git::Tag",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::BumpVersionAfterRelease::Transitional",
@@ -851,7 +851,7 @@
                }
             },
             "name" : "@Author::OALDERS/@Git::VersionManager/post-release commit",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -868,7 +868,7 @@
                }
             },
             "name" : "@Author::OALDERS/Git::Push",
-            "version" : "2.047"
+            "version" : "2.048"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -991,6 +991,7 @@
       "Thom Blake <thom@odonnellpdc.com>",
       "Uwe <uwe@uwevoelker.de>",
       "vti <viacheslav.t@gmail.com>",
+      "Yasuharu Iida <yasuharu.iida@fout.jp>",
       "yeahoffline <frank.gasser@gmail.com>",
       "Zak B. Elep <zakame@zakame.net>"
    ],
