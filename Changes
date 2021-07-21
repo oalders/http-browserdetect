@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Yahoo iOS App as not a robot (GH#188) (Yasuharu Iida)
 
 3.32      2021-07-20 21:13:13Z
     - add headlesschrome as robot (GH#187) (Ilya Rassadin)
