@@ -5003,6 +5003,37 @@
       "os_version" : "13.3",
       "robot" : null
    },
+   "Mozilla/5.0 (iPhone; CPU iPhone OS 14_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 YJApp-IOS jp.co.yahoo.BasePlayer/3.149.0" : {
+      "browser" : "safari",
+      "browser_string" : "Safari",
+      "country" : null,
+      "device" : "iphone",
+      "device_string" : "iPhone",
+      "engine" : "webkit",
+      "engine_beta" : ".15",
+      "engine_major" : "605",
+      "engine_minor" : ".1",
+      "engine_string" : "WebKit",
+      "engine_version" : "605.1",
+      "language" : null,
+      "match" : [
+         "safari",
+         "mobile",
+         "iphone",
+         "webkit",
+         "device",
+         "ios"
+      ],
+      "no_match" : [
+         "robot"
+      ],
+      "os" : "ios",
+      "os_beta" : ".1",
+      "os_major" : "14",
+      "os_minor" : ".5",
+      "os_string" : "iOS",
+      "os_version" : "14.5"
+   },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329" : {
       "browser" : "safari",
       "browser_string" : "Safari",
@@ -7008,36 +7039,5 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
-   },
-   "Mozilla/5.0 (iPhone; CPU iPhone OS 14_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 YJApp-IOS jp.co.yahoo.BasePlayer/3.149.0" : {
-      "browser" : "safari",
-      "browser_string" : "Safari",
-      "country" : null,
-      "device" : "iphone",
-      "device_string" : "iPhone",
-      "engine" : "webkit",
-      "engine_beta" : ".15",
-      "engine_major" : "605",
-      "engine_minor" : ".1",
-      "engine_string" : "WebKit",
-      "engine_version" : "605.1",
-      "language" : null,
-      "match" : [
-         "safari",
-         "mobile",
-         "iphone",
-         "webkit",
-         "device",
-         "ios"
-      ],
-      "no_match" : [
-         "robot"
-      ],
-      "os" : "ios",
-      "os_beta" : ".1",
-      "os_major" : "14",
-      "os_minor" : ".5",
-      "os_string" : "iOS",
-      "os_version" : "14.5"
-    }
+   }
 }
