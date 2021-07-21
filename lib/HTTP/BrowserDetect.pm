@@ -1047,7 +1047,7 @@ sub _init_robots {
         $robot_tests->{yahoo} = 1;
     }
     elsif (index( $ua, 'yahoo' ) != -1
-        && index( $ua, 'jp.co.yahoo.android' ) == -1 ) {
+        && index( $ua, 'jp.co.yahoo' ) == -1 ) {
         $r = 'yahoo';
     }
     elsif ( index( $ua, 'msnbot-mobile' ) != -1 ) {
