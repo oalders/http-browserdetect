@@ -17,7 +17,7 @@ jobs:
     name: Build distribution
     runs-on: ubuntu-latest
     container:
-      image: perldocker/perl-tester:5.32
+      image: perldocker/perl-tester:5.34
     steps:
       - uses: actions/checkout@v2
       - name: Run Tests
@@ -36,7 +36,7 @@ jobs:
     needs: build-job
     runs-on: ubuntu-latest
     container:
-      image: perldocker/perl-tester:5.32
+      image: perldocker/perl-tester:5.34
     steps:
       - uses: actions/checkout@v2 # codecov wants to be inside a Git repository
       - uses: actions/download-artifact@master
@@ -47,12 +47,12 @@ jobs:
         run: cpan-install-dist-deps && test-dist
         env:
           CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
-  test-job:
+  test-linux-job:
     needs: build-job
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
         perl-version:
           - "5.8"
           - "5.10"
@@ -67,22 +67,13 @@ jobs:
           - "5.28"
           - "5.30"
           - "5.32"
-        exclude:
-          - os: windows-latest
-            perl-version: "5.8"
-          - os: windows-latest
-            perl-version: "5.10"
-          - os: windows-latest
-            perl-version: "5.12"
-          - os: windows-latest
-            perl-version: "5.32"
+          - "5.34"
     name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
     steps:
       - name: Set Up Perl
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-          distribution: strawberry # this option only used on Windows
       - uses: actions/download-artifact@master
         with:
           name: build_dir
@@ -92,7 +83,85 @@ jobs:
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
-      - run: prove -l t xt
+      - run: prove -lr t
         env:
-          AUTHOR_TESTING: 1
-          RELEASE_TESTING: 1
+          AUTHOR_TESTING: 0
+          RELEASE_TESTING: 0
+  test-macos-job:
+    needs: build-job
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        perl-version:
+          - "5.8"
+          - "5.10"
+          - "5.12"
+          - "5.14"
+          - "5.16"
+          - "5.18"
+          - "5.20"
+          - "5.22"
+          - "5.24"
+          - "5.26"
+          - "5.28"
+          - "5.30"
+          - "5.32"
+          - "5.34"
+    name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
+    steps:
+      - name: Set Up Perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl-version }}
+      - uses: actions/download-artifact@master
+        with:
+          name: build_dir
+          path: .
+      - name: install deps using cpm
+        uses: perl-actions/install-with-cpm@v1
+        with:
+          cpanfile: "cpanfile"
+          args: "--with-suggests --with-recommends --with-test"
+      - run: prove -lr t
+        env:
+          AUTHOR_TESTING: 0
+          RELEASE_TESTING: 0
+  test-windows-job:
+    needs: build-job
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+        perl-version:
+          - "5.14"
+          - "5.16"
+          - "5.18"
+          - "5.20"
+          - "5.22"
+          - "5.24"
+          - "5.26"
+          - "5.28"
+          - "5.30"
+          - "5.32"
+    name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
+    steps:
+      - name: Set Up Perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl-version }}
+          distribution: strawberry
+      - uses: actions/download-artifact@master
+        with:
+          name: build_dir
+          path: .
+      - name: install deps using cpm
+        uses: perl-actions/install-with-cpm@v1
+        with:
+          cpanfile: "cpanfile"
+          args: "--with-suggests --with-recommends --with-test"
+      - run: prove -lr t
+        env:
+          AUTHOR_TESTING: 0
+          RELEASE_TESTING: 0

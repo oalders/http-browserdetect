@@ -6,7 +6,7 @@ use warnings;
 use FindBin  ();
 use JSON::PP ();
 use Path::Tiny qw( path );
-use Test::FailWarnings;
+use Test::Warnings;
 use Test::More;
 
 # test that the module loads without errors
