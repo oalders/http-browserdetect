@@ -2,6 +2,7 @@ Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
     - Fix modern UCBrowser detection (GH#189) (konstantin-pustovalov-qs)
+    - Switch from Test::FailWarnings to Test::Warnings (GH#190) (Olaf Alders
 
 3.33      2021-07-21 14:38:49Z
     - Yahoo iOS App as not a robot (GH#188) (Yasuharu Iida)
