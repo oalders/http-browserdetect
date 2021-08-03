@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.34      2021-08-03 20:09:33Z
     - Fix modern UCBrowser detection (GH#189) (konstantin-pustovalov-qs)
     - Switch from Test::FailWarnings to Test::Warnings (GH#190) (Olaf Alders
 
