@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use Test::FailWarnings;
+use Test::Warnings;
 use Test::More;
 
 ok( my $ua = HTTP::BrowserDetect->new(undef), q{undef produces no warnings} );

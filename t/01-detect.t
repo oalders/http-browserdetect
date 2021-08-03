@@ -9,7 +9,7 @@ use JSON::PP ();
 use List::Util 1.49 qw( uniq );
 use Path::Tiny qw( path );
 use Test::Differences qw( eq_or_diff );
-use Test::FailWarnings;
+use Test::Warnings;
 use Test::More;
 
 # test that the module loads without errors
