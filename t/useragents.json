@@ -2300,6 +2300,24 @@
       "public_version" : "3.1",
       "version" : "5.25"
    },
+   "Mozilla/5.0 (Linux; U; Android 10; en-US; Redmi Note 8 Pro Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.13.5.1209 Mobile Safari/537.36" : {
+      "browser" : "ucbrowser",
+      "browser_beta" : ".5.1209",
+      "browser_major" : "12",
+      "browser_minor" : ".13",
+      "browser_string" : "UCBrowser",
+      "country" : "US",
+      "device" : "android",
+      "device_string" : "Android (Redmi Note 8 Pro)",
+      "language" : "EN",
+      "match" : [
+         "android",
+         "device",
+         "webkit",
+         "mobile",
+         "ucbrowser"
+      ]
+   },
    "Mozilla/5.0 (Linux; U; Android 2.1-update1; en-us; DROIDX Build/VZW) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17 854X480 motorola DROIDX" : {
       "browser" : "safari",
       "browser_string" : "Mobile Safari",
