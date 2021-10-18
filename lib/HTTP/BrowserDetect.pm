@@ -2220,27 +2220,27 @@ sub _init_device {
             && index( $ua, 'mobile' ) == -1
             && index( $ua, 'safari' ) != -1 )
             || ( $browser_tests->{firefox} && index( $ua, 'tablet' ) != -1 )
-            || index( $ua, 'kindle' ) != -1
-            || index( $ua, 'xoom' ) != -1
-            || index( $ua, 'flyer' ) != -1
-            || index( $ua, 'jetstream' ) != -1
-            || index( $ua, 'transformer' ) != -1
-            || index( $ua, 'novo7' ) != -1
-            || index( $ua, 'an10g2' ) != -1
-            || index( $ua, 'an7bg3' ) != -1
-            || index( $ua, 'an7fg3' ) != -1
-            || index( $ua, 'an8g3' ) != -1
-            || index( $ua, 'an8cg3' ) != -1
-            || index( $ua, 'an7g3' ) != -1
-            || index( $ua, 'an9g3' ) != -1
-            || index( $ua, 'an7dg3' ) != -1
-            || index( $ua, 'an7dg3st' ) != -1
-            || index( $ua, 'an7dg3childpad' ) != -1
             || index( $ua, 'an10bg3' ) != -1
             || index( $ua, 'an10bg3dt' ) != -1
+            || index( $ua, 'an10g2' ) != -1
+            || index( $ua, 'an7bg3' ) != -1
+            || index( $ua, 'an7dg3' ) != -1
+            || index( $ua, 'an7dg3childpad' ) != -1
+            || index( $ua, 'an7dg3st' ) != -1
+            || index( $ua, 'an7fg3' ) != -1
+            || index( $ua, 'an7g3' ) != -1
+            || index( $ua, 'an8cg3' ) != -1
+            || index( $ua, 'an8g3' ) != -1
+            || index( $ua, 'an9g3' ) != -1
+            || index( $ua, 'flyer' ) != -1
+            || index( $ua, 'hp-tablet' ) != -1
+            || index( $ua, 'jetstream' ) != -1
+            || index( $ua, 'kindle' ) != -1
+            || index( $ua, 'novo7' ) != -1
             || index( $ua, 'opera tablet' ) != -1
             || index( $ua, 'rim tablet' ) != -1
-            || index( $ua, 'hp-tablet' ) != -1
+            || index( $ua, 'transformer' ) != -1
+            || index( $ua, 'xoom' ) != -1
     );
 
     if ( !$device_tests->{tablet} ) {
