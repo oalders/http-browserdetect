@@ -2924,7 +2924,8 @@ sub browser_properties {
     # so I explicitly test for it and add it
     push @browser_properties, 'device' if ( $self->device() );
 
-    return sort @browser_properties;
+    @browser_properties = sort @browser_properties;
+    return @browser_properties;
 }
 
 sub lib {
