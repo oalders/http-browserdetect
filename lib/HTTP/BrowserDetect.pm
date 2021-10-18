@@ -2272,7 +2272,6 @@ sub _init_device {
                 || index( $ua, 'symbian' ) != -1
                 || index( $ua, 'webos' ) != -1
                 || index( $ua, 'samsung' ) != -1
-                || index( $ua, 'samsung' ) != -1
                 || index( $ua, 'zetor' ) != -1
                 || index( $ua, 'android' ) != -1
                 || index( $ua, 'symbos' ) != -1
