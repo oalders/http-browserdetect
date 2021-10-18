@@ -496,6 +496,7 @@ sub new {
 ### Accessors for computed-on-demand test attributes
 
 foreach my $test ( @ENGINE_TESTS, @MISC_TESTS ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -507,6 +508,7 @@ foreach my $test (
     @OS_TESTS,  @WINDOWS_TESTS, @MAC_TESTS, @UNIX_TESTS,
     @BSD_TESTS, @GAMING_TESTS
 ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -516,6 +518,7 @@ foreach my $test (
 }
 
 foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -524,6 +527,7 @@ foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
 }
 
 foreach my $test (@OLD_ROBOT_TESTS) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
 
     # For the 'robot' test, we return undef instead of 0 if it's
@@ -541,6 +545,7 @@ foreach my $test (
     @NETSCAPE_TESTS, @IE_TESTS, @AOL_TESTS,
     @OPERA_TESTS
 ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -550,6 +555,7 @@ foreach my $test (
 }
 
 foreach my $test (@DEVICE_TESTS) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
