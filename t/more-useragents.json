@@ -8666,11 +8666,10 @@
       "robot" : null
    },
    "Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36" : {
-      "browser" : "chrome",
-      "browser_beta" : ".1847.76",
-      "browser_major" : "34",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
+      "browser" : "samsung",
+      "browser_major" : "2",
+      "browser_minor" : ".1",
+      "browser_string" : "Samsung",
       "device" : "android",
       "device_string" : "Android (SAMSUNG SM-G900P)",
       "engine" : "webkit",
@@ -8683,7 +8682,7 @@
          "device",
          "android",
          "mobile",
-         "chrome",
+         "samsung",
          "webkit"
       ],
       "os" : "android",

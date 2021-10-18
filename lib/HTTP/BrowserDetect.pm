@@ -78,7 +78,7 @@ our @BROWSER_TESTS = qw(
     epiphany       ucbrowser        dalvik
     edge           pubsub           adm
     brave          imagesearcherpro polaris
-    edgelegacy
+    edgelegacy     samsung
 );
 
 our @IE_TESTS = qw(
@@ -382,6 +382,7 @@ my %BROWSER_NAMES = (
     puf              => 'puf',
     realplayer       => 'RealPlayer',
     safari           => 'Safari',
+    samsung          => 'Samsung',
     seamonkey        => 'SeaMonkey',
     silk             => 'Silk',
     staroffice       => 'StarOffice',
@@ -764,6 +765,12 @@ sub _init_core {
         # Has to go above Chrome, it includes 'like Chrome/'
 
         $browser = 'silk';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, 'samsungbrowser' ) != -1 ) {
+
+        # Has to go above Chrome, it includes 'Chrome/'
+        $browser = 'samsung';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
@@ -1954,6 +1961,11 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+    elsif ( $browser eq 'samsung' && $ua =~ m{samsungbrowser/(\d+)\.(\d+)\s} )
+    {
+        $major = $1;
+        $minor = $2;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # '$browser/x.y.z'
@@ -3027,7 +3039,7 @@ chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
 brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
 n3ds, dsi, obigo, polaris, pubsub, realplayer, seamonkey, silk,
-staroffice, ucbrowser, webtv
+staroffice, ucbrowser, webtv, samsung
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -3375,6 +3387,8 @@ The realplayer_browser method tests for the presence of the RealPlayer
 browser (but returns 0 for the plugin).
 
 =head3 safari
+
+=head3 samsung
 
 =head3 seamonkey
 
