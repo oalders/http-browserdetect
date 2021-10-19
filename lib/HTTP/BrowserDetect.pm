@@ -3782,24 +3782,14 @@ L<https://metacpan.org/module/HTTP::BrowserDetect>
 
 =back
 
-=head1 BUGS AND LIMITATIONS
-
-The biggest limitation at this point is the test suite, which really needs to
-have many more UserAgent strings to test against.
-
 =head1 CONTRIBUTING
 
 Patches are certainly welcome, with many thanks for the excellent contributions
 which have already been received. The preferred method of patching would be to
-fork the GitHub repo and then send me a pull request, but plain old patch files
-are also welcome.
+fork the GitHub repo and then send a pull request.
 
-If you're able to add test cases, this will speed up the time to release your
+Please include a test case as this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
-changes you have made. Please contact me if you have any questions.
-
-This distribution uses L<Dist::Zilla>. If you're not familiar with this module,
-please see L<https://github.com/oalders/http-browserdetect/issues/5> for some
-helpful tips to get you started.
+changes you have made. Please open a GitHub issue if you have any questions.
 
 =cut
