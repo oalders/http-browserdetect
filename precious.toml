@@ -1,0 +1,28 @@
+exclude = [
+    "blib",
+    ".build",
+    "HTTP-BrowserDetect-*",
+    "inc",
+    "t/00-*",
+    "t/author-*",
+    "test-data",
+    "t/release-*",
+    "xt/author",
+    "xt/release",
+]
+
+[commands.perlimports]
+type = "tidy"
+include = [ "**/*.{pl,pm,t,psgi}" ]
+cmd = [ "perlimports" ]
+tidy_flags = [
+    "--libs", "lib,t/lib",
+    "--log-filename", "/tmp/perlimports.txt",
+    "--log-level", "debug",
+    "--no-preserve-duplicates",
+    "--no-preserve-unused",
+    "-i",
+    "-f",
+]
+ok_exit_codes = 0
+expect_stderr = true
