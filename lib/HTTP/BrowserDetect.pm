@@ -2705,18 +2705,10 @@ sub _cmp_versions {
 sub engine {
     my ($self) = @_;
 
-    # *shrug*
-    if ( my $engine_string = $self->engine_string ) {
-        if ( $engine_string eq 'MSIE' ) {
-            return 'ie';
-        }
-        else {
-            return lc $engine_string;
-        }
-    }
-    else {
-        return undef;
-    }
+    return
+         !$self->engine_string           ? undef
+        : $self->engine_string eq 'MSIE' ? 'ie'
+        :                                  lc( $self->engine_string );
 }
 
 sub engine_string {
