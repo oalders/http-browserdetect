@@ -4,7 +4,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.34
+version 3.35
 
 # SYNOPSIS
 
@@ -77,7 +77,7 @@ chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
 brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
 n3ds, dsi, obigo, polaris, pubsub, realplayer, seamonkey, silk,
-staroffice, ucbrowser, webtv
+staroffice, ucbrowser, webtv, samsung
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns `undef`.
@@ -425,6 +425,8 @@ The realplayer\_browser method tests for the presence of the RealPlayer
 browser (but returns 0 for the plugin).
 
 ### safari
+
+### samsung
 
 ### seamonkey
 
@@ -824,33 +826,19 @@ You can also look for information at:
 
     [https://github.com/oalders/http-browserdetect/issues](https://github.com/oalders/http-browserdetect/issues)
 
-- CPAN Ratings
-
-    [http://cpanratings.perl.org/d/HTTP-BrowserDetect](http://cpanratings.perl.org/d/HTTP-BrowserDetect)
-
 - Search CPAN
 
     [https://metacpan.org/module/HTTP::BrowserDetect](https://metacpan.org/module/HTTP::BrowserDetect)
-
-# BUGS AND LIMITATIONS
-
-The biggest limitation at this point is the test suite, which really needs to
-have many more UserAgent strings to test against.
 
 # CONTRIBUTING
 
 Patches are certainly welcome, with many thanks for the excellent contributions
 which have already been received. The preferred method of patching would be to
-fork the GitHub repo and then send me a pull request, but plain old patch files
-are also welcome.
+fork the GitHub repo and then send a pull request.
 
-If you're able to add test cases, this will speed up the time to release your
+Please include a test case as this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
-changes you have made. Please contact me if you have any questions.
-
-This distribution uses [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla). If you're not familiar with this module,
-please see [https://github.com/oalders/http-browserdetect/issues/5](https://github.com/oalders/http-browserdetect/issues/5) for some
-helpful tips to get you started.
+changes you have made. Please open a GitHub issue if you have any questions.
 
 # AUTHORS
 

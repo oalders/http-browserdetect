@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.35      2021-10-19 15:53:52Z
     - Add Samsung as a detected browser (GH#192) (Olaf Alders)
 
 3.34      2021-08-03 20:09:33Z
