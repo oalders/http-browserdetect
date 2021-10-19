@@ -3776,10 +3776,6 @@ L<http://github.com/oalders/http-browserdetect>
 
 L<https://github.com/oalders/http-browserdetect/issues>
 
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
-
 =item * Search CPAN
 
 L<https://metacpan.org/module/HTTP::BrowserDetect>
