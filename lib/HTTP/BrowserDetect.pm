@@ -2752,49 +2752,29 @@ sub engine_string {
 sub engine_version {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ? $1 : undef;
 }
 
 sub engine_major {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^(\d+)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^(\d+)} ? $1 : undef;
 }
 
 sub engine_minor {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^\d+(\.\d+)} ? $1 : undef;
 }
 
 sub engine_beta {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^\d+\.\d+([\.\d\+]*)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^\d+\.\d+([\.\d\+]*)} ? $1 : undef;
 }
 
 sub beta {
