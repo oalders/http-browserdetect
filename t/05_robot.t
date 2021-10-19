@@ -3,7 +3,7 @@ use warnings;
 
 use HTTP::BrowserDetect ();
 use List::Util          ();
-use Test::More;
+use Test::More import => [ 'done_testing', 'is', 'ok', 'subtest', 'unlike' ];
 
 my $detect = HTTP::BrowserDetect->new;
 

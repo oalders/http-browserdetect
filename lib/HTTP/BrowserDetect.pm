@@ -78,7 +78,7 @@ our @BROWSER_TESTS = qw(
     epiphany       ucbrowser        dalvik
     edge           pubsub           adm
     brave          imagesearcherpro polaris
-    edgelegacy
+    edgelegacy     samsung
 );
 
 our @IE_TESTS = qw(
@@ -382,6 +382,7 @@ my %BROWSER_NAMES = (
     puf              => 'puf',
     realplayer       => 'RealPlayer',
     safari           => 'Safari',
+    samsung          => 'Samsung',
     seamonkey        => 'SeaMonkey',
     silk             => 'Silk',
     staroffice       => 'StarOffice',
@@ -496,6 +497,7 @@ sub new {
 ### Accessors for computed-on-demand test attributes
 
 foreach my $test ( @ENGINE_TESTS, @MISC_TESTS ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -507,6 +509,7 @@ foreach my $test (
     @OS_TESTS,  @WINDOWS_TESTS, @MAC_TESTS, @UNIX_TESTS,
     @BSD_TESTS, @GAMING_TESTS
 ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -516,6 +519,7 @@ foreach my $test (
 }
 
 foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -524,6 +528,7 @@ foreach my $test ( @BROWSER_TESTS, @FIREFOX_TESTS ) {
 }
 
 foreach my $test (@OLD_ROBOT_TESTS) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
 
     # For the 'robot' test, we return undef instead of 0 if it's
@@ -541,6 +546,7 @@ foreach my $test (
     @NETSCAPE_TESTS, @IE_TESTS, @AOL_TESTS,
     @OPERA_TESTS
 ) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -550,6 +556,7 @@ foreach my $test (
 }
 
 foreach my $test (@DEVICE_TESTS) {
+    ## no critic (TestingAndDebugging::ProhibitNoStrict)
     no strict 'refs';
     *{$test} = sub {
         my ($self) = @_;
@@ -758,6 +765,12 @@ sub _init_core {
         # Has to go above Chrome, it includes 'like Chrome/'
 
         $browser = 'silk';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( index( $ua, 'samsungbrowser' ) != -1 ) {
+
+        # Has to go above Chrome, it includes 'Chrome/'
+        $browser = 'samsung';
         $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'ucbrowser' ) != -1 ) {
@@ -1948,6 +1961,11 @@ sub _init_version {
         $minor = $2;
         $beta  = $3;
     }
+    elsif ( $browser eq 'samsung' && $ua =~ m{samsungbrowser/(\d+)\.(\d+)\s} )
+    {
+        $major = $1;
+        $minor = $2;
+    }
 
     # If we didn't match a browser-specific test, we look for
     # '$browser/x.y.z'
@@ -2214,27 +2232,27 @@ sub _init_device {
             && index( $ua, 'mobile' ) == -1
             && index( $ua, 'safari' ) != -1 )
             || ( $browser_tests->{firefox} && index( $ua, 'tablet' ) != -1 )
-            || index( $ua, 'kindle' ) != -1
-            || index( $ua, 'xoom' ) != -1
-            || index( $ua, 'flyer' ) != -1
-            || index( $ua, 'jetstream' ) != -1
-            || index( $ua, 'transformer' ) != -1
-            || index( $ua, 'novo7' ) != -1
-            || index( $ua, 'an10g2' ) != -1
-            || index( $ua, 'an7bg3' ) != -1
-            || index( $ua, 'an7fg3' ) != -1
-            || index( $ua, 'an8g3' ) != -1
-            || index( $ua, 'an8cg3' ) != -1
-            || index( $ua, 'an7g3' ) != -1
-            || index( $ua, 'an9g3' ) != -1
-            || index( $ua, 'an7dg3' ) != -1
-            || index( $ua, 'an7dg3st' ) != -1
-            || index( $ua, 'an7dg3childpad' ) != -1
             || index( $ua, 'an10bg3' ) != -1
             || index( $ua, 'an10bg3dt' ) != -1
+            || index( $ua, 'an10g2' ) != -1
+            || index( $ua, 'an7bg3' ) != -1
+            || index( $ua, 'an7dg3' ) != -1
+            || index( $ua, 'an7dg3childpad' ) != -1
+            || index( $ua, 'an7dg3st' ) != -1
+            || index( $ua, 'an7fg3' ) != -1
+            || index( $ua, 'an7g3' ) != -1
+            || index( $ua, 'an8cg3' ) != -1
+            || index( $ua, 'an8g3' ) != -1
+            || index( $ua, 'an9g3' ) != -1
+            || index( $ua, 'flyer' ) != -1
+            || index( $ua, 'hp-tablet' ) != -1
+            || index( $ua, 'jetstream' ) != -1
+            || index( $ua, 'kindle' ) != -1
+            || index( $ua, 'novo7' ) != -1
             || index( $ua, 'opera tablet' ) != -1
             || index( $ua, 'rim tablet' ) != -1
-            || index( $ua, 'hp-tablet' ) != -1
+            || index( $ua, 'transformer' ) != -1
+            || index( $ua, 'xoom' ) != -1
     );
 
     if ( !$device_tests->{tablet} ) {
@@ -2271,7 +2289,6 @@ sub _init_device {
                 || index( $ua, 'htc_' ) != -1
                 || index( $ua, 'symbian' ) != -1
                 || index( $ua, 'webos' ) != -1
-                || index( $ua, 'samsung' ) != -1
                 || index( $ua, 'samsung' ) != -1
                 || index( $ua, 'zetor' ) != -1
                 || index( $ua, 'android' ) != -1
@@ -2700,18 +2717,10 @@ sub _cmp_versions {
 sub engine {
     my ($self) = @_;
 
-    # *shrug*
-    if ( my $engine_string = $self->engine_string ) {
-        if ( $engine_string eq 'MSIE' ) {
-            return 'ie';
-        }
-        else {
-            return lc $engine_string;
-        }
-    }
-    else {
-        return undef;
-    }
+    return
+         !$self->engine_string           ? undef
+        : $self->engine_string eq 'MSIE' ? 'ie'
+        :                                  lc( $self->engine_string );
 }
 
 sub engine_string {
@@ -2755,49 +2764,29 @@ sub engine_string {
 sub engine_version {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^(\d+(\.\d+)?)} ? $1 : undef;
 }
 
 sub engine_major {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^(\d+)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^(\d+)} ? $1 : undef;
 }
 
 sub engine_minor {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^\d+(\.\d+)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^\d+(\.\d+)} ? $1 : undef;
 }
 
 sub engine_beta {
     my ($self) = @_;
 
-    if ( $self->{engine_version} ) {
-        if ( $self->{engine_version} =~ m{^\d+\.\d+([\.\d\+]*)} ) {
-            return $1;
-        }
-    }
-
-    return undef;
+    return $self->{engine_version}
+        && $self->{engine_version} =~ m{^\d+\.\d+([\.\d\+]*)} ? $1 : undef;
 }
 
 sub beta {
@@ -2919,7 +2908,8 @@ sub browser_properties {
     # so I explicitly test for it and add it
     push @browser_properties, 'device' if ( $self->device() );
 
-    return sort @browser_properties;
+    @browser_properties = sort @browser_properties;
+    return @browser_properties;
 }
 
 sub lib {
@@ -3049,7 +3039,7 @@ chrome, firefox, ie, opera, safari, adm, applecoremedia, blackberry,
 brave, browsex, dalvik, elinks, links, lynx, emacs, epiphany, galeon,
 konqueror, icab, lotusnotes, mosaic, mozilla, netfront, netscape,
 n3ds, dsi, obigo, polaris, pubsub, realplayer, seamonkey, silk,
-staroffice, ucbrowser, webtv
+staroffice, ucbrowser, webtv, samsung
 
 If the browser could not be identified (either because unrecognized
 or because it is a robot), returns C<undef>.
@@ -3397,6 +3387,8 @@ The realplayer_browser method tests for the presence of the RealPlayer
 browser (but returns 0 for the plugin).
 
 =head3 safari
+
+=head3 samsung
 
 =head3 seamonkey
 
@@ -3798,34 +3790,20 @@ L<http://github.com/oalders/http-browserdetect>
 
 L<https://github.com/oalders/http-browserdetect/issues>
 
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/HTTP-BrowserDetect>
-
 =item * Search CPAN
 
 L<https://metacpan.org/module/HTTP::BrowserDetect>
 
 =back
 
-=head1 BUGS AND LIMITATIONS
-
-The biggest limitation at this point is the test suite, which really needs to
-have many more UserAgent strings to test against.
-
 =head1 CONTRIBUTING
 
 Patches are certainly welcome, with many thanks for the excellent contributions
 which have already been received. The preferred method of patching would be to
-fork the GitHub repo and then send me a pull request, but plain old patch files
-are also welcome.
+fork the GitHub repo and then send a pull request.
 
-If you're able to add test cases, this will speed up the time to release your
+Please include a test case as this will speed up the time to release your
 changes. Just edit t/useragents.json so that the test coverage includes any
-changes you have made. Please contact me if you have any questions.
-
-This distribution uses L<Dist::Zilla>. If you're not familiar with this module,
-please see L<https://github.com/oalders/http-browserdetect/issues/5> for some
-helpful tips to get you started.
+changes you have made. Please open a GitHub issue if you have any questions.
 
 =cut

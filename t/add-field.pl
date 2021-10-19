@@ -14,11 +14,10 @@
 
 use strict;
 
-use FindBin;
-use JSON::PP;
+use JSON::PP ();
 use Path::Tiny qw( path );
 
-use HTTP::BrowserDetect;
+use HTTP::BrowserDetect ();
 
 my $json_text = path( $ARGV[0] )->slurp;
 my $tests     = JSON::PP->new->ascii->decode($json_text);
