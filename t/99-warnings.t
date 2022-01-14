@@ -7,7 +7,7 @@ use HTTP::BrowserDetect ();
 use Test::Warnings;
 use Test::More import => [ 'done_testing', 'is', 'ok', 'subtest' ];
 
-ok( my $ua = HTTP::BrowserDetect->new(undef), q{undef produces no warnings} );
+ok( my $ua = HTTP::BrowserDetect->new(undef), 'undef produces no warnings' );
 
 subtest 'no warnings on fake MSIE' => sub {
     my $ua = HTTP::BrowserDetect->new(

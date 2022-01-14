@@ -126,7 +126,7 @@ foreach my $ua ( sort ( keys %{$all_tests} ) ) {
                     $detected->browser_properties()
             ],
             [ sort grep { $_ !~ m{\Arobot_id\z} } @{ $test->{match} } ],
-            "browser properties match"
+            'browser properties match'
         );
 
         # Test that $ua doesn't match a specific method
