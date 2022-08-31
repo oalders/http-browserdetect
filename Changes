@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Detect Firefox for iOS (GH#194) (altblue)
 
 3.35      2021-10-19 15:53:52Z
     - Add Samsung as a detected browser (GH#192) (Olaf Alders)
