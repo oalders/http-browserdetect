@@ -3,8 +3,8 @@
 use strict;
 use warnings;
 
-use FindBin  ();
-use JSON::PP ();
+use FindBin    ();
+use JSON::PP   ();
 use Path::Tiny qw( path );
 use Test::Warnings;
 use Test::More import =>

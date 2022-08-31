@@ -22,8 +22,8 @@
 
 use strict;
 
-use FindBin  ();
-use JSON::PP ();
+use FindBin    ();
+use JSON::PP   ();
 use Path::Tiny qw( path );
 
 use HTTP::BrowserDetect ();

@@ -14,7 +14,7 @@
 
 use strict;
 
-use JSON::PP ();
+use JSON::PP   ();
 use Path::Tiny qw( path );
 
 use HTTP::BrowserDetect ();
