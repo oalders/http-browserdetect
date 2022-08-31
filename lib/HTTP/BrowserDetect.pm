@@ -110,6 +110,7 @@ our @NETSCAPE_TESTS = qw(
 our @FIREFOX_TESTS = qw(
     firebird    iceweasel   phoenix
     namoroka
+    fxios
 );
 
 # Engine tests
@@ -697,7 +698,7 @@ sub _init_core {
     }
     elsif (
         $ua =~ m{
-                (firebird|iceweasel|phoenix|namoroka|firefox)
+                (firebird|iceweasel|phoenix|namoroka|firefox|fxios)
                 \/
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
@@ -709,7 +710,7 @@ sub _init_core {
         # Browser is Firefox, possibly under an alternate name
 
         $browser        = 'firefox';
-        $browser_string = ucfirst $1;
+        $browser_string = ucfirst( $1 eq 'fxios' ? $browser : $1 );
 
         $browser_tests->{$1} = 1;
         $browser_tests->{firefox} = 1;
@@ -1879,6 +1880,9 @@ sub _init_version {
                 $beta  = ".$safari_minor" if $safari_minor;
             }
         }
+    }
+    elsif ( $browser_tests->{fxios} ) {
+        ( $major, $minor ) = $ua =~ m{ \b fxios/ (\d+) [.] (\d+) }x;
     }
     elsif ( $browser_tests->{ie} ) {
 

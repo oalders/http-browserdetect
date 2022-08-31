@@ -7058,4 +7058,33 @@
       "robot_version" : "0.93",
       "version" : "0.93"
    }
+   ,"Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/103.1  Mobile/15E148 Safari/605.1.15" : {
+      "browser" : "firefox",
+      "browser_string" : "Firefox",
+      "device" : "iphone",
+      "device_string" : "iPhone",
+      "engine_beta" : ".15",
+      "engine_string" : "WebKit",
+      "engine_version" : "605.1",
+      "engine" : "webkit",
+      "language" : null,
+      "major" : "103",
+      "minor" : ".1",
+      "match" : [
+         "device",
+         "firefox",
+         "fxios",
+         "ios",
+         "iphone",
+         "mobile",
+         "webkit"
+      ],
+      "os" : "ios",
+      "os_beta" : ".1",
+      "os_major" : "15",
+      "os_minor" : ".6",
+      "os_string" : "iOS",
+      "os_version" : "15.6",
+      "version" : "103.1"
+   }
 }
