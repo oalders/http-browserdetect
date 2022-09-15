@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.37      2022-09-15 16:39:38Z
     - Add Chromecast detection (GH#195) (Yasuharu Iida)
 
 3.36      2022-08-31 22:36:10Z
