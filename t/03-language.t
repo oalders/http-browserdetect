@@ -1,9 +1,9 @@
-#!/usr/bin/env perl
+#!perl
 
 use strict;
 use warnings;
 
-use Test::More import => [ 'done_testing', 'ok' ];
+use Test::More import => [qw( done_testing ok )];
 use Test::NoWarnings    ();
 use HTTP::BrowserDetect ();
 

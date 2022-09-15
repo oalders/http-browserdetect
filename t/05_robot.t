@@ -1,9 +1,11 @@
+#!perl
+
 use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use List::Util          ();
-use Test::More import => [ 'done_testing', 'is', 'ok', 'subtest', 'unlike' ];
+use List::Util          qw( any );
+use Test::More import => [qw( done_testing is ok subtest unlike )];
 
 my $detect = HTTP::BrowserDetect->new;
 
@@ -16,7 +18,7 @@ foreach my $id (@ids) {
     subtest $id => sub {
         ok( $names{$id}, 'name' );
         unlike(
-            $id, qr{[^0-9a-z-]},
+            $id, qr{[^0-9a-z-]}mxs,
             'id contains only lower case letters or dashes'
         );
     };
@@ -32,7 +34,7 @@ for my $test (@tests) {
             "$id contains only lower case letters or dashes"
         );
         ok(
-            ( List::Util::any { $_ eq $id } @ids ),
+            ( any { $_ eq $id } @ids ),
             "$id found in all_robot_ids()"
         );
     };

@@ -7,8 +7,7 @@ use FindBin    ();
 use JSON::PP   ();
 use Path::Tiny qw( path );
 use Test::Warnings;
-use Test::More import =>
-    [ 'cmp_ok', 'done_testing', 'is_deeply', 'ok', 'subtest' ];
+use Test::More import => [qw( cmp_ok done_testing is_deeply ok subtest )];
 
 # test that the module loads without errors
 my $w;
