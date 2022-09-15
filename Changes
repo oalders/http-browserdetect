@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Add Chromecast detection (GH#195) (Yasuharu Iida)
 
 3.36      2022-08-31 22:36:10Z
     - Detect Firefox for iOS (GH#194) (altblue)
