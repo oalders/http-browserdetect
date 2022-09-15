@@ -2009,6 +2009,24 @@
       ],
       "public_version" : "6.0"
    },
+   "Mozilla/5.0 (CrKey armv7l 1.5.16041) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.0 Safari/537.36" : {
+      "browser" : "chrome",
+      "browser_string" : "Chrome",
+      "device" : "chromecast",
+      "device_string" : "Chromecast",
+      "engine" : "webkit",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "match" : [
+         "chrome",
+         "device",
+         "webkit"
+      ],
+      "no_match" : [
+         "robot"
+      ]
+   },
    "Mozilla/5.0 (Java; U; ar-sa; mauie800) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.5.0.185/83/352/UCWEB Mobile UNTRUSTED/1.0" : {
       "browser" : "ucbrowser",
       "browser_beta" : ".0.185",
@@ -7086,23 +7104,5 @@
       "robot_string" : "puf",
       "robot_version" : "0.93",
       "version" : "0.93"
-   },
-   "Mozilla/5.0 (CrKey armv7l 1.5.16041) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.0 Safari/537.36" : {
-      "browser" : "chrome",
-      "browser_string" : "Chrome",
-      "device" : "chromecast",
-      "device_string" : "Chromecast",
-      "match" : [
-         "chrome",
-         "device",
-         "webkit"
-      ],
-      "engine" : "webkit",
-      "engine_minor" : ".36",
-      "engine_major" : "537",
-      "engine_string" : "WebKit",
-      "no_match" : [
-         "robot"
-      ]
    }
 }

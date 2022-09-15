@@ -2387,8 +2387,8 @@ sub _init_device {
         =~ /\b((alcatel|huawei|lg|nokia|samsung|sonyericsson)[\w\-]*)\//i ) {
         $device_string = $1;
     }
-    elsif ($self->{user_agent} =~ /CrKey/) {
-        $device = 'chromecast';
+    elsif ( $self->{user_agent} =~ /CrKey/ ) {
+        $device        = 'chromecast';
         $device_string = 'Chromecast';
     }
     elsif ($device) {
