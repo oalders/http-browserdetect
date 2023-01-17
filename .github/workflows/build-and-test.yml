@@ -4,12 +4,12 @@ name: dzil build and test
 on:
   push:
     branches:
-      - "*"
+      - '*'
   pull_request:
     branches:
-      - "*"
-  schedule:
-    - cron: "15 4 * * 0" # Every Sunday morning
+      - '*'
+  # schedule:
+  # - cron: "15 4 * * 0" # Every Sunday morning
   workflow_dispatch:
 
 jobs:
@@ -17,9 +17,9 @@ jobs:
     name: Build distribution
     runs-on: ubuntu-latest
     container:
-      image: perldocker/perl-tester:5.34
+      image: perldocker/perl-tester:5.36
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run Tests
         env:
           AUTHOR_TESTING: 1
@@ -27,19 +27,18 @@ jobs:
           EXTENDED_TESTING: 1
           RELEASE_TESTING: 1
         run: auto-build-and-test-dist
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v3
         with:
           name: build_dir
           path: build_dir
-        if: ${{ github.actor != 'nektos/act' }}
   coverage-job:
     needs: build-job
     runs-on: ubuntu-latest
     container:
-      image: perldocker/perl-tester:5.34
+      image: perldocker/perl-tester:5.36
     steps:
-      - uses: actions/checkout@v2 # codecov wants to be inside a Git repository
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           name: build_dir
           path: .
@@ -54,35 +53,36 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         perl-version:
-          - "5.8"
-          - "5.10"
-          - "5.12"
-          - "5.14"
-          - "5.16"
-          - "5.18"
-          - "5.20"
-          - "5.22"
-          - "5.24"
-          - "5.26"
-          - "5.28"
-          - "5.30"
-          - "5.32"
-          - "5.34"
+          - '5.8'
+          - '5.10'
+          - '5.12'
+          - '5.14'
+          - '5.16'
+          - '5.18'
+          - '5.20'
+          - '5.22'
+          - '5.24'
+          - '5.26'
+          - '5.28'
+          - '5.30'
+          - '5.32'
+          - '5.34'
+          - '5.36'
     name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
     steps:
       - name: Set Up Perl
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v3
         with:
           name: build_dir
           path: .
       - name: install deps using cpm
         uses: perl-actions/install-with-cpm@v1
         with:
-          cpanfile: "cpanfile"
-          args: "--with-suggests --with-recommends --with-test"
+          cpanfile: 'cpanfile'
+          args: '--with-suggests --with-recommends --with-test'
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0
@@ -94,35 +94,36 @@ jobs:
       matrix:
         os: [macos-latest]
         perl-version:
-          - "5.8"
-          - "5.10"
-          - "5.12"
-          - "5.14"
-          - "5.16"
-          - "5.18"
-          - "5.20"
-          - "5.22"
-          - "5.24"
-          - "5.26"
-          - "5.28"
-          - "5.30"
-          - "5.32"
-          - "5.34"
+          - '5.8'
+          - '5.10'
+          - '5.12'
+          - '5.14'
+          - '5.16'
+          - '5.18'
+          - '5.20'
+          - '5.22'
+          - '5.24'
+          - '5.26'
+          - '5.28'
+          - '5.30'
+          - '5.32'
+          - '5.34'
+          - '5.36'
     name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
     steps:
       - name: Set Up Perl
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v3
         with:
           name: build_dir
           path: .
       - name: install deps using cpm
         uses: perl-actions/install-with-cpm@v1
         with:
-          cpanfile: "cpanfile"
-          args: "--with-suggests --with-recommends --with-test"
+          cpanfile: 'cpanfile'
+          args: '--with-suggests --with-recommends --with-test'
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0
@@ -135,16 +136,16 @@ jobs:
       matrix:
         os: [windows-latest]
         perl-version:
-          - "5.14"
-          - "5.16"
-          - "5.18"
-          - "5.20"
-          - "5.22"
-          - "5.24"
-          - "5.26"
-          - "5.28"
-          - "5.30"
-          - "5.32"
+          - '5.14'
+          - '5.16'
+          - '5.18'
+          - '5.20'
+          - '5.22'
+          - '5.24'
+          - '5.26'
+          - '5.28'
+          - '5.30'
+          - '5.32'
     name: Perl ${{ matrix.perl-version }} on ${{ matrix.os }}
     steps:
       - name: Set Up Perl
@@ -152,15 +153,15 @@ jobs:
         with:
           perl-version: ${{ matrix.perl-version }}
           distribution: strawberry
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v3
         with:
           name: build_dir
           path: .
       - name: install deps using cpm
         uses: perl-actions/install-with-cpm@v1
         with:
-          cpanfile: "cpanfile"
-          args: "--with-suggests --with-recommends --with-test"
+          cpanfile: 'cpanfile'
+          args: '--with-suggests --with-recommends --with-test'
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0
