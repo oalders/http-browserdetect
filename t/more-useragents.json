@@ -8608,11 +8608,11 @@
       "version" : 40
    },
    "Mozilla/5.0 (Linux; Android 5.0.2; HTCONE Build/LRX22F) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/28.0.0.20.16;]" : {
-      "browser" : "chrome",
-      "browser_beta" : ".0.0",
-      "browser_major" : "37",
+      "browser" : "facebook",
+      "browser_beta" : ".0.20.16",
+      "browser_major" : "28",
       "browser_minor" : ".0",
-      "browser_string" : "Chrome",
+      "browser_string" : "Facebook",
       "device" : "android",
       "device_string" : "Android (HTCONE)",
       "engine" : "webkit",
@@ -8624,8 +8624,8 @@
       "match" : [
          "device",
          "android",
+         "meta_app",
          "mobile",
-         "chrome",
          "webkit"
       ],
       "os" : "android",
@@ -18663,11 +18663,11 @@
       "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a [FBAN/FBIOS;FBAV/13.0.0.25.19;FBBV/3507499;FBDV/iPhone6,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/7.0.4;FBSS/2; FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/5]" : {
-      "browser" : "safari",
-      "browser_beta" : ".51",
-      "browser_major" : 5,
-      "browser_minor" : ".37",
-      "browser_string" : "Safari",
+      "browser" : "facebook",
+      "browser_beta" : ".0.25.19",
+      "browser_major" : "13",
+      "browser_minor" : ".0",
+      "browser_string" : "Facebook",
       "device" : "iphone",
       "device_string" : "iPhone",
       "engine" : "webkit",
@@ -18680,8 +18680,8 @@
          "device",
          "ios",
          "iphone",
+         "meta_app",
          "mobile",
-         "safari",
          "webkit"
       ],
       "os" : "ios",
@@ -19099,11 +19099,11 @@
       "robot" : null
    },
    "Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12D508 [FBAN/FBIOS;FBAV/27.0.0.10.12;FBBV/8291884;FBDV/iPhone6,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/8.2;FBSS/2; FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5]" : {
-      "browser" : "safari",
-      "browser_beta" : ".1",
-      "browser_major" : 6,
+      "browser" : "facebook",
+      "browser_beta" : ".0.10.12",
+      "browser_major" : "27",
       "browser_minor" : ".0",
-      "browser_string" : "Safari",
+      "browser_string" : "Facebook",
       "device" : "iphone",
       "device_string" : "iPhone",
       "engine" : "webkit",
@@ -19116,8 +19116,8 @@
          "device",
          "ios",
          "iphone",
+         "meta_app",
          "mobile",
-         "safari",
          "webkit"
       ],
       "os" : "ios",

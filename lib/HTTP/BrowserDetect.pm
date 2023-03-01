@@ -204,6 +204,7 @@ our @ROBOT_TESTS = (
 our @MISC_TESTS = qw(
     dotnet      x11
     webview
+    meta_app
 );
 
 our @ALL_TESTS = (
@@ -715,6 +716,23 @@ sub _init_core {
         $browser_tests->{$1} = 1;
         $browser_tests->{firefox} = 1;
     }
+    elsif ( $self->{user_agent} =~ m{ \[ FB (?: AN | _IAB ) }x ) {
+        $browser_string = $self->_match(
+            [ 'Facebook', '[FB_IAB/FB4A', '[FBAN/FBIOS' ],
+            [ 'Facebook Lite', '[FBAN/EMA' ],
+            [
+                'Facebook Messenger', '[FB_IAB/Orca-Android',
+                '[FB_IAB/MESSENGER',  '[FBAN/MessengerForiOS'
+            ],
+            [
+                'Facebook Messenger Lite', '[FBAN/mLite',
+                '[FBAN/MessengerLiteForiOS'
+            ],
+        ) || 'Meta App';
+        $browser = lc $browser_string;
+        $browser =~ tr/ /_/;
+        $tests->{meta_app} = 1;
+    }
     elsif ( $ua =~ m{opera|opr\/} ) {
 
         # Browser is Opera
@@ -997,6 +1015,19 @@ sub _init_core {
         $tests->{webview} = 1;
     }
 
+}
+
+# match strings or regexps against user_agent
+# pass specs as list of [ 'thing to return', …tests… ]
+sub _match {
+    my ( $self, @specs ) = @_;
+    for my $spec (@specs) {
+        my ( $ret, @tests ) = @{$spec};
+        for my $m (@tests) {
+            return $ret if !ref $m && 0 < index $self->{user_agent}, $m;
+            return $ret if 'Regexp' eq ref $m && $self->{user_agent} =~ $m;
+        }
+    }
 }
 
 # Any of these fragments within a user-agent generally indicates it's
@@ -1883,6 +1914,22 @@ sub _init_version {
     }
     elsif ( $browser_tests->{fxios} ) {
         ( $major, $minor ) = $ua =~ m{ \b fxios/ (\d+) [.] (\d+) }x;
+    }
+    elsif ( $tests->{meta_app} ) {
+
+        # init. in order to avoid guessing downstream
+        ( $major, $minor, $beta ) = (q{}) x 3;
+
+        # get version only from FBAV/ part
+        if ( $ua =~ m{ \b fbav/ ([^;]*) }x ) {
+            ( $major, $minor, $beta ) = split /[.]/, $1, 3;
+            if ($beta) {
+
+                # "minor" forcibly gets a "." prepended at the end of _init_version
+                # while "beta" does not - yet it is documented to include the "."
+                $beta = q{.} . $beta;
+            }
+        }
     }
     elsif ( $browser_tests->{ie} ) {
 
@@ -2855,6 +2902,12 @@ sub _language_country {
     if (   $self->aol
         && $self->{user_agent} =~ m/;([A-Z]{2})_([A-Z]{2})\)/ ) {
         return { language => $1, country => $2 };
+    }
+
+    if (   $self->meta_app
+        && $self->{user_agent}
+        =~ m{ ;FBLC/ ([a-z]{2}) (?: [_-] ([A-Z]{2}) )? }x ) {
+        return { language => uc $1, $2 ? ( country => $2 ) : () };
     }
 
     if ( $self->{user_agent} =~ m/\b([a-z]{2})-([A-Za-z]{2})\b/xms ) {
