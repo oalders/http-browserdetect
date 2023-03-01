@@ -79,6 +79,7 @@ our @BROWSER_TESTS = qw(
     edge           pubsub           adm
     brave          imagesearcherpro polaris
     edgelegacy     samsung
+    instagram
 );
 
 our @IE_TESTS = qw(
@@ -367,6 +368,7 @@ my %BROWSER_NAMES = (
     iceweasel        => 'IceWeasel',
     ie               => 'MSIE',
     imagesearcherpro => 'ImageSearcherPro',
+    instagram        => 'Instagram',
     konqueror        => 'Konqueror',
     links            => 'Links',
     lotusnotes       => 'Lotus Notes',
@@ -771,6 +773,10 @@ sub _init_core {
         #elsif ( index( $ua, 'maxthon' ) != -1 ) {
         #    $browser_string = 'Maxthon';
         #}
+    }
+    elsif ( 0 < index $self->{user_agent}, ' Instagram ' ) {
+        $browser = 'instagram';
+        $browser_tests->{$browser} = 1;
     }
     elsif ( index( $ua, 'brave' ) != -1 ) {
 
@@ -1931,6 +1937,15 @@ sub _init_version {
             }
         }
     }
+    elsif ( $browser_tests->{instagram} ) {
+        ( $major, $minor, $beta ) = (q{}) x 3;    # don't guess downstream
+        if ( $self->{user_agent} =~ m{ \b Instagram [ ]+ ([0-9.]+) [ ] }x ) {
+            ( $major, $minor, $beta ) = split /[.]/, $1, 3;
+            if ($beta) {
+                $beta = q{.} . $beta;
+            }
+        }
+    }
     elsif ( $browser_tests->{ie} ) {
 
         # MSIE
@@ -2907,6 +2922,12 @@ sub _language_country {
     if (   $self->meta_app
         && $self->{user_agent}
         =~ m{ ;FBLC/ ([a-z]{2}) (?: [_-] ([A-Z]{2}) )? }x ) {
+        return { language => uc $1, $2 ? ( country => $2 ) : () };
+    }
+
+    if (   $self->instagram
+        && $self->{user_agent}
+        =~ m{ (?: [(] | ;[ ] ) ([a-z]{2}) [_-] ([A-Z]{2}) [;)] }x ) {
         return { language => uc $1, $2 ? ( country => $2 ) : () };
     }
 
