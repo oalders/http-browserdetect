@@ -2707,6 +2707,33 @@
       "public_minor" : "0",
       "public_version" : "4.0"
    },
+   "Mozilla/5.0 (Linux; arm_64; Android 8.0.0; ZE520KL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 YaBrowser/21.2.0.223.00 SA/3 Mobile Safari/537.36" : {
+      "browser" : "yandex_browser",
+      "browser_beta" : ".0.223.00",
+      "browser_major" : "21",
+      "browser_minor" : ".2",
+      "browser_string" : "Yandex Browser",
+      "browser_version" : "21.2",
+      "device" : "android",
+      "device_string" : "Android",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
+      "match" : [
+         "android",
+         "device",
+         "mobile",
+         "webkit",
+         "yandex_browser"
+      ],
+      "os" : "android",
+      "os_string" : "Android",
+      "os_version" : "8",
+      "robot" : null
+   },
    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:28.0) Gecko/20100101 Firefox/28.0" : {
       "browser" : "firefox",
       "browser_string" : "Firefox",
@@ -3467,6 +3494,32 @@
       "os_string" : "Win10.0",
       "robot" : null
    },
+   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 YaBrowser/21.3.3.230 Yowser/2.5 Safari/537.36" : {
+      "browser" : "yandex_browser",
+      "browser_beta" : ".3.230",
+      "browser_major" : "21",
+      "browser_minor" : ".3",
+      "browser_string" : "Yandex Browser",
+      "browser_version" : "21.3",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
+      "match" : [
+         "webkit",
+         "win10",
+         "win10_0",
+         "win32",
+         "windows",
+         "winnt",
+         "yandex_browser"
+      ],
+      "os" : "windows",
+      "os_string" : "Win10.0",
+      "robot" : null
+   },
    "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" : {
       "browser" : "ie",
       "browser_string" : "MSIE",
@@ -4188,6 +4241,30 @@
       "public_minor" : "0",
       "public_version" : "33.0",
       "version" : "33.0"
+   },
+   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 YaBrowser/19.6.2.594 (beta) Yowser/2.5 Safari/537.36" : {
+      "browser" : "yandex_browser",
+      "browser_beta" : ".2.594",
+      "browser_major" : "19",
+      "browser_minor" : ".6",
+      "browser_string" : "Yandex Browser",
+      "browser_version" : "19.6",
+      "engine" : "webkit",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "WebKit",
+      "engine_version" : "537.36",
+      "match" : [
+         "linux",
+         "unix",
+         "webkit",
+         "x11",
+         "yandex_browser"
+      ],
+      "os" : "linux",
+      "os_string" : "Linux",
+      "robot" : null
    },
    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Page Speed Insights) Chrome/27.0.1453 Safari/537.36" : {
       "browser_string" : "Chrome",
@@ -5129,6 +5206,33 @@
       "os_string" : "Linux",
       "other" : null,
       "version" : "5.34"
+   },
+   "Mozilla/5.0 (iPad; CPU OS 12_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 YaBrowser/23.1.7.401.11 Mobile/15E148 Safari/604.1" : {
+      "browser" : "yandex_browser",
+      "browser_beta" : ".7.401.11",
+      "browser_major" : "23",
+      "browser_minor" : ".1",
+      "browser_string" : "Yandex Browser",
+      "browser_version" : "23.1",
+      "device" : "ipad",
+      "device_string" : "iPad",
+      "engine" : "webkit",
+      "engine_beta" : ".15",
+      "engine_major" : "605",
+      "engine_minor" : ".1",
+      "engine_string" : "WebKit",
+      "engine_version" : "605.1",
+      "match" : [
+         "device",
+         "ios",
+         "webkit",
+         "ipad",
+         "tablet",
+         "yandex_browser"
+      ],
+      "os" : "ios",
+      "os_string" : "iOS",
+      "robot" : null
    },
    "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B348b Safari/531.21.10" : {
       "browser" : "safari",

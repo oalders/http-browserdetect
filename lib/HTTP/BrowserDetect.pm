@@ -80,6 +80,7 @@ our @BROWSER_TESTS = qw(
     brave          imagesearcherpro polaris
     edgelegacy     samsung
     instagram
+    yandex_browser
 );
 
 our @IE_TESTS = qw(
@@ -392,6 +393,7 @@ my %BROWSER_NAMES = (
     staroffice       => 'StarOffice',
     ucbrowser        => 'UCBrowser',
     webtv            => 'WebTV',
+    yandex_browser   => 'Yandex Browser',
 );
 
 # Device names
@@ -803,6 +805,10 @@ sub _init_core {
         # Has to go above Safari, Mozilla and Chrome
 
         $browser = 'ucbrowser';
+        $browser_tests->{$browser} = 1;
+    }
+    elsif ( 0 < index $self->{user_agent}, ' YaBrowser/' ) {
+        $browser = 'yandex_browser';
         $browser_tests->{$browser} = 1;
     }
     elsif (index( $ua, 'chrome/' ) != -1
@@ -2031,6 +2037,15 @@ sub _init_version {
     {
         $major = $1;
         $minor = $2;
+    }
+    elsif ( $browser_tests->{yandex_browser} ) {
+        ( $major, $minor, $beta ) = (q{}) x 3;    # don't guess downstream
+        if ( $self->{user_agent} =~ m{ \b YaBrowser / ([0-9.]+) [ ] }x ) {
+            ( $major, $minor, $beta ) = split /[.]/, $1, 3;
+            if ($beta) {
+                $beta = q{.} . $beta;
+            }
+        }
     }
 
     # If we didn't match a browser-specific test, we look for

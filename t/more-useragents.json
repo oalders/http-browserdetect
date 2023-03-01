@@ -12622,11 +12622,11 @@
       "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 YaBrowser/14.10.2062.12521 Safari/537.36" : {
-      "browser" : "chrome",
-      "browser_beta" : ".2062.124",
-      "browser_major" : "37",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
+      "browser" : "yandex_browser",
+      "browser_beta" : ".2062.12521",
+      "browser_major" : "14",
+      "browser_minor" : ".10",
+      "browser_string" : "Yandex Browser",
       "engine" : "webkit",
       "engine_beta" : "",
       "engine_major" : "537",
@@ -12638,7 +12638,7 @@
          "winnt",
          "win32",
          "win7",
-         "chrome",
+         "yandex_browser",
          "webkit"
       ],
       "os" : "windows",
@@ -12693,11 +12693,11 @@
       "robot" : null
    },
    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 YaBrowser/15.2.2214.3645 Safari/537.36" : {
-      "browser" : "chrome",
-      "browser_beta" : ".2214.115",
-      "browser_major" : "40",
-      "browser_minor" : ".0",
-      "browser_string" : "Chrome",
+      "browser" : "yandex_browser",
+      "browser_beta" : ".2214.3645",
+      "browser_major" : "15",
+      "browser_minor" : ".2",
+      "browser_string" : "Yandex Browser",
       "engine" : "webkit",
       "engine_beta" : "",
       "engine_major" : "537",
@@ -12709,7 +12709,7 @@
          "winnt",
          "win32",
          "win7",
-         "chrome",
+         "yandex_browser",
          "webkit"
       ],
       "os" : "windows",
