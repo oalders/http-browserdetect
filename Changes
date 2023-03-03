@@ -1,6 +1,9 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Detect Yandex Browser (GH#201) (altblue)
+    - Detect some "Meta" apps (GH#199) (altblue)
+    - Detect Instagram (GH#200) (altblue)
 
 3.37      2022-09-15 16:39:38Z
     - Add Chromecast detection (GH#195) (Yasuharu Iida)
