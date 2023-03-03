@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.38      2023-03-03 21:37:52Z
     - Detect Yandex Browser (GH#201) (altblue)
     - Detect some "Meta" apps (GH#199) (altblue)
     - Detect Instagram (GH#200) (altblue)
