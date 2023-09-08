@@ -4,7 +4,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.38
+version 3.39
 
 # SYNOPSIS
 
