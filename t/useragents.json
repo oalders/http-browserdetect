@@ -2050,6 +2050,21 @@
          "webkit"
       ]
    },
+   "Mozilla/5.0 (Linux; Android 10; HiPad X Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.154 Safari/537.36" : {
+      "match" : [
+         "android",
+         "chrome",
+         "device",
+         "tablet",
+         "webkit"
+      ],
+      "os" : "android",
+      "os_beta" : "",
+      "os_major" : "10",
+      "os_minor" : "",
+      "os_string" : "Android",
+      "os_version" : "10"
+   },
    "Mozilla/5.0 (Linux; Android 12; SM-A127F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36[FBAN/EMA;FBLC/ro_RO;FBAV/334.0.0.17.101;]" : {
       "browser" : "facebook_lite",
       "browser_beta" : ".0.17.101",
