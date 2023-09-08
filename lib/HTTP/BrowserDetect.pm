@@ -3106,7 +3106,7 @@ The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
 For an online demonstration of this module's parsing, you can check out
-L<http://www.browserdetect.org/>
+L<https://www.browserdetect.org/>
 
 This module was originally based upon the JavaScript browser detection
 code available at
@@ -3879,7 +3879,7 @@ You can also look for information at:
 
 =item * GitHub Source Repository
 
-L<http://github.com/oalders/http-browserdetect>
+L<https://github.com/oalders/http-browserdetect>
 
 =item * Reporting Issues
 
