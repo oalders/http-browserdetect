@@ -4,12 +4,10 @@ name: dzil build and test
 on:
   push:
     branches:
-      - '*'
+      - 'main'
   pull_request:
     branches:
       - '*'
-  # schedule:
-  # - cron: "15 4 * * 0" # Every Sunday morning
   workflow_dispatch:
 
 jobs:
