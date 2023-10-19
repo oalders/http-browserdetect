@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use FindBin           ();
-use Hash::Merge       qw( merge );
 use JSON::PP          ();
 use List::Util 1.49   qw( uniq );
 use Path::Tiny        qw( path );
@@ -34,7 +33,7 @@ my $first_test_count          = keys %{$tests};
 my $second_test_count         = keys %{$more_tests};
 my $expected_total_test_count = $first_test_count + $second_test_count;
 
-my $all_tests = merge( $tests, $more_tests );
+my $all_tests = { %$tests, %$more_tests };
 
 my $got_total_test_count = keys %{$all_tests};
 is( $expected_total_test_count, $got_total_test_count, 'no tests clobbered' );
