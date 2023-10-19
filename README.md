@@ -4,7 +4,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.39
+version 3.40
 
 # SYNOPSIS
 
@@ -49,7 +49,7 @@ The HTTP::BrowserDetect object does a number of tests on an HTTP user agent
 string. The results of these tests are available via methods of the object.
 
 For an online demonstration of this module's parsing, you can check out
-[http://www.browserdetect.org/](http://www.browserdetect.org/)
+[https://www.browserdetect.org/](https://www.browserdetect.org/)
 
 This module was originally based upon the JavaScript browser detection
 code available at
@@ -820,7 +820,7 @@ You can also look for information at:
 
 - GitHub Source Repository
 
-    [http://github.com/oalders/http-browserdetect](http://github.com/oalders/http-browserdetect)
+    [https://github.com/oalders/http-browserdetect](https://github.com/oalders/http-browserdetect)
 
 - Reporting Issues
 

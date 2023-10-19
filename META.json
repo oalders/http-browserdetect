@@ -74,7 +74,6 @@
             "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
             "FindBin" : "0",
-            "Hash::Merge" : "0",
             "JSON::PP" : "4.04",
             "List::Util" : "1.49",
             "Path::Tiny" : "0",
@@ -97,7 +96,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.39",
+   "version" : "3.40",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.038000"
@@ -783,7 +782,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.39",
+                  "tag" : "v3.40",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
@@ -955,6 +954,7 @@
       "cho45 <cho45@lowreal.net>",
       "Daniel Stadie <daniel.stadie@online.de>",
       "David Ihnen <davidihnen@gmail.com>",
+      "dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
       "Douglas Christopher Wilson <doug@somethingdoug.com>",
       "Graham Barr <gbarr@pobox.com>",
       "gregor herrmann <gregor+github@comodo.priv.at>",

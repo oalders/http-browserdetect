@@ -9,7 +9,6 @@ on 'test' => sub {
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
   requires "FindBin" => "0";
-  requires "Hash::Merge" => "0";
   requires "JSON::PP" => "4.04";
   requires "List::Util" => "1.49";
   requires "Path::Tiny" => "0";
