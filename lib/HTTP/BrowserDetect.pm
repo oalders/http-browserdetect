@@ -707,7 +707,7 @@ sub _init_core {
                 \/
                 ( [^.]* )           # Major version number is everything before first dot
                 \.                  # The first dot
-                ( [\d]* )           # Minor version nnumber is digits after first dot
+                ( [\d]* )           # Minor version number is digits after first dot
             }xo
         && index( $ua, 'not firefox' ) == -1
         )    # Hack for Yahoo Slurp
@@ -1419,7 +1419,7 @@ sub _init_robots {
                 $self->{robot_version} = undef;
             }
 
-            # Set robot_string, if we don't already have an explictly set
+            # Set robot_string, if we don't already have an explicitly set
             # one
             if ( !defined $self->{robot_string} ) {
                 $self->{robot_string} = $full_string;
