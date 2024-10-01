@@ -128,6 +128,7 @@ our @ENGINE_TESTS = qw(
 my @OLD_ROBOT_TESTS = qw(
     ahrefs
     altavista
+    amazonbot
     apache
     askjeeves
     baidu
@@ -201,6 +202,7 @@ our @ROBOT_TESTS = (
     [ 'vkShare',                            'vkshare' ],
     [ 'W3C_Validator',                      'w3c-validator' ],
     [ 'WhatsApp',                           'whatsapp' ],
+    [ 'Amazonbot',                          'amazonbot' ],
 );
 
 our @MISC_TESTS = qw(
@@ -225,6 +227,7 @@ our @ALL_TESTS = (
 my %ROBOT_NAMES = (
     ahrefs                => 'Ahrefs',
     altavista             => 'AltaVista',
+    amazonbot             => 'Amazonbot',
     'apache-http-client'  => 'Apache HttpClient',
     apple                 => 'Apple',
     'archive-org'         => 'Internet Archive',
@@ -347,6 +350,7 @@ my %ROBOT_IDS = (
     yandex          => 'yandex',
     yandeximages    => 'yandex-images',
     headlesschrome  => 'headless-chrome',
+    amazonbot       => 'amazonbot',
 );
 
 my %BROWSER_NAMES = (
@@ -3264,7 +3268,8 @@ googleadsbot, googleadsense, googlebotimage, googlebotnews,
 googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
 infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
 mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
-wget, yandexbot, yandeximages, java, headlesschrome, unknown
+wget, yandexbot, yandeximages, java, headlesschrome, amazonbot,
+unknown
 
 Returns "unknown" when the user agent is believed to be a robot but
 is not identified as one of the above specific robots.
