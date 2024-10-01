@@ -1,4 +1,15 @@
 {
+   "(Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)" : {
+      "browser_major" : 0,
+      "browser_minor" : ".1",
+      "match" : [
+         "robot",
+         "amazonbot"
+      ],
+      "robot" : "amazonbot",
+      "robot_name" : "Amazonbot",
+      "robot_version" : "0.1"
+   },
    "AccServer[admin-HDNVR]/5.2.2.24(27991) 64-bit HTTP-Agent" : {
       "browser_beta" : ".2.24(27991)",
       "browser_major" : "5",
