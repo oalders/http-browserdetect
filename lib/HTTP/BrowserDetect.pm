@@ -748,7 +748,7 @@ sub _init_core {
         $browser = 'opera';
         $browser_tests->{opera} = 1;
     }
-    elsif ($tests->{trident}
+    elsif ( $tests->{trident}
         || index( $ua, 'msie' ) != -1
         || index( $ua, 'microsoft internet explorer' ) != -1 ) {
 
