@@ -1,6 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - add amazonbot (GH#212) (mla)
 
 3.40      2023-10-19 16:23:54Z
     - Remove Hash::Merge (GH#205) (Olaf Alders)
