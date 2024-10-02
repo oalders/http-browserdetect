@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.41      2024-10-02 14:13:45Z
     - add amazonbot (GH#212) (mla)
 
