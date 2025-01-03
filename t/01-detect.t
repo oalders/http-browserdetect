@@ -12,7 +12,6 @@ use Test::More import =>
     [qw( cmp_ok diag done_testing is is_deeply ok subtest )];
 use Test::Warnings;
 
-
 # test that the module loads without errors
 my $w;
 {
