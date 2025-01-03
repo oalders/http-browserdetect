@@ -8,9 +8,9 @@ use JSON::PP          ();
 use List::Util 1.49   qw( uniq );
 use Path::Tiny        qw( path );
 use Test::Differences qw( eq_or_diff );
-use Test::Warnings;
 use Test::More import =>
     [qw( cmp_ok diag done_testing is is_deeply ok subtest )];
+use Test::Warnings;
 
 # test that the module loads without errors
 my $w;
