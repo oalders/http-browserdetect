@@ -4,8 +4,8 @@ use strict;
 use warnings;
 
 use HTTP::BrowserDetect ();
-use Test::Warnings;
 use Test::More import => [qw( done_testing is ok subtest )];
+use Test::Warnings;
 
 ok( my $ua = HTTP::BrowserDetect->new(undef), 'undef produces no warnings' );
 
