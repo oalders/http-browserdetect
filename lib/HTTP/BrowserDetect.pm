@@ -119,6 +119,7 @@ our @FIREFOX_TESTS = qw(
 our @ENGINE_TESTS = qw(
     gecko       trident     webkit
     presto      khtml       edgehtml
+    blink
 );
 
 # These bot names get turned into methods.  Crazy, right?  (I don't even think
@@ -665,8 +666,27 @@ sub _init_core {
         }
     }
     elsif ( $ua =~ m{applewebkit/([\d.\+]+)} && not $tests->{edgehtml} ) {
-        $tests->{webkit}        = 1;
-        $self->{engine_version} = $1;
+        # Chrome 28+ uses Blink (fork of WebKit). We detect Chrome 38+ as Blink.
+        # Chrome versions before 38 are considered WebKit for compatibility.
+        my $webkit_version = $1;
+        my $is_blink = 0;
+
+        # Check if this is Chrome/Chromium and extract version
+        if ( $ua =~ m{(?:chrome|chromium|crios)/(\d+)} ) {
+            my $chrome_version = $1;
+            if ( $chrome_version >= 38 ) {
+                $is_blink = 1;
+            }
+        }
+
+        if ( $is_blink ) {
+            $tests->{blink} = 1;
+            $self->{engine_version} = $webkit_version;
+        }
+        else {
+            $tests->{webkit} = 1;
+            $self->{engine_version} = $webkit_version;
+        }
     }
     elsif ( $ua =~ m{presto/([\d.]+)} ) {
         $tests->{presto}        = 1;
@@ -2829,6 +2849,10 @@ sub engine_string {
         return 'EdgeHTML';
     }
 
+    if ( $self->blink ) {
+        return 'Blink';
+    }
+
     if ( $self->webkit ) {
         return 'WebKit';
     }
@@ -3630,6 +3654,8 @@ being used.
 
 =head3 webkit
 
+=head3 blink
+
 =head3 gecko
 
 =head3 trident
@@ -3668,11 +3694,12 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 
 Returns the rendering engine, one of the following:
 
-gecko, webkit, khtml, trident, ie, presto, netfront
+gecko, webkit, blink, khtml, trident, ie, presto, netfront
 
-Note that this returns "webkit" for webkit based browsers (including
-Chrome/Blink). This is a change from previous versions of this
-library, which returned "KHTML" for webkit.
+Note that Chrome versions 38 and above return "blink", while earlier
+Chrome versions and other WebKit-based browsers return "webkit". This is
+a change from previous versions of this library which returned "webkit"
+for all WebKit-based browsers including Chrome/Blink.
 
 Returns C<undef> if none of the above rendering engines can be
 detected.
@@ -3681,9 +3708,10 @@ detected.
 
 Returns a human formatted version of the rendering engine.
 
-Note that this returns "WebKit" for webkit based browsers (including
-Chrome/Blink). This is a change from previous versions of this
-library, which returned "KHTML" for webkit.
+Note that Chrome versions 38 and above return "Blink", while earlier
+Chrome versions and other WebKit-based browsers return "WebKit". This is
+a change from previous versions of this library which returned "WebKit"
+for all WebKit-based browsers including Chrome/Blink.
 
 Returns C<undef> if none of the known rendering engines can be
 detected.

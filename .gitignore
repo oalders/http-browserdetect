@@ -6,3 +6,8 @@ HTTP-BrowserDetect-*
 .perl-version
 *.swp
 .tidyall.d/
+Makefile
+Makefile.old
+MYMETA.json
+MYMETA.yml
+pm_to_blib
