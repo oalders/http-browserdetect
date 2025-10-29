@@ -2,6 +2,7 @@
 _build/
 .build
 Build
+.claude/settings.local.json
 HTTP-BrowserDetect-*
 Makefile
 Makefile.old
