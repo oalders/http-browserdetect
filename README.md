@@ -4,7 +4,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.41
+version 3.42
 
 # SYNOPSIS
 
@@ -569,6 +569,8 @@ being used.
 
 ### webkit
 
+### blink
+
 ### gecko
 
 ### trident
@@ -607,11 +609,12 @@ be in the form of an upper case 2 character code. ie: EN, DE, etc
 
 Returns the rendering engine, one of the following:
 
-gecko, webkit, khtml, trident, ie, presto, netfront
+gecko, webkit, blink, khtml, trident, ie, presto, netfront
 
-Note that this returns "webkit" for webkit based browsers (including
-Chrome/Blink). This is a change from previous versions of this
-library, which returned "KHTML" for webkit.
+Note that Chrome versions 38 and above return "blink", while earlier
+Chrome versions and other WebKit-based browsers return "webkit". This is
+a change from previous versions of this library which returned "webkit"
+for all WebKit-based browsers including Chrome/Blink.
 
 Returns `undef` if none of the above rendering engines can be
 detected.
@@ -620,9 +623,10 @@ detected.
 
 Returns a human formatted version of the rendering engine.
 
-Note that this returns "WebKit" for webkit based browsers (including
-Chrome/Blink). This is a change from previous versions of this
-library, which returned "KHTML" for webkit.
+Note that Chrome versions 38 and above return "Blink", while earlier
+Chrome versions and other WebKit-based browsers return "WebKit". This is
+a change from previous versions of this library which returned "WebKit"
+for all WebKit-based browsers including Chrome/Blink.
 
 Returns `undef` if none of the known rendering engines can be
 detected.

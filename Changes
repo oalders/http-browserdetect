@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.42      2025-10-29 03:27:34Z
     - Add Blink engine detection for Chrome 38+ (GH#219) (Copilot)
 
 3.41      2024-10-02 14:13:45Z
