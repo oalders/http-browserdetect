@@ -5,7 +5,7 @@ use 5.006;
 
 package HTTP::BrowserDetect;
 
-our $VERSION = '3.42';
+our $VERSION = '3.43';
 
 # Operating Systems
 our @OS_TESTS = qw(
