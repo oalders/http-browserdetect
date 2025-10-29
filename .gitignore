@@ -3,11 +3,11 @@ _build/
 .build
 Build
 HTTP-BrowserDetect-*
-.perl-version
-*.swp
-.tidyall.d/
 Makefile
 Makefile.old
 MYMETA.json
 MYMETA.yml
+.perl-version
 pm_to_blib
+*.swp
+.tidyall.d/

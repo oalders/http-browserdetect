@@ -666,10 +666,11 @@ sub _init_core {
         }
     }
     elsif ( $ua =~ m{applewebkit/([\d.\+]+)} && not $tests->{edgehtml} ) {
+
         # Chrome 28+ uses Blink (fork of WebKit). We detect Chrome 38+ as Blink.
         # Chrome versions before 38 are considered WebKit for compatibility.
         my $webkit_version = $1;
-        my $is_blink = 0;
+        my $is_blink       = 0;
 
         # Check if this is Chrome/Chromium and extract version
         if ( $ua =~ m{(?:chrome|chromium|crios)/(\d+)} ) {
@@ -679,12 +680,12 @@ sub _init_core {
             }
         }
 
-        if ( $is_blink ) {
-            $tests->{blink} = 1;
+        if ($is_blink) {
+            $tests->{blink}         = 1;
             $self->{engine_version} = $webkit_version;
         }
         else {
-            $tests->{webkit} = 1;
+            $tests->{webkit}        = 1;
             $self->{engine_version} = $webkit_version;
         }
     }
