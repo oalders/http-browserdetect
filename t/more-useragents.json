@@ -19706,10 +19706,30 @@
       "robot" : null
    },
    "Python-urllib/2.7" : {
-      "browser_major" : "2",
-      "browser_minor" : ".7",
-      "match" : [],
-      "robot" : null
+      "match" : [
+         "robot",
+         "pythonurllib",
+         "lib"
+      ],
+      "robot" : "pythonurllib",
+      "robot_beta" : "",
+      "robot_major" : "2",
+      "robot_minor" : ".7",
+      "robot_name" : "Python-urllib",
+      "robot_version" : "2.7"
+   },
+   "Python-urllib/3.8" : {
+      "match" : [
+         "robot",
+         "pythonurllib",
+         "lib"
+      ],
+      "robot" : "pythonurllib",
+      "robot_beta" : "",
+      "robot_major" : "3",
+      "robot_minor" : ".8",
+      "robot_name" : "Python-urllib",
+      "robot_version" : "3.8"
    },
    "Robot/1.0" : {
       "browser_major" : "1",

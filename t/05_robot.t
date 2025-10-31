@@ -12,7 +12,7 @@ my $detect = HTTP::BrowserDetect->new;
 my %names = $detect->_robot_names;
 my @ids   = $detect->all_robot_ids;
 my %fixup = $detect->_robot_ids;
-is( scalar @ids, 76, 'correct number of ids' );
+is( scalar @ids, 77, 'correct number of ids' );
 
 foreach my $id (@ids) {
     subtest $id => sub {

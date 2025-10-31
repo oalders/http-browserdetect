@@ -162,6 +162,7 @@ my @OLD_ROBOT_TESTS = qw(
     nutch
     phplib
     puf
+    pythonurllib
     rubylib
     slurp
     specialarchiver
@@ -278,6 +279,7 @@ my %ROBOT_NAMES = (
     pinterest             => 'Pinterest',
     'pro-sitemaps'        => 'Pro Sitemap Service',
     puf                   => 'puf',
+    'python-urllib'       => 'Python-urllib',
     'quora-link-preview'  => 'Quora Link Preview',
     qwantify              => 'Qwantify',
     researchscan          => 'Researchscan RWTH Aachen',
@@ -341,6 +343,7 @@ my %ROBOT_IDS = (
     nutch           => 'nutch',
     phplib          => 'phplib',
     puf             => 'puf',
+    pythonurllib    => 'python-urllib',
     robot           => 'robot',
     rubylib         => 'ruby-http-library',
     researchscan    => 'researchscan',
@@ -1314,6 +1317,11 @@ sub _init_robots {
         $r                  = 'java';
         $robot_tests->{lib} = 1;
         $robot_fragment     = 'google';
+    }
+    elsif ( index( $ua, 'python-urllib' ) != -1 ) {
+        $r                  = 'pythonurllib';
+        $robot_tests->{lib} = 1;
+        $robot_fragment     = 'python-urllib';
     }
     elsif ( index( $ua, 'researchscan.comsys.rwth-aachen.de' ) != -1 ) {
         $r = 'researchscan';
@@ -3293,7 +3301,7 @@ altavista, apache, askjeeves, baidu, curl, facebook, getright,
 googleadsbot, googleadsense, googlebotimage, googlebotnews,
 googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
 infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
-mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
+mj12bot, nutch, phplib, puf, pythonurllib, rubylib, scooter, specialarchiver,
 wget, yandexbot, yandeximages, java, headlesschrome, amazonbot,
 unknown
 
@@ -3634,6 +3642,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 =head3 msoffice
 
 =head3 puf
+
+=head3 pythonurllib
 
 =head3 rubylib
 
