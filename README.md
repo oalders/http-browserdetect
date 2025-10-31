@@ -4,7 +4,7 @@ HTTP::BrowserDetect - Determine Web browser, version, and platform from an HTTP 
 
 # VERSION
 
-version 3.43
+version 3.44
 
 # SYNOPSIS
 
@@ -206,7 +206,7 @@ altavista, apache, askjeeves, baidu, curl, facebook, getright,
 googleadsbot, googleadsense, googlebotimage, googlebotnews,
 googlebotvideo, googlefavicon, googlemobile, google, golib, indy,
 infoseek, ipsagent, linkchecker, linkexchange, lycos, malware,
-mj12bot, nutch, phplib, puf, rubylib, scooter, specialarchiver,
+mj12bot, nutch, phplib, puf, pythonurllib, rubylib, scooter, specialarchiver,
 wget, yandexbot, yandeximages, java, headlesschrome, amazonbot,
 unknown
 
@@ -547,6 +547,8 @@ value. This is by no means a complete list of robots that exist on the Web.
 ### msoffice
 
 ### puf
+
+### pythonurllib
 
 ### rubylib
 

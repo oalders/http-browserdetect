@@ -96,7 +96,7 @@
          "web" : "https://github.com/oalders/http-browserdetect"
       }
    },
-   "version" : "3.43",
+   "version" : "3.44",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.042000"
@@ -358,6 +358,7 @@
                      "psp",
                      "pubsub",
                      "puf",
+                     "pythonurllib",
                      "realplayer",
                      "rubylib",
                      "samsung",
@@ -783,7 +784,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v3.43",
+                  "tag" : "v3.44",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
