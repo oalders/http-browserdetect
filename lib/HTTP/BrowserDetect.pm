@@ -1046,9 +1046,10 @@ sub _init_core {
     }
 
     # Details: https://developer.chrome.com/multidevice/user-agent#webview_user_agent
-    if (   ( $self->android && index( $ua, '; wv)' ) > 0 )
-        || ( $self->chrome && $self->android && $self->browser_major >= 30 ) )
-    {
+    # WebView is identified by the '; wv)' marker in the user agent string.
+    # Prior to this fix, we incorrectly checked for Chrome version >= 30, which
+    # caused false positives for regular Chrome browsers on Android.
+    if ( $self->android && index( $ua, '; wv)' ) != -1 ) {
         $tests->{webview} = 1;
     }
 
