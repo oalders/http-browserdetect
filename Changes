@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.43      2025-10-31 19:56:37Z
     - Fix webview detection false positives for Chrome 30+ on Android (GH#222)
       (Copilot)
