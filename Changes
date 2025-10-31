@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fix browser_version returning robot version for Chrome-based Googlebot
+      (GH#224) (Copilot)
 
 3.44      2025-10-31 20:51:55Z
     - Add Python-urllib robot detection (GH#223) (Copilot)
