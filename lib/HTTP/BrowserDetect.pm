@@ -1907,10 +1907,12 @@ sub _init_version {
             $minor = $2;
         }
     }
-    elsif ( $ua
+    elsif ( !defined $browser
+        && $ua
         =~ m{\b compatible; \s* [\w\-]* [/\s] ( [0-9]+ ) (?: .([0-9]+) (\S*) )? ;}x
     ) {
         # MSIE and some others use a 'compatible' format
+        # Only match when browser is not yet identified
         ( $major, $minor, $beta ) = ( $1, $2, $3 );
     }
     elsif ( !$browser ) {
@@ -1988,15 +1990,22 @@ sub _init_version {
 
         # MSIE
 
-        if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) (?: [a-z]+ [a-z0-9]* )? ;}x ) {
+        if ( $ua =~ m{\b msie \s ( [0-9\.]+ ) ( [a-z]+ [a-z0-9]* )? ;}x ) {
 
             # Internet Explorer
             ( $major, $minor, $beta ) = split /\./, $1;
+            $beta = $2 if $2;  # Capture version suffix like "2.0d"
         }
         elsif ( $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
 
             # MSIE masking as Gecko really well ;)
             ( $major, $minor, $beta ) = split /\./, $1;
+        }
+        elsif ( $ua
+            =~ m{\b compatible; \s* [\w\-]* [/\s] ( [0-9]+ ) (?: .([0-9]+) (\S*) )? ;}x
+        ) {
+            # Fallback to compatible format for IE
+            ( $major, $minor, $beta ) = ( $1, $2, $3 );
         }
     }
     elsif ( $browser eq 'n3ds' ) {

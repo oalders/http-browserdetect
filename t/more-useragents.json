@@ -19261,8 +19261,8 @@
    },
    "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview Analytics) Chrome/27.0.1453 Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" : {
       "browser" : "chrome",
-      "browser_major" : "2",
-      "browser_minor" : ".1",
+      "browser_major" : "27",
+      "browser_minor" : ".0",
       "browser_string" : "Chrome",
       "engine" : "webkit",
       "engine_beta" : "",
@@ -19278,6 +19278,34 @@
       ],
       "robot" : "google",
       "robot_name" : "Googlebot"
+   },
+   "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" : {
+      "browser" : "chrome",
+      "browser_major" : "41",
+      "browser_minor" : ".0",
+      "browser_string" : "Chrome",
+      "device" : "android",
+      "device_string" : "Android (Nexus 5X)",
+      "engine" : "blink",
+      "engine_beta" : "",
+      "engine_major" : "537",
+      "engine_minor" : ".36",
+      "engine_string" : "Blink",
+      "engine_version" : "537.36",
+      "match" : [
+         "device",
+         "android",
+         "mobile",
+         "chrome",
+         "blink",
+         "robot",
+         "google"
+      ],
+      "os" : "android",
+      "os_string" : "Android",
+      "robot" : "google",
+      "robot_name" : "Googlebot",
+      "robot_version" : "2.1"
    },
    "Mozilla/5.0 ArchLinux (X11; U; Linux x86_64; en-US) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.60 Safari/534.30" : {
       "beta" : ".742.60",
