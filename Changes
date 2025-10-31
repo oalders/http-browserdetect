@@ -1,6 +1,8 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
 {{$NEXT}}
+    - Fix webview detection false positives for Chrome 30+ on Android (GH#222)
+      (Copilot)
 
 3.42      2025-10-29 03:27:34Z
     - Add Blink engine detection for Chrome 38+ (GH#219) (Copilot)
