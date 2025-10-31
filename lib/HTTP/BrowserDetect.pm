@@ -1994,7 +1994,7 @@ sub _init_version {
 
             # Internet Explorer
             ( $major, $minor, $beta ) = split /\./, $1;
-            $beta = $2 if $2;  # Capture version suffix like "2.0d"
+            $beta = $2 if $2;    # Capture version suffix like "2.0d"
         }
         elsif ( $ua =~ m{\b rv: ( [0-9\.]+ ) \b}x ) {
 
