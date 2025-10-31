@@ -1,5 +1,7 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
+{{$NEXT}}
+
 3.44      2025-10-31 20:51:55Z
     - Add Python-urllib robot detection (GH#223) (Copilot)
 
