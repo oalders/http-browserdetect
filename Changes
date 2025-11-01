@@ -1,6 +1,6 @@
 Revision history for Perl extension HTTP::BrowserDetect.
 
-{{$NEXT}}
+3.45      2025-10-31 22:41:58Z
     - Fix browser_version returning robot version for Chrome-based Googlebot
       (GH#224) (Copilot)
 
